@@ -1,8 +1,0 @@
-This page is used to track view counts to my page.
-
-Don't worry, it's nothing sinister.
-I don't even save your IP address, let alone anything else.
-
-Just "1 person loaded the page at this time".
-
-I deliberately do *not* use Google Analytics or anything invasive.

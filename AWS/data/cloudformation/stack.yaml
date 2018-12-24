@@ -18,9 +18,6 @@ Parameters:
       failerS3Version:
           Type: String
           Description: Version of the zip for failer
-      redirectS3Version:
-          Type: String
-          Description: Version of the zip for redirect
 
 Resources:
       ExecutionRole:
@@ -278,94 +275,6 @@ Resources:
                                     "Ref": "AWS::Region",
                                     ":lambda:path/2015-03-31/functions/",
                                     "Fn::GetAtt": ["front", "Arn"],
-                                    "/invocations"
-                                 ]
-                               ]
-
-      redirect:
-          Type: AWS::Lambda::Function
-          Properties:
-            #FunctionName: !Join [ "-", [ !Ref "botname", "checkForNew"] ]
-            Code:
-              S3Bucket: !Ref "codebucket"
-              S3Key: !Join [ "/", [ !Ref "stage", "redirect.zip"] ]
-              S3ObjectVersion: !Ref "redirectS3Version"
-            Handler: main.lambda_handler
-            Runtime: python3.6
-            Timeout: 3
-            Role:
-                "Fn::GetAtt": ["ExecutionRole", "Arn"]
-
-      errorAlarmRedirect:
-         Type: "AWS::CloudWatch::Alarm"
-         Properties:
-           ActionsEnabled: True # not sure
-           AlarmDescription:
-               "Function redirect failed. Unable to redirect visit"
-           AlarmActions:
-               - Ref: "unfilteredErrorTopic"
-           ComparisonOperator: "GreaterThanOrEqualToThreshold"
-           EvaluationPeriods: 1
-           MetricName: "Errors"
-           Namespace: "AWS/Lambda"
-           Dimensions:
-               - Name: "FunctionName"
-                 Value:
-                     Ref: "redirect"
-           Period: 60 # minimum
-           Statistic: Sum
-           Threshold: 1
-           TreatMissingData: "notBreaching"
-
-      permittriggerRedirect:
-          Type: "AWS::Lambda::Permission"
-          Properties:
-             FunctionName:
-                Ref: "redirect"
-             Action: "lambda:InvokeFunction"
-             Principal: "apigateway.amazonaws.com"
-
-      deploygateway:
-         DependsOn: "redirectany"
-         Type: "AWS::ApiGateway::Deployment"
-         Properties:
-             Description: "redirect end for view counter"
-             RestApiId:
-                    Ref: "restapi"
-             StageDescription:
-                 CachingEnabled: false
-                 DataTraceEnabled: true
-                 Description: "redirect end for view counter"
-                 LoggingLevel: INFO
-             StageName: !Ref "stage"
-      redirectresource:
-         Type: "AWS::ApiGateway::Resource"
-         Properties:
-            RestApiId:
-                    Ref: "restapi"
-            ParentId:
-                 "Fn::GetAtt": ["restapi", "RootResourceId"]
-            PathPart: "increment"
-      redirectany:
-         DependsOn: "permittriggerRedirect"
-         Type: "AWS::ApiGateway::Method"
-         Properties:
-            RestApiId:
-                 Ref: "restapi"
-            ResourceId:
-                 Ref: "redirectresource"
-            HttpMethod: "ANY"
-            AuthorizationType: "NONE"
-            Integration:
-               Type: "AWS_PROXY"
-               IntegrationHttpMethod: "POST"
-               Uri:
-                  "Fn::Join" : [ "",
-                                 [
-                                    "arn:aws:apigateway:",
-                                    "Ref": "AWS::Region",
-                                    ":lambda:path/2015-03-31/functions/",
-                                    "Fn::GetAtt": ["redirect", "Arn"],
                                     "/invocations"
                                  ]
                                ]

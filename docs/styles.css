@@ -1,0 +1,130 @@
+* {
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+
+
+body {
+   background: rgb(51,51,51);
+   font-size: 200%;
+   color: #fff;
+   width: 80%;
+   margin: auto;
+   padding-top: 3rem;
+   padding-bottom: 3rem;
+   overflow-x: hidden;
+}
+
+html {
+   /*font-size: 50%;*/
+}
+
+h1 {
+   text-transform: capitalize;
+   text-align: center;
+}
+
+header {
+   text-align: center;
+}
+
+@media (min-width:20rem)  {
+   html {
+      font-size: 66%;
+   }
+}
+
+@media (min-width:30rem)  {
+   html {
+      font-size: 100%;
+   }
+}
+/*
+@media (min-width:45rem)  {
+   html {
+      font-size: 150%;
+   }
+}
+
+@media (min-width:60rem)  {
+   html {
+      font-size: 160%;
+   }
+}*/
+
+header {
+   text-align: center;
+}
+
+
+iframe {
+   height: 0px;
+   width: 0px;
+   display: none
+}
+
+.cardContainer {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: flex;
+   align-content: center;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 35rem;
+  margin: 2rem;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  background: rgb(49,49,49);
+}
+
+article a  {
+   text-decoration: none;
+   color: #ffffff;
+}
+/*article a:hover  {
+   text-decoration: none;
+}*/
+
+article:hover  {
+   text-decoration: none;
+}
+
+/* Add some padding inside the card container */
+.cardBottom {
+   padding: 2px 16px;
+}
+
+.cardTitle {
+   font-weight: bold;
+   text-transform: capitalize;
+}
+
+.cardImage{
+   width: 100%;
+}
+
+.cardDesc {
+   font-size: 80%;
+}
+
+a {
+   /*color: #94CAFF;*/
+   color: #69b4ff;
+   text-decoration: none;
+}
+
+a:visited {
+   /*text-decoration: none;*/
+}
+
+a:hover {
+   text-decoration: underline;
+}

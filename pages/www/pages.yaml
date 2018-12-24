@@ -1,0 +1,32 @@
+-  title: "Do you need a blockchain?"
+   description: "An interactive flowchart to help cut through the hype"
+   url: "https://disable.blockchain.mdavis.xyz"
+   image:
+      url: "https://blockchain.mdavis.xyz/image1.jpg"
+      description: "People signing contract"
+      width: 1000
+      height: 667
+-  title: "Web analytics are leaking into meatspace"
+   description: "A Stallman-esque short story about the future of offline tracking and the right to buy"
+   url: "https://disable.supermarket.mdavis.xyz"
+   image:
+      url: "https://supermarket.mdavis.xyz/card.jpg"
+      description: "Poster on pole proclaiming 'big data is watching you'"
+      width: 1000
+      height: 667
+-  title: "Arduino Monitor Rotator"
+   description: "Build an Automatic Computer Display Rotator With an Arduino"
+   url: "https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/"
+   image:
+      url: "./thumbs/monitor-rotate-sml.jpg"
+      description: "Arduino with circuitboard shield"
+      width: 1000
+      height: 667
+-  title: "Achievements of the Abbott-Turnbull Government"
+   description: "A comprehensive list of (almost) everything the current Australian government has done"
+   url: "http://thesauce.co/achievements-of-the-abbott-government/"
+   image:
+      url: "./thumbs/abbott.jpg"
+      description: "Turnbull Government Ministers"
+      width: 522
+      height: 348

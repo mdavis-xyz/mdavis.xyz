@@ -73,7 +73,7 @@ iframe {
 
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 35rem;
   margin: 2rem;
@@ -82,7 +82,9 @@ iframe {
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-  background: rgb(49,49,49);
+  background-color: #404040;
+  text-decoration: none;
+  /*background: rgb(49,49,49);*/
 }
 
 article a  {
@@ -113,6 +115,21 @@ article:hover  {
 
 .cardDesc {
    font-size: 80%;
+}
+
+.profileLinks {
+   text-align: center;
+   font-size: 80%;
+}
+
+.center {
+   text-align: center;
+}
+
+.logo {
+   height: 0.8em;
+   width: auto;
+   vertical-align: baseline;
 }
 
 a {

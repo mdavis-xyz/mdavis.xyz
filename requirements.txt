@@ -1,3 +1,5 @@
 pypandoc
 mako
 pyyaml
+boto3
+virtualenv

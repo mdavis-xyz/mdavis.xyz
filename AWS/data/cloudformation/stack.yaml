@@ -1,0 +1,490 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+      prjName:
+          Type: String
+          Description: Name of this project
+      stage:
+          Type: String
+          Description: Deployment stage (dev vs prod)
+      codebucket:
+          Type: String
+          Description: S3 bucket where lambda code should be saved
+      frontS3Version:
+          Type: String
+          Description: Version of the zip for front
+      errorHandlerS3Version:
+          Type: String
+          Description: Version of the zip for errorHandler
+      failerS3Version:
+          Type: String
+          Description: Version of the zip for failer
+      redirectS3Version:
+          Type: String
+          Description: Version of the zip for redirect
+
+Resources:
+      ExecutionRole:
+          Type: "AWS::IAM::Role"
+          Properties:
+             Path : "/"
+             RoleName: !Join [ "-", [ "exec", !Ref "prjName"] ]
+             Policies:
+              - PolicyName: "CloudwatchLogs"
+                PolicyDocument:
+                   Version   : "2012-10-17"
+                   Statement :
+                      - Action:
+                           - cloudwatch:*
+                           - logs:*
+                        Resource: "*"
+                        Effect: Allow
+              - PolicyName: "SNS_SMS"
+                PolicyDocument:
+                  Statement:
+                    - Action:
+                           - SNS:Publish
+                      Resource:
+                           - "*"
+                      Effect: Allow
+              - PolicyName: "Cloudformation_Read_Only"
+                PolicyDocument:
+                  Statement:
+                    - Action:
+                           - cloudformation:DescribeStacks
+                      Resource:
+                           - "*"
+                      Effect: Allow
+              - PolicyName: "DynamoDB"
+                PolicyDocument:
+                  Statement:
+                    - Action:
+                           - dynamodb:*
+                      Resource:
+                           - "*"
+                      Effect: "Allow"
+              - PolicyName: "Lambda"
+                PolicyDocument:
+                  Statement:
+                    - Action:
+                           - lambda:*
+                      Resource:
+                           - "*"
+                      Effect: "Allow"
+             AssumeRolePolicyDocument :
+                Statement:
+                   - Action:
+                         -  "sts:AssumeRole"
+                     Effect: Allow
+                     Principal:
+                         Service: [ "lambda.amazonaws.com" ]
+                   - Action:
+                         -  "sts:AssumeRole"
+                     Effect: Allow
+                     Principal:
+                         Service: [ "sns.amazonaws.com" ]
+                   - Action:
+                         -  "sts:AssumeRole"
+                     Effect: Allow
+                     Principal:
+                         Service: [ "logs.ap-southeast-2.amazonaws.com" ]
+                   - Action:
+                         -  "sts:AssumeRole"
+                     Effect: Allow
+                     Principal:
+                         Service: [ "events.amazonaws.com" ]
+
+      # this table contains data about each post that was at some point eligible
+      timedTable:
+          Type: "AWS::DynamoDB::Table"
+          Properties:
+             AttributeDefinitions:
+                 - AttributeName: "site"
+                   AttributeType: "S"
+                 - AttributeName: "time"
+                   AttributeType: "N"
+             KeySchema:
+                 # Apparently you can't have a dynamo table with just a
+                 # sort key. So I'll add a hash key, which will only have
+                 # one value of 0
+                 - AttributeName: "site"
+                   KeyType:       "HASH"
+                 - AttributeName: "time"
+                   KeyType:       "RANGE"
+             ProvisionedThroughput:
+                   ReadCapacityUnits: 5
+                   WriteCapacityUnits: 5
+
+      untimedTable:
+          Type: "AWS::DynamoDB::Table"
+          Properties:
+             AttributeDefinitions:
+                 - AttributeName: "site"
+                   AttributeType: "S"
+                 - AttributeName: "hash"
+                   AttributeType: "N"
+             KeySchema:
+                 # Apparently you can't have a dynamo table with just a
+                 # sort key. So I'll add a hash key, which will only have
+                 # one value of 0
+                 - AttributeName: "site"
+                   KeyType:       "HASH"
+                 - AttributeName: "hash"
+                   KeyType:       "RANGE"
+             ProvisionedThroughput:
+                   ReadCapacityUnits: 5
+                   WriteCapacityUnits: 5
+
+      front:
+          Type: AWS::Lambda::Function
+          Properties:
+            #FunctionName: !Join [ "-", [ !Ref "botname", "checkForNew"] ]
+            Code:
+              S3Bucket: !Ref "codebucket"
+              S3Key: !Join [ "/", [ !Ref "stage", "front.zip"] ]
+              S3ObjectVersion: !Ref "frontS3Version"
+            Handler: main.lambda_handler
+            Runtime: python3.6
+            Timeout: 10
+            Role:
+                "Fn::GetAtt": ["ExecutionRole", "Arn"]
+            Environment:
+                Variables:
+                   untimedTable:
+                       Ref: untimedTable
+                   timedTable:
+                       Ref: timedTable
+                   allowedSites: "abbott,blockchain,test,supermarket,www"
+                   hashConst: 1234 # dynamodb requires more hashes than I need, so use this
+
+      errorAlarmFront:
+         Type: "AWS::CloudWatch::Alarm"
+         Properties:
+           ActionsEnabled: True # not sure
+           AlarmDescription:
+               "Function front failed. Unable to send message to bus"
+           AlarmActions:
+               - Ref: "unfilteredErrorTopic"
+           ComparisonOperator: "GreaterThanOrEqualToThreshold"
+           EvaluationPeriods: 1
+           MetricName: "Errors"
+           Namespace: "AWS/Lambda"
+           Dimensions:
+               - Name: "FunctionName"
+                 Value:
+                     Ref: "front"
+           Period: 60 # minimum
+           Statistic: Sum
+           Threshold: 1
+           TreatMissingData: "notBreaching"
+
+      permittriggerFront:
+          Type: "AWS::Lambda::Permission"
+          Properties:
+             FunctionName:
+                Ref: "front"
+             Action: "lambda:InvokeFunction"
+             Principal: "apigateway.amazonaws.com"
+
+
+      restapi:
+         Type: "AWS::ApiGateway::RestApi"
+         Properties:
+             Name: viewcounter
+             Description: "For incrementing the count of views to my websites"
+#      apistage:
+#         DependsOn:
+#                  - "ApiGatewayAccount"
+#         Type: "AWS::ApiGateway::Stage"
+#         Properties:
+#               DeploymentId:
+#                   Ref: "deploygateway"
+#               MethodSettings:
+#                   -
+#                     DataTraceEnabled: "true"
+#                     HttpMethod: "GET"
+#                     LoggingLevel: INFO
+#                     ResourcePath: "/*"
+#               RestApiId:
+#                   Ref: "restapi"
+#               StageName: !Ref stage
+      ApiGatewayCloudWatchLogsRole:
+       Type: "AWS::IAM::Role"
+       Properties:
+        AssumeRolePolicyDocument:
+          Version: 2012-10-17
+          Statement:
+            Effect: Allow
+            Principal:
+                  Service: apigateway.amazonaws.com
+            Action: sts:AssumeRole
+        Policies:
+           - PolicyName: ApiGatewayLogsPolicy
+             PolicyDocument:
+               Version: 2012-10-17
+               Statement:
+                 Effect: Allow
+                 Action:
+                   - logs:CreateLogGroup
+                   - logs:CreateLogStream
+                   - logs:DescribeLogGroups
+                   - logs:DescribeLogStreams
+                   - logs:PutLogEvents
+                   - logs:GetLogEvents
+                   - logs:FilterLogEvents
+                 Resource: "*"
+      ApiGatewayAccount:
+       Type : "AWS::ApiGateway::Account"
+       Properties :
+         CloudWatchRoleArn :
+                "Fn::GetAtt" : ["ApiGatewayCloudWatchLogsRole", "Arn"]
+      deploygateway:
+         DependsOn: "loggerany"
+         Type: "AWS::ApiGateway::Deployment"
+         Properties:
+             Description: "front end for view counter"
+             RestApiId:
+                    Ref: "restapi"
+             StageDescription:
+                 CachingEnabled: false
+                 DataTraceEnabled: true
+                 Description: "front end for view counter"
+                 LoggingLevel: INFO
+             StageName: !Ref "stage"
+      loggerresource:
+         Type: "AWS::ApiGateway::Resource"
+         Properties:
+            RestApiId:
+                    Ref: "restapi"
+            ParentId:
+                 "Fn::GetAtt": ["restapi", "RootResourceId"]
+            PathPart: "increment"
+      loggerany:
+         DependsOn: "permittriggerFront"
+         Type: "AWS::ApiGateway::Method"
+         Properties:
+            RestApiId:
+                 Ref: "restapi"
+            ResourceId:
+                 Ref: "loggerresource"
+            HttpMethod: "ANY"
+            AuthorizationType: "NONE"
+            Integration:
+               Type: "AWS_PROXY"
+               IntegrationHttpMethod: "POST"
+               Uri:
+                  "Fn::Join" : [ "",
+                                 [
+                                    "arn:aws:apigateway:",
+                                    "Ref": "AWS::Region",
+                                    ":lambda:path/2015-03-31/functions/",
+                                    "Fn::GetAtt": ["front", "Arn"],
+                                    "/invocations"
+                                 ]
+                               ]
+
+      redirect:
+          Type: AWS::Lambda::Function
+          Properties:
+            #FunctionName: !Join [ "-", [ !Ref "botname", "checkForNew"] ]
+            Code:
+              S3Bucket: !Ref "codebucket"
+              S3Key: !Join [ "/", [ !Ref "stage", "redirect.zip"] ]
+              S3ObjectVersion: !Ref "redirectS3Version"
+            Handler: main.lambda_handler
+            Runtime: python3.6
+            Timeout: 3
+            Role:
+                "Fn::GetAtt": ["ExecutionRole", "Arn"]
+
+      errorAlarmRedirect:
+         Type: "AWS::CloudWatch::Alarm"
+         Properties:
+           ActionsEnabled: True # not sure
+           AlarmDescription:
+               "Function redirect failed. Unable to redirect visit"
+           AlarmActions:
+               - Ref: "unfilteredErrorTopic"
+           ComparisonOperator: "GreaterThanOrEqualToThreshold"
+           EvaluationPeriods: 1
+           MetricName: "Errors"
+           Namespace: "AWS/Lambda"
+           Dimensions:
+               - Name: "FunctionName"
+                 Value:
+                     Ref: "redirect"
+           Period: 60 # minimum
+           Statistic: Sum
+           Threshold: 1
+           TreatMissingData: "notBreaching"
+
+      permittriggerRedirect:
+          Type: "AWS::Lambda::Permission"
+          Properties:
+             FunctionName:
+                Ref: "redirect"
+             Action: "lambda:InvokeFunction"
+             Principal: "apigateway.amazonaws.com"
+
+      deploygateway:
+         DependsOn: "redirectany"
+         Type: "AWS::ApiGateway::Deployment"
+         Properties:
+             Description: "redirect end for view counter"
+             RestApiId:
+                    Ref: "restapi"
+             StageDescription:
+                 CachingEnabled: false
+                 DataTraceEnabled: true
+                 Description: "redirect end for view counter"
+                 LoggingLevel: INFO
+             StageName: !Ref "stage"
+      redirectresource:
+         Type: "AWS::ApiGateway::Resource"
+         Properties:
+            RestApiId:
+                    Ref: "restapi"
+            ParentId:
+                 "Fn::GetAtt": ["restapi", "RootResourceId"]
+            PathPart: "increment"
+      redirectany:
+         DependsOn: "permittriggerRedirect"
+         Type: "AWS::ApiGateway::Method"
+         Properties:
+            RestApiId:
+                 Ref: "restapi"
+            ResourceId:
+                 Ref: "redirectresource"
+            HttpMethod: "ANY"
+            AuthorizationType: "NONE"
+            Integration:
+               Type: "AWS_PROXY"
+               IntegrationHttpMethod: "POST"
+               Uri:
+                  "Fn::Join" : [ "",
+                                 [
+                                    "arn:aws:apigateway:",
+                                    "Ref": "AWS::Region",
+                                    ":lambda:path/2015-03-31/functions/",
+                                    "Fn::GetAtt": ["redirect", "Arn"],
+                                    "/invocations"
+                                 ]
+                               ]
+
+
+
+      #######################
+      # errorHandler
+      # If any lambda fails, this will send you a text message
+      # with sensible logic applied
+      #######################
+      errorHandler:
+          Type: AWS::Lambda::Function
+          Properties:
+            #FunctionName: !Join [ "-", [ !Ref "botname", "errorHandler"] ]
+            Code:
+              S3Bucket: !Ref "codebucket"
+              S3Key: !Join [ "/", [ !Ref "stage", "errorHandler.zip"] ]
+              S3ObjectVersion: !Ref "errorHandlerS3Version"
+            Handler: main.lambda_handler
+            Runtime: python3.6
+            Timeout: 60
+            Role:
+                "Fn::GetAtt": ["ExecutionRole", "Arn"]
+            Environment:
+                Variables:
+                   prj_name:
+                       Ref: "prjName"
+                   error_table:
+                       Ref: "errorHistoryTable"
+                   stack_name:
+                       Ref: "AWS::StackName"
+                   filtered_error_topic:
+                       Ref: "filteredErrorTopic"
+
+      failer:
+          Type: AWS::Lambda::Function
+          Properties:
+            #FunctionName: !Join [ "-", [ !Ref "botname", "failer"] ]
+            Code:
+              S3Bucket: !Ref "codebucket"
+              S3Key: !Join [ "/", [ !Ref "stage", "failer.zip"] ]
+              S3ObjectVersion: !Ref "failerS3Version"
+            Handler: main.lambda_handler
+            Runtime: python3.6
+            Timeout: 60
+            Role:
+                "Fn::GetAtt": ["ExecutionRole", "Arn"]
+            Environment:
+                Variables:
+                   errorHandlerArn:
+                       Fn::GetAtt: ["errorHandler", "Arn"]
+      errorAlarmFailer:
+         Type: "AWS::CloudWatch::Alarm"
+         Properties:
+           ActionsEnabled: True # not sure
+           AlarmDescription:
+               "Function failer. test failure"
+           AlarmActions:
+               - Ref: "unfilteredErrorTopic"
+           ComparisonOperator: "GreaterThanOrEqualToThreshold"
+           EvaluationPeriods: 1
+           MetricName: "Errors"
+           Namespace: "AWS/Lambda"
+           Dimensions:
+               - Name: "FunctionName"
+                 Value:
+                     Ref: "failer"
+           Period: 60 # minimum
+           Statistic: Sum
+           Threshold: 1
+           TreatMissingData: "notBreaching"
+
+      unfilteredErrorTopic:
+          Type: "AWS::SNS::Topic"
+          Properties:
+              Subscription:
+                 - Endpoint:
+                       "Fn::GetAtt": ["errorHandler", "Arn"]
+                   Protocol:
+                       "lambda"
+          DependsOn:
+              - "errorHandler"
+      permitTriggerErrorHandler:
+          Type: "AWS::Lambda::Permission"
+          Properties:
+             FunctionName:
+                "Fn::GetAtt": ["errorHandler", "Arn"]
+             Action: "lambda:InvokeFunction"
+             Principal: "sns.amazonaws.com"
+             SourceArn:
+                Ref: "unfilteredErrorTopic"
+          DependsOn:
+              - "errorHandler"
+              - "unfilteredErrorTopic"
+      # if something goes wrong, we send an sms
+      # but don't send a second message for the same error until after the stack is updated
+      # this table stores that information
+      errorHistoryTable:
+                Type: "AWS::DynamoDB::Table"
+                Properties:
+                   AttributeDefinitions:
+                       - AttributeName: "error" # can't have a table with just a sort
+                         AttributeType: "S"
+                       - AttributeName: "stackUpdateTime"
+                         AttributeType: "N"
+                   KeySchema:
+                       - AttributeName: "error"
+                         KeyType:       "HASH"
+                       - AttributeName: "stackUpdateTime"
+                         KeyType:       "RANGE"
+                   ProvisionedThroughput:
+                         ReadCapacityUnits: 5
+                         WriteCapacityUnits: 5
+      filteredErrorTopic:
+          Type: "AWS::SNS::Topic"
+          Properties:
+              Subscription:
+                 - Endpoint:
+                       "aws_alarms@mdavis.xyz"
+                   Protocol:
+                       "email"

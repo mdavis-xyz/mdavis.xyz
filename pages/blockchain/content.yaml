@@ -1,0 +1,437 @@
+- id: start
+  content:
+     - h1: Do you need a blockchain?
+     - button:
+        - text: Find Out
+          destination: 1
+          destination-type: relative
+          direction: left
+     - p: Written by <a target="_blank" href="https://www.linkedin.com/in/engineerdavis/">Matthew Davis</a>. Inspired by <a target="_blank" href="http://doyouneedablockchain.com/">doyouneedablockchain.com</a> and <a target="_blank" href="https://davidgerard.co.uk/blockchain/2018/02/10/do-you-need-a-blockchain-probably-less-than-wust-and-gervais-think-you-do/">David Gerard's blog</a>.
+- id: physical-q
+  content:
+     - h2: Is the data about verifying or tracking physical things?
+     - p: supply chain verification, electricity metering, house ownership...
+     - button:
+        - text: Yes
+          destination: physical-followup
+          destination-type: absolute
+          direction: left
+     - button:
+        - text: No
+          destination: 5
+          destination-type: relative
+          direction: left
+- id: physical-followup
+  content:
+     - h2: How do the miners writing to the blockchain know what's happening in reality?
+     - button:
+        - text: Only approved parties may save data
+          destination: some-write
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: We'll vet all write requests to the blockchain
+          destination: physical-vetting
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Maths doesn't lie, blockchains are cryptographically secure
+          destination: physical-maths
+          destination-type: absolute
+          direction: left
+- id: physical-vetting
+  content:
+     - h1: No, You don't need a blockchain
+     - p: If you need to add a verification system to your verification blockchain, why do you need the blockchain?
+     - p: Blockchains are no better at verifying things in the real world than any other database.
+     - p: The hard part of verification is converting attributes of physical things into bytes. Blockchains cannot bridge the cyberspace-meatspace interface. They just take the bytes they're given and put them on hard drives, slowly.
+- id: physical-maths
+  content:
+     - h2: Are You Sure?
+     - p: So if your blockchain says <a target="_blank" href="https://shkspr.mobi/blog/2018/06/how-i-became-leonardo-da-vinci-on-the-blockchain/">some random Twitter user painted the Mona Lisa</a>, then what?
+     - button:
+        - text: That wouldn't happen. All writes will be verified.
+          destination: physical-vetting
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: We'll just correct that
+          destination: physical-edit
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: It's in the blockchain, so it must be true
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: physical-edit
+  content:
+     - h1: No, you don't need a blockchain
+     - p: The reason blockchains were invented was to make an immutable, censorship-proof database. That means no central authority should have the power to unilaterally modify records.
+     - p: Editable blockchains are like infrared coloured fireworks. They're straightforward to build, but there's no point creating such a thing.
+     - p: Just use a normal database. It will be faster, cheaper and greener.
+- id: write-data
+  content:
+     - h2: Who will write this data?
+     - button:
+        - text: Just my organisation
+          destination: no-write-data
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Other parties too
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: no-write-data
+  content:
+     - h1: No, you don't need a blockchain
+     - p: Blockchains are like a normal database, but deliberately slow to allow many parties to write without centralised coordination or authority.
+     - p: If only one party is going to write to the database, just use a normal database. It will be faster, cheaper and greener.
+- id: else-write
+  content:
+     - h2: Who else can write some data?
+     - button:
+        - text: Only Some People
+          destination: some-write
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Literally Anyone
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: some-write
+  content:
+     - h1: No, you don't need a blockchain
+     - p: You're only allowing trusted parties to write to the database. So you'll need an authority who approves or denies parties wanting to write to the database.
+     - p: The reason blockchains were invented was to ensure that no one has the authority to deny anyone write access to the database.
+     - p: Just use a normal database. It will be faster, cheaper and greener.
+- id: third-party
+  content:
+     - h2: Can you rely on a trusted third party?
+     - p: A regulator, a bank, Paypal etc.
+     - button:
+        - text: Yes
+          destination: third-party-yes
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: No
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: third-party-yes
+  content:
+     - h1: No, you don't need a blockchain
+     - p: Blockchains were invented as a way to transact with untrusted parties.
+     - p: If you can trust a third party, then you can transact with the untrusted parties via the trusted third party.
+     - p: Just use the trusted party and a normal database. It will be faster, cheaper and greener.
+- id: delete-data-q
+  content:
+     - h2: Do you need the ability to delete data?
+     - p: For example, the new <a target="_blank" href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR laws</a> mandate that under certain circumstances you must delete data when customers ask
+     - button:
+        - text: Sometimes
+          destination: delete-data-a
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Never
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: delete-data-a
+  content:
+     - h1: No, you don't need a blockchain
+     - p: The reason blockchains were invented was to make an immutable, append-only database. If you use a blockchain you <a target="_blank" href="https://davidgerard.co.uk/blockchain/2018/06/11/yougov-directs-gdpr-compliant-blockchain-gdpr-laundering-as-a-service/">cannot delete data in it</a>.
+     - p: Editable blockchains are like infrared coloured fireworks. They're straightforward to build, but there's no point creating such a thing.
+     - p: Just use a normal database. You'll be able to comply with privacy laws that way.
+- id: blunders-q
+  content:
+     - h2: Mistakes Happen
+     - p: What will you do if incorrect data is written to the ledger?
+     - button:
+        - text: Fix It
+          destination: blunders-who
+          destination-type: absolute
+          direction: left
+     - button:
+        - text: Leave It
+          destination: 4
+          destination-type: relative
+          direction: left
+- id: blunders-who
+  content:
+     - h2: Who will fix it?
+     - button:
+        - text: My organisation will have manual overwrite privileges
+          destination: blunders-org
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: We'll ask everyone to soft fork each time
+          destination: blunders-soft
+          destination-type: absolute
+          direction: down
+- id: blunders-org
+  content:
+     - h1: No, you don't need a blockchain
+     - p: Blockchains are like a normal database, but deliberately slow to allow many parties to write without a central authority.
+     - p: If one party has the power to overwrite other data then you have a centralised authority. So there's no point using a blockchain.
+     - p: Just use a normal database. It will be faster, cheaper and greener.
+- id: blunders-soft
+  content:
+     - h1: No, you don't need a blockchain
+     - p: The reason blockchains were invented was to create an <i>immutable</i> database. This means that data written to it cannot be deleted.
+     - p: The only way you can modify a true blockchain is to convince everyone using it to instead use a new amended copy, and ignore the old copy. This is called a <a target="_blank" href="https://davidgerard.co.uk/blockchain/the-dao/">soft fork</a>. This requires a lot of effort, and involves convincing a large community (who are not all trustworthy) to throw away the cherished immutability property of blockchains.
+     - p: The unique value proposition of blockchains is that they are immutable. If you want to overwrite data then you do not want immutability. So just use a normal database.
+- id: illegal-content
+  content:
+     - h2: Illegal Content
+     - p: What do you do when a malicious party uploads hate speech, child porn, terrorist propaganda or other illegal materials to the database?
+     - p: (That <a target="_blank" href="https://fc18.ifca.ai/preproceedings/6.pdf">literally happened</a> to the Bitcoin blockchain, and also <a target="_blank" href="https://www.coindesk.com/the-first-augur-assassination-markets-have-arrived/">to Ethereum</a>.)
+     - button:
+        - text: Delete It
+          destination: delete-illegal-content
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Leave It There
+          destination: leave-illegal-content
+          destination-type: absolute
+          direction: left
+     - button:
+        - text: Won't happen. Only nice people will be allowed to write to the blockchain
+          destination: some-write
+          destination-type: absolute
+          direction: down
+- id: delete-illegal-content
+  content:
+     - h1: No, you don't need a blockchain
+     - p: The reason blockchains were invented was to make an immutable, censorship-proof database. If you use a blockchain you cannot censor data written to it.
+     - p: Editable blockchains are like infrared coloured fireworks.                     They're straightforward to build, but there's no point creating such a thing.
+     - p: Just use a normal database. That way other parties can't make it illegal to store or transmit your own database.
+- id: leave-illegal-content
+  content:
+     - h2: Really?
+     - p: This means that you and anyone else using your database will be violating the law (if such content is uploaded).
+     - button:
+        - text: No, I don't want that
+          destination: delete-illegal-content
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Yes, that's fine
+          destination: 1
+          destination-type: relative
+          direction: left
+- id: who-read
+  content:
+     - h2: Who should be able to read this data?
+     - button:
+        - text: Only some parties
+          destination: some-read
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Literally Anyone
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: some-read
+  content:
+     - h1: No, you don't need a blockchain
+     - p: You're only allowing trusted parties to read the database. You'll need an authority who approves or denies parties wanting to read the database.
+     - p: The reason blockchains were invented was to create a database that anyone can read or write to.
+     - p: Just use a normal database.  It will be faster, cheaper and greener.
+- id: country
+  content:
+     - h2: Do you need to keep the data in one country?
+     - p: Do you need to comply to data sovereignty laws?
+     - button:
+        - text: Yes
+          destination: geoblocking
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: No
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: geoblocking
+  content:
+     - h1: No, you don't need a blockchain
+     - p: The reason blockchains were invented was to ensure that no one has the authority to deny read and write access to the database.
+     - p: We've already established that untrusted parties can read the database. What's to stop them from making a copy of that data and sending it overseas?
+     - p: Just use a normal database. That way you'll be able to see and control where the data resides.
+- id: cost
+  content:
+     - h2: Is financial cost important?
+     - button:
+        - text: Yes
+          destination: cost-warning
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: No
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: cost-warning
+  content:
+     - h2: No, you probably don't want a blockchain
+     - p: Blockchains require many expensive computers, which burn a huge amount of energy playing <a target="_blank" href="https://youtu.be/ZH-cXBhkl-E?t=21s">Number Wang</a>, to decide who gets to write to the database. So blockchains are expensive to run. Also, buzzword consultants charge high fees.
+     - button:
+        - text: I'm willing to pay more
+          destination: 1
+          destination-type: relative
+          direction: left
+- id: write-speed
+  content:
+     - h2: How many writes do you need to deal with?
+     - button:
+        - text: More than 3 per second
+          destination: too-slow
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Less than 3 per second
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: too-slow
+  content:
+     - h1: No, You don't need a blockchain
+     - p: There's a law in mathematics that says you can't have truly distributed databases, without central orchestration.
+     - p: Satoshi (the inventor of blockchains) found a <a target="_blank" href="http://content.blubrry.com/stealthisshow/S02_E13_The_Future_Of_BitTorrent_with_Bram_Cohen.mp3#t=1:01:30">loophole</a>. It's possible, but only if you deliberately slow everything down, a lot.
+     - p: Bitcoin is the world's most famous blockchain, and it can only process about <a target="_blank" href="https://www.blockchain.com/charts/transactions-per-second?timespan=30days">3 transactions per second</a>. Other versions of that algorithm can deal with a little bit more, typically at the expense of security. Claims of substantially faster blockchains are usually <a target="_blank" href="https://en.wikipedia.org/wiki/Vaporware">vaporware</a>. # TODO: look up lightening
+     - p: If you need performance, just use a normal database.
+- id: emissions-q
+  content:
+     - h2: Is reducing greenhouse gas emissions important?
+     - button:
+        - text: Yes
+          destination: emissions-a
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: No
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: emissions-a
+  content:
+     - h1: No, you don't want a blockchain
+     - p: There's a law in mathematics that says you can't have truly distributed databases, without central orchestration.
+     - p: Satoshi (the inventor of blockchains) found a loophole. It's possible, by using as  much electricity as a whole country<sup><a target="_blank" href="https://grist.org/article/bitcoin-could-cost-us-our-clean-energy-future/">[1]</a><a target="_blank" href="https://digiconomist.net/bitcoin-energy-consumption">[2]</a><a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">[3]</a></sup>, spent powering many computers playing <a target="_blank" href="https://youtu.be/ZH-cXBhkl-E?t=21s">Number Wang</a>. Only once a computer wins Number Wang can it write something to the database.
+     - p: Other types of blockchains have been proposed, which use <i>Proof-of-Stake</i> or <i>Proof-of-Storage</i> instead of <i>Proof-of-Work</i>. These are largely <a target="_blank" href="https://en.wikipedia.org/wiki/Vaporware">vaporware</a>.
+     - button:
+        - text: Screw the environment, I want a blockchain!
+          destination: 1
+          destination-type: relative
+          direction: left
+- id: merkle
+  content:
+     - h2: Do you want a cryptographically secure, append-only, hash-based Merkle Tree database?
+     - button:
+        - text: No
+          destination: no-merkle
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Yes
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: no-merkle
+  content:
+     - h1: No, you don't want a blockchain
+     - p: That's what a blockchain is.
+- id: git-q
+  content:
+     - h2: Can you use git?
+     - p: <a target="_blank" href="https://git-scm.com/">git</a> is a very popular tool for managing code.
+     - p: It's designed to allow multiple people to modify files at the same time. It has an auditable history of all changes made to the data. Most developers already know how to use it, and there's a large ecosystem of <a target="_blank" href="https://www.gitkraken.com/">tools</a> and <a target="_blank" href="https://gitlab.com/">hosting</a> <a target="_blank" href="https://www.github.com">systems</a> for it.
+     - p: If you want, you can use <a target="_blank" href="https://help.github.com/articles/signing-commits-using-gpg/">cryptographic signatures</a> to verify writes to the files.
+     - button:
+        - text: Yes
+          destination: git-a
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: No
+          destination: 2
+          destination-type: relative
+          direction: left
+- id: git-a
+  content:
+     - h1: No, you don't need a blockchain
+     - h1: Just use git
+     - p: Git repositories are like blockchains. The main difference is that they don't emit more pollution than whole countries. # references
+     - p: Also, git is an established, well proven technology which most developers already have the skills to use. Whereas blockchain projects are largely vaporware, with eye-watering consultancy price tags.
+- id: cryptocurrency
+  content:
+     - h2: Are you making a new cryptocurrency?
+     - button:
+        - text: No
+          destination: 4
+          destination-type: relative
+          direction: left
+     - button:
+        - text: Yes
+          destination: new-coin
+          destination-type: absolute
+          direction: left
+- id: new-coin
+  content:
+     - h2: Yet another altcoin?
+     - p: Is this fundamentally different to the hundreds which already exist?
+     - button:
+        - text: It's for a different demographic or use case
+          destination: stupid-coin
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: The codebase is substantially different
+          destination: reasonable-coin
+          destination-type: absolute
+          direction: down
+- id: stupid-coin
+  content:
+     - h1: No, you don't need a blockchain
+     - p: Yes, blockchains are the best way to make cryptocurrencies. However you shouldn't be making yet another <a target="_blank" href="https://www.urbandictionary.com/define.php?term=Shitcoin">shit-coin</a>.
+- id: reasonable-coin
+  content:
+     - h1: Yes, you do need a blockchain
+     - p: Cryptocurrencies are one of the few use cases where blockchains are the best available choice. However, does the world really need another cryptocurrency?
+     - p: Make sure your coin is uniquely useful. Also, be careful. The world of cryptocurrencies is not very kind to those who write <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/">buggy code</a> or have consumer grade security <sup><a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a><a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a><a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a><a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a><a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a><a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a><a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a></sup>.
+     - p: I hope the <a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">emissions</a>, <a target="_blank" href="https://www.blockchain.com/charts/cost-per-transaction?popcorn=extrabuttery">cost</a>, <a target="_blank" href="https://www.blockchain.com/charts/transactions-per-second?timespan=30days">low performance</a>, <a target="_blank" href="https://fc18.ifca.ai/preproceedings/6.pdf">legal risk</a> and <a target="_blank" href="https://www.coindesk.com/the-first-augur-assassination-markets-have-arrived/">ethical costs</a> are worth it.
+
+- id: maybe-blockchain
+  content:
+     - h2: Are you trying to thwart government control of something?
+     - p: For example, <a target="_blank" href="https://blockchain-dns.info/">censorship-proof domain ownership and DNS</a>, or <a target="_blank" href="https://twitter.com/wikileaks/status/80774521350668288">a way to donate to Wikileaks</a>?
+     - button:
+        - text: Yes
+          destination: yes-blockchain
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: No, I'm not trying to defy governments or laws
+          destination: end-no
+          destination-type: absolute
+          direction: down
+- id: end-no
+  content:
+     - h1: No, you don't need a blockchain
+     - p: Just use a normal database
+     - p: It will be cheaper, greener, faster and more scalable
+- id: yes-blockchain
+  content:
+     - h1: Ok, maybe you should use a blockchain
+     - p: I hope the <a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">emissions</a>, <a target="_blank" href="https://www.blockchain.com/charts/cost-per-transaction?popcorn=extrabuttery">cost</a>, <a target="_blank" href="https://www.blockchain.com/charts/transactions-per-second?timespan=30days">low performance</a>, <a target="_blank" href="https://fc18.ifca.ai/preproceedings/6.pdf">legal risk</a> and <a target="_blank" href="https://www.coindesk.com/the-first-augur-assassination-markets-have-arrived/">ethical costs</a> are worth it.
+# TODO: check on mobile
+# TODO: ask David Gerard
+# TODO: custom domain and hosting
+# TODO: metrics

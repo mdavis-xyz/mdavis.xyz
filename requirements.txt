@@ -3,3 +3,4 @@ mako
 pyyaml
 boto3
 virtualenv
+pytidylib

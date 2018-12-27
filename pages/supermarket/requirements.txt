@@ -1,4 +1,0 @@
-pypandoc
-mako
-boto3
-praw

@@ -6,7 +6,7 @@ PUBLISH_DIR=$ORIGINAL_DIR/docs
 
 function supermarket {
    cd $PAGES_DIR/supermarket
-   python convert.py 
+   python convert.py
    cp -r $PAGES_DIR/supermarket/docs/. $PUBLISH_DIR/supermarket
 }
 
@@ -25,6 +25,13 @@ function monitor {
    cp $PAGES_DIR/monitor/thumbs/monitor-rotate-sml.jpg $PUBLISH_DIR/thumbs/
 }
 
+function blockchain {
+   cd $PAGES_DIR/blockchain
+   python parse.py
+   mkdir -p $PUBLISH_DIR/blockchain
+   cp -r $PAGES_DIR/blockchain/docs/. $PUBLISH_DIR/blockchain
+}
+
 function main {
    rm -rf $PUBLISH_DIR
    # cp -r docs_template docs
@@ -34,6 +41,7 @@ function main {
    supermarket
    abbott
    monitor
+   blockchain
 }
 
 main

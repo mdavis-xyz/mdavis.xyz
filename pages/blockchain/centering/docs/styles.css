@@ -1,0 +1,36 @@
+/* @override
+	http://emergentweb.com/test/valign.css
+*/
+
+div.section-0 {
+   height: 40vh;
+   overflow-y: hidden;
+   position: absolute;
+   top: 0;
+}
+
+div.section-A {
+	width: 100%;
+	padding: 0;
+	display: table;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+}
+
+div.section-B {
+	padding: 0;
+	vertical-align: middle;
+	display: table-cell;
+	margin: 0;
+}
+
+div.section-C {
+	width: 600px;
+   border-style: solid;
+	margin: 0 auto;
+	text-align: left;
+	padding: 10px;
+}

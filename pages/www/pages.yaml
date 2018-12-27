@@ -18,7 +18,7 @@
    description: "Build an Automatic Computer Display Rotator With an Arduino"
    url: "https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/"
    image:
-      url: "./thumbs/monitor-rotate-sml.jpg"
+      url: "./thumbs/monitor-rotate-sml-gray.jpg"
       description: "Arduino with circuitboard shield"
       width: 1000
       height: 667

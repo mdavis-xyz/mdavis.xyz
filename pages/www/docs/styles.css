@@ -75,8 +75,9 @@ iframe {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 35rem;
+  width: 20rem;
   margin: 2rem;
+  background: rgb(60,60,60);
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -107,6 +108,7 @@ article:hover  {
 .cardTitle {
    font-weight: bold;
    text-transform: capitalize;
+   font-size: 100%;
 }
 
 .cardImage{

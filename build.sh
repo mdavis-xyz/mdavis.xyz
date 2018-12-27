@@ -22,7 +22,7 @@ function abbott {
 }
 
 function monitor {
-   cp $PAGES_DIR/monitor/thumbs/monitor-rotate-sml.jpg $PUBLISH_DIR/thumbs/
+   cp $PAGES_DIR/monitor/thumbs/monitor-rotate-sml-gray.jpg $PUBLISH_DIR/thumbs/
 }
 
 function blockchain {

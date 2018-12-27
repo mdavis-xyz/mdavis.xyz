@@ -40,7 +40,7 @@ function main {
    echo "www.mdavis.xyz" > $PUBLISH_DIR/CNAME
    www
    supermarket
-   abbott
+   # abbott
    monitor
    blockchain
 }

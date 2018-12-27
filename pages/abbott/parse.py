@@ -23,8 +23,8 @@ url_fname = "validURLs.txt"
 bad_url_fname = "invalidURLs.yaml"
 debug = True
 
-urlCheckRatio = 0.1 # fraction of URLs to check
-urlRecheckRatio = 0.1 # fraction of except URLs to check again
+urlCheckRatio = 0.05 # fraction of URLs to check
+urlRecheckRatio = 0.01 # fraction of except URLs to check again
 
 # returns True if the URL is valid
 def wget(url):
@@ -65,14 +65,14 @@ def checkAllURLs(data):
             if cont.lower().startswith('y'):
                 if url[0] not in exceptions:
                     with open(url_fname,"a") as f:
-                        f.write(url[0])
+                        f.write(url[0] + '\n')
             else:
                 exit(1)
 
 
 
 # row num is from 1
-pattern = r"^([^{}]+)(.+)\s*#(\w+)"
+pattern = r"^([^{}]+)(.+)\s*#(\w+)$"
 expr = re.compile(pattern)
 def parseRow(line,rowNum):
     result = expr.match(line)

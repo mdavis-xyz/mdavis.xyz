@@ -168,3 +168,17 @@ a:hover {
    width: auto;
    vertical-align: baseline;
 }
+
+.postquote {
+   margin-left: 4em;
+   margin-top: 0.1em;
+}
+
+.quote-p {
+   font-weight: bold;
+   margin-bottom: 0;
+}
+
+.bottomquote {
+   margin-bottom: 0.1em;
+}

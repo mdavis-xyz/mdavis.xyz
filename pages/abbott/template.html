@@ -48,19 +48,31 @@
       This page contains a list of most of what they have done so far.
    </p>
    <div id="chronological">
-      <ul id=l_group0>
+      <ol id=l_group0>
          % for (i,row) in enumerate(rows):
          <li id="${i}-${row['topic']}">
             ${row['text']}
             % for url in row['urls']:
-            <a href="${row}" target="_blank">
+            <a href="${url}" target="_blank">
               <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
             </a>
             % endfor
          </li>
          % endfor
-      </ul>
+      </ol>
    </div>
+
+   <blockquote class="center bottomquote">
+      <p class="quote-p">
+         I think you'd be best off voting Green.
+      </p>
+   </blockquote>
+   <p class="center postquote">
+      - Tony Abbott (election day, 2013)
+      <a target="_blank" href="http://www.telegraph.co.uk/news/worldnews/australiaandthepacific/australia/10292980/Australia-goes-to-the-polls-with-Tony-Abbott-confident-of-becoming-next-Prime-Minister.html">
+         <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+      </a>
+   </p>
    </article>
    <hr/>
    <nav>

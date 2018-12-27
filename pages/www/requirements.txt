@@ -1,3 +1,0 @@
-pypandoc
-mako
-pyyaml

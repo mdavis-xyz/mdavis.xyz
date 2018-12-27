@@ -13,7 +13,7 @@ As I head towards the snack aisle I see dozens of cameras overhead, watching sil
 They're no longer just an anti-shoplifting measure.
 I walk straight past the health-food snack section.
 The cameras note this, but the back-end analytics server isn't surprised.
-It remembers that time I re-tweeted an opinion piece critical of [quinoa](https://www.theguardian.com/commentisfree/2013/jan/16/vegans-stomach-unpalatable-truth-quinoa) and [gluten-free](https://onlinelibrary.wiley.com/doi/epdf/10.1111/jhn.12502) food, so it's expecting me to shun this section.
+It remembers that time I re-tweeted an opinion piece critical of [quinoa](https://www.theguardian.com/commentisfree/2013/jan/16/vegans-stomach-unpalatable-truth-quinoa) and [gluten-free](https://onlinelibrary.wiley.com/doi/epdf/10.1111/jhn.12502) food, so it's expecting me to shun that section.
 
 I continue on to the cheap junk food section. Reaching to pick up a pack of BBQ chips, I pause. Instead I choose the prettier looking alternative sitting on the shelf next to it. The cameras note this. They know I just turned down my usual choice for something new. This triggers a back end algorithm which immediately sells the information about my choice to both food manufacturers.
 Those brands wouldn't pay much for "a customer chose brand A over brand B".

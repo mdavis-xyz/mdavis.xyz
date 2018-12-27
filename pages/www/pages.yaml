@@ -24,9 +24,9 @@
       height: 667
 -  title: "Achievements of the Abbott-Turnbull Government"
    description: "A comprehensive list of (almost) everything the current Australian government has done"
-   url: "http://thesauce.co/achievements-of-the-abbott-government/"
+   url: "govlist"
    image:
-      url: "./thumbs/abbott.jpg"
+      url: "./govlist/thumb.jpg"
       description: "Turnbull Government Ministers"
       width: 522
       height: 348

@@ -5,6 +5,7 @@ AWS/data/lambda/*/lambda.zip
 __pycache__/
 *.py[cod]
 *$py.class
+pages/abbott/old/*
 
 # C extensions
 *.so

@@ -17,8 +17,9 @@ function www {
 }
 
 function abbott {
-   mkdir -p $PUBLISH_DIR/thumbs
-   cp $PAGES_DIR/abbott/thumbs/abbott.jpg $PUBLISH_DIR/thumbs/
+   mkdir -p $PUBLISH_DIR/govlist
+   python parse.py
+   cp $PAGES_DIR/abbott/thumbs/abbott.jpg $PUBLISH_DIR/govlist/thumb.jpg
 }
 
 function monitor {

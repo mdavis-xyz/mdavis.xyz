@@ -6,7 +6,7 @@ PUBLISH_DIR=$ORIGINAL_DIR/docs
 
 function supermarket {
    cd $PAGES_DIR/supermarket
-   python convert.py $PUBLISH_DIR/supermarket
+   python convert.py 
    cp -r $PAGES_DIR/supermarket/docs/. $PUBLISH_DIR/supermarket
 }
 

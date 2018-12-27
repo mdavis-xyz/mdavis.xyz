@@ -1,14 +1,14 @@
 -  title: "Do you need a blockchain?"
    description: "An interactive flowchart to help cut through the hype"
-   url: "https://disable.blockchain.mdavis.xyz"
+   url: "blockchain"
    image:
-      url: "https://blockchain.mdavis.xyz/image1.jpg"
+      url: "blockchain/image1.jpg"
       description: "People signing contract"
       width: 1000
       height: 667
 -  title: "Web analytics are leaking into meatspace"
    description: "A Stallman-esque short story about the future of offline tracking and the right to buy"
-   url: "https://disable.supermarket.mdavis.xyz"
+   url: "supermarket"
    image:
       url: "./supermarket/card.jpg"
       description: "Poster on pole proclaiming 'big data is watching you'"

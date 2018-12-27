@@ -5,8 +5,8 @@
    <meta property="og:title" content="Web analytics are leaking into Meatspace" />
    <meta property="og:type" content="website" />
    <meta property="og:description" content="A Stallman-esque short story about the future of offline tracking and the right to buy" />
-   <meta property="og:url" content="https://supermarket.mdavis.xyz" />
-   <meta property="og:image" content="https://supermarket.mdavis.xyz/image3-cropped-sml.jpg" /> <!-- https://unsplash.com/photos/Y4OHry73lhI -->
+   <meta property="og:url" content="https://www.mdavis.xyz/supermarket" />
+   <meta property="og:image" content="https://www.mdavis.xyz/supermarket/image3-cropped-sml.jpg" /> <!-- https://unsplash.com/photos/Y4OHry73lhI -->
    <meta property="og:image:width" content="1000" />
    <meta property="og:image:height" content="486" />
    <meta property="og:author" content="Matthew Davis" />
@@ -42,7 +42,7 @@
       <!-- image 2: https://unsplash.com/photos/j1gnUAVf5d4 -->
       <!-- image 3: https://unsplash.com/photos/gpjvRZyavZc -->
       <!-- <p class="authordate"><div id="author">Matthew Davis</div> | <div id="date">{{date}}</div></p> -->
-      <p class="authordate">Matthew Davis | {{date}}</p>
+      <p class="authordate"><a id="author" href="../">Matthew Davis</a> | {{date}}</p>
       <!-- <div class="author alignleft">Matthew Davis</div>
       <div class="alignright date">20 Dec, 2018</div>
       <div class="alignnormal"></div> -->
@@ -55,6 +55,12 @@
       <hr/>
       ${content}
    </article>
+   <hr/>
+   <nav>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
    <iframe  src="https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com/prod/increment?websiteName=supermarket" class=metrics sandbox style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;"></iframe>
 
 </body>

@@ -18,11 +18,13 @@ function www {
 
 function abbott {
    mkdir -p $PUBLISH_DIR/govlist
+   cd $PAGES_DIR/abbott
    python parse.py
-   cp $PAGES_DIR/abbott/thumbs/abbott.jpg $PUBLISH_DIR/govlist/thumb.jpg
+   cp -r $PAGES_DIR/abbott/docs/. $PUBLISH_DIR/govlist/
 }
 
 function monitor {
+   mkdir -p $PUBLISH_DIR/thumbs/
    cp $PAGES_DIR/monitor/thumbs/monitor-rotate-sml-gray.jpg $PUBLISH_DIR/thumbs/
 }
 
@@ -40,7 +42,7 @@ function main {
    echo "www.mdavis.xyz" > $PUBLISH_DIR/CNAME
    www
    supermarket
-   # abbott
+   abbott
    monitor
    blockchain
 }

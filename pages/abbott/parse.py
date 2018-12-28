@@ -18,9 +18,9 @@ import random
 template_fname = "template.html"
 content_fname = "abbott.txt"
 output_fname = "docs/index.html"
-invalidURL_fname = "debug.yaml"
-url_fname = "validURLs.txt"
-bad_url_fname = "invalidURLs.yaml"
+invalidurl_excemptions_fname = "debug.yaml"
+url_fname = "URLs.txt"
+bad_url_excemptions_fname = "invalidURLs.yaml"
 debug = True
 
 urlCheckRatio = 0.05 # fraction of URLs to check
@@ -41,10 +41,22 @@ def checkAllURLs(data):
         for url in row['urls']:
             urls.append((url,i+1))
 
+    with open(url_fname,"r") as f:
+        prevURLs = set([x.strip() for x in f])
+
+
     if urlCheckRatio < 1:
-        urls = random.sample(urls,int(len(urls)*urlCheckRatio))
+        newURLs = [u for u in urls if u not in prevURLs]
+        oldURLs = [u for u in urls if u in prevURLs]
+        urls = random.sample(oldURLs,int(len(oldURLs)*urlCheckRatio))
+
     p = Pool(20)
     urlValidity = p.map(wget, [u[0] for u in urls])
+
+    with open(url_fname,"a") as f:
+        for (u,v) in zip(urls,urlValidity):
+            if v and (u not in prevURLs):
+                f.append(u+'\n')
 
     urls = [u for (u,v) in zip(urls,urlValidity) if not v]
     if len(urls) > 0:
@@ -52,11 +64,9 @@ def checkAllURLs(data):
         for (u,i) in urls:
             print("%3d: %s" % (i,u))
 
-    with open(url_fname,"r") as f:
-        exceptions = set([u.strip() for u in f if u.strip() != ''])
 
     for url in urls: # invalid ones only
-        if (url[0] in exceptions) and (random.random() > urlRecheckRatio):
+        if (url[0] in prevURLs) and (random.random() > urlRecheckRatio):
             print("Ignoring excempt but invalid url: %s" % url[0])
         else:
             print("Error: invalid url on line %d" % (url[1]))
@@ -64,7 +74,7 @@ def checkAllURLs(data):
             cont = input('Continue? (and add)? (y/n)\n')
             if cont.lower().startswith('y'):
                 if url[0] not in exceptions:
-                    with open(url_fname,"a") as f:
+                    with open(url_excemptions_fname,"a") as f:
                         f.write(url[0] + '\n')
             else:
                 exit(1)
@@ -161,7 +171,7 @@ def main():
     with open(output_fname,"w") as f:
         f.write(output_html)
 
-    with open(invalidURL_fname,"w") as f:
+    with open(invalidurl_excemptions_fname,"w") as f:
         yaml.dump(data,f)
 
     print("Done")

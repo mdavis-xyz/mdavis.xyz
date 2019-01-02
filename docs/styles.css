@@ -14,26 +14,28 @@
   transition: 0.3s;
   width: 20rem;
   margin: 2rem;
-  background: rgb(60,60,60);
+  background: rgb(63,67,74);
+  border-radius: 0.2em
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-  background-color: #404040;
+  background-color: rgb(55,60,65);
   text-decoration: none;
   /*background: rgb(49,49,49);*/
+}
+
+a:hover .card {
+   text-decoration: none;
 }
 
 article a  {
    text-decoration: none;
    color: #ffffff;
 }
-/*article a:hover  {
-   text-decoration: none;
-}*/
 
-article:hover  {
+article a:hover  {
    text-decoration: none;
 }
 
@@ -48,8 +50,13 @@ article:hover  {
    font-size: 100%;
 }
 
-.cardImage{
+.cardImage {
    width: 100%;
+   border-radius: 0.2em 0.2em 0 0
+}
+
+a:hover .cardColor {
+   opacity: 0.85;
 }
 
 .cardDesc {

@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-   <meta property="og:title" content="Matthew Davis' Website" />
+
+   <!--w3c-->
+   <title property="schema:name">Matthew Davis</title>
+   <meta name="description" content="A collection of tech ideas">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Matthew Davis">
+   <meta property="schema:description" content="A collection of tech ideas">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Matthew Davis">
+   <meta property="og:description" content="A collection of tech ideas">
+
    <meta property="og:type" content="website" />
-   <meta property="og:description" content="A collection of tech ideas" />
    <meta property="og:url" content="https://www.mdavis.xyz" />
-   <meta property="og:image" content="https://supermarket.mdavis.xyz/image3-cropped-sml.jpg" /> <!-- https://unsplash.com/photos/Y4OHry73lhI -->
+   <meta property="og:image" content="https://supermarket.mdavis.xyz/image3-cropped-sml.jpg" />
    <meta property="og:image:width" content="1000" />
    <meta property="og:image:height" content="486" />
    <meta property="og:author" content="Matthew Davis" />
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-   <title>Matthew Davis</title>
    <link rel="stylesheet" type="text/css" href="styles.css" />
    <link rel="stylesheet" type="text/css" href="common.css" />
    <link rel="stylesheet" type="text/css" href="media.css" />
@@ -23,7 +32,7 @@
 
 </head>
 <body>
-
+   <div class="appear">
    <h1 id="matthew-davis">Matthew Davis</h1>
 
    <p class="profileLinks">
@@ -38,12 +47,12 @@
 
    <p class="center">A collection of projects, stories and thoughts about technology</p>
 
-   <div class="cardContainer">
+   <div class="cardContainer" >
    % for page in pages:
    <article>
       <a href="${page['url']}">
          <div class="card">
-            <img src="${page['image']['url']}" alt="${page['image']['description']}" width="100%">
+            <img src="${page['image']['url']}" alt="${page['image']['description']}" class="cardImage">
             <div class="cardBottom">
             <h3 class="cardTitle">${page['title']}</h3>
             <p class="cardDesc">${page['description']}</p>
@@ -54,6 +63,6 @@
    % endfor
    </div>
    <!-- <iframe  src="https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com/prod/increment?websiteName=www" class=metrics sandbox style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;"></iframe> -->
-
+   </div>
 </body>
 </html>

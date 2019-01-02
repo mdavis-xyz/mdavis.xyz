@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-   <meta property="og:title" content="Matthew Davis' Website" />
+
+   <!--w3c-->
+   <title property="schema:name">Matthew Davis</title>
+   <meta name="description" content="A collection of tech ideas">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Matthew Davis">
+   <meta property="schema:description" content="A collection of tech ideas">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Matthew Davis">
+   <meta property="og:description" content="A collection of tech ideas">
+
    <meta property="og:type" content="website" />
-   <meta property="og:description" content="A collection of tech ideas" />
    <meta property="og:url" content="https://www.mdavis.xyz" />
-   <meta property="og:image" content="https://supermarket.mdavis.xyz/image3-cropped-sml.jpg" /> <!-- https://unsplash.com/photos/Y4OHry73lhI -->
+   <meta property="og:image" content="https://supermarket.mdavis.xyz/image3-cropped-sml.jpg" />
    <meta property="og:image:width" content="1000" />
    <meta property="og:image:height" content="486" />
    <meta property="og:author" content="Matthew Davis" />
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-   <title>Matthew Davis</title>
    <link rel="stylesheet" type="text/css" href="styles.css" />
    <link rel="stylesheet" type="text/css" href="common.css" />
    <link rel="stylesheet" type="text/css" href="media.css" />
@@ -23,7 +32,7 @@
 
 </head>
 <body>
-
+   <div class="appear">
    <h1 id="matthew-davis">Matthew Davis</h1>
 
    <p class="profileLinks">
@@ -38,11 +47,11 @@
 
    <p class="center">A collection of projects, stories and thoughts about technology</p>
 
-   <div class="cardContainer">
+   <div class="cardContainer" >
    <article>
       <a href="blockchain">
          <div class="card">
-            <img src="blockchain/image1-sml.jpg" alt="People signing contract" width="100%">
+            <img src="blockchain/image1-sml.jpg" alt="People signing contract" class="cardImage">
             <div class="cardBottom">
             <h3 class="cardTitle">Do you need a blockchain?</h3>
             <p class="cardDesc">An interactive flowchart to help cut through the hype</p>
@@ -53,7 +62,7 @@
    <article>
       <a href="supermarket">
          <div class="card">
-            <img src="./supermarket/card.jpg" alt="Poster on pole proclaiming 'big data is watching you'" width="100%">
+            <img src="./supermarket/card.jpg" alt="Poster on pole proclaiming 'big data is watching you'" class="cardImage">
             <div class="cardBottom">
             <h3 class="cardTitle">Web analytics are leaking into meatspace</h3>
             <p class="cardDesc">A Stallman-esque short story about the future of offline tracking and the right to buy</p>
@@ -64,7 +73,7 @@
    <article>
       <a href="https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/">
          <div class="card">
-            <img src="./thumbs/monitor-rotate-sml-gray.jpg" alt="Arduino with circuitboard shield" width="100%">
+            <img src="./thumbs/monitor-rotate-sml-gray.jpg" alt="Arduino with circuitboard shield" class="cardImage">
             <div class="cardBottom">
             <h3 class="cardTitle">Arduino Monitor Rotator</h3>
             <p class="cardDesc">Build an Automatic Computer Display Rotator With an Arduino</p>
@@ -75,7 +84,7 @@
    <article>
       <a href="govlist">
          <div class="card">
-            <img src="./govlist/thumb.jpg" alt="Turnbull Government Ministers" width="100%">
+            <img src="./govlist/thumb.jpg" alt="Turnbull Government Ministers" class="cardImage">
             <div class="cardBottom">
             <h3 class="cardTitle">Achievements of the Coalition Government</h3>
             <p class="cardDesc">A comprehensive list of (almost) everything the current Australian government has done</p>
@@ -86,7 +95,7 @@
    <article>
       <a href="unicycle">
          <div class="card">
-            <img src="./unicycle/thumb-drawn.jpg" alt="Unicycle basketball players " width="100%">
+            <img src="./unicycle/thumb-drawn.jpg" alt="Unicycle basketball players " class="cardImage">
             <div class="cardBottom">
             <h3 class="cardTitle">Machine Learning Unicycling</h3>
             <p class="cardDesc">Teaching a computer to ride a simulated unicycle</p>
@@ -96,6 +105,6 @@
       </article>
    </div>
    <!-- <iframe  src="https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com/prod/increment?websiteName=www" class=metrics sandbox style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;"></iframe> -->
-
+   </div>
 </body>
 </html>

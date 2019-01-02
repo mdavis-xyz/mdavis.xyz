@@ -31,7 +31,7 @@
 
       </header>
       <p class="topimagecont">
-         <img class="topimage" src="abbott-large.jpg" alt="Turnbull Government Ministers" width="1568" height="878"/>
+         <img class="topimage" src="abbott-large.jpg" alt="Turnbull Government Ministers" width="1560" height="878"/>
       </p>
 
       <p class="authordate"><a id="author" href="../">Matthew Davis</a> | ${date}</p>
@@ -73,10 +73,14 @@
       </div>
       <div id="grouped" class="hidden">
          % for (i,topic) in enumerate(topics):
-         <h2 id="topic-${i}">
-            ${topic}
-         </h2>
-         <ol id="topic-list-${i}">
+         <a href="javascript:collapseOrNot(${i});">
+            <h2 id="topic-${i}">
+               <img class="logo" src="chevron.svg" alt=">" id="arrow-${i}">
+               ${topic}
+            </h2>
+         </a>
+         <div class="" id="group-list-wrap-${i}" class="collapse">
+         <ol id="topic-list-${i}" class="groupList">
             % for row in rows:
             % if row['topic'] == i:
             <li>
@@ -90,6 +94,7 @@
             % endif
             % endfor
          </ol>
+         </div>
          % endfor
       </div>
 

@@ -93,7 +93,6 @@ hr {
    font-size: 100%;
 }
 
-
 .appear {
    position: relative;
    -webkit-animation: appear 0.6s forwards;
@@ -109,4 +108,30 @@ hr {
 @-webkit-keyframes appear {
    0% { top: 16px ; opacity: 0}
    100% { top: 0px ; opacity: 1}
+}
+
+.disappear {
+   position: relative;
+   -webkit-animation: disappear 0.6s forwards;
+   animation: disappear 0.6s forwards;
+   transition-timing-function: ease;
+}
+
+@keyframes disappear {
+   0% { top: 0px ; opacity: 1}
+   50% { top: 16px ; opacity: 0.5;}
+   100% { top: 16px ; opacity: 0; height: 0}
+}
+
+@-webkit-keyframes disappear {
+   0% { top: 0px ; opacity: 1}
+   50% { top: 16px ; opacity: 0.5; }
+   100% { top: 16px ; opacity: 0; height: 0}
+}
+
+
+.logo {
+   height: 0.8em;
+   width: auto;
+   vertical-align: baseline;
 }

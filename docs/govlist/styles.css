@@ -77,3 +77,116 @@
    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
    border-color: #000\9;
 }
+
+
+.appearStat {
+   position: relative;
+   -webkit-animation: appearStat 0.6s forwards;
+   animation: appearStat 0.6s forwards;
+   transition-timing-function: ease;
+}
+
+@keyframes appearStat {
+   0% {  opacity: 0}
+   100% {  opacity: 1}
+}
+
+@-webkit-keyframes appearStat {
+   0% { opacity: 0}
+   100% {  opacity: 1}
+}
+
+
+
+.uncollapse {
+   /*position: relative;*/
+   -webkit-animation: uncollapse 0.6s forwards;
+   animation: uncollapse 0.6s forwards;
+   transition-timing-fction: ease;
+   overflow-y: hidden;
+}
+
+@keyframes uncollapse {
+   0% {  max-height: 0}
+   100% {  }
+}
+
+@-webkit-keyframes uncollapse {
+   0% {  max-height: 0}
+   100% {  }
+}
+
+.collapse {
+   /*position: relative;*/
+   -webkit-animation: collapse 0.6s forwards;
+   animation: collapse 0.6s forwards;
+   transition-timing-fction: ease;
+   overflow-y: hidden;
+}
+
+@keyframes collapse {
+   0% {  }
+   100% {  max-height: 0}
+}
+
+@-webkit-keyframes collapse {
+   0% {  }
+   100% {  max-height: 0}
+}
+
+.rotateDown {
+   position: relative;
+   -webkit-animation: rotateDown 0.6s forwards;
+   animation: rotateDown 0.6s forwards;
+   transition-timing-function: ease;
+}
+
+@keyframes rotateDown {
+   0% {  transform: rotate(0deg); }
+   100% {  transform: rotate(90deg);}
+}
+
+@-webkit-keyframes rotateDown {
+   0% {  transform: rotate(0deg); }
+   100% {  transform: rotate(90deg);}
+}
+
+
+.rotateRight {
+   position: relative;
+   -webkit-animation: rotateRight 0.6s forwards;
+   animation: rotateRight 0.6s forwards;
+   transition-timing-function: ease;
+}
+
+@keyframes rotateRight {
+   0% {  transform: rotate(90deg); }
+   100% {  transform: rotate(0deg);}
+}
+
+@-webkit-keyframes rotateRight {
+   0% {  transform: rotate(90deg); }
+   100% {  transform: rotate(0deg);}
+}
+
+.groupList {
+
+}
+
+.groupListWrap {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+}
+
+a h2 {
+   color: #fff;
+}
+a:hover h2 {
+   text-decoration-color: #fff;
+   text-decoration: underline;
+}

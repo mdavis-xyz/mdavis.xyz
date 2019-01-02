@@ -30,3 +30,11 @@
       description: "Turnbull Government Ministers"
       width: 522
       height: 348
+-  title: "Machine Learning Unicycling"
+   description: "Teaching a computer to ride a simulated unicycle"
+   url: "unicycle"
+   image:
+      url: "./unicycle/thumb-drawn.jpg"
+      description: "Unicycle basketball players "
+      width: 677
+      height: 1000

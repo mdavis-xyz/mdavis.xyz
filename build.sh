@@ -7,7 +7,15 @@ PUBLISH_DIR=$ORIGINAL_DIR/docs
 function supermarket {
    cd $PAGES_DIR/supermarket
    python convert.py
+   mkdir -p $PUBLISH_DIR/supermarket
    cp -r $PAGES_DIR/supermarket/docs/. $PUBLISH_DIR/supermarket
+}
+
+function unicycle {
+   cd $PAGES_DIR/unicycle
+   python convert.py
+   mkdir -p $PUBLISH_DIR/unicycle
+   cp -r $PAGES_DIR/unicycle/docs/. $PUBLISH_DIR/unicycle
 }
 
 function www {
@@ -45,6 +53,7 @@ function main {
    abbott
    monitor
    blockchain
+   unicycle
 }
 
 main

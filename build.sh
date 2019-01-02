@@ -18,6 +18,13 @@ function unicycle {
    cp -r $PAGES_DIR/unicycle/docs/. $PUBLISH_DIR/unicycle
 }
 
+function paragraphiser {
+   cd $PAGES_DIR/paragraphiser
+   python convert.py
+   mkdir -p $PUBLISH_DIR/paragraphiser
+   cp -r $PAGES_DIR/paragraphiser/docs/. $PUBLISH_DIR/paragraphiser
+}
+
 function www {
    cd $PAGES_DIR/www
    python convert.py
@@ -54,6 +61,7 @@ function main {
    monitor
    blockchain
    unicycle
+   paragraphiser
 }
 
 main

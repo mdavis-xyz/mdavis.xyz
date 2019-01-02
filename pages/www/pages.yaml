@@ -38,3 +38,11 @@
       description: "Unicycle basketball players "
       width: 677
       height: 1000
+-  title: "Python Reddit Bot"
+   description: "How I wrote a reddit bot in python to reply to long posts"
+   url: "paragraphiser"
+   image:
+      url: "./paragraphiser/thumb.jpg"
+      description: "Python Code"
+      width: 677
+      height: 1000

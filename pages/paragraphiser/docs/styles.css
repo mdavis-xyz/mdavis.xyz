@@ -1,0 +1,16 @@
+blockquote {
+  background: #f1f9ff;
+  border-left: 10px solid #4493ec;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  color: #335;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.topimageSmall {
+   width: 60%;
+}

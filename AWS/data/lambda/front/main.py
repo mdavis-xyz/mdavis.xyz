@@ -70,20 +70,20 @@ def main(logger,event):
         }
         return(response)
 
-    if websiteName.lower() not in os.environ['allowedSites'].split(','):
-        logger.error("Website %s is not in allowed list (%s)" % os.environ['allowedSites'].split(','))
-        response = {
-            'statusCode': 400  ,
-            'headers' : {
-             "Access-Control-Allow-Origin": "*",
-             "Access-Control-Allow-Methods": "POST, GET",
-             "Access-Control-Allow-Headers": "X-PINGOTHER, Content-Type",
-             "Access-Control-Max-Age": 86400,
-             "Content-Type": "text/html"
-          },
-          'body': "Error, websiteName is not in the approved list"
-        }
-        return(response)
+#    if websiteName.lower() not in os.environ['allowedSites'].split(','):
+#        logger.error("Website %s is not in allowed list (%s)" % os.environ['allowedSites'].split(','))
+#        response = {
+#            'statusCode': 400  ,
+#            'headers' : {
+#             "Access-Control-Allow-Origin": "*",
+#             "Access-Control-Allow-Methods": "POST, GET",
+#             "Access-Control-Allow-Headers": "X-PINGOTHER, Content-Type",
+#             "Access-Control-Max-Age": 86400,
+#             "Content-Type": "text/html"
+#          },
+#          'body': "Error, websiteName is not in the approved list"
+#        }
+#        return(response)
  
 
     #uid = event["requestContext"]["requestId"]

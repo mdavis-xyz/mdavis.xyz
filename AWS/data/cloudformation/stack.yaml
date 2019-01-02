@@ -150,7 +150,6 @@ Resources:
                        Ref: untimedTable
                    timedTable:
                        Ref: timedTable
-                   allowedSites: "abbott,blockchain,test,supermarket,www"
                    hashConst: 1234 # dynamodb requires more hashes than I need, so use this
 
       errorAlarmFront:

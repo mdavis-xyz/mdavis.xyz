@@ -14,14 +14,6 @@
       description: "Poster on pole proclaiming 'big data is watching you'"
       width: 1000
       height: 667
--  title: "Arduino Monitor Rotator"
-   description: "Build an Automatic Computer Display Rotator With an Arduino"
-   url: "https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/"
-   image:
-      url: "./thumbs/monitor-rotate-sml-gray.jpg"
-      description: "Arduino with circuitboard shield"
-      width: 1000
-      height: 667
 -  title: "Achievements of the Coalition Government"
    description: "A comprehensive list of (almost) everything the current Australian government has done"
    url: "govlist"
@@ -38,6 +30,14 @@
       description: "Unicycle basketball players "
       width: 677
       height: 1000
+-  title: "Arduino Monitor Rotator"
+   description: "Build an Automatic Computer Display Rotator With an Arduino"
+   url: "https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/"
+   image:
+      url: "./thumbs/monitor-rotate-sml-gray.jpg"
+      description: "Arduino with circuitboard shield"
+      width: 1000
+      height: 667
 -  title: "Python Reddit Bot"
    description: "How I wrote a reddit bot in python to reply to long posts"
    url: "paragraphiser"

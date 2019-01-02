@@ -12,11 +12,11 @@ You can see the result [here](https://www.reddit.com/user/paragraphiser_bot).
 My bot currently only watches [r/relationship_advice](https://www.reddit.com/r/relationship_advice).
 If it sees a text-only post which is long and only a single paragraph, it posts something like:
 
-> Beep boop, I'm a bot.
+> <p>Beep boop, I'm a bot.</p>
 >
-> It seems you've posted a huge wall of text. This is a bit daunting for users browsing reddit, so they're unlikely to read the whole thing.
+> <p>It seems you've posted a huge wall of text. This is a bit daunting for users browsing reddit, so they're unlikely to read the whole thing.</p>
 >
-> It's ok to write a lot if you've got a lot to say. But perhaps you could insert some empty lines into your post, to break it into smaller, more palatable paragraphs?
+> <p>It's ok to write a lot if you've got a lot to say. But perhaps you could insert some empty lines into your post, to break it into smaller, more palatable paragraphs?</p>
 
 I choose the "Beep boop" part very deliberately.
 By making my bot appear cuter, people are [less likely](https://theoatmeal.com/static/blog_google_self_driving_car.html) to respond negatively if it fails.

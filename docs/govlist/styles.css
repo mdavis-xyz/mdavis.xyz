@@ -182,3 +182,7 @@ a:hover {
 .bottomquote {
    margin-bottom: 0.1em;
 }
+
+.bottom-photo {
+   max-width: 50em;
+}

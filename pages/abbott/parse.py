@@ -18,6 +18,7 @@ import random
 template_fname = "template.html"
 content_fname = "abbott.txt"
 output_fname = "docs/index.html"
+topics_fname = 'topics.yaml'
 invalidurl_excemptions_fname = "debug.yaml"
 url_fname = "URLs.txt"
 bad_url_excemptions_fname = "invalidURLs.yaml"
@@ -92,7 +93,8 @@ def parseRow(line,rowNum):
     data = {
        'text': result.groups()[0].strip(),
        'urls': [x.strip() for x in result.groups()[1].strip('{} ').split("}{") if x.strip() != ''],
-       'topic': result.groups()[2].strip(),
+       'hashTag': result.groups()[2].strip(),
+       'topic': classify(result.groups()[2].strip())
     }
 
     if len(data['urls']) == 0:
@@ -104,11 +106,11 @@ def parseRow(line,rowNum):
 
 def testParseRow():
 
-    line = "some text {https://www.example.com/1}{https://www.example.com/2}#topic"
+    line = "some text {https://www.example.com/1}{https://www.example.com/2}#age"
     data = parseRow(line,123)
     try:
         assert(data['text'] == 'some text')
-        assert(data['topic'] == 'topic')
+        assert(topicOrder[data['topic']] == 'Health')
         assert(data['urls'] == ['https://www.example.com/1','https://www.example.com/2'])
     except AssertionError as e:
         print("Error: can't parse example line")
@@ -155,8 +157,68 @@ def readFile():
 
     return(data)
 
+
+def initTopics():
+    with open(topics_fname,'r') as f:
+        data = yaml.safe_load(f)
+
+    # hashMap is a dict, takes in a hash tag, returns topic id
+    # topicOrder is a list of topics
+    topicOrder = []
+    hashMap = {}
+    for (i,topicDict) in enumerate(data):
+        assert(len(topicDict) == 1)
+        topicName = list(topicDict.keys())[0]
+        topicOrder.append(topicName)
+        for tag in topicDict[topicName]:
+            hashMap[tag.lower()] = i
+
+    return(hashMap,topicOrder)
+
+(hashMap,topicOrder) = initTopics()
+
+# returns the index of the related topic
+def classify(hashtag):
+    return(hashMap[hashtag.lower()])
+
+def testClassify():
+    assert(topicOrder[classify('Age')] == 'Health')
+    assert(topicOrder[classify('age')] == 'Health')
+
+
 def test():
     testParseRow()
+    testClassify()
+    testStripSpace()
+
+def stripSpace(text):
+    newLines = []
+    for line in text.split('\n'):
+        newLine = ' '.join([w for w in line.split(' ') if w.strip() != ''])
+        if newLine.strip() != '':
+            newLines.append(newLine)
+    newText = '\n'.join(newLines)
+    return(newText)
+    # text = re.sub(r" {2,}"," ",text, re.MULTILINE)
+    # text = re.sub(r" +\n","\n",text, re.MULTILINE)
+    # text = re.sub(r"\n +","\n",text, re.MULTILINE)
+    # return(text)
+    # array = text.split('  ')
+    # print(array)
+    # joined = ' '.join([a.strip(' ') for a in array if a.strip() != ''])
+    # array = text.split('\n')
+    # joined = '\n'.join([a.strip(' ') for a in array if a.strip() != ''])
+    # return(joined)
+
+def testStripSpace():
+    inText = 'a b  c \n   d e\n\nf\n \ng'
+    expected = 'a b c\nd e\nf\ng'
+    actual = stripSpace(inText)
+    if expected != actual:
+        print("Expected: " + expected)
+        print("Actual: " + actual)
+    assert(expected == actual)
+
 
 def main():
     test()
@@ -166,7 +228,9 @@ def main():
     checkAllURLs(data)
 
     dateStr = dt.date.today().strftime('%d, %b %Y')
-    output_html = Template(template).render(rows=data,date=dateStr)
+    output_html = Template(template).render(rows=data,date=dateStr,topics=topicOrder)
+
+    output_html = stripSpace(output_html)
 
     with open(output_fname,"w") as f:
         f.write(output_html)

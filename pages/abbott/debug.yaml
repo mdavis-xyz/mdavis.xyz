@@ -1,3 +1,57 @@
+- hashTag: asylum
+  text: Handcuffed an innocent child whilst preventing her from receiving urgently
+    needed medical treatment.
+  topic: 1
+  urls: ['https://www.theguardian.com/world/2018/dec/20/six-weeks-since-being-brought-to-australia-for-treatment-nauru-refugee-yet-to-see-doctor']
+- hashTag: renewables
+  text: Gave corporate welfare to fund coal generators, through a grant which they
+    claim is "technology neutral", despite it specifying a narrow range of technologies.
+  topic: 2
+  urls: ['https://www.theguardian.com/environment/2018/dec/13/coalition-signals-it-will-provide-taxpayer-support-for-new-and-existing-coal-plants']
+- hashTag: corruption
+  text: Excused the conflict of interest arising when the head of the My Health Record
+    (appointed by the government) privately received money for consultations about
+    the My Health Record.
+  topic: 12
+  urls: ['https://www.smh.com.au/healthcare/hidden-conflict-my-health-record-boss-privately-giving-advice-to-health-firms-20181107-p50eh9.html']
+- hashTag: charity
+  text: Cut funding for the Foodbank charity for a third time. This time $323,000
+    was cut just before Christmas.
+  topic: 4
+  urls: ['https://www.theguardian.com/australia-news/2018/nov/12/coalition-cuts-funding-for-foodbank-charity-by-323000-a-year']
+- hashTag: budget
+  text: Spent half a billion dollars on an upgrade for a war memorial.
+  topic: 0
+  urls: ['https://www.theguardian.com/australia-news/2018/nov/01/coalition-to-spend-half-a-billion-dollars-on-australian-war-memorial-project']
+- hashTag: indigenous
+  text: Gave money from a fund for Indigenous advancement to a fishing corporation
+    to help it fight Indigenous land claims.
+  topic: 5
+  urls: ['https://www.theguardian.com/australia-news/2018/nov/02/nigel-scullion-gave-indigenous-funding-to-his-former-fishing-lobby-group-to-fight-land-claims',
+    'https://www.sbs.com.au/nitv/nitv-news/article/2018/10/31/scullion-directs-indigenous-funds-cattle-and-fishing-lobby-groups']
+- hashTag: transparency
+  text: Spent 2 years trying to hide documents from Freedom of Information requests,
+    about a serious breach of top secret documents, and mishandling of those documents
+    by a minister.
+  topic: 12
+  urls: ['https://www.abc.net.au/news/2018-10-22/josh-frydenberg-loses-legal-battle-to-hide-police-transcript/10402298']
+- hashTag: immigration
+  text: Cancelled the citizenship of someone who's citizenship application was approved
+    18 years ago, who has lived in Australia for 41 years.
+  topic: 1
+  urls: ['https://www.sbs.com.au/yourlanguage/punjabi/en/article/2018/12/07/migrants-australian-citizenship-cancelled-18-years-after-it-was-approved']
+- hashTag: budget
+  text: Proposed the underwriting of coal power plant construction. Risks too high
+    for the private sector will be thrust upon taxpayers, whilst the profit will remain
+    privatised
+  topic: 0
+  urls: ['https://www.theage.com.au/politics/federal/former-official-criticises-angus-taylor-over-extraordinary-coal-protection-measure-20181106-p50ebw.html',
+    'https://www.theage.com.au/politics/federal/competition-chief-learnt-of-controversial-energy-plan-when-he-read-about-it-in-the-newspaper-20181025-p50bwv.html']
+- hashTag: budget
+  text: Doubled the amount spent on external consultants, after cutting public sector
+    staff.
+  topic: 0
+  urls: ['https://www.smh.com.au/politics/federal/prime-minister-and-cabinet-doubles-consultant-spend-in-one-year-20181005-p5080v.html']
 - hashTag: environment
   text: Cut one third of jobs from the Department of Environment.
   topic: 2
@@ -253,9 +307,13 @@
   urls: ['http://thenewdaily.com.au/news/national/2017/06/23/peter-dutton-citizenship-english-test-coal/']
 - hashTag: unemployment
   text: Paid companies to hire young people for entry level jobs at far less than
-    the minimum wage.
+    the minimum wage. There is evidence that companies replace real jobs with these
+    underpaid ones. One such company killed a person by not avoiding obvious and easily
+    foreseeable risks. They were fined only $70k.
   topic: 8
-  urls: ['https://www.pedestrian.tv/news/arts-and-culture/government-to-push-10000-unemployed-youth-into-4ho/55c94240-cdbe-4834-b5b6-24542d4540ab.htm']
+  urls: ['https://www.pedestrian.tv/news/arts-and-culture/government-to-push-10000-unemployed-youth-into-4ho/55c94240-cdbe-4834-b5b6-24542d4540ab.htm',
+    'https://www.buzzfeed.com/aliceworkman/a-company-has-been-fined-90000-after-a-teenager-died-on-its',
+    'https://www.abc.net.au/news/2018-12-24/hungry-jacks-advertises-internships-for-summer/10665548']
 - hashTag: climate
   text: Chose not to appoint any climate scientists to the Climate Change Authority.
   topic: 2
@@ -526,9 +584,12 @@
   topic: 0
   urls: ['http://www.abc.net.au/news/2014-10-09/abs-staff-say-data-undermined-by-funding-cuts/5801844']
 - hashTag: internetfilter
-  text: Introduced a second internet filter.
+  text: Introduced a second internet filter. Internet consumers will be forced pay
+    their telcos to block websites which foreign film companies dislike. The Liberals
+    have accepted millions of dollars of donations from those foreign companies.
   topic: 6
-  urls: ['http://www.gizmodo.com.au/2016/09/the-australian-government-will-block-online-stores-not-collecting-gst/']
+  urls: ['http://www.gizmodo.com.au/2016/09/the-australian-government-will-block-online-stores-not-collecting-gst/',
+    'https://boingboing.net/2018/12/02/mps-for-sale.html']
 - hashTag: transparency
   text: Refused to publish the cost benefit analysis on the agriculture minister's
     decision to move a federal agency from Canberra to his own electorate.
@@ -1239,10 +1300,11 @@
   topic: 5
   urls: ['https://newmatilda.com//2015/05/29/anti-deaths-custody-service-could-disappear-after-federal-funding-cut']
 - hashTag: immigration
-  text: Granted the Immigration Department the power to search through the stored
-    metadata of all citizens (and they won't need a warrant).
+  text: Granted the Immigration Department and local councils the power to search
+    through the stored metadata of all citizens (and they won't need a warrant).
   topic: 1
-  urls: ['http://www.cnet.com/au/news/scope-creep-australian-border-force-granted-metadata-access/']
+  urls: ['http://www.cnet.com/au/news/scope-creep-australian-border-force-granted-metadata-access/',
+    'https://www.smh.com.au/business/consumer-affairs/councils-pry-into-residents-metadata-to-chase-down-fines-20181114-p50fxr.html']
 - hashTag: environment
   text: Tried to pass off all responsibility for "matters of national environmental
     significance" to the states, who have weaker environmental protections.
@@ -1597,7 +1659,7 @@
   urls: ['https://newmatilda.com/2014/12/09/black-australia-would-be-essentially-free-labour-under-work-dole-changes']
 - hashTag: internetfilter
   text: Claimed that virtual private networks (VPNs) would be exempt from their internet
-    filter, then voted against an amendment to exempt VPNs from the internet filter.
+    filter, then voted against an amendment to exempt VPNs from their internet filter.
   topic: 6
   urls: ['http://pirateparty.org.au/2015/06/23/copyright-industry-buys-its-very-own-censorship-regime/']
 - hashTag: internetfilter

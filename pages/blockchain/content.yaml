@@ -6,7 +6,7 @@
           destination: 1
           destination-type: relative
           direction: left
-     - p: Written by <a target="_blank" href="https://www.linkedin.com/in/engineerdavis/">Matthew Davis</a>. Inspired by <a target="_blank" href="http://doyouneedablockchain.com/">doyouneedablockchain.com</a> and <a target="_blank" href="https://davidgerard.co.uk/blockchain/2018/02/10/do-you-need-a-blockchain-probably-less-than-wust-and-gervais-think-you-do/">David Gerard's blog</a>.
+     - p: Written by <a target="_blank" href="../">Matthew Davis</a>. Inspired by <a target="_blank" href="http://doyouneedablockchain.com/">doyouneedablockchain.com</a> and <a target="_blank" href="https://davidgerard.co.uk/blockchain/2018/02/10/do-you-need-a-blockchain-probably-less-than-wust-and-gervais-think-you-do/">David Gerard's blog</a>.
 - id: physical-q
   content:
      - h2: Is the data about verifying or tracking physical things?

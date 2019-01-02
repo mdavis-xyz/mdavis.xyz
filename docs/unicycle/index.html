@@ -16,6 +16,8 @@
 
    <title>Applying Machine Learning to Unicycling</title>
    <link rel="stylesheet" type="text/css" href="styles.css" />
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
 
    <!-- <script src="script.js" type="text/javascript"></script> -->
 
@@ -30,16 +32,11 @@
       <!-- <p class="authordate"><div id="author">Matthew Davis</div> | <div id="date">02, Jan 2019</div></p> -->
       <p class="authordate"><a id="author" href="../">Matthew Davis</a> | 02, Jan 2019</p>
 
+      <video autoplay loop class="video">
+         <source src="video.mp4" type="video/mp4" width=1500 height=500>
+      </video>
 
-      <div class="videoContainer">
-        <video autoplay loop class="video">
-            <source src="video.mp4" type="video/mp4" width=1500 height=500>
-        </video>
-      </div>
-
-      <p>This project is a combination of two of my passions: programming and unicycling.</p>
-      <p>I used the <a target="_blank" href="https://github.com/keras-rl/keras-rl">Keras reinforcement learning library</a> to train a machine learning model how to ride a unicycle.</p>
-      <p>I published the code in <a target="_blank" href="https://github.com/mlda065/keras-unicycle">this Github repo</a>.</p>
+      <p>This project is a combination of two of my passions: programming and unicycling. I used the <a target="_blank" href="https://github.com/keras-rl/keras-rl">Keras reinforcement learning library</a> to train a machine learning model how to ride a unicycle. I published the code in <a target="_blank" href="https://github.com/mlda065/keras-unicycle">this Github repo</a>.</p>
       <p>Unicycles are a type of <a target="_blank" href="https://en.wikipedia.org/wiki/Inverted_pendulum">inverted pendulum</a>. These problems are well suited to machine learning. (Yes, this can be solved with traditional PID controllers and fuzzy logic. I chose machine learning as something fun and educational.)</p>
       <p>There is a lot of unsubstantiated hype about what machine learning can do, including the misnomer of &quot;artificial intelligence&quot;. As technologists it's our job to make sure normal people don't get carried away with the hype.</p>
       <p>One reason machine learning is well suited to unicycling is because it's a small action space, completely deterministic, and easily assessable. Anyone can tell you whether a unicyclist fell over or not. As a counter-example, using machine learning to flag terrorist propaganda or copyright infringement on the web is <em>never</em> going to be good, because humans can't agree on what counts and what doesn't. (<a target="_blank" href="https://www.nytimes.com/2016/09/10/technology/facebook-vietnam-war-photo-nudity.html">example</a>, <a target="_blank" href="https://theweek.com/articles/497091/australias-small-breast-ban">example</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Legal_status_of_drawn_pornography_depicting_minors">example</a>) How could we possibly train a computer to classify things based on categories we can't agree on? There are some problems which can't be solved by machine learning. Trying to throw machine learning at everything results in <a target="_blank" href="https://theintercept.com/2017/11/02/war-crimes-youtube-facebook-syria-rohingya/">war criminals escaping punishment</a>, and criminals being imprisoned for longer just <a target="_blank" href="https://www.wired.com/2017/04/courts-using-ai-sentence-criminals-must-stop-now/">because they're from a poor postcode</a>. Another example of a problem which is foolishly being 'solved' by machine learning is <a target="_blank" href="https://theintercept.com/2018/12/03/air-travel-surveillance-homeland-security/">adding people to the no-fly list based on postcode</a>.</p>

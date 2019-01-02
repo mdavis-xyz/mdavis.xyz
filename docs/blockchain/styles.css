@@ -1,15 +1,8 @@
-* {
-   font-family: "Source Sans Pro", Helvetica, sans-serif;
-}
-
-
 body {
-   background: rgb(51,51,51);
    font-size: 100%;
    overflow-y: hidden;
    overflow-x: hidden;
    text-align: center;
-   color: #fff;
    /*width: 100%;*/
 }
 
@@ -64,11 +57,6 @@ p {
    padding-left: 0.5rem;
    padding-right: 0.5rem;
    font-size: 1.2rem;
-}
-
-a {
-   text-decoration: none;
-   color: #007fff;
 }
 
 .wrap1 {
@@ -250,7 +238,7 @@ a {
 
 .button {
    font-size: 130%;
-   color: #444;
+   /*color: #444;*/
    display: inline-block;
    background-color: #E6E6E6;
    margin: 12px;
@@ -258,7 +246,7 @@ a {
    /*! min-width:  10%; */
    margin-bottom: 0.5rem;
    border-radius: 0.2em;
-   color: rgba(0, 0, 0, 0.80);
+   color: rgba(4, 4, 4, 0.80);
    text-transform: capitalize;
    font-weight: bold;
    padding: 0.5rem 1rem;
@@ -275,6 +263,7 @@ a {
    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
    outline: 0;
+   text-decoration: none;
 }
 .button-back:active,
 .button:active {
@@ -346,11 +335,6 @@ a {
    100% { transform: translateX(-200%); }
 }
 
-.metrics {
-   height: 0px;
-   width: 0px;
-   display: none
-}
 
 ::-webkit-scrollbar {
    display: none;

@@ -1,71 +1,3 @@
-* {
-   font-family: "Source Sans Pro", Helvetica, sans-serif;
-}
-
-
-body {
-   background: rgb(51,51,51);
-   font-size: 200%;
-   color: #fff;
-   width: 80%;
-   margin: auto;
-   padding-top: 3rem;
-   padding-bottom: 3rem;
-   overflow-x: hidden;
-}
-
-html {
-   /*font-size: 50%;*/
-}
-
-h1 {
-   text-transform: capitalize;
-}
-
-@media (min-width:20rem)  {
-   html {
-      font-size: 66%;
-   }
-}
-
-@media (min-width:30rem)  {
-   html {
-      font-size: 100%;
-   }
-}
-/*
-@media (min-width:45rem)  {
-   html {
-      font-size: 150%;
-   }
-}
-
-@media (min-width:60rem)  {
-   html {
-      font-size: 160%;
-   }
-}*/
-
-header {
-   text-align: center;
-}
-
-.authordate {
-   text-align: center;
-}
-
-.center {
-   text-align: center;
-}
-
-.home {
-   text-size: 70%;
-}
-
-.footer {
-   font-size: 70%;
-   text-align: right;
-}
 
 code {
   font-family: Consolas, Menlo, Monaco, monospace;
@@ -87,12 +19,6 @@ pre {
    overflow-x: scroll;
 }
 
-hr {
-   border-top: 1px solid #8c8b8b;
-   margin-below: 1em;
-   margin-top: 1em;
-   width: 50%;
-}
 
 .topimage {
    /*width: 80%;*/
@@ -105,37 +31,8 @@ hr {
    text-align: center;
 }
 
-.metrics {
-   height: 0px;
-   width: 0px;
-   display: none
-}
-
 .subtitle {
    font-size: 100%;
-}
-
-.alignleft {
-	float: left;
-   padding-left: 2em;
-}
-.alignright {
-	float: right;
-   padding-right: 2em;
-}
-.alignnormal {
-   clear: both;
-}
-
-.date {
-   font-style:italic;
-   display:inline;
-}
-
-.author {
-   margin-bottom: 1em;
-   font-size: 110%;
-   display:inline;
 }
 
 .disclaimer {
@@ -144,7 +41,6 @@ hr {
    text-align: center;
 }
 
-
 blockquote {
     border-left: 5px solid #ccc;
     margin:  1.5rem 1.5rem;
@@ -152,50 +48,7 @@ blockquote {
     font-style: italic;
 }
 
-
-iframe {
-   height: 0px;
-   width: 0px;
-   display: none
-}
-
-.unsplash {
-   background-color:black;
-   color:white;
-   text-decoration:none;
-   padding:4px 6px;
-   font-family:-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
-   font-size:12px;
-   font-weight:bold;
-   line-height:1.2;
-   display:inline-block;
-   border-radius:3px
-}
-
-.unsplash-svg {
-   height:12px;
-   width:auto;
-   position:relative;
-   vertical-align:middle;
-   top:-2px;
-   fill:white
-}
-
 .photoauthor {
    font-size: 70%;
    text-align: center;
-}
-
-a {
-   /*color: #94CAFF;*/
-   color: #007fff;
-   text-decoration: none;
-}
-
-a:visited {
-   /*text-decoration: none;*/
-}
-
-a:hover {
-   text-decoration: underline;
 }

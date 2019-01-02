@@ -1,7 +1,5 @@
 This project is a combination of two of my passions: programming and unicycling.
-
 I used the [Keras reinforcement learning library](https://github.com/keras-rl/keras-rl) to train a machine learning model how to ride a unicycle.
-
 I published the code in [this Github repo](https://github.com/mlda065/keras-unicycle).
 
 Unicycles are a type of [inverted pendulum](https://en.wikipedia.org/wiki/Inverted_pendulum).

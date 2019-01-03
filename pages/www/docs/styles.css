@@ -52,6 +52,7 @@ article a:hover  {
 
 .cardImage {
    width: 100%;
+   height: auto;
    border-radius: 0.2em 0.2em 0 0
 }
 

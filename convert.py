@@ -6,6 +6,7 @@ import shutil
 from subprocess import call
 import pypandoc
 import os
+import re
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
@@ -26,6 +27,52 @@ def callShellCmd(cmd,directory):
     ret = call(cmd, shell=True, cwd=directory)
     assert(not ret)
     print("Finished calling `%s` in %s" % (cmd,directory))
+
+def stripMarkdown(text):
+    expr = r'<[^<>]+>'
+    text = re.sub(expr, '', text)
+    expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
+    text = re.sub(expr, r'\1', text)
+    return(text)
+
+def testStripMarkdown():
+    original = 'asd'
+    expected = 'asd'
+    actual = stripMarkdown(original)
+    assert(expected == actual)
+
+    original = '1 <a href="123">blah</a> 2'
+    expected = '1 blah 2'
+    actual = stripMarkdown(original)
+    assert(expected == actual)
+
+    original = 'This [link](http://example.com) shows [this](./blah)'
+    expected = 'This link shows this'
+    actual = stripMarkdown(original)
+    if expected != actual:
+        print("actual: " + actual)
+    assert(expected == actual)
+
+def numWords(markdown):
+    content = stripMarkdown(markdown)
+    numWords = len([w for w in content.split(' ') if w.strip() != ''])
+    print("Number of words is %d" % numWords)
+    return(numWords)
+
+def estReadingTime(markdownFname):
+    with open(markdownFname,'r') as f:
+        markdown = f.read()
+
+
+    wpm = 265 # https://help.medium.com/hc/en-us/articles/214991667-Read-time
+    minutes = numWords(markdown) / float(wpm)
+    return(minutes)
+
+def testNumWords():
+    text = 'Hi [this](http://blah.com) is <i>a</i> Test!'
+    expected = 5
+    actual = numWords(text)
+    assert(actual == expected)
 
 # data is for just this page
 def doOne(data,allData):
@@ -58,6 +105,9 @@ def doOne(data,allData):
             if 'exclude' not in data:
                 data['exclude'] = []
             data['exclude'].append('script')
+            print("Estimating reading time for %s" % data['title'])
+            data['estReadingTime'] = estReadingTime(markdownFname)
+
 
         if 'date' in data:
             date = {
@@ -172,4 +222,9 @@ def doAll():
 
     print("Done")
 
+def test():
+    testStripMarkdown()
+    testNumWords()
+
+test()
 doAll()

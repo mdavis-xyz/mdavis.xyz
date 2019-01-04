@@ -1,4 +1,4 @@
-<video autoplay loop class="video" >
+<video autoplay loop class="video" class="appear">
    <source src="video.mp4" type="video/mp4" width=1500 height=500>
 </video>
 

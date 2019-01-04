@@ -1,4 +1,36 @@
 - hashTag: asylum
+  text: Spent $320,000 on legal fights denying asulum seekers urgent medical transfers
+    to the mainland to treat life-threatening conditions.
+  topic: 1
+  urls: ['https://www.theguardian.com/australia-news/2018/sep/29/australia-spent-320000-fighting-requests-for-urgent-medical-transfers-of-asylum-seekers']
+- hashTag: science
+  text: Secretly blocked funding for $4M in humanities research projects, which were
+    already approved by the government's research approval body (ARC).
+  topic: 2
+  urls: ['https://www.theguardian.com/australia-news/2018/oct/26/knuckle-dragging-philistines-labor-targets-liberals-for-blocking-arts-grants']
+- hashTag: science
+  text: Introduced a new reason for rejecting government funding of research proposals.
+    Research which doesn't advance the national interest will be rejected. Historically
+    important yet socially controversial research like evolution and the sun-centric
+    solar system would have been rejected under this model.
+  topic: 2
+  urls: ['https://www.theguardian.com/australia-news/2018/oct/31/academics-will-have-to-pass-national-interest-test-for-public-funding-coalition-says']
+- hashTag: budget
+  text: Spent $16,880 on personal stationary for just one minister for one year.
+  topic: 0
+  urls: ['http://www.abc.net.au/news/2018-10-05/mps-expense-claims-stuart-robert-spent-most-on-stationery/10328066']
+- hashTag: budget
+  text: Spent $20k making custom phone apps for a single senator. A website would
+    have sufficed.
+  topic: 0
+  urls: ['http://www.abc.net.au/news/2018-10-05/mps-expense-claims-stuart-robert-spent-most-on-stationery/10328066']
+- hashTag: environment
+  text: Ignored advice from 3 government bodies, choosing to instead allow a private
+    company to build environmentally damaging infrastructure in a World Heritage Area,
+    in violation of zoning rules.
+  topic: 2
+  urls: ['https://www.smh.com.au/politics/federal/government-waved-through-development-in-world-heritage-area-despite-objections-from-its-own-advisers-20181126-p50ie5.html']
+- hashTag: asylum
   text: Handcuffed an innocent child whilst preventing her from receiving urgently
     needed medical treatment.
   topic: 1
@@ -14,6 +46,14 @@
     the My Health Record.
   topic: 12
   urls: ['https://www.smh.com.au/healthcare/hidden-conflict-my-health-record-boss-privately-giving-advice-to-health-firms-20181107-p50eh9.html']
+- hashTag: health
+  text: Rolled out the My Health Record to the whole country as an opt-out system,
+    despite safety concerns about how abusive stalkers can use it, and despite the
+    trial involving 9 security breaches. 42 more security breaches happened within
+    weeks of the system being rolled out nationally.
+  topic: 11
+  urls: ['https://news-mail.com.au/news/nine-data-breaches-linked-to-my-health-record-kept/3482511/',
+    'https://www.dailymail.co.uk/news/article-6540685/My-Health-online-records-illegally-accessed-Australian-Digital-Health-Agency-reveals-report.html']
 - hashTag: charity
   text: Cut funding for the Foodbank charity for a third time. This time $323,000
     was cut just before Christmas.
@@ -76,7 +116,8 @@
 - hashTag: budget
   text: Charged taxpayers $2000 per month for one minister's home internet connection.
   topic: 0
-  urls: ['https://www.smh.com.au/national/nsw/assistant-treasurer-bills-taxpayers-2000-a-month-for-data-at-home-20181003-p507jx.html']
+  urls: ['https://www.smh.com.au/national/nsw/assistant-treasurer-bills-taxpayers-2000-a-month-for-data-at-home-20181003-p507jx.html',
+    'https://thenewdaily.com.au/news/national/2018/10/05/stuart-robert-internet/']
 - hashTag: university
   text: Reduced the income threshold at which graduates start paying back HECS debt,
     down to $45,000.
@@ -353,11 +394,11 @@
   topic: 10
   urls: ['http://www.news.com.au/finance/business/travel/nbn-co-spent-12-million-on-airfares-in-2016/news-story/fbe02a7ac7b02d7fe302d48e1aab930e']
 - hashTag: transparency
-  text: Prevented university newspapers from attending the release of the budget like
-    all other newspapers. This particular budget contained multiple changes which
-    negatively impact university students.
+  text: Prevented university newspapers from attending the release of multiple annual
+    budgets like all other newspapers. These particular budgets contained multiple
+    changes which negatively impact university students.
   topic: 12
-  urls: ['https://www.buzzfeed.com/aliceworkman/no-budget-for-you']
+  urls: ['https://www.buzzfeed.com/aliceworkman/no-budget-for-you', 'http://junkee.com/student-media-budget-release/154010']
 - hashTag: NBN
   text: Introduced a new tax, of at least $7.10 per month per NBN fixed line user.
   topic: 10

@@ -108,12 +108,14 @@
 
 @keyframes uncollapse {
    0% {  max-height: 0}
-   100% {  }
+   99% { max-height: 99em }
+   100% { max-height: auto }
 }
 
 @-webkit-keyframes uncollapse {
    0% {  max-height: 0}
-   100% {  }
+   99% { max-height: 99em }
+   100% { max-height: auto }
 }
 
 .collapse {
@@ -125,13 +127,19 @@
 }
 
 @keyframes collapse {
-   0% {  }
+   0% { max-height: 99em }
+   100% {  max-height: 0}
    100% {  max-height: 0}
 }
 
 @-webkit-keyframes collapse {
-   0% {  }
-   100% {  max-height: 0}
+   0% { max-height: 99em }
+   90% {  max-height: 0}
+}
+
+.collapsed {
+   max-height: 0;
+   overflow-y: hidden;
 }
 
 .rotateDown {
@@ -186,7 +194,17 @@
 a h2 {
    color: #fff;
 }
+
+a:hover {
+   text-decoration: none;
+}
+
 a:hover h2 {
    text-decoration-color: #fff;
    text-decoration: underline;
+}
+
+h2 {
+   margin-top: 0.3em;
+   margin-bottom: 0.3em;
 }

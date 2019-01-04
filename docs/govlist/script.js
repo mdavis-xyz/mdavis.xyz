@@ -41,7 +41,7 @@ function byTopic(){
    document.getElementById("grouped").classList.remove('hidden');
    document.getElementById("grouped").classList.add('appear');
    document.getElementById("chronological").classList.add('disappear');
-   document.getElementById("chronological").classList.add('appear');
+   document.getElementById("chronological").classList.remove('appear');
 }
 
 var uncollapsed = new Set();
@@ -69,6 +69,7 @@ function collapseOrNot(topicID){
       uncollapsed.add(topicID);
       wrap.classList.add('uncollapse');
       wrap.classList.remove('collapse');
+      wrap.classList.remove('collapsed');
       arrowEl.classList.remove('rotateRight');
       arrowEl.classList.add('rotateDown');
    }

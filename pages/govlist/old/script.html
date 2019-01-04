@@ -1,0 +1,59 @@
+   <script type="text/javascript">  
+
+      function expandcollapseind(theDiv) { 
+         el = document.getElementById(theDiv); 
+         if(el.style.display == 'none'){ 
+            el.style.display = 'inline'; 
+         }else { 
+            el.style.display = 'none'; 
+         } 
+         return false; 
+      } 
+      function expandcollapsetopic(topicName) { 
+         expandcollapseind("down".concat(topicName));
+         expandcollapseind("topic".concat(topicName));
+         expandcollapseind("right".concat(topicName));
+         return false; 
+      } 
+      function switchgrouping() {
+         expandcollapseind("groups");
+         expandcollapseind("list");
+         return false;
+      }
+
+      function reverseAllLists(){
+
+        var topic = 0;
+
+        while(listExists("l_group" + topic)){
+           reverseList("l_group" + topic);
+           topic++;
+        }
+
+        //show a new button instead
+        expandcollapseind("chronoButton"); 
+        expandcollapseind("reversedButton"); 
+
+
+
+        // reverse the ungrouped list
+        
+        reverseList("l_ungrouped");
+        return false;
+      }
+
+      function reverseList(l_name){
+        var l = document.getElementById(l_name);
+        var i = l.childNodes.length;
+        while (i--){
+          l.appendChild(l.childNodes[i]);
+        }
+        return false;
+      }
+
+      function listExists(l_name){
+         l = document.getElementById(l_name);
+         return (l != null);
+      }
+
+   </script>

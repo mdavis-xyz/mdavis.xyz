@@ -1,3 +1,7 @@
+<video autoplay loop class="video" >
+   <source src="video.mp4" type="video/mp4" width=1500 height=500>
+</video>
+
 This project is a combination of two of my passions: programming and unicycling.
 I used the [Keras reinforcement learning library](https://github.com/keras-rl/keras-rl) to train a machine learning model how to ride a unicycle.
 I published the code in [this Github repo](https://github.com/mlda065/keras-unicycle).

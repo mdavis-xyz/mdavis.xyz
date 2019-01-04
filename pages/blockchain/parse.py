@@ -98,7 +98,7 @@ def main():
     html = htmlize(content)
     # print(html)
 
-    with open('docs/index.html','w') as f:
+    with open('stub.html','w') as f:
         f.write(html)
     print('done')
 

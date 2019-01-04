@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">${data['title']}</title>
+   <meta name="description" content="${data['description']}">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="${data['title']}">
+   <meta property="schema:description" content="${data['description']}">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="${data['title']}">
+   <meta property="og:description" content="${data['description']}">
+
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/${data['publishPath']}" />
+
+   % if 'attribution' in data['images']['card']:
+   <!-- ${data['images']['card']['attribution']} -->
+   % endif
+   % if data['template'] == 'home':
+   <meta property="og:image" content="https://www.mdavis.xyz/${data['images']['card']['path']}" />
+   % else:
+   <meta property="og:image" content="https://www.mdavis.xyz/${data['publishPath']}/${data['images']['card']['path']}" />
+   % endif
+   <meta property="og:image:width" content="${data['images']['card']['width']}" />
+   <meta property="og:image:height" content="${data['images']['card']['height']}" />
+   <meta property="og:author" content="Matthew Davis" />
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="${"" if data['template'] == 'home' else "../"}common.css" />
+   % if 'mediaCSS' not in data['exclude']:
+   <link rel="stylesheet" type="text/css" href="${"" if data['template'] == 'home' else "../"}media.css" />
+   % endif
+
+   % if 'script' not in data['exclude']:
+   <script src="script.js" type="text/javascript"></script>
+   % endif
+
+</head>
+<body>
+   % if 'appear' not in data['exclude']:
+   <div class="appear">
+   % endif
+
+   % if 'article' not in data['exclude']:
+   <article>
+
+
+      <header>
+         <h1 id="title">${data['title']}</h1>
+         <p id="subtitle" class="subtitle">${data['description']}</p>
+      </header>
+
+
+      % if 'top' in data['images']:
+      <p class="topimagecont">
+         <img class="topimage"
+              src="${data['images']['top']['path']}"
+              alt="${data['images']['top']['description']}"
+              width="${data['images']['top']['width']}"
+              height="${data['images']['top']['height']}"/>
+      </p>
+      % endif
+
+      % if 'date' not in data['exclude']:
+      <p class="authordate">
+         <a id="author" href="../">
+            <span class="byline-name">
+               Matthew Davis
+            </span>
+         </a>
+         |
+         <time datetime="${data['date']['computer']}" itemprop="datePublished">
+            <span>
+               ${data['date']['human']}
+            </span>
+         </time>
+      </p>
+      % endif
+      <aside>
+         <p>
+            % if 'disclaimer' in data:
+            <div class="disclaimer">
+               ${data['disclaimer']}
+            </div>
+            % endif
+            % if ('top' in data['images']) and ('attribution' in data['images']['top']):
+            <div class="photoauthor center">
+               ${data['images']['top']['attribution']}
+            </div>
+            % endif
+         <p>
+      </aside>
+      <hr/>
+   % endif
+      ${data['content']}
+
+   % if 'article' not in data['exclude']:
+   </article>
+   % endif
+
+
+   % if 'footer' not in data['exclude']:
+   <nav>
+      % if 'footerHR' not in data['exclude']:
+      <hr/>
+      % endif
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+   % endif
+
+   % if 'appear' not in data['exclude']:
+   </div>
+   % endif
+
+   % if enableTracking:
+   <iframe
+      src="https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com/prod/increment?websiteName=${data['publishPath']}"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+   % endif
+</body>
+</html>

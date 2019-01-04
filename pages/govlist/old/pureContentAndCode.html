@@ -1,0 +1,24 @@
+   <script type="text/javascript">  
+
+      function expandcollapseind(theDiv) { 
+         el = document.getElementById(theDiv); 
+         if(el.style.display == 'none'){ 
+            el.style.display = 'inline'; 
+         }else { 
+            el.style.display = 'none'; 
+         } 
+         return false; 
+      } 
+      function expandcollapsetopic(topicName) { 
+         expandcollapseind("down".concat(topicName));
+         expandcollapseind("topic".concat(topicName));
+         expandcollapseind("right".concat(topicName));
+         return false; 
+      } 
+      function switchgrouping() {
+         expandcollapseind("groups");
+         expandcollapseind("list");
+         return false;
+      }
+
+   </script>

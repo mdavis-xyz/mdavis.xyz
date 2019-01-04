@@ -35,22 +35,12 @@ pre {
    font-size: 100%;
 }
 
-.disclaimer {
-   font-size: 70%;
-   font-style: italic;
-   text-align: center;
-}
 
 blockquote {
     border-left: 5px solid #ccc;
     margin:  1.5rem 1.5rem;
     padding:  0.5rem 0.5rem;
     font-style: italic;
-}
-
-.photoauthor {
-   font-size: 70%;
-   text-align: center;
 }
 
 

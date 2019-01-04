@@ -1,0 +1,89 @@
+<p>
+The Abbott-Turnbull government has been in power for
+
+   <script type="text/javascript">
+      //calculate the number of days since the election
+      var electionDay = new Date('7 Sep 2013'); //election day
+      var today = new Date(); //today
+      var elapsed_ms = today.getTime() - electionDay.getTime(); //difference in ms
+      var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
+
+      document.write(" "); //print a space
+      document.write(elapsed_days); //print the result
+      document.write(" "); //print a space
+   </script>
+ days. This page contains a list of most of what they have done so far.</p>
+   <script type="text/javascript">
+
+      function expandcollapseind(theDiv) {
+         el = document.getElementById(theDiv);
+         if(el.style.display == 'none'){
+            el.style.display = 'inline';
+         }else {
+            el.style.display = 'none';
+         }
+         return false;
+      }
+      function expandcollapsetopic(topicName) {
+         expandcollapseind("down".concat(topicName));
+         expandcollapseind("topic".concat(topicName));
+         expandcollapseind("right".concat(topicName));
+         return false;
+      }
+      function switchgrouping() {
+         expandcollapseind("groups");
+         expandcollapseind("list");
+         return false;
+      }
+
+      function reverseAllLists(){
+
+        var topic = 0;
+
+        while(listExists("l_group" + topic)){
+           reverseList("l_group" + topic);
+           topic++;
+        }
+
+        //show a new button instead
+        expandcollapseind("chronoButton");
+        expandcollapseind("reversedButton");
+
+
+
+        // reverse the ungrouped list
+
+        reverseList("l_ungrouped");
+        return false;
+      }
+
+      function reverseList(l_name){
+        var l = document.getElementById(l_name);
+        var i = l.childNodes.length;
+        while (i--){
+          l.appendChild(l.childNodes[i]);
+        }
+        return false;
+      }
+
+      function listExists(l_name){
+         l = document.getElementById(l_name);
+         return (l != null);
+      }
+
+   </script>
+   <div id="chronoButton" style="display:none">
+      <a onclick="reverseAllLists()">
+         Show most recent first
+      </a>
+   </div>
+   <div id="reversedButton" style="display:inline">
+      <a onclick="reverseAllLists()">
+         Show in chronological order
+      </a>
+   </div>
+   <br/>
+   <div id="groups" style="display:none">
+      <a onclick="switchgrouping()">
+         Switch to ungrouped list
+      </a>

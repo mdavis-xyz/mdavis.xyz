@@ -1,71 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <!-- <meta charset="utf-8"> -->
-      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
-
-      <!--w3c-->
-      <title property="schema:name">Do You Need A Blockchain?</title>
-      <meta name="description" content="Weigh up the advantages and disadvantages of blockchains for your use case">
-
-      <!--schema.org-->
-      <meta property="schema:name" content="Do You Need A Blockchain?">
-      <meta property="schema:description" content="Weigh up the advantages and disadvantages of blockchains for your use case">
-
-      <!-- opengraph-->
-      <meta property="og:title" content="Do You Need A Blockchain?">
-      <meta property="og:description" content="Weigh up the advantages and disadvantages of blockchains for your use case">
-
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://blockchain.mdavis.xyz" />
-      <meta property="og:image" content="https://blockchain.mdavis.xyz/image1.jpg" /> <!-- https://unsplash.com/photos/1GepXKtYUK8 -->
-      <meta property="og:author" content="Matthew Davis" />
-      <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com;  frame-src 'self' https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com; worker-src 'self' https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com;">-->
-      <!--<meta property="og:image" content="https://blockchain.mdavis.xyz/image2.jpg" />  https://unsplash.com/photos/G8uygo827wY -->
-      <link rel="stylesheet" type="text/css" href="styles.css">
-      <link rel="stylesheet" type="text/css" href="../common.css" />
-      <script src="script.js" type="text/javascript"></script>
-   </head>
-   <body>
-
-   % for (i,section) in enumerate(content):
-      <div id="${section['id']}-1" class="wrap1 ${'' if i == 0 else 'slid-out'}">
-         <div id="${section['id']}-2" class="wrap2">
-            <div id="${section['id']}-3" class="wrap3">
-               <div id="${section['id']}-4" class="wrap4">
-               % for el in section['content']:
-                  % if 'button' in el:
-                  <a href="javascript:slide('${section['id']}','${el['button'][0]['destination']}','${el['button'][0]['direction']}')"  class="button">
-                     ${el['button'][0]['text']}
-                  </a>
-                  % elif 'p' in el: # TODO: don't hard code all options, just put it in
-                  <p>
-                     ${el['p']}
-                  </p>
-                  % elif 'h1' in el:
-                  <h1>
-                     ${el['h1']}
-                  </h1>
-                  % elif 'h2' in el:
-                  <h2>
-                     ${el['h2']}
-                  </h2>
-                  % elif 'h3' in el:
-                  <h3>
-                     ${el['h3']}
-                  </h3>
-                  % else:
-                  <% raise NotImplementedError %>
-                  %endif
-               % endfor
-               </div>
-            </div>
+% for (i,section) in enumerate(content):
+<div id="${section['id']}-1" class="wrap1 ${'appear' if i == 0 else 'slid-out'}">
+   <div id="${section['id']}-2" class="wrap2">
+      <div id="${section['id']}-3" class="wrap3">
+         <div id="${section['id']}-4" class="wrap4">
+         % for el in section['content']:
+            % if 'button' in el:
+            <a href="javascript:slide('${section['id']}','${el['button'][0]['destination']}','${el['button'][0]['direction']}')"  class="button">
+               ${el['button'][0]['text']}
+            </a>
+            % elif 'p' in el: # TODO: don't hard code all options, just put it in
+            <p>
+               ${el['p']}
+            </p>
+            % elif 'h1' in el:
+            <h1>
+               ${el['h1']}
+            </h1>
+            % elif 'h2' in el:
+            <h2>
+               ${el['h2']}
+            </h2>
+            % elif 'h3' in el:
+            <h3>
+               ${el['h3']}
+            </h3>
+            % else:
+            <% raise NotImplementedError %>
+            %endif
+         % endfor
          </div>
       </div>
-      % endfor
-      <a href="javascript:back()" class="button-back hidden" id="back-button">back</a>
-      <!-- <iframe  src="https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com/prod/increment?websiteName=blockchain" class=metrics sandbox></iframe> -->
-
-   </body>
-</html>
+   </div>
+</div>
+% endfor
+<a href="javascript:back()" class="button-back hidden" id="back-button">back</a>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+ARIA 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-aria-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+   <title>Achievements of the Abbott Government</title>
+   <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/s/kwqoxa1gawfzsom/favicon.ico" />
+   <!--go to http://smallbusiness.chron.com/expand-collapse-text-47345.html to understand this code-->
+
+</head>
+<body>
+
+<h1>Achievements of the Abbott Government</h1>
+<p>
+Compiled by <a href="https://dl.dropboxusercontent.com/s/famkzfp6d78i7b9/index.html?">Matthew Davis</a>. </p>
+<p>
+The Abbott government has been in power for 
+
+   <script type="text/javascript">
+      //calculate the number of days since the election
+      var electionDay = new Date('7 Sep 2013'); //election day
+      var today = new Date(); //today
+      var elapsed_ms = today.getTime() - electionDay.getTime(); //difference in ms
+      var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
+
+      document.write(" "); //print a space
+      document.write(elapsed_days); //print the result
+      document.write(" "); //print a space
+   </script>
+ days. This page contains a list of most of what they have done so far.
+</p>
+   <script type="text/javascript">  
+
+      function expandcollapseind(theDiv) { 
+         el = document.getElementById(theDiv); 
+         if(el.style.display == 'none'){ 
+            el.style.display = 'inline'; 
+         }else { 
+            el.style.display = 'none'; 
+         } 
+         return false; 
+      } 
+      function expandcollapsetopic(topicName) { 
+         expandcollapseind("down".concat(topicName));
+         expandcollapseind("topic".concat(topicName));
+         expandcollapseind("right".concat(topicName));
+         return false; 
+      } 
+      function switchgrouping() {
+         expandcollapseind("groups");
+         expandcollapseind("list");
+         return false;
+      }
+
+      function reverseAllLists(){
+
+        var topic = 0;
+
+        while(listExists("l_group" + topic)){
+           reverseList("l_group" + topic);
+           topic++;
+        }
+
+        //show a new button instead
+        expandcollapseind("chronoButton"); 
+        expandcollapseind("reversedButton"); 
+
+
+
+        // reverse the ungrouped list
+        
+        reverseList("l_ungrouped");
+        return false;
+      }
+
+      function reverseList(l_name){
+        var l = document.getElementById(l_name);
+        var i = l.childNodes.length;
+        while (i--){
+          l.appendChild(l.childNodes[i]);
+        }
+        return false;
+      }
+
+      function listExists(l_name){
+         l = document.getElementById(l_name);
+         return (l != null);
+      }
+
+   </script>
+   <div id="chronoButton" style="display:none">
+      <a onclick="reverseAllLists()">
+         Show most recent first
+      </a>
+   </div>
+   <div id="reversedButton" style="display:inline">
+      <a onclick="reverseAllLists()">
+         Show in chronological order
+      </a>
+   </div>
+   <br/>
+   <div id="groups" style="display:none">
+      <a onclick="switchgrouping()">
+         Switch to ungrouped list
+      </a>
+      <br/>
+                   <div id="right0" style="display:inline">
+             <h3 onclick=" expandcollapsetopic('0');" style="display:inline">
+                   + The Economy and the Cost of Living
+             </h3>
+          </div>
+          <div id="down0" style="display:none">
+             <h3 onclick=" expandcollapsetopic('0');" style="display:inline">
+                   &#8210; The Economy and the Cost of Living
+             </h3>
+          </div>
+       <div id="topic0" style="display:none">
+             <ul id=l_group0>
+               <li>
+                  Cut $20 million from the National Library, resulting in 28 job losses and the halting of all document digitisation.
+                     <a href="http://www.abc.net.au/news/2016-05-05/national-library-trove-project-not-funded-to-add-to-collection/7377634">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+             </ul>
+       </div>
+       <br/>
+          <div id="right1" style="display:inline">
+             <h3 onclick=" expandcollapsetopic('1');" style="display:inline">
+                   + Humanitarian Immigration and the Military
+             </h3>
+          </div>
+          <div id="down1" style="display:none">
+             <h3 onclick=" expandcollapsetopic('1');" style="display:inline">
+                   &#8210; Humanitarian Immigration and the Military
+             </h3>
+          </div>
+       <div id="topic1" style="display:none">
+             <ul id=l_group1>
+               <li>
+                  Claimed that refugees simultaneously are taking our jobs *whilst* also taking our welfare.
+                     <a href="https://newmatilda.com/2016/05/18/peter-dutton-bashes-refugees-for-being-unemployed-and-taking-jobs-at-the-same-time/">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+               <li>
+                  Provided no workers compensation for Australian staff injured in offshore detention centres.
+                     <a href="http://www.abc.net.au/news/2016-05-17/wilson-security-guards-injured-no-work-cover/7355978">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+             </ul>
+       </div>
+       <br/>
+          <div id="right11" style="display:inline">
+             <h3 onclick=" expandcollapsetopic('11');" style="display:inline">
+                   + Health
+             </h3>
+          </div>
+          <div id="down11" style="display:none">
+             <h3 onclick=" expandcollapsetopic('11');" style="display:inline">
+                   &#8210; Health
+             </h3>
+          </div>
+       <div id="topic11" style="display:none">
+             <ul id=l_group11>
+               <li>
+                  Cut all funding for Australia's only eating disorder helpline.
+                     <a href="http://www.sbs.com.au/news/article/2016/05/16/funding-australias-only-eating-disorder-helpline-be-cut">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+             </ul>
+       </div>
+       <br/>
+   </div>
+   <div id="list" style="display:inline">
+      <a onclick="switchgrouping()">
+         Group by policy area
+      </a>
+      
+      <br/>
+      
+      <ul id=l_ungrouped>
+               <li>
+                  Cut all funding for Australia's only eating disorder helpline.
+                     <a href="http://www.sbs.com.au/news/article/2016/05/16/funding-australias-only-eating-disorder-helpline-be-cut">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+               <li>
+                  Claimed that refugees simultaneously are taking our jobs *whilst* also taking our welfare.
+                     <a href="https://newmatilda.com/2016/05/18/peter-dutton-bashes-refugees-for-being-unemployed-and-taking-jobs-at-the-same-time/">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+               <li>
+                  Cut $20 million from the National Library, resulting in 28 job losses and the halting of all document digitisation.
+                     <a href="http://www.abc.net.au/news/2016-05-05/national-library-trove-project-not-funded-to-add-to-collection/7377634">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+               <li>
+                  Provided no workers compensation for Australian staff injured in offshore detention centres.
+                     <a href="http://www.abc.net.au/news/2016-05-17/wilson-security-guards-injured-no-work-cover/7355978">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+               <li>
+                  Refused to publicly release a video of illegal whaling.
+                     <a href="http://www.seashepherd.org.au/news-and-commentary/news/turnbull-government-bans-public-from-seeing-japanese-whale-killing-film.html">
+                       <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" /></a>
+
+               </li>
+
+      </ul>
+   
+   <div align="center">
+      "I think you'd be best off voting Green." 
+   </div>
+   <div align="right">
+      <i>- Tony Abbott (last election day)</i>
+         <a href="http://www.telegraph.co.uk/news/worldnews/australiaandthepacific/australia/10292980/Australia-goes-to-the-polls-with-Tony-Abbott-confident-of-becoming-next-Prime-Minister.html">
+            <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" />
+         </a>
+   </div>
+
+   </div>
+   <p>
+That's a total of 
+5 dot points in 
+
+   <script type="text/javascript">
+      //calculate the number of days since the election
+      var electionDay = new Date('7 Sep 2013'); //election day
+      var today = new Date(); //today
+      var elapsed_ms = today.getTime() - electionDay.getTime(); //difference in ms
+      var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
+
+      document.write(" "); //print a space
+      document.write(elapsed_days); //print the result
+      document.write(" "); //print a space
+   </script>
+ days. Averaging 
+
+   <script type="text/javascript">  
+      //calculate the number of days since the election
+      var electionDay = new Date('7 Sep 2013'); //election day
+      var today = new Date(); //today
+      var elapsed_ms = today.getTime() - electionDay.getTime(); //difference in ms
+      var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
+      var dots = 484;
+      var dot_frequency = Math.round(10 * dots / (elapsed_days*5/7))/10;
+      document.write(" "); //print a space
+      document.write(dot_frequency); //print the result
+      document.write(" "); //print a space
+   </script>
+ dot points per business day.
+</p>
+
+<p>
+Return to my <a href="https://bit.ly/mattDavis">homepage</a>.
+   </p>
+</body>
+</html>

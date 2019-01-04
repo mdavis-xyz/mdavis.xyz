@@ -1,0 +1,43 @@
+
+<div align="center">
+   "I think you'd be best off voting Green."
+</div>
+<div align="right">
+   <i>- Tony Abbott (last election day)</i>
+      <a href="http://www.telegraph.co.uk/news/worldnews/australiaandthepacific/australia/10292980/Australia-goes-to-the-polls-with-Tony-Abbott-confident-of-becoming-next-Prime-Minister.html">
+         <img src="http://thesauce.co/matthew/link_icon.png" alt="source" height="15" width="15" />
+      </a>
+</div>
+
+</div>
+<p>
+That's a total of TOTAL_NUMBER_DOT_POINTS dot points in
+
+<script type="text/javascript">
+   //calculate the number of days since the election
+   var electionDay = new Date('7 Sep 2013'); //election day
+   var today = new Date(); //today
+   var elapsed_ms = today.getTime() - electionDay.getTime(); //difference in ms
+   var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
+
+   document.write(" "); //print a space
+   document.write(elapsed_days); //print the result
+   document.write(" "); //print a space
+</script>
+days. Averaging
+
+<script type="text/javascript">
+   //calculate the number of days since the election
+   var electionDay = new Date('7 Sep 2013'); //election day
+   var today = new Date(); //today
+   var elapsed_ms = today.getTime() - electionDay.getTime(); //difference in ms
+   var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
+   var dots = TOTAL_NUMBER_DOT_POINTS;
+   var dot_frequency = Math.round(10 * dots / (elapsed_days*5/7))/10;
+   document.write(" "); //print a space
+   document.write(dot_frequency); //print the result
+   document.write(" "); //print a space
+</script>
+dot points per business day.
+</p>
+<iframe src="https://gp0vmedm8i.execute-api.ap-southeast-2.amazonaws.com/prod/increment?websiteName=abbott" class="metrics" style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;" sandbox></iframe>

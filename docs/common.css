@@ -135,3 +135,13 @@ hr {
    width: auto;
    vertical-align: baseline;
 }
+
+.photoauthor,
+.disclaimer {
+   font-size: 70%;
+   font-style: italic;
+   text-align: center;
+}
+
+.byline-name {
+}

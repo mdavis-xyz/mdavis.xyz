@@ -1,0 +1,4 @@
+quote USER matthew@deskie.com
+quote PASS Pbrk2p9WGxBDYxQ
+put "/home/matthew/Dropbox/misc/abbott/version2/public/sauce.html"
+quit

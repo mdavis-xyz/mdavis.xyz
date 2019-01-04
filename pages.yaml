@@ -1,0 +1,115 @@
+-  title: "Matthew Davis"
+   description: "Matthew Davis' Homepage"
+   publishPath: ""
+   sourcePath: 'www'
+   images:
+      card:
+         path: "card.jpg"
+         description: "Poster on pole proclaiming 'big data is watching you'"
+         width: 1000
+         height: 667
+         attribution: https://unsplash.com/photos/gpjvRZyavZc
+   exclude:
+      - 'article'
+      - 'footer'
+      - 'script'
+      - 'date'
+      - 'header'
+   template: 'home'
+-  title: "Do you need a blockchain?"
+   description: "An interactive flowchart to help cut through the hype"
+   path: "blockchain"
+   images:
+      card:
+         path: "image1-sml.jpg"
+         description: "People signing contract"
+         width: 1000
+         height: 667
+   template: "custom"
+   parseScript: parse.py
+   exclude:
+      - 'mediaCSS'
+      - 'article'
+      - 'footer'
+      - 'appear'
+   date: 14/9/2018
+-  title: "Web analytics are leaking into meatspace"
+   description: "A Stallman-esque short story about the future of offline tracking and the right to buy"
+   path: "supermarket"
+   disclaimer: "Disclaimer: This story is a warning about the future. Claims about any real corporations are hypothetical fiction. All links are provided as context, not evidence."
+   images:
+      card:
+         path: "card.jpg"
+         description: "Poster on pole proclaiming 'big data is watching you'"
+         width: 1000
+         height: 667
+         attribution: https://unsplash.com/photos/gpjvRZyavZc
+      top:
+         path: "image3-cropped-sml.jpg"
+         description: "Poster on pole proclaiming 'big data is watching you'"
+         width: 1000
+         height: 486
+         attribution: Photo by <a href="https://unsplash.com/photos/gpjvRZyavZc">ev</a> on <a href="https://unsplash.com">Unsplash</a>
+   template: "markdown"
+   markdown: "content.md"
+-  title: "Achievements of the Coalition Government"
+   description: "A comprehensive list of (almost) everything the current Australian government has done"
+   path: "govlist"
+   images:
+      card:
+         path: "thumb.jpg"
+         description: "Turnbull Government Ministers"
+         width: 522
+         height: 348
+      top:
+         path: "abbott-large.jpg"
+         description: "Turnbull Government Ministers"
+         width: 1560
+         height: 878
+   template: "custom"
+   parseScript: parse.py
+   article: True
+   exclude:
+      - 'footerHR'
+-  title: "Machine Learning Unicycling"
+   description: "Teaching a computer to ride a simulated unicycle"
+   path: "unicycle"
+   images:
+      card:
+         path: "thumb-drawn.jpg"
+         description: "Animated Unicycle"
+         width: 677
+         height: 1000
+   template: "markdown"
+   markdown: "content.md"
+   exclude:
+      - 'script'
+-  title: "Arduino Monitor Rotator"
+   description: "Build an Automatic Computer Display Rotator With an Arduino"
+   path: "monitor"
+   url: "https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/"
+   images:
+      card:
+         path: "thumb.jpg"
+         description: "Arduino with circuitboard shield"
+         width: 1000
+         height: 667
+   template: "none"
+-  title: "Python Reddit Bot"
+   description: "How I wrote a reddit bot in python to reply to long posts"
+   path: "paragraphiser"
+   images:
+      card:
+         path: "thumb.jpg"
+         description: "Python Code"
+         width: 677
+         height: 1000
+      top:
+         path: "topimage.jpg"
+         description: "Python Code"
+         width: 472
+         height: 1000
+   template: "markdown"
+   markdown: "content.md"
+   exclude:
+      - 'script'

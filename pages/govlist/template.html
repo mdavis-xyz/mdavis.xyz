@@ -1,0 +1,67 @@
+<p>
+   The Abbott government has been in power for over 5 years.
+   This page contains a list of most of what they have done so far.
+</p>
+<p class='center'>
+   <a href="javascript:byTopic()" class="button" id="groupButton">
+      Group By Policy Area
+   </a>
+   <a href="javascript:chrono()" class="button hidden" id="ungroupButton">
+      List all chronologically
+   </a>
+</p>
+<div id="chronological">
+   <ol id="chrono-list">
+      % for (i,row) in enumerate(rows):
+      <li>
+         ${row['text']}
+         % for url in row['urls']:
+         <a href="${url}" target="_blank">
+            <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+         </a>
+         % endfor
+      </li>
+      % endfor
+   </ol>
+</div>
+<div id="grouped" class="collapsed">
+   % for (i,topic) in enumerate(topics):
+   <a href="javascript:collapseOrNot(${i});">
+      <h2 id="topic-${i}">
+         <img class="logo" src="chevron.svg" alt=">" id="arrow-${i}">
+         ${topic}
+      </h2>
+   </a>
+   <div id="group-list-wrap-${i}" class="collapsed">
+   <ol id="topic-list-${i}" class="groupList">
+      % for row in rows:
+      % if row['topic'] == i:
+      <li>
+         ${row['text']}
+         % for url in row['urls']:
+         <a href="${url}" target="_blank">
+            <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+         </a>
+         % endfor
+      </li>
+      % endif
+      % endfor
+   </ol>
+   </div>
+   % endfor
+</div>
+
+<blockquote class="center bottomquote">
+   <p class="quote-p">
+      I think you'd be best off voting Green.
+   </p>
+</blockquote>
+<p class="center postquote">
+   - Tony Abbott (election day, 2013)
+   <a target="_blank" href="http://www.telegraph.co.uk/news/worldnews/australiaandthepacific/australia/10292980/Australia-goes-to-the-polls-with-Tony-Abbott-confident-of-becoming-next-Prime-Minister.html">
+      <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+   </a>
+</p>
+<p class="center">
+   <img src="abbott-profile.jpg" alt="source" class="bottom-photo"/>
+</p>

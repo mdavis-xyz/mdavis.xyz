@@ -1,5 +1,5 @@
 - hashTag: asylum
-  text: Spent $320,000 on legal fights denying asulum seekers urgent medical transfers
+  text: Spent $320,000 on legal fights denying asylum seekers urgent medical transfers
     to the mainland to treat life-threatening conditions.
   topic: 1
   urls: ['https://www.theguardian.com/australia-news/2018/sep/29/australia-spent-320000-fighting-requests-for-urgent-medical-transfers-of-asylum-seekers']
@@ -108,13 +108,13 @@
   topic: 0
   urls: ['https://www.canberratimes.com.au/national/why-liberal-mps-bought-614-copies-of-one-book-for-9000-20181011-p50904.html']
 - hashTag: transparency
-  text: Hid a report by the Governer General showing that the government paid twice
+  text: Hid a report by the Governor General showing that the government paid twice
     as much as necessary for new combat vehicles, because such publicity would be
     bad for the private manufacturer's future profitability.
   topic: 12
   urls: ['https://www.theguardian.com/australia-news/2018/oct/22/coalition-suppressed-auditors-finding-that-13bn-thales-arms-deal-could-have-cost-half-with-us']
 - hashTag: budget
-  text: Charged taxpayers $2000 per month for one minister's home internet connection.
+  text: Charged taxpayers $2000 per month for one minister's home Internet connection.
   topic: 0
   urls: ['https://www.smh.com.au/national/nsw/assistant-treasurer-bills-taxpayers-2000-a-month-for-data-at-home-20181003-p507jx.html',
     'https://thenewdaily.com.au/news/national/2018/10/05/stuart-robert-internet/']
@@ -195,7 +195,7 @@
   topic: 2
   urls: ['http://www.smh.com.au/federal-politics/political-news/replacing-liddell-with-renewables-is-14-billion-cheaper-than-government-plan-report-says-20171118-gzo86a.html']
 - hashTag: international
-  text: Increased the difficulty of the citizenship english test, so that applicants
+  text: Increased the difficulty of the citizenship English test, so that applicants
     who are able to speak "basic" English will be rejected.
   topic: 9
   urls: ['https://www.sbs.com.au/news/dutton-pushes-on-with-citizenship-changes']
@@ -370,7 +370,7 @@
   topic: 2
   urls: ['http://www.abc.net.au/news/2017-06-13/lord-howe-islands-plans-for-wind-turbines-denied/8613506']
 - hashTag: security
-  text: Failed to comply with the mandatory `Top 4' cyber security strategies, in
+  text: Failed to comply with the mandatory 'Top 4' cyber security strategies, in
     multiple departments.
   topic: 7
   urls: ['https://www.computerworld.com.au/article/620161/immigration-no-date-top-four-cyber-compliance/']
@@ -484,7 +484,7 @@
   urls: ['https://www.buzzfeed.com/markdistefano/king-duttton-of-the-right']
 - hashTag: budget
   text: Forced public servants to move from Canberra to Armidale, prior to establishing
-    new office facilities. They now do their work in the local maccas.
+    new office facilities. They now do their work in the local Maccas.
   topic: 0
   urls: ['http://junkee.com/public-servants-working-maccas-armidale-thanks-deputy-pm-barnaby-joyce/97132']
 - hashTag: NBN
@@ -517,7 +517,7 @@
   topic: 6
   urls: ['http://www.computerworld.com.au/article/614151/australia-to-get-new-data-breach-notification-regime/']
 - hashTag: welfare
-  text: Changed Newstart eligibility so that 22 to 24 year olds get Youth Allowance
+  text: Changed Newstart eligibility so that 22 to 24 year-olds get Youth Allowance
     instead, which is $90 less per fortnight.
   topic: 4
   urls: ['http://junkee.com/federal-government-come-new-way-screw-young-people/95486']
@@ -647,7 +647,7 @@
   topic: 0
   urls: ['http://www.abc.net.au/news/2016-09-06/politicians-cancelled-travel-expenses-costing-taxpayers/7820642']
 - hashTag: welfare
-  text: Proposed charging 9% interest on all debts owed to Centerlink.
+  text: Proposed charging 9% interest on all debts owed to CenterLink.
   topic: 4
   urls: ['http://junkee.com/heres-bill-youve-never-heard-probably-going-screw/84088']
 - hashTag: health
@@ -758,8 +758,8 @@
   topic: 2
   urls: ['http://www.seashepherd.org.au/news-and-commentary/news/turnbull-government-bans-public-from-seeing-japanese-whale-killing-film.html']
 - hashTag: climate
-  text: Claimed that Australia's largest coal mine - which will export more coal than
-    our entire nation consumes - will not contribute to climate change.
+  text: Claimed that Australia's largest coal mine (which will export more coal than
+    our entire nation consumes) will not contribute to climate change.
   topic: 2
   urls: ['https://www.theguardian.com/australia-news/2016/may/06/greg-hunt-argues-theres-no-definite-link-between-coal-and-climate-change']
 - hashTag: unemployment
@@ -847,7 +847,7 @@
   topic: 2
   urls: ['http://www.buzzfeed.com/markdistefano/a-cold-wind-blows#.pmbK30rP7', 'https://www.sbs.com.au/news/taxpayer-funded-wind-farm-experts-provided-no-advice-in-two-years']
 - hashTag: welfare
-  text: Prohibited people who owe money to Centerlink from leaving the country, regardless
+  text: Prohibited people who owe money to CenterLink from leaving the country, regardless
     of how small the debt is or how soon they will return.
   topic: 4
   urls: ['http://www.huffingtonpost.com.au/2016/03/03/centrelink-debt-interest_n_9380130.html']
@@ -991,7 +991,7 @@
   urls: ['https://medium.com/@shanebazzi/male-guards-strip-searching-women-and-girls-on-nauru-122b1c74a756#.pi644lnc3']
 - hashTag: corruption
   text: Spent $30,000 on a private jet to fly one minister and their partner from
-    Perth to Canberra - instead of catching a normal plane - because a non-business
+    Perth to Canberra (instead of catching a normal plane) because a non-business
     event ran overtime. This is despite the alleged budget emergency.
   topic: 12
   urls: ['http://www.9news.com.au/national/2015/12/02/01/50/bishop-cost-taxpayers-30k-to-fly-raaf-jet-from-dinner-report']
@@ -1325,7 +1325,7 @@
     'https://newmatilda.com//2015/05/26/there-no-front-door-rohingya-australia-reject-abbotts-attack']
 - hashTag: terrorism
   text: Proposed new powers to banish Australians suspected of terrorism, possessing
-    a `thing' related to terrorism, downloading a single file related to terrorism,
+    a 'thing' related to terrorism, downloading a single file related to terrorism,
     vandalising commonwealth property or entering a 'no-go zone' country even for
     innocent purposes. Each guilty verdict would be made by a minister, not a court.
     The government does not have to prove the suspects are guilty. The new laws may
@@ -1352,14 +1352,13 @@
   topic: 2
   urls: ['https://newmatilda.com//2015/05/24/doing-their-dirty-work-abbott-government-passing-buck-green-protections']
 - hashTag: ethics
-  text: Proposed `ag-gag' laws, under which activists who expose illegal animal cruelty
+  text: Proposed 'ag-gag' laws, under which activists who expose illegal animal cruelty
     can be imprisoned if they take more than 48 hours to go to the police.
   topic: 6
   urls: ['http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query%3DId%3A%22legislation%2Fbillhome%2Fs994%22;rec=0',
     'http://www.criminallaw.com.au/blog/criminal/general/should-it-be-compulsory-to-report-animal-cruelty/35075']
 - hashTag: asylum
-  text: "Chose to leave the Minister\u2019s Council on Asylum Seekers and Detention\
-    \ empty."
+  text: Chose to leave the Minister's Council on Asylum Seekers and Detention empty.
   topic: 1
   urls: ['https://www.theguardian.com/australia-news/2015/apr/16/governments-council-of-asylum-seeker-advisers-has-stood-empty-for-five-months']
 - hashTag: asylum
@@ -1398,10 +1397,10 @@
   topic: 7
   urls: ['http://www.abc.net.au/news/2015-04-14/kevin-andrews-refuses-to-name-head-of-islamic-state/6392948']
 - hashTag: climate
-  text: "Spent $4 million for the \u2018Australian Consensus Centre\u2019, a climate\
-    \ denial center to be run by someone with no qualifications in science or economics.\
-    \ The government had already cut all funding for the Australian Climate Commission,\
-    \ citing a lack of funds."
+  text: Spent $4 million for the 'Australian Consensus Centre', a climate denial center
+    to be run by someone with no qualifications in science or economics. The government
+    had already cut all funding for the Australian Climate Commission, citing a lack
+    of funds.
   topic: 2
   urls: ['https://newmatilda.com/2015/04/19/meet-bjorn-lomborg-abbotts-four-million-dollar-climate-contrarian/',
     'https://newmatilda.com//2015/04/22/coalition-set-grilling-lomborg-funding-leaks-cast-doubt-claims']
@@ -1422,7 +1421,7 @@
   urls: ['http://www.computerworld.com.au/article/572172/data-retention-inquiry-into-accessing-journo-data-scrapped/']
 - hashTag: asylum
   text: Spent $6 million on a movie which is supposed to deter people from fleeing
-    genocide, war crimes, torture and other persecution. No english dubs or subtitles
+    genocide, war crimes, torture and other persecution. No English dubs or subtitles
     are available.
   topic: 1
   urls: ['http://www.canberratimes.com.au/federal-politics/political-news/taxpayers-charged-6-million-for-immigration-department-telemovie-20160325-gnqyr4.html',
@@ -1743,7 +1742,7 @@
   topic: 9
   urls: ['http://www.smh.com.au/business/chinese-corporations-allowed-to-sue-australian-government-under-free-trade-agreement-20141118-11p9lz.html']
 - hashTag: indigenous
-  text: Perpetuated the lie of `Terra Nullius'.
+  text: Perpetuated the lie of 'Terra Nullius'.
   topic: 5
   urls: ['https://newmatilda.com/2014/11/14/tony-abbott-says-nothing-bush-australia-white-settlement/']
 - hashTag: asylum
@@ -1783,7 +1782,7 @@
   urls: ['https://www.theguardian.com/australia-news/2014/oct/27/barnaby-joyce-admits-his-staff-changed-hansard-records']
 - hashTag: asylum
   text: Refused to fulfill a senate order to explain the reasons behind a ban on accepting
-    any refugees from ebola infected countries. No such ban exists for normal immigrants.
+    any refugees from Ebola infected countries. No such ban exists for normal immigrants.
   topic: 1
   urls: ['https://www.theguardian.com/australia-news/2014/oct/30/immigration-cant-reveal-ebola-refugee-ban-advice-because-of-national-security']
 - hashTag: disability
@@ -1968,7 +1967,7 @@
   topic: 6
   urls: ['http://www.dailytelegraph.com.au/news/nsw/prove-your-innocence-abbott-set-to-reverse-onus-of-proof-for-homegrown-terrorists/story-fni0cx12-1227009308510?nk=b558e0a0ea8f9a6cad8b0aaa0ebe867b']
 - hashTag: navy
-  text: <b>Broke an election promise</b> by allowing the new multi billion dollar
+  text: <b>Broke an election promise</b> by allowing the new multi-billion dollar
     batch of Navy submarines to be built overseas, despite high levels of unemployment
     amongst our manufacturing sector.
   topic: 7
@@ -1989,7 +1988,7 @@
   urls: ['http://www.smh.com.au/federal-politics/political-opinion/lousy-days-loom-for-small-businesses-bombarded-by-jobseekers-20140728-3cpxb.html#ixzz38o0bDhWc',
     'http://www.sbs.com.au/news/article/2014/07/29/comment-ten-job-seekers-vacancy-reality-check-welfare-overhaul']
 - hashTag: metadata
-  text: Introduced mandatory meta-data retention schemes for all internet providers.
+  text: Introduced mandatory metadata retention schemes for all internet providers.
     The government admits the changes are not necessary, and that there is no evidence
     to show that it will improve law enforcement. Warrants will not be required to
     access the data. The cost of implementing the schemes will come to about another
@@ -2203,7 +2202,7 @@
   urls: ['http://mobile.abc.net.au/news/2014-05-28/the-attorney-general27s-department-has-confirmed-millions-of-d/5482568']
 - hashTag: corruption
   text: Gave the Minister for Infrastructure the power to silence Infrastructure Australia
-    (an independent body) without justification. (See section 5A(2) of the link.)
+    (an independent body) without justification. (See section 5A.2 of the link.)
   topic: 12
   urls: ['http://www.comlaw.gov.au/Details/C2013B00218/Explanatory%20Memorandum/Text']
 - hashTag: health
@@ -2317,8 +2316,8 @@
   topic: 2
   urls: ['http://www.abc.net.au/news/2014-05-13/budget-water/5430960']
 - hashTag: health
-  text: "Scrapped the National Preventive Health Agency\u2019s $2.9 million National\
-    \ Tobacco Campaign."
+  text: Scrapped the National Preventive Health Agency's $2.9 million National Tobacco
+    Campaign.
   topic: 11
   urls: ['http://www.businessinsider.com.au/here-are-8-programs-included-in-the-2014-budget-that-we-didnt-see-coming-2014-5']
 - hashTag: climate
@@ -2394,8 +2393,8 @@
   topic: 6
   urls: ['https://www.theguardian.com/business/grogonomics/2014/may/14/budget-roll-out-the-bandages-well-be-bleeding-for-a-while']
 - hashTag: schools
-  text: "Scrapped the Education Department\u2019s Online Diagnostic Tools Program,\
-    \ which helped improve teachers' productivity."
+  text: Scrapped the Education Department's Online Diagnostic Tools Program, which
+    helped improve teachers' productivity.
   topic: 3
   urls: ['http://www.businessspectator.com.au/article/2014/5/14/technology/no-skills-required-were-australian']
 - hashTag: jobs
@@ -2963,12 +2962,10 @@
 - hashTag: infrastructure
   text: 'Gave state governments an ultimatum: sell off government assets before a
     certain deadline, (regardless of whether the people or the state government want
-    to) or miss out on billions of dollars of funding. This includes selling NSW''s
-    ''poles and wires'' for only $3-5 billion, even though they generate over $1.5
-    billion per year for the government. The states would not be allowed to use the
-    money from the sales to pay off debt. Reluctant states were told they could still
-    access federal funds through environmental programs that the Federal Government
-    is trying to scrap.'
+    to) or miss out on billions of dollars of funding. The states would not be allowed
+    to use the money from the sales to pay off debt. Reluctant states were told they
+    could still access federal funds through environmental programs that the Federal
+    Government is trying to scrap.'
   topic: 10
   urls: ['http://www.adelaidenow.com.au/news/national/federal-treasurer-joe-hockey-to-force-assets-selloff/story-fni6ulvf-1226856408624',
     'http://www.independentaustralia.net/politics/politics-display/abbott-and-hockeys-shocking-sell-off-stupidity-exposed,6634',
@@ -3480,7 +3477,7 @@
     curriculum was developed over many years with extensive consultation. The new
     curriculum is being written by two people. One thinks "abos" are "human rubbish
     tips", called a sexual assault victim a "worthless slut", and laments that Australia
-    has too many "Mussies" and "Chinky-Poos". The other has questioned whether migrants
+    has too many "mussies" and "chinky-poos". The other has questioned whether migrants
     and women are disadvantaged, and suggested homosexuality is "unnatural"</b>.
   topic: 3
   urls: ['http://www.starobserver.com.au/news/local-news/new-south-wales-news/lgbti-concerns-over-review-into-national-school-curriculum/115910',
@@ -3617,10 +3614,10 @@
     'https://www.theguardian.com/environment/2014/mar/04/greenpeace-calls-seismic-surveys-halted-birds',
     'https://www.theguardian.com/environment/2013/dec/20/clive-palmers-galilee-basin-mine-given-green-light-by-greg-hunt']
 - hashTag: rights
-  text: Appointed Tim Wilson as human rights commissioner - someone who has personally
-    advocated for the abolition of the human rights commission, and who's new 6 figure
-    salary is so large that the commission will have to cut education and anti-bullying
-    programs to fund it.
+  text: Appointed Tim Wilson as human rights commissioner. He has personally advocated
+    for the abolition of the human rights commission, and his new 6 figure salary
+    is so large that the commission will have to cut education and anti-bullying programs
+    to fund it.
   topic: 6
   urls: ['http://www.smh.com.au/federal-politics/political-news/tim-wilsons-appointment-as-human-rights-commissioner-could-see-cuts-to-a-program-on-school-bullying-20131222-2zt17.html']
 - hashTag: environment
@@ -3683,7 +3680,7 @@
   topic: 8
   urls: ['http://www.dailyexaminer.com.au/news/25-million-jobs-program-that-aimed/2103873/']
 - hashTag: nbn
-  text: <b>Broke an election promise</b> for a 25Mbi/s National Broadband Network,
+  text: <b>Broke an election promise</b> for a 25MBi/s National Broadband Network,
     and announced that it will cost more than they promised.
   topic: 10
   urls: ['http://www.afr.com/p/national/nbn_less_speed_more_haste_81794iOmYFATdyGIeehPEN']
@@ -3779,7 +3776,7 @@
   topic: 12
   urls: ['http://www.smh.com.au/federal-politics/political-news/cut-abc-funding-urges-liberal-senator-cory-bernardi-as-coalition-ramps-up-attack-on-the-national-broadcaster-20131204-2ypet.html?ak_proof=1']
 - hashTag: metadata
-  text: Incorrectly defined meta-data as billing data only, when it actually includes
+  text: Incorrectly defined metadata as billing data only, when it actually includes
     email subject headings, location data, financial transaction details and more.
   topic: 6
   urls: ['https://www.theguardian.com/world/2013/dec/02/metadata-should-it-be-dismissed-as-billing-data-or-is-it-personal-material',

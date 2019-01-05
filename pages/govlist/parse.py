@@ -14,6 +14,7 @@ import sys
 from subprocess import call
 from multiprocessing import Pool
 import random
+import myspellcheck
 
 template_fname = "template.html"
 content_fname = "abbott.txt"
@@ -101,6 +102,10 @@ def parseRow(line,rowNum):
         # print("Error: no URLs for line %d" % rowNum)
         # print(line)
         return(None)
+    if not myspellcheck.checkLine(data['text']):
+        print("That was abbott.txt, line %d" % rowNum)
+        print(data['text'])
+        exit(-1)
     return(data)
 
 
@@ -119,15 +124,15 @@ def testParseRow():
         raise(e)
 
     yes = [
-        "blah<b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#environment",
-        "blah<b>blah</b> 123! {http://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}{https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#environment",
+        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#environment",
+        "blah <b>blah</b> 123! {http://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}{https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#environment",
     ]
 
     no = [
-        "blah<b>blah</b> 123! #environment",
-        "blah<b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#",
-        "blah<b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}",
-        "blah<b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}env",
+        "blah <b>blah</b> 123! #environment",
+        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#",
+        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}",
+        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}env",
         "",
         " "
     ]
@@ -148,6 +153,7 @@ def readFile():
     data = []
     with open(content_fname,"r") as f:
         for (i,line) in enumerate(f):
+            line = line.replace("’","'").replace("`","'").replace("‘","'")
             row = parseRow(line,i+1)
             if row == None:
                 print("Error, can't parse row %d" % (i+1))
@@ -190,6 +196,7 @@ def test():
     testParseRow()
     testClassify()
     testStripSpace()
+    teststripFancy()
 
 def stripSpace(text):
     newLines = []
@@ -240,6 +247,89 @@ def main():
 
     print("Done")
 
+
+def spellcheck(line):
+    content = stripFancy(html)
+    for (l,line) in enumerate(content.split('\n')):
+        for word in line.split(' '):
+            word = word.strip()
+            if (word not in dictionary) and (word.lower() not in dictionary):
+                print("Fname: " + htmlFname)
+                print("Line: %d" % (l+1))
+                print("Error: Word %s does not appear in the dictionary")
+                answer = input("Add to dictionary? (y/n/c for keep capitalisation) ")
+                if answer.lower().startswith('y'):
+                    print("Adding %s to dictionary" % word.lower())
+                    addToDict(word.lower())
+                elif answer.lower().startswith('c'):
+                    print("Adding %s to dictionary")
+                    addToDict(word)
+                else:
+                    print("Quitting.")
+                    print("Go fix line %d in file %s" % (l+1,htmlFname))
+
+
+
+def stripFancy(text):
+    expr = r'<[^<>]+>'
+    text = re.sub(expr, '', text)
+    expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
+    text = re.sub(expr, r'\1', text)
+    return(text)
+
+def teststripFancy():
+    original = 'asd'
+    expected = 'asd'
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = '1 <a href="123">blah</a> 2'
+    expected = '1 blah 2'
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = 'This [link](http://example.com) shows [this](./blah)'
+    expected = 'This link shows this'
+    actual = stripFancy(original)
+    if expected != actual:
+        print("actual: " + actual)
+    assert(expected == actual)
+
+def stripForSpellcheck(text):
+    text = stripFancy(text);
+    expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
+    text = re.sub(expr, r'\1', text)
+
+def testStripForSpellcheck():
+    original = 'asd'
+    expected = 'asd'
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = '$5'
+    expected = ''
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = '$5,000'
+    expected = ''
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = 'Hello world!'
+    expected = 'Hello world'
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = 'Why is that? '
+    expected = 'Why is that'
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+def addToDict(word):
+    dictionary.add(word.lower())
+    with open(extraWordsFname,'a') as f:
+        f.write(word.lower()+'\n')
 
 if __name__ == "__main__":
     main()

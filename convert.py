@@ -7,11 +7,13 @@ from subprocess import call
 import pypandoc
 import os
 import re
+import spellcheck
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
 pagesFname = 'pages.yaml'
 enableTracking = False
+
 
 
 # today = dt.date.today()
@@ -28,33 +30,33 @@ def callShellCmd(cmd,directory):
     assert(not ret)
     print("Finished calling `%s` in %s" % (cmd,directory))
 
-def stripMarkdown(text):
+def stripFancy(text):
     expr = r'<[^<>]+>'
     text = re.sub(expr, '', text)
     expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
     text = re.sub(expr, r'\1', text)
     return(text)
 
-def testStripMarkdown():
+def teststripFancy():
     original = 'asd'
     expected = 'asd'
-    actual = stripMarkdown(original)
+    actual = stripFancy(original)
     assert(expected == actual)
 
     original = '1 <a href="123">blah</a> 2'
     expected = '1 blah 2'
-    actual = stripMarkdown(original)
+    actual = stripFancy(original)
     assert(expected == actual)
 
     original = 'This [link](http://example.com) shows [this](./blah)'
     expected = 'This link shows this'
-    actual = stripMarkdown(original)
+    actual = stripFancy(original)
     if expected != actual:
         print("actual: " + actual)
     assert(expected == actual)
 
 def numWords(markdown):
-    content = stripMarkdown(markdown)
+    content = stripFancy(markdown)
     numWords = len([w for w in content.split(' ') if w.strip() != ''])
     print("Number of words is %d" % numWords)
     return(numWords)
@@ -227,8 +229,9 @@ def doAll():
 
     print("Done")
 
+
 def test():
-    testStripMarkdown()
+    teststripFancy()
     testNumWords()
 
 test()

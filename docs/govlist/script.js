@@ -16,9 +16,9 @@ function chrono(){
    document.getElementById("ungroupButton").classList.remove('appearStat');
    document.getElementById("grouped").classList.add('collapse');
    document.getElementById("grouped").classList.remove('uncollapse');
-   document.getElementById("chronological").classList.remove('collapse');
-   document.getElementById("chronological").classList.remove('collapsed');
-   document.getElementById("chronological").classList.add('uncollapse');
+   document.getElementById("chrono-list").classList.remove('collapse');
+   document.getElementById("chrono-list").classList.remove('collapsed');
+   document.getElementById("chrono-list").classList.add('uncollapse');
 
 
 
@@ -41,15 +41,15 @@ function byTopic(){
    document.getElementById("grouped").classList.remove('collapse');
    document.getElementById("grouped").classList.remove('collapsed');
    document.getElementById("grouped").classList.add('uncollapse');
-   document.getElementById("chronological").classList.add('collapse');
-   document.getElementById("chronological").classList.remove('uncollapse');
+   document.getElementById("chrono-list").classList.add('collapse');
+   document.getElementById("chrono-list").classList.remove('uncollapse');
 }
 
 var uncollapsed = new Set();
 function collapseOrNot(topicID){
    var arrowEl = document.getElementById("arrow-" + topicID);
    var listEl = document.getElementById("topic-list-" + topicID);
-   var wrap = document.getElementById("group-list-wrap-" + topicID);
+   // var wrap = document.getElementById("group-list-wrap-" + topicID);
    // if (wrap.clientHeight) {
    //      wrap.style.height = 0;
    //      arrowEl.classList.add('rotateRight');
@@ -62,15 +62,15 @@ function collapseOrNot(topicID){
    //  }
    if (uncollapsed.has(topicID)){
       uncollapsed.delete(topicID);
-      wrap.classList.remove('uncollapse');
-      wrap.classList.add('collapse');
+      listEl.classList.remove('uncollapse');
+      listEl.classList.add('collapse');
       arrowEl.classList.add('rotateRight');
       arrowEl.classList.remove('rotateDown');
    }else{
       uncollapsed.add(topicID);
-      wrap.classList.add('uncollapse');
-      wrap.classList.remove('collapse');
-      wrap.classList.remove('collapsed');
+      listEl.classList.add('uncollapse');
+      listEl.classList.remove('collapse');
+      listEl.classList.remove('collapsed');
       arrowEl.classList.remove('rotateRight');
       arrowEl.classList.add('rotateDown');
    }

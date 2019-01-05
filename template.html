@@ -76,19 +76,22 @@
       <p class="authordate">
          <a id="author" href="../">
             <span class="byline-name">
+               <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/user.svg" alt="calendar icon" width="20" height="20"/>
                Matthew Davis
             </span>
          </a>
          |
          <time datetime="${data['date']['computer']}" itemprop="datePublished">
             <span>
+               <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/calendar.svg" alt="calendar icon" width="20" height="20"/>
                ${data['date']['human']}
             </span>
          </time>
          % if ('estReadingTime' in data) and ('estReadingTime' not in data['exclude']) and (data['estReadingTime'] > 1.5):
          |
          <span>
-            ${'%d' % int(data['estReadingTime'])} min read
+            <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/stopwatch.svg" alt="Stopwatch icon" width="20" height="20"/>
+            ${'%d' % int(data['estReadingTime'])} min
          </span>
          % endif
 

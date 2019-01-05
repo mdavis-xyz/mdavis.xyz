@@ -95,41 +95,45 @@
 
 .uncollapse {
    /*position: relative;*/
+   /*max-height: 9999em;*/
    -webkit-animation: uncollapse 0.6s forwards;
    animation: uncollapse 0.6s forwards;
-   transition-timing-fction: ease;
-   overflow-y: hidden;
+   transition-timing-function: ease;
+   /*overflow-y: hidden;*/
+   /*overflow-x: visible;*/
 }
 
 @keyframes uncollapse {
-   0% {  max-height: 0}
-   99% { max-height: 99em }
-   100% { max-height: auto }
+   0% {  max-height: 0; overflow-y: hidden;}
+   99% { max-height: 99em ;overflow-y: hidden; }
+   100% { max-height: 99999em ; overflow-y: unset;}
 }
 
 @-webkit-keyframes uncollapse {
-   0% {  max-height: 0}
-   99% { max-height: 99em }
-   100% { max-height: auto }
+   0% {  max-height: 0;  overflow-y: hidden;}
+   99% { max-height: 99em ; overflow-y: hidden; }
+   100% { max-height: 99999em ; overflow-y: unset;}
 }
 
 .collapse {
    /*position: relative;*/
    -webkit-animation: collapse 0.3s forwards;
    animation: collapse 0.3s forwards;
-   transition-timing-fction: ease;
+   transition-timing-function: ease;
    overflow-y: hidden;
+   overflow-x: visible;
 }
 
 @keyframes collapse {
    0% { max-height: 99em }
    100% {  max-height: 0}
-   100% {  max-height: 0}
+   90% {  max-height: 0}
 }
 
 @-webkit-keyframes collapse {
    0% { max-height: 99em }
    90% {  max-height: 0}
+   100% {  max-height: 0}
 }
 
 .collapsed {
@@ -203,3 +207,9 @@ h2 {
    margin-top: 0.3em;
    margin-bottom: 0.3em;
 }
+
+ol {
+   /*margin-left: auto;*/
+}
+
+li {}

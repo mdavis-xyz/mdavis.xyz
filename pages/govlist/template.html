@@ -32,8 +32,7 @@
          ${topic}
       </h2>
    </a>
-   <div id="group-list-wrap-${i}" class="collapsed">
-   <ol id="topic-list-${i}" class="groupList">
+   <ol id="topic-list-${i}" class="groupList collapsed">
       % for row in rows:
       % if row['topic'] == i:
       <li>
@@ -47,7 +46,6 @@
       % endif
       % endfor
    </ol>
-   </div>
    % endfor
 </div>
 

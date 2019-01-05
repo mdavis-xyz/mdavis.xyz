@@ -144,4 +144,19 @@ hr {
 }
 
 .byline-name {
+   text-align: center;
+}
+
+.metalinesep {
+   display: none;
+   text-align: center;
+}
+
+@media (min-width:45em)  {
+   .metaline {
+      display: inline;
+   }
+   .metalinesep {
+      display: inline;
+   }
 }

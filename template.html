@@ -72,31 +72,37 @@
       </p>
       % endif
 
-      % if 'date' not in data['exclude']:
-      <p class="authordate">
+
+      <div class="authordate center">
          <a id="author" href="../">
-            <span class="byline-name">
+            <div class="byline-name metaline">
                <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/user.svg" alt="calendar icon" width="20" height="20"/>
                Matthew Davis
-            </span>
+            </div>
          </a>
-         |
-         <time datetime="${data['date']['computer']}" itemprop="datePublished">
-            <span>
+         % if 'date' not in data['exclude']:
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <time datetime="${data['date']['computer']}" itemprop="datePublished">
                <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/calendar.svg" alt="calendar icon" width="20" height="20"/>
                ${data['date']['human']}
-            </span>
-         </time>
+            </time>
+         </div>
+         % endif
          % if ('estReadingTime' in data) and ('estReadingTime' not in data['exclude']) and (data['estReadingTime'] > 1.5):
-         |
-         <span>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
             <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/stopwatch.svg" alt="Stopwatch icon" width="20" height="20"/>
             ${'%d' % int(data['estReadingTime'])} min
-         </span>
+         </div>
          % endif
 
-      </p>
-      % endif
+      </div>
+
       <aside>
          <p>
             % if 'disclaimer' in data:

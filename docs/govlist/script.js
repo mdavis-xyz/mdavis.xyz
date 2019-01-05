@@ -1,3 +1,5 @@
+var uncollapsed = new Set();
+
 function duration(){
    var electionDay = new Date('7 Sep 2013'); //election day
    var today = new Date(); //today
@@ -20,19 +22,24 @@ function chrono(){
    document.getElementById("chrono-list").classList.remove('collapsed');
    document.getElementById("chrono-list").classList.add('uncollapse');
 
+   // collapse all topics:
 
+   var els = document.getElementById("grouped").getElementsByTagName("ol");
+   var elList = Array.prototype.slice.call(els);
+   elList.forEach(function(el){
+      el.classList.add("collapse");
+   });
+   var els = document.getElementById("grouped").getElementsByTagName("img");
+   var elList = Array.prototype.slice.call(els);
+   elList.forEach(function(el){
+      el.classList.remove("rotateDown");
+   });
+   uncollapsed = new Set();
 
 }
 
 function byTopic(){
-   // var els = document.getElementsByTagName("li");
-   // var elList = Array.prototype.slice.call(els);
-   // elList.forEach(function(el){
-   //    // el = list[0];
-   //    var topic = el.getAttribute("data-topic");
-   //    var topicEl = document.getElementById("topic-list-" + topic);
-   //    topicEl.appendChild(el);
-   // })
+
 
    document.getElementById("groupButton").classList.add('hidden');
    document.getElementById("groupButton").classList.remove('appearStat');
@@ -43,9 +50,10 @@ function byTopic(){
    document.getElementById("grouped").classList.add('uncollapse');
    document.getElementById("chrono-list").classList.add('collapse');
    document.getElementById("chrono-list").classList.remove('uncollapse');
+
 }
 
-var uncollapsed = new Set();
+
 function collapseOrNot(topicID){
    var arrowEl = document.getElementById("arrow-" + topicID);
    var listEl = document.getElementById("topic-list-" + topicID);

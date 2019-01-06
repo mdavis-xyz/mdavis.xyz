@@ -97,7 +97,7 @@
          height: 667
    template: "none"
 -  title: "Python Reddit Bot"
-   description: "How I wrote a reddit bot in python to reply to long posts"
+   description: "How I wrote a Reddit bot in python to reply to long posts"
    path: "paragraphiser"
    images:
       card:

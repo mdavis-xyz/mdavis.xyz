@@ -5,15 +5,15 @@
 
    <!--w3c-->
    <title property="schema:name">Python Reddit Bot</title>
-   <meta name="description" content="How I wrote a reddit bot in python to reply to long posts">
+   <meta name="description" content="How I wrote a Reddit bot in python to reply to long posts">
 
    <!--schema.org-->
    <meta property="schema:name" content="Python Reddit Bot">
-   <meta property="schema:description" content="How I wrote a reddit bot in python to reply to long posts">
+   <meta property="schema:description" content="How I wrote a Reddit bot in python to reply to long posts">
 
    <!-- opengraph-->
    <meta property="og:title" content="Python Reddit Bot">
-   <meta property="og:description" content="How I wrote a reddit bot in python to reply to long posts">
+   <meta property="og:description" content="How I wrote a Reddit bot in python to reply to long posts">
 
 
    <meta property="og:type" content="website" />
@@ -41,7 +41,7 @@
 
       <header>
          <h1 id="title">Python Reddit Bot</h1>
-         <p id="subtitle" class="subtitle">How I wrote a reddit bot in python to reply to long posts</p>
+         <p id="subtitle" class="subtitle">How I wrote a Reddit bot in python to reply to long posts</p>
       </header>
 
 
@@ -65,9 +65,9 @@
             |
          </div>
          <div class="metaline">
-            <time datetime="2019-01-05" itemprop="datePublished">
+            <time datetime="2019-01-07" itemprop="datePublished">
                <img class="logo" src="../images/calendar.svg" alt="calendar icon" width="20" height="20"/>
-               5 Jan 2019
+               7 Jan 2019
             </time>
          </div>
          <div class="metalinesep">
@@ -87,7 +87,7 @@
       <hr/>
       <p>I wrote a bot to crawl <a href="reddit.com">Reddit</a> and look for self posts which are very long walls of text without line breaks. This bot then comments on those posts, suggesting that the author break it up into many smaller paragraphs.</p>
 <p>It's daunting to see long unbroken walls of text. I hope that by writing this bot, I will help people write better posts, which makes the Reddit community better for everyone.</p>
-<h2 id="behaviour">Behaviour</h2>
+<h2 id="behavior">Behavior</h2>
 <p>You can see the result <a href="https://www.reddit.com/user/paragraphiser_bot">here</a>.</p>
 <p>My bot currently only watches <a href="https://www.reddit.com/r/relationship_advice">r/relationship_advice</a>. If it sees a text-only post which is long and only a single paragraph, it posts something like:</p>
 <blockquote>
@@ -95,18 +95,18 @@
 Beep boop, I'm a bot.
 </p>
 <p>
-It seems you've posted a huge wall of text. This is a bit daunting for users browsing reddit, so they're unlikely to read the whole thing.
+It seems you've posted a huge wall of text. This is a bit daunting for users browsing Reddit, so they're unlikely to read the whole thing.
 </p>
 <p>
-It's ok to write a lot if you've got a lot to say. But perhaps you could insert some empty lines into your post, to break it into smaller, more palatable paragraphs?
+It's OK to write a lot if you've got a lot to say. But perhaps you could insert some empty lines into your post, to break it into smaller, more palatable paragraphs?
 </p>
 </blockquote>
 <p>I choose the &quot;Beep boop&quot; part very deliberately. By making my bot appear cuter, people are <a href="https://theoatmeal.com/static/blog_google_self_driving_car.html">less likely</a> to respond negatively if it fails.</p>
 <p>Sometimes people have already split up their post into one huge paragraph, and one or two small ones. In that case I still want my bot to suggest that the author split it up more, but the text must be different. My bot handles this case:</p>
 <blockquote>
 <p>Beep boop, I'm a bot.</p>
-<p>It seems you've posted a huge wall of text. This is a bit daunting for users browsing reddit, so they're unlikely to read the whole thing.</p>
-<p>It's ok to write a lot if you've got a lot to say. It's great that you've already split the post into multiple paragraphs, however your largest paragraph is still 2366 words long. Perhaps you could insert some more empty lines into your post, to break it into more palatable paragraphs?</p>
+<p>It seems you've posted a huge wall of text. This is a bit daunting for users browsing Reddit, so they're unlikely to read the whole thing.</p>
+<p>It's OK to write a lot if you've got a lot to say. It's great that you've already split the post into multiple paragraphs, however your largest paragraph is still 2366 words long. Perhaps you could insert some more empty lines into your post, to break it into more palatable paragraphs?</p>
 </blockquote>
 <p>If the author edits their post after my bot comments, such that the text is multiple small paragraphs, my bot edits its comment:</p>
 <blockquote>
@@ -115,14 +115,20 @@ It's ok to write a lot if you've got a lot to say. But perhaps you could insert 
 <h2 id="results">Results</h2>
 <p>57% of authors edit their post to split it up into multiple paragraphs, in response to my bot. It is currently in the top 10% of <a href="https://botrank.pastimes.eu/?sort=rank&amp;page=3">most liked Reddit bots</a>.</p>
 <h2 id="technical-details">Technical Details</h2>
-<p>This bot is written in python, and deployed as a serverless <em>Lambda</em> function in Amazon's cloud. The code is posted <a href="https://github.com/mlda065/paragraphiser_bot_aws/tree/paragraphiser">on Github</a>. If you want to write your own bot, have a look at <a href="https://github.com/mlda065/paragraphiser_bot_aws">my template</a>.</p>
+<p>This bot is written in python, and deployed as a serverless <em>Lambda</em> function in Amazon's cloud. The code is posted <a href="https://github.com/mlda065/paragraphiser_bot_aws/tree/paragraphiser">on GitHub</a>. If you want to write your own bot, have a look at <a href="https://github.com/mlda065/paragraphiser_bot_aws">my template</a>.</p>
 <p>The code uses the <a href="https://praw.readthedocs.io/en/latest/">Praw library</a> to access Reddit's API. Unfortunately Reddit offers no kind of webhook, so bots must poll the API to get new posts. This poses a challenge for this bot. If an author modifies their post in response to my bot, and it ceases to be eligible for comment by my bot, I want to edit my comment, lest my bot appear broken. I want to make such modifications promptly. (Within 2 minutes) However I cannot poll every commented-on post every minute, because I get rate limited. So I use a kind of exponential backoff. Posts my bot commented on recently are checked very frequently. Posts my bot commented on a long time ago are checked very infrequently.</p>
-<p>The overall architecture is that one Lambda function polls Reddit every minute for new posts. If a post is eligible (that is, it is a text-only post which has a long maximum paragraph length) then the bot comments on it. Information about the post (including the original text of the post) is saved into Fynamodb. The post ID and many timestamps are each saved as their own row in another table, which is used as a scheduler. Another Lambda function checks that database every minute. If any timestamps in that database are now in the past, that function triggers a third Lambda, with the post ID as an argument. If multiple posts need to be checked at the same time, the scheduling Lambda will trigger many other Lambdas in parallel.</p>
+<p>The overall architecture is that one Lambda function polls Reddit every minute for new posts. If a post is eligible (that is, it is a text-only post which has a long maximum paragraph length) then the bot comments on it. Information about the post (including the original text of the post) is saved into Dynamodb. The post ID and many timestamps are each saved as their own row in another table, which is used as a scheduler. Another Lambda function checks that database every minute. If any timestamps in that database are now in the past, that function triggers a third Lambda, with the post ID as an argument. If multiple posts need to be checked at the same time, the scheduling Lambda will trigger many other Lambdas in parallel.</p>
 <p>This third Lambda checks whether the post has been edited. If so, the comment is edited. It also checks whether that comment was down-voted below 0. If that happens, it sends me an email.</p>
 <h3 id="tooling-and-infrastructure">Tooling and Infrastructure</h3>
-<p>Running your own server can be a lot of hassle, and results in downtime, and hardware costs. I initially ran my bot on a <a href="https://beagleboard.org/black/">Beaglebone server</a>. However a lightening strike in my street fried it. I took that opportunity to re-write it and deploy it to AWS Lambda.</p>
+<p>Running your own server can be a lot of hassle, and results in downtime, and hardware costs. I initially ran my bot on a <a href="https://beagleboard.org/black/">BeagleBone server</a>. However a lightening strike in my street fried it. I took that opportunity to re-write it and deploy it to AWS Lambda.</p>
 <p>If you don't know what Amazon's <em>Lambda functions</em> are: You give them code, and they run it. You don't need to worry about an operating system (<code>sudo apt-get install blah</code>). You don't need to worry about scaling. If my Reddit bot wants to comment on a thousand posts per second today, and nothing tomorrow, Amazon will happily handle that. (Reddit will definitely throttle that, but my point is that you don't need to worry about scaling, and you only pay for the seconds of computation that you use.)</p>
-<p>This project includes comprehensive tooling to deploy Lambda functions in a robust way with CloudFormation templates and in-cloud unit testing. This tooling parallelises all aspects of lambda deployment: * virtual environment creation * zipping * uploading * testing</p>
+<p>This project includes comprehensive tooling to deploy Lambda functions in a robust way with CloudFormation templates and in-cloud unit testing. This tooling parallelises all aspects of lambda deployment:</p>
+<ul>
+<li>virtual environment creation</li>
+<li>zipping</li>
+<li>uploading</li>
+<li>testing</li>
+</ul>
 <h2 id="how-to-use-it">How To Use It</h2>
 <p>If you want to write your own bot, have a look at <a href="https://github.com/mlda065/paragraphiser_bot_aws">my template</a>.</p>
 

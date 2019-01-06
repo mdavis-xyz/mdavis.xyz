@@ -3,6 +3,7 @@ import pprint as pp
 from mako.template import Template
 from tidylib import tidy_document
 import re
+import myspellcheck
 
 # pyyaml converts "yes" and "no" to "True" and "False". I don't want that.
 from yaml.constructor import Constructor
@@ -25,46 +26,6 @@ def addToDictionary(word):
     with open(fname,'a') as fp:
         fp.write("\n" + word)
     dictionary.add(word)
-
-regexExpr = re.compile(r"<[^<>]*>")
-
-def spellcheckElement(el):
-    # get rid of <> tags
-    content = regexExpr.sub("",el.replace('\n',' '))
-
-    words = [w.strip().rstrip(').,!?').lstrip('(') for w in content.split(' ')]
-    words = [w for w in words if w != '']
-
-    for w in words:
-        if (not w in dictionary) and \
-           (not isNumber(w.replace(',',"").lstrip('$').rstrip('%'))):
-            # try with uncapitalised first letter
-            if len(w) > 1:
-                wLower = w[0].lower() + w[1:]
-            else:
-                wLower = w.lower()
-            if not wLower in dictionary:
-                print('unknown word')
-                ret = input('%s is not in the dictionary, add it? (y/n/c for uncapitalise)\n' % (w))
-                if ret.lower() in ['y','yes','']:
-                    addToDictionary(w)
-                elif ret.lower() in ['c']:
-                    print('adding %s to dictionary' % wLower)
-                    addToDictionary(wLower)
-                else:
-                    return(False)
-    return(True)
-
-
-def spellcheckElementTest():
-    # test this regex does what I think
-    testIn = "abc<b>123</b> ecd"
-    expectedOut = "abc123 ecd"
-    actualOut = regexExpr.sub('',testIn)
-    if actualOut != expectedOut:
-        print("actual out: %s" % actualOut)
-        print("expected out: %s" % expectedOut)
-    assert(actualOut == expectedOut)
 
 
 def isNumber(s):
@@ -136,13 +97,13 @@ def validate(content):
                 if (not text) or (text.strip() == ''):
                     print("Error: no content for button which is element %d of slide %s" % (elnum,slide['id']))
                     exit(1)
-                elif not spellcheckElement(text):
+                elif not myspellcheck.checkLine(text):
                     print("error, spelling mistake in button element #%d in slide %s" % (elnum,slide['id']))
                     exit(1)
             else:
                 # not button
                 assert(type(value.strip()) == type(''))
-                if not spellcheckElement(value):
+                if not myspellcheck.checkLine(value):
                     print("error, spelling mistake %s  #%d element in slide %s" % (key,i,slide['id']))
                     exit(1)
 def htmlize(content):
@@ -172,7 +133,7 @@ def htmlize(content):
     return(html)
 
 def unitTests():
-    spellcheckElementTest()
+    pass
 
 if __name__ == '__main__':
     unitTests()

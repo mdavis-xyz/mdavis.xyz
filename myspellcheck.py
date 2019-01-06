@@ -7,13 +7,40 @@ def test():
     teststripFancy()
     testStripForSpellcheck()
 
+def stripFancy(text,markdown=False):
+    text = stripXML(text)
+    text = text.replace("&quot;",'"')
+    if markdown:
+        text = stripMarkdown(text)
+    return(text)
 
-def stripFancy(text):
+def stripXML(text):
     expr = r'<[^<>]+>'
     text = re.sub(expr, '', text)
-    expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
-    text = re.sub(expr, r'\1', text)
     return(text)
+
+def stripMarkdown(text):
+    expr = r'```([^`]+)```'
+    text = re.sub(expr, r'\1', text)
+    lines = text.split('\n')
+    newLines = []
+    for line in lines:
+        expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
+        line = re.sub(expr, r'\1', line)
+        expr = r'\*\*([^\*]+)\*\*'
+        line = re.sub(expr, r'\1', line)
+        expr = r'\*([^*]+)\*'
+        line = re.sub(expr, r'\1', line)
+        expr = r'`([^`]+)`'
+        line = re.sub(expr, r'\1', line)
+        expr = r'^\s*>([^<>]*)$'
+        line = re.sub(expr, r'\1', line)
+        expr = r'^\s*#+([^#]+)$'
+        line = re.sub(expr, r'\1', line)
+        expr = r'^\s*\*([^\*]+)$'
+        line = re.sub(expr, r'\1', line)
+        newLines.append(line)
+    return('\n'.join(newLines))
 
 def teststripFancy():
     original = 'asd'
@@ -28,7 +55,21 @@ def teststripFancy():
 
     original = 'This [link](http://example.com) shows [this](./blah)'
     expected = 'This link shows this'
-    actual = stripFancy(original)
+    actual = stripFancy(original,markdown=True)
+    if expected != actual:
+        print("actual: " + actual)
+    assert(expected == actual)
+
+    original = 'This *is* italics'
+    expected = 'This is italics'
+    actual = stripFancy(original,markdown=True)
+    if expected != actual:
+        print("actual: " + actual)
+    assert(expected == actual)
+
+    original = 'This **is bold** yes'
+    expected = 'This is bold yes'
+    actual = stripFancy(original,markdown=True)
     if expected != actual:
         print("actual: " + actual)
     assert(expected == actual)
@@ -46,11 +87,16 @@ def stripForSpellcheck(word):
        r"^\d+((\,\d{3})+)?(\.\d+)?%$", #percentage
        r"^\d{1,2}(:\d{2})?[ap]m$", # time
        r"^\d+\/\d+$", # fractions
-       r"^\d+-\d+$" # 2016-2017
+       r"^\d+-\d+$", # 2016-2017
+       r"^\d{2,4}-\d{1,2}-\d{1,2}$", # 2016-01-02
+       r"^\d{1,2}:\d{1,2}(:\d{1,2})?$" # 12:34:13
        ]
 
     for e in expr:
         word = re.sub(e, '', word)
+
+    if word.endswith("™") or word.endswith(":"):
+        word = word[:-1]
 
     return(word)
 
@@ -65,7 +111,9 @@ def testStripForSpellcheck():
     actual = stripForSpellcheck(original)
     assert(expected == actual)
 
-    for original in ['$5','123.0','$500,300.12','$5.3M', '25MBi/s','6am','12:30pm','2016-2017']:
+    for original in ['$5','123.0','$500,300.12','$5.3M', \
+                     '25MBi/s','6am','12:30pm','2016-2017',\
+                     '2017-01-2','12:34','13:34:01']:
         expected = ''
         actual = stripForSpellcheck(original)
         if expected != actual:
@@ -103,9 +151,9 @@ assert('spent' in dictionary)
 
 
 def addToDict(word):
-    dictionary.add(word.lower())
+    dictionary.add(word)
     with open(extraWordsFname,'a') as f:
-        f.write(word.lower()+'\n')
+        f.write(word+'\n')
 
 def checkWord(word):
     if (word != '') and (word not in dictionary) and (word.lower() not in dictionary):
@@ -137,8 +185,8 @@ def checkWord(word):
             return(False)
     return(True)
 
-def checkLine(line):
-    line = stripFancy(line)
+def checkLine(line,markdown=False):
+    line = stripFancy(line,markdown=markdown)
 
 
     # remove brackets
@@ -162,11 +210,12 @@ def checkLine(line):
 def checkFile(fname):
     with open(fname,'r') as f:
         content = f.read()
-
-    for (i,line) in enumerate(f.split('\n')):
+    content = stripFancy(content,markdown=(fname.endswith('.md')))
+    for (i,line) in enumerate(content.split('\n')):
         if not checkLine(line):
             print("Quitting")
             print("That was file %s line %d" % (fname,i+1))
+            print(line)
             exit(1)
-
+    return(True)
 test()

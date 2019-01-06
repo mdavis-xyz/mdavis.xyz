@@ -61,7 +61,7 @@ Aggregated together with video and purchase history from all my prior visits the
 Food brands love this. (Even though both chip brands are ultimately [owned by the same company](https://www.independent.co.uk/life-style/companies-control-everything-you-buy-kelloggs-nestle-unilever-a7666731.html).)
 However they aren't the only ones who pay dearly for this data.
 My health insurer is also quite interested in my choice of afternoon snack.
-The NSA, [Facebook](https://www.engadget.com/2016/12/30/facebook-buys-data-on-users-offline-habits-for-better-ads/), Equifax, [Border Force](https://www.cnet.com/au/news/scope-creep-australian-border-force-granted-metadata-access/), [CentreLink](https://www.computerworld.com.au/article/649514/data-retention-centrelink-councils-australia-post-among-organisations-accessing-metadata/) and countless others are also kept in the loop.
+The NSA, [Facebook](https://www.engadget.com/2016/12/30/facebook-buys-data-on-users-offline-habits-for-better-ads/), Equifax, [Border Force](https://www.cnet.com/au/news/scope-creep-australian-border-force-granted-metadata-access/), [Centrelink](https://www.computerworld.com.au/article/649514/data-retention-centrelink-councils-australia-post-among-organisations-accessing-metadata/) and countless others are also kept in the loop.
 
 FoodCorp claims that these "*auxiliary revenue opportunities*" help them offer more competitive prices.
 However my grocery bill doesn't seem any lower than before.
@@ -100,7 +100,7 @@ The days of anonymous purchases without private middlemen are long gone.
 The government's competition watchdog put up no resistance to a for-profit duopoly taking over 100% of retail transactions.
 Now access to money (and therefore the ability to participate in society itself) is effectively privatised.
 The watchdog claims this is fine because we still have a choice.
-Hmm, do I want to be tracked by MasterCard or Visa?
+Hmm, do I want to be tracked by Mastercard or Visa?
 Either way I must submit to the [invasive and opaque demands of private payment providers](http://www.thetechherald.com/news/cloud-firm-seafile-drops-paypal-after-being-told-to-monitor-users-files/).
 Both of those card corporations have [data exchange deals with FoodCorp](https://www.bloomberg.com/news/articles/2018-08-30/google-and-mastercard-cut-a-secret-ad-deal-to-track-retail-sales).
 The card companies hand over my income and spending habit data to FoodCorp.
@@ -115,6 +115,6 @@ Despite this, I am not able to see what the data says about me, let alone correc
 
 The checkout machine asks me if I want a digital receipt sent to me via email, SMS, Facebook Messenger or the FoodCorp app. This is mostly so that they can discover yet another identifier to track me with. (The FoodCorp app also [tracks your location long after you've left the store](https://www.theverge.com/2016/11/30/13763714/uber-location-data-tracking-app-privacy-ios-android).)
 
-Many shoppers still believe that physical shopping is anonymous. That unlike the online world, your behaviours and purchases are not tracked, nor sold to advertising agencies and data brokers.
+Many shoppers still believe that physical shopping is anonymous. That unlike the online world, your behaviors and purchases are not tracked, nor sold to advertising agencies and data brokers.
 But that's not true.
 Not any more.

@@ -7,7 +7,7 @@ from subprocess import call
 import pypandoc
 import os
 import re
-import spellcheck
+import myspellcheck
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
@@ -103,6 +103,9 @@ def doOne(data,allData):
             #     data['estReadingTime'] = data['estReadingTime']/2.0
         elif data['template'] == 'markdown':
             markdownFname = 'pages/%s/%s' % (data['sourcePath'],data['markdown'])
+            if not myspellcheck.checkFile(markdownFname):
+                print("That was in %s" % markdownFname)
+                exit(1)
             print("Converting markdown file %s to html " % markdownFname)
             data['content'] = pypandoc.convert_file(markdownFname, 'html')
             stubFname = 'pages/%s/stub.html' % data['path']
@@ -209,11 +212,20 @@ def doAll():
         else:
             assert('publishPath' in page)
             assert('sourcePath' in page)
+        for k in ['title','description']:
+            if not myspellcheck.checkLine(page[k]):
+                print("That was the %s %s from pages.yaml" % (k,page[k]))
+                exit(1)
+
 
     for page in pagesData:
         doOne(page,pagesData)
 
-
+    for p in pagesData:
+        if p['template'] == 'none':
+            print("Skipping spell check for %s" % p['title'])
+        elif not myspellcheck.checkFile('pages/%s/docs/index.html' % p['sourcePath']):
+            print("that was %s" % p['title'])
 
     src = 'pages/www/docs'
     dest = 'docs/'

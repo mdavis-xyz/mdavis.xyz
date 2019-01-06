@@ -5,6 +5,7 @@
 
    <!--w3c-->
    <title property="schema:name">${data['title']}</title>
+   <meta name="title" content="${data['title']}">
    <meta name="description" content="${data['description']}">
 
    <!--schema.org-->
@@ -30,6 +31,10 @@
    <meta property="og:image:width" content="${data['images']['card']['width']}" />
    <meta property="og:image:height" content="${data['images']['card']['height']}" />
    <meta property="og:author" content="Matthew Davis" />
+
+   % if ('date' in data) and ('human' in data['date']):
+   <meta name="displaydate" content="${data['date']['human']}">
+   % endif
 
    % if 'viewport' not in data['exclude']:
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -75,9 +80,11 @@
 
       <div class="authordate center">
          <a id="author" href="../">
-            <div class="byline-name metaline">
+            <div class="metaline">
                <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/user.svg" alt="calendar icon" width="20" height="20"/>
-               Matthew Davis
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
             </div>
          </a>
          % if 'date' not in data['exclude']:
@@ -85,8 +92,8 @@
             |
          </div>
          <div class="metaline">
+            <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/calendar.svg" alt="calendar icon" width="20" height="20"/>
             <time datetime="${data['date']['computer']}" itemprop="datePublished">
-               <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/calendar.svg" alt="calendar icon" width="20" height="20"/>
                ${data['date']['human']}
             </time>
          </div>

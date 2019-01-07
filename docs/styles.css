@@ -1,4 +1,7 @@
 
+
+
+
 .cardContainer {
    display: flex;
    flex-direction: row;
@@ -6,6 +9,7 @@
    justify-content: center;
    align-items: flex;
    align-content: center;
+   margin-top: 2em;
 }
 
 .card {
@@ -64,7 +68,7 @@ a:hover .cardColor {
    font-size: 80%;
 }
 
-.profileLinks {
+#profileLinks {
    text-align: center;
    font-size: 80%;
 }
@@ -73,6 +77,78 @@ a:hover .cardColor {
    text-align: center;
 }
 
-.homeTitle {
-   font-size: 400%;
+#homeTitle {
+   font-size: 200%;
+   margin-bottom: 0;
+}
+
+#homeHeader {
+   width: 100vw;
+   position: relative;
+   left: calc(-50vw + 50%);
+   margin-top: 0;
+   background-image:
+      linear-gradient(
+         to bottom,
+         rgba(0,0,0,0),
+         rgba(0,0,0,0.5),
+         rgba(0,0,0,0.6)
+      ),
+      url(images/PCB.jpg);
+   background-size: cover;
+   padding-top: 0;
+   background-repeat: no-repeat;
+   padding-top: 2em;
+   padding-bottom: 1em;
+   /*! padding-bottom: 2em; */
+   /*! color: black; */
+   -webkit-animation: fadeIn 0.6s forwards;
+   animation: fadeIn 0.6s forwards;
+   transition-timing-function: ease;
+}
+
+
+@keyframes fadeIn {
+   0% { opacity: 0}
+   100% { opacity: 1}
+}
+
+@-webkit-keyframes appear {
+   0% { opacity: 0}
+   100% { opacity: 1}
+}
+#profilePic {
+   /*circle*/
+   border-radius: 50%;
+
+   border-width: 3px;
+   border-color: white;
+   border-style: solid;
+
+   height: 5em;
+   width: 5em;
+   overflow: hidden;
+}
+#myRole {
+   margin-top: 0;
+   color: rgb(235,235,240);
+}
+
+@media (min-width:45em)  {
+   #myRole {
+      word-spacing: 20px;
+   }
+}
+
+#homeDesc {
+   margin-top: 1.5em;
+   padding-left: 1em;
+   padding-right: 1em;
+   color: rgb(200,200,205);
+}
+
+
+
+body {
+   padding-top: 0 !important;
 }

@@ -15,6 +15,7 @@
       - 'script'
       - 'date'
       - 'header'
+      - 'appear'
    template: 'home'
 -  title: "Do you need a blockchain?"
    description: "An interactive flowchart to help cut through the hype"
@@ -53,6 +54,8 @@
          attribution: Photo by <a href="https://unsplash.com/photos/gpjvRZyavZc">ev</a> on <a href="https://unsplash.com">Unsplash</a>
    template: "markdown"
    markdown: "content.md"
+   exclude:
+      - 'media'
 -  title: "Achievements of the Coalition Government"
    description: "A comprehensive list of (almost) everything the current Australian government has done"
    path: "govlist"

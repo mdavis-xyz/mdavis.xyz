@@ -1,18 +1,26 @@
-<h1 id="author" class="homeTitle">Matthew Davis</h1>
+<div class="center" id="homeHeader">
+   <div class="appear">
+      <img src="images/me1-a.jpg" id="profilePic" class="appear" width="700" height="700">
+      <h1 id="homeTitle">Matthew Davis</h1>
+      <p id="myRole">
+         Engineer | Developer | Tinkerer
+      </p>
+      <p id="profileLinks">
+         <a target="_blank" href="https://www.linkedin.com/in/engineerdavis/">
+            <img class="logo" src="images/linkedin.png" alt="Linkedin Logo" width="21" height="21"/> /engineerdavis
+         </a>
+         |
+         <a target="_blank" href="https://github.com/mlda065">
+            <img class="logo" src="images/github.png" alt="Linkedin Logo" width="21" height="21"/> /mlda065
+         </a>
+      </p>
+      <p id="homeDesc">
+         A collection of projects, stories and thoughts about technology and politics
+      </p>
+   </div>
+</div>
 
-<p class="profileLinks">
-   <a target="_blank" href="https://www.linkedin.com/in/engineerdavis/">
-      <img class="logo" src="images/linkedin.png" alt="Linkedin Logo" width="21" height="21"/> /engineerdavis
-   </a>
-   |
-   <a target="_blank" href="https://github.com/mlda065">
-      <img class="logo" src="images/github.png" alt="Linkedin Logo" width="21" height="21"/> /mlda065
-   </a>
-</p>
-
-<p class="center">A collection of projects, stories and thoughts about technology and politics</p>
-
-<div class="cardContainer" >
+<div class="cardContainer appear" >
 % for page in pages:
 <article>
    % if page['template'] == 'none':

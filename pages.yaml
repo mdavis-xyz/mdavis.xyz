@@ -114,3 +114,4 @@
    markdown: "content.md"
    exclude:
       - 'script'
+   date: 7/1/2019

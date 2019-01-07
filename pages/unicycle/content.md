@@ -1,5 +1,5 @@
-<video autoplay loop class="video" class="appear">
-   <source src="video.mp4" type="video/mp4" width=1500 height=500>
+<video autoplay loop class="video appear"  width=1500 height=500>
+   <source src="video.mp4" type="video/mp4">
 </video>
 
 This project is a combination of two of my passions: programming and unicycling.

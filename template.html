@@ -94,7 +94,7 @@
          </div>
          <div class="metaline">
             <img class="logo" src="${"" if data['template'] == 'home' else "../"}images/calendar.svg" alt="calendar icon" width="20" height="20"/>
-            <time datetime="${data['date']['computer']}" itemprop="datePublished">
+            <time datetime="${data['date']['computer']}" class="dateline">
                ${data['date']['human']}
             </time>
          </div>

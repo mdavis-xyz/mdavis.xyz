@@ -125,7 +125,9 @@
             % endif
          <p>
       </aside>
+      % if 'hr' not in data['exclude']:
       <hr/>
+      % endif
    % endif
       ${data['content']}
 

@@ -96,11 +96,11 @@ def doOne(data,allData):
             stubFname = 'pages/%s/stub.html' % data['sourcePath']
             with open(stubFname,"r") as f:
                 data['content'] = f.read()
-            # print("Estimating reading time for %s" % data['title'])
-            # data['estReadingTime'] = estReadingTime(stubFname)
-            # if data['path'] == 'govlist':
-            #     print("Halving abbott list reading time estimate")
-            #     data['estReadingTime'] = data['estReadingTime']/2.0
+            print("Estimating reading time for %s" % data['title'])
+            data['estReadingTime'] = estReadingTime(stubFname)
+            if data['path'] == 'govlist':
+                print("Halving abbott list reading time estimate")
+                data['estReadingTime'] = data['estReadingTime']/2.0
         elif data['template'] == 'markdown':
             markdownFname = 'pages/%s/%s' % (data['sourcePath'],data['markdown'])
             if not myspellcheck.checkFile(markdownFname):

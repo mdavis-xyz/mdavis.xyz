@@ -8,9 +8,8 @@ body {
    color: #fff;
    width: 80%;
    margin: auto;
-   padding-top: 3rem;
-   padding-bottom: 3rem;
-   overflow-x: hidden;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
 }
 
 html {}
@@ -18,6 +17,8 @@ html {}
 h1 {
    text-transform: capitalize;
    text-align: center;
+   padding-top: 1em;
+   padding-bottom: 1em;
 }
 
 header {

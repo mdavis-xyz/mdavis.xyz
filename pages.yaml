@@ -88,6 +88,7 @@
    markdown: "content.md"
    exclude:
       - 'script'
+      - 'hr'
 -  title: "Arduino Monitor Rotator"
    description: "Build an Automatic Computer Display Rotator With an Arduino"
    path: "monitor"

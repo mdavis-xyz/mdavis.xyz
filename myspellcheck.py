@@ -81,6 +81,7 @@ def stripForSpellcheck(word):
 
 
     expr = [
+       r"^\$?-?\d+((\,\d{3})+)?(\.\d+)?$", # numbers (including negative)
        r"^\$?\d+((\,\d{3})+)?(\.\d+)?[BMk]?$", # numbers and dollars
        r"^\d+(\.\d+)?[kMG]?W$", # 1.2GW
        r"^\d+(\.\d+)?[kMG]?Bi\/s$", # 25MBi/s

@@ -88,7 +88,7 @@ So my bot counts each list item as a separate paragraph.
 Running your own server can be a lot of hassle, and results in downtime, and hardware costs.
 I initially ran my bot on a [BeagleBone server](https://beagleboard.org/black/).
 However a lightening strike in my street fried it.
-I took that opportunity to re-write it and deploy it to AWS Lambda.
+I took that opportunity to re-write the bot and deploy it to AWS Lambda.
 
 If you don't know what Amazon's *Lambda functions* are: You give them code, and they run it.
 You don't need to worry about an operating system (`sudo apt-get install blah`).

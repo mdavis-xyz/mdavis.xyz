@@ -34,6 +34,7 @@ My bot handles this case:
 If the author edits their post after my bot comments, such that the text is multiple small paragraphs, my bot edits its comment:
 
 > Beep boop, I'm a bot.
+>
 > It seems you've posted a huge wall of text... Thanks for splitting up your post. Now the largest paragraph size is only 176 words instead of 1400 words.
 
 
@@ -71,7 +72,16 @@ This third Lambda checks whether the post has been edited. If so, the comment is
 It also checks whether that comment was down-voted below 0.
 If that happens, it sends me an email.
 
-
+The exact metric this bot uses to decide whether to comment on a post is the number of characters in the longest paragraph.
+This requires a little bit of effort to calculate, because Reddit comments are written in Markdown.
+Text separated by a single newline character gets rendered as the same paragraph.
+My code needs to ignore single newline characters, and instead check for when there are 2 or more.
+I have come across posts where someone used a non-standard whitespace character to break lines.
+My bot needs to account for that.
+Similarly, my bot parses Markdown lists.
+If a post contains a list (numbered or not), it may contain many characters which are not separated by 2 or more newline characters.
+However lists do not look like a daunting wall of text.
+So my bot counts each list item as a separate paragraph.
 
 ### Tooling and Infrastructure
 

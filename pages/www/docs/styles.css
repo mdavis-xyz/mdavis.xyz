@@ -85,11 +85,30 @@ a:hover .cardColor {
    text-align: center;
 }
 
+
+@font-face {
+      font-family: 'myHeadingFont'; /*a name to be used later*/
+         src: url('fonts/BebasNeue-Regular.ttf');
+            /*src: url('fonts/koliko-Light.ttf');*/
+            /*src: url('fonts/Oswald-Bold.ttf');*/
+            /*src: url('fonts/OswaldHeavy-Regular.ttf');*/
+            /*src: url('fonts/Oswald-Medium.ttf');*/
+            /*src: url('fonts/Oswald-SemiBold.ttf');*/
+            /*src: url('fonts/koliko-Bold.ttf');*/
+            /*src: url('fonts/koliko-Regular.ttf');*/
+            /*src: url('fonts/Oswald-ExtraLight.ttf');*/
+            /*src: url('fonts/Oswald-Light.ttf');*/
+            /*src: url('fonts/Oswald-Regular.ttf');  '*/
+            /*src: url('fonts/SIMPLIFICA Typeface.ttf');*/
+      }
+
+
 #homeTitle {
    font-size: 200%;
    margin-bottom: 0;
    padding-top: 0;
    padding-bottom: 0;
+   font-family: "myHeadingFont", "Source Sans Pro", Helvetica, sans-serif;
 }
 
 #homeHeader {

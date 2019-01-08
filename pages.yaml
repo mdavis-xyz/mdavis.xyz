@@ -4,11 +4,10 @@
    sourcePath: 'www'
    images:
       card:
-         path: "card.jpg"
-         description: "Poster on pole proclaiming 'big data is watching you'"
-         width: 1000
+         path: "images/PCB.jpg"
+         description: "Printed Circuit Board"
+         width: 961
          height: 667
-         attribution: https://unsplash.com/photos/gpjvRZyavZc
    exclude:
       - 'article'
       - 'footer'

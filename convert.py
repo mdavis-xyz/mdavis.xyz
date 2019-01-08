@@ -12,7 +12,7 @@ import myspellcheck
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
 pagesFname = 'pages.yaml'
-enableTracking = True
+enableTracking = False
 
 
 

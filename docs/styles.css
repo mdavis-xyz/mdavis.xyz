@@ -106,8 +106,9 @@ a:hover .cardColor {
       ),
       url(images/PCB.jpg);
    background-size: cover;
-   padding-top: 0;
    background-repeat: no-repeat;
+   background-position: center;
+
    padding-top: 2em;
    padding-bottom: 1em;
    /*! padding-bottom: 2em; */
@@ -115,6 +116,14 @@ a:hover .cardColor {
    -webkit-animation: fadeIn 0.6s forwards;
    animation: fadeIn 0.6s forwards;
    transition-timing-function: ease;
+   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   /*align-items: flex;*/
+   align-content: center;
 }
 
 
@@ -138,9 +147,11 @@ a:hover .cardColor {
    height: 5em;
    width: 5em;
    overflow: hidden;
+
+   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
 }
 #myRole {
-   margin-top: 0;
+   /*margin-top: 0;*/
    color: rgb(235,235,240);
 }
 
@@ -151,7 +162,7 @@ a:hover .cardColor {
 }
 
 #homeDesc {
-   margin-top: 1.5em;
+   /*margin-top: 1.5em;*/
    padding-left: 1em;
    padding-right: 1em;
    color: rgb(200,200,205);

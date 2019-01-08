@@ -89,6 +89,7 @@
    exclude:
       - 'script'
       - 'hr'
+   date: 7/1/2019
 -  title: "Arduino Monitor Rotator"
    description: "Build an Automatic Computer Display Rotator With an Arduino"
    path: "monitor"

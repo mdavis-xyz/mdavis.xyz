@@ -36,28 +36,20 @@ pre {
 }
 
 
-blockquote {
-    border-left: 5px solid #ccc;
-    margin:  1.5rem 1.5rem;
-    padding:  0.5rem 0.5rem;
-    font-style: italic;
-}
-
-
 @font-face {
    font-family: 'myHeadingFont'; /*a name to be used later*/
-   src: url('fonts/BebasNeue-Regular.ttf');
-   /*src: url('fonts/koliko-Light.ttf');*/
-   /*src: url('fonts/Oswald-Bold.ttf');*/
-   /*src: url('fonts/OswaldHeavy-Regular.ttf');*/
-   /*src: url('fonts/Oswald-Medium.ttf');*/
-   /*src: url('fonts/Oswald-SemiBold.ttf');*/
-   /*src: url('fonts/koliko-Bold.ttf');*/
-   /*src: url('fonts/koliko-Regular.ttf');*/
-   /*src: url('fonts/Oswald-ExtraLight.ttf');*/
-   /*src: url('fonts/Oswald-Light.ttf');*/
-   /*src: url('fonts/Oswald-Regular.ttf');  '*/
-   /*src: url('fonts/SIMPLIFICA Typeface.ttf');*/
+   src: url('../fonts/BebasNeue-Regular.ttf');
+   /*src: url('../fonts/koliko-Light.ttf');*/
+   /*src: url('../fonts/Oswald-Bold.ttf');*/
+   /*src: url('../fonts/OswaldHeavy-Regular.ttf');*/
+   /*src: url('../fonts/Oswald-Medium.ttf');*/
+   /*src: url('../fonts/Oswald-SemiBold.ttf');*/
+   /*src: url('../fonts/koliko-Bold.ttf');*/
+   /*src: url('../fonts/koliko-Regular.ttf');*/
+   /*src: url('../fonts/Oswald-ExtraLight.ttf');*/
+   /*src: url('../fonts/Oswald-Light.ttf');*/
+   /*src: url('../fonts/Oswald-Regular.ttf');  '*/
+   /*src: url('../fonts/SIMPLIFICA Typeface.ttf');*/
 }
 
 h1 {

@@ -30,6 +30,8 @@ function copyToGroups(){
    var t1 = performance.now();
    console.log("Finished copying items");
    console.log("Copying to topics took " + (t1 - t0) + " milliseconds.")
+   document.getElementById('groupButton').classList.add('appear')
+   document.getElementById('groupButton').classList.remove('trans');
 }
 
 function copyOne(item){

@@ -36,7 +36,7 @@ html {
 
 
 
-h1 {
+.wrap1 .wrap2 .wrap3 .wrap4 h1 {
    font-size: 3rem;
    font-family: Roboto, "Open Sans", "Source Sans Pro", Helvetica, sans-serif;
    text-transform: uppercase;

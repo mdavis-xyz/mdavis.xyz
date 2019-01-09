@@ -12,7 +12,6 @@ body {
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: center;
-   align-items: flex;
    align-content: center;
    margin-top: 2em;
    margin-left: 0;
@@ -85,50 +84,117 @@ a:hover .cardColor {
    text-align: center;
 }
 
+
+
 @font-face {
-   font-family: 'BebasNeue-Regular' ; 
-   src: url('fonts/BebasNeue-Regular.ttf)
-};
+   font-family: 'BebasNeue-Regular'; 
+   src: url('./fonts/BebasNeue-Regular.ttf');
+}
+
 @font-face {
-   font-family: 'koliko-Bold' ; 
-   src: url('fonts/koliko-Bold.ttf)
-};
+   font-family: 'koliko-Bold'; 
+   src: url('./fonts/koliko-Bold.ttf');
+}
+
 @font-face {
-   font-family: 'koliko-Light' ; 
-   src: url('fonts/koliko-Light.ttf)
-};
+   font-family: 'koliko-Light'; 
+   src: url('./fonts/koliko-Light.ttf');
+}
+
 @font-face {
-   font-family: 'koliko-Regular' ; 
-   src: url('fonts/koliko-Regular.ttf)
-};
+   font-family: 'koliko-Regular'; 
+   src: url('./fonts/koliko-Regular.ttf');
+}
+
 @font-face {
-   font-family: 'Oswald-Bold' ; 
-   src: url('fonts/Oswald-Bold.ttf)
-};
+   font-family: 'Oswald-Bold'; 
+   src: url('./fonts/Oswald-Bold.ttf');
+}
+
 @font-face {
-   font-family: 'Oswald-ExtraLight' ; 
-   src: url('fonts/Oswald-ExtraLight.ttf)
-};
+   font-family: 'Oswald-ExtraLight'; 
+   src: url('./fonts/Oswald-ExtraLight.ttf');
+}
+
 @font-face {
-   font-family: 'OswaldHeavy-Regular' ; 
-   src: url('fonts/OswaldHeavy-Regular.ttf)
-};
+   font-family: 'OswaldHeavy-Regular'; 
+   src: url('./fonts/OswaldHeavy-Regular.ttf');
+}
+
 @font-face {
-   font-family: 'Oswald-Light' ; 
-   src: url('fonts/Oswald-Light.ttf)
-};
+   font-family: 'Oswald-Light'; 
+   src: url('./fonts/Oswald-Light.ttf');
+}
+
 @font-face {
-   font-family: 'Oswald-Medium' ; 
-   src: url('fonts/Oswald-Medium.ttf)
-};
+   font-family: 'Oswald-Medium'; 
+   src: url('./fonts/Oswald-Medium.ttf');
+}
+
 @font-face {
-   font-family: 'Oswald-Regular' ; 
-   src: url('fonts/Oswald-Regular.ttf)
-};
+   font-family: 'Oswald-Regular'; 
+   src: url('./fonts/Oswald-Regular.ttf');
+}
+
 @font-face {
-   font-family: 'Oswald-SemiBold' ; 
-   src: url('fonts/Oswald-SemiBold.ttf)
-};
+   font-family: 'Oswald-SemiBold'; 
+   src: url('./fonts/Oswald-SemiBold.ttf');
+}
+
+@font-face {
+   font-family: 'f1'; 
+   src: url('./fonts/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+   font-family: 'f2'; 
+   src: url('./fonts/koliko-Bold.ttf');
+}
+
+@font-face {
+   font-family: 'f3'; 
+   src: url('./fonts/koliko-Light.ttf');
+}
+
+@font-face {
+   font-family: 'f4'; 
+   src: url('./fonts/koliko-Regular.ttf');
+}
+
+@font-face {
+   font-family: 'f5'; 
+   src: url('./fonts/Oswald-Bold.ttf');
+}
+
+@font-face {
+   font-family: 'f6'; 
+   src: url('./fonts/Oswald-ExtraLight.ttf');
+}
+
+@font-face {
+   font-family: 'f7'; 
+   src: url('./fonts/OswaldHeavy-Regular.ttf');
+}
+
+@font-face {
+   font-family: 'f8'; 
+   src: url('./fonts/Oswald-Light.ttf');
+}
+
+@font-face {
+   font-family: 'f9'; 
+   src: url('./fonts/Oswald-Medium.ttf');
+}
+
+@font-face {
+   font-family: 'f10'; 
+   src: url('./fonts/Oswald-Regular.ttf');
+}
+
+@font-face {
+   font-family: 'f11'; 
+   src: url('./fonts/Oswald-SemiBold.ttf');
+}
 
 
 #homeTitle {
@@ -169,7 +235,6 @@ a:hover .cardColor {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   /*align-items: flex;*/
    align-content: center;
 }
 

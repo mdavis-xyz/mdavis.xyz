@@ -36,9 +36,9 @@ html {
 
 
 
-h1 {
+.wrap1 .wrap2 .wrap3 .wrap4 h1 {
    font-size: 3rem;
-   font-family: Roboto, "Open Sans", "Source Sans Pro", Helvetica, sans-serif;
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
    text-transform: uppercase;
    padding-left: 0.5rem;
    padding-right: 0.5rem;
@@ -47,7 +47,6 @@ h1 {
 
 h2 {
    font-size: 2.5rem;
-   font-family: Roboto, "Open Sans", "Source Sans Pro", Helvetica, sans-serif;
    text-transform: uppercase;
    padding-left: 0.5rem;
    padding-right: 0.5rem;

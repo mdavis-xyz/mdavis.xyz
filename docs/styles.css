@@ -2,7 +2,7 @@
 /* this is also defined in common.css. I want to override it just for the home page*/
 body {
    padding-top: 0 !important;
-   width: 100% !important; 
+   width: 100% !important;
 }
 
 
@@ -12,7 +12,6 @@ body {
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: center;
-   align-items: flex;
    align-content: center;
    margin-top: 2em;
    margin-left: 0;
@@ -85,6 +84,105 @@ a:hover .cardColor {
    text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+@font-face {
+   font-family: 'BebasNeue-Regular';
+   src: url('./fonts/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+   font-family: 'Oswald-Medium';
+   src: url('./fonts/Oswald-Medium.ttf');
+}
+
+/*@font-face {
+   font-family: 'Roboto-LightItalic';
+   src: url('./fonts/Roboto-LightItalic.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'koliko-Bold';
+   src: url('./fonts/koliko-Bold.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Oswald-Regular';
+   src: url('./fonts/Oswald-Regular.ttf');
+}*/
+
+@font-face {
+   font-family: 'Roboto-Light';
+   src: url('./fonts/Roboto-Light.ttf');
+}
+
+/*@font-face {
+   font-family: 'Oswald-SemiBold';
+   src: url('./fonts/Oswald-SemiBold.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-MediumItalic';
+   src: url('./fonts/Roboto-MediumItalic.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-BlackItalic';
+   src: url('./fonts/Roboto-BlackItalic.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-Medium';
+   src: url('./fonts/Roboto-Medium.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Oswald-Bold';
+   src: url('./fonts/Oswald-Bold.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-Black';
+   src: url('./fonts/Roboto-Black.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-Regular';
+   src: url('./fonts/Roboto-Regular.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Oswald-ExtraLight';
+   src: url('./fonts/Oswald-ExtraLight.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-BoldItalic';
+   src: url('./fonts/Roboto-BoldItalic.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-ThinItalic';
+   src: url('./fonts/Roboto-ThinItalic.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'OswaldHeavy-Regular';
+   src: url('./fonts/OswaldHeavy-Regular.ttf');
+}*/
+
+/*@font-face {
+   font-family: 'Roboto-Bold';
+   src: url('./fonts/Roboto-Bold.ttf');
+}*/
+
+@font-face {
+   font-family: 'Roboto-Thin';
+   src: url('./fonts/Roboto-Thin.ttf');
+}
+
+
+>>>>>>> fonts
 
 #homeTitle {
    font-size: 200%;
@@ -92,6 +190,7 @@ a:hover .cardColor {
    padding-top: 0;
    padding-bottom: 0;
    font-family: "BebasNeue-Regular", "Source Sans Pro", Helvetica, sans-serif;
+   text-transform: uppercase;
 }
 
 #homeHeader {
@@ -124,8 +223,9 @@ a:hover .cardColor {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   /*align-items: flex;*/
    align-content: center;
+
+   font-family: "Roboto-Light", "Source Sans Pro", Helvetica, sans-serif;
 }
 
 
@@ -155,6 +255,7 @@ a:hover .cardColor {
 #myRole {
    /*margin-top: 0;*/
    color: rgb(235,235,240);
+
 }
 
 @media (min-width:45em)  {
@@ -167,8 +268,5 @@ a:hover .cardColor {
    /*margin-top: 1.5em;*/
    padding-left: 1em;
    padding-right: 1em;
-   color: rgb(200,200,205);
+   font-family: "Roboto-Thin", "Source Sans Pro", Helvetica, sans-serif;
 }
-
-
-

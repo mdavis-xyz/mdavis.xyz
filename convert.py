@@ -8,11 +8,29 @@ import pypandoc
 import os
 import re
 import myspellcheck
+import sys
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
 pagesFname = 'pages.yaml'
-enableTracking = True
+cname_fname = 'docs/CNAME'
+
+if len(sys.argv) < 2:
+    print("Error, add stage")
+    print("python convert.py dev|prod")
+    exit(1)
+if sys.argv[1].lower() == 'prod':
+    print("Production")
+    enableTracking = True
+    CNAME='www.mdavis.xyz'
+elif sys.argv[1].lower() == 'dev':
+    print("Development")
+    enableTracking = False
+    CNAME='dev.mdavis.xyz'
+else:
+    print("Error, unknown stage %s" % sys.argv[1])
+    exit(1)
+
 
 
 
@@ -233,6 +251,9 @@ def doAll():
     shutil.rmtree(dest,ignore_errors=True)
     # os.makedirs(dest)
     shutil.copytree(src, dest)
+    with open(cname_fname,'w') as f:
+        f.write(CNAME)
+
     for page in [p for p in pagesData if p['template'] != 'home']:
         src = './pages/%s/docs' % page['sourcePath']
         dest = './docs/%s/' % page['publishPath']

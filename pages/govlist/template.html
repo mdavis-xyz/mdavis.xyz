@@ -13,7 +13,7 @@
 <div id="chronological">
    <ol id="chrono-list">
       % for (i,row) in enumerate(rows):
-      <li>
+      <li data-topic="${row['topic']}">
          ${row['text']}
          % for url in row['urls']:
          <a href="${url}" target="_blank">
@@ -33,18 +33,6 @@
       </h2>
    </a>
    <ol id="topic-list-${i}" class="groupList collapsed">
-      % for row in rows:
-      % if row['topic'] == i:
-      <li>
-         ${row['text']}
-         % for url in row['urls']:
-         <a href="${url}" target="_blank">
-            <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
-         </a>
-         % endfor
-      </li>
-      % endif
-      % endfor
    </ol>
    % endfor
 </div>

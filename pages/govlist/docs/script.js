@@ -8,7 +8,43 @@ function duration(){
 }
 
 window.onload = function () {
+   console.log('onload called');
    duration();
+   copyToGroups();
+}
+
+
+// for each element in the chrono list, copy it to the corresponding
+// category in the grouped list
+function copyToGroups(){
+   var t0 = performance.now();
+
+   // get the list of all items
+   var itms = Array.prototype.slice.call(document.getElementById("chrono-list").childNodes);
+
+   for (var i = 0, len = itms.length; i < len; i++) {
+      if (itms[i].nodeType == 1){
+        copyOne(itms[i]);
+      }
+   }
+   var t1 = performance.now();
+   console.log("Finished copying items");
+   console.log("Copying to topics took " + (t1 - t0) + " milliseconds.")
+}
+
+function copyOne(item){
+   // find which topic it is from the data tag
+   // console.log(item);
+   var topic = parseInt(item.dataset.topic);
+
+   // get that list
+   var topicList = document.getElementById("topic-list-" + topic);
+
+   // clone the element
+   var cln = item.cloneNode(true);
+
+   // Append the cloned <li> element to <ul> with id="myList1"
+   topicList.appendChild(cln);
 }
 
 function chrono(){

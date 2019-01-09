@@ -5,7 +5,7 @@
          <div id="${section['id']}-4" class="wrap4">
          % for el in section['content']:
             % if 'button' in el:
-            <a href="javascript:slide('${section['id']}','${el['button'][0]['destination']}','${el['button'][0]['direction']}')"  class="button">
+            <a href="javascript:slide('${section['id']}','${el['button'][0]['destination']}','${el['button'][0]['direction']}')"  class="button buttonBig">
                ${el['button'][0]['text']}
             </a>
             % elif 'p' in el: # TODO: don't hard code all options, just put it in
@@ -33,4 +33,4 @@
    </div>
 </div>
 % endfor
-<a href="javascript:back()" class="button-back hidden" id="back-button">back</a>
+<a href="javascript:back()" class="button-back button hidden" id="back-button">back</a>

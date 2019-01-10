@@ -1,3 +1,6 @@
+/*--light-blue: #69b4ff;
+--med-blue: #4493ec;
+--dark-blue: #246dbf;*/
 
 body {
    background: rgb(51,51,59);
@@ -6,10 +9,7 @@ body {
    margin: auto;
    padding-top: 1rem;
    padding-bottom: 1rem;
-   font-family: "Source Sans Pro", Helvetica, sans-serif;
-   --light-blue: #69b4ff;
-   --med-blue: #4493ec;
-   --dark-blue: #246dbf;
+   font-family: "Source Sans Pro", Helvetica, sans-serif; 
 }
 
 html {}
@@ -40,7 +40,7 @@ iframe {
 
 a {
    /*color: #94CAFF;*/
-   color: var(--light-blue);
+   color: #69b4ff;
    text-decoration: none;
 }
 
@@ -168,7 +168,7 @@ hr {
 
 blockquote {
   background: #f1f9ff;
-  border-left: 10px solid var(--med-blue);
+  border-left: 10px solid #4493ec;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
@@ -182,7 +182,7 @@ blockquote p {
 .button {
    font-size: 80%;
    color: white;
-   background-color: var(--med-blue);
+   background-color: #4493ec;
    margin: 12px;
    border: 1px solid #999;  /*IE 6/7/8*/
    margin-bottom: 0.5rem;
@@ -200,7 +200,7 @@ blockquote p {
 .button:hover,
 .button:focus {
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-   background-color: var(--dark-blue);
+   background-color: #246dbf;
    text-decoration: none;
 }
 .button:active {

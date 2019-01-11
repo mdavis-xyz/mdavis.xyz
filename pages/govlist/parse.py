@@ -185,6 +185,9 @@ def initTopics():
 
 # returns the index of the related topic
 def classify(hashtag):
+    if hashtag.lower() not in hashMap:
+        print("Error: Hashtag %s is unknown" % hashtag)
+        exit(1)
     return(hashMap[hashtag.lower()])
 
 def testClassify():

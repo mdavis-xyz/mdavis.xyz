@@ -139,16 +139,18 @@ def testStripForSpellcheck():
     assert(expected == actual)
 
 
+dictionary = None
+def init():
+    global dictionary
+    # initialise dictionary stuff
+    with open(standardWordsFname,'r') as f:
+        words = [w.strip() for w in f]
 
-# initialise dictionary stuff
-with open(standardWordsFname,'r') as f:
-    words = [w.strip() for w in f]
+    with open(extraWordsFname,'r') as f:
+        words += [w.strip() for w in f]
 
-with open(extraWordsFname,'r') as f:
-    words += [w.strip() for w in f]
-
-dictionary = set(words)
-assert('spent' in dictionary)
+    dictionary = set(words)
+    assert('spent' in dictionary)
 
 
 def addToDict(word):
@@ -220,3 +222,4 @@ def checkFile(fname):
             exit(1)
     return(True)
 test()
+init()

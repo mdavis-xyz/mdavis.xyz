@@ -9,8 +9,8 @@ Once I am identified, those servers look up their historical databases to find r
 This is when my *Customer Journey*™ begins.
 
 
-As I head towards the snack aisle I see dozens of cameras overhead, watching silently.
-They're no longer just an anti-shoplifting measure.
+As I head towards the snack aisle I see dozens of cameras overhead, [watching silently](https://www.nytimes.com/2008/05/31/business/media/31billboard.html).
+They're no longer just an anti-shoplifting measure, not since the year 2025 or so.
 I walk straight past the health-food snack section.
 The cameras note this, but the back-end analytics server isn't surprised.
 It remembers that time I re-tweeted an opinion piece critical of [quinoa](https://www.theguardian.com/commentisfree/2013/jan/16/vegans-stomach-unpalatable-truth-quinoa) and [gluten-free](https://onlinelibrary.wiley.com/doi/epdf/10.1111/jhn.12502) food, so it's expecting me to shun this section.
@@ -29,7 +29,7 @@ However they're getting a lot more information than just that. They're getting a
       "Value": "$63,300",
       "Confidence Window": "$700"
    },
-   "Timestamp": "2025-08-14 17:43:12",
+   "Timestamp": "2030-08-14 17:43:12",
    "Absolute Location": "Pitt St Store",
    "Relative Location": {
       "Value": "between place of work and usual bus stop",
@@ -93,7 +93,8 @@ Damn. The [electronic price tag](https://www.sunpaitag.com/supermarket-epaper-pr
 When FoodCorp first introduced dynamic pricing they claimed that it was only a time-based market signal to [incentivise shoppers to shop outside the busy periods](https://thewest.com.au/lifestyle/shopping/supermarket-digital-tags-adjust-pricing-depending-on-time-of-day-bc-5486533651001).
 However there's no transparency about when or why prices change.
 Everyone knows that FoodCorp's automated surveillance system temporarily increases prices based on the income of whoever is in that aisle, and whether they look like they're in a hurry.
-Unfortunately there's no way for any consumer rights group to prove it, because their proprietary pricing algorithms are [hidden from the courts](https://www.schneier.com/blog/archives/2016/05/the_fallibility.html) due to intellectual property laws.
+Unfortunately there's no way for anyone to prove it, because their pricing algorithms are [proprietary](https://www.huffingtonpost.com/darlene-dang-/dna-software-claims-to-pr_b_9630878.html).
+This means that no one can inspect the source code to verify whether it truly does what FoodCorp claims it does.
 
 None of the self checkout machines accept cash any more.
 The days of anonymous purchases without private middlemen are long gone.
@@ -115,6 +116,7 @@ Despite this, I am not able to see what the data says about me, let alone correc
 
 The checkout machine asks me if I want a digital receipt sent to me via email, SMS, Facebook Messenger or the FoodCorp app. This is mostly so that they can discover yet another identifier to track me with. (The FoodCorp app also [tracks your location long after you've left the store](https://www.theverge.com/2016/11/30/13763714/uber-location-data-tracking-app-privacy-ios-android).)
 
-Many shoppers still believe that physical shopping is anonymous. That unlike the online world, your behaviors and purchases are not tracked, nor sold to advertising agencies and data brokers.
+Many FoodCorp shoppers still believe that physical shopping is anonymous.
+That unlike the online world, your behaviors and purchases are not tracked, nor sold to advertising agencies and data brokers.
 But that's not true.
-Not any more.
+While we buy groceries at FoodCorp to feed ourselves, FoodCorp feeds on us.

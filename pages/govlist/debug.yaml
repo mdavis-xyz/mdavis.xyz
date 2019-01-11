@@ -1,3 +1,19 @@
+- hashTag: copyright
+  text: Rejected recommendations from the Productivity Commission that the government
+    add a "fair use" exemption to copyright law, and change the law to explicitly
+    protect Australians who circumvent geoblocking barriers to access paid content.
+  topic: 6
+  urls: ['https://www.zdnet.com/article/government-skips-geoblocking-and-fair-use-in-copyright-reform/']
+- hashTag: military
+  text: Spent $400,000 to help train the Myanmar military, who are guilty of ongoing
+    genocide against the Rohingya people.
+  topic: 7
+  urls: ['https://www.theguardian.com/australia-news/2018/mar/06/australia-to-train-myanmar-military-despite-ethnic-cleansing-accusations']
+- hashTag: asylum
+  text: Punished an asylum seeker for reporting sexual assault committed by a government
+    contractor, and lied about forwarding the complaint to the police.
+  topic: 1
+  urls: ['https://www.theguardian.com/australia-news/2018/sep/21/immigration-detainee-penalised-after-reporting-sexual-assault-by-serco-guard']
 - hashTag: asylum
   text: Spent $320,000 on legal fights denying asylum seekers urgent medical transfers
     to the mainland to treat life-threatening conditions.
@@ -125,10 +141,11 @@
   urls: ['https://thenewdaily.com.au/news/national/2018/06/26/when-do-i-repay-university-debt/']
 - hashTag: corruption
   text: <b>Lied</b> about the Immigration Minister having no personal connection to
-    someone who benefitted from the direct intervention by the Immigration Minister
+    someone who benefited from the direct intervention by the Immigration Minister
     in a visa case.
   topic: 12
-  urls: ['https://thenewdaily.com.au/news/national/2018/09/04/peter-dutton-no-confidence-motion/']
+  urls: ['https://thenewdaily.com.au/news/national/2018/09/04/peter-dutton-no-confidence-motion/',
+    'https://thenewdaily.com.au/news/national/2018/03/26/peter-dutton-au-pair-visa/']
 - hashTag: immigration
   text: Proposed plans to privatise the visa application system. Referring to this
     core function of a sovereign government as a "business" which should be "commercial"
@@ -164,17 +181,20 @@
     instead of one of the many relevant public agencies, and without any application
     process.
   topic: 2
-  urls: ['https://www.thesaturdaypaper.com.au/news/environment/2018/05/26/who-the-group-awarded-443m-save-the-reef/15272568006280']
+  urls: ['https://www.thesaturdaypaper.com.au/news/environment/2018/05/26/who-the-group-awarded-443m-save-the-reef/15272568006280',
+    'https://www.thesaturdaypaper.com.au/news/politics/2018/09/29/exclusive-morrison-set-reef-grant-terms/15381432006927',
+    'https://www.theguardian.com/environment/2018/may/21/no-tender-process-for-444m-great-barrier-reef-grant-senate-hearing-told']
 - hashTag: corruption
   text: Spent an undisclosed amount of public money on legal defence for a minister
     who broken the law for political gain.
   topic: 12
   urls: ['https://www.buzzfeed.com/aliceworkman/youll-never-guess-who-is-paying-for-michaelia-cashs-legal?utm_term=.agwxgpMRL']
-- hashTag: indigenous
+- hashTag: budget
   text: Assigned $48.7 million to a Captain Cook memorial. There are already 35 Captain
-    Cook memorials in Australia.
-  topic: 5
-  urls: ['https://twitter.com/JohnWren1950/status/994015995869229058', 'http://monumentaustralia.org.au/search']
+    Cook memorials in Australia. The money was taken from the ABC budget.
+  topic: 0
+  urls: ['https://twitter.com/JohnWren1950/status/994015995869229058', 'http://monumentaustralia.org.au/search',
+    'https://www.sbs.com.au/nitv/nitv-news/article/2018/05/09/budget-cuts-millions-abc-pay-captain-cook-statue-botany-bay']
 - hashTag: ABC
   text: Cut $84 million from the ABC (again).
   topic: 12

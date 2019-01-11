@@ -222,7 +222,6 @@ def doAll():
     with open(pagesFname,'r') as f:
         pagesData = yaml.load(f)
     pp.pprint(pagesData)
-
     for page in pagesData:
         if 'path' in page:
             page['publishPath'] = page['path']
@@ -238,7 +237,7 @@ def doAll():
 
     for page in pagesData:
         doOne(page,pagesData)
-
+    myspellcheck.init()
     for p in pagesData:
         if p['template'] == 'none':
             print("Skipping spell check for %s" % p['title'])

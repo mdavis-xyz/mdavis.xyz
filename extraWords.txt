@@ -274,3 +274,6 @@ normalises
 newline
 whitespace
 tinkerer
+Myanmar
+Rohingya
+geoblocking

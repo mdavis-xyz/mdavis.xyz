@@ -1,4 +1,4 @@
-**2025 - By the time we realised what was happening, it was already too late.**
+**By the time we realised what was happening, it was already too late.**
 
 The cameras recognise me as soon as I set foot in the FoodCorp Supermarket.
 The footage is streamed live to one of their dozen analytics data centres.

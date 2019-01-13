@@ -14,6 +14,7 @@ template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
 pagesFname = 'pages.yaml'
 cname_fname = 'docs/CNAME'
+debug = False
 
 if len(sys.argv) < 2:
     print("Error, add stage")
@@ -48,33 +49,8 @@ def callShellCmd(cmd,directory):
     assert(not ret)
     print("Finished calling `%s` in %s" % (cmd,directory))
 
-def stripFancy(text):
-    expr = r'<[^<>]+>'
-    text = re.sub(expr, '', text)
-    expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)'
-    text = re.sub(expr, r'\1', text)
-    return(text)
-
-def teststripFancy():
-    original = 'asd'
-    expected = 'asd'
-    actual = stripFancy(original)
-    assert(expected == actual)
-
-    original = '1 <a href="123">blah</a> 2'
-    expected = '1 blah 2'
-    actual = stripFancy(original)
-    assert(expected == actual)
-
-    original = 'This [link](http://example.com) shows [this](./blah)'
-    expected = 'This link shows this'
-    actual = stripFancy(original)
-    if expected != actual:
-        print("actual: " + actual)
-    assert(expected == actual)
-
 def numWords(markdown):
-    content = stripFancy(markdown)
+    content = myspellcheck.stripFancy(markdown)
     numWords = len([w for w in content.split(' ') if w.strip() != ''])
     print("Number of words is %d" % numWords)
     return(numWords)
@@ -93,6 +69,38 @@ def testNumWords():
     expected = 5
     actual = numWords(text)
     assert(actual == expected)
+
+def searchReplace(text,regexInfo,fileType,path):
+    path = 'pages/%s/' % path
+    original = text
+    for r in regexInfo:
+        if r['what'].lower() == fileType:
+            search = loadFile(path + r['search']).rstrip('\n')
+            replace = loadFile(path + r['replace']).rstrip('\n')
+            print("Expression: %s" % search)
+            print("Replace: %s" % replace)
+            if 'test' in r:
+                for t in r['test']:
+                    textIn = loadFile(path + t['in']).rstrip('\n')
+                    expected = loadFile(path + t['out']).rstrip('\n')
+
+                    actual = re.sub(search, replace, textIn)
+                    if actual != expected:
+                        print("Input   : %s" % textIn)
+                        print("Actual  : %s" % actual)
+                        print("Expected: %s" % expected)
+                    assert(actual == expected)
+            text = re.sub(search, replace, text)
+    if debug:
+        diff = [(before,after) for (before,after) in zip(original.split('\n'),text.split('\n')) if before != after]
+        for (before,after) in diff:
+            print("Line changed from search and replace")
+            print("   before: %s" % before)
+            print("   after : %s" % after)
+        if len(diff) == 0:
+            assert(original == text)
+            print("No search replace difference")
+    return(text)
 
 # data is for just this page
 def doOne(data,allData):
@@ -124,15 +132,21 @@ def doOne(data,allData):
             if not myspellcheck.checkFile(markdownFname):
                 print("That was in %s" % markdownFname)
                 exit(1)
+            with open(markdownFname,'r') as f:
+                markdown = f.read()
+            if 'regex' in data:
+                content = searchReplace(markdown,data['regex'],'markdown',data['sourcePath'])
             print("Converting markdown file %s to html " % markdownFname)
-            data['content'] = pypandoc.convert_file(markdownFname, 'html')
+
+            data['content'] = pypandoc.convert_text(markdown, 'html', format='md')
+            if 'regex' in data:
+                data['content'] = searchReplace(data['content'],data['regex'],'html',data['sourcePath'])
             stubFname = 'pages/%s/stub.html' % data['path']
             with open(stubFname,'w') as f:
                 f.write(data['content'])
             print("Saved markdown file to %s" % stubFname)
             if 'exclude' not in data:
                 data['exclude'] = []
-            data['exclude'].append('script')
             print("Estimating reading time for %s" % data['title'])
             data['estReadingTime'] = estReadingTime(markdownFname)
 
@@ -217,6 +231,11 @@ def doWWW(pages):
 
     return(outputHTML)
 
+def loadFile(fname):
+    with open(fname,'r') as f:
+        data = f.read()
+    return(data)
+
 def doAll():
     print("Loading in %s" % pagesFname)
     with open(pagesFname,'r') as f:
@@ -230,9 +249,12 @@ def doAll():
             assert('publishPath' in page)
             assert('sourcePath' in page)
         for k in ['title','description']:
+            page[k] = page[k].strip()
             if not myspellcheck.checkLine(page[k]):
                 print("That was the %s %s from pages.yaml" % (k,page[k]))
                 exit(1)
+        if 'disclaimer' in page:
+            page['disclaimer'] = page['disclaimer'].strip()
 
 
     for page in pagesData:
@@ -263,7 +285,6 @@ def doAll():
 
 
 def test():
-    teststripFancy()
     testNumWords()
 
 test()

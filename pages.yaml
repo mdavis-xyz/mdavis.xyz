@@ -37,7 +37,10 @@
 -  title: "Web analytics are leaking into meatspace"
    description: "A Stallman-esque short story about the future of offline tracking and the right to buy"
    path: "supermarket"
-   disclaimer: "Disclaimer: This story is a warning about the future. Claims about any real corporations are hypothetical fiction. All links are provided as context, not evidence."
+   disclaimer: >
+       Disclaimer: This story is a warning about the future.
+       Claims about any real corporations are hypothetical fiction.
+       All links are provided as context, not evidence.
    images:
       card:
          path: "card.jpg"
@@ -55,9 +58,46 @@
    markdown: "content.md"
    exclude:
       - 'media'
+      - 'script'
    date: 11/1/2019
+-  title: "Why you should think twice before riding a Lime e-bike"
+   description: "You really should read those terms and conditions"
+   path: "lime"
+   disclaimer: >
+       Disclaimer: I am not legally qualified.
+       This is a layman's interpretation of Lime's terms, not legal advice.
+       I'm not alleging that they have committed any unethical acts,
+       only that their terms and conditions allow them to.
+   images:
+      card:
+         path: "thumb.jpg"
+         description: "A Lime e-bike"
+         width: 1000
+         height: 667
+      top:
+         path: "big-bike.jpg"
+         description: "A Lime e-bike"
+         width: 1500
+         height: 725
+   template: "markdown"
+   regex:
+      - what: "html"
+        search: regex/classuri/search.txt
+        replace: regex/classuri/replace.txt
+        test:
+           - in: regex/classuri/test/0/in.txt
+             out: regex/classuri/test/0/out.txt
+      - what: "html"
+        search: regex/href/search.txt
+        replace: regex/href/replace.txt
+        test:
+           - in: regex/href/test/0/in.txt
+             out: regex/href/test/0/out.txt
+   markdown: "content.md"
 -  title: "Achievements of the Coalition Government"
-   description: "A comprehensive list of (almost) everything the current Australian government has done"
+   description: >
+      A comprehensive list of (almost) everything the current Australian
+      government has done
    path: "govlist"
    images:
       card:

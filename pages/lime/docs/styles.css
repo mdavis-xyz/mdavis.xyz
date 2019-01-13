@@ -1,0 +1,23 @@
+.clauseNum {
+   font-weight: bold;
+}
+
+.clause-indent-1 {
+   padding-left: 1em;
+}
+
+.clause-indent-2 {
+   padding-left: 2em;
+}
+
+.clause-indent-3 {
+   padding-left: 3em;
+}
+
+.clause-indent-4 {
+   padding-left: 4em;
+}
+
+.clause-indent-5 {
+   padding-left: 5em;
+}

@@ -21,3 +21,75 @@
 .clause-indent-5 {
    padding-left: 5em;
 }
+
+/* The Modal (background) */
+.myModal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+   text-align: center;
+   overflow-y: hidden;
+   padding-top: 0;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+   from {top: -100%; opacity: 0}
+   to {top: 0; opacity: 1}
+}
+
+/* Modal Content/Box */
+.modal-content {
+   background-color: rgb(51,51,59);
+   /*! margin: auto; */ /* 15% from the top and centered */
+   padding: 0px;
+   border: none;
+   width: 90%; /* Could be more or less, depending on screen size */
+   border-radius: 0.2em;
+   animation-name: animatetop;
+   animation-duration: 0.4s;
+   box-shadow: 0 4px 15px 0 rgba(0,0,0,0.6);
+   height: 90%;
+   margin-top: 5vh;
+   /*! margin-left: 10%; */
+   /*! margin-right: 10%; */
+   /*! margin-bottom: 10%; */
+}
+
+
+/* The Close Button */
+.close {
+   color: #aab;
+   float: right;
+   font-size: 3em;
+   font-weight: bold;
+   /*! font-size: 300%; */
+   /*! padding-right: 1em; */
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding-top: 0.5em;
+   /*! text-align: center; */
+   /*! vertical-align: middle; */
+   width: 10%;
+   text-justify: right;
+   margin: 0;
+   margin-right: 5%;
+   box-shadow: 0 4px 15px 0 rgba(0,0,0,0.6);
+   box-shadow: none;
+}
+
+.close:hover,
+.close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+   /*! font-size: 500%; */
+}

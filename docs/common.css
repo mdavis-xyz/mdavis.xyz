@@ -9,7 +9,7 @@ body {
    margin: auto;
    padding-top: 1rem;
    padding-bottom: 1rem;
-   font-family: "Source Sans Pro", Helvetica, sans-serif; 
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 html {}
@@ -25,13 +25,6 @@ h1 {
 
 header {
    text-align: center;
-}
-
-
-iframe {
-   height: 0px;
-   width: 0px;
-   display: none
 }
 
 .center {

@@ -40,6 +40,8 @@ def stripMarkdown(text):
         line = re.sub(expr, r'\1', line)
         expr = r'^\s*>([^<>]*)$' # quote
         line = re.sub(expr, r'\1', line)
+        expr = r'^\s*&gt;([^<>]*)$' # quote
+        line = re.sub(expr, r'\1', line)
         expr = r'^\s*#+([^#]+)$' # heading
         line = re.sub(expr, r'\1', line)
         newLines.append(line)

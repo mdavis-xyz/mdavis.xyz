@@ -11,8 +11,11 @@ This is because their terms and conditions grant them immunity from all laws, st
 By agreeing to their villainous terms and conditions, users give away the right to class actions, as well as individual legal actions, and even arbitration.
 Class actions allow people to group together to take action against a company who through incompetence or malice systematically harmed people.
 When the possibility of class action and individual actions are taken away, companies have a far smaller incentive to avoid to the wrong thing.
-Lime says you still have the possibility of arbitration, but that's [not true](2.4) for people outside the US.
-Lime are still are able to [take you to court](2.7) though.
+
+Lime says you still have the possibility of arbitration, however [Section 2.4](2.4) implies that customers outside the USA cannot arbitrate either.
+Even if they can, arbitration means that instead of having your case heard in a court of law with a jury of peers, your case is heard in a [privatised kangaroo court](https://boingboing.net/2015/10/02/arbitration-how-americas-co.html).
+The "judge" [may be a contractor](https://boingboing.net/2018/12/09/justice-denied.html) of Lime, and the customer [almost never wins](https://boingboing.net/2015/10/02/arbitration-how-americas-co.html).
+Lime are still are able to [take action against you to a real court](2.7) though.
 
 
 Lime's terms and conditions are longer than my honours thesis.
@@ -24,16 +27,16 @@ My favourite clauses are:
 * They're allowed to install malware and [cryptojackers](https://www.coindesk.com/new-crypto-mining-malware-seen-to-evolve-say-researchers) on your phone. If they hijack your phone's Internet connection to download child porn or other illegal media, you cannot take legal action against them. (Sections [6.2.5](6.2.5), [8.1](8.1))
 * If someone else is hurt by a malfunction with the bike you're riding (such as poorly maintained brakes causing a collision) *you* will be liable for that other person's injury. (Sections [6.2](6.2), [7.4.5](7.4.5) and others)
 * You know those stories about bakers refusing to make cakes for same sex weddings? Six different clauses all give Lime the right to discriminate against you based on sexual orientation, skin colour, political opinion and so on. (They phrase this as refusing service "for any reason".) They're also allowed to trawl through your social media profiles to obtain this information. (Sections [4.1](4.1), [9.2](9.2), [10.2](10.2), [12.13](12.13), [12.19](12.19), [12.23](12.23))  
-* iPhone users aren't allowed to use the app in a "Terrorist supporting country", but Android users are! (Section [12.28](12.28))
+* iPhone users aren't allowed to use the app in a "Terrorist supporting country", but Android users are! ([Section 12.28](12.28))
 * If Lime maliciously rigs the bike battery to deliberately explode and murder you, you and your heirs are not able to take any legal action against them. (Sections [2.3](2.3), [2.8](2.8), [5.1](5.1), [6.1](6.1), [6.2](6.2), [7.4](7.4), [7.4.5](7.4.5),  [12.3.3](12.3.3)) Hopefully the courts would rule those clauses as invalid. However that fact that this is what their terms say is worrying.
-* Users aren't allowed to mention the word "Lime" in any email, tweet, WhatsApp message or other online channel (even private), since that's an online usage of their trademark without permission. Uploading a photo to Instagram which happens to have a Lime bike in the background is a violation (Section [12.8](12.8))
-* By merely installing the app you are technically violating the terms and conditions. You've copied their "content" to non-temporary storage on your device. That's not allowed. (Section [12.8](12.8))
-* If you alert them to a safety issue with their bikes, they have no obligation to fix them. (Section [6.2.10](6.2.10))
-* Users and their family aren't allowed to take unrelated legal action against anyone who happens to work for Lime, even if the issue is unrelated to lime. (Section [5.1](5.1))
-* Users agree to read the entire 30,000-word terms and conditions every time they ride. (Section [12.25.5](12.25.5))
+* Users aren't allowed to mention the word "Lime" in any email, tweet, WhatsApp message or other online channel (even private), since that's an online usage of their trademark without permission. Uploading a photo to Instagram which happens to have a Lime bike in the background is a violation ([Section 12.8](12.8))
+* By merely installing the app you are technically violating the terms and conditions. You've copied their "content" to non-temporary storage on your device. That's not allowed. ([Section 12.8](12.8))
+* If you alert them to a safety issue with their bikes, they have no obligation to fix them. ([Section 6.2.10](6.2.10))
+* Users and their family aren't allowed to take unrelated legal action against anyone who happens to work for Lime, even if the issue is unrelated to lime. ([Section 5.1](5.1))
+* Users agree to read the entire 30,000-word terms and conditions every time they ride. ([Section 12.25.5](12.25.5))
 * The terms and conditions are obsessed with copyright, which is just very strange for a company that rents out bicycles. They even have DMCA [takedown](https://boingboing.net/2012/12/18/how-victorias-secret-censore.html) clauses, and you give them control over your "content" "in perpetuity and throughout the universe". (Sections [12.1](12.1), [12.24](12.24)) It's not clear what "content" is for a bike rental company where users cannot post anything on their website.
 * They can blatantly lie about the price. They can tell you one price then charge you another (Sections [4.9](4.9), [6.2.6](6.2.6))
-* Section [4.9](4.9) says that "If a product You purchased from Lime is not as described, Your sole remedy is to return it in unused condition, complete and undamaged, in the original packaging." Users acquire their bikes by finding them without any packaging, on the side of the street. This clause is not applicable, and is the first hint that this entire document was blindly copied and pasted from a template for an unrelated industry. (The entirety of [Section 12](12) is the other hint.)
+* [Section 4.9](4.9) says that "If a product You purchased from Lime is not as described, Your sole remedy is to return it in unused condition, complete and undamaged, in the original packaging." Users acquire their bikes by finding them without any packaging, on the side of the street. This clause is not applicable, and is the first hint that this entire document was blindly copied and pasted from a template for an unrelated industry. (The entirety of [Section 12](12) is the other hint.)
 * The app has a map with icons of their available bikes. [Section 4.10](4.10) says they can put fictitious icons on the map which don't match a real bike, to mislead the users into thinking they have more bikes than they do. ([Section 6.2.6](6.2.6), 4.10) For context, this is what [Uber already does](https://www.wired.co.uk/article/uber-cars-always-in-real-time).
 * They can send you robocall spam, even if your number is on the Do Not Call list, and even after you close your account. ([Section 11.3](11.3)) They can send you email and phone calls from email addresses and phone numbers you didn't give them, which they get from "other means". ([Section 11.4](11.4))
 * If their GPS tracking is inaccurate and as a result they can't find the bike,  they may report you as a thief to the cops. ([Section 12.2](12.2))
@@ -43,34 +46,57 @@ My favourite clauses are:
 * If you forget to lock the bike,  you can be charged 600 USD. ([Section 3.3](3.3))
 
 I am not a lawyer.
-I suspect that many of the claims are legally invalid.
-Some consumer rights are inalienable.
+I suspect that many of the claims are legally invalid, because some consumer rights are inalienable.
 For example, many "no refunds" policies [do not](https://www.accc.gov.au/media-release/harvey-norman-franchisees-pay-for-misleading-consumers) take away your right to a refund.
 However you would have to take Lime to court to find out which terms hold up judicial scrutiny.
  It's also unclear how the laws work across countries.
 Australia has far stronger consumer protections than the US, however the terms say that you give up Australian laws and agree to be bound by US laws.
 I am not sure if that's legally valid.
-Lime did not respond to my questions. ([Section 12.23](12.23) of terms and conditions say they are not obliged to reply.)
+Lime did not respond to my questions. ([Section 12.23](12.23) of their terms and conditions say they are not obliged to reply.)
 
 I am not alleging that Lime have committed any bad acts, only that their terms say that they can. That is still bad.
 If someone points a loaded gun at you and promises not to shoot, would you feel safe?
 
+## The Full List
+
+### Terms and Conditions
 
 Lime's terms and conditions can be found [here](https://www.li.me/user-agreement) ([Internet Archive copy](https://web.archive.org/web/20181129080036/https://www.li.me/user-agreement)).
-Their privacy policy can be found [here](https://www.li.me/privacy) ([archive](https://web.archive.org/web/20181129080104/https://www.li.me/privacy)).
-
-Here is the full list of notable terms and conditions:
 
 
-[2.3](2.3) "ANY AND ALL DISPUTES ARISING BETWEEN YOU AND LIME (WHETHER BASED IN CONTRACT, LAW, STATUTE, RULE, REGULATION, ORDINANCE, TORT INCLUDING, BUT NOT LIMITED TO, FRAUD, ANY OTHER INTENTIONAL TORT OR NEGLIGENCE, COMMON LAW, CONSTITUTIONAL PROVISION, RESPONDEAT SUPERIOR, AGENCY AND/OR ANY OTHER LEGAL OR EQUITABLE THEORY), WHETHER ARISING BEFORE OR AFTER THE EFFECTIVE DATE OF THIS AGREEMENT, MUST BE RESOLVED BY FINAL AND BINDING ARBITRATION. THIS INCLUDES ANY AND ALL DISPUTES BASED ON ANY PRODUCT, SERVICE OR ADVERTISING CONNECTED TO THE PROVISION OR USE OF THE SERVICES"
+Here is a list of all the notable terms and conditions:
 
-[2.3](2.3) "BY AGREEING TO ARBITRATE, EACH PARTY IS GIVING UP ITS RIGHT TO GO TO COURT AND HAVE ANY DISPUTE HEARD BY A JUDGE OR JURY"
 
-[2.4](2.4) Arbitration will be conducted in the "metropolitan statistical area" (as defined by the U.S. Census Bureau) where You are a resident at the time the Dispute is submitted to arbitration. So if you're an Australian, you can't even have an arbitration hearing.
+[Section 2.3](2.3) states (emphasis added):
 
-[2.4](2.4) more protection against class action: "The Arbitrator may award declaratory or injunctive relief only in favor of the claimant and only to the extent necessary to provide relief warranted by the claimant's individual claim."
+> Any and all disputes arising between you and Lime (whether based in contract, **law, statute**, rule, regulation, ordinance, tort including, but not limited to, fraud, any other intentional tort or **negligence, common law, constitutional provision**, respondeat superior, agency and/or any other legal or equitable theory), whether arising before or after the effective date of this agreement, **must be resolved by final and binding arbitration**. This includes any and all disputes based on any product, service or advertising connected to the provision or use of the services
+> ...
+> by agreeing to arbitrate, each party is **giving up its right to go to court and have any dispute heard by a judge or jury**
 
-[2.6](2.6) 1 year state of limitations (for the user, not for Lime)
+This is the first clause which removes your right to take Lime to court if they are negligent, incompetent or malicious.
+
+[Section 2.4](2.4) states that arbitration will be conducted
+
+> it will be conducted in the “metropolitan statistical area”
+> (as defined by the U.S. Census Bureau)
+> where You are a resident at the time the Dispute is submitted to arbitration
+
+So if you're an Australian, you can't even have an arbitration hearing.
+
+[Section 2.4](2.4) provides a second clause to protect Lime against class action:
+
+> The Arbitrator may award declaratory or injunctive relief only in favor of the
+> claimant and only to the extent necessary to provide relief warranted by the claimant's individual claim.
+
+So if Lime designed their batteries incompetently and they start exploding
+and injuring people, you can only arbitrate to get back money for your medical bills.
+You cannot arbitrate for a larger amount of money which reflects the harm Lime would
+have done to society at large.
+This means that Lime is financially protected against large scale fuck-ups.
+
+[Section 2.6](2.6) imposes a 1 year state of limitations on claims against them.
+If Lime use asbestos in their brake pads and you don't notice until you start dying
+of asbestosis a decade later, you cannot take any legal action (even arbitration) against them.
 
 [2.7](2.7) You can't take them to court, but they can still take you to court
 
@@ -184,7 +210,9 @@ Here is the full list of notable terms and conditions:
 
 [12.28](12.28) you are not in a "terrorist supporting country" - only if using iOS
 
-Privacy policy
+### Privacy policy
+
+Lime's privacy policy can be found [here](https://www.li.me/privacy) ([archive](https://web.archive.org/web/20181129080104/https://www.li.me/privacy)).
 
 * They collect "demographic information"
 * They can view and collect any social media info public to them
@@ -194,8 +222,9 @@ Privacy policy
 * They ignore do not track and make a factually incorrect statement about that standard not being finalised
 * They collect unspecified "offline" info from unspecified third parties
 
-Surprisingly there are some reasonable parts to the privacy policy. There are rumours that share bike companies sell your data to advertisers. That's not allowed under this policy. (Although they can change the policy at any time without telling you, and it's assumed you agree the next time you ride)
+Surprisingly there are some reasonable parts to the privacy policy.
 
+* There are rumours that share bike companies sell your data to advertisers. That's not allowed under this policy. Although they do still [sell your data](https://www.technologyreview.com/s/612123/the-secret-data-collected-by-dockless-bikes-is-helping-cities-map-your-movement/) to local governments. The clause prohibiting data sale to advertisers is not strong protection, since they can change their policy at any time to allow it. Their privacy policy claims they'll notify you of any changes, but that notification includes changing the policy document on their website, which is linked to by the app. You agree to click on that link and read the whole privacy policy every time you use the app.
 * You have the right to be forgotten
 * You have the right to export your data in a common machine readable format
 * Says right to withdraw consent to marketing, but that contradicts the terms and conditions.

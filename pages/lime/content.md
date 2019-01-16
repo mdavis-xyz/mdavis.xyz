@@ -44,6 +44,7 @@ My favourite clauses are:
 * Lime have no obligation to keep your personal information (including credit card info) secure. (Sections [4.11](4.11), [6.2.4](6.2.4))
 * If they charge you an incorrect amount (such as $1,000,000 for one ride) and it takes you more than 60 days to notice, there's nothing you can do to get a refund. ([Section 4.4](4.4))
 * If you forget to lock the bike,  you can be charged 600 USD. ([Section 3.3](3.3))
+* If you do manage to somehow win an arbitration case against Lime, the maximum penalty you can extract is $100. So if their batteries explode and you incur $100,000 in medical bills to treat your burns, the maximum payment you can get from Lime is $100. ([Section 7.3](7.3))
 
 I am not a lawyer.
 I suspect that many of the claims are legally invalid, because some consumer rights are inalienable.
@@ -77,7 +78,7 @@ This is the first clause which removes your right to take Lime to court if they 
 
 [Section 2.4](2.4) states that arbitration will be conducted
 
-> it will be conducted in the “metropolitan statistical area”
+> it will be conducted in the "metropolitan statistical area"
 > (as defined by the U.S. Census Bureau)
 > where You are a resident at the time the Dispute is submitted to arbitration
 
@@ -98,17 +99,38 @@ This means that Lime is financially protected against large scale fuck-ups.
 If Lime use asbestos in their brake pads and you don't notice until you start dying
 of asbestosis a decade later, you cannot take any legal action (even arbitration) against them.
 
-[2.7](2.7) You can't take them to court, but they can still take you to court
+[Section 2.7](2.7) states that whilst you cannot take them to court (only arbitration), they can still take you to court.
 
-[2.7](2.7) they're obsessed with their intellectual property.
+[Section 2.7](2.7) is the first mention of "Lime's intellectual property rights".
+Lime's obsession with copyright is strange, given that they are a hardware rental company.
+Also, "intellectual property rights" are a [biased term](https://gnu.org/philosophy/not-ipr.html), crafted to blur the lines between copyright, patents, trademarks and trade secrets.
+Each of those legally enforced monopolies exist for unrelated reasons.
 
-[2.8](2.8) "YOU AND LIME AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING OR AS AN ASSOCIATION. "
 
-[3.2](3.2) "Lime reserves the right to modify or cancel Discounts at any time"
+[Section 2.8](2.8) states:
 
-[3.3](3.3) if you forget the lock the bike you can be charged $600 (USD?)
+> you and Lime agree that each may bring claims against the other only in your
+> or its individual capacity, and not as a plaintiff or class member in any
+> purported class or representative proceeding or as an association.
 
-[4.1](4.1) if you pay for a monthly or yearly membership, they can cancel it at any time without refunding you, for any reason. i.e. they can cancel your membership with 364 days remaining just because they don't like your skin colour or your religion. (There's another clause which says they can monitor your social media)
+This is yet another clause prohibiting you from taking class action against Lime.
+Lime are clearly trying very hard to prevent class action suits.
+It makes you wonder whether they know something about their service which we don't.
+
+[Section 3.2](3.2) states that
+
+> Lime reserves the right to modify or cancel Discounts at any time
+
+So you may hop on a bike thinking that you've got a 90% discount or a free trial,
+but then Lime decides to charge you the full price anyway.
+
+If you forget the lock the bike you can be charged $600 (in an unspecified currency). [Section 3.3](3.3)
+
+If you pay for a monthly or yearly membership, they can cancel it at any time
+without refunding you, for any reason.
+For example, they can cancel your annual membership with 364 days remaining
+merely because they don't like your religion, sexual orientation or skin colour. ([Section 4.1](4.1))
+(There's another clause which says they can monitor your social media to determine those intimate details.)
 
 [4.3](4.3) "PLEASE NOTE THAT YOU WILL NOT RECEIVE A NOTICE FROM US THAT YOUR FREE TRIAL HAS ENDED OR THAT THE PAID PORTION OF YOUR SUBSCRIPTION HAS BEGUN. WE RESERVE THE RIGHT TO MODIFY OR TERMINATE FREE TRIALS AT ANY TIME, WITHOUT NOTICE AND IN OUR SOLE AND ABSOLUTE DISCRETION."
 

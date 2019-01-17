@@ -114,6 +114,8 @@ def stripForSpellcheck(word):
     word = word.rstrip(',')
     word = word.strip().rstrip('.?!')
 
+    if word.endswith("™") or word.endswith(":"):
+        word = word[:-1]
 
     expr = [
        r"^\$?-?\d+((\,\d{3})+)?(\.\d+)?$", # numbers (including negative)
@@ -132,8 +134,7 @@ def stripForSpellcheck(word):
     for e in expr:
         word = re.sub(e, '', word)
 
-    if word.endswith("™") or word.endswith(":"):
-        word = word[:-1]
+
 
     return(word)
 

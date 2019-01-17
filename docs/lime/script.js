@@ -4,19 +4,19 @@ const iframeID = "popup-iframe";
 var iframeEl = null;
 
 
-function clauseShow(section){
-   console.log("Showing " + section);
+function clauseShow(page,section){
+   console.log("Showing " + section + "of page " + page);
 
    var popupEl = document.getElementById(popupId);
    if (! iframeEl){
-      createPopup(section);
+      createPopup(page,section);
    }else{
-      changePopup(section);
+      changePopup(page,section);
    }
    showPopup();
 }
 
-function createPopup(section){
+function createPopup(page,section){
    console.log("Creating the popup");
 
    // create outer div
@@ -51,9 +51,9 @@ function createPopup(section){
    // create iframe
    iframeEl = document.createElement('iframe');
    if (section){
-      iframeEl.src = "terms.html#clause-" + section;
+      iframeEl.src = page + "#" + section;
    }else{
-      iframeEl.src = "terms.html";
+      iframeEl.src = page;
    }
    iframeEl.id = iframeID;
    iframeEl.classList.add("modal-content");
@@ -61,8 +61,8 @@ function createPopup(section){
 
 }
 
-function changePopup(section){
-   console.log("Changing the popup for " + section);
+function changePopup(page,section){
+   console.log("Changing the popup for " + section + " on page " + page);
 
    // delete old iframe
    // create new one
@@ -73,7 +73,7 @@ function changePopup(section){
    // so the browser doesn't reload the page
    iframeElOld = iframeEl
    iframeEl = document.createElement('iframe');
-   iframeEl.src = "terms.html#clause-" + section;
+   iframeEl.src = page + "#" + section;
    iframeEl.classList.add("modal-content");
    popupEl.appendChild(iframeEl);
    popupEl.removeChild(iframeElOld);

@@ -93,6 +93,12 @@
         test:
            - in: regex/href/test/0/in.txt
              out: regex/href/test/0/out.txt
+      - what: "html"
+        search: regex/href-privacy/search.txt
+        replace: regex/href-privacy/replace.txt
+        test:
+           - in: regex/href-privacy/test/0/in.txt
+             out: regex/href-privacy/test/0/out.txt
    markdown: "content.md"
 -  title: "Achievements of the Coalition Government"
    description: >

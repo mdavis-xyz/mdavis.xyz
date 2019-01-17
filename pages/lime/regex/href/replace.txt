@@ -1,1 +1,1 @@
-href="javascript:clauseShow('\1.')"
+href="javascript:clauseShow('terms.html','clause-\1.')"

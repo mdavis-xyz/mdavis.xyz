@@ -30,7 +30,6 @@ My favourite clauses are:
 * iPhone users aren't allowed to use the app in a "Terrorist supporting country", but Android users are! ([Section 12.28](12.28))
 * If Lime maliciously rigs the bike battery to deliberately explode and murder you, you and your heirs are not able to take any legal action against them. (Sections [2.3](2.3), [2.8](2.8), [5.1](5.1), [6.1](6.1), [6.2](6.2), [7.4](7.4), [7.4.5](7.4.5),  [12.3.3](12.3.3)) Hopefully the courts would rule those clauses as invalid. However that fact that this is what their terms say is worrying.
 * Users aren't allowed to mention the word "Lime" in any email, tweet, WhatsApp message or other online channel (even private), since that's an online usage of their trademark without permission. Uploading a photo to Instagram which happens to have a Lime bike in the background is a violation ([Section 12.8](12.8))
-* By merely installing the app you are technically violating the terms and conditions. You've copied their "content" to non-temporary storage on your device. That's not allowed. ([Section 12.8](12.8))
 * If you alert them to a safety issue with their bikes, they have no obligation to fix them. ([Section 6.2.10](6.2.10))
 * Users and their family aren't allowed to take unrelated legal action against anyone who happens to work for Lime, even if the issue is unrelated to lime. ([Section 5.1](5.1))
 * Users agree to read the entire 30,000-word terms and conditions every time they ride. ([Section 12.25.5](12.25.5))
@@ -121,6 +120,13 @@ It makes you wonder whether they know something about their service which we don
 
 > Lime reserves the right to modify or cancel Discounts at any time
 
+Similarly, [Section 4.3](4.3) states:
+
+> PLEASE NOTE THAT YOU WILL NOT RECEIVE A NOTICE FROM US THAT YOUR FREE TRIAL
+> HAS ENDED OR THAT THE PAID PORTION OF YOUR SUBSCRIPTION HAS BEGUN. WE RESERVE
+> THE RIGHT TO MODIFY OR TERMINATE FREE TRIALS AT ANY TIME, WITHOUT NOTICE AND
+> IN OUR SOLE AND ABSOLUTE DISCRETION.
+
 So you may hop on a bike thinking that you've got a 90% discount or a free trial,
 but then Lime decides to charge you the full price anyway.
 
@@ -132,121 +138,297 @@ For example, they can cancel your annual membership with 364 days remaining
 merely because they don't like your religion, sexual orientation or skin colour. ([Section 4.1](4.1))
 (There's another clause which says they can monitor your social media to determine those intimate details.)
 
-[4.3](4.3) "PLEASE NOTE THAT YOU WILL NOT RECEIVE A NOTICE FROM US THAT YOUR FREE TRIAL HAS ENDED OR THAT THE PAID PORTION OF YOUR SUBSCRIPTION HAS BEGUN. WE RESERVE THE RIGHT TO MODIFY OR TERMINATE FREE TRIALS AT ANY TIME, WITHOUT NOTICE AND IN OUR SOLE AND ABSOLUTE DISCRETION."
 
-[4.4](4.4) "billing errors have a statute of limitations of 60 days"
+According to [Section 4.4](4.4):
 
-[4.7](4.7) they have no obligation to refund, even if the bike is faulty
+> billing errors have a statute of limitations of 60 days
 
-[4.8](4.8) an order confirmation doesn't confirm that they accept your order. They can reject your valid order after the order is confirmed, for any reason
+So if they over-charge you for a ride (such as charging you $600 for not locking the bike even though you really did), and don't notice for 2 months,
+won't ever get that money back.
 
-[4.9](4.9) We do not warrant that specifications or pricing on the Services is complete, accurate, reliable, current, or error-free.
+Thanks to [Section 4.7](4.7), Lime has no obligation to refund you, even if the bike is faulty
 
-[4.9](4.9)  If a product You purchased from Lime is not as described, Your sole remedy is to return it in unused condition, complete and undamaged, in the original packaging. - huh? Packaging? Did they copy and paste from some other company?
+In [Section 4.8](4.8) they claim that an order confirmation is not confirmation
+that they accept your order.
+They may reject your valid order after the order is confirmed, for any reason.
 
-[4.10](4.10) grants them the right to put false bike icons on the map
+[Section 4.9](4.9) claims:
 
-[4.11](4.11) if your legal name sounds fake, they can refuse service
+> We do not warrant that specifications or pricing on the Services is complete, accurate, reliable, current, or error-free.
 
-[4.11](4.11) They have no obligation to store your password securely. "You are entirely responsible for the security and confidentiality of Your password and account"
+So even though the app may say that it is "only $1 to unlock",
+they may be planning to charge you $100 to unlock.
+You can never know for sure until after the money has been taken from your bank account.
 
-[4.11](4.11) Please note that anyone able to provide Your personally identifiable information will be able to access Your account so You should take reasonable steps to protect this information
+One of the most bizarre sections is [Section 4.9](4.9).
 
-[5.1](5.1) you and your family cannot take legal action against anyone associated with Lime, even action unrelated to Lime.
+> If a product You purchased from Lime is not as described, Your sole remedy is to return it in unused condition, complete and undamaged, in the original packaging.
 
-[5.2](5.2) what does this even mean? "You expressly agree and acknowledge that You may discover facts or law different from, or in addition to, the facts or law that You know or believe to be true with respect to the Claims and the Released Persons"
+This is not at all applicable to Lime.
+The only thing they offer is bikes and scooters which you find on the footpath, unwrapped.
+So how can you return it in the "original packaging"?
+Where do you return it to?
+I suspect they blindly copied and pasted their terms and conditions from some template, without reading it.
+If they can't be bothered to read their own terms and conditions, then it's unreasonable
+to expect users to read it, let alone [every time you ride](12.25.5)
 
-[6.1](6.1) they don't claim their products are fit for purpose
+As mentioned above, [Section 4.10](4.10) grants them the right to put false bike
+icons on the map, to mislead users into thinking there are more Lime bikes around
+town than there really are.
 
-[6.2](6.2) if their bikes are designed hazardously, they're not at fault. You bear all risk
+[Section 4.11](4.11) states that if your legal name sounds fake, they can refuse service.
 
-[6.2.4](6.2.4) they have no obligation to protect your data (PII or credit card info)
+On the topic of security,
+[Section 6.2.4](6.2.4) states that Lime
 
-[6.2.5](6.2.5) they grant themselves the right to install malware or cryptojackers with their app.
+> make no representations, warranties, endorsements, or promises ... as to ...
+> security associated with the transmission of Your User Submissions transmitted to Lime via the Services
 
-[6.2.6](6.2.6) any claims they make about their service can be lies
+Similarly [Section 4.11](4.11) states:
 
-[6.2.7](6.2.7) they don't have to correct lies you call out, nor product faults, including safety issues
+> You are entirely responsible for the security and confidentiality of Your password and account
 
-[6.2.10](6.2.10) another clause allowing them to install malware
+If you read this literally, that means Lime is not responsible for the security and confidentiality of your password and your account.
+So they have no obligation to used standard best practice for digital security, like hashing (scrambling) and salting passwords.
+Given that your account includes location history, financial payment details, and many other pieces of personal information, it is unsettling that their terms do not provide a clearer obligation upon them to be secure.
 
-[7.4](7.4) any injuries they cause are not their fault
+That [same section](4.11) also says:
 
-[7.4.4](7.4.4) you agree to wear the helmet according to the manufacturers instructions. What are those instructions?
+> Please note that anyone able to provide Your personally identifiable information
+> will be able to access Your account so You should take reasonable steps to
+> protect this information
 
-[7.4.5](7.4.5) if the bike bursts into flames and destroys property or kills someone, you're liable
+It's not clear what information is required to gain access to your account.
+Probably name, birthday, email address and phone number.
+How many people and organisations already know those 4 things about you?
 
-[8.1](8.1) they're allowed to transmit anything illegal from your device out to the internet - information or material transmitted through Your Device(s), even if not submitted by You, that infringes, violates, or misappropriates any copyright, trademark, trade secret, trade dress, patent, publicity, privacy, or other right of any person or entity;
+Shockingly [Section 5.1](5.1) you and your family cannot take legal action against anyone associated with Lime, even action unrelated to Lime.
 
-[9.2](9.2) yet another clause allowing them to terminate your account for any reason, including discrimination
+> You and for all of Your family ... fully and forever release and discharge all Released Persons for any and all Claims that You have or may have against any Released Person
 
-[10.2](10.2) You can't take them to court, but they can take you to court
+Lime probably did not intend this clause to be that broad.
+However they could have clarified "any and all claims" to restrict it to claims related
+to the service.
+They chose not to make that restriction.
 
-[10.2](10.2) they can discriminate against you by terminating your account
+According to this clause, if a Lime employee deliberately rigs an e-bike battery
+to explode and kill you, you cannot make any legal claim against them.
+There are probably other laws which over-rule this clause.
+(However as mentioned before, it's unclear whether Australian laws even apply at all.)
+Therefore the presence of such a clause is cause for concern.
+Why would Lime want to protect individual employees who do the wrong thing?
 
-[11.3](11.3) they can send you robocall spam, even if your number is on the do not call list, even after you close your account. So they mist not delete your data then. They claim giving a phone number is optional,  but is it?
 
-[11.4](11.4) they can send you email and phone calls when you didn't give then that contact info,  but they got it by "other means".
+Lime's terms and conditions are already extremely long, dull and hard to read. [Section 5.2](5.2) takes it one step further, which legalese so strong that I can't even guess what they're trying to protect themselves from.
 
-[11.4](11.4) ask them what does "immediately" mean
+> You expressly agree and acknowledge that You may discover facts or law different
+from, or in addition to, the facts or law that You know or believe to be true
+with respect to the Claims and the Released Persons.
 
-[12.2](12.2) if their GPS tracking is inaccurate and they can't find the bike,  they'll report you as a thief to the cops
+What does that even mean?
 
-[12.3.3](12.3.3) if you die,  they're not liable
+[Section 6.1](6.1) states that Lime do not claim their products are fit for purpose.
+Take a moment to let that sink in.
 
-[12.7](12.7) they can switch on your phone's camera and microphone without your knowledge, or install a hidden camera in the bike, then do whatever they want with that media, without even notifying you. Even upskirt shots?
+Lime's user agreement is full of excessive caps-lock.
+[Section 6.2](6.2) is such an example.
 
-[12.8](12.8) - seems not applicable. By downloading the app to non-temporary storage, you're violating the agreement. I saved the terms and conditions to Pocket so that I could read them later (because they're so long). That's a violation.
+> ALL OF THE SERVICES, PRODUCTS, AND RELATED EQUIPMENT ARE PROVIDED "AS IS", "AS AVAILABLE" AND "WITH ALL FAULTS" (AND YOU RELY ON THEM SOLELY AT YOUR OWN RISK)
 
-[12.9](12.9) also not applicable. It's for an online media company
+This means that if their bikes are designed hazardously, they are not at fault.
+You bear all the risk of possible faulty brakes and spontaneously-combusting batteries.
 
-[12.10](12.10) can't use Lime's trademark in any way. A thumbnail on an article, photo of a public space which happens to show a logo on the bike, a tweet mentioning the name "Lime" are all violations, unless you get their explicit consent.
 
-[12.11](12.11) also not applicable. Uploaded content is theirs "in perpetuity and throughout the universe"
+Thanks to [Section 6.2.5](6.2.5) if they install malware or cryptojackers along with their app,
+you cannot take any action against them.
 
-[12.12](12.12) also about user submissions to the website, which isn't applicable
+[Section 6.2.6](6.2.6) is a very broad protection saying that any claims Lime
+make about their service can be false.
 
-[12.13](12.13) if they think it is "likely" that you will submit bad content, they can do anything to "cure" that. E.g. if they see you post a strong political opinion online, they can cancel your account (without refund)
+If you point out such false statements, product faults or safety issues, they
+have no obligation to fix them. ([Section 6.2.7](6.2.7))
 
-[12.16](12.16) "There may also be risks of dealing with ... international trade issues"
 
-[12.19](12.19) they can refuse service for any reason
+If you do manage to somehow win an arbitration case against Lime, the maximum penalty you can extract is $100.
+So if their batteries explode and you incur $100,000 in medical bills to treat your burns, the maximum payment you can get from Lime is $100. ([Section 7.3](7.3))
 
-[12.21](12.21) you have to tell them if you lose your phone or someone else gains access
+Any injuries they cause are not their fault.
+[Section 7.4](7.4) protects them if you get injured from "known" and "foreseeable" risks.
 
-[12.23](12.23) they are not obliged to respond to any enquiries
+Lime care enough about safety that they advice you to wear their helmet according to the manufacturers instructions.
+They do not provide a copy or reference to those instructions for their helmets.
+They do not mention who their helmets are manufactured by, so it is not possible
+to look up the instructions they advise you to read.
 
-[12.23](12.23) headings in the terms are meaningless
+Lime's terms and conditions are full of a spelling mistake where they capitalise
+words that aren't normally capitalised. [Section 7.4.5](7.4.5) is an example.
 
-[12.23](12.23) they have no statue of limitations
+> if Your use of any of the Services, Products, and/or related equipment causes any injury or damage to another person or property, then You will be liable for any and all consequences, claims, demands, causes of action, losses, liabilities, damages, injuries, fees, costs and expenses, penalties, attorneys' fees, judgments, suits and/or disbursements of any kind, or nature whatsoever, whether foreseeable or unforeseeable, and whether known or unknown
 
-[12.23](12.23) makes no representation that the service is applicable or available or use outside the USA, despite Sydney and Brisbane being listed on [the website](https://www.li.me/locations)
+This means that if Lime knows about a fault with their bike, then you ride it, and that fault causes someone else to get injured, *you* will be liable, not Lime.
 
-[12.23](12.23) another right to discriminate
+[Section 8.1](8.1) says that if they transmit anything illegal from your device out to the Internet,
+you cannot take action against them.
 
-[12.24](12.24) DMCA! For a bicycle hire company!
+Lime's terms and conditions include *many* clauses which allow them to terminate your
+service "for any reason".
+[Sections 9.2](9.2) and [10.2](10.2) are two more examples.
+"Any reason" could include them disliking your religion, sexual orientation, skin colour and so on.
+Australian anti-discrimination laws normally protect citizens from such discrimination.
+However as discussed earlier, those laws may not apply, because of other clauses in these terms.
 
-[12.25](12.25) they can change the terms and your use is assumed to be an agreement. They just need to update the page linked in the app menu
 
-[12.25.5](12.25.5) you will read the whole terms and conditions each time you ride
+Lime are allowed to send you robocall spam, even if your number is on the do not call list, even after you close your account. ([Section 11.3](11.3))
+They claim that giving them a phone number is optional.
+However that isn't a meaningful choice because [Section 11.4](11.4) grants them
+the right they to contact you via phone numbers and email addresses which
+they acquired by "other means".
+Those "other means" are not specified.
 
-[12.28](12.28) you are not in a "terrorist supporting country" - only if using iOS
+If their GPS tracking is inaccurate and they can't find the bike,  they may report you as a thief to the cops. ([Section 12.2](12.2))
+
+If you die because of a faulty Lime bike, Lime are not liable. ([Section 12.3.3](12.3.3))
+
+[Section 12.7](12.7) is one of the more worrying clauses, partly because it is not at all necessary for a share bike rental service.
+
+> give Your full and unconditional consent to Lime ...
+> the right to photograph, videotape ...
+> Your use of the Services, at any time ...
+> and (c) the right to use, ...  distribute, ...  and exploit, at any time ...
+>  such photographs, videos, and other recordings.
+
+So they they can switch on your phone's camera and microphone without your knowledge, or install a hidden camera in the bike.
+If that wasn't bad enough, the clause also continues to say that you
+
+> waive, release, and discharge Lime and all Released Persons from
+> all Claims that You have or may have for any libel, defamation, invasion of privacy
+
+The capitalisation of "Claims" is another example of Lime's inclination to ungrammatically capitalise words.
+More importantly, this clause leaves open the possibility of Lime installing secret
+cameras to take up-skirt photos of users riding their bikes, and upload them to PornHub.
+I am not claiming that Lime do this, and I hope that other laws would over-ride this
+clause to make such acts illegal.
+However the fact that Lime has written terms and conditions which try to grant them
+such broad and unnecessary rights is indeed worrying.
+
+Lime's terms prohibit services like [The Internet Archive](https://archive.org/index.php) from making a copy of their terms and conditions. ([Section 12.8](12.8))
+
+Most of [Section 12](12) is simply not applicable.
+Those clauses are all about users posting content to a web service, which is
+not applicable to a share bike company.
+This is yet another oddity which makes me suspect Lime blindly copied and pasted
+their terms from a template, without thoroughly reading them.
+For example, [Section 12.11](12.11) talks about "Your submissions" and gives them "the unfettered right to sublicense such rights, in perpetuity *throughout the universe*". (Emphasis added.)
+
+Lime won't let you use Lime's trademark in any way without their explicit permission. ([Section 12.10](12.10))
+If you share this article on social media, the thumbnail is a picture of a Lime bike.
+So by sharing this article you will be technically violating their terms.
+If you take a photo of a public space which happens to show a
+Lime logo on a bike which is in the background, that's a violation.
+If you write a tweet or send a WhatsApp message mentioning the name "Lime", that's a violation too.
+
+That [same section](12.10) explicitly prohibits me from using a picture of a Lime bike up the top of this article.
+It even prohibits me from using the *word* "Lime" in this article.
+(I am not allowed to "post ... Lime trademarks in any way, including ... publicity pertaining to distribution of materials on the Services, without Lime's prior written consent")
+I do not want my freedom of speech to be limited by a bicycle hire company, which is why  I have not agreed to Lime's User Agreement, and wrote this article instead.
+
+Once again this is a clause which is needlessly broad.
+They are restricting your rights significantly, without justification.
+Most countries have laws to cover misrepresentation of a company, and defamation.
+Lime's trademark is already protected by all the normal trademark laws.
+I cannot think of any reasonable justification why such laws are not sufficient
+for a bike rental company.
+
+
+As mentioned above, Section 12 is mostly irrelevant clauses about posting user content to a website.
+[Section 12.13](12.13) states that if they think it is "likely" that you will
+submit content they don't like, they can do anything to "cure" that.
+For example, if they see you post a strong political opinion on Facebook, they can cancel your account (without refund).
+
+Read [the following](12.16) while keeping in mind that this is a company who's sole business
+is short term bicycle hire.
+
+> There may also be risks of dealing with ... international trade issues
+
+Is that really necessary?
+Lime are asking users to read the entirety of these terms every single time they ride.
+I do not get the impression that they tried to keep these terms brief enough to be user friendly.
+
+In [Section 12.19](12.19) we see *yet another* clause granting them the right
+to refuse service "for any reason".
+"Any reason" could include religious beliefs, sexual orientation, etc.
+It's unclear whether normal Australian anti-discrimination laws apply.
+And even if they do, you have agreed not to take them to any real (non-arbitration) court,
+so you can't do anything if they discriminate against you.
+I wonder why Lime needs so many overlapping clauses all granting them this right?
+
+If you lose your phone, what is the first thing that comes to mind?
+Thanks to [Section 12.21](12.21), you are obliged to tell them if you lose your
+phone.
+Have you ever told your friend or partner what your phone's lockscreen code is?
+If you do, you are obliged to notify Lime of this.
+
+[Section 12.23](12.23) is a huge wall of text, which contains a few noteworthy points.
+As mentioned earlier, it states that Lime are not obliged to respond to any enquiries.
+
+Most people click "I agree" without actually reading terms and conditions.
+If you're better than that, and actually skim through the terms, you may still be screwed over.
+[this section](12.23) of Lime's terms state that the headings in their terms are meaningless.
+Only the smallest fine print really matters.
+Even if you do read all the fine print, it doesn't provide any meaningful guarantee.
+Thanks to [Section 12.25](12.25) Lime can change the terms and your use is assumed to be an agreement. They only need to "notify you", which can involve simply updating the web page linked to in the app menu.
+This is probably why ([Section 12.25.5](12.25.5)) makes you promise to read the whole terms and conditions each time you ride.
+
+It is not clear, but [this section](12.23) may also exempt Lime (and not you) from
+the time limit imposed upon taking legal action.
+
+>  All sections which by their context ought to survive this Agreement shall survive any termination or expiration of this Agreement
+
+One of the most shocking sections is [Section 12.23](12.23).
+
+> Lime makes no representation that the Services is appropriate or available for use beyond the U.S.A
+
+This is surprising because Sydney, Brisbane and many other non-American cities are listed on [the "Location" page of Lime's website](https://www.li.me/locations).
+If you open up their app you will see bike icons in Sydney.
+So apparently an icon on a map of Sydney in Lime's app showing a Lime bicycle located in Sydney, corresponding to a physical Lime bike which Lime put in Sydney is not a "representation"
+that Lime bikes are available in Sydney.
+
+
+Lime grants themselves *yet another* right to discriminate in [Section 12.23](12.23).
+
+[DMCA](https://boingboing.net/2012/12/18/how-victorias-secret-censore.html) laws are
+copyright takedown laws.
+For example, movie studios issue DMCA takedown noticed to get Google to delete pirated movies hosted on YouTube.  
+Lime are a bicycle hire company who do not have a website where users can upload content.
+So I cannot think of any reason why Lime's terms include DMCA clauses. ([Section 12.24](12.24))
+
+
+
+If you are an iPhone user you aren't allowed to use the app in a "Terrorist supporting country".
+However that constraint is not imposed on Android users. ([Section 12.28](12.28))
 
 ### Privacy policy
 
 Lime's privacy policy can be found [here](https://www.li.me/privacy) ([archive](https://web.archive.org/web/20181129080104/https://www.li.me/privacy)).
 
-* They collect "demographic information"
-* They can view and collect any social media info public to them
-* They get your info from credit reporting agencies
-* All of these companies may track you on their website: [list](https://www.theatlantic.com/privacy-policy/third-party-ad-partners/)
-* Lots of talk about ads, and how to change your Google and Facebook ad settings, which is not at all relevant because they don't have ads
-* They ignore do not track and make a factually incorrect statement about that standard not being finalised
-* They collect unspecified "offline" info from unspecified third parties
+* They collect ["demographic information"](mdavisxyz-demographic-info). This is not defined. In other contexts this typically includes ethnicity, citizenship status, age, religion, income, home address, drug usage habits and so on.
+* They may view and collect anything you post on [any social media](mdavisxyz-social-media) which they can find.
+* They [may obtain](mdavisxyz-other-sources) your credit card history and credit rating.
+* Lime allows the [following companies](https://www.theatlantic.com/privacy-policy/third-party-ad-partners/) to track you [when you visit Lime's website](mdavisxyz-third-party): AdRoll, Amazon, AppNexus, Atlas, Bizo, Brightcom, Criteo, DoubleClick, DoubleVerify, Facebook, CustomAudience, Flashtalking, Google Adsense, IAS MOAT, Krux, Media.net, OpenX, Peer39, Pointroll, RevContent, Rubicon, SimpleReach, Sizmek, SLED, Sonobi, SpotXchange and Teads. Given that Lime's website is a simple static website, I question whether it's necessary to allow all those companies to spy on users.
+* There is [a lot of text](mdavisxyz-ads) talking about advertising, and how to change your Google and Facebook ad settings. This is surprising since Lime do not have ads on their website or in their app.
+* The [Do Not Track](https://www.eff.org/issues/do-not-track) standard is a browser setting which allows users to tell websites that they do not want to be excessively tracked as they traverse the web. Lime say that they ignore this setting and [will track you anyway](mdavisxyz-do-not-track).
+* They say they may collect unspecified ["offline"](mdavisxyz-other-sources) information about you from unspecified third parties
 
 Surprisingly there are some reasonable parts to the privacy policy.
 
-* There are rumours that share bike companies sell your data to advertisers. That's not allowed under this policy. Although they do still [sell your data](https://www.technologyreview.com/s/612123/the-secret-data-collected-by-dockless-bikes-is-helping-cities-map-your-movement/) to local governments. The clause prohibiting data sale to advertisers is not strong protection, since they can change their policy at any time to allow it. Their privacy policy claims they'll notify you of any changes, but that notification includes changing the policy document on their website, which is linked to by the app. You agree to click on that link and read the whole privacy policy every time you use the app.
-* You have the right to be forgotten
-* You have the right to export your data in a common machine readable format
-* Says right to withdraw consent to marketing, but that contradicts the terms and conditions.
+* There are rumours that share bike companies sell your data to advertisers. That is not allowed under this policy. Although they do still [sell your data](https://www.technologyreview.com/s/612123/the-secret-data-collected-by-dockless-bikes-is-helping-cities-map-your-movement/) to local governments. The clause prohibiting data sale to advertisers is not strong protection, since they can [change their policy](mdavisxyz-changes) at any time to allow it. Their privacy policy claims they'll notify you of any changes, but that notification includes changing the policy document on their website, which is linked to by the app. You agree to click on that link and read the whole privacy policy [every time](mdavisxyz-changes) you open the app or visit their website.
+They say that they will not change the privacy policy to make it less protective of the data they already have from you. This does not prevent them from changing their policy, collecting *new* data, and doing something with it you do not like.
+* You have [the right to be forgotten](mdavisxyz-forget).
+* You have the right [to export your data](mdavisxyz-export) in a "structured, commonly used and machine-readable format".
+* Says right to [withdraw consent to marketing](mdavisxyz-widthdraw). However this is somewhat contradicted by Sections [11.3](11.3) and [11.4](11.4) of their terms.
+
+## Conclusion
+
+We all know that there are countless companies these days with incredibly long terms and conditions, written in legalese, which take away your rights.
+However I believe that Lime's terms are far worse than most companies.
+Is all this really worth it just for bicycle rental?

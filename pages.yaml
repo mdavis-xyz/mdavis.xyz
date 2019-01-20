@@ -120,3 +120,23 @@
    exclude:
       - 'script'
    date: 7/1/2019
+-  title: "4D graphs"
+   description: "How to visualize complex-to-complex functions"
+   path: "4d-graphs"
+   images:
+      card:
+         path: "images/card.jpg"
+         description: "Graph of hyperbolic cosine"
+         width: 600
+         height: 400
+      top:
+         path: "images/animatedLog.mp4"
+         description: "Graph of log function"
+         width: 400
+         height: 400
+   template: "html"
+   html: "content.html"
+   exclude:
+      - 'script'
+      - 'spellcheck'
+   date: 19/1/2019

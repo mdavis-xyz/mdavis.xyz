@@ -1,0 +1,53 @@
+.formula {
+   text-align: center;
+}
+
+.symbol {
+   font-size: 125%;
+}
+
+.graph {
+   display: block;
+   margin-right: auto;
+   margin-left: auto;
+   margin-top: 1em;
+   margin-bottom: 1em;
+   max-width: 100%;
+   text-align: center;
+   border-radius: 0.2em;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+   height: auto;
+}
+
+.video {}
+
+
+code {
+  font-family: Consolas, Menlo, Monaco, monospace;
+  margin: auto;
+  width: auto;
+  align-self: center;
+}
+
+pre {
+   background: rgb(34,34,34);
+   border-radius: 0.2em;
+   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+   display: inline-block;
+   justify-content: center;
+   max-width: 100%;
+   float: unset;
+   /*left: 50%;
+   transform: translateX(50%);*/
+   overflow-x: auto;
+   padding: 1em;
+}
+
+.inline-code {
+   font-family: Consolas, Menlo, Monaco, monospace;
+}
+
+
+.topimage {
+   width: auto !important;
+}

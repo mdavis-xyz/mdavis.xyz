@@ -1,0 +1,354 @@
+<p>
+   This document outlines a method for visualising four-dimensional
+   complex-to-complex functions in only 3 dimensions.
+   It cannot be generalised to other four-dimensional objects.
+   (For that, check out <a target="_blank" href="http://miegakure.com/">Miegakure</a>)
+</p>
+<p>
+   These visualisations do not show the true
+   beauty of four-dimensions.
+   However they can be used to:
+</p>
+<ul>
+   <li>
+      give geometrical meaning to differentiability;
+   </li>
+   <li>
+      show an immensely deep relationship between trig functions and hyperbolic
+      trig functions;
+   </li>
+   <li>
+      give meaning to the <span class="formula">2<i>π</i><i>i</i></span>
+      periodicity of the exponential function; and
+   </li>
+   <li>
+      clearly show how branch cuts affect the Log function.
+   </li>
+</ul>
+
+<p>
+   An interactive version of this document for Maple can be found
+   <a href="mapleFile.zip" target="_blank">here</a>.
+</p>
+<h2>
+   Two-Dimensional Analogy
+</h2>
+<p>
+   First, we will visualise a real-to-complex functions in 2D.
+</p>
+<p>
+   <div class="formula"><i>f</i>(<i>x</i>) = <i>e</i><sup><i>ix</i></sup> = cos(<i>x</i>) + <i>i</i>sin(<i>x</i>) <div><i>f</i>:<span class="blackboard">&#8476; &#8594; &#8450;</span></div></div>
+
+</p>
+<p>
+   The real part of <span class="formula"><i>f</i>(<i>x</i>)</span> is <span class="formula">cos(<i>x</i>)</span> which looks like this:
+</p>
+<img class="graph" src="images/cosReal.png" width=400 height=400 alt="graph" />
+<p>
+   The imaginary part of <span class="formula"><i>f</i>(<i>x</i>)</span> is <span class="formula">sin(<i>x</i>)</span> which looks like this:
+</p>
+<img class="graph" src="images/sinReal.png" width=400 height=400 alt="graph" />
+<p>
+   Now we superimpose both curves on the same axes, using colour to help us remember which is which.
+</p>
+<img class="graph" src="images/exp2D.png" width=400 height=400 alt="graph" />
+<p>
+   Now we have a 2D graph of a real-to-complex function. To look up <span class="formula"><i>f</i>(<i>x</i>)</span> on the graph, imagine a vertical line at <span class="formula"><i>x</i></span>.
+   The line will intersect the red and blue curves exactly once each. The
+   height of the points of intersection of the red and blue curves equals
+   the value of the imaginary and real parts of <span class="formula"><i>f</i>(<i>x</i>)</span> respectively.
+</p>
+<h2>
+   All 3 Dimensions
+</h2>
+<h3 class="Subsection-">
+   Cartesian Graphs
+</h3>
+<p>
+   The next step is to add an axis out of the page, which represents <span class="formula">&#8465;(<i>x</i>)</span> (the imaginary component of <span class="formula">x</span>), what is currently the <span class="formula"><i>x</i></span> axis becomes the <span class="formula">&#8476;(<i>x</i>)</span> axis. (The real component of <span class="formula">x</span>.) I will call the vertical axis the <span class="formula"><i>z</i></span> axis.
+</p>
+<p>
+   Let's look at a function similar to the previous example, but with a complex domain (and without the <span class="formula"><i>i</i></span> in the power).
+</p>
+<div class="formula">
+   <i>g</i>(<i>z</i>) = <i>e</i><sup><i>z</i></sup> = <i>e</i><sup><i>x</i> + <i>iy</i></sup> = <i>e</i><sup><i>x</i></sup><span class="symbol">(</span>cos(<i>y</i>) + <i>i</i>sin(<i>y</i>)<span class="symbol">)</span> <i>g</i>:<span class="blackboard">&#8450; &#8594; &#8450;</span>
+</div>
+<p>
+   We'll start by plotting the real part as a complex to real function. You
+   can visualise this in the same way as a function of 2 variables in the
+   real world.
+</p>
+<p>
+   <div class="formula">&#8476;<span class="symbol">(</span><i>g</i>(<i>z</i>)<span class="symbol">)</span> = <i>e</i><sup><i>x</i></sup>cos(<i>y</i>)
+   </div>
+</p>
+<img class="graph" src="images/expReal.png" width=400 height=400 alt="graph" />
+<p>
+   Now we plot the imaginary part, which can also be thought of as a complex to real function, or a 2 variable real function.
+</p>
+<p>
+   <div class="formula">&#8465;<span class="symbol">(</span><i>g</i>(<i>z</i>)<span class="symbol">)</span> = <i>e</i><sup><i>x</i></sup>sin(<i>y</i>)
+   </div>
+</p>
+<img class="graph" src="images/expIm.png" width=400 height=400 alt="graph" />
+<p>
+   Now we superimpose both graphs on the same axes.
+</p>
+<p>
+   Maple won't let me add a legend to 3D graphs, so remember, the blue
+   surface is the real component and the red surface is the imaginary
+   component.
+</p>
+<img class="graph" src="images/expBoth.png" width=400 height=400 alt="graph" />
+<p>
+   To look up <span class="formula"><i>g</i>(<i>z</i>)</span> on the graph, imagine a vertical line through <span class="formula"><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span>.
+   The line will intersect the red and blue surfaces exactly once each.
+   The height of the points of intersection of the red and blue surfaces
+   equals the value of the imaginary and real parts of <span class="formula"><i>g</i>(<i>z</i>)</span> respectively. We can now see geometrically what it means for the exponential function to have a period of <span class="formula">2<i>π</i><i>i</i></span> (it has a period of <span class="formula">2<i>π</i></span> along the y axis).
+</p>
+<h3 class="Subsection-">
+   Polar Graphs
+</h3>
+<p>
+   We already know <span class="formula"><i>g</i>(<i>z</i>) = <i>e</i><sup><i>x</i></sup><i>e</i><sup><i>iy</i></sup></span>. That is, the function has modulus <span class="formula"><i>e</i><sup><i>x</i></sup></span> at an angle of <span class="formula"><i>y</i></span>. We can see this more clearly by plotting the argument and modulus instead of <span class="formula">&#8476;<span class="symbol">(</span><i>g</i>(<i>z</i>)<span class="symbol">)</span></span> and <span class="formula">&#8465;<span class="symbol">(</span><i>g</i>(<i>z</i>)<span class="symbol">)</span></span>.
+</p>
+<img class="graph" src="images/polarExp.png" width=400 height=400 alt="graph" />
+<p>
+   From this graph we see that the argument (green) is independent of <span class="formula"><i>x</i></span>, and increases linearly as y increases (the saw-tooth appearance is because any value above <span class="formula"><i>π</i></span> gets wrapped around back into the <span class="formula"> − <i>π</i></span> to <span class="formula"><i>π</i></span> range). We can see that the modulus (orange) is just <span class="formula"><i>e</i><sup><i>x</i></sup></span>.
+   It is clear from this that visualising complex-to-complex graphs can be
+   insightful. Obviously we still can't see the curve in all its 4D
+   glory, but there is a lot more usefulness to come.
+</p>
+<h2>
+   Differentiability
+</h2>
+<p>
+   For this section we will stick to Cartesian graphs, because
+   differentiation is intrinsically Cartesian (due to the Cartesian nature of the Cauchy-Riemann equations).
+</p>
+<p>
+   To explain what differentiability means geometrically, here is an example:
+</p>
+<p>
+   <div class="formula">
+      <i>h</i>(<i>z</i>) = <i>x</i><sup>2</sup> + <i>iy</i><sup>2</sup><i>h</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<p>
+   If we apply the Cauchy-Riemann equations we get:
+</p>
+<p>
+   <div class="formula"><span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>u</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>x</i></span><span class="ignored">)</span></span> = <span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>v</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>y</i></span><span class="ignored">)</span></span>
+   </div>
+</p>
+<p>
+   <div class="formula">2<i>x</i> = 2<i>y</i>
+   </div>
+</p>
+<p>
+   <div class="formula"><i>x</i> = <i>y</i>
+   </div>
+</p>
+<p>
+   and
+</p>
+<p>
+   <div class="formula"><span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>u</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>y</i></span><span class="ignored">)</span></span> =  − <span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>v</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>x</i></span><span class="ignored">)</span></span>
+   </div>
+</p>
+<p>
+   <div class="formula">0 = 0
+   </div>
+</p>
+<p>
+   Therefore <span class="formula"><i>h</i>(<i>z</i>)</span> is differentiable only where <span class="formula"><i>x</i> = <i>y</i></span>.
+   Let's see why this is by looking at the graph geometrically.
+   Here is a Cartesian graph of <span class="formula"><i>h</i>(<i>z</i>)</span>:
+</p>
+<img class="graph" src="images/parabolasSimple.png" width=400 height=400 alt="graph" />
+<p>
+   Let's pick an arbitrary point on <span class="formula"><i>x</i> = <i>y</i></span>, such as <span class="formula">1 + <i>i</i></span>.
+</p>
+<p>
+   The tangent plane (gold) to the real surface (blue) at <span class="formula">1 + <i>i</i></span> looks like:
+</p>
+<img class="graph" src="images/realTangent.png" width=400 height=400 alt="graph" />
+<p>
+   The tangent plane (gold) to the imaginary surface (red) looks like:
+</p>
+<img class="graph" src="images/imTangent.png" width=400 height=400 alt="graph" />
+<p>
+   We already know the graph is differentiable at <span class="formula">1 + <i>i</i></span>.
+</p>
+<p>
+   The first Cauchy-Riemann equation <span class="formula"><span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>u</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>x</i></span><span class="ignored">)</span></span> = <span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>v</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>y</i></span><span class="ignored">)</span></span></span>
+   tells us that the slope of the tangent plane to the real surface in the
+   direction of the positive x axis is equal to the slope of the tangent
+   plane to the imaginary surface in the direction of the positive y axis.
+</p>
+<p>
+   The second Cauchy-Riemann equation <span class="formula"><span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>u</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>y</i></span><span class="ignored">)</span></span> =  − <span class="fraction"><span class="ignored">(</span><span class="numerator">∂<i>v</i><span class="symbol">(</span><i>x</i>, <i>y</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator">∂<i>x</i></span><span class="ignored">)</span></span></span>
+   tells us that the slope of the tangent plane to the real surface in the
+   direction of the positive y axis is equal to the slope of the tangent
+   plane to the imaginary surface in the direction of the negative x axis.
+</p>
+<p>
+   This means that the planes are actually identical, but they are rotated <span class="formula">90<sup><i>o</i></sup></span> around the <i>z</i> axis relative to each other.
+</p>
+<p>
+   <video class="graph video" autoplay="" loop="" width=400 height=400>
+      <source src="images/animatedPlane.mp4" type="video/mp4" />
+   </video>
+</p>
+<p>
+   This rotational equality in tangent planes is the geometric meaning of
+   differentiability. It's hard to check whether such rotations are
+   possible at an arbitrary point in your head with visualisations (try checking anywhere on <span class="formula"><i>y</i> =  − <i>x</i></span>, make sure you rotate in the correct direction), but at least now you <i>know</i> the geometric meaning of differentiability for complex-to-complex functions.
+</p>
+<h2>
+   Logarithms
+</h2>
+<h3 class="Subsection-">
+   log
+</h3>
+<p>
+   Let's look at logs.
+</p>
+<p>
+   <div class="formula">
+      log(<i>z</i>) = ln∣<i>z</i>∣ + <i>i</i>(<i>θ</i>)    <i>θ</i> ∈ ℝ
+   </div>
+</p>
+<p>
+   Let's plot this as before. The real part (blue) can be thought of in a
+   Cartesian sense, the imaginary part (red) can be thought of in a polar
+   sense (notice that I have defined the range of <span class="formula"><i>θ</i></span> to be any real number, not just a <span class="formula">2<i>π</i></span> range).
+</p>
+<img class="graph" src="images/log.png" width=400 height=400 alt="graph" />
+<p>
+   Notice that every possible vertical line intersects the red surface at more than one point. This is because <span class="formula">log</span> is a multi-valued function. Notice that each such intersection is <span class="formula">2<i>π</i></span> above or below the next. That's because the imaginary part of <span class="formula">log</span> is <span class="formula"><i>θ</i> + 2<i>k</i><i>π</i></span> for <span class="formula"><i>θ</i> ∈ ( − <i>π</i>, <i>π</i>]</span>. Each layer of the red helix corresponds to a different value of <span class="formula"><i>k</i></span>.
+</p>
+<p>
+   We can also see why <span class="formula">log(0)</span> is indeterminate (the red surface intersects the line <span class="formula"><i>x</i> = <i>y</i> = 0</span> at every point).
+</p>
+<h3 class="Subsection-">
+   Log
+</h3>
+<p>
+   Now let's looks at Log<span class="formula">(<i>z</i>)</span>.
+</p>
+<p>
+   We need to restrict this helix/spiral thing so that we have a
+   single-valued function. This is known as a 'branch cut'. The following graph shows
+   how different branch cuts affect the Log function.
+   The variable <span class="formula">t</span> is the angle of the branch cut, in radians.
+</p>
+<p>
+   <video class="graph video" autoplay="" loop="" width=400 height=400>
+      <source src="images/animatedLog.mp4" type="video/mp4" />
+   </video>
+</p>
+<h2>
+   Beyond
+</h2>
+<p>
+   Now we know how to visualise arbitrary complex-to-complex functions in
+   only 3 dimensions. Let's try some more complicated ones to see what happens.
+</p>
+<p>
+   <div class="formula">
+      <i>f</i>(<i>x</i> + <i>iy</i>) = <span class="fraction"><span class="ignored">(</span><span class="numerator">tan<sup> − 1</sup><span class="symbol">(</span><i>x</i> + <i>iy</i><span class="symbol">)</span></span><span class="ignored">)/(</span><span class="denominator"><i>x</i> − <i>iy</i></span><span class="ignored">)</span></span>    <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/random.png" width=400 height=400 alt="graph" />
+<h4 class="Subsubsection-">
+   Polynomials
+</h4>
+<p>
+   Here is a complex parabola:
+</p>
+<p>
+   <div class="formula">
+      <i>f</i><span class="symbol">(</span><i>z</i><span class="symbol">)</span> = <i>z</i><sup>2</sup>   <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/parabolaThing.png" width=400 height=400 alt="graph" />
+<p>
+   Here is a complex cubic:
+</p>
+<p>
+   <div class="formula">
+      <i>f</i><span class="symbol">(</span><i>z</i><span class="symbol">)</span> = <i>z</i><sup>3</sup>    <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/cubicThing.png" width=400 height=400 alt="graph" />
+<p>
+   Here is a complex square root. (Note: Only the principle value of the square root is shown)
+</p>
+<p>
+   <div class="formula">
+      <i>f</i><span class="symbol">(</span><i>z</i><span class="symbol">)</span> = <i>z</i><sup><span class="fraction"><span class="ignored">(</span><span class="numerator">1</span><span class="ignored">)/(</span><span class="denominator">2</span><span class="ignored">)</span></span></sup>    <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/squareRootThing.png" width=400 height=400 alt="graph" />
+<p>
+   Here is a complex hyperbola:
+</p>
+<p>
+   <div class="formula">
+      <i>f</i><span class="symbol">(</span><i>z</i><span class="symbol">)</span> = <i>z</i><sup> − 1</sup>    <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/hyperbolaThing.png" width=400 height=400 alt="graph" />
+<h3 class="Subsection-">
+   Trigonometry
+</h3>
+<p>
+   Here is <span class="formula">cos(<i>z</i>)</span>:
+</p>
+<p>
+   <div class="formula">
+      <i>f</i><span class="symbol">(</span><i>z</i><span class="symbol">)</span> = cos(<i>z</i>) <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/complexCos.png" width=400 height=400 alt="graph" />
+<p>
+   Now here is <span class="formula">cosh(<i>z</i>)</span>:
+</p>
+<p>
+   <div class="formula">
+      <i>f</i><span class="symbol">(</span><i>z</i><span class="symbol">)</span> = cosh(<i>z</i>)  <i>f</i>:<span class="blackboard">C &#8594; &#8450;</span>
+   </div>
+</p>
+<img class="graph" src="images/complexCosh.png" width=400 height=400 alt="graph" />
+<p>
+   Notice that they are identical aside from a <span class="formula">90<sup><i>o</i></sup></span> rotation about the z axis? That's because <span class="formula">cos<span class="symbol">(</span><i>iz</i><span class="symbol">)</span> = cosh(<i>z</i>)</span>, and multiplication by <span class="formula"><i>i</i></span> results in a rotation of <span class="formula">90<sup><i>o</i></sup></span> (rotation in either direction because they are both even functions in the real world). Is your mind blown?
+</p>
+<h2>
+   Your Turn
+</h2>
+<p>
+   If you want to graph any other functions, first open up Maple, and type in the following code.
+</p>
+<p>
+<pre><code>ImColour:=red;
+ReColour:=blue;
+with(plots):
+plotIm:=(func,x1,x2,y1,y2)-&gt;plot3d(Im(func(x,y)),x=x1..x2, y=y1.. y2, color=ImColour, axes=boxed);
+plotRe:=(func,x1,x2,y1,y2)-&gt;plot3d(Re(func(x,y)),x=x1..x2, y=y1.. y2, color=ReColour, axes=boxed);
+plotComplex:=(func,x1,x2,y1,y2)-&gt;display3d({plotIm(func,x1,x2,y1, y2),plotRe(func,x1,x2,y1,y2)});</code></pre>
+</p>
+<p>
+   Then type in the following code, and replace
+   <span class="inline-code">&lt;function&gt;</span>
+   with the function you want to graph in terms of <span class="formula"><i>x</i></span> and <span class="formula"><i>y</i></span> (e.g. just “sin(x+I*y)”, no “f(x)”). <span class="formula"><i>x</i><sub>1</sub></span>, <span class="formula"><i>x</i><sub>2</sub></span>, <span class="formula"><i>y</i><sub>1</sub></span> and <span class="formula"><i>y</i><sub>2</sub></span> are the ranges to be graphed. Replace them with real numbers such that <span class="formula"><i>x</i><sub>1</sub> &lt; <i>x</i><sub>2</sub></span> and <span class="formula"><i>y</i><sub>1</sub> &lt; <i>y</i><sub>2</sub></span>. Don't forget that in Maple <span class="formula"><span class="sqrt"><span class="radical">√</span><span class="ignored">(</span><span class="root"> − 1</span><span class="ignored">)</span></span> is written with a capital `I', not a lower case one.</span>
+</p>
+<p>
+   If you want to try a few functions, it is only necessary to retype this last line.
+</p>
+<p>
+   <pre><code>plotComplex((x,y)-&gt;&lt;function&gt;,x1,x2,y1,y2);</code></pre>
+</p>
+<p>
+Go have a play. There is a lot to discover.
+</p>

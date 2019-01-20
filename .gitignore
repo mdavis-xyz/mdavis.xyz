@@ -10,6 +10,8 @@ __pycache__/
 pages/abbott/old/*
 pages/*/docs/index.html
 
+pages/*/content.html.md
+
 # C extensions
 *.so
 

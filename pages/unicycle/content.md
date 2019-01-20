@@ -1,5 +1,6 @@
-<video autoplay loop class="video appear"  width=1500 height=500>
+<video autoplay loop class="video appear"  width=1500 height=500 autobuffer muted playsinline video-auto-ctrl  preload>
    <source src="video.mp4" type="video/mp4">
+   <source src="video.webm" type="video/webm">
 </video>
 
 This project is a combination of two of my passions: programming and unicycling.

@@ -161,11 +161,10 @@ class Lam(object):
                                     stdout=subprocess.PIPE,
                                     stderr=subprocess.PIPE,
                                     cwd=this_lambda_dir,
-                                    encoding='utf-8',
                                     bufsize=1)
             success = (result.returncode == 0)
-            msg = result.stdout #.decode('utf-8')
-            msg += result.stderr
+            msg = result.stdout.decode('utf-8')
+            msg += result.stderr.decode('utf-8')
             msg += '\n\nmake script returned %s' % str(result.returncode)
 
         ret = {
@@ -345,7 +344,7 @@ class Lam(object):
         #pp.pprint(response)
 
         if (response['StatusCode'] == 200):
-
+            pp.pprint(response)
             return_val = json.load(response['Payload'])
 
             if not ((return_val != None) and \

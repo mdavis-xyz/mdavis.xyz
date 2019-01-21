@@ -35,6 +35,8 @@
 .bottom-photo {
    max-width: 30em;
    width: 80%;
+   border-radius: 0.2em;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
 }
 
 .hidden {

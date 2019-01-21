@@ -9,7 +9,7 @@ body {
    margin: auto;
    padding-top: 1rem;
    padding-bottom: 1rem;
-   font-family: "Source Sans Pro", Helvetica, sans-serif; 
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 html {}
@@ -87,6 +87,8 @@ hr {
    /*margin-top: 3rem;*/
    width: 100%;
    height: auto;
+   border-radius: 0.2em;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
 }
 .topimagecont {
    text-align: center;

@@ -93,7 +93,7 @@
 
 .close:hover,
 .close:focus {
-   color: black;
+   color: rgb(20,20,40);
    text-decoration: none;
    cursor: pointer;
    /*! font-size: 500%; */

@@ -79,9 +79,18 @@ def numWords(markdown):
     print("Number of words is %d" % numWords)
     return(numWords)
 
-def estReadingTime(markdownFname):
-    with open(markdownFname,'r') as f:
-        markdown = f.read()
+def estReadingTime(fname,filetype="markdown"):
+    with open(fname,'r') as f:
+        original = f.read()
+
+
+    if filetype.lower() == "markdown":
+        markdown = original
+    else:
+        assert(filetype.lower() == 'html')
+        markdown = pypandoc.convert_file(fname, 'md')
+        with open(fname + '.md','w') as f:
+            f.write(markdown)
 
 
     wpm = 265 # https://help.medium.com/hc/en-us/articles/214991667-Read-time
@@ -97,7 +106,7 @@ def testNumWords():
 # data is for just this page
 def doOne(data,allData):
     data['template'] = data['template'].lower()
-    assert(data['template'] in ['none','custom','markdown','home'])
+    assert(data['template'] in ['none','custom','markdown','home','html'])
     if data['template'] == 'none':
         print("Skipping processing for %s" % data['path'])
     else:
@@ -107,6 +116,19 @@ def doOne(data,allData):
         directory = 'pages/%s' % data['sourcePath']
         if data['template'] == 'home':
             data['content'] = doWWW(allData)
+        elif data['template'] == 'html':
+            print("Copying html")
+            fname = 'pages/%s/%s' % (data['sourcePath'],data['html'])
+            with open(fname,"r") as f:
+                data['content'] = f.read()
+            print("Estimating reading time for %s" % data['title'])
+            data['estReadingTime'] = estReadingTime(fname, filetype='html')
+            if 'spellcheck' in data['exclude']:
+                print("Skipping spell check for %s" % data['sourcePath'])
+            elif not myspellcheck.checkFile(fname):
+                print("That was in %s" % fname)
+                print("From doOne for html")
+                exit(1)
         elif data['template'] == 'custom':
             print("Processing as custom page")
             cmd = 'python %s' % data['parseScript']
@@ -116,14 +138,17 @@ def doOne(data,allData):
                 data['content'] = f.read()
             print("Estimating reading time for %s" % data['title'])
             data['estReadingTime'] = estReadingTime(stubFname)
-            if data['path'] == 'govlist':
-                print("Halving abbott list reading time estimate")
-                data['estReadingTime'] = data['estReadingTime']/2.0
+            # if data['path'] == 'govlist':
+            #     print("Halving abbott list reading time estimate")
+            #     data['estReadingTime'] = data['estReadingTime']/2.0
         elif data['template'] == 'markdown':
             markdownFname = 'pages/%s/%s' % (data['sourcePath'],data['markdown'])
-            if not myspellcheck.checkFile(markdownFname):
-                print("That was in %s" % markdownFname)
-                exit(1)
+            if 'spellcheck' in data['exclude']:
+                print("Skipping spell check for %s" % data['sourcePath'])
+            elif not myspellcheck.checkFile(markdownFname):
+                    print("That was in %s" % markdownFname)
+                    print("For doOne for markdown")
+                    exit(1)
             print("Converting markdown file %s to html " % markdownFname)
             data['content'] = pypandoc.convert_file(markdownFname, 'html')
             stubFname = 'pages/%s/stub.html' % data['path']
@@ -230,19 +255,24 @@ def doAll():
             assert('publishPath' in page)
             assert('sourcePath' in page)
         for k in ['title','description']:
-            if not myspellcheck.checkLine(page[k]):
+            if ('exclude' in page) and ('spellcheck' in page['exclude']):
+                print("Skipping spellcheck for %s" % page['sourcePath'])
+            elif not myspellcheck.checkLine(page[k]):
                 print("That was the %s %s from pages.yaml" % (k,page[k]))
+                print("in doAll")
                 exit(1)
 
 
     for page in pagesData:
         doOne(page,pagesData)
-    myspellcheck.init()
+    myspellcheck.init() # init again, in case we updated the dictionary earlier
     for p in pagesData:
-        if p['template'] == 'none':
+        if (p['template'] == 'none') or ('spellcheck' in p['exclude']):
             print("Skipping spell check for %s" % p['title'])
         elif not myspellcheck.checkFile('pages/%s/docs/index.html' % p['sourcePath']):
             print("that was %s" % p['title'])
+            print("Code A")
+            exit(1)
 
     src = 'pages/www/docs'
     dest = 'docs/'

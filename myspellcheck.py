@@ -4,6 +4,7 @@ standardWordsFname = 'standardWords.txt'
 extraWordsFname = 'extraWords.txt'
 
 def test():
+    testStripXML()
     teststripFancy()
     testStripForSpellcheck()
 
@@ -15,9 +16,38 @@ def stripFancy(text,markdown=False):
     return(text)
 
 def stripXML(text):
+    # first, strip any divs which are formulas
+    expr = r'<div class="formula">.*?</div>'
+    text = re.sub(expr, ' ', text)
+    expr = r'<span class="formula">.*?</span>'
+    text = re.sub(expr, ' ', text)
     expr = r'<[^<>]+>'
     text = re.sub(expr, '', text)
     return(text)
+
+def testStripXML():
+    text = 'This is <div class="something">not a</div> formula and this is <div class="something">not a</div> formula'
+    expected = 'This is not a formula and this is not a formula'
+    actual = stripXML(text)
+    assert(actual == expected)
+
+    text = 'This is <div class="formula">definitely <i>a</i></div> formula'
+    expected = 'This is   formula'
+    actual = stripXML(text)
+    if actual != expected:
+        print("Text:     %s" % text)
+        print("Expected: %s" % expected)
+        print("Actual:   %s" % actual)
+    assert(actual == expected)
+
+    text = 'This is <span class="formula">definitely a</span> formula'
+    expected = 'This is   formula'
+    actual = stripXML(text)
+    if actual != expected:
+        print("Text:     %s" % text)
+        print("Expected: %s" % expected)
+        print("Actual:   %s" % actual)
+    assert(actual == expected)
 
 def stripMarkdown(text):
     expr = r'```([^`]+)```'
@@ -96,7 +126,7 @@ def stripForSpellcheck(word):
     for e in expr:
         word = re.sub(e, '', word)
 
-    if word.endswith("™") or word.endswith(":"):
+    if any(word.endswith(c) for c in ";™:"):
         word = word[:-1]
 
     return(word)
@@ -213,13 +243,14 @@ def checkLine(line,markdown=False):
 def checkFile(fname):
     with open(fname,'r') as f:
         content = f.read()
+
     content = stripFancy(content,markdown=(fname.endswith('.md')))
     for (i,line) in enumerate(content.split('\n')):
         if not checkLine(line):
             print("Quitting")
             print("That was file %s line %d" % (fname,i+1))
             print(line)
-            exit(1)
+            return(False)
     return(True)
 test()
 init()

@@ -3,4 +3,5 @@
    height: auto;
    position: relative;
    left: calc(-50vw + 50%);
+   margin-top: 1em;
 }

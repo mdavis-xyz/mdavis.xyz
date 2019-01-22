@@ -16,7 +16,7 @@ pre {
    float: unset;
    /*left: 50%;
    transform: translateX(50%);*/
-   overflow-x: scroll;
+   overflow-x: auto;
 }
 
 

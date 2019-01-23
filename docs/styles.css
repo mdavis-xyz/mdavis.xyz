@@ -190,3 +190,7 @@ a:hover .cardColor {
    padding-right: 1em;
    font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
+
+/*[data-politics="true"]  {
+    display:none;
+}*/

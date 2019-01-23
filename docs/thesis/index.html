@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">Inverter Inertia Emulation</title>
+   <meta name="title" content="Inverter Inertia Emulation">
+   <meta name="description" content="My bachelors thesis about emulating inertia with battery inverters">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Inverter Inertia Emulation">
+   <meta property="schema:description" content="My bachelors thesis about emulating inertia with battery inverters">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Inverter Inertia Emulation">
+   <meta property="og:description" content="My bachelors thesis about emulating inertia with battery inverters">
+
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/thesis" />
+
+   <meta property="og:image" content="https://www.mdavis.xyz/thesis/images/graph-time.jpg" />
+   <meta property="og:image:width" content="879" />
+   <meta property="og:image:height" content="586" />
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="27 Oct 2016">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">Inverter Inertia Emulation</h1>
+         <p id="subtitle" class="subtitle">My bachelors thesis about emulating inertia with battery inverters</p>
+      </header>
+
+
+      <p class="topimagecont">
+         <img class="topimage"
+              src="images/scales.svg"
+              alt="Graph of power and frequency over time"
+              width="562"
+              height="270" />
+      </p>
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2016-10-27" class="dateline">
+               27 Oct 2016
+            </time>
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p>The rotational inertia of the turbines in conventional generators (such as gas and coal) helps stabilise the frequency of the electricity grid. Batteries and most renewable generation sources do not exhibit such inertial behaviour. Therefore grids with high penetration levels of renewables and batteries will have large and rapid frequency deviations, which is undesirable.</p>
+<p>Inverters can be programmed to mimic the inertial behaviour of conventional generators, thereby contributing inertial support to the grid even though they lack physical inertia. For batteries such functionality has been simulated but not experimentally verified.</p>
+<p>In my bachelors thesis I added droop control and inertia emulation to the control system of a programmable inverter. Experimental testing confirmed that this functionality successfully controls the output power to closely match the behaviour of a system with real inertia. The reaction time of this inertia emulation is 200 milliseconds, which is fast enough to be useful during most credible contingencies in the Australian grid. The system developed in this thesis works sufficiently well, and will help address frequency regulation issues in the high-renewables, low inertia grids of the future.</p>
+<div id="download-wrap" class="center">
+<p><a href="Matthew_Davis_Thesis.pdf" class="button" id="download" >Download PDF</a></p>
+</div>
+<p>I can provide a copy of the relevant code upon request.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+</body>
+</html>

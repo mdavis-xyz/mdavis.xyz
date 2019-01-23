@@ -254,6 +254,8 @@ def doAll():
         else:
             assert('publishPath' in page)
             assert('sourcePath' in page)
+        if 'exclude' not in page:
+            page['exclude'] = []
         for k in ['title','description']:
             if ('exclude' in page) and ('spellcheck' in page['exclude']):
                 print("Skipping spellcheck for %s" % page['sourcePath'])

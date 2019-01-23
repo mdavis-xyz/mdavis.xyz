@@ -1,0 +1,13 @@
+.topimage {
+   background-color: white;
+   padding: 1em;
+}
+
+#download {
+   font-size: 130%;
+}
+
+#download-wrap {
+   padding-top: 2em;
+   padding-bottom: 2em;
+}

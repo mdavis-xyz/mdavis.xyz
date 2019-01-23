@@ -288,3 +288,8 @@ visualise
 Cauchy-Riemann
 differentiable
 radians
+inverter
+stabilise
+behaviour
+PDF
+Oct

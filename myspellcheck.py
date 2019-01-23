@@ -193,6 +193,8 @@ def checkWord(word):
         if word.endswith("'s") or word.endswith("s'"):
             if (word[:-2] in dictionary) or (word[:-2].lower() in dictionary):
                 return(True)
+        elif word.endswith('s') and ((word[:-1].lower() in dictionary) or (word[:-1] in dictionary)):
+            return(True)
         if ('-' in word) and ('--' not in word) and (word.strip('-') == word):
             subwords = word.split('-')
             if all([(w in dictionary) or (w.lower() in dictionary) for w in subwords]):
@@ -204,6 +206,9 @@ def checkWord(word):
         if word.endswith("'s") or word.endswith("s'"):
             print("   a - add lowercase without apostrophe: (%s)" % word[:-2].lower())
             print("   A - add without apostrophe: (%s)" % word[:-2])
+        elif word.endswith("s"):
+            print("   p - add singular lowercase: (%s)" % word[:-1].lower())
+            print("   P - add singular as is : (%s)" % word[:-1])
         print("   n - don't add. Exit")
         answer = input('')
         if answer.lower().startswith('y'):
@@ -214,6 +219,10 @@ def checkWord(word):
             addToDict(word[:-2].lower())
         elif answer.startswith('A'):
             addToDict(word[:-2])
+        elif answer.startswith('p'):
+            addToDict(word[:-1].lower())
+        elif answer.startswith('P'):
+            addToDict(word[:-1])
         else:
             return(False)
     return(True)

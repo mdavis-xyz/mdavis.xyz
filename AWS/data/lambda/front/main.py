@@ -18,7 +18,7 @@ with open(html_fname,'r') as f:
     assert(type(html) == type(''))
 
 def unit_tests():
-    print('No unit tests to run')
+    testPower10()
 
 def lambda_handler(event,context):
     logger = logging.getLogger()
@@ -131,9 +131,22 @@ def updateUntimed(logger,websiteName):
             ':q': {
                 'N': '1'
             }
-        }
+        },
+        ReturnValues='ALL_NEW'
     )
     logger.info('untimed database incremented') 
+    try:
+        logger.info("Checking for powers of 10")
+        views = int(response['Attributes']['siteViews']['N'])
+        logger.info("View were incremented to %s" % views)
+        if power10(views):
+            logger.info("Views are a power of 10")
+            notify(logger,websiteName,views)
+        else:
+            logger.info("Views are not a power of 10")
+    except Exception as e:
+        logger.info("Failed to check for powers of 10")
+        logger.info(tb.format_exc())
 
 
 def updateTimed(logger,websiteName,timestamp):
@@ -163,3 +176,45 @@ def updateTimed(logger,websiteName,timestamp):
     )
     logger.info('timed database incremented') 
         
+def notify(logger,websiteName,views):
+
+    client = boto3.client('sns')
+
+    topic = os.environ['view_notif_topic']
+
+    print('Sending SNS message to %s' % topic)
+
+    msg = "The web page %s has just hit %d views!" % (websiteName,views)
+    subject = "Web view count record"
+
+    response = client.publish(
+        TopicArn=topic,
+        Message=msg,
+        Subject=subject
+    )
+
+    print('sns message sent')
+
+# returns true if x is a power of 10
+def power10(x):
+    x = int(x)
+    s = str(x)
+    # yes I could write this as one boolean statement
+    # but this is clearer
+    if x < 1:
+        return(False)
+    elif x == 1:
+        return(True)
+    else:
+        # equivilent to regex r"10+"
+        return((s.startswith('1')) and (int(s[1:]) == 0))
+
+    return(ret)
+
+
+def testPower10():
+    for x in range(10):
+        assert(power10(10**x))
+        assert(power10(float(10**x)))
+        assert(not power10(10**x - 1))
+

@@ -151,6 +151,16 @@ Resources:
                    timedTable:
                        Ref: timedTable
                    hashConst: 1234 # dynamodb requires more hashes than I need, so use this
+                   view_notif_topic:
+                       Ref: "viewNotifTopic"
+      viewNotifTopic:
+          Type: "AWS::SNS::Topic"
+          Properties:
+              Subscription:
+                 - Endpoint:
+                       "aws_alarms@mdavis.xyz"
+                   Protocol:
+                       "email"
 
       errorAlarmFront:
          Type: "AWS::CloudWatch::Alarm"

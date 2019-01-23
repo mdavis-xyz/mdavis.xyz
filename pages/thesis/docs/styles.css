@@ -1,10 +1,11 @@
 .topimage {
    background-color: white;
-   padding: 1em;
+   /*padding: 1em;*/
 }
 
 #download {
    font-size: 130%;
+   padding: 1em;
 }
 
 #download-wrap {

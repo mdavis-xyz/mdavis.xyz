@@ -66,9 +66,9 @@ function modifyLinks(){
           if (href.startsWith('./') || href.startsWith('../') || href.startsWith('//')){
             //  href.append('src',src);
              itms[i].href = href + '?src=' + getSrc();
-             console.log("modifying link " + href);
+            //  console.log("modifying link " + href);
           }else{
-             console.log("Not modifying external link " + href);
+            //  console.log("Not modifying external link " + href);
           }
       }
    }

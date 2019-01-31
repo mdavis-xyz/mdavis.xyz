@@ -25,8 +25,8 @@ function hidePolitics() {
 };
 
 function getSrc(){
-   var url = new URL(window.location.href );
-   var searchParams = new URLSearchParams(url.search);
+   var thisUrl = new URL(window.location.href );
+   var searchParams = new URLSearchParams(thisUrl.search);
    src = searchParams.get('src');
    // console.log("src is " + src);
    return(src);

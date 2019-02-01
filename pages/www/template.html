@@ -22,7 +22,11 @@
 
 <div class="cardContainer appear" >
 % for page in pages:
-<article>
+   % if ('tags' in page) and ('politics' in page['tags']):
+<article data-politics>
+   % else:
+   <article>
+   % endif
    % if page['template'] == 'none':
    <a href="${page['url']}">
    % else:

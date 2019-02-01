@@ -11,11 +11,11 @@
    exclude:
       - 'article'
       - 'footer'
-      - 'script'
       - 'date'
       - 'header'
       - 'appear'
       - 'media'
+      - 'script'
    template: 'home'
 -  title: "Do you need a blockchain?"
    description: "An interactive flowchart to help cut through the hype"
@@ -71,6 +71,8 @@
          description: "Turnbull Government Ministers"
          width: 1560
          height: 878
+   tags:
+      - politics
    template: "custom"
    parseScript: parse.py
    article: True

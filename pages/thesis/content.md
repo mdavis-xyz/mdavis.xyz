@@ -1,5 +1,5 @@
 
-The rotational inertia of the turbines in conventional generators (such as gas and coal) helps stabilise the frequency of the electricity grid.
+The rotational inertia of the turbines in conventional electricity generators (such as gas and coal) helps stabilise the frequency of the electricity grid.
 Batteries and most renewable generation sources do not exhibit such inertial behaviour.
 Therefore grids with high penetration levels of renewables and batteries will have large and rapid frequency deviations, which is undesirable.
 

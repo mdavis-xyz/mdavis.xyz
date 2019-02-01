@@ -25,10 +25,16 @@ function hidePolitics() {
 };
 
 function getSrc(){
-   var thisUrl = new URL(window.location.href );
-   var searchParams = new URLSearchParams(thisUrl.search);
-   src = searchParams.get('src');
-   // console.log("src is " + src);
+   try{
+      var thisUrl = new URL(window.location.href );
+      var searchParams = new URLSearchParams(thisUrl.search);
+      src = searchParams.get('src');
+   }catch(err){
+      // IE
+      n = n.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
+      var p = (new RegExp("[\\?&]"+n+"=([^&#]*)")).exec(s);
+      src = (p===null) ? "" : p[1];
+   }
    return(src);
 }
 

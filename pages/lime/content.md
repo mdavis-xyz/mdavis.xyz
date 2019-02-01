@@ -55,7 +55,7 @@ I suspect that many of the clauses are legally invalid, because some consumer ri
 For example, many "no refunds" policies [do not](https://www.accc.gov.au/media-release/harvey-norman-franchisees-pay-for-misleading-consumers) take away your right to a refund.
 However you would have to take Lime to court to find out which terms hold up judicial scrutiny.
 It is also unclear how the laws work across international borders.
-Australia has far stronger consumer protections than the US, however the terms say that you give up Australian laws and agree to be bound by US laws.
+Australia has far stronger consumer protections than the US, however [Section 2.9](2.9) says that you give up Australian laws and agree to be bound by US laws.
 I am not sure whether that is legally valid.
 Lime did not respond to my questions. ([Section 12.23](12.23) of their terms and conditions say they are not obliged to reply.)
 
@@ -215,7 +215,7 @@ Two years ago a Queensland police officer [deliberately leaked location informat
 According to [Section 5.1](5.1), if a Lime employee does the same thing with the location data they have, that victim cannot take any legal action against lime.
 Taken to the extreme, this protection against "any and all claims" means that if a Lime employee tries to deliberately rig an e-bike battery to explode and kill you, the terms prohibit you from taking legal action against Lime or that employee.
 There are hopefully Australian laws which over-rule this clause.
-However as mentioned before, it is unclear whether Australian laws even apply at all, since users agree to release Lime from those laws, replacing them with American laws instead.
+However as mentioned before, it is unclear whether Australian laws even apply at all, since users agree to release Lime from those laws, replacing them with American laws instead. ([Section 2.9](2.9))
 Therefore the presence of such a clause is cause for concern.
 Why would Lime want to protect individual employees who do the wrong thing?
 

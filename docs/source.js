@@ -25,13 +25,14 @@ function hidePolitics() {
 };
 
 function getSrc(){
+   const tag = 'src';
    try{
       var thisUrl = new URL(window.location.href );
       var searchParams = new URLSearchParams(thisUrl.search);
-      src = searchParams.get('src');
+      src = searchParams.get(tag);
    }catch(err){
       // IE
-      n = n.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
+      n = tag.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
       var p = (new RegExp("[\\?&]"+n+"=([^&#]*)")).exec(s);
       src = (p===null) ? "" : p[1];
    }

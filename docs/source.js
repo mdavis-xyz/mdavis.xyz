@@ -33,7 +33,7 @@ function getSrc(){
    }catch(err){
       // IE
       n = tag.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
-      var p = (new RegExp("[\\?&]"+n+"=([^&#]*)")).exec(s);
+      var p = (new RegExp("[\\?&]"+n+"=([^&#]*)")).exec(window.location.href);
       src = (p===null) ? "" : p[1];
    }
    return(src);

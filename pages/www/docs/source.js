@@ -69,6 +69,15 @@ function modifyLinks(){
    for (var i = 0, len = itms.length; i < len; i++) {
       if (itms[i].nodeType == 1){
           var href = itms[i].getAttribute("href");
+
+          // IE fallback
+          // Would you believe IE doesn't even have string.startsWith ?
+          if (! href.startsWith){
+             href.startsWith = function(searchStr){
+                return(! this.indexOf(searchStr));
+             }
+          }
+ 
           if (href.startsWith('./') || href.startsWith('../') || href.startsWith('//')){
             //  href.append('src',src);
              itms[i].href = href + '?src=' + getSrc();

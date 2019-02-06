@@ -82,7 +82,7 @@ function modifyLinks(){
              }
 
           }
-          var isThisDomain = startsWith('./') || startsWith('../') || startsWith('//');
+          var isThisDomain = href.startsWith('./') || href.startsWith('../') || href.startsWith('//');
  
           if (isThisDomain){
             //  href.append('src',src);

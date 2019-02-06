@@ -74,15 +74,14 @@ function modifyLinks(){
           // IE fallback
           // Would you believe IE doesn't even have string.startsWith ?
           try {
-             var nothing = href.startsWith('asd');
+             var isThisDomain = href.startsWith('./') || href.startsWith('../') || href.startsWith('//');
           }catch(err){
              console.log("Using href workaround");
-             href.startsWith = function(searchStr){
-                return(! this.indexOf(searchStr));
-             }
-
+             var isThisDomain = false;
+             isThisDomain |= (href.indexOf('./') == 0);
+             isThisDomain |= (href.indexOf('../') == 0);
+             isThisDomain |= (href.indexOf('//') == 0);
           }
-          var isThisDomain = href.startsWith('./') || href.startsWith('../') || href.startsWith('//');
  
           if (isThisDomain){
             //  href.append('src',src);

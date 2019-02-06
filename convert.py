@@ -9,27 +9,13 @@ import os
 import re
 import myspellcheck
 import sys
+import argparse
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
 pagesFname = 'pages.yaml'
 cname_fname = 'docs/CNAME'
 
-if len(sys.argv) < 2:
-    print("Error, add stage")
-    print("python convert.py dev|prod")
-    exit(1)
-if sys.argv[1].lower() == 'prod':
-    print("Production")
-    enableTracking = True
-    CNAME='www.mdavis.xyz'
-elif sys.argv[1].lower() == 'dev':
-    print("Development")
-    enableTracking = False
-    CNAME='dev.mdavis.xyz'
-else:
-    print("Error, unknown stage %s" % sys.argv[1])
-    exit(1)
 
 
 
@@ -104,7 +90,7 @@ def testNumWords():
     assert(actual == expected)
 
 # data is for just this page
-def doOne(data,allData):
+def doOne(data,allData,args):
     data['template'] = data['template'].lower()
     assert(data['template'] in ['none','custom','markdown','home','html'])
     if data['template'] == 'none':
@@ -176,9 +162,9 @@ def doOne(data,allData):
         data['date'] = date
         if 'exclude' not in data:
             data['exclude'] = []
-        renderOne(data)
+        renderOne(data,args)
 
-def renderOne(data):
+def renderOne(data,args):
 
         try:
             assert('title' in data)
@@ -204,7 +190,7 @@ def renderOne(data):
             raise(e)
         print("Rendering page %s" % data['title'])
         try:
-            output = template.render(data=data,enableTracking=enableTracking)
+            output = template.render(data=data,enableTracking=(args.stage_name == 'prod'))
         except TypeError as e:
             pp.pprint({k:data[k] for k in data if k != 'content'})
             print("Error processing outer template for %s" % data['title'])
@@ -242,10 +228,12 @@ def doWWW(pages):
 
     return(outputHTML)
 
-def doAll():
+def doAll(args):
     print("Loading in %s" % pagesFname)
     with open(pagesFname,'r') as f:
         pagesData = yaml.load(f)
+
+    print("pages data:")
     pp.pprint(pagesData)
     for page in pagesData:
         if 'path' in page:
@@ -264,9 +252,16 @@ def doAll():
                 print("in doAll")
                 exit(1)
 
-
     for page in pagesData:
-        doOne(page,pagesData)
+        if args.only_page:
+            pathGetter = lambda p: p['sourcePath'] if 'sourcePath' in p else p['path']
+            if pathGetter(page) in ['www',args.only_page]:
+                doOne(page,pagesData,args)
+            else:
+                print("Skipping %s" % page['sourcePath'])
+        else:
+            doOne(page,pagesData,args)
+
     myspellcheck.init() # init again, in case we updated the dictionary earlier
     for p in pagesData:
         if (p['template'] == 'none') or ('spellcheck' in p['exclude']):
@@ -282,6 +277,10 @@ def doAll():
     shutil.rmtree(dest,ignore_errors=True)
     # os.makedirs(dest)
     shutil.copytree(src, dest)
+    if args.stage_name == 'prod':
+        CNAME = 'www.mdavis.xyz'
+    else:
+        CNAME = 'dev.mdavis.xyz'
     with open(cname_fname,'w') as f:
         f.write(CNAME)
 
@@ -298,5 +297,25 @@ def test():
     teststripFancy()
     testNumWords()
 
-test()
-doAll()
+
+def arguments(argv):
+    parser = argparse.ArgumentParser(description="Generate static site")
+    parser.add_argument('-s', '--stage-name',
+                        required=True,
+                        help="deployment stage",
+                        choices=['prod','dev']
+                        )
+
+    parser.add_argument('-p', '--only-page',
+                        required=False,
+                        help="to only update this one page (plus home page)"
+                        )
+
+    args = parser.parse_args(argv[1:])
+    return(args)
+
+if __name__ == "__main__":
+   test()
+   args = arguments(sys.argv)
+
+   doAll(args)

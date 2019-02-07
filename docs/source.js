@@ -71,22 +71,30 @@ function modifyLinks(){
       if (itms[i].nodeType == 1){
           var href = itms[i].getAttribute("href");
 
-          // IE fallback
-          // Would you believe IE doesn't even have string.startsWith ?
+          const prefixes = ['./', '../', '//',
+                            'mdavis.xyz', 'dev.mdavis.xyz', 'www.mdavis.xyz',
+                            'http://mdavis.xyz','http://dev.mdavis.xyz','http://www.mdavis.xyz',
+                            'https://mdavis.xyz','https://dev.mdavis.xyz','https://www.mdavis.xyz'
+                         ]
+          var isThisDomain = false;
           try {
-             var isThisDomain = href.startsWith('./') || href.startsWith('../') || href.startsWith('//');
+             prefixes.forEach(function(prefix){
+                isThisDomain |= href.startsWith(prefix);
+             });
           }catch(err){
-             console.log("Using href workaround");
-             var isThisDomain = false;
-             isThisDomain |= (href.indexOf('./') == 0);
-             isThisDomain |= (href.indexOf('../') == 0);
-             isThisDomain |= (href.indexOf('//') == 0);
+             // IE fallback
+             // Would you believe IE doesn't even have string.startsWith ?
+             console.log("Using startswith workaround");
+             prefixes.forEach(function(prefix){
+                isThisDomain |= (href.indexOf(prefix) == 0);
+             });
           }
- 
+
           if (isThisDomain){
-            //  href.append('src',src);
+             //  href.append('src',src);
+             // TODO: better appending of ?src
              itms[i].href = href + '?src=' + getSrc();
-            //  console.log("modifying link " + href);
+             //  console.log("modifying link " + href);
           }else{
             //  console.log("Not modifying external link " + href);
           }

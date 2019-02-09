@@ -3,20 +3,37 @@ var popupEl = null;
 const iframeID = "popup-iframe";
 var iframeEl = null;
 
+window.addEventListener("load",function(){
+   console.log('onload called');
 
-function clauseShow(page,section){
-   console.log("Showing " + section + "of page " + page);
+   // get the list of all links to terms or privacy
+   var itms = Array.prototype.slice.call(document.querySelectorAll('[data-popup]'));
+
+   for (var i = 0, len = itms.length; i < len; i++) {
+      if (itms[i].nodeType == 1){
+         itms[i].addEventListener("click", function (e){
+            console.log("Intercepting click");
+            clauseShow(this.href);
+            e.preventDefault();
+         });
+      }
+   }
+},false);
+
+
+function clauseShow(url){
+   console.log("Showing " + url);
 
    var popupEl = document.getElementById(popupId);
    if (! iframeEl){
-      createPopup(page,section);
+      createPopup(url);
    }else{
-      changePopup(page,section);
+      changePopup(url);
    }
    showPopup();
 }
 
-function createPopup(page,section){
+function createPopup(url){
    console.log("Creating the popup");
 
    // create outer div
@@ -24,22 +41,6 @@ function createPopup(page,section){
    popupEl.id = popupId;
    popupEl.classList.add('myModal');
    document.body.appendChild(popupEl);
-
-   //
-   // // close button, blue
-   // btn = document.createElement('span');
-   // btn.classList.add('close');
-   // btn.classList.add('button');
-   // btn.onclick = hidePopup;
-   // popupEl.appendChild(btn);
-   // icon = document.createElement('img');
-   // icon.src = "../images/cross.svg";
-   // icon.classList.add("icon");
-   // icon.alt = "&times;";
-   // icon.width = "20";
-   // icon.height = "20";
-   // btn.appendChild(icon);
-
 
    // close button
    btn = document.createElement('span');
@@ -50,19 +51,15 @@ function createPopup(page,section){
 
    // create iframe
    iframeEl = document.createElement('iframe');
-   if (section){
-      iframeEl.src = page + "#" + section;
-   }else{
-      iframeEl.src = page;
-   }
+   iframeEl.src = url;
    iframeEl.id = iframeID;
    iframeEl.classList.add("modal-content");
    popupEl.appendChild(iframeEl);
 
 }
 
-function changePopup(page,section){
-   console.log("Changing the popup for " + section + " on page " + page);
+function changePopup(url){
+   console.log("Changing the popup for " + url);
 
    // delete old iframe
    // create new one
@@ -73,7 +70,7 @@ function changePopup(page,section){
    // so the browser doesn't reload the page
    iframeElOld = iframeEl
    iframeEl = document.createElement('iframe');
-   iframeEl.src = page + "#" + section;
+   iframeEl.src = url;
    iframeEl.classList.add("modal-content");
    popupEl.appendChild(iframeEl);
    popupEl.removeChild(iframeElOld);

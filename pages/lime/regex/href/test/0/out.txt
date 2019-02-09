@@ -1,1 +1,1 @@
-href="javascript:clauseShow('terms.html','clause-12.2.')"
+href="terms.html#clause-12.2." data-popup

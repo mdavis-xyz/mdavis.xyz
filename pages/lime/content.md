@@ -5,7 +5,7 @@ So imagine sitting on a pile of 100 Galaxy Note 7 phones.
 That is how much potential there is for things to go wrong with e-bikes.
 
 A company called [Lime](https://www.li.me/) recently launched an e-bike rental scheme in Sydney, Melbourne and Brisbane.
-If you're thinking of hopping on one of those green bikes, make sure you actually read the terms and conditions first.
+If you're thinking of hopping on one of those green bikes, you should actually read the terms and conditions first.
 
 If you get injured by a Lime bike battery because of bad luck, incompetence, negligence of even outright malice by Lime, you cannot take any legal action against them.
 This is because their terms and conditions grant them immunity from all laws, statutes, rules, regulations and constitutions.
@@ -29,6 +29,7 @@ Large chunks are not at all applicable to Lime bikes.
 My favourite clauses are:
 
 * If someone else is hurt by a malfunction with the bike you're riding (such as poorly maintained brakes causing a collision) *you* will be liable for that other person's injury. (Sections [6.2](6.2), [7.4.5](7.4.5) and others)
+* Lime do not claim their products are fit for purpose. ([Section 6.1](6.1)) Take a moment to let that sink in. Imagine yourself riding down a steep hill on a bike with brakes that are not fit for purpose.
 * If you do manage to somehow win an arbitration case against Lime, the maximum penalty you can extract is $100. For example, if their batteries explode and you incur $100,000 in medical bills to treat your burns, the maximum payment you can get from Lime is $100, leaving you $99,900 out of pocket. ([Section 7.3](7.3))
 * There have been many news stories recently about [bakers refusing to make cakes](https://www.theguardian.com/law/2018/jun/04/gay-cake-ruling-supreme-court-same-sex-wedding-colorado-baker-decision-latest) for same sex weddings. In a similar vein, 6 different clauses all give Lime the right to discriminate against you based on sexual orientation, skin colour, political opinion and so on. (They phrase this as refusing service "for any reason".) They're also allowed to [trawl through your social media profiles](mdavisxyz-social-media) to obtain this information. (Sections [4.1](4.1), [9.2](9.2), [10.2](10.2), [12.13](12.13), [12.19](12.19), [12.23](12.23))  I wonder why Lime needs so many overlapping clauses which all grant them this power?
 * iPhone users are not allowed to use the app in a "Terrorist supporting country", but Android users are. ([Section 12.28](12.28))
@@ -77,6 +78,21 @@ Here is a more comprehensive and detailed list of the notable terms and conditio
 > by agreeing to arbitrate, each party is **giving up its right to go to court and have any dispute heard by a judge or jury**
 
 This is the first clause which removes your right to take Lime to court if they are negligent, incompetent or malicious.
+Sections [2.4](2.4) and [2.8](2.8) act as a *second* and *third* clause to protect Lime against class action and individual legal action.
+Here's a nice joke I heard once which helps explain the importance of class actions.
+
+> A businessman sells 1000 raffle tickets for $1 each, which gives him $1000.
+> He claims that the raffle prize is a large bull.
+>
+> A week after declaring a winner, he delivers the corpse of a dead bull to the winner's farm.
+>
+> The winner is aghast, because this is not the prize he was promised.
+> So the businessman politely refunds the winner's $1.
+
+Usually class action laws would prevent the businessman from keeping the remaining $999.
+However Lime have 3 clauses exempting them from those protections.
+They are clearly trying very hard to prevent class action suits.
+It makes you wonder whether they know something about their service which we do not.
 
 [Section 2.4](2.4) states that
 
@@ -85,10 +101,6 @@ This is the first clause which removes your right to take Lime to court if they 
 > where You are a resident at the time the Dispute is submitted to arbitration
 
 So if you're an Australian, you may not even be able to have an arbitration hearing.
-Sections [2.4](2.4) and [2.8](2.8) act as a *second* and *third* clause to protect Lime against class action and individual legal action.
-Lime are clearly trying very hard to prevent class action suits.
-It makes you wonder whether they know something about their service which we do not.
-
 
 > The Arbitrator may award declaratory or injunctive relief only in favor of the
 > claimant and only to the extent necessary to provide relief warranted by the claimant's individual claim.
@@ -229,9 +241,6 @@ with respect to the Claims and the Released Persons.
 
 What does that even mean?
 
-[Section 6.1](6.1) states that Lime do not claim their products are fit for purpose.
-Take a moment to let that sink in.
-Imagine yourself riding down a steep hill on a bike with brakes that are not fit for purpose.
 
 Lime's user agreement is full of excessive caps-lock.
 [Section 6.2](6.2) is such an example.
@@ -383,7 +392,7 @@ They say that they will not change the privacy policy to make it less protective
 
 ## Conclusion
 
-We all know that there are countless companies these days with incredibly long terms and conditions, written in legalese, which take away your rights.
+We all know that there are countless companies these days with needlessly long terms and conditions, written in legalese, which take away your rights.
 However I believe that Lime's terms are far worse than most companies.
 There are 5 clauses protecting them from legal action in response to life-threatening malpractice and incompetence.
 There are 6 clauses giving them the right to discriminate against you, as well as clauses which restrict your right to free speech.

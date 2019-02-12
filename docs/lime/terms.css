@@ -1,0 +1,5 @@
+/*  because the iframe style provides the space */
+body {
+   margin: 5% !important;
+   width: 90%;
+}

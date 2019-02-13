@@ -1,7 +1,6 @@
-
-Think about Samsung's spontaneously-combusting Galaxy Note 7 phones.
-The battery in an electric bicycle (e-bike) is about 100 times larger than a phone battery.
-Now imagine sitting on a pile of 100 Galaxy Note 7 phones.
+Samsung's notorious Galaxy Note 7 smartphone had a tendency to [spontaneously combust](https://www.cnet.com/news/why-is-samsung-galaxy-note-7-exploding-overheating/) due to a design flaw with the lithium ion battery.
+The battery in an electric bicycle (e-bike) is approximately 100 times larger than a phone battery.
+Imagine sitting on a pile of 100 Galaxy Note 7 phones.
 That is how much potential there is for things to go wrong with e-bikes.
 
 A company called [Lime](https://www.li.me/) recently launched an e-bike rental scheme in Sydney, Melbourne and Brisbane.

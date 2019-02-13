@@ -398,3 +398,16 @@ There are 5 clauses protecting them from legal action in response to life-threat
 There are 6 clauses giving them the right to discriminate against you, as well as clauses which restrict your right to free speech.
 
 Is all this really worth it just for bicycle rental?
+
+<iframe
+   src="terms.html"
+   class="metrics"
+   sandbox
+   style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+</iframe>
+<iframe
+   src="privacy.html"
+   class="metrics"
+   sandbox
+   style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+</iframe>

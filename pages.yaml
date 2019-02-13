@@ -101,6 +101,7 @@
            - in: regex/href-privacy/test/0/in.txt
              out: regex/href-privacy/test/0/out.txt
    markdown: "content.md"
+   date: 13/2/2019
 -  title: "Achievements of the Coalition Government"
    description: >
       A comprehensive list of (almost) everything the current Australian

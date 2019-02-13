@@ -91,4 +91,16 @@
    /*! font-size: 500%; */
 }
 
+@media (min-width:55em)  {
+  .modal-content {
+     width: calc(100% - 5rem);
+     height: calc(100% - 5rem);
+     margin: 2.5rem;
+  }
+  .close {
+    margin: 1rem;
+    height: 3rem;
+  }
+}
+
 .privacytab{}

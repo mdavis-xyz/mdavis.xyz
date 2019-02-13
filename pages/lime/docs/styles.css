@@ -56,7 +56,7 @@
    width: calc(100% - 3rem);
    height: calc(100% - 3rem);
    margin: 1.5rem;
-   border-radius: 0.2em;
+   border-radius: 0.4rem;
    animation-name: animatetop;
    animation-duration: 0.4s;
    box-shadow: 0 4px 15px 0 rgba(0,0,0,0.6);

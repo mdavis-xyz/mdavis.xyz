@@ -43,9 +43,9 @@ function createPopup(url){
    document.body.appendChild(popupEl);
 
    // close button
-   btn = document.createElement('span');
+   btn = document.createElement('img');
+   btn.src = '../images/cross.svg';
    btn.classList.add('close');
-   btn.innerHTML = "&times;";
    btn.onclick = hidePopup;
    popupEl.appendChild(btn);
 

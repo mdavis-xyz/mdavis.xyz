@@ -65,27 +65,22 @@
 
 /* The Close Button */
 .close {
-   color: #aab;
-   float: right;
-   font-size: 3em;
-   z-index: 2;
-   font-weight: bold;
-   /*! font-size: 300%; */
-   /*! padding-right: 1em; */
-   position: absolute;
-   top: 0;
-   right: 0;
-   padding-top: 0.5em;
-   /*! text-align: center; */
-   /*! vertical-align: middle; */
-   width: 10%;
-   text-justify: right;
-   margin: 0;
-   margin-right: 5%;
-   box-shadow: 0 4px 15px 0 rgba(0,0,0,0.6);
-   box-shadow: none;
-   animation-name: animatetop;
-   animation-duration: 0.4s;
+	color: #aab;
+	float: right;
+	z-index: 2;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-justify: right;
+	margin: 0.5rem;
+	box-shadow: 0 4px 15px 0 rgba(0,0,0,0.6);
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+	height: 2rem;
+	width: auto;
+	background-color: #246dbf;
+	border-radius: 0.4rem;
 }
 
 .close:hover,

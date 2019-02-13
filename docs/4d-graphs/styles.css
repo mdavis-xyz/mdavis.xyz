@@ -50,7 +50,6 @@ pre {
    font-family: Consolas, Menlo, Monaco, monospace;
 }
 
-
-.topimage {
-   width: auto !important;
+#topimagecont .topimage {
+   max-width: 20em;
 }

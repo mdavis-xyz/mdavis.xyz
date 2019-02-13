@@ -33,7 +33,7 @@
    <meta property="og:author" content="Matthew Davis" />
    <meta property="og:site_name" content="Matthew Davis's Blog" />
 
-   % if ('date' in data) and ('human' in data['date']):
+   % if ('date' in data) and ('human' in data['date']) and (data['template'] != 'home'):
    <meta name="displaydate" content="${data['date']['human']}">
    % endif
 
@@ -73,7 +73,7 @@
       <p class="topimagecont" id="topimagecont">
          % if data['images']['top']['path'].lower().endswith('.mp4'):
          <video class="graph video topimage"
-                autoplay 
+                autoplay
 		loop
 		autobuffer
 		muted

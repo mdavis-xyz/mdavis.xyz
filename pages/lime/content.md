@@ -6,26 +6,23 @@ That is how much potential there is for things to go wrong with e-bikes.
 A company called [Lime](https://www.li.me/) recently launched an e-bike rental scheme in Sydney, Melbourne and Brisbane.
 If you're thinking of hopping on one of those green bikes, you should actually read the terms and conditions first.
 
-If you get injured by a Lime bike because of bad luck, incompetence, negligence of even outright malice by Lime, you cannot take any legal action against them.
-This is because their terms and conditions grant them immunity from all laws, statutes, rules, regulations and constitutions.
-(This is thanks to Sections [2.3](2.3), [2.8](2.8), [12.3.3](12.3.3) of their terms, and many others, listed below.)
-By agreeing to their villainous terms and conditions, users give away the right to class actions, as well as individual legal actions.
+If you get injured by a Lime bike because of bad luck, incompetence or negligence by Lime, you cannot take any normal legal action against them.
+By agreeing to their villainous terms and conditions, users give away the right to class actions, as well as individual legal actions, substituting them with arbitration.
 
 Class actions allow people to group together to take action against a company who systematically harmed many people due to incompetence or malice.
 Famous examples of class actions include the time Sony [deliberately infected millions of computers with malware](https://en.wikipedia.org/wiki/Sony_BMG_copy_protection_rootkit_scandal), and when Pacific Gas and Co. [knowingly dumped carcinogens](https://www.iveyengineering.com/class-action-lawsuits-2/) into local groundwater.
 Lime's terms take away both your right to class action, as well as individual legal action, which leaves very little legal protection to prevent them from misbehaving.
 If Lime conduct their business ethically, legally, and competently, there is no reason why they should need a clause protecting them from class actions, let alone 3 clauses.
 
-
-Lime says you still have the option of legal recourse through arbitration.
+Lime's terms replace replace the possibility of normal legal action with *arbitration*.
 Arbitration means that instead of having your case heard in a court of law with a jury of peers, your case is heard in a [privatised kangaroo court](https://boingboing.net/2015/10/02/arbitration-how-americas-co.html).
 The "judge" [may be a contractor](https://boingboing.net/2018/12/09/justice-denied.html) of Lime, and the customer [almost never wins](https://boingboing.net/2015/10/02/arbitration-how-americas-co.html).
 Even this poor avenue for justice may not be available to you, because [Section 2.4](2.4) implies that customers outside the USA cannot arbitrate either.
 Lime are still able to [take action against you in a real court](2.7) though.
 
-
 Lime's terms and conditions are longer than [my honours thesis](../thesis).
 Large chunks are not at all applicable to Lime bikes.
+At one point they even try to [exempt themselves](2.3) from *the Constitution*.
 The most notable clauses are:
 
 * Lime do not claim their products are fit for purpose. ([Section 6.1](6.1)) Take a moment to let that sink in. Imagine yourself riding down a steep hill on a bike with brakes that are not fit for purpose.

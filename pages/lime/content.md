@@ -26,14 +26,12 @@ At one point they even try to [exempt themselves](2.3) from *the Constitution*.
 The most notable clauses are:
 
 * Lime do not claim their products are fit for purpose. ([Section 6.1](6.1)) Take a moment to let that sink in. Imagine yourself riding down a steep hill on a bike with brakes that are not fit for purpose.
-* If you die because of a faulty Lime bike, Lime claim they are not liable. This still applies even if you die because Lime did not mitigate "known" and "foreseeable" risks. (Sections [12.3.3](12.3.3) and [7.4](7.4))
+* If you die because of a faulty Lime bike, Lime claim they are not liable. This still applies even if you die because Lime did not mitigate "known" and "foreseeable" risks. (Sections [2.3](2.3), [2.8](2.8), [5.1](5.1), [6.1](6.1), [6.2](6.2), [7.4](7.4), [7.4.5](7.4.5),  [12.3.3](12.3.3)) Hopefully the courts would rule those clauses as invalid. However that fact that this is what their terms say is still worrying.
 * If you alert them to a safety issue with their bikes, they have no obligation to fix them. (Sections [6.2.7](6.2.7), [12.23](12.23))
 * If you do manage to somehow win an arbitration case against Lime, the maximum penalty you can extract is $100. For example, if their batteries explode and you incur $100,000 in medical bills to treat your burns, the maximum payment you can get from Lime is $100, leaving you $99,900 out of pocket. ([Section 7.3](7.3))
 * If your bike is faulty, Lime claim they have no obligation to refund you. ([Section 4.7](4.7)) Under Australian consumer law it is [*illegal*](https://www.accc.gov.au/media-release/harvey-norman-franchisees-pay-for-misleading-consumers) for a company to make this claim.
 * There have been many news stories recently about [bakers refusing to make cakes](https://www.theguardian.com/law/2018/jun/04/gay-cake-ruling-supreme-court-same-sex-wedding-colorado-baker-decision-latest) for same sex weddings. In a similar vein, 6 different clauses all give Lime the power to discriminate against you based on sexual orientation, skin colour, political opinion and so on. (They phrase this as refusing service "for any reason".) They're also allowed to [trawl through your social media profiles](mdavisxyz-social-media) to obtain this information. (Sections [4.1](4.1), [9.2](9.2), [10.2](10.2), [12.13](12.13), [12.19](12.19), [12.23](12.23))  I wonder why Lime needs so many overlapping clauses which all grant them this power.
 * iPhone users are not allowed to use the app in a "Terrorist supporting country", but Android users are. ([Section 12.28](12.28))
-* If Lime maliciously rigs the bike battery to deliberately explode and deliberately kill you, you and your heirs are not able to take any legal action against them. (Sections [2.3](2.3), [2.8](2.8), [5.1](5.1), [6.1](6.1), [6.2](6.2), [7.4](7.4), [7.4.5](7.4.5),  [12.3.3](12.3.3)) Hopefully the courts would rule those clauses as invalid. However that fact that this is what their terms say is still worrying.
-* Users are not allowed to mention the word "Lime" in any email, Tweet, WhatsApp message or other online channel (even private), since that is an online usage of their trademark without permission. Uploading a photo to Instagram which happens to have a Lime bike in the background is a violation. ([Section 12.10](12.10))
 * They're allowed to install malware and [cryptojackers](https://www.coindesk.com/new-crypto-mining-malware-seen-to-evolve-say-researchers) on your phone. If they hijack your phone's Internet connection to download child porn or other illegal media, you cannot take legal action against them. (Sections [6.2.5](6.2.5), [8.1](8.1))
 * Users and their family are not allowed to take unrelated legal action against anyone who happens to work for Lime, even if the issue is unrelated to lime. ([Section 5.1](5.1))
 * Users agree to read the entire 30,000-word terms and conditions every time they ride. ([Section 12.25.5](12.25.5))
@@ -220,7 +218,6 @@ They chose not to make that restriction.
 
 Two years ago a Queensland police officer [deliberately leaked location information](https://www.abc.net.au/news/2017-09-09/qld-police-officer-under-investigation-over-alleged-dv-leak/8888946) to his friend about the friend's partner, who was trying to escape the physical and sexual abuse committed by that friend.
 According to [Section 5.1](5.1), if a Lime employee does the same thing with the location data they have, that victim cannot take any legal action against lime.
-Taken to the extreme, this protection against "any and all claims" means that if a Lime employee tries to deliberately rig an e-bike battery to explode and kill you, the terms prohibit you from taking legal action against Lime or that employee.
 There are hopefully Australian laws which over-rule this clause.
 However as mentioned before, it is unclear whether Australian laws even apply at all, since users agree to release Lime from those laws, replacing them with American laws instead. ([Section 2.9](2.9))
 Therefore the presence of such a clause is cause for concern.
@@ -255,7 +252,7 @@ I am not sure what precisely "Your use" means. I interpret it to mean that if Li
 
 If you die because of a faulty Lime bike, Lime claim they are not liable. ([Section 12.3.3](12.3.3))
 Once again, Lime could have limited this clause to death that is not Lime's fault (e.g. collision with a drunk driver).
-However they chose not to make such a restriction, instead preventing you from taking action against them if they kill your friend or family member.
+However they chose not to make such a restriction, instead preventing you from taking action against them even if they are negligent or reckless.
 
 I wonder why Lime needs *five separate clauses* to protect themselves from
 legal action in response to life-threatening incompetence and malpractice.
@@ -265,28 +262,23 @@ make about their service can be false.
 If you point out such false statements, product faults or safety issues, they
 have no obligation to fix them. ([Section 6.2.7](6.2.7))
 
-[Section 12.7](12.7) is one of the more worrying clauses,
-partly because it is not at all necessary for a share bike rental service.
+[Section 12.7](12.7) is a worrying clause, 
+because it is not at all necessary for a share bike rental service.
 
 > [You] give Your full and unconditional consent to Lime ...
 > the right to photograph, videotape ...
 > Your use of the Services, at any time ...
 > and (c) the right to use, ...  distribute, ...  and exploit, at any time ...
 >  such photographs, videos, and other recordings.
-
-So they they can switch on your phone's camera and microphone without your knowledge, or install a hidden camera in the bike.
-If that was not bad enough, the clause also continues to say that
-
+> ...
 > [You] waive, release, and discharge Lime and all Released Persons from
 > all Claims that You have or may have for any libel, defamation, invasion of privacy
 
-The capitalisation of "Claims" is another example of Lime's inclination to ungrammatically capitalise words.
-More importantly, this clause leaves open the possibility of Lime installing secret
-cameras to take up-skirt photos of users riding their bikes, and upload them to PornHub.
-I am not claiming that Lime do this, and I hope that other laws would over-ride this
-clause to make such acts illegal.
-However the fact that Lime has written terms and conditions which try to grant them
-such broad and unnecessary rights is indeed worrying.
+How does this clause even apply to bicycle rental through an app?
+Does Lime want to be able to switch on your phone's camera and microphone without your knowledge, or embed a camera in the bike itself?
+Will Lime staff wander around the city taking marketing photos of users on Lime bikes without notifying them?
+Will Lime post videos of your embarrassing tumbles on YouTube?
+I do not see how this clause is necessary.
 
 Most of [Section 12](12) is simply not applicable.
 Those clauses are all about users posting content to a web service, which is not relevant for a share bike company.
@@ -304,7 +296,7 @@ If you take a photo of a public space which happens to show a
 Lime logo on a bike which is in the background, that is a violation of their terms.
 If you write a tweet or send a WhatsApp message mentioning the name "Lime", that is a violation too.
 
-That [same section](12.10) explicitly prohibits me from using a picture of a Lime bike up the top of this article.
+That [same section](12.10) prohibits me from using a picture of a Lime bike up the top of this article.
 It even prohibits me from using the *word* "Lime" in this article.
 
 > [You are not allowed to] post ...
@@ -315,11 +307,10 @@ It even prohibits me from using the *word* "Lime" in this article.
 I do not want my freedom of speech to be limited by a bicycle hire company, which is one reason why I have not agreed to Lime's User Agreement, and wrote this article instead.
 Once again this is a clause which is needlessly broad.
 They are restricting your rights significantly, without justification.
-Most countries have laws to cover misrepresentation of a company, and defamation.
+Australia and the USA have laws to cover misrepresentation of a company, and defamation.
 Lime's trademark is already protected by all the normal trademark laws.
 I cannot think of any reasonable justification why such laws are not sufficient
 for a bike rental company.
-
 
 As mentioned above, Section 12 is mostly irrelevant clauses about posting user content to a website.
 [Section 12.13](12.13) states that if they think it is "likely" that you will

@@ -1,3 +1,77 @@
+- hashTag: tax
+  text: <b>Broke an election promise</b> to establish a register of shell company
+    ownership, to fight corporate tax dodging.
+  topic: 0
+  urls: ['https://www.theguardian.com/australia-news/2019/feb/11/coalition-abandons-plan-for-register-to-help-beat-tax-avoidance']
+- hashTag: privacy
+  text: Shared personal information about petition signatories with a private company,
+    without those people's consent, so that the company can send those people spam.
+  topic: 6
+  urls: ['https://www.theage.com.au/politics/federal/labor-refers-tim-wilson-to-police-over-claims-he-shared-voter-details-with-fund-manager-20190208-p50wk6.html']
+- hashTag: disability
+  text: Prevented a vote for a royal commission into abuse in the disability sector,
+    with a filibuster. Question time was extended to the longest session ever.
+  topic: 11
+  urls: ['https://www.crikey.com.au/2019/02/15/worm-coalition-filibuster/', 'https://www.abc.net.au/news/2019-02-14/coalition-filibusters-house-of-representatives-disability-vote/10812694']
+- hashTag: corruption
+  text: Declared that they will violate a new law, because they don't like it.
+  topic: 12
+  urls: ['https://www.sbs.com.au/news/scott-morrison-vows-to-ignore-vote-on-stupid-refugee-bill',
+    'https://www.sbs.com.au/news/kerryn-phelps-blasts-plan-to-send-sick-refugees-to-christmas-island']
+- hashTag: ethics
+  text: Gave lawyers only 36 hours to respond to a proposal for legislation for a
+    sex offender register. We do not have a murderer or burglar register. Under existing
+    laws, consenting 16 year-olds sending nudes to each other are technically sex
+    offenders, who may be named and shamed on the proposed register.
+  topic: 6
+  urls: ['https://www.theguardian.com/australia-news/2019/jan/11/lawyers-given-just-36-hours-to-respond-to-duttons-child-sex-offender-register-plan?CMP=soc_567']
+- hashTag: environment
+  text: Exempted the Adani coal mine from a normal water impact assessment because
+    they believe 12.5 billion litres is not "significant", and because the water pipeline
+    built solely to support the mining project is a non-mining project on paper.
+  topic: 2
+  urls: ['https://www.abc.net.au/news/2018-11-07/adani-water-project-bypassed-full-assessment-against-advice/10457670']
+- hashTag: health
+  text: Cut $1.2 billion from aged care, and then denied doing so.
+  topic: 11
+  urls: ['https://thenewdaily.com.au/news/national/2018/09/16/morrison-aged-care-royal-commission/']
+- hashTag: education
+  text: Cut TAFE funding again, this time by $270 million.
+  topic: 3
+  urls: ['http://www.professionalsaustralia.org.au/blog/federal-budget-2018-19/?_zs=V6Uvk&_zl=k6HN1#1525831203844-2d7708ee-9ee8']
+- hashTag: transparency
+  text: Spent $87,000 fighting against a Freedom of Information request about back-room
+    deals, and then lied about the cost.
+  topic: 12
+  urls: ['https://www.theguardian.com/australia-news/2018/feb/27/coalition-agreement-87000-in-public-funds-spent-keeping-document-secret?CMP=Share_AndroidApp_Pages_Manager']
+- hashTag: encryption
+  text: Lied about the Assistance and Access bill not forcing software developers
+    to make their code less secure. The first item in the bill's list of "acts or
+    things" is "removing one or more forms of electronic protection".
+  topic: 2
+  urls: ['https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6195_aspassed/toc_pdf/18204b01.pdf;fileType=application%2Fpdf#search=%22legislation/bills/r6195_aspassed/0000%22',
+    'https://www.homeaffairs.gov.au/about-us/our-portfolios/national-security/lawful-access-telecommunications/data-encryption',
+    'https://thenextweb.com/politics/2018/12/10/australias-horrific-new-encryption-law-likely-to-obliterate-its-tech-scene/One/']
+- hashTag: budget
+  text: Spent $37,000 for flights for one minister for one day, to attend meetings
+    which could have probably been made via a video call.
+  topic: 0
+  urls: ['https://www.sbs.com.au/news/finance-minister-mathias-cormann-spent-37-000-on-flights-in-one-day']
+- hashTag: transparency
+  text: Drastically increased the amount of government money spent without a proper
+    tender process, up to $34 billion <i>per month</i>.
+  topic: 12
+  urls: ['https://www.michaelwest.com.au/the-80-billion-bomb-government-spending-explodes/']
+- hashTag: media
+  text: Handed out $17.1M to private TV stations for a grant they didn't ask for,
+    without offering the money to the public broadcaster.
+  topic: 12
+  urls: ['https://www.theguardian.com/media/2019/jan/23/coalitions-171m-pacific-broadcasting-plan-was-not-sought-out-by-commercial-networks']
+- hashTag: transparency
+  text: Refused a Senate Order to release details about expensive contracts for security,
+    health and infrastructure in their detention camps in PNG.
+  topic: 12
+  urls: ['https://www.theguardian.com/australia-news/2018/jan/18/dutton-refuses-senate-order-to-release-details-of-refugee-services-contracts-on-manus']
 - hashTag: copyright
   text: Rejected recommendations from the Productivity Commission that the government
     add a "fair use" exemption to copyright law, and change the law to explicitly
@@ -126,9 +200,11 @@
 - hashTag: transparency
   text: Hid a report by the Governor General showing that the government paid twice
     as much as necessary for new combat vehicles, because such publicity would be
-    bad for the private manufacturer's future profitability.
+    bad for the private manufacturer's future profitability. The company is not even
+    Australian.
   topic: 12
-  urls: ['https://www.theguardian.com/australia-news/2018/oct/22/coalition-suppressed-auditors-finding-that-13bn-thales-arms-deal-could-have-cost-half-with-us']
+  urls: ['https://www.theguardian.com/australia-news/2018/oct/22/coalition-suppressed-auditors-finding-that-13bn-thales-arms-deal-could-have-cost-half-with-us',
+    'https://www.theguardian.com/australia-news/2018/oct/18/coalition-hiding-criticism-to-help-arms-manufacturer-a-dangerous-precedent-auditor']
 - hashTag: budget
   text: Charged taxpayers $2000 per month for one minister's home Internet connection.
   topic: 0
@@ -145,7 +221,8 @@
     in a visa case.
   topic: 12
   urls: ['https://thenewdaily.com.au/news/national/2018/09/04/peter-dutton-no-confidence-motion/',
-    'https://thenewdaily.com.au/news/national/2018/03/26/peter-dutton-au-pair-visa/']
+    'https://thenewdaily.com.au/news/national/2018/03/26/peter-dutton-au-pair-visa/',
+    'https://www.sbs.com.au/news/peter-dutton-survives-no-confidence-vote-after-au-pair-inquiry-finds-he-misled-parliament']
 - hashTag: immigration
   text: Proposed plans to privatise the visa application system. Referring to this
     core function of a sovereign government as a "business" which should be "commercial"
@@ -194,7 +271,8 @@
     Cook memorials in Australia. The money was taken from the ABC budget.
   topic: 0
   urls: ['https://twitter.com/JohnWren1950/status/994015995869229058', 'http://monumentaustralia.org.au/search',
-    'https://www.sbs.com.au/nitv/nitv-news/article/2018/05/09/budget-cuts-millions-abc-pay-captain-cook-statue-botany-bay']
+    'https://www.sbs.com.au/nitv/nitv-news/article/2018/05/09/budget-cuts-millions-abc-pay-captain-cook-statue-botany-bay',
+    'https://www.sbs.com.au/news/australia-sinks-6-7-million-into-replica-endeavour-circumnavigation']
 - hashTag: ABC
   text: Cut $84 million from the ABC (again).
   topic: 12

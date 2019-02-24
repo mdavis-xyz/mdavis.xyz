@@ -121,6 +121,7 @@ def getTimedData():
 def main():
 
     df = getTimedData()
+    df = df[df['site'] != 'test']
 
     df = df.rename(columns={'time':'unixTime'})
     df['time'] = pd.to_datetime(df['unixTime'], unit='s')
@@ -140,9 +141,8 @@ def plotTotal(df):
 
     # df.set_index('time')
     print("Printing uncumulative view count, all sites")
-    df.plot(x='time',y=['totalCum'],kind='line')
-    plt.savefig('total.png')
 
+    plt.cla()
     df.plot(x='time',y=['totalCum'],kind='line',figsize=(20,10))
     plt.savefig('total.png')
 
@@ -156,6 +156,7 @@ def perSite(df,log=True):
     print("plotting per site")
     # plt.reset()
     totals = {}
+    plt.cla()
     for site in sites:
         print("plotting for %s" % site)
         df_s = df[df['site'] == site]

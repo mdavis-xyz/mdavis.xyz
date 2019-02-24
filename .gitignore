@@ -1,3 +1,5 @@
+AWS/viewCountGraphs/*.png
+AWS/viewCountGraphs/viewData.csv
 pages/*/stub.html
 *.swp
 env/*

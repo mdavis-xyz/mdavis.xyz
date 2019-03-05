@@ -56,6 +56,8 @@ def stripMarkdown(text):
     lines = text.split('\n')
     newLines = []
     for line in lines:
+        expr = r'!\[([^\[\]]+)\]\(([^\)\(]+)\)({[^}{]+})?' # markdown images
+        line = re.sub(expr, r'[\1](\2)', line)
         expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)' # links
         line = re.sub(expr, r'\1', line)
         if (line.count('*') % 2) and line.lstrip().startswith('* '):
@@ -98,6 +100,26 @@ def testStripMarkdown():
 
     text = "*this* is italics at the start"
     expected = "this is italics at the start"
+    actual = stripMarkdown(text)
+    if expected != actual:
+        print("Input text:\n%s" % text)
+        print("Expected:\n%s" % expected)
+        print("Actual:\n%s" % actual)
+    assert(actual == expected)
+
+
+    text = "This is an ![image](path)"
+    expected = "This is an image"
+    actual = stripMarkdown(text)
+    if expected != actual:
+        print("Input text:\n%s" % text)
+        print("Expected:\n%s" % expected)
+        print("Actual:\n%s" % actual)
+    assert(actual == expected)
+
+
+    text = "This is an ![image](path){.myclass}"
+    expected = "This is an image"
     actual = stripMarkdown(text)
     if expected != actual:
         print("Input text:\n%s" % text)

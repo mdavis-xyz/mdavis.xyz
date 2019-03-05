@@ -191,6 +191,26 @@
       - 'script'
       - 'spellcheck'
    date: 19/1/2019
+-  title: "How Flag Emojis Get Decided"
+   description: "Why adding an Indigenous flag is technologically non-trivial"
+   path: "emoji"
+   images:
+      card:
+         path: "images/my-screenshot-short.jpg"
+         description: "The emoji menu on a phone keyboard"
+         width: 600
+         height: 400
+      top:
+         path: "images/flags-1.jpg"
+         description: "Flags of the world"
+         width: 562
+         height: 270
+         attribution: Photo by <a href="https://unsplash.com/photos/YeO44yVTl20?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vladislav Klapin</a> on <a href="https://unsplash.com">Unsplash</a>
+   template: "markdown"
+   markdown: "content.md"
+   date: 12/6/2018
+   exclude:
+      - script
 -  title: "Inverter Inertia Emulation"
    description: "My bachelors thesis about emulating inertia with battery inverters"
    path: "thesis"

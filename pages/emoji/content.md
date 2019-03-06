@@ -28,11 +28,15 @@ There is a surprising amount of wiggle room for vendors implementing emojis, but
 For example, are the flags wavy or a perfect rectangle?
 Is the "gun" an actual gun [or a water pistol](https://www.theguardian.com/technology/2018/apr/25/google-gun-emoji-switch-water-pistol-android-update-apple)?
 
-It turns out that the Unicode standard itself does not define the list of flags either.
+It turns out that the Unicode standard itself does not actually define the list of flags to be included as emojis.
 This is because the people who design emojis think that they should not bear the politically heavy responsibility of deciding what is a country and what is not.
-That sounds like a reasonable idea to me.
+An Aboriginal flag is uncontroversial.
+However other more controversial proposals could follow.
+Whether or not [Sealand](https://en.wikipedia.org/wiki/Principality_of_Sealand) should be legitimised through the creation of a Sealand flag emoji a controversial and politically heavy question. 
+That decision should not be made by a small (and slow) group of typography nerds choosing glyphs and encodings.
+This is why the Unicode standard does not actually specify the list of flag emojis.
 
-So unlike most other emojis the flags are encoded with reference to another standard, [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+Unlike most other emojis the flags are encoded with reference to another standard, [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 This is the country code standard, which defines that "AU" [stands for](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) Australia.
 However it gets even more complicated, because that standard does not define what a country is, it just maps the codes to the [list of countries recognised by the UN](https://www.iso.org/iso-3166-country-codes.html).
 
@@ -72,8 +76,11 @@ Or worse, that second device might already have that custom code assigned, so it
 <div class="card">
 ## Option 4
 Petition the Unicode standards body to implement the Aboriginal flag encoding in a unique way which is completely different to every other national flag.
-An Aboriginal flag is politically uncontroversial, but I'm sure other more controversial proposals would follow (such as [Sealand](https://en.wikipedia.org/wiki/Principality_of_Sealand), or the Confederate flag).
-This opens that question of whether a small (and slow) group of typography nerds choosing glyphs and encodings should have the power and responsibility to make large political decisions.
+Perhaps a new category could be created for flags which are not UN member flags.
+An Aboriginal flag is politically uncontroversial. 
+However I'm sure other more controversial proposals would follow, such as the Confederate flag.
+Such a new category would grant this small (and slow) group of typography nerds the power and responsibility to make political decisions and impose an ideological viewpoint on the whole the world.
+They do not want to be put in that position.
 </div>
 
 <div class="card">

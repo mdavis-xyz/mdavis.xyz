@@ -25,28 +25,28 @@ This means that even the Unicode standards body may not be able to add the Indig
 
 Apple do not decide which emojis to include. They simply implement the Unicode standard ([ISO/IEC 10646](https://en.wikipedia.org/wiki/Unicode)).
 There is a surprising amount of wiggle room for vendors implementing emojis, but that is still just restricted to minor creative details.
-For example, is the flag wavy or a perfect rectangle?
+For example, are the flags wavy or a perfect rectangle?
 Is the "gun" an actual gun [or a water pistol](https://www.theguardian.com/technology/2018/apr/25/google-gun-emoji-switch-water-pistol-android-update-apple)?
 
 It turns out that the Unicode standard itself does not define the list of flags either.
-This is because the people who design emojis did not think that they should bear the politically heavy responsibility of deciding what is a country and what is not.
+This is because the people who design emojis think that they should not bear the politically heavy responsibility of deciding what is a country and what is not.
 That sounds like a reasonable idea to me.
 
-So, unlike most other emojis the flags are encoded with reference to another standard, [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+So unlike most other emojis the flags are encoded with reference to another standard, [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 This is the country code standard, which defines that "AU" [stands for](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) Australia.
 However it gets even more complicated, because that standard does not define what a country is, it just maps the codes to the [list of countries recognised by the UN](https://www.iso.org/iso-3166-country-codes.html).
 
 [Here](https://www.iso.org/iso-3166-country-codes.html) is how *that* list is decided:
 
 > As a general rule, the ISO 3166 maintenance agency does not assign official country code elements to other geopolitical areas or countries that are not member states of the UN.
->
+
+There are some exceptions, such as states and territories of UN member nations:
+
 > However, the ISO 3166 maintenance agency may assign country codes to dependencies of countries that are member states of the UN. To be considered, some criteria, amongst others, include that the area be physically separated from its parent country and outside its territorial waters. Even if all criteria are met, the ISO 3166 maintenance agency may decide not to assign a code element, for example, due to the very limited number of official alpha-2 code elements available.
->
-> The nation represented by the Aboriginal flag is not a member of the UN (at least, not a member distinct from the nominal Australian member). it is also not physically separate. The exact opposite actually.
 
-There is room in the list for "subdivisions" of nations, such as states and territories.
-However that is not applicable to the case of the Indigenous flag.
-
+The nation represented by the Aboriginal flag is not a member of the UN (at least, not a member distinct from the nominal Australian member). 
+It is also not physically separate.
+Therefore it cannot be added to this list without a change in those rules.
 So it turns out that implementing the Aboriginal flag emoji is surprisingly complicated.
 
 <div class="card">

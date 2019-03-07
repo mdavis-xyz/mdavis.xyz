@@ -70,7 +70,7 @@ Again the same issues arise.
 If they really wanted to, Apple *could* use the ["user assigned"](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#User-assigned_code_elements) namespace in ISO 3166-1 to define a non-standard code.
 However then when that emoji is viewed on any device which isn't the latest apple device, it would just appear as the letters "XA" (or "XB", "XC" etc) inside circles.
 Or worse, that second device might already have that custom code assigned, so it would actually appear as the *wrong* flag.
-(This is why standards exist in the first place)
+(This is why standards exist in the first place.)
 </div>
 
 <div class="card">

@@ -70,7 +70,7 @@
 
 
       % if 'top' in data['images']:
-      <p class="topimagecont" id="topimagecont">
+      <p class="topimagecont roundAndShadow" id="topimagecont">
          % if data['images']['top']['path'].lower().endswith('.mp4'):
          <video class="graph video topimage"
                 autoplay
@@ -86,7 +86,7 @@
             <source src="${data['images']['top']['path']}" type="video/mp4" />
          </video>
          % else:
-         <img class="topimage"
+         <img class="topimage roundAndShadow"
               src="${data['images']['top']['path']}"
               alt="${data['images']['top']['description']}"
               width="${data['images']['top']['width']}"

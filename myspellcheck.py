@@ -56,6 +56,8 @@ def stripMarkdown(text):
     lines = text.split('\n')
     newLines = []
     for line in lines:
+        expr = r'!\[([^\[\]]+)\]\(([^\)\(]+)\)({[^}{]+})?' # markdown images
+        line = re.sub(expr, r'[\1](\2)', line)
         expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)' # links
         line = re.sub(expr, r'\1', line)
         if (line.count('*') % 2) and line.lstrip().startswith('* '):
@@ -98,6 +100,26 @@ def testStripMarkdown():
 
     text = "*this* is italics at the start"
     expected = "this is italics at the start"
+    actual = stripMarkdown(text)
+    if expected != actual:
+        print("Input text:\n%s" % text)
+        print("Expected:\n%s" % expected)
+        print("Actual:\n%s" % actual)
+    assert(actual == expected)
+
+
+    text = "This is an ![image](path)"
+    expected = "This is an image"
+    actual = stripMarkdown(text)
+    if expected != actual:
+        print("Input text:\n%s" % text)
+        print("Expected:\n%s" % expected)
+        print("Actual:\n%s" % actual)
+    assert(actual == expected)
+
+
+    text = "This is an ![image](path){.myclass}"
+    expected = "This is an image"
     actual = stripMarkdown(text)
     if expected != actual:
         print("Input text:\n%s" % text)
@@ -240,19 +262,23 @@ def checkWord(word):
                 return(True)
 
         print("Error: word %s does not appear in the dictionary" % word)
-        print("   y - add, lowercase (%s)" % word.lower())
-        print("   c - add, as is (%s)" % word)
+        if word != word.lower():
+           print("   y - add, lowercase %s" % word.lower())
+           print("   Y - add, as is %s" % word)
+        else:
+           print("   y - add as is %s" % word.lower())
+
         if word.endswith("'s") or word.endswith("s'"):
-            print("   a - add lowercase without apostrophe: (%s)" % word[:-2].lower())
-            print("   A - add without apostrophe: (%s)" % word[:-2])
+            print("   a - add lowercase without apostrophe: %s" % word[:-2].lower())
+            print("   A - add without apostrophe: %s" % word[:-2])
         elif word.endswith("s"):
-            print("   p - add singular lowercase: (%s)" % word[:-1].lower())
-            print("   P - add singular as is : (%s)" % word[:-1])
+            print("   p - add singular lowercase: %s" % word[:-1].lower())
+            print("   P - add singular as is : %s" % word[:-1])
         print("   n - don't add. Exit")
         answer = input('')
         if answer.lower().startswith('y'):
             addToDict(word.lower())
-        elif answer.lower().startswith('c'):
+        elif answer.lower().startswith('Y'):
             addToDict(word)
         elif answer.startswith('a'):
             addToDict(word[:-2].lower())

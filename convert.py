@@ -307,7 +307,7 @@ def doAll(args):
             print("Code A")
             exit(1)
 
-    generateRSS('pages/www/docs/rss.xml',pagesData,args)
+    generateRSS(pagesData,args)
 
     src = 'pages/www/docs'
     dest = 'docs/'
@@ -345,7 +345,7 @@ def pageToRSS(page,args):
 
     return(item)
 
-def generateRSS(fname,pages,args):
+def generateRSS(pages,args):
 
     print("Generating RSS file")
     data = [pageToRSS(p,args) for p in pages if p['template'].lower() != 'home']
@@ -357,9 +357,34 @@ def generateRSS(fname,pages,args):
         lastBuildDate = dt.datetime.now(),
         items = data)
 
-    print("Exporting RSS file")
-    with open(fname, "w") as f:
+    print("Checking if the only change to RSS file is the date")
+
+    tempFname = 'pages/www/docs/rss-temp.xml'
+    publishFname = 'pages/www/docs/rss.xml'
+
+    with open(tempFname, "w") as f:
         rss.write_xml(f)
+
+    with open(tempFname,'r') as f:
+        new = f.read()
+
+    with open(publishFname,'r') as f:
+        old = f.read()
+    # just delete the date, and see if the remaining strings are equal
+    # this is a really lazy way of doing this, but meh. It's good enough for now
+    new = re.sub("<pubDate>.*</pubDate>","",new)
+    old = re.sub("<pubDate>.*</pubDate>","",old)
+
+    if new != old:
+        print("RSS feed has changed. Publish")
+        with open(publishFname, "w") as f:
+            rss.write_xml(f)
+    else:
+        print("RSS feed content has not changed. Not publishing.")
+
+    # clean up, so we don't clutter the git repo
+    os.remove(tempFname)
+
     print("Exported RSS file")
 
 

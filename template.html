@@ -48,6 +48,11 @@
    <link rel="stylesheet" type="text/css" href="${"" if data['template'] == 'home' else "../"}media.css" />
    % endif
 
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="${"" if data['template'] == 'home' else "../"}rss.xml" />
+
    % if 'script' not in data['exclude']:
    <script src="script.js" type="text/javascript"></script>
    % endif

@@ -4,3 +4,4 @@ pyyaml
 boto3
 virtualenv
 pytidylib
+pyrss2gen

@@ -10,6 +10,7 @@ import re
 import myspellcheck
 import sys
 import argparse
+import PyRSS2Gen
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
@@ -161,21 +162,6 @@ def doOne(data,allData,args):
             print("Estimating reading time for %s" % data['title'])
             data['estReadingTime'] = estReadingTime(markdownFname)
 
-
-        if 'date' in data:
-            date = {
-                'original': dt.datetime.strptime(data['date'], '%d/%m/%Y').date()
-            }
-            print("Reading in date as %s" % str(date['original']))
-        else:
-            date = {
-                'original': dt.date.today()
-            }
-        date['human'] = date['original'].strftime('%d %b %Y').lstrip('0')
-        date['computer'] = date['original'].strftime('%Y-%m-%d')
-        data['date'] = date
-        if 'exclude' not in data:
-            data['exclude'] = []
         renderOne(data,args)
 
 def renderOne(data,args):
@@ -242,10 +228,37 @@ def doWWW(pages):
 
     return(outputHTML)
 
+# data is for one page
+def getDate(data):
+
+    if 'date' in data:
+        date = {
+            'original': dt.datetime.strptime(data['date'], '%d/%m/%Y').date()
+        }
+        print("Reading in date as %s" % str(date['original']))
+    else:
+        date = {
+            'original': dt.date.today()
+        }
+    date['human'] = date['original'].strftime('%d %b %Y').lstrip('0')
+    date['computer'] = date['original'].strftime('%Y-%m-%d')
+
+
+    return(date)
+
 def loadFile(fname):
     with open(fname,'r') as f:
         data = f.read()
     return(data)
+
+# no https://
+# just www. or dev.
+def getDomain(args):
+    if args.stage_name == 'prod':
+        CNAME = 'www.mdavis.xyz'
+    else:
+        CNAME = 'dev.mdavis.xyz'
+    return(CNAME)
 
 def doAll(args):
     print("Loading in %s" % pagesFname)
@@ -273,6 +286,7 @@ def doAll(args):
                 exit(1)
         if 'disclaimer' in page:
             page['disclaimer'] = page['disclaimer'].strip()
+        page['date'] = getDate(page)
 
     for page in pagesData:
         if args.only_page:
@@ -293,16 +307,17 @@ def doAll(args):
             print("Code A")
             exit(1)
 
+    if not args.only_page:
+        generateRSS(pagesData,args)
+
     src = 'pages/www/docs'
     dest = 'docs/'
     print("copying %s to %s" % (src,dest))
     shutil.rmtree(dest,ignore_errors=True)
     # os.makedirs(dest)
     shutil.copytree(src, dest)
-    if args.stage_name == 'prod':
-        CNAME = 'www.mdavis.xyz'
-    else:
-        CNAME = 'dev.mdavis.xyz'
+
+    CNAME = getDomain(args)
     with open(cname_fname,'w') as f:
         f.write(CNAME)
 
@@ -313,6 +328,68 @@ def doAll(args):
         shutil.copytree(src, dest)
 
     print("Done")
+
+def pageToRSS(page,args):
+    try:
+        url = "https://%s/%s" % (getDomain(args),page['publishPath'])
+        item = PyRSS2Gen.RSSItem(
+            title = page['title'],
+            link = url,
+            description = page['description'],
+            guid = PyRSS2Gen.Guid(url),
+            pubDate = dt.datetime.combine(page['date']['original'], dt.datetime.min.time())
+        )
+    except KeyError as e:
+        print("Error generating RSS entry for page")
+        pp.pprint(page)
+        raise(e)
+
+    return(item)
+
+def generateRSS(pages,args):
+
+    print("Generating RSS file")
+    data = [pageToRSS(p,args) for p in pages if p['template'].lower() != 'home']
+
+    rss = PyRSS2Gen.RSS2(
+        title = "Matthew Davis",
+        link = "https://%s" % getDomain(args),
+        description = "A collection of projects, stories and thoughts about technology and politics",
+        lastBuildDate = dt.datetime.now(),
+        items = data)
+
+    print("Checking if the only change to RSS file is the date")
+
+    tempFname = 'pages/www/docs/rss-temp.xml'
+    publishFname = 'pages/www/docs/rss.xml'
+
+    with open(tempFname, "w") as f:
+        rss.write_xml(f)
+
+    with open(tempFname,'r') as f:
+        new = f.read()
+
+    with open(publishFname,'r') as f:
+        old = f.read()
+    # just delete the date, and see if the remaining strings are equal
+    # this is a really lazy way of doing this, but meh. It's good enough for now
+    new = re.sub("<lastBuildDate>.*</lastBuildDate>","",new)
+    old = re.sub("<lastBuildDate>.*</lastBuildDate>","",old)
+
+    print("new xml:")
+    print(new)
+
+    if new != old:
+        print("RSS feed has changed. Publish")
+        with open(publishFname, "w") as f:
+            rss.write_xml(f)
+    else:
+        print("RSS feed content has not changed. Not publishing.")
+
+    # clean up, so we don't clutter the git repo
+    os.remove(tempFname)
+
+    print("Exported RSS file")
 
 
 def test():

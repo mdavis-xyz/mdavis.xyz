@@ -82,7 +82,7 @@ hr {
    height: auto;
    border-radius: 0.2em;
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-   max-width: 60em;
+   max-width: 45em;
 }
 .topimagecont {
    text-align: center;
@@ -165,12 +165,32 @@ hr {
 blockquote {
   background: #f1f9ff;
   border-left: 10px solid #4493ec;
-  margin: 1.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
   color: #335;
   border-radius: 0.2em;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: auto;
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+}
+
+@media (min-width:30rem)  {
+ blockquote {
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+}
+
+@media (min-width:50rem)  {
+ blockquote {
+    margin-left: 2rem;
+    margin-right: 2rem;
+ }
 }
 
 blockquote p {

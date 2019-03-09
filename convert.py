@@ -307,7 +307,8 @@ def doAll(args):
             print("Code A")
             exit(1)
 
-    generateRSS(pagesData,args)
+    if not args.only_page:
+        generateRSS(pagesData,args)
 
     src = 'pages/www/docs'
     dest = 'docs/'
@@ -372,8 +373,11 @@ def generateRSS(pages,args):
         old = f.read()
     # just delete the date, and see if the remaining strings are equal
     # this is a really lazy way of doing this, but meh. It's good enough for now
-    new = re.sub("<pubDate>.*</pubDate>","",new)
-    old = re.sub("<pubDate>.*</pubDate>","",old)
+    new = re.sub("<lastBuildDate>.*</lastBuildDate>","",new)
+    old = re.sub("<lastBuildDate>.*</lastBuildDate>","",old)
+
+    print("new xml:")
+    print(new)
 
     if new != old:
         print("RSS feed has changed. Publish")

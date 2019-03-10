@@ -115,11 +115,11 @@ function hideIfNeed(){
 }
 hideIfNeed()
 
-window.onload = function () {
+window.addEventListener("load",function(){
    src = getSrc();
    console.log("src is " + src);
    if ((src != '') && (src != null)){
       modifyLinks();
       hideIfNeed();
    }
-}
+});

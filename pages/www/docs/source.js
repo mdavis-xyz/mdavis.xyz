@@ -122,4 +122,4 @@ window.addEventListener("load",function(){
       modifyLinks();
       hideIfNeed();
    }
-});
+},false);

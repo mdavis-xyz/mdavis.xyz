@@ -11,7 +11,7 @@ window.addEventListener("load",function(){
    console.log('onload called');
    duration();
    copyToGroups();
-})
+},false);
 
 
 // for each element in the chrono list, copy it to the corresponding

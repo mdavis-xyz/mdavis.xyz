@@ -1,3 +1,51 @@
+- hashTag: climate
+  text: <b>Lied</b> about Australia's emissions, claiming they had decreased when
+    they had actually increased to an record high.
+  topic: 2
+  urls: ['https://www.theguardian.com/australia-news/2019/mar/03/angus-taylor-again-falsely-claims-australias-greenhouse-emissions-are-falling']
+- hashTag: jobs
+  text: Promised the creation of 1.25 million jobs without doing any calculation or
+    modelling to arrive at that number.
+  topic: 8
+  urls: ['https://www.sbs.com.au/news/no-treasury-modelling-for-1-25m-jobs-vow']
+- hashTag: renewables
+  text: Blocked the construction of Australia's first offshore wind farm, which would
+    create 12,000 jobs and meet 20% of Victoria's electricity demand.
+  topic: 2
+  urls: ['http://www.mua.org.au/australia_s_first_offshore_wind_farm_being_stalled_by_morrison_government']
+- hashTag: welfare
+  text: Spent $400 million on a problem plagued automated system which recovered only
+    $500 million of unpaid debt, through a "guilty until proven innocent" approach.
+  topic: 4
+  urls: ['https://www.theguardian.com/australia-news/2019/feb/22/robodebt-scheme-costs-government-almost-as-much-as-it-recovers']
+- hashTag: transparency
+  text: Refused to publish a government-funded report which allegedly rebuts claims
+    that the government's Murray-Darling Basin Plan is illegal.
+  topic: 12
+  urls: ['https://www.abc.net.au/news/2019-02-24/government-accused-of-secrecy-over-refusal-to-show-mdbp-advice/10843718']
+- hashTag: climate
+  text: Spent $1 million from their Emissions Reduction Fund on a fossil fuel generator
+    which would have been built anyway.
+  topic: 2
+  urls: ['https://www.theguardian.com/environment/2019/feb/25/emissions-reduction-fund-to-pay-for-fossil-fuel-plant-that-would-be-built-anyway']
+- hashTag: budget
+  text: Spent $21.5 million over 10 months with an unsigned contract on a health contractor
+    known to have a fatal lack of "necessary clinical skills".
+  topic: 0
+  urls: ['https://www.theguardian.com/australia-news/2019/feb/22/company-given-215m-for-manus-healthcare-despite-poor-track-record']
+- hashTag: corruption
+  text: Abandoned standard tender processes when awarding a $423 million contract
+    to a company with $50k in funds, little experience, no phone number, no mail address,
+    housed in a shack.
+  topic: 12
+  urls: ['https://www.afr.com/news/policy/foreign-affairs/home-affairs-ran-closed-tenders-for-paladins-lucrative-manus-security-contracts-20190212-h1b5ym',
+    'https://www.afr.com/news/policy/foreign-affairs/home-affairs-ran-closed-tenders-for-paladins-lucrative-manus-security-contracts-20190212-h1b5ym']
+- hashTag: transparency
+  text: Refused to publish a report used to justify a $53 million contract to outsource
+    Centrelink call handling.
+  topic: 12
+  urls: ['https://www.canberratimes.com.au/politics/federal/govt-says-secret-report-shows-contractors-answer-more-centrelink-calls-20181030-p50cu3.html',
+    'https://www.canberratimes.com.au/politics/federal/benefits-of-centrelink-s-serco-contract-unclear-auditor-20190221-p50zel.html']
 - hashTag: tax
   text: <b>Broke an election promise</b> to establish a register of shell company
     ownership, to fight corporate tax dodging.
@@ -24,7 +72,7 @@
     laws, consenting 16 year-olds sending nudes to each other are technically sex
     offenders, who may be named and shamed on the proposed register.
   topic: 6
-  urls: ['https://www.theguardian.com/australia-news/2019/jan/11/lawyers-given-just-36-hours-to-respond-to-duttons-child-sex-offender-register-plan?CMP=soc_567']
+  urls: ['https://www.theguardian.com/australia-news/2019/jan/11/lawyers-given-just-36-hours-to-respond-to-duttons-child-sex-offender-register-plan']
 - hashTag: environment
   text: Exempted the Adani coal mine from a normal water impact assessment because
     they believe 12.5 billion litres is not "significant", and because the water pipeline
@@ -38,12 +86,12 @@
 - hashTag: education
   text: Cut TAFE funding again, this time by $270 million.
   topic: 3
-  urls: ['http://www.professionalsaustralia.org.au/blog/federal-budget-2018-19/?_zs=V6Uvk&_zl=k6HN1#1525831203844-2d7708ee-9ee8']
+  urls: ['http://www.professionalsaustralia.org.au/blog/federal-budget-2018-19/']
 - hashTag: transparency
   text: Spent $87,000 fighting against a Freedom of Information request about back-room
     deals, and then lied about the cost.
   topic: 12
-  urls: ['https://www.theguardian.com/australia-news/2018/feb/27/coalition-agreement-87000-in-public-funds-spent-keeping-document-secret?CMP=Share_AndroidApp_Pages_Manager']
+  urls: ['https://www.theguardian.com/australia-news/2018/feb/27/coalition-agreement-87000-in-public-funds-spent-keeping-document-secret']
 - hashTag: encryption
   text: Lied about the Assistance and Access bill not forcing software developers
     to make their code less secure. The first item in the bill's list of "acts or
@@ -265,7 +313,7 @@
   text: Spent an undisclosed amount of public money on legal defence for a minister
     who broken the law for political gain.
   topic: 12
-  urls: ['https://www.buzzfeed.com/aliceworkman/youll-never-guess-who-is-paying-for-michaelia-cashs-legal?utm_term=.agwxgpMRL']
+  urls: ['https://www.buzzfeed.com/aliceworkman/youll-never-guess-who-is-paying-for-michaelia-cashs-legal']
 - hashTag: budget
   text: Assigned $48.7 million to a Captain Cook memorial. There are already 35 Captain
     Cook memorials in Australia. The money was taken from the ABC budget.
@@ -414,7 +462,7 @@
     was made without any emails, letter, or supporting documentation.
   topic: 12
   urls: ['http://www.theage.com.au/entertainment/tv-and-radio/poorly-planned-foxtels-30-million-government-handout-questioned-20170719-gxebax.html',
-    'https://www.grants.gov.au/?event=public.GO.show&GOUUID=B1AB9451-93B4-26B9-A7636D4B573E1DBA']
+    'https://www.grants.gov.au/']
 - hashTag: climate
   text: Kept secret government data showing higher than expected emissions increases.
   topic: 2
@@ -547,7 +595,8 @@
   text: Approved the sale of weapons to a country accused of committing war crimes
     and killing 10,000 innocent civilians.
   topic: 7
-  urls: ['http://www.theage.com.au/federal-politics/political-news/australia-selling-military-equipment-to-saudi-arabia-during-brutal-yemen-conflict-20170324-gv5k7o.html']
+  urls: ['http://www.theage.com.au/federal-politics/political-news/australia-selling-military-equipment-to-saudi-arabia-during-brutal-yemen-conflict-20170324-gv5k7o.html',
+    'https://www.abc.net.au/news/2019-02-20/australian-firm-eos-weapons-systems-bound-for-saudi-arabia/10825660']
 - hashTag: immigration
   text: Rejected advice from a taskforce it set up, which provided recommendations
     to reduce foreign visa abuse, and then claimed the 457 visa is too prone to abuse.
@@ -738,8 +787,8 @@
   text: Personally appointed George Brandis' son's lawyer to a $370,000 job, without
     making a conflict of interest declaration.
   topic: 12
-  urls: ['https://www.buzzfeed.com/markdistefano/attorney-general-admits-to-personally-offering-37?utm_term=.as0gPPree#.ni8m33nww',
-    'https://www.buzzfeed.com/markdistefano/a-brandis-stack?utm_term=.bayNX8Er7#.pll5Mj19A']
+  urls: ['https://www.buzzfeed.com/markdistefano/attorney-general-admits-to-personally-offering-37',
+    'https://www.buzzfeed.com/markdistefano/a-brandis-stack']
 - hashTag: budget
   text: Wasted over $98,000 by cancelling flights.
   topic: 0
@@ -763,7 +812,7 @@
     Scheme, which would have brought down the cost of the proven medication from $1000
     per month to $30 per month.
   topic: 11
-  urls: ['https://www.buzzfeed.com/lanesainty/hugely-effective-hiv-drug-will-not-be-subsidised-by-the-gove?utm_term=.hhvZQ5PaN1#.hx8qrJRbVE']
+  urls: ['https://www.buzzfeed.com/lanesainty/hugely-effective-hiv-drug-will-not-be-subsidised-by-the-gove']
 - hashTag: climate
   text: Handed out $9 million to a foreign coal mining company.
   topic: 2
@@ -803,7 +852,7 @@
     and the Great Barrier Reef.  Large sections of the reef have already been bleached
     because of climate change.
   topic: 2
-  urls: ['https://www.theguardian.com/environment/2016/may/27/australia-scrubbed-from-un-climate-change-report-after-government-intervention?CMP=soc_568']
+  urls: ['https://www.theguardian.com/environment/2016/may/27/australia-scrubbed-from-un-climate-change-report-after-government-intervention']
 - hashTag: science
   text: Sacked 74 scientists in Antartica.
   topic: 2
@@ -831,7 +880,7 @@
     in psychology or social work, and so that victims must now disclose their abuse
     story to twice as many people before getting help.
   topic: 4
-  urls: ['www.theguardian.com/commentisfree/2016/jun/09/when-youve-waited-years-to-report-a-trauma-the-last-thing-you-need-is-another-hurdle?CMP=share_btn_tw']
+  urls: [www.theguardian.com/commentisfree/2016/jun/09/when-youve-waited-years-to-report-a-trauma-the-last-thing-you-need-is-another-hurdle]
 - hashTag: mental
   text: Cut all funding for Australia's only eating disorder helpline.
   topic: 11
@@ -885,7 +934,7 @@
   text: Waited 22 hours before air-lifting a critically ill refugee to an adequately
     equipped hospital. He died the next day.
   topic: 1
-  urls: ['https://www.theguardian.com/australia-news/2016/apr/29/refugee-who-set-himself-alight-on-nauru-dies-of-injuries-in-hospital?CMP=share_btn_fb']
+  urls: ['https://www.theguardian.com/australia-news/2016/apr/29/refugee-who-set-himself-alight-on-nauru-dies-of-injuries-in-hospital']
 - hashTag: asylum
   text: Rejected an offer from New Zealand to take 150 asylum seekers who are currently
     being illegally held in Australian detention centres.
@@ -908,7 +957,7 @@
     without any oversight, and with minimal avenues for recourse.
   topic: 8
   urls: ['https://newmatilda.com/2016/03/05/malcolm-turnbull-escalates-his-war-on-the-poor-and-unemployed/',
-    'http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r5523']
+    'http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result']
 - hashTag: indigenous
   text: Offered an indigenous organisation half the pay rise offered to most other
     public sector organisations. The pay rise is below inflation, so amounts to a
@@ -1038,7 +1087,7 @@
 - hashTag: health
   text: Increased the cost of pap smears.
   topic: 11
-  urls: ['https://www.theguardian.com/australia-news/2016/jan/06/pap-smears-will-cost-after-changes-to-pathology-rebates-say-labor-and-greens?CMP=Share_iOSApp_Other']
+  urls: ['https://www.theguardian.com/australia-news/2016/jan/06/pap-smears-will-cost-after-changes-to-pathology-rebates-say-labor-and-greens']
 - hashTag: technology
   text: Told myGov users to downgrade the security on their account when travelling
     overseas, which is when security risks are highest.
@@ -1154,7 +1203,7 @@
   text: Refused to give counselling to a pregnant woman prior to an abortion. The
     woman was raped whilst in our asylum seeker prisons.
   topic: 1
-  urls: ['https://www.getup.org.au/campaigns/refugees/bring-her-back/bring-her-back?t=L3tDtGE']
+  urls: ['https://www.getup.org.au/campaigns/refugees/bring-her-back/bring-her-back']
 - hashTag: corruption
   text: Violated parliamentary anti-corruption rules by not declaring a substantial
     loan for almost 2 years.
@@ -1337,7 +1386,7 @@
   text: Banned the Clean Energy Finance Corporation (CEFC) from investing in wind
     power and small scale solar power.
   topic: 2
-  urls: ['https://www.theguardian.com/environment/2015/jul/12/abbott-government-extends-ban-on-renewable-energy-to-solar-panels?CMP=share_btn_fb']
+  urls: ['https://www.theguardian.com/environment/2015/jul/12/abbott-government-extends-ban-on-renewable-energy-to-solar-panels']
 - hashTag: metadata
   text: Banned telcos from seeing warrants for metadata access requests issued to
     chase down journalists sources, thereby undermining the purpose of the warrant
@@ -1523,7 +1572,7 @@
     are available.
   topic: 1
   urls: ['http://www.canberratimes.com.au/federal-politics/political-news/taxpayers-charged-6-million-for-immigration-department-telemovie-20160325-gnqyr4.html',
-    'https://www.youtube.com/watch?v=wB2-t8FJA5A']
+    'https://www.youtube.com/watch']
 - hashTag: budget
   text: Prevented the release of a 'name and shame' list of multinational tax dodging
     corporations.
@@ -1650,7 +1699,7 @@
 - hashTag: values
   text: Claimed "good government starts today", after 18 months of governing.
   topic: 6
-  urls: ['https://www.youtube.com/watch?v=AUXxfTuX2oA']
+  urls: ['https://www.youtube.com/watch']
 - hashTag: asylum
   text: Referred journalists to the police after they reported on immigration matters,
     including the illegal breaches of Indonesia's borders.
@@ -1731,7 +1780,7 @@
 - hashTag: education
   text: Scrapped a plan to make coursework masters students eligible for income support.
   topic: 3
-  urls: ['http://www.theaustralian.com.au/higher-education/adult-apprentices-hit-by-myefo/story-e6frgcjx-1227157130329?nk=f8e75ca5228e5f7d2e2512aec5b2a6ed']
+  urls: ['http://www.theaustralian.com.au/higher-education/adult-apprentices-hit-by-myefo/story-e6frgcjx-1227157130329']
 - hashTag: employment
   text: Cut $44 million over 4 years from the Skills for Education and Employment
     program which helps jobseekers improve their reading, writing and maths.
@@ -1745,7 +1794,7 @@
 - hashTag: nbn
   text: Introduced a $900 NBN fee for all new houses.
   topic: 10
-  urls: ['https://www.communications.gov.au/file/442/download?token=mbi3fS1G']
+  urls: ['https://www.communications.gov.au/file/442/download']
 - hashTag: homelessness
   text: Cut all funding of homelessness and community housing programs, except the
     ones they are legally required to fund.
@@ -1770,7 +1819,7 @@
 - hashTag: international
   text: Cut foreign aid a third time, this time by $3.7 billion.
   topic: 9
-  urls: ['https://www.theguardian.com/business/2014/dec/15/budget-11bn-higher-expected-myefo?CMP=share_btn_fb']
+  urls: ['https://www.theguardian.com/business/2014/dec/15/budget-11bn-higher-expected-myefo']
 - hashTag: budget
   text: Spent $120,000 monitoring the media for mentions of the Immigration Department.
   topic: 0
@@ -1899,7 +1948,7 @@
     were not shortlisted by the selection committee.
   topic: 1
   urls: ['https://www.theguardian.com/australia-news/2014/oct/20/new-members-migration-review-tribunal-bypassed-selection-panel',
-    'https://www.theguardian.com/law/2016/may/18/australias-indefinite-detention-of-refugees-illegal-un-rules?CMP=Share_iOSApp_Other']
+    'https://www.theguardian.com/law/2016/may/18/australias-indefinite-detention-of-refugees-illegal-un-rules']
 - hashTag: asylum
   text: Chose not to tell asylum seekers that sensitive information about their asylum
     claims, mental health problems and more was stolen again. The data was left on
@@ -2014,7 +2063,7 @@
   topic: 7
   urls: ['http://www.vice.com/read/australias-national-security-ammendment-bill-is-heavy-reading',
     'http://www.smh.com.au/comment/george-brandis-new-antiterror-law-allows-asio-to-torture-20140917-10i9hv.html',
-    'https://www.theguardian.com/commentisfree/2014/sep/19/i-do-not-want-to-see-innocent-until-proven-muslim-in-australia?view=desktop',
+    'https://www.theguardian.com/commentisfree/2014/sep/19/i-do-not-want-to-see-innocent-until-proven-muslim-in-australia',
     'http://www.smh.com.au/comment/asio-to-hide-your-freedom-so-the-baddies-cant-get-it-20140925-10m28g.html']
 - hashTag: ethics
   text: Legislated so that courts must accept illegally obtained evidence.
@@ -2063,7 +2112,7 @@
   text: Rewrote counterterrorism laws so that Australian tourists returning from Syria
     and Iraq will be guilty of terrorism until they prove they're innocent.
   topic: 6
-  urls: ['http://www.dailytelegraph.com.au/news/nsw/prove-your-innocence-abbott-set-to-reverse-onus-of-proof-for-homegrown-terrorists/story-fni0cx12-1227009308510?nk=b558e0a0ea8f9a6cad8b0aaa0ebe867b']
+  urls: ['http://www.dailytelegraph.com.au/news/nsw/prove-your-innocence-abbott-set-to-reverse-onus-of-proof-for-homegrown-terrorists/story-fni0cx12-1227009308510']
 - hashTag: navy
   text: <b>Broke an election promise</b> by allowing the new multi-billion dollar
     batch of Navy submarines to be built overseas, despite high levels of unemployment
@@ -2093,9 +2142,9 @@
     $100 per customer per year. It will be used to punish illegal downloaders.
   topic: 6
   urls: ['http://tharunka.arc.unsw.edu.au/kill-people-based-metadata/', 'https://www.eff.org/deeplinks/2013/06/why-metadata-matters',
-    'http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r5375#top',
+    'http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result',
     'http://www.sbs.com.au/news/article/2015/03/17/data-retention-change-not-necessary-brandis-says',
-    'https://www.youtube.com/watch?v=aYoGZpQ_98k&feature=youtu.be&t=1m29s']
+    'https://www.youtube.com/watch']
 - hashTag: economy
   text: Finally admitted that "There's no crisis at all in the Australian economy",
     despite centering their election campaign on the alleged budget emergency.
@@ -2143,8 +2192,7 @@
     gunpoint, kidnapping and then imprisoning innocent passengers. Maritime piracy
     constitutes crimes against humanity</b>.
   topic: 1
-  urls: ['http://en.wikipedia.org/w/index.php?title=Piracy#International_conventions',
-    'http://www.smh.com.au/federal-politics/political-news/piracy-on-the-high-seas-malcolm-fraser-20140709-zt1eq.html']
+  urls: ['http://en.wikipedia.org/w/index.php', 'http://www.smh.com.au/federal-politics/political-news/piracy-on-the-high-seas-malcolm-fraser-20140709-zt1eq.html']
 - hashTag: indigenous
   text: Claimed pre-First Fleet Australia was "unsettled or, um, scarcely settled",
     and called British colonisation a form of foreign investment.
@@ -2236,7 +2284,7 @@
     president of the World Bank because Mr. Abbott would be told that the government's
     support for fossil fuels will heavily damage our economy in the long run.
   topic: 9
-  urls: ['https://www.theguardian.com/commentisfree/2014/jun/09/unfortunately-tony-abbott-cant-cancel-meetings-with-the-climate?CMP=soc_568']
+  urls: ['https://www.theguardian.com/commentisfree/2014/jun/09/unfortunately-tony-abbott-cant-cancel-meetings-with-the-climate']
 - hashTag: health
   text: Failed to model the impact on hospital emergency room waiting times due to
     the proposed GP fee.
@@ -2475,7 +2523,7 @@
   urls: ['http://www.smh.com.au/business/federal-budget/federal-budget-2014-commonwealth-to-slash-share-of-hospital-funding-20140513-38862.html',
     'http://www.businessinsider.com.au/these-two-budget-charts-show-how-much-money-joe-hockey-is-cutting-from-hospitals-and-schools-2014-5',
     'http://blogs.crikey.com.au/croakey/2014/05/13/budget2014-a-longread-on-health-agency-mergers-dental-health-copayments-medical-research-hospital-funding/',
-    'https://www.youtube.com/watch?v=VN-hbWVXsyE']
+    'https://www.youtube.com/watch']
 - hashTag: health
   text: Scrapped the Australian Organ and Tissue Donation and Transplantation Authority,
     which has helped increase organ donation rates.
@@ -2637,7 +2685,7 @@
   topic: 4
   urls: ['http://www.news.com.au/finance/economy/federal-budget-2014-incentive-to-hire-older-workers-as-aged-pensioners-tighten-their-belts/story-fn84fgcm-1226916478488',
     'https://theconversation.com/infographic-the-promises-vs-budget-measures-26660',
-    'https://www.youtube.com/watch?v=VN-hbWVXsyE']
+    'https://www.youtube.com/watch']
 - hashTag: disability
   text: Abolished the position of disability commissioner, then created the position
     of wind farm commissioner.
@@ -2653,7 +2701,7 @@
   text: <b>Broke an election promise</b> by cutting $40 million from the SBS and ABC.
   topic: 12
   urls: ['http://www.news.com.au/finance/economy/federal-budget-2014-tony-abbott-breaks-election-promise-with-cuts-to-abc-and-sbs-funding/story-fn84fgcm-1226916460087',
-    'https://www.youtube.com/watch?v=VN-hbWVXsyE', 'http://www.theage.com.au/federal-politics/political-news/abc-to-cut-80-international-jobs-20140714-3bxaf.html']
+    'https://www.youtube.com/watch', 'http://www.theage.com.au/federal-politics/political-news/abc-to-cut-80-international-jobs-20140714-3bxaf.html']
 - hashTag: aid
   text: <b>Cut foreign aid, again</b>. This time by $7.6 billion.
   topic: 9
@@ -2673,7 +2721,7 @@
   text: Cut $138 million from the Australian Federal Police, resulting in 335 job
     losses.
   topic: 8
-  urls: ['http://www.abc.net.au/news/2014-05-15/australian-federal-police-to-axe-335-jobs-to-meet-budget-cuts/5455046?section=act']
+  urls: ['http://www.abc.net.au/news/2014-05-15/australian-federal-police-to-axe-335-jobs-to-meet-budget-cuts/5455046']
 - hashTag: apprentice
   text: Scrapped a loan scheme which helped apprentices buy the tools they need to
     learn and work.
@@ -2791,7 +2839,7 @@
     asylum claims processed yet.
   topic: 1
   urls: ['https://www.theguardian.com/world/2014/apr/15/babies-in-detention-lawyers-appeal-for-delay-to-nauru-transfers',
-    'https://www.youtube.com/watch?v=3vd4WV2Fotw']
+    'https://www.youtube.com/watch']
 - hashTag: research
   text: Scrapped a body which provides advice on over $1 billion in tax breaks that
     are designed to encourage Research and Development, despite promising during the
@@ -2802,7 +2850,7 @@
   text: Claimed a 2.5% reduction in funding every year for the ABC is not a funding
     cut.
   topic: 12
-  urls: ['http://www.examiner.com.au/story/2215285/abbott-to-break-abc-no-cuts-promise/?cs=12']
+  urls: ['http://www.examiner.com.au/story/2215285/abbott-to-break-abc-no-cuts-promise/']
 - hashTag: jobs
   text: Cut over 300 jobs (about 1 in 3) in the Treasury department.
   topic: 8
@@ -2810,7 +2858,7 @@
 - hashTag: jobs
   text: Cut 400 jobs in the Department of Industry.
   topic: 8
-  urls: ['http://www.news.com.au/national/breaking-news/industry-department-sheds-400-staff/story-e6frfku9-1226864330268?from=public_rss']
+  urls: ['http://www.news.com.au/national/breaking-news/industry-department-sheds-400-staff/story-e6frfku9-1226864330268']
 - hashTag: ethics
   text: Removed anti-sweatshop laws and cut all funding to Ethical Clothing Australia.
   topic: 6
@@ -2898,7 +2946,7 @@
     due to repealed subsidies and tax breaks.
   topic: 0
   urls: ['http://www.smh.com.au/national/families-lose-up-to-3500-a-year-in-end-of-mine-carbon-taxes-20140704-3bdvu.html#ixzz36XWEU9Zz',
-    'http://www.abc.net.au/news/2014-04-01/mathias-cormann-mining-tax-claim-exaggerated/5341306?pfm=ms']
+    'http://www.abc.net.au/news/2014-04-01/mathias-cormann-mining-tax-claim-exaggerated/5341306']
 - hashTag: asylum
   text: Interfered with the judicial process by transferring asylum seekers to a remote
     detention centre the day before they started a court case against the Australian
@@ -2975,8 +3023,7 @@
     cutting, because they frequently need to cut down people who try to hang themselves
     thanks to of the horrid conditions.
   topic: 1
-  urls: ['https://www.facebook.com/photo.php?fbid=691993667505449&amp;set=a.615996628438487.1073741835.341910905847062&amp;type=1',
-    'https://web.archive.org/web/20150411010823/https://au.news.yahoo.com/thewest/a/9699651/']
+  urls: ['https://www.facebook.com/photo.php', 'https://web.archive.org/web/20150411010823/https://au.news.yahoo.com/thewest/a/9699651/']
 - hashTag: environment
   text: Tried to exempt loggers in Tasmania's World Heritage forests from the Environmental
     Protection and Biodiversity Conservation Act, so they won't have to worry about
@@ -2989,7 +3036,7 @@
     Australia since mid 2009 were eventually found to be genuine refugees, fleeing
     torture, rape, genocide and persecution.
   topic: 1
-  urls: ['https://www.theguardian.com/world/2014/mar/22/tony-abbott-most-manus-island-detainees-wont-be-found-to-be-genuine?CMP=soc_568',
+  urls: ['https://www.theguardian.com/world/2014/mar/22/tony-abbott-most-manus-island-detainees-wont-be-found-to-be-genuine',
     'http://www.asrc.org.au/resources/statistics/']
 - hashTag: workplace
   text: Vowed to revive a part of WorkChoices which means construction Industry Enterprise
@@ -3068,7 +3115,7 @@
   urls: ['http://www.adelaidenow.com.au/news/national/federal-treasurer-joe-hockey-to-force-assets-selloff/story-fni6ulvf-1226856408624',
     'http://www.independentaustralia.net/politics/politics-display/abbott-and-hockeys-shocking-sell-off-stupidity-exposed,6634',
     'https://www.theguardian.com/commentisfree/2014/jul/09/tide-turning-against-privatisation',
-    'https://www.theguardian.com/world/2014/aug/01/abbott-advises-tasmania-to-seek-funding-scrapped-programs?CMP=ema_632']
+    'https://www.theguardian.com/world/2014/aug/01/abbott-advises-tasmania-to-seek-funding-scrapped-programs']
 - hashTag: environment
   text: Justified the logging of forests currently on the world heritage list because
     Christianity supposedly tells us "the environment is meant for man".
@@ -3165,7 +3212,7 @@
 - hashTag: media
   text: Proposed the scrapping of regulation which prevents media monopolies and duopolies.
   topic: 12
-  urls: ['http://www.crikey.com.au/2014/02/04/removal-of-two-out-of-three-aint-bad-for-news-corp/?wpmp_tp=0']
+  urls: ['http://www.crikey.com.au/2014/02/04/removal-of-two-out-of-three-aint-bad-for-news-corp/']
 - hashTag: environment
   text: Claimed that loggers are "the ultimate conservationists" during a speech about
     why the government will not create more national parks. In the same speech Abbott
@@ -3287,14 +3334,14 @@
     drastically wrong.
   topic: 1
   urls: ['http://www.theage.com.au/federal-politics/political-news/scott-morrison-admits--information-he-gave-on-manus-riot-was-wrong-20140222-339hs.html',
-    'https://www.youtube.com/watch?v=WBCrKH88VuI']
+    'https://www.youtube.com/watch']
 - hashTag: asylum
   text: Convinced Cambodia (one of the poorest countries in our region) to take in
     some of the refugees currently in our detention centres. Serious human rights
     abuse continue to be committed regularly under the Cambodian government and military.
   topic: 1
   urls: ['http://www.amnesty.org/en/news/australia-cambodia-scrap-asylum-seeker-deal-2014-05-01',
-    'http://www.wolframalpha.com/input/?i=gdp+of+cambodia+and+australia', 'http://www.smh.com.au/federal-politics/asylum-seeker-resettlement-deals-not-just-about-safety-unhcr-20140425-zqz1v.html#ixzz2zwYYm1PR',
+    'http://www.wolframalpha.com/input/', 'http://www.smh.com.au/federal-politics/asylum-seeker-resettlement-deals-not-just-about-safety-unhcr-20140425-zqz1v.html#ixzz2zwYYm1PR',
     'http://www.crikey.com.au/2014/04/30/cambodia-not-a-safe-place-for-australian-refugees-or-anyone-else',
     'http://www.abc.net.au/news/2014-05-26/is-cambodia-engulfed-in-human-rights-crisis/5446002']
 - hashTag: defence
@@ -3327,17 +3374,17 @@
     find the still life threatening document.
   topic: 1
   urls: ['http://www.sbs.com.au/news/article/2014/02/20/how-will-data-leak-affect-asylum-seekers',
-    'http://www.crikey.com.au/2014/02/19/morrison-comments-compounds-immigration-data-breach/?wpmp_switcher=mobile',
+    'http://www.crikey.com.au/2014/02/19/morrison-comments-compounds-immigration-data-breach/',
     'https://www.theguardian.com/australia-news/2014/nov/12/asylum-data-breach-immigration-unlawfully-disclosed-personal-details',
     'https://newmatilda.com/2014/11/17/asylum-seekers-not-provided-full-details-data-breach',
-    'https://www.theguardian.com/australia-news/2015/sep/18/scott-morrison-ensured-asylum-seeker-data-breach-probe-failed-court-finds?CMP=share_btn_tw']
+    'https://www.theguardian.com/australia-news/2015/sep/18/scott-morrison-ensured-asylum-seeker-data-breach-probe-failed-court-finds']
 - hashTag: asylum
   text: Eventually admitted that Navy ships "inadvertently" crossed into Indonesian
     waters despite using high tech GPS navigation, then they made the exact same mistake
     again 5 times. The government chose to not even interview any crew members of
     one such ship when writing a report on the matter.
   topic: 1
-  urls: ['https://www.theguardian.com/world/2014/apr/17/australian-ship-went-far-deeper-into-indonesian-waters-than-disclosed?CMP=twt_gu',
+  urls: ['https://www.theguardian.com/world/2014/apr/17/australian-ship-went-far-deeper-into-indonesian-waters-than-disclosed',
     'http://www.smh.com.au/federal-politics/political-news/retired-naval-commander-baffled-by-navys-explanation-for-entering-indonesian-waters-20140302-33u27.html',
     'http://www.independent.ie/world-news/oz-in-asylum-patrol-boats-apology-29924745.html']
 - hashTag: aid
@@ -3361,7 +3408,7 @@
     Injuries included slit throats, machete wounds and eyes hanging from sockets.
   topic: 1
   urls: ['https://newmatilda.com/2014/02/19/png-guards-turn-manus-detainees/', 'http://www.smh.com.au/federal-politics/political-news/neck-of-asylum-seeker-killed-on-manus-island-had-been-cut-20140221-337po.html',
-    'http://www.refugeeaction.org.au/?p=3137', 'http://www.theaustralian.com.au/national-affairs/security-staff-on-standby-after-manus-island-asylumseeker-unrest/story-fn59niix-1226830086985',
+    'http://www.refugeeaction.org.au/', 'http://www.theaustralian.com.au/national-affairs/security-staff-on-standby-after-manus-island-asylumseeker-unrest/story-fn59niix-1226830086985',
     'http://www.perthnow.com.au/news/security-guard-exposes-horrendous-conditions-at-manus-island-detention-centre/story-fnhnv0wb-1226881874398']
 - hashTag: media
   text: Chose not to mention a $882 million payout to News Corp. when outlining a
@@ -3479,7 +3526,7 @@
   topic: 1
   urls: ['http://www.abc.net.au/news/2013-04-23/vandals-deface-liberal-party-boats-sign/4646476',
     'http://www.smh.com.au/federal-politics/political-news/tony-abbott-defends-silence-over-asylum-seekers-off-indonesia-20131108-2x6d1.html',
-    'http://www.aljazeera.com/indepth/opinion/2014/02/cover-up-secrecy-abbott-australi-20142211104776886.html?utm=from_old_mobile']
+    'http://www.aljazeera.com/indepth/opinion/2014/02/cover-up-secrecy-abbott-australi-20142211104776886.html']
 - hashTag: asylum
   text: Dismissed out of hand serious allegations that Navy personnel assaulted asylum
     seekers, based on the supposed moral perfection of those personnel. A recent investigation
@@ -3593,7 +3640,7 @@
   text: Directed that asylum seeker families shall be given the lowest priority for
     processing, even those who've lived in Australia for years.
   topic: 1
-  urls: ['https://www.theguardian.com/world/2014/jan/08/refugees-family-reunion-hopes-dashed?CMP=soc_568']
+  urls: ['https://www.theguardian.com/world/2014/jan/08/refugees-family-reunion-hopes-dashed']
 - hashTag: corruption
   text: Spent over $120,000 on Kirribilli House, including $13,000 on an imported
     luxury rug, paid for by the taxpayer.
@@ -3606,14 +3653,14 @@
     as a result of this move, because the boat ran out of fuel and became stranded.
   topic: 1
   urls: ['http://www.smh.com.au/federal-politics/political-news/marty-natalegawa-says-turn-backs-not-helpful-as-greens-accuse-government-of-lying-about-boat-arrivals-20140207-325hk.html',
-    'http://www.eurekastreet.com.au/article.aspx?aeid=38805#.Uy7GDKaoLlc', 'http://www.vice.com/read/seeking-asylum-isnt-illegal-but-australias-border-policy-may-be']
+    'http://www.eurekastreet.com.au/article.aspx', 'http://www.vice.com/read/seeking-asylum-isnt-illegal-but-australias-border-policy-may-be']
 - hashTag: asylum
   text: Tried to deport a gay refugee to Pakistan, where he would be imprisoned for
     life for his sexuality. In doing so the government would have committed human
     rights abuse by violating the principle of non-refoulement. The man has never
     lived in Pakistan.
   topic: 1
-  urls: ['http://www.abc.net.au/news/2014-01-03/gay-man-faces-deportation-to-pakistan-as-relationship-not-recog/5183462?section=qld',
+  urls: ['http://www.abc.net.au/news/2014-01-03/gay-man-faces-deportation-to-pakistan-as-relationship-not-recog/5183462',
     'http://en.wikipedia.org/wiki/Non-refoulement']
 - hashTag: asylum
   text: Threatened to withhold food from families if children don't stand still for
@@ -3671,14 +3718,14 @@
   text: Deliberately omitted 23 questions asked of the immigration minister in a press
     conference. They have refused to comment further on why those questions were omitted.
   topic: 1
-  urls: ['https://www.theguardian.com/world/blog/2013/dec/24/scott-morrison-always-short-on-answers-now-shy-with-questions?CMP=fb_gu']
+  urls: ['https://www.theguardian.com/world/blog/2013/dec/24/scott-morrison-always-short-on-answers-now-shy-with-questions']
 - hashTag: asylum
   text: <b>Refused requests for medical treatment from a pregnant women in detention
     who subsequently had a miscarriage.</b> She probably would have had a normal birth
     had she received the treatment she asked for. The government declined to comment
     further.
   topic: 1
-  urls: ['https://www.theguardian.com/world/2013/dec/23/woman-who-miscarried-on-christmas-island-told-lower-expectations?CMP=soc_568']
+  urls: ['https://www.theguardian.com/world/2013/dec/23/woman-who-miscarried-on-christmas-island-told-lower-expectations']
 - hashTag: environment
   text: <b>Broke an election promise</b> to send a boat to monitor whaling by instead
     promising to only send an aircraft. The government subsequently broke that second
@@ -3751,7 +3798,7 @@
     Islander legal services, community legal services, the UNSW Indigenous Legal Centre
     and the Family Violence Prevention Legal Services.
   topic: 6
-  urls: ['https://www.theguardian.com/world/2014/jun/12/funding-cuts-mean-more-women-will-remain-in-violent-abusive-relationships?CMP=soc_568',
+  urls: ['https://www.theguardian.com/world/2014/jun/12/funding-cuts-mean-more-women-will-remain-in-violent-abusive-relationships',
     'http://www.sbs.com.au/news/article/2013/12/18/indigenous-australians-hit-hard-legal-aid-cuts',
     'http://www.ilc.unsw.edu.au/sites/ilc.unsw.edu.au/files/140422_ILC_FUNDING%20CUTS.pdf']
 - hashTag: climate
@@ -3843,7 +3890,7 @@
     heritage status.
   topic: 2
   urls: ['http://www.smh.com.au/environment/conservation/were-failing-to-protect-the-reef-activists-claim-20140129-31ncd.html',
-    'https://www.theguardian.com/environment/2014/jul/11/great-barrier-reef-impact-from-dredging-could-cost-as-much-as-1bn?CMP=soc_568']
+    'https://www.theguardian.com/environment/2014/jul/11/great-barrier-reef-impact-from-dredging-could-cost-as-much-as-1bn']
 - hashTag: environment
   text: Removed the Murray Darling from the list of threatened ecological communities.
   topic: 2
@@ -3872,7 +3919,7 @@
     thereby creating competition which threatens the corporate newspaper duopoly (who
     are now floundering because they didn't see the internet coming).
   topic: 12
-  urls: ['http://www.smh.com.au/federal-politics/political-news/cut-abc-funding-urges-liberal-senator-cory-bernardi-as-coalition-ramps-up-attack-on-the-national-broadcaster-20131204-2ypet.html?ak_proof=1']
+  urls: ['http://www.smh.com.au/federal-politics/political-news/cut-abc-funding-urges-liberal-senator-cory-bernardi-as-coalition-ramps-up-attack-on-the-national-broadcaster-20131204-2ypet.html']
 - hashTag: metadata
   text: Incorrectly defined metadata as billing data only, when it actually includes
     email subject headings, location data, financial transaction details and more.
@@ -3925,12 +3972,12 @@
   text: Disbanded AusAid (the foreign aid body), merging the remainder into the Department
     of Foreign Affairs and Trade.
   topic: 9
-  urls: ['http://www.smh.com.au/comment/the-shame-that-is-abbotts-foreign-aid-policy-20131101-2wrxt.html?rand=1178690']
+  urls: ['http://www.smh.com.au/comment/the-shame-that-is-abbotts-foreign-aid-policy-20131101-2wrxt.html']
 - hashTag: asylum
   text: Ceased reporting births and clinical depression in detention centers. Downgraded
     self harm.
   topic: 1
-  urls: ['https://www.theguardian.com/world/2013/nov/25/immigration-detention-centres-no-longer-formally-report-childbirth?CMP=soc_568']
+  urls: ['https://www.theguardian.com/world/2013/nov/25/immigration-detention-centres-no-longer-formally-report-childbirth']
 - hashTag: asylum
   text: Forcefully and unapologetically separated a mother and her newborn child.
   topic: 1
@@ -4082,4 +4129,4 @@
   text: <b>Broke an election promise</b> that Abbott would spend his first week in
     an Aboriginal community.
   topic: 5
-  urls: ['http://youtu.be/F1OKujvU2wQ?t=21m25s', 'http://www.independentaustralia.net/australia/australia-display/tony-abbotts-three-day-week-in-arnhem-land,6924']
+  urls: ['http://youtu.be/F1OKujvU2wQ', 'http://www.independentaustralia.net/australia/australia-display/tony-abbotts-three-day-week-in-arnhem-land,6924']

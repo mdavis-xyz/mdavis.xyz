@@ -288,6 +288,10 @@ def doAll(args):
             page['disclaimer'] = page['disclaimer'].strip()
         page['date'] = getDate(page)
 
+    if args.only_page and not any([args.only_page in p['sourcePath'] for p in pagesData]):
+        print("Error, page %s does not exist" % args.only_page)
+        exit(1)
+
     for page in pagesData:
         if args.only_page:
             pathGetter = lambda p: p['sourcePath'] if 'sourcePath' in p else p['path']

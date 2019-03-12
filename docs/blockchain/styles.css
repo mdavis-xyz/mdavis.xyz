@@ -242,8 +242,20 @@ p {
 }
 
 #back-button {
-   font-size: 75%;
+   font-size: 80%;
    left: 1.5em;
+   bottom: 1.5em;
+   display: block;
+   position: absolute;
+   padding-left: 1em;
+   padding-right: 1em;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+
+#find-more {
+   font-size: 80%;
+   right: 1.5em;
    bottom: 1.5em;
    display: block;
    position: absolute;
@@ -285,6 +297,28 @@ p {
 @keyframes slide-out-button {
    0% { transform: translateX(0%); }
    100% { transform: translateX(-200%); }
+}
+
+
+.slide-in-find-more {
+   -webkit-animation: slide-in-find-more 0.5s forwards;
+   animation: slide-in-find-more 0.5s forwards;
+}
+
+@keyframes slide-in-find-more {
+   0% { transform: translateY(100vh); }
+   100% { transform: translateY(0%); }
+}
+
+
+.slide-out-find-more {
+   -webkit-animation: slide-out-find-more 0.5s forwards;
+   animation: slide-out-find-more 0.5s forwards;
+}
+
+@keyframes slide-out-find-more {
+   0% { transform: translateY(0%); }
+   100% { transform: translateY(100vh); }
 }
 
 

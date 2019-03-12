@@ -7,12 +7,8 @@ function duration(){
    var elapsed_days = Math.floor(elapsed_ms / (1000 * 60 * 60 * 24)); //difference in days
 }
 
-window.addEventListener("load",function(){
-   console.log('onload called');
-   duration();
-   copyToGroups();
-})
-
+window.addEventListener("load",duration,false);
+window.addEventListener("load",copyToGroups,false);
 
 // for each element in the chrono list, copy it to the corresponding
 // category in the grouped list

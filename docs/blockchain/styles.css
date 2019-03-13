@@ -325,3 +325,7 @@ p {
 ::-webkit-scrollbar {
    display: none;
 }
+
+.leaf-slide {
+   padding-bottom: 2em;
+}

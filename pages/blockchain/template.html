@@ -2,7 +2,7 @@
 <div id="${section['id']}-1" class="wrap1 ${'slide-in-up' if i == 0 else 'slid-out'}">
    <div id="${section['id']}-2" class="wrap2">
       <div id="${section['id']}-3" class="wrap3">
-         <div id="${section['id']}-4" class="wrap4">
+         <div id="${section['id']}-4" class="wrap4 ${'leaf-slide' if section['leaf'] else ''}">
          % for el in section['content']:
             % if 'button' in el:
             <a href="javascript:slide('${section['id']}','${el['button'][0]['destination']}','${el['button'][0]['direction']}', ${'true' if el['button'][0]['dest-is-leaf'] else 'false'})"  class="button buttonBig">

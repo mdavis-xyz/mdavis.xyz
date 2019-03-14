@@ -241,9 +241,7 @@ p {
    box-decoration-break: clone;
 }
 
-#back-button {
-   font-size: 80%;
-   left: 1.5em;
+.footer-button {
    bottom: 1.5em;
    display: block;
    position: absolute;
@@ -251,18 +249,15 @@ p {
    padding-right: 1em;
    padding-top: 0.5em;
    padding-bottom: 0.5em;
+   font-size: 80%;
+}
+
+#back-button {
+   left: 1.5em;
 }
 
 #find-more {
-   font-size: 80%;
    right: 1.5em;
-   bottom: 1.5em;
-   display: block;
-   position: absolute;
-   padding-left: 1em;
-   padding-right: 1em;
-   padding-top: 0.5em;
-   padding-bottom: 0.5em;
 }
 
 @media (min-width:30em)  {

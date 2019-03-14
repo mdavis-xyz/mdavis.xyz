@@ -63,17 +63,45 @@ def main():
         f.write(html)
     print('done')
 
+# takes in a dict with one key
+# returns that key
+def getKey(x):
+    keys = [k for k in x.keys()]
+    assert(1==len(keys))
+    return(keys[0])
+
+def testGetKey():
+    assert(getKey({'foo':'bar'}) == 'foo')
+    try:
+        getKey({})
+        print("Test failed") # should fail
+        exit(1)
+    except AssertionError:
+        pass
+    try:
+        getKey({'foo':1,'bar':2}) # should fail
+        print("Test failed")
+        exit(1)
+    except AssertionError:
+        pass
+
+
 def validate(content):
     for (i,slide) in enumerate(content):
         if 'id' not in slide:
             slide['id'] = "slide-%3d" % i
+
+        # true iff this slide has no buttons
+        # so it is the end of the decision tree
+        slide['leaf'] = not any(['button' == getKey(el) for el in slide['content']])
+
     allIDs = set([x['id'] for x in content if 'id' in x])
     for (i,slide) in enumerate(content):
         assert('id' in slide)
         print("Validating slide %s" % slide['id'])
         for (elnum,el) in enumerate(slide['content']): # els is dict with one key
             assert(len(el) == 1)
-            key = [k for k in el.keys()][0]
+            key = getKey(el)
             value = el[key]
             assert(key in ['h1','h2','p','button'])
             if not value:
@@ -94,6 +122,11 @@ def validate(content):
                     button['destination-type'] = 'absolute'
                 assert(button['direction'] in ['left','right','up','down'])
                 text = button['text']
+
+                # check if this button points to an end page
+                destSlide = [slide for slide in content if slide['id'] == button['destination']][0]
+                button['dest-is-leaf'] = destSlide['leaf']
+
                 if (not text) or (text.strip() == ''):
                     print("Error: no content for button which is element %d of slide %s" % (elnum,slide['id']))
                     exit(1)
@@ -121,7 +154,8 @@ def htmlize(content):
             if len(errors) > 0:
                 print("Error: invalid html")
                 print(errors[0])
-                exit(1)
+                print("continuing anyway")
+                # exit(1)
             else:
                 print('all warnings, continuing anyway')
 
@@ -133,7 +167,7 @@ def htmlize(content):
     return(html)
 
 def unitTests():
-    pass
+    testGetKey()
 
 if __name__ == '__main__':
     unitTests()

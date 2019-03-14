@@ -264,7 +264,7 @@
      - h1: No, you don't need a blockchain
      - p: The reason blockchains were invented was to ensure that no one has the authority to deny read and write access to the database.
      - p: We've already established that untrusted parties can read the database. What's to stop them from making a copy of that data and sending it overseas?
-     - p: Just use a normal database. That way you'll be able to see and control where the data resides.
+     - p: Just use a normal database. That way you'll be able to monitor and control where the data resides.
 - id: cost
   content:
      - h2: Is financial cost important?

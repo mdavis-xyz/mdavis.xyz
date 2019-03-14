@@ -241,9 +241,7 @@ p {
    box-decoration-break: clone;
 }
 
-#back-button {
-   font-size: 75%;
-   left: 1.5em;
+.footer-button {
    bottom: 1.5em;
    display: block;
    position: absolute;
@@ -251,6 +249,15 @@ p {
    padding-right: 1em;
    padding-top: 0.5em;
    padding-bottom: 0.5em;
+   font-size: 80%;
+}
+
+#back-button {
+   left: 1.5em;
+}
+
+#find-more {
+   right: 1.5em;
 }
 
 @media (min-width:30em)  {
@@ -288,6 +295,32 @@ p {
 }
 
 
+.slide-in-find-more {
+   -webkit-animation: slide-in-find-more 0.5s forwards;
+   animation: slide-in-find-more 0.5s forwards;
+}
+
+@keyframes slide-in-find-more {
+   0% { transform: translateY(100vh); }
+   100% { transform: translateY(0%); }
+}
+
+
+.slide-out-find-more {
+   -webkit-animation: slide-out-find-more 0.5s forwards;
+   animation: slide-out-find-more 0.5s forwards;
+}
+
+@keyframes slide-out-find-more {
+   0% { transform: translateY(0%); }
+   100% { transform: translateY(100vh); }
+}
+
+
 ::-webkit-scrollbar {
    display: none;
+}
+
+.leaf-slide {
+   padding-bottom: 2em;
 }

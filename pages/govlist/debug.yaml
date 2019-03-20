@@ -1,3 +1,30 @@
+- hashTag: ethics
+  text: Introduced a law which allows the government to revoke the citizenship of
+    whistleblowers, minor vandals and people who provide humanitarian assistance in
+    conflict zones.
+  topic: 6
+  urls: ['https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/billhome/r5507%22',
+    'https://newmatilda.com/2015/09/04/vindicating-warnings-government-told-scrap-most-extreme-elements-citizenship-stripping/']
+- hashTag: budget
+  text: Paid $9 million for a contractor to do literally nothing, because they abruptly
+    cancelled the contract and instead gave it to a less experienced and less qualified
+    company.
+  topic: 0
+  urls: ['https://www.afr.com/news/policy/money-for-nothing-government-paid-9m-after-scrapping-manus-project-20190308-h1c5uu']
+- hashTag: asylum
+  text: Detained refugees close to large volumes of potentially deadly asbestos.
+  topic: 1
+  urls: ['https://www.abc.net.au/news/2019-03-19/refugees-on-nauru-exposed-to-asbestos/10912044']
+- hashTag: abortion
+  text: Voted against a United Nations motion for increased sexual education about
+    women's health, opposition to female genital mutilation, and access to safe abortion.
+  topic: 11
+  urls: ['https://www.sbs.com.au/news/the-feed/australia-refuses-to-sign-on-to-un-international-women-s-day-statement']
+- hashTag: budget
+  text: Spent $200,000 on chartered flights for ministers to travel between parliament
+    and their electorate.
+  topic: 0
+  urls: ['https://www.theage.com.au/politics/federal/two-mps-run-up-200000-tab-on-private-flights-to-work-in-canberra-20170127-gu0817.html']
 - hashTag: climate
   text: <b>Lied</b> about Australia's emissions, claiming they had decreased when
     they had actually increased to an record high.
@@ -1116,7 +1143,8 @@
 - hashTag: international
   text: <b>Violated international law</b> by illegally conducting war in Syria.
   topic: 9
-  urls: ['https://newmatilda.com/2015/12/08/australias-illegal-war-in-syria-a-brief-update/']
+  urls: ['https://newmatilda.com/2015/12/08/australias-illegal-war-in-syria-a-brief-update/',
+    'https://newmatilda.com//2015/09/03/attacking-vietnam-and-iraq-didnt-work-out-so-well-us-syria-will-be-different-right']
 - hashTag: asylum
   text: Refused to give citizenship to eligible permanent residents, years after their
     refugee claims were accepted.
@@ -1844,6 +1872,11 @@
     year, to get $5 per hour.
   topic: 4
   urls: ['https://newmatilda.com/2014/12/09/black-australia-would-be-essentially-free-labour-under-work-dole-changes']
+- hashTag: corruption
+  text: Spent $10,000 trying to identify a whistleblower who told the media that the
+    Prime Minister knowingly mislead the public using information he knew was incorrect.
+  topic: 12
+  urls: ['https://www.smh.com.au/public-service/public-service-commissioner-john-lloyd-spent-thousands-to-find-whistleblower-20150720-gig3nf.html']
 - hashTag: internetfilter
   text: Claimed that virtual private networks (VPNs) would be exempt from their internet
     filter, then voted against an amendment to exempt VPNs from their internet filter.
@@ -3161,17 +3194,18 @@
   topic: 0
   urls: ['http://m.couriermail.com.au/business/abbott-government-considers-toll-charges-for-existing-roads/story-fnihpilr-1226853016367']
 - hashTag: defence
-  text: <b>Spent $24 billion on new, spontaneously combusting fighter jets, already
-    years behind schedule, which aren't going to be built in Australia.</b> The jets
-    can't run off warm fuel from a truck which has been sitting in the sun (since
-    the fuel tank is used as a heat sink). The software for firing the guns won't
-    be ready until 3 years after deployment. Each plane holds less than 3 seconds
-    of ammunition for the guns.
+  text: <b>Spent $24 billion on new, buggy, spontaneously combusting fighter jets,
+    already years behind schedule, which aren't going to be built in Australia.</b>
+    The jets can't run off warm fuel from a truck which has been sitting in the sun
+    (since the fuel tank is used as a heat sink). The software for firing the guns
+    won't be ready until 3 years after deployment. The software has not passed a security
+    audit. Each plane holds less than 3 seconds of ammunition for the guns.
   topic: 7
   urls: ['http://tharunka.arc.unsw.edu.au/buy-instead-shiny-new-jets/', 'https://medium.com/war-is-boring/fd-how-the-u-s-and-its-allies-got-stuck-with-the-worlds-worst-new-warplane-5c95d45f86a5',
     'https://www.theguardian.com/politics/2014/jul/04/us-military-grounds-all-f-35-fighter-jets-but-australias-purchase-to-go-ahead',
     'http://foxtrotalpha.jalopnik.com/the-f-35-cant-run-on-warm-gas-from-a-fuel-truck-that-sa-1668120726',
-    'http://www.thedailybeast.com/articles/2014/12/31/new-u-s-stealth-jet-can-t-fire-its-gun-until-2019.html']
+    'http://www.thedailybeast.com/articles/2014/12/31/new-u-s-stealth-jet-can-t-fire-its-gun-until-2019.html',
+    'https://www.theguardian.com/technology/2016/mar/08/radar-glitch-requires-f-35-fighter-jet-pilots-to-turn-it-off-and-on-again']
 - hashTag: asylum
   text: Failed to supply enough food to asylum seekers inside the detention centre
     on Manus Island.
@@ -3278,9 +3312,11 @@
 - hashTag: asylum
   text: Defended the Manus Island scheme during a press conference about the man who
     was shot dead in our detention centres by claiming the government is "ending the
-    deaths" of asylum seekers.
+    deaths" of asylum seekers. More refugees have died on Manus island than have been
+    settled.
   topic: 1
-  urls: ['http://www.smh.com.au/federal-politics/political-news/tony-abbott-defends-scott-morrisons-bungled-information-on--manus-island-violence-20140223-33a98.html']
+  urls: ['http://www.smh.com.au/federal-politics/political-news/tony-abbott-defends-scott-morrisons-bungled-information-on--manus-island-violence-20140223-33a98.html',
+    'http://www.brisbanetimes.com.au/federal-politics/political-news/more-asylum-seekers-have-died-on-manus-island-than-have-been-resettled-report-shows-20150716-gidi1b.html']
 - hashTag: climate
   text: Chose not to send any representatives to the Partnership for Market Readiness
     assembly, a conference which Australia helped fund which is about market mechanisms

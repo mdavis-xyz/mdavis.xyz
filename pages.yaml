@@ -213,7 +213,7 @@
    exclude:
       - script
 -  title: "Inverter Inertia Emulation"
-   description: "My bachelors thesis about emulating inertia with battery inverters"
+   description: "My bachelor's thesis about emulating inertia with battery inverters"
    path: "thesis"
    images:
       card:

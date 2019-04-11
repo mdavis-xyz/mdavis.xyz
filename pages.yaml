@@ -134,7 +134,7 @@
          path: "thumb.jpg"
          description: "Ballot paper inserted into ballot box"
          width: 1000
-         height: 677
+         height: 667
          attribution: https://unsplash.com/photos/T9CXBZLUvic
       top:
          path: "topimage.jpg"

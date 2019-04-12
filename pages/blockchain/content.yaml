@@ -1,3 +1,120 @@
+- id: voting-start
+  content:
+     - h2: Are you considering using a blockchain to secure a digital election? 
+     - button:
+         - text: Yes
+           destination: voting-type
+           destination-type: absolute 
+           direction: left
+     - button:
+         - text: No
+           destination: start
+           destination-type: absolute 
+           direction: left
+- id: voting-type
+  content:
+     - h2: For voting machines or online voting?
+     - button:
+         - text: Voting machines in polling booths
+           destination: voting-machines
+           destination-type: absolute 
+           direction: left
+     - button:
+         - text: Website or app voting from home
+           destination: voting-online
+           destination-type: absolute 
+           direction: left
+- id: voting-machines
+  content:
+     - h2: Paper trail or not?
+     - p: Will you use a two step system, where the machines in booths print out a receipt, which is counted by a second machine? Or will it be an all-in-one system where a selection on a touchscreen is written directly to the blockchain?
+     - button:
+          - text: Two steps
+          - destination: voting-two
+          - destination-type: absolute
+          - direction: left
+     - button:
+          - text: One steps
+          - destination: voting-one
+          - destination-type: absolute
+          - direction: left
+- id: voting-two
+  # first step machine or by hand
+  # if machine:
+  #    voters won't read
+  # else:
+  #    what if there's a dispute? Bad memory or not?
+  #    security questions?
+  #    how do miners know?
+  #    no better than normal database
+- id: voting-one
+  content:
+     - h2: What about security?
+     - p: How can you guarentee that a voter's selection is written directly to the blockchain, without being tampered with by malware on the device, in the network, or back-end servers?
+     - button:
+          - text: Blockchains are secure because of cryptography
+            destination: voting-machine-crypto
+            destination-type: absolute
+            direction: down
+     - button:
+          - text: If banks can make secure ATMs, governments can make secure voting machines
+            destination: vote-vs-bank
+            destination-type: absolute
+            direction: down
+
+       # If we can bank securely online, we can vote
+       # TODO: audits and recounts
+       # TODO: secure network?
+       # TODO: secure client side?
+- id: voting-machine-crypto
+  content: 
+     - h2: How will voter identity be verified?
+     - button: 
+          - text: Cryptographic keys
+            destination: voting-keys
+            destination-type: absolute
+            direction: left
+          - text: Driver's license, passport etc
+            destination: voting-physical-id
+            destination-type: absolute
+            direction: left
+- id: voting-keys # TODO
+     # what happens if keys are stolen or lost?
+- id: voting-physical-id
+  content:
+     - h2: How do the miners know that document exists and is valid?
+     - p: >
+          So a poll booth worker will check the voter's document prior to letting them vote. 
+          How will the blockchain miners know that this happened?
+     # each machine will submit only 1 vote until it is reset by a staff member
+     # the voter will be given some kind of token which will allow them to vote once
+     # the worker will tell the blockchain this person has been validated
+     - button:
+          - text: # TODO
+
+- id: vote-vs-bank
+  content:
+     - h1: No, you don't need a blockchain
+     - p: > 
+          Cryptography is <i>not</i> the primary security measure for ATMs and online banking.
+          It is that <i>when</i> customers lose money to a hack, the bank just pays back the customer out of their own pocket, and writes it off as an operational cost.
+          That is cheaper than improving security. 
+          Elections have no equivilent remediation. # list examples of bad voting machine security
+     - p: >
+          Bank fraud is easily detected. 
+          Either your balance doesn't equal the sum of all transactions, or there is a transaction you don't recognise.
+          Election fraud is impossible to detect, unless you forgo anonymity, or use a two-step system with a paper trail, so you can do a recount.
+     - p: >
+          The strongest threat banks must defend against is organised crime. 
+          The strongest threat an election system must defend against is a nation state (such as the Kremlin or the NSA). 
+          The latter is far more formidable.
+     - p: > 
+          Blockchains are not magic. 
+          Application written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones. 
+          Blockchains are just a type of database.
+          The security issues with voting machines encompass the whole ecosystem, not just the database.
+          There are actually <a target="_blank" href="https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf>fundemental mathematical facts</a> which say that you can <i>never</i> be sure that a digital device is secure.
+- id: voting-online
 - id: start
   content:
      - h1: Do you need a blockchain?

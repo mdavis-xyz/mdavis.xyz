@@ -133,8 +133,8 @@
       card:
          path: "thumb-drawn.jpg"
          description: "Animated Unicycle"
-         width: 677
-         height: 1000
+         width: 1000
+         height: 667
    template: "markdown"
    markdown: "content.md"
    exclude:
@@ -160,13 +160,13 @@
       card:
          path: "thumb.jpg"
          description: "Python Code"
-         width: 677
-         height: 1000
+         width: 1000
+         height: 667
       top:
          path: "topimage.jpg"
          description: "Python Code"
-         width: 472
-         height: 1000
+         height: 472
+         width: 1000
    template: "markdown"
    markdown: "content.md"
    exclude:

@@ -57,7 +57,7 @@ def main(logger,event):
         except:
            logger.info("Can't find " + x)
     try:
-        websiteName =  event['queryStringParameters']['websiteName']
+        websiteName =  event['queryStringParameters']['websiteName'].lstrip('/')
     except (KeyError,TypeError):    
         logger.error("Can't find websiteName")
         response = {

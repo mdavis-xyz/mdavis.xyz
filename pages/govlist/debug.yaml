@@ -1,3 +1,20 @@
+- hashTag: budget
+  text: Forecast an increase in wage growth despite simultaneously forecasting no
+    decrease in unemployement. (So employers would pay more for no economically rational
+    reason.) Each year they consistently forecast optimistic wage growth which consistently
+    fails to actually happen.
+  topic: 0
+  urls: ['https://www.theguardian.com/australia-news/2019/apr/02/federal-budget-2019-the-seven-graphs-that-expose-the-coalitions-2019-budget-fairy-tale']
+- hashTag: climate
+  text: Simultaneously proposed plans to support electric vehicles and ridiculed plans
+    to support electric vehicles, within the same week.
+  topic: 2
+  urls: ['https://mobile.twitter.com/adambandt/status/1115068131628670977']
+- hashTag: corruption
+  text: Merged the Australian Federal Police into the Home Affairs department, allowing
+    the minister can exert political influence on investigations.
+  topic: 12
+  urls: ['https://www.theguardian.com/australia-news/2019/mar/15/federal-police-must-split-from-dutton-ministry-to-save-integrity-says-union']
 - hashTag: ethics
   text: Introduced a law which allows the government to revoke the citizenship of
     whistleblowers, minor vandals and people who provide humanitarian assistance in

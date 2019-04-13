@@ -70,6 +70,254 @@
      - p: The reason blockchains were invented was to make an immutable, censorship-proof database. That means no central authority should have the power to unilaterally modify records.
      - p: Editable blockchains are like infrared coloured fireworks. They're straightforward to build, but there's no point creating such a thing.
      - p: Just use a normal database. It will be faster, cheaper and greener.
+- id: voting-start
+  content:
+     - h2: Is this for securing an election?
+     - button:
+         - text: Yes
+           destination: voting-type
+           destination-type: absolute
+           direction: left
+     - button:
+         - text: No
+           destination: write-data
+           destination-type: absolute
+           direction: left
+- id: voting-type
+  content:
+     - h2: For voting machines or online voting?
+     - button:
+         - text: Voting machines in polling booths
+           destination: voting-machines
+           destination-type: absolute
+           direction: left
+     - button:
+         - text: Website or app voting from home
+           destination: voting-online
+           destination-type: absolute
+           direction: left
+- id: voting-machines
+  content:
+     - h2: Paper trail or direct?
+     - p: >
+          Will there be a first machine which prints out paper ballots, counted by a second machine at the end of the day?
+          Or will the voter-facing machine write directly to the blockchain?
+     - button:
+         - text: Paper trail
+           destination: voting-machine-two
+           destination-type: absolute
+           direction: left
+     - button:
+         - text: Direct to blockchain
+           destination: voting-machine-one
+           destination-type: absolute
+           direction: left
+- id: voting-machine-two
+  content:
+     - h2: What about counting device security?
+     - p: >
+          The main reason some elections use the two step process is that the paper ballots can be re-counted.
+          A blockchain cannot detect whether the counting machine modified the numbers prior to signing the count.
+     - p: What happens if an audit shows that a machine wrote a vote count to the blockchain which did not match the actual paper ballots?
+     - button:
+        - text: Electoral staff will correct that
+          destination: voting-machine-two-edit
+          destination-type: absolute
+          direction: down
+     - button:
+        - text: Won't happen. If banks can make secure ATMs, Governments can make secure counting machines
+          destination: voting-machine-two-secure
+          destination-type: absolute
+          direction: down
+- id: voting-machine-two-edit
+  content:
+      - h1: No, you don't need a blockchain
+      - p: The reason blockchains were invented was to make an immutable, censorship-proof database. That means no one has the power to modify or redact data on the blockchain.
+      - p: Editable blockchains are like infrared coloured fireworks. They're straightforward to build, but there's no point creating such a thing.
+      - p: >
+           Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+           If you must do it, just use a normal database.
+           It will be faster, cheaper and greener.
+      # TODO: link
+- id: voting-machine-two-secure
+  content:
+     # list examples of bad voting machine security
+     - h1: No, you don't need a blockchain
+     - p: >
+          Cryptography is <i>not</i> the primary security measure for ATMs and online banking.
+          It is that <i>when</i> customers lose money to a hack, the bank just pays back the customer out of their own pocket, and writes it off as an operational cost.
+          This is cheaper than developing extreme security.
+          Elections have no equivalent remediation.
+     - p: >
+          The strongest threat banks must defend against is organised crime.
+          The strongest threat an election system must defend against is a nation state (such as the Kremlin or the NSA).
+          The latter is far more formidable
+          <sup>
+          <a target="_blank" href="https://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1050&context=mca">[1]</a>
+          <a target="_blank" href="https://www.eff.org/deeplinks/2016/04/eff-and-aclu-expose-governments-secret-stingray-use-wisconsin-case">[2]</a>
+          </sup>.
+     - p: >
+          Blockchains are not magic.
+          Applications written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones.
+          Blockchains are just a type of database.
+          The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
+     - p: >
+          Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+          If you must do it, just use a normal database.
+          It will be faster, cheaper and greener.
+     # TODO: link in last sentence
+- id: voting-machine-one
+  content:
+     - h2: What about security?
+     - p: How can you guarantee that the voting machine does not modify the data before signing it and writing it to the blockchain?
+     - button:
+          - text: Blockchains are secure because of cryptography
+            destination: voting-machine-one-crypto
+            destination-type: absolute
+            direction: down
+     - button:
+          - text: If banks can make secure ATMs, governments can make secure voting machines
+            destination: voting-machine-one-bank
+            destination-type: absolute
+            direction: down
+- id: voting-machine-one-bank
+  content:
+     # list examples of bad voting machine security
+     - h1: No, you don't need a blockchain
+     - p: >
+          Cryptography is <i>not</i> the primary security measure for ATMs and online banking.
+          It is that <i>when</i> customers lose money to a hack, the bank just pays back the customer out of their own pocket, and writes it off as an operational cost.
+          This is cheaper than developing extreme security.
+          Elections have no equivalent remediation.
+     - p: >
+          The strongest threat banks must defend against is organised crime.
+          The strongest threat an election system must defend against is a nation state (such as the Kremlin or the NSA).
+          The latter is far more formidable
+          <sup>
+          <a target="_blank" href="https://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1050&context=mca">[1]</a>
+          <a target="_blank" href="https://www.eff.org/deeplinks/2016/04/eff-and-aclu-expose-governments-secret-stingray-use-wisconsin-case">[2]</a>
+          </sup>.
+     - p: >
+          Bank fraud is easily detected.
+          Either your balance doesn't equal the sum of all transactions, or there is a transaction you don't recognise.
+          Election fraud is impossible to detect, unless you forgo anonymity, or use paper ballots which can be re-counted.
+          In practice, electronic ballot counting machines are consistently secured terribly.
+          In theory, there are <a target="_blank" href="https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf">fundamental mathematical facts</a> which say that you can <i>never</i> be sure that a digital device is secure.
+          This is why ballots should be counted by hand.
+     # TODO: links for example
+     - p: >
+          Blockchains are not magic.
+          Applications written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones.
+          Blockchains are just a type of database.
+          The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
+     - p: >
+          Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+          If you must do it, just use a normal database.
+          It will be faster, cheaper and greener.
+     # TODO: link in last sentence
+- id: voting-machine-one-crypto
+  content:
+     - h1: No, you don't need a blockchain
+     - p: >
+          The cryptography behind blockchains is secure, but no one attacks a system at its strongest point.
+          If you can compromise the device anywhere between user input and signing that input with a key, it does not matter how strong the algorithms are.
+     - p: Even hardcore cryptocurrency enthusiasts cannot keep their keys and devices safe
+          <sup>
+          <a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a>
+          <a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a>
+          <a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a>
+          <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a>
+          <a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a>
+          <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a>
+          <a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a>
+          </sup>.
+     - p: In practice, even voting machines are terribly secured.
+     # provide examples of above.
+     - p: >
+          In theory, there are
+          <a target="_blank" href="https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf">
+             fundamental mathematical facts
+          </a>
+          which say that you can <i>never</i> be sure that a voting machine is secure.
+     - p: When the fate of a whole society is at stake, and the threats include other nation states, you cannot assume that voting machines will remain secure.
+     - p: >
+          Blockchains are just a type of database.
+          The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
+     - p: >
+          Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+          If you must do it, just use a normal database.
+          It will be faster, cheaper and greener.
+- id: voting-online
+  content:
+     - h2: What about security?
+     - p: How can you guarantee that the votes are not tampered with on the voter's device, in the network, or the back end servers?
+     - button:
+          - text: Blockchains are secure because of cryptography
+            destination: voting-online-crypto
+            destination-type: absolute
+            direction: down
+     - button:
+          - text: If banks can make secure websites and apps, governments can too
+            destination: voting-online-bank
+            destination-type: absolute
+            direction: down
+- id: voting-online-crypto
+  content:
+     - h1: No, you don't need a blockchain
+     - p: >
+          The cryptography behind blockchains is secure, but no one attacks a system at its strongest point.
+          If an attacker acquires a voter's key, or compromises their device it does not matter how strong the algorithms are.
+     - p: Even hardcore cryptocurrency enthusiasts cannot keep their keys and devices safe
+          <sup>
+          <a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a>
+          <a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a>
+          <a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a>
+          <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a>
+          <a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a>
+          <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a>
+          <a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a>
+          </sup>.
+          How could an average citizen possibly fare any better?
+     - p: >
+          The threats to election security include whole nation-states.
+          In practice, consumer devices are not designed for such an extreme threat model.
+          In theory, there are
+          <a target="_blank" href="https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf">
+             fundamental mathematical facts
+          </a>
+          which say that you can <i>never</i> defend a device against the kind of attacks which nation-states can execute.
+     - p: >
+          Blockchains are just a type of database.
+          The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with online voting encompass the whole ecosystem, not just the database.
+     - p: >
+          Any type of online voting is a terrible idea.
+          If you must do online voting, just use a normal database.
+          It will be simpler, cheaper and greener.
+- id: voting-online-bank
+  content:
+     - h1: No, you don't need a blockchain
+     - p: >
+          Cryptography is <i>not</i> the primary security measure for online banking.
+          It is that <i>when</i> customers lose money to a hack, the bank just pays back the customer out of their own pocket, and writes it off as an operational cost.
+          This is cheaper than developing extreme security.
+          Elections have no equivalent remediation.
+     - p: >
+          The strongest threat banks must defend against is organised crime.
+          The strongest threat an election system must defend against is a nation state (such as the Kremlin or the NSA).
+          The latter is far more formidable
+          <sup>
+          <a target="_blank" href="https://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1050&context=mca">[1]</a>
+          <a target="_blank" href="https://www.eff.org/deeplinks/2016/04/eff-and-aclu-expose-governments-secret-stingray-use-wisconsin-case">[2]</a>
+          </sup>.
+     - p: >
+          Blockchains are not magic.
+          Applications written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones.
+          Blockchains are just a type of database.
+          The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with online voting encompass the whole ecosystem, not just the database.
+     - p: >
+          Any type of online voting is a terrible idea.
+          If you must do online voting, just use a normal database.
+          It will be simpler, cheaper and greener.
 - id: write-data
   content:
      - h2: Who will write this data?
@@ -405,7 +653,22 @@
   content:
      - h1: Yes, you do need a blockchain
      - p: Cryptocurrencies are one of the few use cases where blockchains are the best available choice. However, does the world really need another cryptocurrency?
-     - p: Make sure your coin is uniquely useful. Also, be careful. The world of cryptocurrencies is not very kind to those who write <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/">buggy code</a> or have consumer grade security <sup><a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a><a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a><a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a><a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a><a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a><a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a><a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a></sup>.
+     - p: >
+          Make sure your coin is uniquely useful.
+          Also, be careful.
+          The world of cryptocurrencies is not very kind to those who write
+          <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/">
+             buggy code
+          </a>
+          or have consumer grade security <sup>
+          <a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a>
+          <a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a>
+          <a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a>
+          <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a>
+          <a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a>
+          <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a>
+          <a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a>
+          </sup>.
      - p: I hope the <a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">emissions</a>, <a target="_blank" href="https://www.blockchain.com/charts/cost-per-transaction?popcorn=extrabuttery">cost</a>, <a target="_blank" href="https://www.blockchain.com/charts/transactions-per-second?timespan=30days">low performance</a>, <a target="_blank" href="https://fc18.ifca.ai/preproceedings/6.pdf">legal risk</a> and <a target="_blank" href="https://www.coindesk.com/the-first-augur-assassination-markets-have-arrived/">ethical costs</a> are worth it.
 
 - id: maybe-blockchain

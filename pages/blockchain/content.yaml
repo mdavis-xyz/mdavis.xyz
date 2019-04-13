@@ -134,8 +134,10 @@
       - h1: No, you don't need a blockchain
       - p: The reason blockchains were invented was to make an immutable, censorship-proof database. That means no one has the power to modify or redact data on the blockchain.
       - p: Editable blockchains are like infrared coloured fireworks. They're straightforward to build, but there's no point creating such a thing.
-      - p: Just use a normal database. It will be faster, cheaper and greener.
-      - p: That said, any type of voting machine is a terrible idea.
+      - p: >
+           Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+           If you must do it, just use a normal database.
+           It will be faster, cheaper and greener.
       # TODO: link
 - id: voting-machine-two-secure
   content:
@@ -159,8 +161,10 @@
           Applications written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones.
           Blockchains are just a type of database.
           The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
-     - p: Just use a normal database. It will be simpler, cheaper and greener.
-     - p: That said, any type of voting machine system is a terrible idea.
+     - p: >
+          Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+          If you must do it, just use a normal database.
+          It will be faster, cheaper and greener.
      # TODO: link in last sentence
 - id: voting-machine-one
   content:
@@ -206,7 +210,10 @@
           Applications written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones.
           Blockchains are just a type of database.
           The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
-     - p: Any type of voting machine system is a terrible idea. Blockchains do not fix these security issues.
+     - p: >
+          Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+          If you must do it, just use a normal database.
+          It will be faster, cheaper and greener.
      # TODO: link in last sentence
 - id: voting-machine-one-crypto
   content:
@@ -236,7 +243,10 @@
      - p: >
           Blockchains are just a type of database.
           The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
-     - p: Any type of voting machine system is a terrible idea. Blockchains do not fix these security issues.
+     - p: >
+          Using any type of voting machine is a <a target="_blank" href="https://xkcd.com/2030/">terrible idea</a>.
+          If you must do it, just use a normal database.
+          It will be faster, cheaper and greener.
 - id: voting-online
   content:
      - h2: What about security?

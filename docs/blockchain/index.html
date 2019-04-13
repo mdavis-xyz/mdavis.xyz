@@ -83,25 +83,122 @@
       <div id="voting-machines-3" class="wrap3">
          <div id="voting-machines-4" class="wrap4 ">
             <h2>
-               What about security?
+               Paper trail or direct?
             </h2>
             <p>
-               How can you guarantee that the voting machine sends the correct value to the blockchain?
+               Will there be a first machine which prints out paper ballots, counted by a second machine at the end of the day? Or will the voter-facing machine write directly to the blockchain?
+
             </p>
-            <a href="javascript:slide('voting-machines','voting-machine-crypto','left', false)"  class="button buttonBig">
-               Blockchains are secure because of cryptography
+            <a href="javascript:slide('voting-machines','voting-machine-two','left', false)"  class="button buttonBig">
+               Paper trail
             </a>
-            <a href="javascript:slide('voting-machines','vote-vs-bank','down', true)"  class="button buttonBig">
-               If banks can make secure ATMs, governments can make secure counting machines
+            <a href="javascript:slide('voting-machines','voting-machine-one','left', false)"  class="button buttonBig">
+               Direct to blockchain
             </a>
          </div>
       </div>
    </div>
 </div>
-<div id="vote-vs-bank-1" class="wrap1 slid-out">
-   <div id="vote-vs-bank-2" class="wrap2">
-      <div id="vote-vs-bank-3" class="wrap3">
-         <div id="vote-vs-bank-4" class="wrap4 leaf-slide">
+<div id="voting-machine-two-1" class="wrap1 slid-out">
+   <div id="voting-machine-two-2" class="wrap2">
+      <div id="voting-machine-two-3" class="wrap3">
+         <div id="voting-machine-two-4" class="wrap4 ">
+            <h2>
+               What about counting device security?
+            </h2>
+            <p>
+               The main reason some elections use the two step process is that the paper ballots can be re-counted. A blockchain cannot detect whether the counting machine modified the numbers prior to signing the count.
+
+            </p>
+            <p>
+               What happens if an audit shows that a machine wrote a vote count to the blockchain which did not match the actual paper ballots?
+            </p>
+            <a href="javascript:slide('voting-machine-two','voting-machine-two-edit','down', true)"  class="button buttonBig">
+               Electoral staff will correct that
+            </a>
+            <a href="javascript:slide('voting-machine-two','voting-machine-two-secure','down', true)"  class="button buttonBig">
+               Won't happen. If banks can make secure ATMs, Governments can make secure counting machines
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="voting-machine-two-edit-1" class="wrap1 slid-out">
+   <div id="voting-machine-two-edit-2" class="wrap2">
+      <div id="voting-machine-two-edit-3" class="wrap3">
+         <div id="voting-machine-two-edit-4" class="wrap4 leaf-slide">
+            <h1>
+               No, you don't need a blockchain
+            </h1>
+            <p>
+               The reason blockchains were invented was to make an immutable, censorship-proof database. That means no one has the power to modify or redact data on the blockchain.
+            </p>
+            <p>
+               Editable blockchains are like infrared coloured fireworks. They're straightforward to build, but there's no point creating such a thing.
+            </p>
+            <p>
+               Just use a normal database. It will be faster, cheaper and greener.
+            </p>
+            <p>
+               That said, any type of voting machine is a terrible idea.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="voting-machine-two-secure-1" class="wrap1 slid-out">
+   <div id="voting-machine-two-secure-2" class="wrap2">
+      <div id="voting-machine-two-secure-3" class="wrap3">
+         <div id="voting-machine-two-secure-4" class="wrap4 leaf-slide">
+            <h1>
+               No, you don't need a blockchain
+            </h1>
+            <p>
+               Cryptography is <i>not</i> the primary security measure for ATMs and online banking. It is that <i>when</i> customers lose money to a hack, the bank just pays back the customer out of their own pocket, and writes it off as an operational cost. This is cheaper than developing extreme security. Elections have no equivalent remediation.
+
+            </p>
+            <p>
+               The strongest threat banks must defend against is organised crime. The strongest threat an election system must defend against is a nation state (such as the Kremlin or the NSA). The latter is far more formidable <sup> <a target="_blank" href="https://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1050&context=mca">[1]</a> <a target="_blank" href="https://www.eff.org/deeplinks/2016/04/eff-and-aclu-expose-governments-secret-stingray-use-wisconsin-case">[2]</a> </sup>.
+
+            </p>
+            <p>
+               Blockchains are not magic. Applications written on blockchains are actually <a target="_blank" href="https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/#sdfootnote6sym">far more buggy</a> than normal ones. Blockchains are just a type of database. The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
+
+            </p>
+            <p>
+               Just use a normal database. It will be simpler, cheaper and greener.
+            </p>
+            <p>
+               That said, any type of voting machine system is a terrible idea.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="voting-machine-one-1" class="wrap1 slid-out">
+   <div id="voting-machine-one-2" class="wrap2">
+      <div id="voting-machine-one-3" class="wrap3">
+         <div id="voting-machine-one-4" class="wrap4 ">
+            <h2>
+               What about security?
+            </h2>
+            <p>
+               How can you guarantee that the voting machine does not modify the data before signing it and writing it to the blockchain?
+            </p>
+            <a href="javascript:slide('voting-machine-one','voting-machine-one-crypto','left', true)"  class="button buttonBig">
+               Blockchains are secure because of cryptography
+            </a>
+            <a href="javascript:slide('voting-machine-one','voting-machine-one-bank','down', true)"  class="button buttonBig">
+               If banks can make secure ATMs, governments can make secure voting machines
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="voting-machine-one-bank-1" class="wrap1 slid-out">
+   <div id="voting-machine-one-bank-2" class="wrap2">
+      <div id="voting-machine-one-bank-3" class="wrap3">
+         <div id="voting-machine-one-bank-4" class="wrap4 leaf-slide">
             <h1>
                No, you don't need a blockchain
             </h1>
@@ -128,278 +225,38 @@
       </div>
    </div>
 </div>
-<div id="voting-machine-crypto-1" class="wrap1 slid-out">
-   <div id="voting-machine-crypto-2" class="wrap2">
-      <div id="voting-machine-crypto-3" class="wrap3">
-         <div id="voting-machine-crypto-4" class="wrap4 ">
-            <h2>
-               How will voter identity be verified?
-            </h2>
-            <a href="javascript:slide('voting-machine-crypto','voting-keys','left', false)"  class="button buttonBig">
-               Cryptographic keys
-            </a>
-            <a href="javascript:slide('voting-machine-crypto','voting-physical-id','left', false)"  class="button buttonBig">
-               Driver's license, passport etc
-            </a>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-keys-1" class="wrap1 slid-out">
-   <div id="voting-keys-2" class="wrap2">
-      <div id="voting-keys-3" class="wrap3">
-         <div id="voting-keys-4" class="wrap4 ">
-            <h2>
-               What happens if the keys are lost or stolen?
-            </h2>
-            <p>
-               If you lose a cryptocurrency key, you lose your cryptocurrency. Will voters lose their right to vote?
-            </p>
-            <a href="javascript:slide('voting-keys','voting-key-reset','down', true)"  class="button buttonBig">
-               The electoral commission can reset them
-            </a>
-            <a href="javascript:slide('voting-keys','voting-key-sfyl','down', true)"  class="button buttonBig">
-               Voters lose their vote, thieves vote for them
-            </a>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-key-sfyl-1" class="wrap1 slid-out">
-   <div id="voting-key-sfyl-2" class="wrap2">
-      <div id="voting-key-sfyl-3" class="wrap3">
-         <div id="voting-key-sfyl-4" class="wrap4 leaf-slide">
+<div id="voting-machine-one-crypto-1" class="wrap1 slid-out">
+   <div id="voting-machine-one-crypto-2" class="wrap2">
+      <div id="voting-machine-one-crypto-3" class="wrap3">
+         <div id="voting-machine-one-crypto-4" class="wrap4 leaf-slide">
             <h1>
                No, you don't need a blockchain
             </h1>
             <p>
-               Even hardcore cryptocurrency enthusiasts cannot keep their keys safe <sup> <a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a> <a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a> <a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a> <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a> <a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a> <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a> <a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a> </sup>.
+               The cryptography behind blockchains is secure, but no one attacks a system at its strongest point. If you can compromise the device anywhere between user input and signing that input with a key, it does not matter how strong the algorithms are.
 
             </p>
             <p>
-               If citizens cannot reliably vote without intimate technical expertise and time-intense security measures, then the election is not accessible, fair nor truly democratic.
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-key-reset-1" class="wrap1 slid-out">
-   <div id="voting-key-reset-2" class="wrap2">
-      <div id="voting-key-reset-3" class="wrap3">
-         <div id="voting-key-reset-4" class="wrap4 leaf-slide">
-            <h1>
-               No, you don't need a blockchain
-            </h1>
-            <p>
-               The reason blockchains were invented was to ensure that no one (even governments) has the authority to deny anyone write access to the database.
+               Even hardcore cryptocurrency enthusiasts cannot keep their keys and devices safe <sup> <a target="_blank" href="https://twitter.com/lopp/status/1015586077850177536?s=21">[1]</a> <a target="_blank" href="https://www.reddit.com/r/btc/comments/7ofrqf/warning_brutal_scam_guy_buys_a_ledger_nano_wallet/">[2]</a> <a target="_blank" href="https://www.reddit.com/r/legaladvice/comments/8dxyb8/i_bought_112_bitcoin_in_2013_friend_that_sold/">[3]</a> <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8pcxi3/neon_wallet_hacked_150200k_anything_i_can_do/">[4]</a> <a target="_blank" href="https://www.reddit.com/r/Bitcoin/comments/81yyxh/lost_bitcoin_lost_my_diary_that_stored_my_back_up/">[5]</a> <a target="_blank" href="https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/">[6]</a> <a target="_blank" href="https://www.reddit.com/r/Monero/comments/7lb7rm/be_your_own_bank_a_cautionary_tale/">[7]</a> </sup>.
             </p>
             <p>
-               This means that whoever controls the keys controls the account. So if a thief steals your election key, they can vote for you. If you lose your key, you cannot vote.
+               In practice, even voting machines are terribly secured.
+            </p>
+            <p>
+               In theory, there are <a target="_blank" href="https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf">
+   fundamental mathematical facts
+</a> which say that you can <i>never</i> be sure that a voting machine is secure.
 
             </p>
             <p>
-               You <i>could</i> build a reset mechanism into a blockchain. However that is like making infrared coloured fireworks. There's just no point creating such a thing.
+               When the fate of a whole society is at stake, and the threats include other nation states, you cannot assume that voting machines will remain secure.
+            </p>
+            <p>
+               Blockchains are just a type of database. The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with voting machines encompass the whole ecosystem, not just the database.
 
             </p>
             <p>
-               Also, the blockchain does not defend against a compromised machine which tampers with the vote <i>before</i> signing it with the voter's private key.
-            </p>
-            <p>
-               There is no benefit in using a blockchain. A normal database will be cheaper and greener.
-
-            </p>
-            <p>
-               That said, use of <i>any</i> voting machines a terrible idea.
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-physical-id-1" class="wrap1 slid-out">
-   <div id="voting-physical-id-2" class="wrap2">
-      <div id="voting-physical-id-3" class="wrap3">
-         <div id="voting-physical-id-4" class="wrap4 ">
-            <h2>
-               How do the miners know that document exists and is valid?
-            </h2>
-            <p>
-               Staff at the polling station will check the voter's document prior to letting them vote. How will the blockchain miners know that this happened when they vet write requests?
-
-            </p>
-            <a href="javascript:slide('voting-physical-id','voting-worker-write','down', true)"  class="button buttonBig">
-               The worker writes the voter's key or identifier to the blockchain
-            </a>
-            <a href="javascript:slide('voting-physical-id','voting-worker-physical','left', false)"  class="button buttonBig">
-               Each machine can submit many votes, staff ensure each person uses a machine only once
-            </a>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-worker-write-1" class="wrap1 slid-out">
-   <div id="voting-worker-write-2" class="wrap2">
-      <div id="voting-worker-write-3" class="wrap3">
-         <div id="voting-worker-write-4" class="wrap4 leaf-slide">
-            <h1>
-               No, you don't need a blockchain
-            </h1>
-            <p>
-               The reason blockchains were invented was to ensure that no one has the authority to deny anyone write access to the database.
-            </p>
-            <p>
-               Election staff must deny ineligible people from writing a vote, and eligible people from writing a second vote.
-            </p>
-            <p>
-               You <i>could</i> build an administrator role into the blockchain to control who can write. However that is like making infrared coloured fireworks. There's just no point creating such a thing.
-
-            </p>
-            <p>
-               There is no benefit in using a blockchain for election. A normal database will be cheaper and greener.
-
-            </p>
-            <p>
-               That said, use of <i>any</i> voting machines a terrible idea.
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-worker-physical-1" class="wrap1 slid-out">
-   <div id="voting-worker-physical-2" class="wrap2">
-      <div id="voting-worker-physical-3" class="wrap3">
-         <div id="voting-worker-physical-4" class="wrap4 ">
-            <h2>
-               How do they stop second votes?
-            </h2>
-            <p>
-               How will the staff ensure each voter only casts one vote?
-            </p>
-            <a href="javascript:slide('voting-worker-physical','voting-token','left', false)"  class="button buttonBig">
-               Once verified, voters are given a physical token.
-            </a>
-            <a href="javascript:slide('voting-worker-physical','voting-watch','down', true)"  class="button buttonBig">
-               Staff watch people as they vote
-            </a>
-            <a href="javascript:slide('voting-worker-physical','voting-reset','down', true)"  class="button buttonBig">
-               Each machine submits only one vote, until reset by staff
-            </a>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-token-1" class="wrap1 slid-out">
-   <div id="voting-token-2" class="wrap2">
-      <div id="voting-token-3" class="wrap3">
-         <div id="voting-token-4" class="wrap4 ">
-            <h2>
-               What does the token do?
-            </h2>
-            <p>
-               Does the blockchain accept all votes from machines, and the machines deny tokenless votes? Or does the token contain a cryptographic key, so second votes are blocked on the blockchain?
-
-            </p>
-            <a href="javascript:slide('voting-token','voting-token-physical','down', true)"  class="button buttonBig">
-               Token is physical only
-            </a>
-            <a href="javascript:slide('voting-token','voting-token-crypto','down', true)"  class="button buttonBig">
-               Token contains a key
-            </a>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-token-physical-1" class="wrap1 slid-out">
-   <div id="voting-token-physical-2" class="wrap2">
-      <div id="voting-token-physical-3" class="wrap3">
-         <div id="voting-token-physical-4" class="wrap4 leaf-slide">
-            <h1>
-               No, you don't need a blockchain
-            </h1>
-            <p>
-               The blockchain will blindly accept all votes from machines, <i>assuming</i> that any votes submitted by the machine are the first and only vote, from an eligible voter.
-            </p>
-            <p>
-               So the blockchain does not actually perform any useful cryptographic verification. Verification is done on the device. Therefore the blockchain just acts as a normal database.
-            </p>
-            <p>
-               There is no benefit in using a blockchain. A normal database will be cheaper and greener.
-
-            </p>
-            <p>
-               That said, use of <i>any</i> voting machines a terrible idea.
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-token-crypto-1" class="wrap1 slid-out">
-   <div id="voting-token-crypto-2" class="wrap2">
-      <div id="voting-token-crypto-3" class="wrap3">
-         <div id="voting-token-crypto-4" class="wrap4 leaf-slide">
-            <h1>
-               No, you don't need a blockchain
-            </h1>
-            <p>
-               The reason blockchains were invented was to ensure that no one has the authority to deny anyone write access to the database.
-            </p>
-            <p>
-               If voters require a key generated by the electoral commission in order to vote, then that commission has the ability to deny people write access to the database.
-            </p>
-            <p>
-               You <i>could</i> build a blockchain configured to work this way. However that is like making infrared coloured fireworks. There's just no point creating such a thing.
-
-            </p>
-            <p>
-               There is no benefit in using a blockchain. A normal database will be cheaper and greener.
-
-            </p>
-            <p>
-               That said, use of <i>any</i> voting machines a terrible idea.
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-watch-1" class="wrap1 slid-out">
-   <div id="voting-watch-2" class="wrap2">
-      <div id="voting-watch-3" class="wrap3">
-         <div id="voting-watch-4" class="wrap4 leaf-slide">
-            <h1>
-               No, you don't need a blockchain
-            </h1>
-            <p>
-               If your primary security is physical, and the blockchain accepts all votes submitted from the voting machines why bother with a blockchain?
-            </p>
-            <p>
-               There is no benefit in using a blockchain. A normal database will be cheaper and greener.
-
-            </p>
-            <p>
-               That said, use of <i>any</i> voting machines a terrible idea.
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<div id="voting-reset-1" class="wrap1 slid-out">
-   <div id="voting-reset-2" class="wrap2">
-      <div id="voting-reset-3" class="wrap3">
-         <div id="voting-reset-4" class="wrap4 leaf-slide">
-            <h1>
-               No, you don't need a blockchain
-            </h1>
-            <p>
-               If your primary security is at the front-end on the machine, why bother with a blockchain on the back-end?
-            </p>
-            <p>
-               If the blockchain accepts all votes submitted from the voting machines, what security does it provide?
-            </p>
-            <p>
-               There is no benefit in using a blockchain. A normal database will be cheaper and greener.
-
-            </p>
-            <p>
-               That said, use of <i>any</i> voting machines a terrible idea.
+               Any type of voting machine system is a terrible idea. Blockchains do not fix these security issues.
             </p>
          </div>
       </div>

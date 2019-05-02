@@ -1,8 +1,15 @@
-* The purpose of an election is to
-   * fairly decide the winner
-   * convince the losers that the decision was fair
-  Electronic voting fails both of those goals
-  (maybe put this at the end?)
+The purpose of an election is to:
+
+   1. fairly decide a winner; and
+   2. convince the losers that the decision was fair
+
+Voting machines and online voting fail to achieve both of these objectives.
+
+There are some insurmountable theoretical security issues which can *never* be resolved.
+Worse still is that in practice voting machines and online voting are consistently insecure against even the most basic attacks, due to a shocking lack of due diligence.
+
+This means that digital voting is worse at achieving the first goal than paper.
+The fact that digital election fraud is hard and frequently impossible to detect means that it fails at the second goal too.
 
 ## Different from banks
 

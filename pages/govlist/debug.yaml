@@ -384,9 +384,12 @@
   urls: ['https://www.sbs.com.au/nitv/nitv-news/article/2018/05/09/budget-cuts-millions-abc-pay-captain-cook-statue-botany-bay']
 - hashTag: transparency
   text: Exempted a facial recognition system storing data of innocent citizens from
-    standard procurement policy disclosure rules.
+    standard procurement policy disclosure rules. The excuse is a reliance on security
+    through obscurity rather than actual security. Accuracy figures are also not published.
   topic: 12
-  urls: ['https://www.zdnet.com/article/home-affairs-exempt-from-disclosing-face-identification-service-provider/']
+  urls: ['https://www.zdnet.com/article/home-affairs-exempt-from-disclosing-face-identification-service-provider/',
+    'https://www.zdnet.com/article/home-affairs-exempt-from-disclosing-face-identification-service-provider/',
+    'https://en.m.wikipedia.org/wiki/Security_through_obscurity']
 - hashTag: digital
   text: Threw $700k at blockchains.
   topic: 2

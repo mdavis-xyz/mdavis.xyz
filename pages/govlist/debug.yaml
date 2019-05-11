@@ -1,3 +1,20 @@
+- hashTag: environment
+  text: <b>Lied</b> by claiming to have introduced and passed non-existent legislation
+    to prevent the mass extinction of threatened species.
+  topic: 2
+  urls: ['https://www.theguardian.com/australia-news/2019/may/09/pms-office-silent-after-apparent-reference-to-environment-bill-that-doesnt-exist']
+- hashTag: environment
+  text: Approved construction of a mine even though the company said they cannot promise
+    that they won't make the local rare species extinct, and that they cannot be bothered
+    checking to see whether any member of those species does eventually survive the
+    mine's operation.
+  topic: 2
+  urls: ['https://www.theguardian.com/environment/2019/apr/27/uranium-miner-coaxed-government-to-water-down-extinction-safeguards']
+- hashTag: budget
+  text: Admitted their promise to spend $2B building a fast train link between Geelong
+    and Melbourne will actually cost $4B, and they don't have the other $2B.
+  topic: 0
+  urls: ['https://www.bay939.com.au/news/local-news/104699-morrison-s-geelong-rail-link-faces-2-billion-shortfall']
 - hashTag: budget
   text: Charged taxpayers $1700 for the Roads Minister and his spouse to attend a
     fancy dinner party for the agriculture industry.

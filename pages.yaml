@@ -127,7 +127,7 @@
    article: True
    exclude:
       - 'footerHR'
-   date: 13/2/2019 # update manually
+   date: 11/5/2019 # update manually
 -  title: "Machine Learning Unicycling"
    description: "Teaching a computer to ride a simulated unicycle"
    path: "unicycle"

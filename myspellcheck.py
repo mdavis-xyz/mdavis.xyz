@@ -56,6 +56,13 @@ def stripMarkdown(text):
     lines = text.split('\n')
     newLines = []
     for line in lines:
+
+        # an image inside a link
+        # e.g. [ ![xkcd comic about voting security](images/xkcd-blockchain.png) ](https://xkcd.com/2030/)
+
+        expr = r'\[\s*!\[([^\]]+)\]\([^\)]+\)\s*\]\([^\)]+\)' # markdown images
+        line = re.sub(expr, r'\1', line)
+
         expr = r'!\[([^\[\]]+)\]\(([^\)\(]+)\)({[^}{]+})?' # markdown images
         line = re.sub(expr, r'[\1](\2)', line)
         expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)' # links

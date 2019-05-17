@@ -146,7 +146,14 @@
    markdown: "content.md"
    exclude:
       - 'script'
-   date: 11/4/2019
+   date: 17/5/2019
+   regex:
+      - what: "markdown"
+        search: regex/source-link/search.txt
+        replace: regex/source-link/replace.txt
+        test:
+           - in: regex/source-link/test/0/in.txt
+             out: regex/source-link/test/0/out.txt
 -  title: "Machine Learning Unicycling"
    description: "Teaching a computer to ride a simulated unicycle"
    path: "unicycle"

@@ -39,6 +39,7 @@ There are several types of digital voting:
 3. machines which count paper ballots (and possibly a second machine to print the paper)
 
 For options 1 and 2, it is *literally impossible* to detect fraud if it happens.
+Of course fraud can *sometimes* be detected, like the time multiple vote counting machines submitted [*negative* votes](https://www.motherjones.com/politics/2004/03/diebolds-political-machine/) for Al Gore.
 Of course if the total number of votes is [far different](https://en.wikipedia.org/wiki/1927_Liberian_general_election) to the total number of voters, fraud is obvious.
 However it only takes a dozen flipped votes at a carefully chosen electorate to change the outcome of the whole election. #TODO link
 If the outcome is a close call, or the integrity of the machines is in doubt, you cannot do a re-count.
@@ -54,6 +55,8 @@ There is no way to know, therefore you do not get the full benefit of paper.
 Some systems use a voting machine to provide a simpler and nicer interface than paper.
 They print a ballot, which the voter can inspect and then insert into the box.
 However in practice half of voters don't check, and most [do not notice an error](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3292208) when it is wrong.
+Ultimately such a system is [just a very expensive pencil](https://www.youtube.com/watch?v=w3_0x6oaDmI).
+
 
 It might seem like this does not matter if you just make sure that the devices don't get compromised in the first place.
 However recounting is a safety net that provides an extra layer of security.
@@ -155,8 +158,9 @@ Many actual elections which have used online voting have had real production sys
 
 # TODO: Aus example
 # TODO: other online examples (notes below)
+# mention flux
 
-
+* SQL injection - https://www.rollcall.com/news/whitehouse/barrs-conclusion-no-obstruction-gets-new-scrutiny
 * Researchers renamed candidates on live ballot website, took 2 days before officials noticed  https://www.thenation.com/article/american-democracy-is-now-under-siege-by-both-cyber-espionage-and-gop-voter-suppression/
 * Email ballots are like "would be like stapling a $100 bill to a postcard and expecting it to get to its destination unmolested" https://www.llnl.gov/news/security-risks-and-privacy-issues-are-too-great-moving-ballot-box-internet
 
@@ -239,44 +243,106 @@ By choosing to use proprietary voting systems, **governments are giving control 
 
 ## Usability
 
-* Machines break down, and are expensive https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/
-* Long lines when expensive touchscreen machines are the constraint. So they are not faster
-   * Paper about wait times being hours, (Aus is even more complex ballot) https://arxiv.org/ftp/arxiv/papers/0810/0810.5577.pdf
-* Slow rendering means votes for the wrong party https://motherboard.vice.com/en_us/article/negayg/texas-voting-machines-have-been-a-known-problem-for-a-decade
-* EU politicians pressed wrong button
-* show buggy screen gif
-   * article about similar problem elsewhere https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html
-* only used once every few years
 
-* 3 bugs per x lines, 10,000 lines for a touchscreen
 
-# TODO: change dimensions
-# TODO: make webm
-<video autoplay loop class="video appear"  width=1500 height=500 autobuffer muted playsinline video-auto-ctrl  preload defaultMuted>
-   <source src="images/buggy.mp4" type="video/mp4">
-   <source src="images/buggy.webm" type="video/webm">
+<!-- ffmpeg -an -i ../buggy.mp4 -b 1000 -crf 30 -profile:v baseline buggy-small.mp4 -->
+<video autoplay loop class="video appear"  width=360 height=640 autobuffer muted playsinline video-auto-ctrl  preload defaultMuted>
+   <source src="images/buggy-small.mp4" type="video/mp4">
+   <source src="images/buggy-small.webm" type="video/webm">
 </video>
+
+All software has bugs, typically around [10 to 50 bugs](https://www.mayerdan.com/ruby/2012/11/11/bugs-per-line-of-code-ratio) for every 1000 lines of code.
+To run a touchscreen interface developers must write approximately 10,000 lines of code.
+Therefore a voting machine, counting machine or end-user mobile phone with a touch screen will have about 100 to 500 bugs just in the screen software alone.
+As shown in the image above, the consequences of using software with hundreds of bugs to run an election are catastrophic.
+This example is [one of many](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html) where the screen displayed a different vote to what the voter intended.
+These problems do not happen with paper ballots.
+
+
+In March a dozen European Union members cast their vote incorrectly, because the user interface of the voting systems did not make it clear whether they were voting on ammendments or the whole bill.
+The consequence is that legislation not supported by the majority was passed, and the whole internet all around the world was impacted as a result.
+This happened to politicians whose entire job is voting, and understanding the process.
+So how could an average Joe voting once a year of less possibly fare any better?
+
+In one Texas vote, the machines took many seconds to render each page on the screen.
+If voters touched the screen before that rendering finished, the machines [threw away their vote](https://www.vice.com/en_us/article/negayg/texas-voting-machines-have-been-a-known-problem-for-a-decade).
+The officials response from officials was to claim nothing was wrong, and to blame voters for not waiting "at least 3-5 seconds for all choices to be rendered on the eSlate voting machines".
+If a computer takes 5 seconds to print some simple text on a screen from a local drive, then something is fundamentally wrong about how that software was written.
+
+Paper ballots are incredibly cheap.
+The ballot costs a few cents, and the cardboard booths and pencils cost a few dollars.
+So polling places can afford to install as many as they can fit into the room.
+In Australia many voters can walk straight in, and it's rare to queue for more than 20 minutes.
+In contrast, voting machines cost [several thousand dollars each](https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/).
+Consequently voter throughput is lower, so votes frequently queue for [*literally many hours*](https://arxiv.org/ftp/arxiv/papers/0810/0810.5577.pdf).
+If we want to have a strong and healthy democracy it is essential that it is easy to cast a vote.
+When it comes to queue length, voting machines do the opposite.
 
 
 ## The security of paper
 
-* security of paper
-   * average people
-   * in public
-   * from range of political spectrum
+In the 2000 US presidential election paper ballot counting machines miscounted a substantial amount of votes, because of the [hanging chad issue](https://www.urbandictionary.com/define.php?term=hanging%20chad).
+The consequence was that the elected president was [likely *not*](https://en.wikipedia.org/wiki/2000_United_States_presidential_election_recount_in_Florida) the president who received the most votes.
+That would not have happened if the ballots had been counted by hand.
 
-* gun to head
-* one person one vote
-   * can look up your own vote - no anonymity
-      * when voting machines print out a sheet, half of voters don't check, and most do not notice a mistake https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3292208
-   * can't, so no guarentee it went through
+Rather than go back to manual counting, the US doubled down on digital voting, of all types.
+It is now common for elections in the US to use two stage systems with paper in between, or direct vote systems with no paper, or [even *email* ballots](https://www.youtube.com/watch?v=w3_0x6oaDmI).
+(Most email is completely unencrypted. It is trivial to send an email and make it look like someone else sent it. So this is as secure as voting via postcard.)
 
+The method of physical voting with paper ballots and manual counting is centuries old.
+Pretty much all attacks have been tried, discovered, and defended against.
+For example, the reason you are given a pencil not a pen is to defend against the possibility of voters swapping pens for ones with disappearing ink.
+That is the level of paranoia which electoral systems *should* have.
+
+In Australia (and around the world) paper ballots are counted by you, the citizens.
+The officials are volunteers from across the political spectrum.
+In constrast most voting machines are made by only a handful of vendors, who are [highly partisan](https://www.motherjones.com/politics/2004/03/diebolds-political-machine/).
+The CEO of one publicly proclaimed that he will be "helping Ohio deliver its electoral votes to the President."
+
+If you are concerned that the people counting your vote will deliberately fudge the numbers, you can simply walk into the polling place and watch them.
+If you are concerned about a voting machine, there is nothing you can do.
+
+For systems which have no paper trail, there is no possibility of a recount.
+You are forced to blindly trust the integrity and competency of everyone in the supply chain, which includes vendors, upstream hardware makers, officials, everyone who has access to the machine in the years between elections, every voter who had private physical access to the machine, and so on.
+
+For systems which print out a paper receipt for you but submit the vote digitally, you cannot know whether the machine flipped your vote in the digital record, but printed your intended vote on the receipt.
+
+For ballot counting machines, what happens if you want to recount because you question the machine?
+You cannot recount with the same machine, because that will give you the same possibly-corrupt answer.
+What about another machine in the same polling place?
+If the first machine was infected, that one could be too.
+What about another machine in another polling place?
+That's probably made by the same vendor, with the same flaws.
+
+It only takes a few extra bytes of code to turn legitimate vote counting software into vote-flipping software.
+It is impossible to convert non-trivial 1s and 0s back into human readable form.
+Voting machines are a [black box](https://en.wikipedia.org/wiki/Black_box).
+
+One of the challenging problems which paper solves is ensuring that each person votes only once, that vote definitely ends up in the count, and no one can see how any individual voted.
+This last part is crucial, especially when there is no paper trail.
+If it is possible to verify that your vote ended up in the database as you intended, then coercive votes become possible.
+For example, an evil boss can say "vote for party x or I'll fire you".
+(Yes it is conceivable that you can take legal action *after* the fact, but paper votes make this *impossible*.)
 
 
 ## The Motivation
 
-* Why speed?
-   * mention Gillard election
-* cost
+One main motivation for digital voting is to make the counting process faster.
+But why do we need to rush?
+In the [2016 Australian federal election](https://en.wikipedia.org/wiki/2016_Australian_federal_election) it took *4 weeks* until results were finalised.
+The nation did not falter.
+The sky did not fall.
+Parliament steers the nation on a time-scale of years, so waiting hours or even weeks for a count is not of great consequence.
+
+As mentioned earlier, voting machines are *expensive*. Paper is cheap, and vote counters work for free.
+So cost reduction is an invalid motivation for digital voting.
+
+A motivation for online voting is convenience for voters.
+Convenience is nice.
+However citizens in Australia cast a vote for any level of government about once per year, and the stakes are very high.
+For voters busy on election day, they can cast a vote in the weeks prior.
+This is increasingly popular, with [3 million voters](https://www.abc.net.au/news/2019-05-15/federal-election-pre-poll-votes-could-delay-antony-green-result/11114492) doing so in the 2019 election.
+
+Convenience is important, but since digital voting violates both of the original goals of an election (fair decision, which losers trust is fair), the trade-off is not worth it
 
 ## Conclusion

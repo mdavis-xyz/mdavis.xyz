@@ -1,5 +1,20 @@
 #xkcd-blockchain {
-   width: auto;
-   height: 30em;
+   width: 35em;
+}
+
+#xkcd-antivirus {
+   width: 35em;
+}
+
+.xkcd {
+   height: auto;
    max-width: 100%;
+   padding: 1%;
+   background-color: white;
+}
+
+#buggy-video {
+   width: 10em;
+   max-width: 100%;
+   height: auto;
 }

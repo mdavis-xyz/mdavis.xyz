@@ -11,8 +11,8 @@ Worse still is that in practice voting machines and online voting are consistent
 This means that digital voting is worse at achieving the first goal than paper.
 The fact that digital election fraud is hard and frequently impossible to detect means that it fails at the second goal too.
 
-<a  href="https://xkcd.com/2030/" class="center" target="_blank" >
-   <img src="images/xkcd-blockchain.png" alt="xkcd comic about voting security" height="1211" width="1204"  class="roundAndShadow" id="xkcd-blockchain"/>
+<a  href="https://xkcd.com/2030/" class="center imageWrap" target="_blank" >
+   <img src="images/xkcd-blockchain.png" alt="xkcd comic about voting security" height="1211" width="1204"  class="roundAndShadow xkcd" id="xkcd-blockchain"/>
 </a>
 
 ## Different from banks
@@ -66,7 +66,6 @@ All good security systems multiple layers of protection for [Defence in Depth](h
 Furthermore, as enumerated below, it is impossible in practice and even in theory to defend against the kind of bad actors elections face.
 
 
-[ ![Another xkcd comic about voting security](images/xkcd-antivirus.png) ](https://xkcd.com/463/)
 
 A bank only needs to defend themselves against [script kiddies](https://en.wikipedia.org/wiki/Script_kiddie), and at worst organised crime gangs.
 Election officials must defend their system against foreign nation states.
@@ -78,6 +77,8 @@ Examples of attacks which are only used when nation states are involved and the 
 * the time America's NSA deliberately lobbied standards group to adopt an encryption algorithm [they knew how to break](https://en.wikipedia.org/wiki/Dual_EC_DRBG), which was subsequently used all over the world
 * the [Stingray attack](https://www.techdirt.com/articles/20110923/17251716080/details-emerging-stingray-technology-allowing-feds-to-locate-people-pretending-to-be-cell-towers.shtml), where governments mimic mobile towers, to execute Man-In-The-Middle attacks on the 2G network. (Many voting machines transmit vote totals [over the 2G network](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html).)
 * governments can use laws like [Australia's Assistance and Access bill](https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6195_aspassed/toc_pdf/18204b01.pdf;fileType=application%2Fpdf#search=%22legislation/bills/r6195_aspassed/0000%22) to force technology companies [to secretly install backdoors in their systems](https://thenextweb.com/politics/2018/12/10/australias-horrific-new-encryption-law-likely-to-obliterate-its-tech-scene/One/). (Government's around the world are [banning Huawei routers and devices](https://www.abc.net.au/news/2018-08-23/huawei-banned-from-providing-5g-mobile-technology-australia/10155438) from critical infrastructure, solely because they are worried China will use this exact attack.)
+
+Banks do not need to worry about these kinds of attacks, because their attackers are less formidable, and it's cheaper to just pay to replace the stolen money than mitigate them.
 
 But scariest of all is the [Ken Thompson Hack](./KTH.pdf).
 Someone may write innocent and strong software for a voting machine, but if that software developer's laptop was infected with this worm, the compiled (computer readable) version of their code can be modified to be different to what they wrote.
@@ -107,6 +108,10 @@ In 2018 DEF CON (an international security convention) made voting machines avai
 Machines which can be compromised by an 11 year old in 10 minutes are being used for real elections with actual stakes.
 
 There are *many* examples of real elections where voting machines were [wirelessly connected to the internet](https://arstechnica.com/tech-policy/2015/04/meet-the-e-voting-machine-so-easy-to-hack-it-will-take-your-breath-away/), using weak protocols, [running remote desktop software](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html) (which allows remote users to control the device).
+
+<a  href="https://xkcd.com/463/" class="center imageWrap" target="_blank" >
+   <img src="images/xkcd-antivirus.png" alt="another xkcd comic about voting security" height="304" width="740"  class="roundAndShadow xkcd" id="xkcd-antivirus"/>
+</a>
 
 If you can think of a way voting machines or online voting could go wrong, then there is almost certainly an example of an actual real election where exactly that has happened.
 There are machines which:
@@ -230,10 +235,12 @@ By choosing to use proprietary voting systems, **governments are giving control 
 
 
 <!-- ffmpeg -an -i ../buggy.mp4 -b 1000 -crf 30 -profile:v baseline buggy-small.mp4 -->
-<video autoplay loop class="video appear"  width=360 height=640 autobuffer muted playsinline video-auto-ctrl  preload defaultMuted>
-   <source src="images/buggy-small.mp4" type="video/mp4">
-   <source src="images/buggy-small.webm" type="video/webm">
-</video>
+<div class="center imageWrap">
+   <video id="buggy-video" autoplay loop class="roundAndShadow video appear"  width=360 height=640 autobuffer muted playsinline video-auto-ctrl  preload defaultMuted>
+      <source src="images/buggy-small.mp4" type="video/mp4">
+      <source src="images/buggy-small.webm" type="video/webm">
+   </video>
+</div>
 
 All software has bugs, typically around [10 to 50 bugs](https://www.mayerdan.com/ruby/2012/11/11/bugs-per-line-of-code-ratio) for every 1000 lines of code.
 To run a touch screen interface developers must write approximately 10,000 lines of code.

@@ -191,7 +191,7 @@ You need to modify even fewer to destroy trust in the system.
 No.
 
 Blockchains [do not make elections more secure](../blockchain).
-Many people such as [The Flux Party](https://www.voteflux.org/) have [drunk the blockchain Cool-Aid](https://www.goodreads.com/book/show/35525995-attack-of-the-50-foot-blockchain) and now throw around the buzzword [without any pronoun](https://www.reddit.com/r/Bitcoin/comments/4jv75a/to_the_journalists_who_are_new_to_the_scene_the/) as if it will magically fix all problems.
+Many people such as [The Flux Party](https://www.voteflux.org/) have [drunk the blockchain Kool-Aid](https://www.goodreads.com/book/show/35525995-attack-of-the-50-foot-blockchain) and now throw around the buzzword [without any pronoun](https://www.reddit.com/r/Bitcoin/comments/4jv75a/to_the_journalists_who_are_new_to_the_scene_the/) as if it will magically fix all problems.
 
 All software contains bugs.
 Blockchain software is *consistently worse* than normal software.
@@ -202,7 +202,7 @@ Blockchains were designed to be public, immutable and fully distributed.
 So if someone steals your password, they can cast your vote for you, for every subsequent election.
 If it is possible for the electoral agency to perform a password reset, then a single centralised party has the ability to block and modify writes to the database.
 Blockchains were invented to prevent *exactly that* from being possible.
-So if password resets are possible, there's no point using a blockchain.
+So if password resets are possible, [there's no point using a blockchain](../blockchain).
 
 ## Could regulation fix security issues?
 
@@ -270,7 +270,7 @@ These problems do not happen with paper ballots.
 
 
 In March a dozen European Union members cast their vote incorrectly, because the user interface of the voting systems did not make it clear whether they were voting on amendments or the whole bill.
-The consequence is that [legislation not supported by the majority was passed](https://nakedsecurity.sophos.com/2019/04/01/meps-just-voted-through-controversial-copyright-clauses-by-mistake/), and the whole Internet all around the world was impacted as a result.
+The consequence is that [legislation not supported by the majority was passed](https://nakedsecurity.sophos.com/2019/04/01/meps-just-voted-through-controversial-copyright-clauses-by-mistake/), and Internet freedom all around the world was impacted as a result.
 This happened to politicians whose entire job is voting, and understanding the process.
 So how could an average Joe voting once a year of less possibly fare any better?
 

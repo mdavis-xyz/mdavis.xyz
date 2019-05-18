@@ -11,7 +11,9 @@ Worse still is that in practice voting machines and online voting are consistent
 This means that digital voting is worse at achieving the first goal than paper.
 The fact that digital election fraud is hard and frequently impossible to detect means that it fails at the second goal too.
 
-[ ![xkcd comic about voting security](images/xkcd-blockchain.png) ](https://xkcd.com/2030/)
+<a  href="https://xkcd.com/2030/" class="center" target="_blank" >
+   <img src="images/xkcd-blockchain.png" alt="xkcd comic about voting security" height="1211" width="1204"  class="roundAndShadow" id="xkcd-blockchain"/>
+</a>
 
 ## Different from banks
 

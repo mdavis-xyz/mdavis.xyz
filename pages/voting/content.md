@@ -99,9 +99,9 @@ and
 [again](https://web.archive.org/web/20101019133156/http://itpolicy.princeton.edu/voting/summary.html)
 
 
-> What I’ve seen in the past 10 years is that the vendors have absolutely fumbled every single attempt in security ([source](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html))
+> What I’ve seen in the past 10 years is that the vendors have absolutely fumbled every single attempt in security [source-dark](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html)
 
-> Every single one of [the tested machines] had some sort of weakness ([source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections))
+> Every single one of [the tested machines] had some sort of weakness [source-dark](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
 
 In 2018 DEF CON (an international security convention) made voting machines available to see how well they stand up to actual attackers.
 30 minors were able to compromise the machines, including an 11 year old who changed the outcome of the mock election in [10 minutes](http://time.com/5366171/11-year-old-hacked-into-us-voting-system-10-minutes/).
@@ -119,8 +119,7 @@ There are machines which:
 * transmit vote counts to the central office *without any encryption* (This is like stapling a $100 note to a postcard and expecting it to get to the destination.)
   [source](https://news.ycombinator.com/item?id=15190148)
 * download software updates in *without any encryption*, and without any signatures, from servers which can be easily taken over
-* run *remote desktop software*
-  [source](https://news.ycombinator.com/item?id=15190148)
+* run *remote desktop software* [source](https://news.ycombinator.com/item?id=15190148)
 * run versions of Windows which were abandoned by Microsoft over a decade ago, and have received no security patches since
   [source](https://arstechnica.com/tech-policy/2015/04/meet-the-e-voting-machine-so-easy-to-hack-it-will-take-your-breath-away/)
   [source](https://www.theguardian.com/us-news/2015/apr/15/virginia-hacking-voting-machines-security)
@@ -154,7 +153,7 @@ That is what happens with devices designed and used solely for elections, secure
 Online voting where voters can cast their vote using an app or website will necessarily be worse.
 Many actual elections which have used online voting have had real production systems be taken over by attackers, easily.
 
-> Within 36 hours of the system going live, our team had found and exploited a vulnerability that gave us almost total control of the server software, including the ability to change votes and reveal voters' secret ballots. [source](https://freedom-to-tinker.com/2010/10/05/hacking-dc-internet-voting-pilot/)
+> Within 36 hours of the system going live, our team had found and exploited a vulnerability that gave us almost total control of the server software, including the ability to change votes and reveal voters' secret ballots. [source-dark](https://freedom-to-tinker.com/2010/10/05/hacking-dc-internet-voting-pilot/)
 
 In one 2010 election, security researchers were able to crack the web server and change votes to match fake candidates, within 36 hours.
 The officials [*didn't even notice*](https://www.thenation.com/article/american-democracy-is-now-under-siege-by-both-cyber-espionage-and-gop-voter-suppression/) until 2 days later.

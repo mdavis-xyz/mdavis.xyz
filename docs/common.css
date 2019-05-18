@@ -236,3 +236,10 @@ blockquote p {
    text-align: center;
    display: block;
 }
+
+
+.link-icon {
+   height: 0.8em;
+   width: auto;
+   vertical-align: baseline;
+}

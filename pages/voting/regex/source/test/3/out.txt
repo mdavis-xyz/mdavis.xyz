@@ -1,0 +1,1 @@
+<a href="https://www.example.com/page" target="_blank"><img src="images/link-dark.svg" alt="source" height="128" width="128" class="link-icon" /></a>

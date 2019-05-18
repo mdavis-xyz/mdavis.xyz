@@ -41,7 +41,7 @@
    disclaimer: >
        Disclaimer: This story is a warning about the future.
        Claims about any real corporations are hypothetical fiction.
-       All links are provided as context, not evidence.
+       All darks are provided as context, not evidence.
    images:
       card:
          path: "card.jpg"
@@ -151,11 +151,17 @@
    date: 17/5/2019
    regex:
       - what: "markdown"
-        search: regex/source-link/search.txt
-        replace: regex/source-link/replace.txt
+        search: regex/source/search.txt
+        replace: regex/source/replace.txt
         test:
-           - in: regex/source-link/test/0/in.txt
-             out: regex/source-link/test/0/out.txt
+           - in: regex/source/test/0/in.txt
+             out: regex/source/test/0/out.txt
+           - in: regex/source/test/1/in.txt
+             out: regex/source/test/1/out.txt
+           - in: regex/source/test/2/in.txt
+             out: regex/source/test/2/out.txt
+           - in: regex/source/test/3/in.txt
+             out: regex/source/test/3/out.txt
 -  title: "Machine Learning Unicycling"
    description: "Teaching a computer to ride a simulated unicycle"
    path: "unicycle"

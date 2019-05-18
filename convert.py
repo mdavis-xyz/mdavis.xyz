@@ -75,17 +75,29 @@ def searchReplace(text,regexInfo,fileType,path):
             search = loadFile(path + r['search']).rstrip('\n')
             replace = loadFile(path + r['replace']).rstrip('\n')
             print("Expression: %s" % search)
-            print("Replace: %s" % replace)
+            print("Replace   : %s" % replace)
             if 'test' in r:
                 for t in r['test']:
                     textIn = loadFile(path + t['in']).rstrip('\n')
                     expected = loadFile(path + t['out']).rstrip('\n')
-
-                    actual = re.sub(search, replace, textIn)
+                    try:
+                        actual = re.sub(search, replace, textIn)
+                    except Exception as e:
+                        print("\n\nFailed to run regex test")
+                        print("Expression: %s" % search)
+                        print("Replace   : %s" % replace)
+                        print("Input     : %s" % textIn)
+                        print("Actual    : %s" % actual)
+                        print("Expected  : %s" % expected)
+                        print("test:")
+                        pp.pprint(t)
+                        raise(e)
                     if actual != expected:
-                        print("Input   : %s" % textIn)
-                        print("Actual  : %s" % actual)
-                        print("Expected: %s" % expected)
+                        print("Input     : %s" % textIn)
+                        print("Actual    : %s" % actual)
+                        print("Expected  : %s" % expected)
+                        print("test:")
+                        pp.pprint(t)
                     assert(actual == expected)
             text = re.sub(search, replace, text)
     if debug:
@@ -148,7 +160,13 @@ def doOne(data,allData,args):
             with open(markdownFname,'r') as f:
                 markdown = f.read()
             if 'regex' in data:
+                unreplaced = markdown
                 content = searchReplace(markdown,data['regex'],'markdown',data['sourcePath'])
+                if (unreplaced == content) and len([x for x in data['regex'] if x['what'] == 'markdown']):
+                    print(content)
+                    print("Error, regex replacements on markdown took no effect")
+                    exit(1)
+                markdown = content
             print("Converting markdown file %s to html " % markdownFname)
 
             data['content'] = pypandoc.convert_text(markdown, 'html', format='md')

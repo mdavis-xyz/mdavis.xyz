@@ -449,3 +449,4 @@ redact
 Turnbull
 Geelong
 Kool-Aid
+[images/link.png]{.link}

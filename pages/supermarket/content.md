@@ -10,7 +10,7 @@ This is when my *Customer Journey*™ begins.
 
 
 As I head towards the snack aisle I see dozens of cameras overhead, [watching silently](https://www.nytimes.com/2008/05/31/business/media/31billboard.html).
-They're no longer just an anti-shoplifting measure, not since the year 2025 or so.
+They're no longer just [an anti-shoplifting measure](https://www.cnet.com/news/with-facial-recognition-shoplifting-may-get-you-banned-in-places-youve-never-been/), not since the year 2025 or so.
 I walk straight past the health-food snack section.
 The cameras note this, but the back-end analytics server isn't surprised.
 It remembers that time I re-tweeted an opinion piece critical of [quinoa](https://www.theguardian.com/commentisfree/2013/jan/16/vegans-stomach-unpalatable-truth-quinoa) and [gluten-free](https://onlinelibrary.wiley.com/doi/epdf/10.1111/jhn.12502) food, so it's expecting me to shun this section.

@@ -11,6 +11,7 @@ import myspellcheck
 import sys
 import argparse
 import PyRSS2Gen
+import xml.dom.minidom
 
 template_fname = "template.html"
 output_fname = "pages/www/docs/index.html"
@@ -370,6 +371,8 @@ def generateRSS(pages,args):
     with open(tempFname, "w") as f:
         rss.write_xml(f)
 
+    neatenXML(tempFname)
+
     with open(tempFname,'r') as f:
         new = f.read()
 
@@ -387,6 +390,8 @@ def generateRSS(pages,args):
         print("RSS feed has changed. Publish")
         with open(publishFname, "w") as f:
             rss.write_xml(f)
+
+        neatenXML(publishFname)
     else:
         print("RSS feed content has not changed. Not publishing.")
 
@@ -395,6 +400,14 @@ def generateRSS(pages,args):
 
     print("Exported RSS file")
 
+# modifies the file in place, to indent it
+def neatenXML(fname):
+    with open(fname,'r') as f:
+        text = f.read()
+    dom = xml.dom.minidom.parse(fname)
+    text_pretty = dom.toprettyxml()
+    with open(fname,'w') as f:
+        f.write(text_pretty)
 
 def test():
     testNumWords()

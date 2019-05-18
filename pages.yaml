@@ -102,6 +102,8 @@
              out: regex/href-privacy/test/0/out.txt
    markdown: "content.md"
    date: 13/2/2019
+   tags:
+      - politics
 -  title: "Achievements of the Coalition Government"
    description: >
       A comprehensive list of (almost) everything the current Australian
@@ -125,7 +127,7 @@
    article: True
    exclude:
       - 'footerHR'
-   date: 13/2/2019 # update manually
+   date: 11/5/2019 # update manually
 -  title: "Why Paper Voting Is Still More Secure"
    description: "How digital security can be good enough for banking but not for elections"
    path: "voting"
@@ -161,8 +163,8 @@
       card:
          path: "thumb-drawn.jpg"
          description: "Animated Unicycle"
-         width: 677
-         height: 1000
+         width: 1000
+         height: 667
    template: "markdown"
    markdown: "content.md"
    exclude:
@@ -188,13 +190,13 @@
       card:
          path: "thumb.jpg"
          description: "Python Code"
-         width: 677
-         height: 1000
+         width: 1000
+         height: 667
       top:
          path: "topimage.jpg"
          description: "Python Code"
-         width: 472
-         height: 1000
+         height: 472
+         width: 1000
    template: "markdown"
    markdown: "content.md"
    exclude:

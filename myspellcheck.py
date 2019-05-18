@@ -11,7 +11,8 @@ def test():
 
 def stripFancy(text,markdown=False):
     text = stripXML(text)
-    text = text.replace("&quot;",'"')
+    for char in ['&ldquo;','&rdquo;','&quot;']:
+        text = text.replace(char,'"')
     if markdown:
         text = stripMarkdown(text)
     return(text)

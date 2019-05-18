@@ -66,7 +66,11 @@ def main():
 # takes in a dict with one key
 # returns that key
 def getKey(x):
-    keys = [k for k in x.keys()]
+    try:
+        keys = [k for k in x.keys()]
+    except AttributeError as e:
+        print("Failed to get keys of object type %s, value %s" % (str(type(x)),str(x)))
+        raise(e)
     assert(1==len(keys))
     return(keys[0])
 
@@ -96,6 +100,7 @@ def validate(content):
         slide['leaf'] = not any(['button' == getKey(el) for el in slide['content']])
 
     allIDs = set([x['id'] for x in content if 'id' in x])
+    slidesPointedTo = set([content[0]['id']]) # include start slide
     for (i,slide) in enumerate(content):
         assert('id' in slide)
         print("Validating slide %s" % slide['id'])
@@ -110,8 +115,12 @@ def validate(content):
             if 'button' == key:
                 button = value[0]
                 # pp.pprint(el)
+                if 'destination-type' not in button:
+                    print("Button:")
+                    pp.pprint(button)
                 if button['destination-type'].lower() == 'absolute':
                     assert(button['destination'] in allIDs)
+
                 else:
                     assert(button['destination-type'].lower() == 'relative')
                     x = int(button['destination'])
@@ -122,6 +131,9 @@ def validate(content):
                     button['destination-type'] = 'absolute'
                 assert(button['direction'] in ['left','right','up','down'])
                 text = button['text']
+
+                # make list of all slides pointed to
+                slidesPointedTo.add(button['destination'])
 
                 # check if this button points to an end page
                 destSlide = [slide for slide in content if slide['id'] == button['destination']][0]
@@ -139,6 +151,16 @@ def validate(content):
                 if not myspellcheck.checkLine(value):
                     print("error, spelling mistake %s  #%d element in slide %s" % (key,i,slide['id']))
                     exit(1)
+
+
+    slidesNotPointedTo = set([slide['id'] for slide in content if slide['id'] not in slidesPointedTo])
+    if len(slidesNotPointedTo):
+        print("The following slides are not pointed to:")
+        print('\n   '.join(slidesNotPointedTo))
+        exit(1)
+
+
+
 def htmlize(content):
     with open('template.html','r') as f:
         template = Template(f.read())

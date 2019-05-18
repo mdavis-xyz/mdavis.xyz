@@ -6,9 +6,9 @@ The purpose of an election is to:
 Voting machines and online voting fail to achieve both of these objectives.
 
 There are some insurmountable theoretical security issues which can *never* be resolved.
-Worse still is that in practice voting machines and online voting are consistently insecure against even the most basic attacks, due to a shocking lack of due diligence.
+Worse still is that in practice voting machines and online voting are consistently insecure against even the most basic attacks, due to a shocking lack of due diligence by many different electoral organisations.
 
-This means that digital voting is worse at achieving the first goal than paper.
+This means that digital voting is worse at achieving the first goal than paper counted manually.
 The fact that digital election fraud is hard and frequently impossible to detect means that it fails at the second goal too.
 
 <a  href="https://xkcd.com/2030/" class="center imageWrap" target="_blank" >
@@ -186,6 +186,24 @@ Furthermore, it is technologically impossible to meaningfully separate the fact 
 You only need to fudge [a few votes](https://en.wikipedia.org/wiki/List_of_close_election_results) in a carefully chosen electorate to sway the whole election.
 You need to modify even fewer to destroy trust in the system.
 
+## Could a blockchain fix security issues?
+
+No.
+
+Blockchains [do not make elections more secure](../blockchain).
+Many people such as [The Flux Party](https://www.voteflux.org/) have [drunk the blockchain Cool-Aid](https://www.goodreads.com/book/show/35525995-attack-of-the-50-foot-blockchain) and now throw around the buzzword [without any pronoun](https://www.reddit.com/r/Bitcoin/comments/4jv75a/to_the_journalists_who_are_new_to_the_scene_the/) as if it will magically fix all problems.
+
+All software contains bugs.
+Blockchain software is *consistently worse* than normal software.
+Blockchain apps are written in Solidity, which is one of the most [awful and error-prone](https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/) programming languages of all time.
+
+The very reason blockchains were invented is antithetical to elections.
+Blockchains were designed to be public, immutable and fully distributed.
+So if someone steals your password, they can cast your vote for you, for every subsequent election.
+If it is possible for the electoral agency to perform a password reset, then a single centralised party has the ability to block and modify writes to the database.
+Blockchains were invented to prevent *exactly that* from being possible.
+So if password resets are possible, there's no point using a blockchain.
+
 ## Could regulation fix security issues?
 
 As explained above, the Ken Thompson hack means that some malware can infiltrate systems and remain undetected by even well funded, well trained people using world's best practice.
@@ -196,7 +214,7 @@ However vendors consistently use channels which are equally or less secure, such
 
 It is typically illegal to install remote desktop software on voting machines in the US.
 However one vendor [did it anyway](https://motherboard.vice.com/en_us/article/mb4ezy/top-voting-machine-vendor-admits-it-installed-remote-access-software-on-systems-sold-to-states), and then lied about it.
-The software they installed [remote execution of arbitrary code](https://www.zerodayinitiative.com/advisories/ZDI-12-018/).
+The software they installed allows [remote execution of arbitrary code](https://www.zerodayinitiative.com/advisories/ZDI-12-018/).
 This tool was so insecure that the company who makes it [recommends not using it](https://www.infoworld.com/article/2618965/threatened-by-anonymous--symantec-tells-users-to-pull-pcanywhere-s-plug.html).
 The machine makers claim they had no knowledge of that software, so how did it get there?
 Either the machine makers were malicious or incompetent.
@@ -211,7 +229,7 @@ It only takes a few lines of code to turn innocent vote counting software into m
 The first step for any regulator would be to use public, open-source code.
 That way they can see that the code which is *supposed* to eventually end up counting votes is not malicious.
 However this never happens.
-In practice voting software is always proprietary.
+In practice voting software is always [proprietary](https://www.computerworld.com.au/article/363417/governments_must_abandon_proprietary_software_stallman/).
 This means it is secret.
 Vendors refuse to show the code to security researchers, let alone average citizens.
 In some cases it is even [*illegal*](https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/) for security researchers to try to probe such software for vulnerabilities.
@@ -245,13 +263,14 @@ By choosing to use proprietary voting systems, **governments are giving control 
 All software has bugs, typically around [10 to 50 bugs](https://www.mayerdan.com/ruby/2012/11/11/bugs-per-line-of-code-ratio) for every 1000 lines of code.
 To run a touch screen interface developers must write approximately 10,000 lines of code.
 Therefore a voting machine, counting machine or end-user mobile phone with a touch screen will have about 100 to 500 bugs just in the screen software alone.
-As shown in the image above, the consequences of using software with hundreds of bugs to run an election are catastrophic.
+The consequences of using software with hundreds of bugs to run an election are catastrophic.
+The video above is from a *real* election.
 This example is [one of many](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html) where the screen displayed a different vote to what the voter intended.
 These problems do not happen with paper ballots.
 
 
 In March a dozen European Union members cast their vote incorrectly, because the user interface of the voting systems did not make it clear whether they were voting on amendments or the whole bill.
-The consequence is that legislation not supported by the majority was passed, and the whole Internet all around the world was impacted as a result.
+The consequence is that [legislation not supported by the majority was passed](https://nakedsecurity.sophos.com/2019/04/01/meps-just-voted-through-controversial-copyright-clauses-by-mistake/), and the whole Internet all around the world was impacted as a result.
 This happened to politicians whose entire job is voting, and understanding the process.
 So how could an average Joe voting once a year of less possibly fare any better?
 
@@ -265,7 +284,7 @@ The ballot costs a few cents, and the cardboard booths and pencils cost a few do
 So polling places can afford to install as many as they can fit into the room.
 In Australia many voters can walk straight in, and it's rare to queue for more than 20 minutes.
 In contrast, voting machines cost [several thousand dollars each](https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/).
-Consequently voter throughput is lower, so votes frequently queue for [*literally many hours*](https://arxiv.org/ftp/arxiv/papers/0810/0810.5577.pdf).
+Consequently voter throughput is lower, so votes frequently queue for [many *hours*](https://arxiv.org/ftp/arxiv/papers/0810/0810.5577.pdf).
 If we want to have a strong and healthy democracy it is essential that it is easy to cast a vote.
 When it comes to queue length, voting machines do the opposite.
 

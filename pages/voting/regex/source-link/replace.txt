@@ -1,1 +1,1 @@
-\[source\]\(\1\)
+[![images/link.png]{.link}](\1)

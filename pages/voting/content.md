@@ -41,11 +41,11 @@ There are several types of digital voting:
 For options 1 and 2, it is *literally impossible* to detect fraud if it happens.
 Of course fraud can *sometimes* be detected, like the time multiple vote counting machines submitted [*negative* votes](https://www.motherjones.com/politics/2004/03/diebolds-political-machine/) for Al Gore.
 Of course if the total number of votes is [far different](https://en.wikipedia.org/wiki/1927_Liberian_general_election) to the total number of voters, fraud is obvious.
-However it only takes a dozen flipped votes at a carefully chosen electorate to change the outcome of the whole election. #TODO link
+However it only takes [a dozen flipped votes](https://en.wikipedia.org/wiki/List_of_close_election_results) at a carefully chosen electorate to change the outcome of the whole election.
 If the outcome is a close call, or the integrity of the machines is in doubt, you cannot do a re-count.
 The possibility of a recount is one of the main essential features you lose if you abandon paper.
 
-For option 3, some ["VVPAT"](https://freedom-to-tinker.com/2018/10/19/continuous-roll-vvpat-under-glass-an-idea-whose-time-has-passed/) systems use a digital touchscreen for voter input, and then print a paper ballot, which is mechanically dropped into a sealed box.
+For option 3, some ["VVPAT"](https://freedom-to-tinker.com/2018/10/19/continuous-roll-vvpat-under-glass-an-idea-whose-time-has-passed/) systems use a digital touch screen for voter input, and then print a paper ballot, which is mechanically dropped into a sealed box.
 This allows voters to see their vote printed (without touching it).
 However what happens if a voter claims the vote they saw printed was not what they selected?
 Do you stop all voting on that machine, all machines in that polling place, all machines in the country?
@@ -70,22 +70,19 @@ A bank only needs to defend themselves against [script kiddies](https://en.wikip
 Election officials must defend their system against foreign nation states.
 Their enemies are as powerful as the [NSA](https://www.theguardian.com/world/2013/sep/05/nsa-gchq-encryption-codes-security), and [Russia's Kremlin](https://www.wired.com/story/russia-election-hacking-playbook/).
 The stakes for big elections are [literally *trillions* of dollars](https://www.youtube.com/watch?v=w3_0x6oaDmI), so the enemies will be willing to spend comparable amounts of money to change the outcome.
+Examples of attacks which are only used when nation states are involved and the stakes are this high include:
 
-One example of the kind of attacks that nation states can deploy is that America's NSA deliberately lobbied standards group to adopt an encryption algorithm [they knew how to break](https://en.wikipedia.org/wiki/Dual_EC_DRBG).
+* the [STUXNET](https://en.wikipedia.org/wiki/Stuxnet) attack, where the US and Israeli governments managed to inject malware into a computer which was completely offline, by using infected USB drives, and multiple [zero-day exploits](https://en.wikipedia.org/wiki/Zero-day_(computing));
+* the time America's NSA deliberately lobbied standards group to adopt an encryption algorithm [they knew how to break](https://en.wikipedia.org/wiki/Dual_EC_DRBG), which was subsequently used all over the world
+* the [Stingray attack](https://www.techdirt.com/articles/20110923/17251716080/details-emerging-stingray-technology-allowing-feds-to-locate-people-pretending-to-be-cell-towers.shtml), where governments mimic mobile towers, to execute Man-In-The-Middle attacks on the 2G network. (Many voting machines transmit vote totals [over the 2G network](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html).)
+* governments can use laws like [Australia's Assistance and Access bill](https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6195_aspassed/toc_pdf/18204b01.pdf;fileType=application%2Fpdf#search=%22legislation/bills/r6195_aspassed/0000%22) to force technology companies [to secretly install backdoors in their systems](https://thenextweb.com/politics/2018/12/10/australias-horrific-new-encryption-law-likely-to-obliterate-its-tech-scene/One/). (Government's around the world are [banning Huawei routers and devices](https://www.abc.net.au/news/2018-08-23/huawei-banned-from-providing-5g-mobile-technology-australia/10155438) from critical infrastructure, solely because they are worried China will use this exact attack.)
 
-Another example is the [STUXNET](https://en.wikipedia.org/wiki/Stuxnet) attack, where the US and Israeli governments managed to inject malware into a computer which was completely offline.
-
-# TODO: mention anti-encryption legal back doors, and Intel iDRAC
-
-# TODO: mention 2G attack
-
-But worst of all is the [Ken Thompson Hack](./KTH.pdf).
+But scariest of all is the [Ken Thompson Hack](./KTH.pdf).
 Someone may write innocent and strong software for a voting machine, but if that software developer's laptop was infected with this worm, the compiled (computer readable) version of their code can be modified to be different to what they wrote.
-For example, the worm could tell the voting machine to change every 10th vote for Party X to a vote for Party Y.
+For example, the worm could tell the voting machine to change every tenth vote for Party X to a vote for Party Y.
 The shocking thing about this is that since it is impossible to convert any non-trivial computer code back to human-readable form, this attack is undetectable.
 Since some software on every computer originated from another computer (which could be infected), it is *theoretically impossible* to know with certainty that any device has not been infected.
-This attack is difficult to execute.
-However when *trillions* of dollars are on the line, it's quite conceivable.
+This attack is difficult to execute in practice, however when *trillions* of dollars are on the line, and large foreign governments want to sway the outcome, it becomes a realistic threat.
 
 ## Digital Voting In Practice
 
@@ -99,7 +96,7 @@ and
 [again](https://web.archive.org/web/20101019133156/http://itpolicy.princeton.edu/voting/summary.html)
 
 
-> "‘‘What I’ve seen in the past 10 years is that the vendors have absolutely fumbled every single attempt in security" says Jacob D. Stauffer, vice president of operations for Coherent Cyber, who has conducted voting-machine security assessments for California’s secretary of state for a decade" ([source](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html))
+> What I’ve seen in the past 10 years is that the vendors have absolutely fumbled every single attempt in security ([source](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html))
 
 > Every single one of [the tested machines] had some sort of weakness ([source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections))
 
@@ -128,22 +125,20 @@ There are machines which:
   [source](https://www.infoworld.com/article/2618965/threatened-by-anonymous--symantec-tells-users-to-pull-pcanywhere-s-plug.html)
 * use passwords which are saved in a file which is publicly accessible online
   [source](https://news.ycombinator.com/item?id=15190148)
-* Have WiFi antennas, configured to use weak, outdated encryption algorithms which can be cracked from outside the building in 10 minutes
+* Have Wi-Fi antennas, configured to use weak, outdated encryption algorithms which can be cracked from outside the building in 10 minutes
   [source](https://arstechnica.com/tech-policy/2015/04/meet-the-e-voting-machine-so-easy-to-hack-it-will-take-your-breath-away/)
 * contain undocumented SD card ports and exposed USB ports which voters can plug malicious drives into. (USB ports are often how the candidate list and intended software is loaded each election)
   [source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
   [source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
 * save *no logs*, so the modification of data files or installation of basic malware from an SD card or wirelessly would not be detected
    [source](https://www.theguardian.com/us-news/2015/apr/15/virginia-hacking-voting-machines-security)
-* Are sold without having onboard data erased, and with the “Property Of” government labels still attached (akin to selling a police car with the police logo still on it)
+* Are sold without having onboard voter data erased, and with the "Property Of" government labels still attached (akin to selling a police car with the police logo still on it)
    [source](http://web-old.archive.org/web/20181101205425/https://www.wired.com/story/i-bought-used-voting-machines-on-ebay/)
-  [source](http://web-old.archive.org/web/20181101205425/https://www.wired.com/story/i-bought-used-voting-machines-on-ebay/)
+  [source](https://www.ibtimes.com/voter-data-exposed-650000-voter-records-found-auctioned-voting-machine-2573153)
 * use easily-pickable physical padlocks, and contain chips which can be reprogrammed by just plucking them out and replacing them with chips with other code
   [source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
   [source](http://citpsite.s3-website-us-east-1.amazonaws.com/oldsite-htdocs/voting/advantage/)
   [source](https://freedom-to-tinker.com/2016/09/20/which-voting-machines-can-be-hacked-through-the-internet/)
-
-* storage between elections # TODO: link
 
 There was even a case a stray radiation particle from space hitting a transistor and [flipping a single bit](https://motherboard.vice.com/en_us/article/9agbxd/space-weather-cosmic-rays-voting-aaas), which changed the numbers, causing the other candidate to win.
 This was only detected because the new total count was too high, by an amount which was a power of 2.
@@ -152,28 +147,17 @@ That is what happens with devices designed and used solely for elections, secure
 Online voting where voters can cast their vote using an app or website will necessarily be worse.
 Many actual elections which have used online voting have had real production systems be taken over by attackers, easily.
 
-> Within 36 hours of the system going live, our team had found and exploited a vulnerability that gave us almost total control of the server software, including the ability to change votes and reveal voters’ secret ballots. [source](https://freedom-to-tinker.com/2010/10/05/hacking-dc-internet-voting-pilot/)
+> Within 36 hours of the system going live, our team had found and exploited a vulnerability that gave us almost total control of the server software, including the ability to change votes and reveal voters' secret ballots. [source](https://freedom-to-tinker.com/2010/10/05/hacking-dc-internet-voting-pilot/)
 
+In one 2010 election, security researchers were able to crack the web server and change votes to match fake candidates, within 36 hours.
+The officials [*didn't even notice*](https://www.thenation.com/article/american-democracy-is-now-under-siege-by-both-cyber-espionage-and-gop-voter-suppression/) until 2 days later.
 
+There is at least one example of a real election server being attacked by a malicious attacker, [using SQL injection](https://www.rollcall.com/news/whitehouse/barrs-conclusion-no-obstruction-gets-new-scrutiny).
+This is [the oldest trick in the book](https://www.w3schools.com/sql/sql_injection.asp).
+Such vulnerabilities are so well known and easy to prevent that it would be shocking to see on a read-only blog, let alone an electoral system.
 
-# TODO: Aus example
-# TODO: other online examples (notes below)
-# mention flux
-
-* SQL injection - https://www.rollcall.com/news/whitehouse/barrs-conclusion-no-obstruction-gets-new-scrutiny
-* Researchers renamed candidates on live ballot website, took 2 days before officials noticed  https://www.thenation.com/article/american-democracy-is-now-under-siege-by-both-cyber-espionage-and-gop-voter-suppression/
-* Email ballots are like "would be like stapling a $100 bill to a postcard and expecting it to get to its destination unmolested" https://www.llnl.gov/news/security-risks-and-privacy-issues-are-too-great-moving-ballot-box-internet
-
-* mention Flux, Estonia
-* website/app
-* NSW online system tracks how you voted https://freedom-to-tinker.com/2015/03/22/ivote-vulnerability/
-   * Uses 3rd party analytics tool tool
-   * "Why should the public accept the election results when the method of counting and verifying their votes is a secret?"
-
-* average device's security
-* link to Boing Boing?
-* No way to do a vote recount (unless you forgo anonymity, and allow gun-to-head voting)
-
+In the Australian state of New South Wales, an online voting system loaded third party analytics tools onto the voting page, in a poorly secured way.
+So not only could those third parties see how you vote, but any attacker could easily attack *them* to take control of the page, so that they can see and change your vote.
 
 Most consumer devices (such as phones and laptops) are [*already* infected](https://www.youtube.com/watch?v=w3_0x6oaDmI) with relatively simple malware.
 If consumers cannot protect themselves from malware made by simple individual attackers, how could they possibly defend against malware made by a foreign nation's military, specifically for the purpose of election rigging?
@@ -192,9 +176,8 @@ Furthermore, it is technologically impossible to meaningfully separate the fact 
 
 ## How big a flaw is big enough?
 
-You only need to fudge a few votes to sway the election. Even fewer to destroy trust
-
-   # TODO: source
+You only need to fudge [a few votes](https://en.wikipedia.org/wiki/List_of_close_election_results) in a carefully chosen electorate to sway the whole election.
+You need to modify even fewer to destroy trust in the system.
 
 ## Could regulation fix security issues?
 
@@ -213,8 +196,6 @@ Either the machine makers were malicious or incompetent.
 Both explanations are bad.
 How can you patch code you don't know is there?
 
-# TODO: mention donations
-
 In practice voting machines are regulated, audited, inspected and secured [*less* diligently than gambling machines](https://www.nytimes.com/2004/06/13/opinion/gambling-on-voting.html).
 
 ## Commercial Vendors and Proprietary Software
@@ -229,9 +210,10 @@ Vendors refuse to show the code to security researchers, let alone average citiz
 In some cases it is even [*illegal*](https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/) for security researchers to try to probe such software for vulnerabilities.
 (Such laws won't stop bad guys from finding vulnerabilities to rig the election with, but they [will stop good guys](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections) from finding those vulnerabilities and fixing them first.)
 
-Recall the 2nd reason why elections take place.
+Recall the second reason why elections take place.
 Voters who support the losing party must be convinced that the decision was fair.
 If you have voting machines, this means that they must be convinced the machines were not compromised.
+How can voters trust the election results when the method of counting and verifying their votes is secret?
 
 Imagine if you cast your vote by making a phone call to a human, telling them your vote, and then at the end of the day they tell the central office what their totals were.
 That's crazy.
@@ -252,15 +234,15 @@ By choosing to use proprietary voting systems, **governments are giving control 
 </video>
 
 All software has bugs, typically around [10 to 50 bugs](https://www.mayerdan.com/ruby/2012/11/11/bugs-per-line-of-code-ratio) for every 1000 lines of code.
-To run a touchscreen interface developers must write approximately 10,000 lines of code.
+To run a touch screen interface developers must write approximately 10,000 lines of code.
 Therefore a voting machine, counting machine or end-user mobile phone with a touch screen will have about 100 to 500 bugs just in the screen software alone.
 As shown in the image above, the consequences of using software with hundreds of bugs to run an election are catastrophic.
 This example is [one of many](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html) where the screen displayed a different vote to what the voter intended.
 These problems do not happen with paper ballots.
 
 
-In March a dozen European Union members cast their vote incorrectly, because the user interface of the voting systems did not make it clear whether they were voting on ammendments or the whole bill.
-The consequence is that legislation not supported by the majority was passed, and the whole internet all around the world was impacted as a result.
+In March a dozen European Union members cast their vote incorrectly, because the user interface of the voting systems did not make it clear whether they were voting on amendments or the whole bill.
+The consequence is that legislation not supported by the majority was passed, and the whole Internet all around the world was impacted as a result.
 This happened to politicians whose entire job is voting, and understanding the process.
 So how could an average Joe voting once a year of less possibly fare any better?
 
@@ -296,7 +278,7 @@ That is the level of paranoia which electoral systems *should* have.
 
 In Australia (and around the world) paper ballots are counted by you, the citizens.
 The officials are volunteers from across the political spectrum.
-In constrast most voting machines are made by only a handful of vendors, who are [highly partisan](https://www.motherjones.com/politics/2004/03/diebolds-political-machine/).
+In contrast most voting machines are made by only a handful of vendors, who are [highly partisan](https://www.motherjones.com/politics/2004/03/diebolds-political-machine/).
 The CEO of one publicly proclaimed that he will be "helping Ohio deliver its electoral votes to the President."
 
 If you are concerned that the people counting your vote will deliberately fudge the numbers, you can simply walk into the polling place and watch them.
@@ -315,7 +297,7 @@ What about another machine in another polling place?
 That's probably made by the same vendor, with the same flaws.
 
 It only takes a few extra bytes of code to turn legitimate vote counting software into vote-flipping software.
-It is impossible to convert non-trivial 1s and 0s back into human readable form.
+It is impossible to convert non-trivial ones and zero back into human readable form.
 Voting machines are a [black box](https://en.wikipedia.org/wiki/Black_box).
 
 One of the challenging problems which paper solves is ensuring that each person votes only once, that vote definitely ends up in the count, and no one can see how any individual voted.
@@ -346,3 +328,19 @@ This is increasingly popular, with [3 million voters](https://www.abc.net.au/new
 Convenience is important, but since digital voting violates both of the original goals of an election (fair decision, which losers trust is fair), the trade-off is not worth it
 
 ## Conclusion
+
+The purpose of an election is the fairly choose a winner, and convince the losers it was a fair decision.
+
+Digital voting has fundamental theoretical security issues, so you can *never* be sure the decision was fair.
+In practice voting machines and online voting is consistently implemented with shocking security, far from best practice.
+Every vulnerability you can think of has probably been found on a real system.
+
+Paper voting and manual counting has been used and refined over *centuries*.
+Digital voting is more expensive, and involves handing control of the election to a partisan for-profit vendor who have a strong incentive to hide security vulnerabilities and reduce cost by cutting corners.
+
+There is no real need to expedite the process.
+The sky doesn't fall if counting takes a while.
+
+If it ain't broke, don't fix it.
+Digital voting isn't even a fix.
+Time and time again it has failed to even come close to the security and usability of paper ballots, counted manually.

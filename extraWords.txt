@@ -455,3 +455,7 @@ Stauffer
 Joseph
 Germany
 Estonia
+authorise
+iVote
+Halderman
+attendee

@@ -291,7 +291,8 @@ def checkWord(word):
             print("   A - add without apostrophe: %s" % word[:-2])
         elif word.endswith("s"):
             print("   p - add singular lowercase: %s" % word[:-1].lower())
-            print("   P - add singular as is : %s" % word[:-1])
+            if word != word.lower():
+                print("   P - add singular as is : %s" % word[:-1])
         print("   n - don't add. Exit")
         answer = input('')
         if answer.startswith('y'):

@@ -19,7 +19,7 @@ The fact that digital election fraud is hard and frequently impossible to detect
 
 Many people ask the question:
 
-> If I can securely do my banking online, why can't I cast my vote online?
+> "If I can securely do my banking online, why can't I cast my vote online?"
 
 The short answer is that banking and elections have two very different threat models.
 
@@ -62,7 +62,7 @@ Ultimately such a system is [just a very expensive pencil](https://www.youtube.c
 
 It might seem like this does not matter if you just make sure that the devices don't get compromised in the first place.
 However recounting is a safety net that provides an extra layer of security.
-All good security systems multiple layers of protection for [Defence in Depth](https://en.wikipedia.org/wiki/Defense_in_depth_%28computing%29) (like multiple concentric walls protecting a castle).
+All good security systems use multiple layers of protection for [Defence in Depth](https://en.wikipedia.org/wiki/Defense_in_depth_%28computing%29) (like multiple concentric walls protecting a castle).
 Furthermore, as enumerated below, it is impossible in practice and even in theory to defend against the kind of bad actors elections face.
 
 
@@ -99,11 +99,14 @@ and
 [again](https://web.archive.org/web/20101019133156/http://itpolicy.princeton.edu/voting/summary.html)
 
 
-> What I’ve seen in the past 10 years is that the vendors have absolutely fumbled every single attempt in security [source-dark](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html)
+> "What I’ve seen in the past 10 years is that the vendors have absolutely fumbled every single attempt in security" - Jacob D. Stauffer, who has conducted voting-machine security assessments for California's secretary of state for a decade [source-dark](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html)
 
-> Every single one of [the tested machines] had some sort of weakness [source-dark](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
 
 In 2018 DEF CON (an international security convention) made voting machines available to see how well they stand up to actual attackers.
+
+
+> "Every single one of [the tested machines] had some sort of weakness" - Joseph Hall, Chief Technologist of the Center for Democracy and Technology [source-dark](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
+
 30 minors were able to compromise the machines, including an 11 year old who changed the outcome of the mock election in [10 minutes](http://time.com/5366171/11-year-old-hacked-into-us-voting-system-10-minutes/).
 Machines which can be compromised by an 11 year old in 10 minutes are being used for real elections with actual stakes.
 
@@ -114,7 +117,7 @@ There are *many* examples of real elections where voting machines were [wireless
 </a>
 
 If you can think of a way voting machines or online voting could go wrong, then there is almost certainly an example of an actual real election where exactly that has happened.
-There are machines which:
+Some real elections have used machines which:
 
 * transmit vote counts to the central office *without any encryption* (This is like stapling a $100 note to a postcard and expecting it to get to the destination.)
   [source](https://news.ycombinator.com/item?id=15190148)
@@ -131,7 +134,7 @@ There are machines which:
   [source](https://www.infoworld.com/article/2618965/threatened-by-anonymous--symantec-tells-users-to-pull-pcanywhere-s-plug.html)
 * use passwords which are saved in a file which is publicly accessible online
   [source](https://news.ycombinator.com/item?id=15190148)
-* Have Wi-Fi antennas, configured to use weak, outdated encryption algorithms which can be cracked from outside the building in 10 minutes
+* Use Wi-Fi, with weak, outdated encryption algorithms which can be cracked from outside the building in 10 minutes
   [source](https://arstechnica.com/tech-policy/2015/04/meet-the-e-voting-machine-so-easy-to-hack-it-will-take-your-breath-away/)
 * contain undocumented SD card ports and exposed USB ports which voters can plug malicious drives into. (USB ports are often how the candidate list and intended software is loaded each election)
   [source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
@@ -162,7 +165,7 @@ There is at least one example of a real election server being attacked by a mali
 This is [the oldest trick in the book](https://www.w3schools.com/sql/sql_injection.asp).
 Such vulnerabilities are so well known and easy to prevent that it would be shocking to see on a read-only blog, let alone an electoral system.
 
-In the Australian state of New South Wales, an online voting system loaded third party analytics tools onto the voting page, in a poorly secured way.
+In the Australian state of New South Wales, an online voting system loaded third party analytics tools [onto the voting page](https://freedom-to-tinker.com/2015/03/22/ivote-vulnerability/), in a poorly secured way.
 So not only could those third parties see how you vote, but any attacker could easily attack *them* to take control of the page, so that they can see and change your vote.
 
 Most consumer devices (such as phones and laptops) are [*already* infected](https://www.youtube.com/watch?v=w3_0x6oaDmI) with relatively simple malware.
@@ -220,7 +223,10 @@ Either the machine makers were malicious or incompetent.
 Both explanations are bad.
 How can you patch code you don't know is there?
 
-In practice voting machines are regulated, audited, inspected and secured [*less* diligently than gambling machines](https://www.nytimes.com/2004/06/13/opinion/gambling-on-voting.html).
+Many of the prior examples were from the US because they are one of the biggest users of digital voting systems.
+However these issues have cropped up in other regulatory jurisdictions too, such as [Germany](https://news.ycombinator.com/item?id=15190148), [Estonia](https://media.ccc.de/v/31c3_-_6344_-_en_-_saal_1_-_201412281400_-_security_analysis_of_estonia_s_internet_voting_system_-_j_alex_halderman) and [Australia](https://freedom-to-tinker.com/2015/03/22/ivote-vulnerability/).
+
+In practice voting machines are typically regulated, audited, inspected and secured [*less* diligently than gambling machines](https://www.nytimes.com/2004/06/13/opinion/gambling-on-voting.html).
 
 ## Commercial Vendors and Proprietary Software
 
@@ -259,23 +265,24 @@ By choosing to use proprietary voting systems, **governments are giving control 
    </video>
 </div>
 
-All software has bugs, typically around [10 to 50 bugs](https://www.mayerdan.com/ruby/2012/11/11/bugs-per-line-of-code-ratio) for every 1000 lines of code.
-To run a touch screen interface developers must write approximately 10,000 lines of code.
-Therefore a voting machine, counting machine or end-user mobile phone with a touch screen will have about 100 to 500 bugs just in the screen software alone.
-The consequences of using software with hundreds of bugs to run an election are catastrophic.
+All software has bugs, typically around [10 to 50 bugs](https://www.mayerdan.com/ruby/2012/11/11/bugs-per-line-of-code-ratio) (coding mistakes) for every 1000 lines of code.
+Voting machines typically have [several hundred thousand lines of code](https://mirror.netcologne.de/CCC/congress/2014/webm-sd/31c3-6344-en-Security_Analysis_of_Estonias_Internet_Voting_System_webm-sd.webm).
+Therefore we can say with high confidence that any voting machines probably has *thousands* of bugs.
+The consequences of using software with so many bugs to run an election are catastrophic.
 The video above is from a *real* election.
 This example is [one of many](https://www.nytimes.com/2018/02/21/magazine/the-myth-of-the-hacker-proof-voting-machine.html) where the screen displayed a different vote to what the voter intended.
+For online voting, votes are cast on consumer devices running tens of millions of lines of code, which means they contain *hundreds of thousands of bugs*.
 These problems do not happen with paper ballots.
 
 
 In March a dozen European Union members cast their vote incorrectly, because the user interface of the voting systems did not make it clear whether they were voting on amendments or the whole bill.
 The consequence is that [legislation not supported by the majority was passed](https://nakedsecurity.sophos.com/2019/04/01/meps-just-voted-through-controversial-copyright-clauses-by-mistake/), and Internet freedom all around the world was impacted as a result.
 This happened to politicians whose entire job is voting, and understanding the process.
-So how could an average Joe voting once a year of less possibly fare any better?
+So how could an average Joe voting once a year or less possibly fare any better?
 
 In one Texas vote, the machines took many seconds to render each page on the screen.
 If voters touched the screen before that rendering finished, the machines [threw away their vote](https://www.vice.com/en_us/article/negayg/texas-voting-machines-have-been-a-known-problem-for-a-decade).
-The officials response from officials was to claim nothing was wrong, and to blame voters for not waiting "at least 3-5 seconds for all choices to be rendered on the eSlate voting machines".
+The officials' response was to claim nothing was wrong, and to blame voters for not waiting "at least 3-5 seconds for all choices to be rendered on the eSlate voting machines".
 If a computer takes 5 seconds to print some simple text on a screen from a local drive, then something is fundamentally wrong about how that software was written.
 
 Paper ballots are incredibly cheap.
@@ -283,7 +290,7 @@ The ballot costs a few cents, and the cardboard booths and pencils cost a few do
 So polling places can afford to install as many as they can fit into the room.
 In Australia many voters can walk straight in, and it's rare to queue for more than 20 minutes.
 In contrast, voting machines cost [several thousand dollars each](https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/).
-Consequently voter throughput is lower, so votes frequently queue for [many *hours*](https://arxiv.org/ftp/arxiv/papers/0810/0810.5577.pdf).
+Consequently voter throughput is lower, so voters frequently queue for [many *hours*](https://arxiv.org/ftp/arxiv/papers/0810/0810.5577.pdf).
 If we want to have a strong and healthy democracy it is essential that it is easy to cast a vote.
 When it comes to queue length, voting machines do the opposite.
 
@@ -356,7 +363,7 @@ Convenience is important, but since digital voting violates both of the original
 
 ## Conclusion
 
-The purpose of an election is the fairly choose a winner, and convince the losers it was a fair decision.
+The purpose of an election is to fairly choose a winner, and convince the losers it was a fair decision.
 
 Digital voting has fundamental theoretical security issues, so you can *never* be sure the decision was fair.
 In practice voting machines and online voting is consistently implemented with shocking security, far from best practice.

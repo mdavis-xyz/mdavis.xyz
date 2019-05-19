@@ -162,6 +162,12 @@
              out: regex/source/test/2/out.txt
            - in: regex/source/test/3/in.txt
              out: regex/source/test/3/out.txt
+      - what: "html"
+        search: regex/target/search.txt
+        replace: regex/target/replace.txt
+        test:
+           - in: regex/target/test/0/in.txt
+             out: regex/target/test/0/out.txt
 -  title: "Machine Learning Unicycling"
    description: "Teaching a computer to ride a simulated unicycle"
    path: "unicycle"

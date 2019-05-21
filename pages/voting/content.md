@@ -106,7 +106,7 @@ Someone may write innocent and strong software for a voting machine, but if that
 For example, the worm could tell the voting machine to change every tenth vote for Party X to a vote for Party Y.
 The shocking thing about this is that since it is impossible to convert any non-trivial computer code back to human-readable form, this attack is undetectable.
 Since some software on every computer originated from another computer (which could be infected), it is *theoretically impossible* to know with certainty that any device has not been infected.
-This attack is difficult to execute in practice. 
+This attack is difficult to execute in practice.
 However when *trillions* of dollars are on the line, and large foreign governments want to sway the outcome, it becomes a realistic threat.
 
 ## Digital Voting In Practice
@@ -157,7 +157,7 @@ Some real elections have used machines which:
   [source](https://news.ycombinator.com/item?id=15190148)
 * use Wi-Fi, with weak, outdated encryption algorithms which can be cracked from outside the building in ten minutes
   [source](https://arstechnica.com/tech-policy/2015/04/meet-the-e-voting-machine-so-easy-to-hack-it-will-take-your-breath-away/)
-* contain undocumented SD card ports and exposed USB ports which voters can plug malicious drives into. 
+* contain undocumented SD card ports and exposed USB ports which voters can plug malicious drives into.
   [source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
   [source](https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections)
 * save *no logs*, so the modification of data or simple changing of software would not be detected
@@ -277,6 +277,14 @@ That's insane.
 That's obviously a *terrible*, *fundamentally fucked* idea.
 But that's effectively [how all proprietary voting software works](https://www.youtube.com/watch?v=w3_0x6oaDmI).
 
+In the 2016 Australian federal election ballots were counted by machines inside the vendor's building.
+The vendor [refused to let most official scrutineers in](https://www.sbs.com.au/news/aec-s-vote-counting-machines-impossible-to-check-for-accuracy-scrutineers) to see all the counting machines operating, instead only allowing a small number of scrutineers watch a minority of the machines.
+The scanning performed by Fuji Xerox machines was 'checked' by Fuji Xerox employees, in only a few seconds per ballot.
+For the few ballot scans which were seen by scrutineers, if scrutineers objected after the vendor staff already clicked next, it was *impossible* for the staff to go back to that prior ballot and double check it.
+
+The electoral commission ended up recounting all ballots by hand.
+However they [never bothered](https://www.sbs.com.au/news/damning-report-finds-aec-bungled-security-in-2016-election-costing-millions) to figure out just how many mistakes were made by the machines.
+
 By choosing to use proprietary voting systems, **governments are giving control of the election to a private company who have a strong financial incentive to hide known vulnerabilities and prevent security researchers from finding bugs.**
 
 ## Usability
@@ -309,7 +317,7 @@ So how could an average person voting once a year or less possibly fare any bett
 In one Texas election the machines took many seconds to render each page on the screen.
 If voters touched the screen before that rendering finished, the machines [threw away their vote](https://www.vice.com/en_us/article/negayg/texas-voting-machines-have-been-a-known-problem-for-a-decade).
 The officials' response was to claim nothing was wrong, and to blame voters for not waiting "at least three to five seconds for all choices to be rendered".
-If a computer takes five seconds to print some simple text on a screen from a local drive, then something is fundamentally wrong about how that software was written.
+If a computer takes five seconds to print some simple text on a screen from a local drive, then something is fundamentally wrong with how that software was written.
 
 Paper ballots are incredibly cheap.
 The ballot costs a few cents, and the cardboard booths and pencils cost a few dollars.
@@ -320,7 +328,7 @@ Consequently voter throughput is lower, so voters frequently queue for [many *ho
 This discourages voters, which is bad for democracy.
 
 
-## The security of paper
+## The benefits of paper
 
 In the 2000 US presidential election paper ballot counting machines miscounted a substantial amount of votes, because of the [hanging chad issue](https://www.urbandictionary.com/define.php?term=hanging%20chad).
 The consequence was that the elected president was [quite possibly *not*](https://en.wikipedia.org/wiki/2000_United_States_presidential_election_recount_in_Florida) the president who received the most votes.
@@ -341,7 +349,7 @@ For example, many voting machines have the candidate list loaded on each electio
 It is [relatively simple](https://mirror.netcologne.de/CCC/congress/2014/webm-sd/31c3-6344-en-Security_Analysis_of_Estonias_Internet_Voting_System_webm-sd.webm) to construct a virus such that if you infect just one machine, any inserted SD card will be infected, which will infect all subsequent machines programmed with that card.
 
 In Australia (and around the world) paper ballots are counted by you, the citizens.
-The officials are volunteers from across the political spectrum.
+The staff and scrutineers are people from across the political spectrum.
 In contrast most voting machines are made by only a handful of vendors, who are [highly partisan](https://www.motherjones.com/politics/2004/03/diebolds-political-machine/).
 The CEO of one publicly proclaimed that he will be "helping Ohio deliver its electoral votes to the President."
 
@@ -377,7 +385,10 @@ The nation did not falter.
 The sky did not fall.
 Parliament steers the nation on a time-scale of years, so waiting hours or even weeks for a count is not of great consequence.
 
-As mentioned earlier, voting machines are *expensive*. Paper is cheap, and vote counters work for free.
+As mentioned earlier, voting machines are *expensive*.
+In the 2016 Australian federal election, distrust in the vote scanning machines resulted in a manual recount, at a cost of $8.6 million.
+That is [*less*](https://www.sbs.com.au/news/damning-report-finds-aec-bungled-security-in-2016-election-costing-millions) than the cost of merely *transporting* the ballots to the digital scanning centres ($8.7 million).
+The cost of designing and building the digital scanning system was $27 million.
 So cost reduction is an invalid motivation for digital voting.
 
 Another motivation for online voting is convenience for voters.

@@ -128,7 +128,7 @@
    exclude:
       - 'footerHR'
    date: 11/5/2019 # update manually
--  title: "Why Paper Voting Is Still More Secure"
+-  title: "Why Paper Voting Is Still Superior"
    description: "How digital security can be good enough for banking but not for elections"
    path: "voting"
    images:

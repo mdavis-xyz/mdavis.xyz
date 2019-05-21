@@ -6,15 +6,15 @@
    <!--w3c-->
    <title property="schema:name">Why Paper Voting Is Still Superior</title>
    <meta name="title" content="Why Paper Voting Is Still Superior">
-   <meta name="description" content="How digital security can be good enough for banking but not for elections">
+   <meta name="description" content="How digital security is good enough for banking but not for elections">
 
    <!--schema.org-->
    <meta property="schema:name" content="Why Paper Voting Is Still Superior">
-   <meta property="schema:description" content="How digital security can be good enough for banking but not for elections">
+   <meta property="schema:description" content="How digital security is good enough for banking but not for elections">
 
    <!-- opengraph-->
    <meta property="og:title" content="Why Paper Voting Is Still Superior">
-   <meta property="og:description" content="How digital security can be good enough for banking but not for elections">
+   <meta property="og:description" content="How digital security is good enough for banking but not for elections">
 
 
    <meta property="og:type" content="website" />
@@ -27,7 +27,7 @@
    <meta property="og:author" content="Matthew Davis" />
    <meta property="og:site_name" content="Matthew Davis's Blog" />
 
-   <meta name="displaydate" content="17 May 2019">
+   <meta name="displaydate" content="21 May 2019">
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -52,7 +52,7 @@
 
       <header>
          <h1 id="title">Why Paper Voting Is Still Superior</h1>
-         <p id="subtitle" class="subtitle">How digital security can be good enough for banking but not for elections</p>
+         <p id="subtitle" class="subtitle">How digital security is good enough for banking but not for elections</p>
       </header>
 
 
@@ -89,8 +89,8 @@
                 alt=""
                 width="20"
                 height="20" />
-            <time datetime="2019-05-17" class="dateline">
-               17 May 2019
+            <time datetime="2019-05-21" class="dateline">
+               21 May 2019
             </time>
          </div>
          <div class="metalinesep">
@@ -122,8 +122,8 @@
 <li>fairly decide a winner; and</li>
 <li>convince everyone that the decision was fair.</li>
 </ol>
-<p>If anyone can exploit a security vulnerability in voting machines or online voting systems, they can modify the individual votes or the final count such that the wrong candidate wins. There are some insurmountable theoretical security issues with digital voting which can <em>never</em> be resolved. Worse still is that in practice voting machines and online voting are consistently insecure against even the most basic attacks, due to a shocking lack of due diligence by many different electoral organisations. This means that digital voting is far worse at achieving the first goal than paper counted manually.</p>
-<p>Not only is election fraud easier to execute with digital elections, but it is also harder to detect. The stakes for national elections are very high, and the threats are very real. Elections which lack a paper trail cannot be re-counted. Voters are typically not allowed to inspect and verify the software and devices used to log and count their votes. Instead they must blindly trust all the people in the supply chain, and each electoral official. Even if inspection was allowed, it is scientifically impossible to <em>confirm</em> that any non-trivial electronic device has not been infected with malware. This means that the integrity of any digital election is not trustworthy, so digital elections are worse at satisfying the second objective than paper.</p>
+<p>If anyone can exploit a security vulnerability in voting machines or online voting systems, they can modify the individual votes or the final count such that the wrong candidate wins. There are some insurmountable theoretical security issues with digital voting which can <em>never</em> be resolved. Worse still is that in practice voting machines and online voting are consistently insecure against even the most basic attacks, due to a shocking lack of due diligence by many different electoral organisations. This means that digital voting is far less likely to correctly select the winner than paper counted manually.</p>
+<p>Not only is election fraud easier to execute with digital elections, but it is also harder to detect. The stakes for national elections are very high, and the threats are very real. Elections which lack a paper trail cannot be re-counted. Voters are typically not allowed to inspect and verify the software and devices used to log and count their votes. Instead they must blindly trust all the people in the supply chain, and each electoral official. Even if inspection was allowed, it is scientifically impossible to <em>confirm</em> that any non-trivial electronic device has not been infected with malware. This means that the integrity of any digital election is not trustworthy. There is not much point in holding an election unless the people trust the outcome, and believe in the process.</p>
 <p><a  href="https://xkcd.com/2030/" class="center imageWrap" target="_blank" > <img src="images/xkcd-blockchain.png" alt="xkcd comic about voting security" height="1211" width="1204"  class="roundAndShadow xkcd" id="xkcd-blockchain"/> </a></p>
 <h2 id="comparing-banking-and-voting">Comparing banking and voting</h2>
 <p>Many people ask the question:</p>
@@ -218,8 +218,7 @@
 <p>It only takes a few lines of code to turn innocent vote counting software into malicious vote-flipping software. The first step for any regulator would be to insist upon the use of only public, open-source code. That way regulators and voters can see that the code which is <em>supposed</em> to eventually end up counting votes is not malicious. However this never happens. In practice voting software is always <a target="_blank" href="https://www.computerworld.com.au/article/363417/governments_must_abandon_proprietary_software_stallman/">proprietary</a>. This means it is secret. Vendors refuse to show the code to security researchers, let alone average citizens. In some cases it is even <a target="_blank" href="https://www.thenation.com/article/touch-and-go-elections-perils-electronic-voting/"><em>illegal</em></a> for security researchers to try to probe such software for vulnerabilities. (Such laws won't stop bad guys from finding vulnerabilities to rig the election with, but they <a target="_blank" href="https://www.fastcompany.com/40448876/how-hackers-are-teaching-election-officials-to-protect-their-voting-machines-learned-from-hackers-to-improve-security-for-future-elections">will stop good guys</a> from finding those vulnerabilities and fixing them first.)</p>
 <p>Recall the second reason why elections take place. Voters who support the losing party must be convinced that the decision was fair and democratic. If you have voting machines, this means that they must be convinced the machines were not compromised. How can voters trust the election results when the method of counting and verifying their votes is secret?</p>
 <p>Imagine if you cast your vote by making a phone call to a human, telling them your vote, and then at the end of the day they tell the central office what their totals were. That's crazy. That's insane. That's obviously a <em>terrible</em>, <em>fundamentally fucked</em> idea. But that's effectively <a target="_blank" href="https://www.youtube.com/watch?v=w3_0x6oaDmI">how all proprietary voting software works</a>.</p>
-<p>In the 2016 Australian federal election ballots were counted by machines inside the vendor's building. The vendor <a target="_blank" href="https://www.sbs.com.au/news/aec-s-vote-counting-machines-impossible-to-check-for-accuracy-scrutineers">refused to let most official scrutineers in</a> to see all the counting machines operating, instead only allowing a small number of scrutineers watch a minority of the machines. The scanning performed by Fuji Xerox machines was 'checked' by Fuji Xerox employees, in only a few seconds per ballot. For the few ballot scans which were seen by scrutineers, if scrutineers objected after the vendor staff already clicked next, it was <em>impossible</em> for the staff to go back to that prior ballot and double check it.</p>
-<p>The electoral commission ended up recounting all ballots by hand. However they <a target="_blank" href="https://www.sbs.com.au/news/damning-report-finds-aec-bungled-security-in-2016-election-costing-millions">never bothered</a> to figure out just how many mistakes were made by the machines.</p>
+<p>In the 2016 Australian federal election ballots were counted by machines inside the vendor's building. The vendor <a target="_blank" href="https://www.sbs.com.au/news/aec-s-vote-counting-machines-impossible-to-check-for-accuracy-scrutineers">refused to let most official scrutineers in</a> to see all the counting machines operating, instead only allowing a small number of scrutineers watch a minority of the machines. The scanning performed by Fuji Xerox machines was 'checked' by Fuji Xerox employees, in only a few seconds per ballot. For the few ballot scans which were seen by scrutineers, if scrutineers objected after the vendor staff already clicked next, it was <em>impossible</em> for the staff to go back to that prior ballot and correct it. The electoral commission ended up recounting all ballots by hand. However they <a target="_blank" href="https://www.sbs.com.au/news/damning-report-finds-aec-bungled-security-in-2016-election-costing-millions">never bothered</a> to figure out just how many mistakes were made by the machines.</p>
 <p>By choosing to use proprietary voting systems, <strong>governments are giving control of the election to a private company who have a strong financial incentive to hide known vulnerabilities and prevent security researchers from finding bugs.</strong></p>
 <h2 id="usability">Usability</h2>
 <!-- ffmpeg -an -i ../buggy.mp4 -b 1000 -crf 30 -profile:v baseline buggy-small.mp4 -->

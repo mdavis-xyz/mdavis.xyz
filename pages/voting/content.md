@@ -6,7 +6,7 @@ The purpose of an election is to:
 If anyone can exploit a security vulnerability in voting machines or online voting systems, they can modify the individual votes or the final count such that the wrong candidate wins.
 There are some insurmountable theoretical security issues with digital voting which can *never* be resolved.
 Worse still is that in practice voting machines and online voting are consistently insecure against even the most basic attacks, due to a shocking lack of due diligence by many different electoral organisations.
-This means that digital voting is far worse at achieving the first goal than paper counted manually.
+This means that digital voting is far less likely to correctly select the winner than paper counted manually.
 
 Not only is election fraud easier to execute with digital elections, but it is also harder to detect.
 The stakes for national elections are very high, and the threats are very real.
@@ -14,7 +14,8 @@ Elections which lack a paper trail cannot be re-counted.
 Voters are typically not allowed to inspect and verify the software and devices used to log and count their votes.
 Instead they must blindly trust all the people in the supply chain, and each electoral official.
 Even if inspection was allowed, it is scientifically impossible to *confirm* that any non-trivial electronic device has not been infected with malware.
-This means that the integrity of any digital election is not trustworthy, so digital elections are worse at satisfying the second objective than paper.
+This means that the integrity of any digital election is not trustworthy.
+There is not much point in holding an election unless the people trust the outcome, and believe in the process.
 
 <a  href="https://xkcd.com/2030/" class="center imageWrap" target="_blank" >
    <img src="images/xkcd-blockchain.png" alt="xkcd comic about voting security" height="1211" width="1204"  class="roundAndShadow xkcd" id="xkcd-blockchain"/>
@@ -280,8 +281,7 @@ But that's effectively [how all proprietary voting software works](https://www.y
 In the 2016 Australian federal election ballots were counted by machines inside the vendor's building.
 The vendor [refused to let most official scrutineers in](https://www.sbs.com.au/news/aec-s-vote-counting-machines-impossible-to-check-for-accuracy-scrutineers) to see all the counting machines operating, instead only allowing a small number of scrutineers watch a minority of the machines.
 The scanning performed by Fuji Xerox machines was 'checked' by Fuji Xerox employees, in only a few seconds per ballot.
-For the few ballot scans which were seen by scrutineers, if scrutineers objected after the vendor staff already clicked next, it was *impossible* for the staff to go back to that prior ballot and double check it.
-
+For the few ballot scans which were seen by scrutineers, if scrutineers objected after the vendor staff already clicked next, it was *impossible* for the staff to go back to that prior ballot and correct it.
 The electoral commission ended up recounting all ballots by hand.
 However they [never bothered](https://www.sbs.com.au/news/damning-report-finds-aec-bungled-security-in-2016-election-costing-millions) to figure out just how many mistakes were made by the machines.
 

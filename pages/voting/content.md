@@ -362,11 +362,11 @@ If you are concerned about a voting machine, there is nothing you can do.
 For systems which have no paper trail, there is no possibility of a recount.
 You are forced to blindly trust the integrity and competency of everyone in the supply chain, which includes:
 
-* vendors;
-* upstream hardware makers overseas;
-* officials;
-* everyone who has access to the machine in the years between elections;
-* every voter who had private physical access to the machine when they voted;
+* vendors
+* upstream hardware makers overseas
+* officials
+* everyone who has access to the machine in the years between elections
+* every voter who had private physical access to the machine when they voted
 
 and so on.
 

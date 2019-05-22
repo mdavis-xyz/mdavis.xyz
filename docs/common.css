@@ -225,3 +225,21 @@ blockquote p {
    box-shadow: 0 0px 16px 0 rgba(0,0,0,0.4);
    text-decoration: none;
 }
+
+.roundAndShadow {
+   border-radius: 0.2em;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+/*centers the contents inside it*/
+.imageWrap {
+   text-align: center;
+   display: block;
+}
+
+
+.link-icon {
+   height: 0.8em;
+   width: auto;
+   vertical-align: baseline;
+}

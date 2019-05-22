@@ -25,6 +25,10 @@ def stripXML(text):
     text = re.sub(expr, ' ', text)
     expr = r'<[^<>]+>'
     text = re.sub(expr, '', text)
+
+    # hard code the paraphrase in the voting page
+    expr = r'Every single one of \[the tested machines\] had some sort of weakness'
+    text = re.sub(expr, 'Every single one of the tested machines had some sort of weakness', text)
     return(text)
 
 def testStripXML():
@@ -57,6 +61,18 @@ def stripMarkdown(text):
     lines = text.split('\n')
     newLines = []
     for line in lines:
+
+        # an image inside a link
+        # e.g. [ ![xkcd comic about voting security](images/xkcd-blockchain.png) ](https://xkcd.com/2030/)
+
+        expr = r'\[\s*!\[([^\]]+)\]\([^\)]+\)\s*\]\([^\)]+\)' # markdown images
+        line = re.sub(expr, r'\1', line)
+
+        # hard code quote from voting page
+        # where I want to paraphrase
+        expr = r'Every single one of \[the tested machines\] had some sort of weakness'
+        line = re.sub(expr, r'Every single one of the tested machines had some sort of weakness', line)
+
         expr = r'!\[([^\[\]]+)\]\(([^\)\(]+)\)({[^}{]+})?' # markdown images
         line = re.sub(expr, r'[\1](\2)', line)
         expr = r'\[([^\[\]]+)\]\(([^\(\)]+)\)' # links
@@ -246,6 +262,7 @@ def init():
 
 
 def addToDict(word):
+    print("Adding %s to dictionary" % word)
     dictionary.add(word)
     with open(extraWordsFname,'a') as f:
         f.write(word+'\n')
@@ -274,12 +291,13 @@ def checkWord(word):
             print("   A - add without apostrophe: %s" % word[:-2])
         elif word.endswith("s"):
             print("   p - add singular lowercase: %s" % word[:-1].lower())
-            print("   P - add singular as is : %s" % word[:-1])
+            if word != word.lower():
+                print("   P - add singular as is : %s" % word[:-1])
         print("   n - don't add. Exit")
         answer = input('')
-        if answer.lower().startswith('y'):
+        if answer.startswith('y'):
             addToDict(word.lower())
-        elif answer.lower().startswith('Y'):
+        elif answer.startswith('Y'):
             addToDict(word)
         elif answer.startswith('a'):
             addToDict(word[:-2].lower())

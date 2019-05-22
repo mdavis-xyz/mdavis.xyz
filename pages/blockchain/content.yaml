@@ -12,12 +12,12 @@
      - h2: Is the data about verifying or tracking physical things?
      - p: supply chain verification, electricity metering, house ownership...
      - button:
-        - text: Yes
+        - text: "Yes"
           destination: physical-followup
           destination-type: absolute
           direction: left
      - button:
-        - text: No
+        - text: "No"
           destination: 5
           destination-type: relative
           direction: left

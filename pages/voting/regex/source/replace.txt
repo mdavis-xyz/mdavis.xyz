@@ -1,0 +1,1 @@
+<a href="\2" target="_blank"><img src="images/link\1.svg" alt="source" height="128" width="128" class="link-icon" /></a>

@@ -130,7 +130,10 @@ def validate(content):
                     button['destination'] = absID
                     button['destination-type'] = 'absolute'
                 assert(button['direction'] in ['left','right','up','down'])
+                if type(button['text']) == type(True):
+                    button['text'] = 'Yes' if button['text'] else 'No'
                 text = button['text']
+
 
                 # make list of all slides pointed to
                 slidesPointedTo.add(button['destination'])
@@ -139,10 +142,16 @@ def validate(content):
                 destSlide = [slide for slide in content if slide['id'] == button['destination']][0]
                 button['dest-is-leaf'] = destSlide['leaf']
 
-                if (not text) or (text.strip() == ''):
-                    print("Error: no content for button which is element %d of slide %s" % (elnum,slide['id']))
-                    exit(1)
-                elif not myspellcheck.checkLine(text):
+                try:
+                    if (not text) or (text.strip() == ''):
+                        print("Error: no content for button which is element %d of slide %s" % (elnum,slide['id']))
+                        exit(1)
+                except AttributeError as e:
+                    print("text: %s" % str(text))
+                    pp.pprint(el)
+                    raise(e)
+                
+                if not myspellcheck.checkLine(text):
                     print("error, spelling mistake in button element #%d in slide %s" % (elnum,slide['id']))
                     exit(1)
             else:

@@ -128,6 +128,46 @@
    exclude:
       - 'footerHR'
    date: 11/5/2019 # update manually
+-  title: "Why Paper Voting Is Still Superior"
+   description: "How digital security is good enough for banking but not for elections"
+   path: "voting"
+   images:
+      card:
+         path: "thumb.jpg"
+         description: "Ballot paper inserted into ballot box"
+         width: 1000
+         height: 667
+         attribution: https://unsplash.com/photos/T9CXBZLUvic
+      top:
+         path: "topimage.jpg"
+         description: "Ballot paper inserted into ballot box"
+         width: 1500
+         height: 1000
+         attribution: Photo by <a href="https://unsplash.com/photos/T9CXBZLUvic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Element5 Digital</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+   template: "markdown"
+   markdown: "content.md"
+   exclude:
+      - 'script'
+   date: 21/5/2019
+   regex:
+      - what: "markdown"
+        search: regex/source/search.txt
+        replace: regex/source/replace.txt
+        test:
+           - in: regex/source/test/0/in.txt
+             out: regex/source/test/0/out.txt
+           - in: regex/source/test/1/in.txt
+             out: regex/source/test/1/out.txt
+           - in: regex/source/test/2/in.txt
+             out: regex/source/test/2/out.txt
+           - in: regex/source/test/3/in.txt
+             out: regex/source/test/3/out.txt
+      - what: "html"
+        search: regex/target/search.txt
+        replace: regex/target/replace.txt
+        test:
+           - in: regex/target/test/0/in.txt
+             out: regex/target/test/0/out.txt
 -  title: "Machine Learning Unicycling"
    description: "Teaching a computer to ride a simulated unicycle"
    path: "unicycle"

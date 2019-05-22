@@ -462,3 +462,5 @@ attendee
 scrutineer
 Fuji
 Xerox
+unpatched
+workarounds

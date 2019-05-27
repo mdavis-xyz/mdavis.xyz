@@ -226,11 +226,12 @@ Many people such as [The Flux Party](https://www.voteflux.org/) have [drunk the 
 
 All software contains bugs.
 Blockchain software is *consistently worse* than normal software.
-Blockchain apps are written in Solidity, which is one of the most [awful and error-prone](https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/) programming languages of all time.
+Blockchain apps are typically written in Solidity, which is one of the most [awful and error-prone](https://davidgerard.co.uk/blockchain/ethereum-smart-contracts-in-practice/) programming languages of all time.
 
 The very reason blockchains were invented is antithetical to elections.
 Blockchains were designed to be public, immutable and fully distributed.
-So if someone steals your password, they can cast your vote for you, for every subsequent election.
+Normally with blockchain applications, if someone steals your password they [permanently take control of your account](https://www.reddit.com/r/CryptoCurrency/comments/8dnbeh/coins_gone_hope_you_learn_from_my_mistake/).
+For an election this means someone else can spend your vote for this election and all subsequent elections.
 If it is possible for the electoral agency to perform a password reset, then a single centralised party has the ability to block and modify writes to the database.
 Blockchains were invented to prevent *exactly that* from being possible.
 So if password resets are possible, [there's no point using a blockchain](../blockchain).

@@ -1,3 +1,15 @@
+- hashTag: discrimination
+  text: <b>Lied<b/> by claiming their religious discrimination bill wasn't intended
+    to override state's anti-discrimination laws. The actual documents tabled in parliament
+    explicitly says it does.
+  topic: 6
+  urls: ['https://twitter.com/Paul_Karp/status/1166887913625243648', 'https://www.ag.gov.au/Consultations/Documents/religious-freedom-bills/summary-document-religious-freedom-reforms.pdf',
+    'https://www.ag.gov.au/Consultations/Pages/religious-freedom-bills.aspx']
+- hashTag: youth
+  text: Appointed someone in their sixties as Minister for Youth.
+  topic: 6
+  urls: ['https://www.abc.net.au/news/2019-05-26/election-2019-morrison-new-ministry/11150728',
+    'https://en.wikipedia.org/wiki/Richard_Colbeck']
 - hashTag: budget
   text: Paid $9 million for a contractor to do literally nothing, because they abruptly
     cancelled the contract and instead gave it to a less experienced and less qualified

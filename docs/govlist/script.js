@@ -18,6 +18,10 @@ function copyToGroups(){
    // get the list of all items
    var itms = Array.prototype.slice.call(document.getElementById("chrono-list").childNodes);
 
+   if(itms == null){
+     console.log("itms is null");
+   }
+
    for (var i = 0, len = itms.length; i < len; i++) {
       if (itms[i].nodeType == 1){
         copyOne(itms[i]);
@@ -37,6 +41,11 @@ function copyOne(item){
 
    // get that list
    var topicList = document.getElementById("topic-list-" + topic);
+
+   if(topicList == null){
+     console.log(item);
+     console.log("Unable to get topic list for " + topic);
+   }
 
    // clone the element
    var cln = item.cloneNode(true);

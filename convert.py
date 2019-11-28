@@ -139,7 +139,7 @@ def doOne(data,allData,args):
                 exit(1)
         elif data['template'] == 'custom':
             print("Processing as custom page")
-            cmd = 'python %s' % data['parseScript']
+            cmd = 'python3 %s' % data['parseScript']
             callShellCmd(cmd,directory)
             stubFname = 'pages/%s/stub.html' % data['sourcePath']
             with open(stubFname,"r") as f:
@@ -170,6 +170,19 @@ def doOne(data,allData,args):
             print("Converting markdown file %s to html " % markdownFname)
 
             data['content'] = pypandoc.convert_text(markdown, 'html', format='md')
+
+            # fix funny chars
+            funny_chars = {
+                '“': '&quot;', #'&ldquo;',
+                '”': '&quot;', #'&rdquo;'
+                "’": "'", # '&rsquo;'
+                "‘": "'", # '&lsquo;'
+                "…": '&hellip;',
+                ' ': ' ' # funny space character
+            }
+            for k in funny_chars:
+                data['content'] = data['content'].replace(k, funny_chars[k])
+
             if 'regex' in data:
                 data['content'] = searchReplace(data['content'],data['regex'],'html',data['sourcePath'])
             stubFname = 'pages/%s/stub.html' % data['path']

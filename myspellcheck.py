@@ -11,13 +11,29 @@ def test():
 
 def stripFancy(text,markdown=False):
     text = stripXML(text)
-    for char in ['&ldquo;','&rdquo;','&quot;']:
+    for char in ['&ldquo;','&rdquo;','&quot;', '”', '“']:
         text = text.replace(char,'"')
+
+    dots = '&hellip;' # ellipsis
+    if text.endswith(dots):
+        text = text[:-len(dots)]
+
+    for char in [ "’", "‘"]:
+        text = text.replace(char, "'")
+
+    text = text.replace(' ', ' ') # strange space char
+
+
     if markdown:
         text = stripMarkdown(text)
     return(text)
 
 def stripXML(text):
+
+    if '<\\' in text:
+        print("Probably wrong slash <\\b> instead of </b>")
+        assert(False)
+
     # first, strip any divs which are formulas
     expr = r'<div class="formula">.*?</div>'
     text = re.sub(expr, ' ', text)
@@ -197,14 +213,16 @@ def stripForSpellcheck(word):
        r"^\d+-\d+$", # 2016-2017
        r"^\d{2,4}-\d{1,2}-\d{1,2}$", # 2016-01-02
        r"^\d{1,2}:\d{1,2}(:\d{1,2})?$", # 12:34:13
-       r"^(\d+\.?)+$" # 12.1.3
+       r"^(\d+\.?)+$", # 12.1.3
        ]
 
     for e in expr:
         word = re.sub(e, '', word)
 
-    if any(word.endswith(c) for c in ";™:"):
+    if any(word.endswith(c) for c in ";™:\""):
         word = word[:-1]
+    if any(word.startswith(c) for c in "\""):
+        word = word[1:]
 
     return(word)
 
@@ -246,6 +264,11 @@ def testStripForSpellcheck():
     actual = stripForSpellcheck(original)
     assert(expected == actual)
 
+    original = '"hello'
+    expected = 'hello'
+    actual = stripForSpellcheck(original)
+    assert(expected == actual)
+
 
 dictionary = None
 def init():
@@ -278,6 +301,12 @@ def checkWord(word):
             subwords = word.split('-')
             if all([(w in dictionary) or (w.lower() in dictionary) for w in subwords]):
                 return(True)
+        if word.endswith('...') and word[:-3] in dictionary:
+            # e.g. hello world...
+            return True
+        elif word.endswith('…') and word[:-1] in dictionary:
+            # e.g. hello world...
+            return True
 
         print("Error: word %s does not appear in the dictionary" % word)
         if word != word.lower():

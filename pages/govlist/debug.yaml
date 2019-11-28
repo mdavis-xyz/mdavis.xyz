@@ -1,5 +1,76 @@
+- hashTag: welfare
+  text: Voted down legislation to increase the Newstart allowance.
+  topic: 4
+  urls:
+  - https://mobile.twitter.com/shalailah/status/1146625920108679168
+- hashTag: economy
+  text: Introduced a limit on cash transactions of $10,000, in a move towards a cashless
+    society, so that it then becomes possible to have negative interest rates and
+    have consumers pay banks to store their savings.
+  topic: 0
+  urls:
+  - https://mobile.abc.net.au/news/2019-08-26/cash-ban-so-you-pay-the-bank-to-hold-your-money-what-imf-wants/11443646?pfmredir=sm
+- hashTag: corruption
+  text: Paid tens of thousands of dollars to a company which was known to be corrupt,
+    through a tender that was not opened up to all competitors.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2019/jul/16/australian-defence-department-gave-contract-to-us-business-blacklisted-for-bribery
+- hashTag: privacy
+  text: Removes all mentions of "consent" from new legislation about sharing of personal
+    data in the public sector.
+  topic: 6
+  urls:
+  - https://www.zdnet.com/article/consent-removed-from-australias-proposed-data-sharing-legislation/#ftag=RSSbaffb68
+- hashTag: tax
+  text: Proposed reversing the onus of proof, so that citizens may be guilty until
+    proven innocent, for tax fraud and money laundering crimes.
+  topic: 0
+  urls:
+  - https://mobile.abc.net.au/news/2019-01-14/treasury-black-economy-crackdown-proposals/10702602
+- hashTag: unions
+  text: <b>Lied</b> about their new anti-union legislation, claiming unions can't
+    be deregistered as punishment for any single wrongdoing, when the legislation
+    does permit that.
+  topic: 8
+  urls:
+  - https://www.theguardian.com/australia-news/2019/sep/25/ensuring-integrity-bill-officials-contradict-christian-porter-on-union-deregistration
+- hashTag: corruption
+  text: Illegally forged a document to publicly criticise a political opponent.
+  topic: 12
+  urls:
+  - http://www.abc.net.au/news/2019-10-25/prime-minister-rules-out-referring-taylor-incident-to-police/11638776
+- hashTag: protest
+  text: <b>Granted ministers to power to use the military to quell domestic protests
+    and industrial action, including shoot-to-kill powers when infrastructure is at
+    risk</b> (such as an environmental protest threatening a coal generator).
+  topic: 6
+  urls:
+  - https://www.sydneycriminallawyers.com.au/blog/new-laws-will-allow-the-use-of-military-to-break-protests/
+- hashTag: welfare
+  text: <b>Unlawfully</b> seized tax returns of citizens using the buggy 'robo-debt'
+    program.
+  topic: 4
+  urls:
+  - https://www.zdnet.com/article/canberra-concedes-parts-of-robo-debt-are-unlawful/#ftag=RSSbaffb68
+- hashTag: budget
+  text: Spent $30 million detaining a single asylum seeker family for a few months.
+  topic: 0
+  urls:
+  - http://news.thenewdaily.com.au/c/127GRJqF0MvpMD8BZkdQhCTCUl
+- hashTag: energysecurity
+  text: <b>Lied</b> about the nation's oil reserve, claiming it is 90 days when it
+    their own figures say 58 days.
+  topic: 7
+  urls:
+  - http://news.thenewdaily.com.au/c/121YbnPV2ZOHWM9TyH2Nguo9Py
+- hashTag: climate
+  text: Voted down a parliamentary declaration that we're facing a climate emergency.
+  topic: 2
+  urls:
+  - https://www.facebook.com/Adam.Bandt.MP/videos/508716959710713/
 - hashTag: discrimination
-  text: <b>Lied<b/> by claiming their religious discrimination bill wasn't intended
+  text: <b>Lied</b> by claiming their religious discrimination bill wasn't intended
     to override state's anti-discrimination laws. The actual documents tabled in parliament
     explicitly says it does.
   topic: 6
@@ -2632,7 +2703,7 @@
   - http://www.governmentnews.com.au/2014/07/recriminations-fly-axing-16-day-dementia-supplement/
 - hashTag: civil
   text: Rewrote counterterrorism laws so that Australian tourists returning from Syria
-    and Iraq will be guilty of terrorism until they prove they're innocent.
+    and Iraq will be guilty of terrorism until they prove they are innocent.
   topic: 6
   urls:
   - http://www.dailytelegraph.com.au/news/nsw/prove-your-innocence-abbott-set-to-reverse-onus-of-proof-for-homegrown-terrorists/story-fni0cx12-1227009308510

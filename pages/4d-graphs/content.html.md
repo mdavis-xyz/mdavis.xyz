@@ -21,16 +21,15 @@ Two-Dimensional Analogy
 
 First, we will visualise a real-to-complex functions in 2D.
 
-<div class="formula">
-
+::: {.formula}
 *f*(*x*) = *e*^*ix*^ = cos(*x*) + *i*sin(*x*)
+
 <div>
 
 *f*:[ℜ → ℂ]{.blackboard}
 
 </div>
-
-</div>
+:::
 
 The real part of [*f*(*x*)]{.formula} is [cos(*x*)]{.formula} which
 looks like this:
@@ -65,42 +64,36 @@ currently the [*x*]{.formula} axis becomes the [ℜ(*x*)]{.formula} axis.
 (The real component of [x]{.formula}.) I will call the vertical axis the
 [*z*]{.formula} axis.
 
-Let's look at a function similar to the previous example, but with a
+Let\'s look at a function similar to the previous example, but with a
 complex domain (and without the [*i*]{.formula} in the power).
 
-<div class="formula">
-
+::: {.formula}
 *g*(*z*) = *e*^*z*^ = *e*^*x* + *iy*^ = *e*^*x*^[(]{.symbol}cos(*y*) + *i*sin(*y*)[)]{.symbol}
 *g*:[ℂ → ℂ]{.blackboard}
+:::
 
-</div>
+We\'ll start by plotting the real part as a complex to real function.
+You can visualise this in the same way as a function of 2 variables in
+the real world.
 
-We'll start by plotting the real part as a complex to real function. You
-can visualise this in the same way as a function of 2 variables in the
-real world.
-
-<div class="formula">
-
+::: {.formula}
 ℜ[(]{.symbol}*g*(*z*)[)]{.symbol} = *e*^*x*^cos(*y*)
-
-</div>
+:::
 
 ![graph](images/expReal.png){.graph width="400" height="400"}
 
 Now we plot the imaginary part, which can also be thought of as a
 complex to real function, or a 2 variable real function.
 
-<div class="formula">
-
+::: {.formula}
 ℑ[(]{.symbol}*g*(*z*)[)]{.symbol} = *e*^*x*^sin(*y*)
-
-</div>
+:::
 
 ![graph](images/expIm.png){.graph width="400" height="400"}
 
 Now we superimpose both graphs on the same axes.
 
-Maple won't let me add a legend to 3D graphs, so remember, the blue
+Maple won\'t let me add a legend to 3D graphs, so remember, the blue
 surface is the real component and the red surface is the imaginary
 component.
 
@@ -131,7 +124,7 @@ appearance is because any value above [*π*]{.formula} gets wrapped
 around back into the [ − *π*]{.formula} to [*π*]{.formula} range). We
 can see that the modulus (orange) is just [*e*^*x*^]{.formula}. It is
 clear from this that visualising complex-to-complex graphs can be
-insightful. Obviously we still can't see the curve in all its 4D glory,
+insightful. Obviously we still can\'t see the curve in all its 4D glory,
 but there is a lot more usefulness to come.
 
 Differentiability
@@ -144,53 +137,41 @@ of the Cauchy-Riemann equations).
 To explain what differentiability means geometrically, here is an
 example:
 
-<div class="formula">
-
+::: {.formula}
 *h*(*z*) = *x*^2^ + *iy*^2^*h*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 If we apply the Cauchy-Riemann equations we get:
 
-<div class="formula">
-
+::: {.formula}
 [[(]{.ignored}[∂*u*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*x*]{.denominator}[)]{.ignored}]{.fraction} = [[(]{.ignored}[∂*v*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*y*]{.denominator}[)]{.ignored}]{.fraction}
+:::
 
-</div>
-
-<div class="formula">
-
+::: {.formula}
 2*x* = 2*y*
+:::
 
-</div>
-
-<div class="formula">
-
+::: {.formula}
 *x* = *y*
-
-</div>
+:::
 
 and
 
-<div class="formula">
-
+::: {.formula}
 [[(]{.ignored}[∂*u*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*y*]{.denominator}[)]{.ignored}]{.fraction} =  − [[(]{.ignored}[∂*v*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*x*]{.denominator}[)]{.ignored}]{.fraction}
+:::
 
-</div>
-
-<div class="formula">
-
+::: {.formula}
 0 = 0
-
-</div>
+:::
 
 Therefore [*h*(*z*)]{.formula} is differentiable only where
-[*x* = *y*]{.formula}. Let's see why this is by looking at the graph
+[*x* = *y*]{.formula}. Let\'s see why this is by looking at the graph
 geometrically. Here is a Cartesian graph of [*h*(*z*)]{.formula}:
 
 ![graph](images/parabolasSimple.png){.graph width="400" height="400"}
 
-Let's pick an arbitrary point on [*x* = *y*]{.formula}, such as
+Let\'s pick an arbitrary point on [*x* = *y*]{.formula}, such as
 [1 + *i*]{.formula}.
 
 The tangent plane (gold) to the real surface (blue) at
@@ -220,7 +201,7 @@ This means that the planes are actually identical, but they are rotated
 [90^*o*^]{.formula} around the *z* axis relative to each other.
 
 This rotational equality in tangent planes is the geometric meaning of
-differentiability. It's hard to check whether such rotations are
+differentiability. It\'s hard to check whether such rotations are
 possible at an arbitrary point in your head with visualisations (try
 checking anywhere on [*y* =  − *x*]{.formula}, make sure you rotate in
 the correct direction), but at least now you *know* the geometric
@@ -231,15 +212,13 @@ Logarithms
 
 ### log {#log .Subsection-}
 
-Let's look at logs.
+Let\'s look at logs.
 
-<div class="formula">
-
+::: {.formula}
 log(*z*) = ln∣*z*∣ + *i*(*θ*) *θ* ∈ ℝ
+:::
 
-</div>
-
-Let's plot this as before. The real part (blue) can be thought of in a
+Let\'s plot this as before. The real part (blue) can be thought of in a
 Cartesian sense, the imaginary part (red) can be thought of in a polar
 sense (notice that I have defined the range of [*θ*]{.formula} to be any
 real number, not just a [2*π*]{.formula} range).
@@ -249,7 +228,7 @@ real number, not just a [2*π*]{.formula} range).
 Notice that every possible vertical line intersects the red surface at
 more than one point. This is because [log]{.formula} is a multi-valued
 function. Notice that each such intersection is [2*π*]{.formula} above
-or below the next. That's because the imaginary part of [log]{.formula}
+or below the next. That\'s because the imaginary part of [log]{.formula}
 is [*θ* + 2*kπ*]{.formula} for [*θ* ∈ ( − *π*, *π*\]]{.formula}. Each
 layer of the red helix corresponds to a different value of
 [*k*]{.formula}.
@@ -259,10 +238,10 @@ intersects the line [*x* = *y* = 0]{.formula} at every point).
 
 ### Log {#log-1 .Subsection-}
 
-Now let's looks at Log[(*z*)]{.formula}.
+Now let\'s looks at Log[(*z*)]{.formula}.
 
 We need to restrict this helix/spiral thing so that we have a
-single-valued function. This is known as a 'branch cut'. The following
+single-valued function. This is known as a \'branch cut\'. The following
 graph shows how different branch cuts affect the Log function. The
 variable [t]{.formula} is the angle of the branch cut, in radians.
 
@@ -270,15 +249,13 @@ Beyond
 ------
 
 Now we know how to visualise arbitrary complex-to-complex functions in
-only 3 dimensions. Let's try some more complicated ones to see what
+only 3 dimensions. Let\'s try some more complicated ones to see what
 happens.
 
-<div class="formula">
-
+::: {.formula}
 *f*(*x* + *iy*) = [[(]{.ignored}[tan^ − 1^[(]{.symbol}*x* + *iy*[)]{.symbol}]{.numerator}[)/(]{.ignored}[*x* − *iy*]{.denominator}[)]{.ignored}]{.fraction}
 *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/random.png){.graph width="400" height="400"}
 
@@ -286,43 +263,35 @@ happens.
 
 Here is a complex parabola:
 
-<div class="formula">
-
+::: {.formula}
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^2^ *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/parabolaThing.png){.graph width="400" height="400"}
 
 Here is a complex cubic:
 
-<div class="formula">
-
+::: {.formula}
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^3^ *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/cubicThing.png){.graph width="400" height="400"}
 
 Here is a complex square root. (Note: Only the principle value of the
 square root is shown)
 
-<div class="formula">
-
+::: {.formula}
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^[[(]{.ignored}[1]{.numerator}[)/(]{.ignored}[2]{.denominator}[)]{.ignored}]{.fraction}^
 *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/squareRootThing.png){.graph width="400" height="400"}
 
 Here is a complex hyperbola:
 
-<div class="formula">
-
+::: {.formula}
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^ − 1^ *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/hyperbolaThing.png){.graph width="400" height="400"}
 
@@ -330,26 +299,22 @@ Here is a complex hyperbola:
 
 Here is [cos(*z*)]{.formula}:
 
-<div class="formula">
-
+::: {.formula}
 *f*[(]{.symbol}*z*[)]{.symbol} = cos(*z*) *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/complexCos.png){.graph width="400" height="400"}
 
 Now here is [cosh(*z*)]{.formula}:
 
-<div class="formula">
-
+::: {.formula}
 *f*[(]{.symbol}*z*[)]{.symbol} = cosh(*z*) *f*:[ℂ → ℂ]{.blackboard}
-
-</div>
+:::
 
 ![graph](images/complexCosh.png){.graph width="400" height="400"}
 
 Notice that they are identical aside from a [90^*o*^]{.formula} rotation
-about the z axis? That's because
+about the z axis? That\'s because
 [cos[(]{.symbol}*iz*[)]{.symbol} = cosh(*z*)]{.formula}, and
 multiplication by [*i*]{.formula} results in a rotation of
 [90^*o*^]{.formula} (rotation in either direction because they are both
@@ -369,14 +334,14 @@ in the following code.
     plotComplex:=(func,x1,x2,y1,y2)->display3d({plotIm(func,x1,x2,y1, y2),plotRe(func,x1,x2,y1,y2)});
 
 Then type in the following code, and replace
-[&lt;function&gt;]{.inline-code} with the function you want to graph in
-terms of [*x*]{.formula} and [*y*]{.formula} (e.g. just “sin(x+I\*y)”,
-no “f(x)”). [*x*~1~]{.formula}, [*x*~2~]{.formula}, [*y*~1~]{.formula}
+[\<function\>]{.inline-code} with the function you want to graph in
+terms of [*x*]{.formula} and [*y*]{.formula} (e.g. just "sin(x+I\*y)",
+no "f(x)"). [*x*~1~]{.formula}, [*x*~2~]{.formula}, [*y*~1~]{.formula}
 and [*y*~2~]{.formula} are the ranges to be graphed. Replace them with
-real numbers such that [*x*~1~ &lt; *x*~2~]{.formula} and
-[*y*~1~ &lt; *y*~2~]{.formula}. Don't forget that in Maple
+real numbers such that [*x*~1~ \< *x*~2~]{.formula} and
+[*y*~1~ \< *y*~2~]{.formula}. Don\'t forget that in Maple
 [[[√]{.radical}[(]{.ignored}[ − 1]{.root}[)]{.ignored}]{.sqrt} is
-written with a capital \`I', not a lower case one.]{.formula}
+written with a capital \`I\', not a lower case one.]{.formula}
 
 If you want to try a few functions, it is only necessary to retype this
 last line.

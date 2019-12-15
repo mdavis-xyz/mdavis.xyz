@@ -340,6 +340,7 @@ def doAll(args):
             print("Skipping spell check for %s" % p['title'])
         elif not myspellcheck.checkFile('pages/%s/docs/index.html' % p['sourcePath']):
             print("that was %s" % p['title'])
+            print(f"For file pages/{p['sourcePath']}/docs/index.html")
             print("Code A")
             exit(1)
 

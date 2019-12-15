@@ -10,6 +10,8 @@ def test():
     testStripMarkdown()
 
 def stripFancy(text,markdown=False):
+
+
     text = stripXML(text)
     for char in ['&ldquo;','&rdquo;','&quot;', '”', '“']:
         text = text.replace(char,'"')
@@ -34,13 +36,19 @@ def stripXML(text):
         print("Probably wrong slash <\\b> instead of </b>")
         assert(False)
 
-    # first, strip any divs which are formulas
+    # code
+    expr = r'<code>.*?</code>'
+    text = re.sub(expr, ' ', text, flags=(re.DOTALL | re.MULTILINE))
+
+    # strip any divs which are formulas
     expr = r'<div class="formula">.*?</div>'
-    text = re.sub(expr, ' ', text)
+    text = re.sub(expr, ' ', text, re.MULTILINE)
     expr = r'<span class="formula">.*?</span>'
-    text = re.sub(expr, ' ', text)
+    text = re.sub(expr, ' ', text, re.MULTILINE)
     expr = r'<[^<>]+>'
     text = re.sub(expr, '', text)
+
+
 
     # hard code the paraphrase in the voting page
     expr = r'Every single one of \[the tested machines\] had some sort of weakness'
@@ -72,11 +80,13 @@ def testStripXML():
     assert(actual == expected)
 
 def stripMarkdown(text):
+
     expr = r'```([^`]+)```'
-    text = re.sub(expr, r'\1', text)
+    text = re.sub(expr, '', text, re.MULTILINE)
     lines = text.split('\n')
     newLines = []
     for line in lines:
+
 
         # an image inside a link
         # e.g. [ ![xkcd comic about voting security](images/xkcd-blockchain.png) ](https://xkcd.com/2030/)
@@ -101,14 +111,15 @@ def stripMarkdown(text):
         line = re.sub(expr, r'\1', line)
         expr = r'\*([^*]+)\*' # italics
         line = re.sub(expr, r'\1', line)
-        expr = r'`([^`]+)`' # code inline
-        line = re.sub(expr, r'\1', line)
+        expr = r'`([^`]+)`' # ignore code inline
+        line = re.sub(expr, '', line)
         expr = r'^\s*>([^<>]*)$' # quote
         line = re.sub(expr, r'\1', line)
         expr = r'^\s*&gt;([^<>]*)$' # quote
         line = re.sub(expr, r'\1', line)
         expr = r'^\s*#+([^#]+)$' # heading
         line = re.sub(expr, r'\1', line)
+
         newLines.append(line)
     return('\n'.join(newLines).strip())
 
@@ -160,6 +171,14 @@ def testStripMarkdown():
         print("Actual:\n%s" % actual)
     assert(actual == expected)
 
+    text = "So if you're trying to enumerate a long list of resources, the paginator will provides an easier way to fetch chunk after chunk of the resource list, compared to raw `list_` calls."
+    expected = "So if you're trying to enumerate a long list of resources, the paginator will provides an easier way to fetch chunk after chunk of the resource list, compared to raw  calls."
+    actual = stripMarkdown(text)
+    if expected != actual:
+        print("Input text:\n%s" % text)
+        print("Expected:\n%s" % expected)
+        print("Actual:\n%s" % actual)
+    assert(actual == expected)
 
 
 def teststripFancy():
@@ -192,6 +211,43 @@ def teststripFancy():
     actual = stripFancy(original,markdown=True)
     if expected != actual:
         print("actual: " + actual)
+    assert(expected == actual)
+
+    original = 'Here <code>blah</code> and more <code>stuff x=1</code>'
+    expected = 'Here   and more  '
+    actual = stripFancy(original, markdown=False)
+    if expected != actual:
+        print(f"original: {original}")
+        print(f"actual  : {actual}")
+        print(f"expected: {expected}")
+    assert(expected == actual)
+
+
+    original = 'Here <code>bl\nah</code> done'
+    expected = 'Here   done'
+    actual = stripFancy(original, markdown=False)
+    if expected != actual:
+        print(f"original: {original}")
+        print(f"actual  : {actual}")
+        print(f"expected: {expected}")
+    assert(expected == actual)
+
+    original = 'Here <code>blah</code> and more <code>stuff\n x=1</code>'
+    expected = 'Here   and more  '
+    actual = stripFancy(original, markdown=False)
+    if expected != actual:
+        print(f"original: {original}")
+        print(f"actual  : {actual}")
+        print(f"expected: {expected}")
+    assert(expected == actual)
+
+    original = '<li><code>lambda</code> is what you would pass to <code>boto3.client()</code></li>'
+    expected = '  is what you would pass to  '
+    actual = stripFancy(original, markdown=False)
+    if expected != actual:
+        print(f"original: {original}")
+        print(f"actual  : {actual}")
+        print(f"expected: {expected}")
     assert(expected == actual)
 
 def stripForSpellcheck(word):
@@ -368,12 +424,14 @@ def checkFile(fname):
     markdown=(fname.endswith('.md'))
     if markdown:
         print("Passing markdown flag from checkFile to stripFancy")
+
     content = stripFancy(content,markdown=markdown)
     for (i,line) in enumerate(content.split('\n')):
         if not checkLine(line):
             print("Quitting")
             print("That was file %s line %d" % (fname,i+1))
             print(line)
+            print(f"markdown={markdown}")
             return(False)
     return(True)
 test()

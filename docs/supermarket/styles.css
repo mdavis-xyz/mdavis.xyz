@@ -1,25 +1,4 @@
 
-code {
-  font-family: Consolas, Menlo, Monaco, monospace;
-  margin: auto;
-  width: auto;
-  align-self: center;
-}
-
-pre {
-   background: rgb(34,34,34);
-   border-radius: 3px;
-   padding: 1rem;
-   display: inline-block;
-   justify-content: center;
-   max-width: 100%;
-   float: unset;
-   /*left: 50%;
-   transform: translateX(50%);*/
-   overflow-x: auto;
-}
-
-
 .subtitle {
    font-size: 100%;
 }

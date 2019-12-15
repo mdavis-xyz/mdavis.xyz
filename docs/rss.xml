@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://www.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Mon, 09 Dec 2019 21:24:48 GMT</lastBuildDate>
+		<lastBuildDate>Sun, 15 Dec 2019 19:02:54 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -76,6 +76,13 @@
 			<description>Why adding an Indigenous flag is technologically non-trivial</description>
 			<guid isPermaLink="true">https://www.mdavis.xyz/emoji</guid>
 			<pubDate>Tue, 12 Jun 2018 00:00:00 GMT</pubDate>
+		</item>
+		<item>
+			<title>BPP - Better Boto Paginator</title>
+			<link>https://www.mdavis.xyz/bbp</link>
+			<description>A python library I wrote for per-resource pagination of AWS resources</description>
+			<guid isPermaLink="true">https://www.mdavis.xyz/bbp</guid>
+			<pubDate>Sun, 15 Dec 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Inverter Inertia Emulation</title>

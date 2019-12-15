@@ -254,6 +254,32 @@
    date: 12/6/2018
    exclude:
       - script
+-  title: "BPP - Better Boto Paginator"
+   description: "A python library I wrote for per-resource pagination of AWS resources"
+   path: "bbp"
+   images:
+      card:
+         path: "images/card.jpg"
+         description: "Many books"
+         width: 600
+         height: 400
+      top:
+         path: "images/top.jpg"
+         description: "Many books"
+         width: 1000
+         height: 667
+         attribution: >
+            Photo by 
+            <a href="https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Patrick Tomasso
+            </a> 
+            on
+            <a href="https://unsplash.com">
+            Unsplash
+            </a>
+   template: "markdown"
+   markdown: "content.md"
+   date: 15/12/2019
 -  title: "Inverter Inertia Emulation"
    description: "My bachelor's thesis about emulating inertia with battery inverters"
    path: "thesis"

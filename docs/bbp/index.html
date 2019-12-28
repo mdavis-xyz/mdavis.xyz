@@ -135,7 +135,7 @@ objects = [p[&#39;Contents&#39;] for p in paginator.paginate(Bucket=&#39;my-buck
 <pre><code>for element in function(Bucket=&#39;my-bucket&#39;):
    process(element)</code></pre>
 <p>Where <code>function</code> is smart enough to either return the next item on the page it already has in memory, or fetch the next page with a new API call and return the first item of that.</p>
-<p>I wrote the <a href="https://pypi.org/project/bbp/">bbp</a> library to solve this problem.</p>
+<p>I wrote the <a href="https://pypi.org/project/bbp/">bbp</a> library to solve this problem. (The code is published on <a href="https://github.com/mlda065/bbp">GitHub</a>.)</p>
 <h2 id="installation">Installation</h2>
 <p><code>pip install bbp</code></p>
 <h2 id="usage">Usage</h2>

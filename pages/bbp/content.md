@@ -41,6 +41,7 @@ Where `function` is smart enough to either return the next item on the page it a
 or fetch the next page with a new API call and return the first item of that.
 
 I wrote the [bbp](https://pypi.org/project/bbp/) library to solve this problem.
+(The code is published on [GitHub](https://github.com/mlda065/bbp).)
 
 ## Installation
 

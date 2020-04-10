@@ -108,15 +108,11 @@ def getAllData(tableName):
     return(data)
 
 def getTimedData():
-    if not os.path.isfile(fileName):
-        print("Fetching Data from Amazon")
-        timedData = getAllData(timedTableName)
-        df = pd.DataFrame(timedData)
-        df.to_csv(fileName)
-    else:
-        print("Getting data from cache")
-    data = pd.read_csv(fileName)
-    return(data)
+    print("Fetching Data from Amazon")
+    timedData = getAllData(timedTableName)
+    df = pd.DataFrame(timedData)
+    df.to_csv(fileName)
+    return(df)
 
 def main():
 

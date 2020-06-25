@@ -5,7 +5,7 @@
 
 This project is a combination of two of my passions: programming and unicycling.
 I used the [Keras reinforcement learning library](https://github.com/keras-rl/keras-rl) to train a machine learning model how to ride a unicycle.
-I published the code in [this GitHub repo](https://github.com/mlda065/keras-unicycle).
+I published the code in [this GitHub repo](https://github.com/mdavis-xyz/keras-unicycle).
 
 ## Overall Structure
 
@@ -27,7 +27,7 @@ Unicycles are a type of [inverted pendulum](https://en.wikipedia.org/wiki/Invert
 These problems are well suited to machine learning.
 (Yes, this can be solved with traditional PID controllers and fuzzy logic. I chose machine learning as something fun and educational.)
 
-The physics engine used is a [simple custom script](https://github.com/mlda065/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/gym-unicycle/gym_unicycle/envs/unicycle_env.py#L157) which evaluates the inverted pendulum problem.
+The physics engine used is a [simple custom script](https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/gym-unicycle/gym_unicycle/envs/unicycle_env.py#L157) which evaluates the inverted pendulum problem.
 It is a modified version of the [CartPole-V0](https://gym.openai.com/envs/CartPole-v0/) environment from the gym library.
 
 Unicycling is a lot like balancing a pencil on your finger.
@@ -53,7 +53,7 @@ There is 1 input. The options are:
 
 ## Machine Learning
 
-The layers of the neural network are published [here](https://github.com/mlda065/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/main.py#L58).
+The layers of the neural network are published [here](https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/main.py#L58).
 
 The environment code for the model normalises all the states so that they range from -1 to 1.
 This is because neural networks perform best when the inputs are the same order of magnitude.

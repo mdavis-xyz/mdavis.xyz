@@ -261,7 +261,7 @@ git(){
    $ROOT_DIR/git.sh
    echo "updated git"
    # git commit -a -m "shell script update"
-   # git push https://mlda065@github.com/mlda065/abbottList.git master
+   # git push https://mdavis-xyz@github.com/mdavis-xyz/abbottList.git master
 }
 
 main(){

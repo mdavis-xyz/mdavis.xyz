@@ -48,8 +48,8 @@ It is currently in the top 10% of [most liked Reddit bots](https://botrank.pasti
 ## Technical Details
 
 This bot is written in python, and deployed as a serverless *Lambda* function in Amazon's cloud.
-The code is posted [on GitHub](https://github.com/mlda065/paragraphiser_bot_aws/tree/paragraphiser).
-If you want to write your own bot, have a look at [my template](https://github.com/mlda065/paragraphiser_bot_aws).
+The code is posted [on GitHub](https://github.com/mdavis-xyz/paragraphiser_bot_aws/tree/paragraphiser).
+If you want to write your own bot, have a look at [my template](https://github.com/mdavis-xyz/paragraphiser_bot_aws).
 
 The code uses the [Praw library](https://praw.readthedocs.io/en/latest/) to access Reddit's API.
 Unfortunately Reddit offers no kind of webhook, so bots must poll the API to get new posts.
@@ -106,4 +106,4 @@ This tooling parallelises all aspects of lambda deployment:
 
 ## How To Use It
 
-If you want to write your own bot, have a look at [my template](https://github.com/mlda065/paragraphiser_bot_aws).
+If you want to write your own bot, have a look at [my template](https://github.com/mdavis-xyz/paragraphiser_bot_aws).

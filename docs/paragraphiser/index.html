@@ -140,7 +140,7 @@ It's OK to write a lot if you've got a lot to say. But perhaps you could insert 
 <h2 id="results">Results</h2>
 <p>57% of authors edit their post to split it up into multiple paragraphs, in response to my bot. It is currently in the top 10% of <a href="https://botrank.pastimes.eu/?sort=rank&amp;page=3">most liked Reddit bots</a>.</p>
 <h2 id="technical-details">Technical Details</h2>
-<p>This bot is written in python, and deployed as a serverless <em>Lambda</em> function in Amazon's cloud. The code is posted <a href="https://github.com/mlda065/paragraphiser_bot_aws/tree/paragraphiser">on GitHub</a>. If you want to write your own bot, have a look at <a href="https://github.com/mlda065/paragraphiser_bot_aws">my template</a>.</p>
+<p>This bot is written in python, and deployed as a serverless <em>Lambda</em> function in Amazon's cloud. The code is posted <a href="https://github.com/mdavis-xyz/paragraphiser_bot_aws/tree/paragraphiser">on GitHub</a>. If you want to write your own bot, have a look at <a href="https://github.com/mdavis-xyz/paragraphiser_bot_aws">my template</a>.</p>
 <p>The code uses the <a href="https://praw.readthedocs.io/en/latest/">Praw library</a> to access Reddit's API. Unfortunately Reddit offers no kind of webhook, so bots must poll the API to get new posts. This poses a challenge for this bot. If an author modifies their post in response to my bot, and it ceases to be eligible for comment by my bot, I want to edit my comment, lest my bot appear broken. I want to make such modifications promptly. (Within 2 minutes) However I cannot poll every commented-on post every minute, because I get rate limited. So I use a kind of exponential backoff. Posts my bot commented on recently are checked very frequently. Posts my bot commented on a long time ago are checked very infrequently.</p>
 <p>The overall architecture is that one Lambda function polls Reddit every minute for new posts. If a post is eligible (that is, it is a text-only post which has a long maximum paragraph length) then the bot comments on it. Information about the post (including the original text of the post) is saved into Dynamodb. The post ID and many timestamps are each saved as their own row in another table, which is used as a scheduler. Another Lambda function checks that database every minute. If any timestamps in that database are now in the past, that function triggers a third Lambda, with the post ID as an argument. If multiple posts need to be checked at the same time, the scheduling Lambda will trigger many other Lambdas in parallel.</p>
 <p>This third Lambda checks whether the post has been edited. If so, the comment is edited. It also checks whether that comment was down-voted below 0. If that happens, it sends me an email.</p>
@@ -156,7 +156,7 @@ It's OK to write a lot if you've got a lot to say. But perhaps you could insert 
 <li>testing</li>
 </ul>
 <h2 id="how-to-use-it">How To Use It</h2>
-<p>If you want to write your own bot, have a look at <a href="https://github.com/mlda065/paragraphiser_bot_aws">my template</a>.</p>
+<p>If you want to write your own bot, have a look at <a href="https://github.com/mdavis-xyz/paragraphiser_bot_aws">my template</a>.</p>
 
 
    </article>

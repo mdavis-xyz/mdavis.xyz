@@ -105,14 +105,14 @@
 <source src="video.mp4" type="video/mp4">
 <source src="video.webm" type="video/webm">
 </video>
-<p>This project is a combination of two of my passions: programming and unicycling. I used the <a href="https://github.com/keras-rl/keras-rl">Keras reinforcement learning library</a> to train a machine learning model how to ride a unicycle. I published the code in <a href="https://github.com/mlda065/keras-unicycle">this GitHub repo</a>.</p>
+<p>This project is a combination of two of my passions: programming and unicycling. I used the <a href="https://github.com/keras-rl/keras-rl">Keras reinforcement learning library</a> to train a machine learning model how to ride a unicycle. I published the code in <a href="https://github.com/mdavis-xyz/keras-unicycle">this GitHub repo</a>.</p>
 <h2 id="overall-structure">Overall Structure</h2>
 <p>This project uses the <a href="https://gym.openai.com/">Gym</a> library. This library is designed to provide a common interface between different machine learning models (the controller), and physical models of the thing being controlled (the plant).</p>
 <p>The controller is a <a href="https://github.com/keras-rl/keras-rl">Keras-rl</a> model, which uses a TensorFlow backend.</p>
 <p>Each <em>frame</em> Gym tells my Keras model the current state of the unicycle. The Keras model makes a decision (push on the left pedal or right). This is fed into the model, which updates the state for the next <em>frame</em>. This new state, and is fed back into Keras, in addition to a reward to tell Keras how well it's doing.</p>
 <h2 id="physics">Physics</h2>
 <p>Unicycles are a type of <a href="https://en.wikipedia.org/wiki/Inverted_pendulum">inverted pendulum</a>. These problems are well suited to machine learning. (Yes, this can be solved with traditional PID controllers and fuzzy logic. I chose machine learning as something fun and educational.)</p>
-<p>The physics engine used is a <a href="https://github.com/mlda065/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/gym-unicycle/gym_unicycle/envs/unicycle_env.py#L157">simple custom script</a> which evaluates the inverted pendulum problem. It is a modified version of the <a href="https://gym.openai.com/envs/CartPole-v0/">CartPole-V0</a> environment from the gym library.</p>
+<p>The physics engine used is a <a href="https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/gym-unicycle/gym_unicycle/envs/unicycle_env.py#L157">simple custom script</a> which evaluates the inverted pendulum problem. It is a modified version of the <a href="https://gym.openai.com/envs/CartPole-v0/">CartPole-V0</a> environment from the gym library.</p>
 <p>Unicycling is a lot like balancing a pencil on your finger. If the pencil starts to fall forwards, you accelerate your finger forwards. However unlike pencil balancing, this project is only in 1 dimension.</p>
 <p>There are 4 states:</p>
 <ul>
@@ -132,7 +132,7 @@
 <li>push on the right pedal - hard</li>
 </ol>
 <h2 id="machine-learning">Machine Learning</h2>
-<p>The layers of the neural network are published <a href="https://github.com/mlda065/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/main.py#L58">here</a>.</p>
+<p>The layers of the neural network are published <a href="https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/main.py#L58">here</a>.</p>
 <p>The environment code for the model normalises all the states so that they range from -1 to 1. This is because neural networks perform best when the inputs are the same order of magnitude.</p>
 <p>The horizontal position of the unicycle is fed in as 3 separate variables. There is the total rotation of the wheel from the centre position. Additionally there is the sine and cosine of the wheel rotation. This is because the physical model is inherently trigonometric. Pushing down on horizontal pedals results in more torque than when the pedals are diagonal or vertical. Rather than force the neural network to figure out this relationship, I guided it by calculating the sine and cosine for it.</p>
 <p>The reward function contains several components. The <a href="https://raw.githubusercontent.com/keras-rl/keras-rl/master/assets/cartpole.gif">Keras-rl CartPole-V0 example</a> simply returns 1 for each frame the pole hasn't fallen over. Because the unicycle model is more complicated, I found this wasn't sufficient. So I added more components to the reward function to help guide it towards success:</p>

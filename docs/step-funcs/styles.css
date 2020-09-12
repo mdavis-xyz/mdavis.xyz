@@ -1,0 +1,35 @@
+.pathFields {
+    width: 50%;
+}
+
+.pathFields:disabled {
+    background: #9f9ea8;
+    border-block-color: black;
+}
+
+#Input {
+   width: 50%;
+}
+
+.adjustable {
+   resize: both;
+   overflow: auto;
+}
+
+.textFields {
+   color: black;
+   background: white;
+   padding: 10px;
+   border-radius: 0.2em;
+   width: 50%;
+}
+
+.invalidInput {
+   border-style: solid;
+   border-color: red;
+}
+
+#InvalidInputWarning {
+   color: red;
+   display: none;
+}

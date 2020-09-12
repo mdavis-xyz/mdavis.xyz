@@ -94,12 +94,11 @@
          </div>
 
       </div>
-
-
       <hr/>
 
 <p>
-  Explanation here
+  Explanation here,
+  including link to GitHub issues.
 </p>
 
 
@@ -113,10 +112,10 @@
 <p>
   Type your input here.
 </p>
-<p id="InvalidInputWarning">
+<p id="InvalidInputWarning" class="errorText">
   Input not valid JSON. If you want to specify a string literal, wrap in double quotes.
 </p>
-<div contenteditable=true id="Input" class="textFields adjustable">[0,1,2,3]</div>
+<p contenteditable=true id="Input" class="adjustable">[0,1,2,3]</div>
 <h2>
   InputPath
 </h2>
@@ -124,57 +123,52 @@
   <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">Documentation for InputPath</a>
 </p>
 <p>
-  <input type="checkbox" id="InputPathEnabled"  checked onchange="fieldEnableDisable(this.checked, 'InputPath')" >
+  <input type="checkbox" id="InputPathEnabled" checked>
   <label for="InputPathEnabled"> Include an InputPath</label>
 </p>
-<p>
-  <input type="text" id="InputPath"  value="$" class="pathFields">
-</p>
-<p>
-  <p>
-    This is what the input looks like after the InputPath is applied,
-    and before any Parameters field is applied:
+<div id="InputPathExtras">
+  <p id="NullInputPathWarning" class="warning">
+    Warning: null is not the same as omitting InputPath.
+    null means that an empty dictionary will be used instead of the input.
+    If you want to omit InputPath, untick the box above.
   </p>
-  <div id="AfterInputPath" class="textFields adjustable">{}</div>
-</p>
+  <p>
+    <p contenteditable=true id="InputPath" class="pathFields">$</p>
+  </p>
+  <p>
+    <p>
+      This is what the input looks like after the InputPath is applied,
+      and before any Parameters field is applied:
+    </p>
+    <p id="AfterInputPath" class="adjustable resultingText">{}</p>
+  </p>
+</div>
 <h2>
   Parameters
 </h2>
 <p>
-  <input type="checkbox" id="ParametersEnabled"  onchange="fieldEnableDisable(this.checked, 'Parameters')">
-  <label for="ParametersEnabled"> Parameters</label><br>
-  <input type="text" id="Parameters"  value="$" class="pathFields">
+  <input type="radio" name="Parameters" id="NoParameters" checked>
+  <label for="NoParameters">No Parameters value</label><br>
+  <input type="radio" name="Parameters" id="ParametersWithout">
+  <label for="ParametersWithout">Include Parameters value</label><br>
+  <input type="radio" name="Parameters" id="ParametersWith">
+  <label for="ParametersWith">Include Parameters.$ value</label><br>
 </p>
-<p>
-  <input type="checkbox" id="ResultSelectorEnabled" onchange="fieldEnableDisable(this.checked, 'ResultSelector')">
-  <label for="ResultSelectorEnabled"> ResultSelector</label><br>
-  <input type="text" id="ResultSelector" value="$" class="pathFields">
-</p>
-<p>
-  <input type="checkbox" id="OutputPathEnabled" onchange="fieldEnableDisable(this.checked, 'OutputPath')">
-  <label for="OutputPathEnabled"> OutputPath</label><br>
-  <input type="text" id="OutputPath" value="$" class="pathFields">
-</p>
-<p>
-  <input type="checkbox" id="ResultPathEnabled" onchange="fieldEnableDisable(this.checked, 'ResultPath')">
-  <label for="ResultPathEnabled"> ResultPath</label><br>
-  <input type="text" id="ResultPath"  value="$" class="pathFields">
-</p>
-
-<p>
-  <span>
-     Task Input (e.g. to Lambda)
-  </span>
-  <div id="TaskInput" class="textFields adjustable">{}</div>
-</p>
-<p>
-  <span>
-     State Output Payload
-  </span>
-  <div id="TaskOutput" class="textFields adjustable">{}</div>
-</p>
-
-
+<div id="ParametersExtra">
+  <p id="NullParametersWarning" class="warning">
+    Warning: null is not the same as omitting Parameters.
+    null means that an empty dictionary will be used instead of the input.
+    If you want to omit Parameters, change your selection above.
+  </p>
+  <p contenteditable=true id="Parameters" class="pathFields adjustable">$</p>
+  <p>
+    The following field is what happened after the Parameters field was applied.
+    This is what will be sent to the task (e.g. Lambda function).
+  </p>
+  <p id="AfterParameters" class="resultingText adjustable">
+    Loading
+  </p>
+</div>
 
    </article>
 

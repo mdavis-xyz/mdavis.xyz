@@ -15,8 +15,8 @@
    resize: both;
    overflow: auto;
 }
-
-.textFields {
+p[contenteditable="true"],
+.resultingText {
    color: black;
    background: white;
    padding: 10px;
@@ -29,7 +29,17 @@
    border-color: red;
 }
 
-#InvalidInputWarning {
-   color: red;
-   display: none;
+.warning {
+  color: orange;
+  display: none;
+}
+
+
+.errorText {
+  color: red;
+  display: none;
+}
+
+#ParametersExtra {
+  display: none;
 }

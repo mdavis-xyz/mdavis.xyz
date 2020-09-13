@@ -1,7 +1,7 @@
 
 // Add listener for null input warning
 window.addEventListener("load", function(){
-  ["InputPath", "Parameters", "Result"].forEach(function(fieldId){
+  ["InputPath", "Parameters", "Result", "ResultSelector"].forEach(function(fieldId){
     document.getElementById(fieldId).addEventListener("input", function(){
       //console.log(`Checking if field for ${fieldId} is null`);
       if (document.getElementById(fieldId).innerText.trim() === "null"){
@@ -43,21 +43,38 @@ window.addEventListener("load", function(){
     };
 
   // add listeners for Parameters/Result radio buttons
-  ["Parameters", "Result"].forEach(function (fieldId){
+  ["Parameters", "Result", "ResultSelector"].forEach(function (fieldId){
     ["No" + fieldId, fieldId + "With", fieldId + "Without"].forEach(function (id){
       document.getElementById(id).addEventListener("input", function(){
         checkRadio(fieldId);
       });
       document.getElementById(id).addEventListener("input", evalAll);
     });
-    checkRadio(fieldId);;
+    checkRadio(fieldId);
+
+    // check the field is selected, with $ in the field
+    // replace the value with "$"
+    document.getElementById(fieldId + "With").addEventListener("input", function(){
+      if (document.getElementById(fieldId + "With").checked){
+        document.getElementById(fieldId).innerText = '$';
+      }
+    });
+
+    // check the field is selected, with $ in the field
+    // replace the value with "{}"
+    document.getElementById(fieldId + "Without").addEventListener("input", function(){
+      if (document.getElementById(fieldId + "Without").checked){
+        document.getElementById(fieldId).innerText = '{"x.$": "$"}';
+      }
+    });
+
   })
 
   // when Parameters (no $) is selected
   // replace the default $ value with something valid
   document.getElementById("ParametersWithout").addEventListener("input", function(){
     if (document.getElementById("ParametersWithout").checked){
-      document.getElementById("Parameters").innerText = '{"x.$": "$"}';
+
       evalAll();
     }
   });
@@ -72,10 +89,10 @@ window.addEventListener("load", function(){
   });
 })
 
-// check if Parameters/Result (no $) is valid JSON
-// but only if Parameters/Result (no $) is selected
+// check if Parameters/Result/ResultSelector (no $) is valid JSON
+// but only if Parameters/Result/ResultSelector (no $) is selected
 window.addEventListener("load", function(){
-  ["Parameters", "Result"].forEach(function(fieldId){
+  ["Parameters", "Result", "ResultSelector"].forEach(function(fieldId){
     document.getElementById(fieldId).addEventListener("input", function(){
       warnEl = document.getElementById(`Invalid${fieldId}Warning`);
       fieldEl = document.getElementById(fieldId);
@@ -102,7 +119,7 @@ window.addEventListener("load", function(){
 // for triggering the calculation
 window.addEventListener("load", function(){
   console.log("Setting up");
-  userInputs = ["Input", "InputPath", "Parameters", "Result"].forEach(function(item){
+  userInputs = ["Input", "InputPath", "Parameters", "Result", "ResultSelector"].forEach(function(item){
     document.getElementById(item).addEventListener("input", function(){
       evalAll();
     });
@@ -227,6 +244,40 @@ function evalAll(){
     }
   };
   document.getElementById("AfterResult").innerText = JSON.stringify(afterResultObj, null, 4);
+
+  // step 5: Apply ResultSelector
+  if (document.getElementById("NoResultSelector").checked) {
+    afterResultSelectorObj = afterResultObj;
+  }else if (document.getElementById("ResultSelectorWith").checked){
+    try {
+      afterResultSelectorObj = applyPath(afterResultObj, document.getElementById("ResultSelector").innerText);
+    } catch(e) {
+      document.getElementById("AfterResultSelector").innerText = "Invalid ResultSelector path";
+      // set subsequent fields to errors
+      return;
+    }
+  }else{
+    try {
+      resultSelectorObj = JSON.parse(document.getElementById("ResultSelector").innerText);
+    } catch(e) {
+      console.log("Invalid JSON for ResultSelector");
+      // warnings to user are handled elsewhere
+      document.getElementById("AfterResultSelector").innerText = "Error: ResultSelector is invalid JSON";
+      // todo: set subsequent fields to error
+      return;
+    }
+    try {
+      afterResultSelectorObj = recursivePath(resultSelectorObj, afterResultObj);
+    } catch(e) {
+      console.log(e);
+      console.error("failed to apply JSONPath ResultSelector recursively");
+      document.getElementById("AfterResultSelector").innerText = "Failed to evaluate ResultSelector as JSONPath";
+      // TODO: set subsequent fields to errors
+      return;
+    }
+  };
+  document.getElementById("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
+
 
 }
 

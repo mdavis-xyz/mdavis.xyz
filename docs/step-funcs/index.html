@@ -212,6 +212,38 @@
   <p id="AfterResult" class="resultingText adjustable">Loading...</p>
 </div>
 
+<h2>
+  ResultSelector
+</h2>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">
+    Documentation for ResultSelector
+  </a>
+</p>
+<p>
+  <input type="radio" name="ResultSelector" id="NoResultSelector" checked>
+  <label for="NoResultSelector">No ResultSelector field</label><br>
+  <input type="radio" name="ResultSelector" id="ResultSelectorWithout">
+  <label for="ResultSelectorWithout">Include ResultSelector field</label><br>
+  <input type="radio" name="ResultSelector" id="ResultSelectorWith">
+  <label for="ResultSelectorWith">Include ResultSelector.$ field</label><br>
+</p>
+<div id="ResultSelectorExtra">
+  <p id="InvalidResultSelectorWarning" class="errorText">
+    ResultSelector value is not valid JSON.
+  </p>
+  <p id="NullResultSelectorWarning" class="warning">
+    Warning: null is not the same as omitting ResultSelector.
+    null means that an empty dictionary will be used instead of the task output.
+    If you want to omit ResultSelector, change your selection above.
+  </p>
+  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">$</p>
+  <p>
+    The following field is what happened after the ResultSelector field was applied.
+  </p>
+  <p id="AfterResultSelector" class="resultingText adjustable">Loading...</p>
+</div>
+
    </article>
 
 

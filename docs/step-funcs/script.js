@@ -1,7 +1,7 @@
 
 // Add listener for null input warning
 window.addEventListener("load", function(){
-  ["InputPath", "Parameters"].forEach(function(fieldId){
+  ["InputPath", "Parameters", "Result"].forEach(function(fieldId){
     document.getElementById(fieldId).addEventListener("input", function(){
       //console.log(`Checking if field for ${fieldId} is null`);
       if (document.getElementById(fieldId).innerText.trim() === "null"){
@@ -30,23 +30,28 @@ window.addEventListener("load", function(){
     }
   });
 
-  // and now listeners for Parameters radio buttons
-  checkParametersRadio = function(){
-    if (document.getElementById("NoParameters").checked) {
-      // document.getElementById("Parameters").innerText = "$";
-      document.getElementById("ParametersExtra").style.display = "none";
-    } else {
-      document.getElementById("ParametersExtra").style.display = "inline";
+    // fieldId is "Parameters" or "Result"
+    checkRadio = function(fieldId){
+      if (document.getElementById("No" + fieldId).checked) {
+        document.getElementById(fieldId + "Extra").style.display = "none";
+      } else {
+        document.getElementById(fieldId + "Extra").style.display = "inline";
+      };
+      if (! document.getElementById(fieldId + "Without").checked){
+        document.getElementById(`Invalid${fieldId}Warning`).style.display = "none";
+      }
     };
-    if (! document.getElementById("ParametersWithout").checked){
-      document.getElementById("InvalidParametersWarning").style.display = "none";
-    }
-  };
-  ["NoParameters", "ParametersWith", "ParametersWithout"].forEach(function (id){
-    document.getElementById(id).addEventListener("input", checkParametersRadio);
-    document.getElementById(id).addEventListener("input", evalAll);
-  });
-  checkParametersRadio();
+
+  // add listeners for Parameters/Result radio buttons
+  ["Parameters", "Result"].forEach(function (fieldId){
+    ["No" + fieldId, fieldId + "With", fieldId + "Without"].forEach(function (id){
+      document.getElementById(id).addEventListener("input", function(){
+        checkRadio(fieldId);
+      });
+      document.getElementById(id).addEventListener("input", evalAll);
+    });
+    checkRadio(fieldId);;
+  })
 
   // when Parameters (no $) is selected
   // replace the default $ value with something valid
@@ -67,34 +72,37 @@ window.addEventListener("load", function(){
   });
 })
 
-// check if Parameters (no $) is valid JSON
-// but only if Parameters (no $) is selected
+// check if Parameters/Result (no $) is valid JSON
+// but only if Parameters/Result (no $) is selected
 window.addEventListener("load", function(){
-  document.getElementById("Parameters").addEventListener("input", function(){
-    warnEl = document.getElementById("InvalidParametersWarning");
-    parametersEl = document.getElementById("Parameters");
-    if (document.getElementById("ParametersWithout").checked) {
-      try {
-        j = JSON.parse(document.getElementById("Parameters").innerText);
+  ["Parameters", "Result"].forEach(function(fieldId){
+    document.getElementById(fieldId).addEventListener("input", function(){
+      warnEl = document.getElementById(`Invalid${fieldId}Warning`);
+      fieldEl = document.getElementById(fieldId);
+      if (document.getElementById(fieldId + "Without").checked) {
+        try {
+          j = JSON.parse(document.getElementById(fieldId).innerText);
+          warnEl.style.display = "none";
+          fieldEl.classList.remove("invalidInput")
+        } catch (e) {
+          warnEl.style.display = "inline";
+          fieldEl.classList.add("invalidInput")
+        }
+      } else {
         warnEl.style.display = "none";
-        parametersEl.classList.remove("invalidInput")
-      } catch (e) {
-        warnEl.style.display = "inline";
-        parametersEl.classList.add("invalidInput")
+        fieldEl.classList.remove("invalidInput")
       }
-    } else {
-      warnEl.style.display = "none";
-      parametersEl.classList.remove("invalidInput")
-    }
 
+    })
   })
+
 })
 
 // set up event listeners
 // for triggering the calculation
 window.addEventListener("load", function(){
   console.log("Setting up");
-  userInputs = ["Input", "InputPath", "Parameters"].forEach(function(item){
+  userInputs = ["Input", "InputPath", "Parameters", "Result"].forEach(function(item){
     document.getElementById(item).addEventListener("input", function(){
       evalAll();
     });
@@ -151,6 +159,7 @@ function evalAll(){
     // no Parameters field
     // so just pass through whatever happened after InputPath
     document.getElementById("AfterParameters").innerText = document.getElementById("AfterInputPath").innerText;
+    afterParametersObj = afterInputPathObj;
   }else if (document.getElementById("ParametersWith").checked){
     parametersVal = document.getElementById("Parameters").innerText;
     try {
@@ -174,9 +183,50 @@ function evalAll(){
       // TODO: set subsequent fields to show errors
       return;
     }
-    afterParametersObj = recursivePath(parametersObj, afterInputPathObj);
+    try {
+      afterParametersObj = recursivePath(parametersObj, afterInputPathObj);
+    } catch(e) {
+      console.log(e);
+      console.error("failed to apply JSONPath Parameters recursively");
+      document.getElementById("AfterParameters").innerText = "Failed to evaluate Parameters as JSONPath";
+      // TODO: set subsequent fields to errors
+      return;
+    }
   }
   document.getElementById("AfterParameters").innerText = JSON.stringify(afterParametersObj, null, 4);
+
+  // step 4: apply Result
+  if (document.getElementById("NoResult").checked) {
+    afterResultObj = afterParametersObj;
+  }else if (document.getElementById("ResultWith").checked){
+    try {
+      afterResultObj = applyPath(afterParametersObj, document.getElementById("Result").innerText);
+    } catch(e) {
+      document.getElementById("AfterResult").innerText = "Invalid Result path";
+      // set subsequent fields to errors
+      return;
+    }
+  }else{
+    try {
+      resultObj = JSON.parse(document.getElementById("Result").innerText);
+    } catch(e) {
+      console.log("Invalid JSON for result");
+      // warnings to user are handled elsewhere
+      document.getElementById("AfterResult").innerText = "Error: Result is invalid JSON";
+      // todo: set subsequent fields to error
+      return;
+    }
+    try {
+      afterResultObj = recursivePath(resultObj, afterParametersObj);
+    } catch(e) {
+      console.log(e);
+      console.error("failed to apply JSONPath Result recursively");
+      document.getElementById("AfterResult").innerText = "Failed to evaluate Result as JSONPath";
+      // TODO: set subsequent fields to errors
+      return;
+    }
+  };
+  document.getElementById("AfterResult").innerText = JSON.stringify(afterResultObj, null, 4);
 
 }
 

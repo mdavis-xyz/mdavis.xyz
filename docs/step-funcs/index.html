@@ -137,8 +137,10 @@
   </p>
   <p>
     <p>
-      This is what the input looks like after the InputPath is applied,
-      and before any Parameters field is applied:
+      The following field is what the input looks like after the InputPath is applied,
+      and before any Parameters field is applied.
+      If there is no Parameters field,
+      this is what will be passed to the task (e.g. Lambda function).
     </p>
     <p id="AfterInputPath" class="adjustable resultingText">{}</p>
   </p>
@@ -173,9 +175,41 @@
     The following field is what happened after the Parameters field was applied.
     This is what will be sent to the task (e.g. Lambda function).
   </p>
-  <p id="AfterParameters" class="resultingText adjustable">
-    Loading
+  <p id="AfterParameters" class="resultingText adjustable">Loading...</p>
+</div>
+<h2>
+  Result (or task output)
+</h2>
+<p>
+  For a Pass task, this is the output of the task, prior to OutputPath, ResultPath or ResultSelector.
+</p>
+<p>
+  For a different task (e.g. Lambda function),
+  set this equal to what you expect the output of the task is.
+  (e.g the return value of the Lambda function.)
+</p>
+<p>
+  <input type="radio" name="Result" id="NoResult" checked>
+  <label for="NoResult">No Result field (use the task input after InputPath and Parameters)</label><br>
+  <input type="radio" name="Result" id="ResultWithout">
+  <label for="ResultWithout">Include Result field</label><br>
+  <input type="radio" name="Result" id="ResultWith">
+  <label for="ResultWith">Include Result.$ field</label><br>
+</p>
+<div id="ResultExtra">
+  <p id="InvalidResultWarning" class="errorText">
+    Result value is not valid JSON.
   </p>
+  <p id="NullResultWarning" class="warning">
+    Warning: null is not the same as omitting Result.
+    null means that an empty dictionary will be used instead of the task output.
+    If you want to omit Result, change your selection above.
+  </p>
+  <p contenteditable=true id="Result" class="pathFields adjustable">$</p>
+  <p>
+    The following field is what happened after any $ in the Result field were applied.
+  </p>
+  <p id="AfterResult" class="resultingText adjustable">Loading...</p>
 </div>
 
    </article>

@@ -147,6 +147,11 @@
   Parameters
 </h2>
 <p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">
+    Documentation for Parameters field
+  </a>
+</p>
+<p>
   <input type="radio" name="Parameters" id="NoParameters" checked>
   <label for="NoParameters">No Parameters value</label><br>
   <input type="radio" name="Parameters" id="ParametersWithout">
@@ -155,6 +160,9 @@
   <label for="ParametersWith">Include Parameters.$ value</label><br>
 </p>
 <div id="ParametersExtra">
+  <p id="InvalidParametersWarning" class="errorText">
+    Parameters value is not valid JSON.
+  </p>
   <p id="NullParametersWarning" class="warning">
     Warning: null is not the same as omitting Parameters.
     null means that an empty dictionary will be used instead of the input.

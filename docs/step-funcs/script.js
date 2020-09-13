@@ -37,6 +37,9 @@ window.addEventListener("load", function(){
       document.getElementById("ParametersExtra").style.display = "none";
     } else {
       document.getElementById("ParametersExtra").style.display = "inline";
+    };
+    if (! document.getElementById("ParametersWithout").checked){
+      document.getElementById("InvalidParametersWarning").style.display = "none";
     }
   };
   ["NoParameters", "ParametersWith", "ParametersWithout"].forEach(function (id){
@@ -45,6 +48,46 @@ window.addEventListener("load", function(){
   });
   checkParametersRadio();
 
+  // when Parameters (no $) is selected
+  // replace the default $ value with something valid
+  document.getElementById("ParametersWithout").addEventListener("input", function(){
+    if (document.getElementById("ParametersWithout").checked){
+      document.getElementById("Parameters").innerText = '{"x.$": "$"}';
+      evalAll();
+    }
+  });
+
+  // when Parameters.$ is selected
+  // replace value with $
+  document.getElementById("ParametersWith").addEventListener("input", function(){
+    if (document.getElementById("ParametersWith").checked){
+      document.getElementById("Parameters").innerText = "$";
+      evalAll();
+    }
+  });
+})
+
+// check if Parameters (no $) is valid JSON
+// but only if Parameters (no $) is selected
+window.addEventListener("load", function(){
+  document.getElementById("Parameters").addEventListener("input", function(){
+    warnEl = document.getElementById("InvalidParametersWarning");
+    parametersEl = document.getElementById("Parameters");
+    if (document.getElementById("ParametersWithout").checked) {
+      try {
+        j = JSON.parse(document.getElementById("Parameters").innerText);
+        warnEl.style.display = "none";
+        parametersEl.classList.remove("invalidInput")
+      } catch (e) {
+        warnEl.style.display = "inline";
+        parametersEl.classList.add("invalidInput")
+      }
+    } else {
+      warnEl.style.display = "none";
+      parametersEl.classList.remove("invalidInput")
+    }
+
+  })
 })
 
 // set up event listeners
@@ -85,17 +128,13 @@ function evalAll(){
 
   // step 2, apply InputPath
   inputPathVal = document.getElementById("InputPath").innerText; // not innerText
-  if (inputPathVal === "$"){
-    // jsonPath(x, "$") does not just return x
-    // not sure why, maybe Step Functions uses non-standard behavior?
-    afterInputPathObj = inputObj;
-  } else if (inputPathVal === "null") {
+  if (inputPathVal === "null") {
     // special meaning in step functions
     afterInputPathObj = {};
   } else {
     try {
       console.log(`Applying jsonPath(${inputObj}, "${inputPathVal}")`);
-      afterInputPathObj = jsonPath(inputObj, inputPathVal);
+      afterInputPathObj = applyPath(inputObj, inputPathVal);
     } catch(e) {
       console.log(resultObj);
       console.log("Failed to apply InputPath")
@@ -104,18 +143,18 @@ function evalAll(){
     }
   }
   console.log(afterInputPathObj);
-  document.getElementById("AfterInputPath").innerText = JSON.stringify(afterInputPathObj);
+  document.getElementById("AfterInputPath").innerText = JSON.stringify(afterInputPathObj, null, 4);
   console.log("InputPath applied successfully");
 
   // step 3: apply Parameters
   if (document.getElementById("NoParameters").checked) {
     // no Parameters field
     // so just pass through whatever happened after InputPath
-    document.getElementById("AfterParameters") = document.getElementById("AfterInputPath").innerText;
+    document.getElementById("AfterParameters").innerText = document.getElementById("AfterInputPath").innerText;
   }else if (document.getElementById("ParametersWith").checked){
     parametersVal = document.getElementById("Parameters").innerText;
     try {
-      afterParametersObj = jsonPath(afterInputPathObj, parametersVal);
+      afterParametersObj = applyPath(afterInputPathObj, parametersVal);
     } catch (e) {
       console.log(e);
       console.log("Failed to apply parameters");
@@ -124,114 +163,85 @@ function evalAll(){
       return;
     }
   } else {
-    console.log("Complex parameters");
-    document.getElementById("AfterParameters").innerText = "Not implemented yet";
-    return
-    // recursively check for $
+    console.log("Complex parameters evalutation");
+    try {
+      parametersObj = JSON.parse(document.getElementById("Parameters").innerText);
+    } catch (e) {
+      console.log(e);
+      console.log("Parameters is not valid JSON");
+      document.getElementById("AfterParameters").innerText = "Parameters is not valid JSON";
+      // warnings and styles managed in other function
+      // TODO: set subsequent fields to show errors
+      return;
+    }
+    afterParametersObj = recursivePath(parametersObj, afterInputPathObj);
   }
-  document.getElementById("AfterParameters").innerText = JSON.stringify(afterParametersObj);
+  document.getElementById("AfterParameters").innerText = JSON.stringify(afterParametersObj, null, 4);
 
 }
 
-//
-// // Warn user if input is not valid json
-// window.addEventListener("load", function(){
-//     inputEl = document.getElementById("Input");
-//     inputEl.addEventListener("input", function(){
-// 	warnEl = document.getElementById("InvalidInputWarning")
-//
-//         try {
-// 	   j = JSON.parse(inputEl.innerText);
-// 	   warnEl.style.display = "none"; // valid json, hide warning
-// 	   inputEl.classList.remove("invalidInput");
-// 	} catch(e) {
-// 	   // invalid json, show warning
-// 	   warnEl.style.display = "inline";
-// 	   inputEl.classList.add("invalidInput");
-// 	};
-//     });
-// })
-//
-// window.addEventListener("load", function(){
-//   console.log("Setting up evalOne triggers");
-//   ["InputPath", "Input"].forEach(function(item){
-//     console.log("About to use backticks");
-//     console.log(`Setting up evalOne triggers for ${item}`);
-//     document.getElementById(item).addEventListener("input", function(){
-//       console.log("Applying InputPath");
-//       evalOne("Input", "InputPath", "AfterInputPath");
-//     });
-//   })
-//
-// })
-//
-// takes in 3 element IDs
-// this function grabs the innerText from each,
-// the json content from the first
-// has the content of the second applied as a path
-// and the result is saved into the third
-function evalOne(inputId, pathId, resultId){
-  console.log(`Applying path in ${pathId} to content in ${inputId} putting it in ${resultId}`)
-  inputEl = document.getElementById(inputId);
-  pathEl = document.getElementById(pathId);
-  resultEl = document.getElementById(resultId);
-  try {
-    data = JSON.parse(inputEl.innerText);
-    console.log("Input obj is");
-    console.log(data);
-    console.log(`Path is ${pathEl.innerText}`);
-    if (pathEl.innerText == "$"){
-      // jsonPath(data, "$") doesn't
-      // return data
-      // not sure why
-      resultObj = data;
-    }else{
-      resultObj = jsonPath(data, pathEl.innerText);
-    }
-    console.log(resultObj);
-    resultEl.innerText = JSON.stringify(resultObj);
-    console.log(`Successfully applied path ${pathId} to ${resultId}`);
-  } catch(e) {
-    if (e instanceof SyntaxError) {
-        resultEl.innerText = "JSON parsing error"
-        console.error(e.name);
-    } else {
-        resultEl.innerText = "JSONPath error";
-        console.error(e.message);
-    }
-  };
-
+// example:
+// obj = {"a": "$[1].a", "b": "$[2]"}
+// dollar = [0, {"a": 123}, []]
+// return val {"a": 123, "b": []}
+function recursivePath(obj, dollar) {
+  if (obj == null) {
+    return obj;
+  } else if (obj.constructor == Array){
+    // it's a list
+    // [recursivePath(x, dollar) for x in obj]
+    return obj.map((x) => {
+      return recursivePath(x, dollar)
+    })
+  } else if (isStr(obj)) {
+    return obj;
+  } else if (typeof obj == "number"){
+    return obj;
+  } else {
+    console.debug(`I think ${obj} is a dict`);
+    // the only thing left is a dictionary
+    // (There are probably other things in theory,
+    //  but not right after JSON.parse)
+    for (const [key, value] of Object.entries(obj)) {
+      if (isStr(key) && key.endsWith(".$")){
+        new_key = key.replace(/\.\$$/gi, "");
+        console.log(`Going to replace ${key}=${value}`);
+        if (! isStr(value)){
+          console.log(`Value ${value} for ${key} should be a string`);
+          throw "Value ${value} for ${key} should be a string";
+        } else{
+          new_value = applyPath(dollar, value);
+        }
+        console.log(`Changing ${key}=${value} to ${new_key}=${new_value}`);
+        obj[new_key] = new_value;
+        delete obj[key];
+      } else {
+        obj[key] = recursivePath(value, dollar);
+      }
+    };
+    return obj;
+  }
 }
-//
-// window.addEventListener("load", function(){
-//     inputEl = document.getElementById("Input")
-//     // console.log("Adding listener to input changes");
-//     inputEl.addEventListener("input", evaluate);
-// });
-//
-// function fieldEnableDisable(checked, txt_id){
-//     // console.log(txt_id + " " + checked);
-//     document.getElementById(txt_id).disabled = ! checked;
-//     if (! checked) {
-//       document.getElementById(txt_id).innerText = "$";
-//     }
-// }
-//
-// function evaluate(){
-//    // console.log("eval called");
-//    inputTxt = document.getElementById("Input").innerText;
-//
-//    document.getElementById("TaskInput").innerText = inputTxt;
-//    document.getElementById("TaskOutput").innerText = inputTxt;
-// }
-//
-//
-// window.addEventListener("load", function(){
-//     console.log("Setup starting")
-//     fieldNames = ["InputPath", "Parameters", "ResultSelector", "OutputPath", "ResultPath"]
-//     fieldNames.forEach(function(item){
-//         // console.log("For loop for " + item);
-// 	      fieldEnableDisable(document.getElementById(item + "Enabled").checked, item);
-//
-//     })
-// });
+
+// applies the JSONPath path to the Object
+// note that Step Functions use slightly different behavior
+// to the js lib we're using
+function applyPath(dollar, path){
+  if (path === "$"){
+    // jsonPath(x, "$") does not just return "$"
+    // not sure why
+    return dollar;
+  }else{
+    result = jsonPath(dollar, path);
+    if ((result == undefined) || (result == false)){
+      console.log(`Probably failed applying ${path} to ${dollar}`);
+    }
+    return result;
+  }
+}
+
+// returns a boolean
+// is x of type string
+function isStr(x){
+  return (typeof x === 'string' || x instanceof String);
+}

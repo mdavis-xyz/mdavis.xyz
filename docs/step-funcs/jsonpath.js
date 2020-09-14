@@ -84,6 +84,16 @@ function jsonPath(obj, expr, arg) {
    var $ = obj;
    if (expr && obj && (P.resultType == "VALUE" || P.resultType == "PATH")) {
       P.trace(P.normalize(expr).replace(/^\$;/,""), obj, "$");
-      return P.result.length ? P.result : false;
+
+      // the next bit was modified by Matthew Davis
+      // return P.result.length ? P.result : false;
+      if (P.result.length == 0){
+        return undefined;
+      }else if(P.result.length == 1){
+        return P.result[0];
+      }else{
+        return P.result;
+      }
+
    }
 }

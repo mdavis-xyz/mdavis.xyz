@@ -244,6 +244,35 @@
   <p id="AfterResultSelector" class="resultingText adjustable">Loading...</p>
 </div>
 
+<h2>
+  ResultPath
+</h2>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">Documentation for ResultPath</a>
+</p>
+<p>
+  <input type="checkbox" id="ResultPathEnabled" checked>
+  <label for="ResultPathEnabled"> Include a ResultPath</label>
+</p>
+<div id="ResultPathExtras">
+  <p id="NullResultPathWarning" class="warning">
+    Warning: null is not the same as omitting ResultPath.
+    null means that the output of the task will be discarded,
+    and the input will be used instead.
+    (That is, the input <i>before</i> InputPath and Parameters.)
+  </p>
+  <p>
+    <p contenteditable=true id="ResultPath" class="pathFields">$</p>
+  </p>
+  <p>
+    <p>
+      The following field is what the input looks like after
+      the ResultPath is applied.
+    </p>
+    <p id="AfterResultPath" class="adjustable resultingText">Loading...</p>
+  </p>
+</div>
+
    </article>
 
 

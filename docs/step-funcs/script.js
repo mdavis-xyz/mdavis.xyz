@@ -1,7 +1,7 @@
 
 // Add listener for null input warning
 window.addEventListener("load", function(){
-  ["InputPath", "Parameters", "Result", "ResultSelector"].forEach(function(fieldId){
+  ["InputPath", "Parameters", "Result", "ResultSelector", "ResultPath"].forEach(function(fieldId){
     document.getElementById(fieldId).addEventListener("input", function(){
       //console.log(`Checking if field for ${fieldId} is null`);
       if (document.getElementById(fieldId).innerText.trim() === "null"){
@@ -17,30 +17,33 @@ window.addEventListener("load", function(){
 
 // add listener for tickboxes
 window.addEventListener("load", function(){
-  tickEl = document.getElementById("InputPathEnabled");
-  tickEl.addEventListener("input", evalAll);
-  tickEl.addEventListener("input", function(){
-    if (tickEl.checked) {
-      console.log("InputPath enabled");
-      document.getElementById("InputPathExtras").style.display = "inline";
-    } else {
-      console.log("InputPath disabled");
-      document.getElementById("InputPath").innerText = "$";
-      document.getElementById("InputPathExtras").style.display = "none";
-    }
-  });
+  ["InputPath", "ResultPath"].forEach(function(fieldId){
 
-    // fieldId is "Parameters" or "Result"
-    checkRadio = function(fieldId){
-      if (document.getElementById("No" + fieldId).checked) {
-        document.getElementById(fieldId + "Extra").style.display = "none";
+    tickEl = document.getElementById(fieldId + "Enabled");
+    tickEl.addEventListener("input", evalAll);
+    tickEl.addEventListener("input", function(){
+      if (tickEl.checked) {
+        console.log(fieldId + " enabled");
+        document.getElementById(fieldId + "Extras").style.display = "inline";
       } else {
-        document.getElementById(fieldId + "Extra").style.display = "inline";
-      };
-      if (! document.getElementById(fieldId + "Without").checked){
-        document.getElementById(`Invalid${fieldId}Warning`).style.display = "none";
+        console.log(fieldId + " disabled");
+        document.getElementById(fieldId).innerText = "$";
+        document.getElementById(fieldId + "Extras").style.display = "none";
       }
+    });
+  })
+
+  // fieldId is "Parameters" or "Result"
+  checkRadio = function(fieldId){
+    if (document.getElementById("No" + fieldId).checked) {
+      document.getElementById(fieldId + "Extra").style.display = "none";
+    } else {
+      document.getElementById(fieldId + "Extra").style.display = "inline";
     };
+    if (! document.getElementById(fieldId + "Without").checked){
+      document.getElementById(`Invalid${fieldId}Warning`).style.display = "none";
+    }
+  };
 
   // add listeners for Parameters/Result radio buttons
   ["Parameters", "Result", "ResultSelector"].forEach(function (fieldId){
@@ -152,8 +155,8 @@ function evalAll(){
   inputEl.classList.remove("invalidInput");
 
   // step 2, apply InputPath
-  inputPathVal = document.getElementById("InputPath").innerText; // not innerText
-  if (inputPathVal === "null") {
+  inputPathVal = document.getElementById("InputPath").innerText;
+  if (inputPathVal.trim() === "null") {
     // special meaning in step functions
     afterInputPathObj = {};
   } else {
@@ -163,7 +166,7 @@ function evalAll(){
     } catch(e) {
       console.log(resultObj);
       console.log("Failed to apply InputPath")
-      document.getElementById("AfterParameters").innerText = "Error applying InputPath earlier";
+      document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
       return;
     }
   }
@@ -278,6 +281,26 @@ function evalAll(){
   };
   document.getElementById("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
 
+  // step 6: apply ResultPath
+  resultPathVal = document.getElementById("ResultPath").innerText;
+  if (resultPathVal.trim() === "null") {
+    // special meaning in step functions
+    // https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html#input-output-resultpath-null
+    afterResultPathObj = inputObj; // before InputPath or Parameters
+  } else {
+    try {
+      console.log(`Applying jsonPath(${inputObj}, "${resultPathVal}")`);
+      afterResultPathObj = applyPath(inputObj, resultPathVal);
+    } catch(e) {
+      console.log(resultObj);
+      console.log("Failed to apply ResultPath")
+      document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
+      return;
+    }
+  }
+  console.log(afterResultPathObj);
+  document.getElementById("AfterResultPath").innerText = JSON.stringify(afterResultPathObj, null, 4);
+  console.log("ResultPath applied successfully");
 
 }
 

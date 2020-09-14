@@ -1,306 +1,351 @@
-
-// Add listener for null input warning
+// set up events for validating/warning about user input
+// and triggering evaluations
 window.addEventListener("load", function(){
-  ["InputPath", "Parameters", "Result", "ResultSelector", "ResultPath"].forEach(function(fieldId){
-    document.getElementById(fieldId).addEventListener("input", function(){
-      //console.log(`Checking if field for ${fieldId} is null`);
-      if (document.getElementById(fieldId).innerText.trim() === "null"){
-        console.log(`${fieldId} is null`);
-        document.getElementById(`Null${fieldId}Warning`).style.display = "inline";
-      }else{
-        //console.log(`${fieldId} is not null`);
-        document.getElementById(`Null${fieldId}Warning`).style.display = "none";
-      }
-    })
+  console.log("Setting up event listeners");
+  // Input field
+  setupJsonWarning("Input", "InvalidInputWarning");
+  setupEval("Input");
+
+  // InputPath field
+  setupEval("InputPath");
+  setupNullWarning("InputPath", "NullInputPathWarning")
+  setupDollarStartWarning("InputPath", "InputPathStartDollarWarn");
+  setupToggleHide("InputPathEnabled", "InputPathExtras");
+  setupIntrinsicFuncWarn("InputPath", "InputPathFuncWarn");
+
+  // Parameters
+  setupEval("Parameters");
+  setupJsonWarning("Parameters", "InvalidParametersWarning");
+  setupToggleHide("ParametersEnabled", "ParametersExtras");
+  setupNullWarning("Parameters", "NullParametersWarning")
+  setupIntrinsicFuncWarn("Parameters", "ParametersFuncWarn");
+
+  // Result
+  setupEval("Result");
+  setupJsonWarning("Result", "InvalidResultWarning");
+  setupToggleHide("ResultEnabled", "ResultExtras", "WhenNoResult");
+  setupNullWarning("Result", "NullResultWarning");
+  setupDollarWarning("Result", "ResultDollarWarning");
+  setupIntrinsicFuncWarn("Result", "ResultFuncWarn");
+
+  // ResultSelector
+  setupEval("ResultSelector");
+  setupJsonWarning("ResultSelector", "InvalidResultSelectorWarning");
+  setupToggleHide("ResultSelectorEnabled", "ResultSelectorExtras");
+  setupNullWarning("ResultSelector", "NullResultSelectorWarning");
+  setupIntrinsicFuncWarn("ResultSelector", "ResultSelectorFuncWarn");
+
+  // ResultPath
+  setupEval("ResultPath");
+  setupToggleHide("ResultPathEnabled", "ResultPathExtras");
+  setupNullWarning("ResultPath", "NullResultPathWarning");
+  setupIntrinsicFuncWarn("ResultPath", "ResultPathFuncWarn");
+  setupDollarStartWarning("ResultPath", "ResultPathStartDollarWarn");
+
+  // OutputPath
+  setupEval("OutputPath");
+  setupToggleHide("OutputPathEnabled", "OutputPathExtras");
+  setupNullWarning("OutputPath", "NullOutputPathWarning");
+  setupIntrinsicFuncWarn("OutputPath", "OutputPathFuncWarn");
+  setupDollarStartWarning("OutputPath", "OutputPathStartDollarWarn");
+
+  console.log("Event listener setup complete");
+
+});
+
+
+// set up event handlers
+// so when you change the tickbox/text field with id,
+// the evaluation is automatically run
+setupEval = function(id){
+  document.getElementById(id).addEventListener("input", evalAll);
+}
+
+// w is the ID of a DOM element to hide/show
+// if the innerText of the el with id txt is invalid JSON
+setupJsonWarning = function(txt_id, w_id){
+  document.getElementById(txt_id).addEventListener("input", function(){
+    v = document.getElementById(txt_id).innerText;
+    w_el = document.getElementById(w_id);
+    try {
+      d = JSON.parse(v);
+      w_el.style.display = "none";
+    }catch(e){
+      w_el.style.display = "block";
+    }
   })
-})
+}
 
-// add listener for tickboxes
-window.addEventListener("load", function(){
-  ["InputPath", "ResultPath"].forEach(function(fieldId){
-
-    tickEl = document.getElementById(fieldId + "Enabled");
-    tickEl.addEventListener("input", evalAll);
-    tickEl.addEventListener("input", function(){
-      if (tickEl.checked) {
-        console.log(fieldId + " enabled");
-        document.getElementById(fieldId + "Extras").style.display = "inline";
-      } else {
-        console.log(fieldId + " disabled");
-        document.getElementById(fieldId).innerText = "$";
-        document.getElementById(fieldId + "Extras").style.display = "none";
-      }
-    });
-  })
-
-  // fieldId is "Parameters" or "Result"
-  checkRadio = function(fieldId){
-    if (document.getElementById("No" + fieldId).checked) {
-      document.getElementById(fieldId + "Extra").style.display = "none";
-    } else {
-      document.getElementById(fieldId + "Extra").style.display = "inline";
+// w is the ID of a DOM element to hide/show
+// if the innerText of the el with id txt is "null"
+setupNullWarning = function(txt_id, w_id){
+  document.getElementById(txt_id).addEventListener("input", function(){
+    w_el = document.getElementById(w_id)
+    if (document.getElementById(txt_id).innerText.trim() === "null"){
+      w_el.style.display = "block";
+    }else{
+      w_el.style.display = "none";
     };
-    if (! document.getElementById(fieldId + "Without").checked){
-      document.getElementById(`Invalid${fieldId}Warning`).style.display = "none";
-    }
-  };
-
-  // add listeners for Parameters/Result radio buttons
-  ["Parameters", "Result", "ResultSelector"].forEach(function (fieldId){
-    ["No" + fieldId, fieldId + "With", fieldId + "Without"].forEach(function (id){
-      document.getElementById(id).addEventListener("input", function(){
-        checkRadio(fieldId);
-      });
-      document.getElementById(id).addEventListener("input", evalAll);
-    });
-    checkRadio(fieldId);
-
-    // check the field is selected, with $ in the field
-    // replace the value with "$"
-    document.getElementById(fieldId + "With").addEventListener("input", function(){
-      if (document.getElementById(fieldId + "With").checked){
-        document.getElementById(fieldId).innerText = '$';
-      }
-    });
-
-    // check the field is selected, with $ in the field
-    // replace the value with "{}"
-    document.getElementById(fieldId + "Without").addEventListener("input", function(){
-      if (document.getElementById(fieldId + "Without").checked){
-        document.getElementById(fieldId).innerText = '{"x.$": "$"}';
-      }
-    });
-
-  })
-
-  // when Parameters (no $) is selected
-  // replace the default $ value with something valid
-  document.getElementById("ParametersWithout").addEventListener("input", function(){
-    if (document.getElementById("ParametersWithout").checked){
-
-      evalAll();
-    }
   });
+}
 
-  // when Parameters.$ is selected
-  // replace value with $
-  document.getElementById("ParametersWith").addEventListener("input", function(){
-    if (document.getElementById("ParametersWith").checked){
-      document.getElementById("Parameters").innerText = "$";
-      evalAll();
-    }
-  });
-})
+// w is the ID of a DOM element to hide/show
+// if the innerText of the el with id txt
+// contains "$"
+setupDollarWarning = function(txt_id, w_id){
+  document.getElementById(txt_id).addEventListener("input", function(){
+    val = document.getElementById(txt_id).innerText.trim();
+    w_el = document.getElementById(w_id);
+    if (val.startsWith('$')){
+      w_el.style.display = "block";
+    }else if(val == "null"){
+      // special case
+      // the next else branch doesn't handle this correctly
+      // not sure why
+      w_el.style.display = "none";
+    }else{
+      // what if the Result is like {"a.$": "$"}
+      // to check this, apply JSONPath recursively
+      // and check whether the result is different to the input (or undefined)
+      try {
+        r = JSON.parse(val);
+        after = recursivePath(r, {"fake-random-data-mdavis-xyz": 123098})
+        // need to parse val again
+        // since recursivePath modifies it
+        r = JSON.parse(val);
 
-// check if Parameters/Result/ResultSelector (no $) is valid JSON
-// but only if Parameters/Result/ResultSelector (no $) is selected
-window.addEventListener("load", function(){
-  ["Parameters", "Result", "ResultSelector"].forEach(function(fieldId){
-    document.getElementById(fieldId).addEventListener("input", function(){
-      warnEl = document.getElementById(`Invalid${fieldId}Warning`);
-      fieldEl = document.getElementById(fieldId);
-      if (document.getElementById(fieldId + "Without").checked) {
-        try {
-          j = JSON.parse(document.getElementById(fieldId).innerText);
-          warnEl.style.display = "none";
-          fieldEl.classList.remove("invalidInput")
-        } catch (e) {
-          warnEl.style.display = "inline";
-          fieldEl.classList.add("invalidInput")
+        // checking if after != r is tricky
+        // in Javascript, {} != {}
+
+        if ((after == undefined) || (JSON.stringify(after) != JSON.stringify(r))){
+          console.log("I think result includes .$");
+          w_el.style.display = "block";
+        }else{
+          console.log("I think the result is valid json and does not include .$")
+          w_el.style.display = "none";
         }
-      } else {
-        warnEl.style.display = "none";
-        fieldEl.classList.remove("invalidInput")
+      }catch(e){
+        console.log("I think the result is not valid JSON");
+        w_el.style.display = "none";
+        // there's an invalid JSON warning handled elsewhere
+        // this function is just about $
       }
-
-    })
+    }
   })
-
-})
+}
 
 // set up event listeners
-// for triggering the calculation
-window.addEventListener("load", function(){
-  console.log("Setting up");
-  userInputs = ["Input", "InputPath", "Parameters", "Result", "ResultSelector"].forEach(function(item){
-    document.getElementById(item).addEventListener("input", function(){
-      evalAll();
-    });
+// to hide/show warning about
+// how a field must start with a $
+// (unless it equals $)
+setupDollarStartWarning = function(txt_id, w_id){
+  document.getElementById(txt_id).addEventListener("input", function(){
+    w_el = document.getElementById(w_id);
+    v = document.getElementById(txt_id).innerText.trim();
+    if (v.startsWith("$") || (v == "null")){
+      w_el.style.display = "none";
+    }else{
+      w_el.style.display = "block";
+    }
+  })
+}
+
+// set up event handlers
+// so when you tick/untick the "enable x" box,
+// the relevant fields are shown/hidden
+// extras is only shown when the box is ticked
+// when_none is optional, shown only when the box is unticked
+setupToggleHide = function(checkbox_id, extras_id, when_none){
+  document.getElementById(checkbox_id).addEventListener("input", function(){
+    if (document.getElementById(checkbox_id).checked){
+      console.log(`showing ${extras_id}`);
+      // show
+      document.getElementById(extras_id).style.display = "block";
+      if (when_none != undefined){
+        document.getElementById(when_none).style.display = "none";
+      }
+    }else{
+      // hide
+      console.log(`hiding ${extras_id}`);
+      document.getElementById(extras_id).style.display = "none";
+      if (when_none != undefined){
+        document.getElementById(when_none).style.display = "block";
+      }
+    }
   });
   evalAll();
-})
+}
+
+// sets up event handlers
+// to show warnings if user tries to use an intrinsic function
+// which we don't support here
+setupIntrinsicFuncWarn = function(txt_id, warn_id){
+  document.getElementById(txt_id).addEventListener("input", function(){
+    // https://states-language.net/spec.html#appendix-b
+    intrinsic_funcs = ["States.Format", "States.StringToJson", "States.JsonToString", "States.Array"];
+    v = document.getElementById(txt_id).innerText.toLowerCase();
+    w_el = document.getElementById(warn_id);
+    in_val = function(f){
+      return (v.toLowerCase().includes(f.toLowerCase()))
+    };
+    if (intrinsic_funcs.some(in_val)){
+      w_el.style.display = "block";
+    }else{
+      w_el.style.display = "none";
+    }
+  })
+}
 
 
 function evalAll(){
-  // Step 1: Check State Input data is valid JSON
-  inputEl = document.getElementById("Input");
-  warnEl = document.getElementById("InvalidInputWarning")
-  try {
-    inputObj = JSON.parse(inputEl.innerText);
-  } catch (e) {
-    console.log(e);
-    console.log("Input probably not valid JSON");
-    warnEl.style.display = "inline";
-    inputEl.classList.add("invalidInput");
-    document.getElementById("AfterInputPath").innerText = "Error: State Input Payload is not valid JSON";
-    document.getElementById("AfterParameters").innerText = "Error: State Input Payload is not valid JSON";
-    // TODO: make all subsequent fields say error
-    return;
-  };
-
-  // input is valid JSON
-  // hide that warning
-  console.log("Input is valid JSON");
-  warnEl.style.display = "none";
-  inputEl.classList.remove("invalidInput");
-
-  // step 2, apply InputPath
-  inputPathVal = document.getElementById("InputPath").innerText;
-  if (inputPathVal.trim() === "null") {
-    // special meaning in step functions
-    afterInputPathObj = {};
-  } else {
-    try {
-      console.log(`Applying jsonPath(${inputObj}, "${inputPathVal}")`);
-      afterInputPathObj = applyPath(inputObj, inputPathVal);
-    } catch(e) {
-      console.log(resultObj);
-      console.log("Failed to apply InputPath")
-      document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
-      return;
-    }
-  }
-  console.log(afterInputPathObj);
-  document.getElementById("AfterInputPath").innerText = JSON.stringify(afterInputPathObj, null, 4);
-  console.log("InputPath applied successfully");
-
-  // step 3: apply Parameters
-  if (document.getElementById("NoParameters").checked) {
-    // no Parameters field
-    // so just pass through whatever happened after InputPath
-    document.getElementById("AfterParameters").innerText = document.getElementById("AfterInputPath").innerText;
-    afterParametersObj = afterInputPathObj;
-  }else if (document.getElementById("ParametersWith").checked){
-    parametersVal = document.getElementById("Parameters").innerText;
-    try {
-      afterParametersObj = applyPath(afterInputPathObj, parametersVal);
-    } catch (e) {
-      console.log(e);
-      console.log("Failed to apply parameters");
-      document.getElementById("AfterParameters").innerText = "Error applying Parameters field";
-      // TODO: set subsequent fields to errors too
-      return;
-    }
-  } else {
-    console.log("Complex parameters evalutation");
-    try {
-      parametersObj = JSON.parse(document.getElementById("Parameters").innerText);
-    } catch (e) {
-      console.log(e);
-      console.log("Parameters is not valid JSON");
-      document.getElementById("AfterParameters").innerText = "Parameters is not valid JSON";
-      // warnings and styles managed in other function
-      // TODO: set subsequent fields to show errors
-      return;
-    }
-    try {
-      afterParametersObj = recursivePath(parametersObj, afterInputPathObj);
-    } catch(e) {
-      console.log(e);
-      console.error("failed to apply JSONPath Parameters recursively");
-      document.getElementById("AfterParameters").innerText = "Failed to evaluate Parameters as JSONPath";
-      // TODO: set subsequent fields to errors
-      return;
-    }
-  }
-  document.getElementById("AfterParameters").innerText = JSON.stringify(afterParametersObj, null, 4);
-
-  // step 4: apply Result
-  if (document.getElementById("NoResult").checked) {
-    afterResultObj = afterParametersObj;
-  }else if (document.getElementById("ResultWith").checked){
-    try {
-      afterResultObj = applyPath(afterParametersObj, document.getElementById("Result").innerText);
-    } catch(e) {
-      document.getElementById("AfterResult").innerText = "Invalid Result path";
-      // set subsequent fields to errors
-      return;
-    }
-  }else{
-    try {
-      resultObj = JSON.parse(document.getElementById("Result").innerText);
-    } catch(e) {
-      console.log("Invalid JSON for result");
-      // warnings to user are handled elsewhere
-      document.getElementById("AfterResult").innerText = "Error: Result is invalid JSON";
-      // todo: set subsequent fields to error
-      return;
-    }
-    try {
-      afterResultObj = recursivePath(resultObj, afterParametersObj);
-    } catch(e) {
-      console.log(e);
-      console.error("failed to apply JSONPath Result recursively");
-      document.getElementById("AfterResult").innerText = "Failed to evaluate Result as JSONPath";
-      // TODO: set subsequent fields to errors
-      return;
-    }
-  };
-  document.getElementById("AfterResult").innerText = JSON.stringify(afterResultObj, null, 4);
-
-  // step 5: Apply ResultSelector
-  if (document.getElementById("NoResultSelector").checked) {
-    afterResultSelectorObj = afterResultObj;
-  }else if (document.getElementById("ResultSelectorWith").checked){
-    try {
-      afterResultSelectorObj = applyPath(afterResultObj, document.getElementById("ResultSelector").innerText);
-    } catch(e) {
-      document.getElementById("AfterResultSelector").innerText = "Invalid ResultSelector path";
-      // set subsequent fields to errors
-      return;
-    }
-  }else{
-    try {
-      resultSelectorObj = JSON.parse(document.getElementById("ResultSelector").innerText);
-    } catch(e) {
-      console.log("Invalid JSON for ResultSelector");
-      // warnings to user are handled elsewhere
-      document.getElementById("AfterResultSelector").innerText = "Error: ResultSelector is invalid JSON";
-      // todo: set subsequent fields to error
-      return;
-    }
-    try {
-      afterResultSelectorObj = recursivePath(resultSelectorObj, afterResultObj);
-    } catch(e) {
-      console.log(e);
-      console.error("failed to apply JSONPath ResultSelector recursively");
-      document.getElementById("AfterResultSelector").innerText = "Failed to evaluate ResultSelector as JSONPath";
-      // TODO: set subsequent fields to errors
-      return;
-    }
-  };
-  document.getElementById("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
-
-  // step 6: apply ResultPath
-  resultPathVal = document.getElementById("ResultPath").innerText;
-  if (resultPathVal.trim() === "null") {
-    // special meaning in step functions
-    // https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html#input-output-resultpath-null
-    afterResultPathObj = inputObj; // before InputPath or Parameters
-  } else {
-    try {
-      console.log(`Applying jsonPath(${inputObj}, "${resultPathVal}")`);
-      afterResultPathObj = applyPath(inputObj, resultPathVal);
-    } catch(e) {
-      console.log(resultObj);
-      console.log("Failed to apply ResultPath")
-      document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
-      return;
-    }
-  }
-  console.log(afterResultPathObj);
-  document.getElementById("AfterResultPath").innerText = JSON.stringify(afterResultPathObj, null, 4);
-  console.log("ResultPath applied successfully");
+  // // Step 1: Check State Input data is valid JSON
+  // inputEl = document.getElementById("Input");
+  // warnEl = document.getElementById("InvalidInputWarning")
+  // try {
+  //   inputObj = JSON.parse(inputEl.innerText);
+  // } catch (e) {
+  //   console.log(e);
+  //   console.log("Input probably not valid JSON");
+  //   warnEl.style.display = "block";
+  //   inputEl.classList.add("invalidInput");
+  //   document.getElementById("AfterInputPath").innerText = "Error: State Input Payload is not valid JSON";
+  //   document.getElementById("AfterParameters").innerText = "Error: State Input Payload is not valid JSON";
+  //   // TODO: make all subsequent fields say error
+  //   return;
+  // };
+  //
+  // // input is valid JSON
+  // // hide that warning
+  // console.log("Input is valid JSON");
+  // warnEl.style.display = "none";
+  // inputEl.classList.remove("invalidInput");
+  //
+  // // step 2, apply InputPath
+  // inputPathVal = document.getElementById("InputPath").innerText;
+  // if (inputPathVal.trim() === "null") {
+  //   // special meaning in step functions
+  //   afterInputPathObj = {};
+  // } else {
+  //   try {
+  //     console.log(`Applying jsonPath(${inputObj}, "${inputPathVal}")`);
+  //     afterInputPathObj = applyPath(inputObj, inputPathVal);
+  //   } catch(e) {
+  //     console.log(resultObj);
+  //     console.log("Failed to apply InputPath")
+  //     document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
+  //     return;
+  //   }
+  // }
+  // console.log(afterInputPathObj);
+  // document.getElementById("AfterInputPath").innerText = JSON.stringify(afterInputPathObj, null, 4);
+  // console.log("InputPath applied successfully");
+  //
+  // // step 3: apply Parameters
+  // if (document.getElementById("NoParameters").checked) {
+  //   // no Parameters field
+  //   // so just pass through whatever happened after InputPath
+  //   document.getElementById("AfterParameters").innerText = document.getElementById("AfterInputPath").innerText;
+  //   afterParametersObj = afterInputPathObj;
+  // }else if (document.getElementById("ParametersWith").checked){
+  //   parametersVal = document.getElementById("Parameters").innerText;
+  //   try {
+  //     afterParametersObj = applyPath(afterInputPathObj, parametersVal);
+  //   } catch (e) {
+  //     console.log(e);
+  //     console.log("Failed to apply parameters");
+  //     document.getElementById("AfterParameters").innerText = "Error applying Parameters field";
+  //     // TODO: set subsequent fields to errors too
+  //     return;
+  //   }
+  // } else {
+  //   console.log("Complex parameters evalutation");
+  //   try {
+  //     parametersObj = JSON.parse(document.getElementById("Parameters").innerText);
+  //   } catch (e) {
+  //     console.log(e);
+  //     console.log("Parameters is not valid JSON");
+  //     document.getElementById("AfterParameters").innerText = "Parameters is not valid JSON";
+  //     // warnings and styles managed in other function
+  //     // TODO: set subsequent fields to show errors
+  //     return;
+  //   }
+  //   try {
+  //     afterParametersObj = recursivePath(parametersObj, afterInputPathObj);
+  //   } catch(e) {
+  //     console.log(e);
+  //     console.error("failed to apply JSONPath Parameters recursively");
+  //     document.getElementById("AfterParameters").innerText = "Failed to evaluate Parameters as JSONPath";
+  //     // TODO: set subsequent fields to errors
+  //     return;
+  //   }
+  // }
+  // document.getElementById("AfterParameters").innerText = JSON.stringify(afterParametersObj, null, 4);
+  //
+  // // step 4: apply Result
+  // if (document.getElementById("NoResult").checked) {
+  //   afterResultObj = afterParametersObj;
+  // }else if (document.getElementById("ResultWithout").checked){
+  //   try {
+  //     afterResultObj = JSON.parse(document.getElementById("Result").innerText);
+  //   } catch(e) {
+  //     // set subsequent fields to errors
+  //     return;
+  //   }
+  // }
+  //
+  // // step 5: Apply ResultSelector
+  // if (document.getElementById("NoResultSelector").checked) {
+  //   afterResultSelectorObj = afterResultObj;
+  // }else if (document.getElementById("ResultSelectorWith").checked){
+  //   try {
+  //     afterResultSelectorObj = applyPath(afterResultObj, document.getElementById("ResultSelector").innerText);
+  //   } catch(e) {
+  //     document.getElementById("AfterResultSelector").innerText = "Invalid ResultSelector path";
+  //     // set subsequent fields to errors
+  //     return;
+  //   }
+  // }else{
+  //   try {
+  //     resultSelectorObj = JSON.parse(document.getElementById("ResultSelector").innerText);
+  //   } catch(e) {
+  //     console.log("Invalid JSON for ResultSelector");
+  //     // warnings to user are handled elsewhere
+  //     document.getElementById("AfterResultSelector").innerText = "Error: ResultSelector is invalid JSON";
+  //     // todo: set subsequent fields to error
+  //     return;
+  //   }
+  //   try {
+  //     afterResultSelectorObj = recursivePath(resultSelectorObj, afterResultObj);
+  //   } catch(e) {
+  //     console.log(e);
+  //     console.error("failed to apply JSONPath ResultSelector recursively");
+  //     document.getElementById("AfterResultSelector").innerText = "Failed to evaluate ResultSelector as JSONPath";
+  //     // TODO: set subsequent fields to errors
+  //     return;
+  //   }
+  // };
+  // document.getElementById("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
+  //
+  // // step 6: apply ResultPath
+  // resultPathVal = document.getElementById("ResultPath").innerText;
+  // if (resultPathVal.trim() === "null") {
+  //   // special meaning in step functions
+  //   // https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html#input-output-resultpath-null
+  //   afterResultPathObj = inputObj; // before InputPath or Parameters
+  // } else {
+  //   try {
+  //     console.log(`Applying jsonPath(${inputObj}, "${resultPathVal}")`);
+  //     afterResultPathObj = applyPath(inputObj, resultPathVal);
+  //   } catch(e) {
+  //     console.log(resultObj);
+  //     console.log("Failed to apply ResultPath")
+  //     document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
+  //     return;
+  //   }
+  // }
+  // console.log(afterResultPathObj);
+  // document.getElementById("AfterResultPath").innerText = JSON.stringify(afterResultPathObj, null, 4);
+  // console.log("ResultPath applied successfully");
 
 }
 

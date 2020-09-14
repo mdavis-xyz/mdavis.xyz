@@ -5,7 +5,7 @@
 // this code detects that parameter, and hides political pages accordingly
 // it 'poisons' other links on the page, so this tag follows you
 function hidePolitics() {
-   console.log("Hiding political posts");
+  console.log("Hiding political posts");
 	// Create the <style> tag
 	var style = document.createElement("style");
 
@@ -117,7 +117,7 @@ hideIfNeed()
 
 window.addEventListener("load",function(){
    src = getSrc();
-   console.log("src is " + src);
+   // console.log("src is " + src);
    if ((src != '') && (src != null)){
       modifyLinks();
       hideIfNeed();

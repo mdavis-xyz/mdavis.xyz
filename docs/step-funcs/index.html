@@ -132,6 +132,15 @@
     null means that an empty dictionary will be used instead of the input.
     If you want to omit InputPath, untick the box above.
   </p>
+  <p id="InputPathStartDollarWarn" class="warning">
+    InputPath should start with a $
+  </p>
+  <p id="InputPathFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
   <p>
     <p contenteditable=true id="InputPath" class="pathFields">$</p>
   </p>
@@ -154,21 +163,24 @@
   </a>
 </p>
 <p>
-  <input type="radio" name="Parameters" id="NoParameters" checked>
-  <label for="NoParameters">No Parameters value</label><br>
-  <input type="radio" name="Parameters" id="ParametersWithout">
-  <label for="ParametersWithout">Include Parameters value</label><br>
-  <input type="radio" name="Parameters" id="ParametersWith">
-  <label for="ParametersWith">Include Parameters.$ value</label><br>
+  <input type="checkbox" id="ParametersEnabled" checked>
+  <label for="ParametersEnabled"> Include a Parameters field</label>
 </p>
-<div id="ParametersExtra">
+<div id="ParametersExtras">
   <p id="InvalidParametersWarning" class="errorText">
     Parameters value is not valid JSON.
+    If you want to specify a string literal, wrap in double quotes.
   </p>
   <p id="NullParametersWarning" class="warning">
     Warning: null is not the same as omitting Parameters.
     null means that an empty dictionary will be used instead of the input.
-    If you want to omit Parameters, change your selection above.
+    If you want to omit Parameters, untick the box above.
+  </p>
+  <p id="ParametersFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
   </p>
   <p contenteditable=true id="Parameters" class="pathFields adjustable">$</p>
   <p>
@@ -189,21 +201,32 @@
   (e.g the return value of the Lambda function.)
 </p>
 <p>
-  <input type="radio" name="Result" id="NoResult" checked>
-  <label for="NoResult">No Result field (use the task input after InputPath and Parameters)</label><br>
-  <input type="radio" name="Result" id="ResultWithout">
-  <label for="ResultWithout">Include Result field</label><br>
-  <input type="radio" name="Result" id="ResultWith">
-  <label for="ResultWith">Include Result.$ field</label><br>
+  Any $ in this field will not be evaluated using JSONPath,
+  they will be treated as literal strings.
 </p>
-<div id="ResultExtra">
+<p>
+  <input type="checkbox" id="ResultEnabled" checked>
+  <label for="ResultEnabled">Include a Result field</label>
+</p>
+<div id="ResultExtras">
   <p id="InvalidResultWarning" class="errorText">
     Result value is not valid JSON.
+    If you want to specify a string literal, wrap in double quotes.
+  </p>
+  <p id="ResultDollarWarning" class="warning">
+    The Result field must be hard coded.
+    Any $ values will be treated as literal strings with dollar signs.
   </p>
   <p id="NullResultWarning" class="warning">
     Warning: null is not the same as omitting Result.
     null means that an empty dictionary will be used instead of the task output.
-    If you want to omit Result, change your selection above.
+    If you want to omit Result, (using the input instead) change your selection above.
+  </p>
+  <p id="ResultFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
   </p>
   <p contenteditable=true id="Result" class="pathFields adjustable">$</p>
   <p>
@@ -211,7 +234,11 @@
   </p>
   <p id="AfterResult" class="resultingText adjustable">Loading...</p>
 </div>
-
+<p id="WhenNoResult">
+  Assuming this is a Pass task.
+  The result will be equal to the state input
+  after InputPath and Parameters have been applied.
+</p>
 <h2>
   ResultSelector
 </h2>
@@ -221,14 +248,13 @@
   </a>
 </p>
 <p>
-  <input type="radio" name="ResultSelector" id="NoResultSelector" checked>
-  <label for="NoResultSelector">No ResultSelector field</label><br>
-  <input type="radio" name="ResultSelector" id="ResultSelectorWithout">
-  <label for="ResultSelectorWithout">Include ResultSelector field</label><br>
-  <input type="radio" name="ResultSelector" id="ResultSelectorWith">
-  <label for="ResultSelectorWith">Include ResultSelector.$ field</label><br>
+  Note that ResultSelector is <a href="https://states-language.net/spec.html#state-type-table">not supported for Pass states</a>, only Map, Parallel and Task.
 </p>
-<div id="ResultSelectorExtra">
+<p>
+  <input type="checkbox" id="ResultSelectorEnabled" checked>
+  <label for="ResultSelectorEnabled">Include a ResultSelector field</label>
+</p>
+<div id="ResultSelectorExtras">
   <p id="InvalidResultSelectorWarning" class="errorText">
     ResultSelector value is not valid JSON.
   </p>
@@ -237,11 +263,13 @@
     null means that an empty dictionary will be used instead of the task output.
     If you want to omit ResultSelector, change your selection above.
   </p>
-  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">$</p>
-  <p>
-    The following field is what happened after the ResultSelector field was applied.
+  <p id="ResultSelectorFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
   </p>
-  <p id="AfterResultSelector" class="resultingText adjustable">Loading...</p>
+  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">$</p>
 </div>
 
 <h2>
@@ -252,7 +280,7 @@
 </p>
 <p>
   <input type="checkbox" id="ResultPathEnabled" checked>
-  <label for="ResultPathEnabled"> Include a ResultPath</label>
+  <label for="ResultPathEnabled"> Include a ResultPath field</label>
 </p>
 <div id="ResultPathExtras">
   <p id="NullResultPathWarning" class="warning">
@@ -260,6 +288,16 @@
     null means that the output of the task will be discarded,
     and the input will be used instead.
     (That is, the input <i>before</i> InputPath and Parameters.)
+    If you want to omit ResultPath, untick the box above.
+  </p>
+  <p id="ResultPathStartDollarWarn" class="warning">
+    ResultPath should start with a $
+  </p>
+  <p id="ResultPathFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
   </p>
   <p>
     <p contenteditable=true id="ResultPath" class="pathFields">$</p>
@@ -270,6 +308,44 @@
       the ResultPath is applied.
     </p>
     <p id="AfterResultPath" class="adjustable resultingText">Loading...</p>
+  </p>
+</div>
+
+
+<h2>
+  OutputPath
+</h2>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-outputpath.html">Documentation for OutputPath</a>
+</p>
+<p>
+  <input type="checkbox" id="OutputPathEnabled" checked>
+  <label for="OutputPathEnabled"> Include a OutputPath field</label>
+</p>
+<div id="OutputPathExtras">
+  <p id="NullOutputPathWarning" class="warning">
+    Warning: null is not the same as omitting OutputPath.
+    null means the output of the whole state will be {}.
+    If you want to omit OutputPath, untick the box above.
+  </p>
+  <p id="OutputPathStartDollarWarn" class="warning">
+    InputPath should start with a $
+  </p>
+  <p id="OutputPathFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+  <p>
+    <p contenteditable=true id="OutputPath" class="pathFields">$</p>
+  </p>
+  <p>
+    <p>
+      The following field is what the input looks like after
+      the OutputPath is applied.
+    </p>
+    <p id="AfterOutputPath" class="adjustable resultingText">Loading...</p>
   </p>
 </div>
 

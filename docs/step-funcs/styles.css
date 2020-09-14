@@ -44,3 +44,7 @@ p[contenteditable="true"],
 #ParametersExtra {
   display: none;
 }
+
+#WhenNoResult{
+  display: none;
+}

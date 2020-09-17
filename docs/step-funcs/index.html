@@ -182,7 +182,7 @@
     </a>
     are not supported in this web page.
   </p>
-  <p contenteditable=true id="Parameters" class="pathFields adjustable">$</p>
+  <p contenteditable=true id="Parameters" class="pathFields adjustable">{"data.$": "$"}</p>
   <p>
     The following field is what happened after the Parameters field was applied.
     This is what will be sent to the task (e.g. Lambda function).
@@ -228,11 +228,7 @@
     </a>
     are not supported in this web page.
   </p>
-  <p contenteditable=true id="Result" class="pathFields adjustable">$</p>
-  <p>
-    The following field is what happened after any $ in the Result field were applied.
-  </p>
-  <p id="AfterResult" class="resultingText adjustable">Loading...</p>
+  <p contenteditable=true id="Result" class="pathFields adjustable">{}</p>
 </div>
 <p id="WhenNoResult">
   Assuming this is a Pass task.
@@ -269,7 +265,11 @@
     </a>
     are not supported in this web page.
   </p>
-  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">$</p>
+  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">{}</p>
+  <p>
+    This is what the output looks like after ResultSelector is applied.
+  </p>
+  <p id="AfterResultSelector" class="resultingText adjustable">Loading...</p>
 </div>
 
 <h2>

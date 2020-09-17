@@ -1,3 +1,7 @@
+function byId(id){
+  return document.getElementById(id);
+}
+
 // set up events for validating/warning about user input
 // and triggering evaluations
 window.addEventListener("load", function(){
@@ -8,6 +12,7 @@ window.addEventListener("load", function(){
 
   // InputPath field
   setupEval("InputPath");
+  setupEval("InputPathEnabled");
   setupNullWarning("InputPath", "NullInputPathWarning")
   setupDollarStartWarning("InputPath", "InputPathStartDollarWarn");
   setupToggleHide("InputPathEnabled", "InputPathExtras");
@@ -15,6 +20,7 @@ window.addEventListener("load", function(){
 
   // Parameters
   setupEval("Parameters");
+  setupEval("ParametersEnabled");
   setupJsonWarning("Parameters", "InvalidParametersWarning");
   setupToggleHide("ParametersEnabled", "ParametersExtras");
   setupNullWarning("Parameters", "NullParametersWarning")
@@ -22,6 +28,7 @@ window.addEventListener("load", function(){
 
   // Result
   setupEval("Result");
+  setupEval("ResultEnabled");
   setupJsonWarning("Result", "InvalidResultWarning");
   setupToggleHide("ResultEnabled", "ResultExtras", "WhenNoResult");
   setupNullWarning("Result", "NullResultWarning");
@@ -30,6 +37,7 @@ window.addEventListener("load", function(){
 
   // ResultSelector
   setupEval("ResultSelector");
+  setupEval("ResultSelectorEnabled");
   setupJsonWarning("ResultSelector", "InvalidResultSelectorWarning");
   setupToggleHide("ResultSelectorEnabled", "ResultSelectorExtras");
   setupNullWarning("ResultSelector", "NullResultSelectorWarning");
@@ -37,6 +45,7 @@ window.addEventListener("load", function(){
 
   // ResultPath
   setupEval("ResultPath");
+  setupEval("ResultPathEnabled");
   setupToggleHide("ResultPathEnabled", "ResultPathExtras");
   setupNullWarning("ResultPath", "NullResultPathWarning");
   setupIntrinsicFuncWarn("ResultPath", "ResultPathFuncWarn");
@@ -44,6 +53,7 @@ window.addEventListener("load", function(){
 
   // OutputPath
   setupEval("OutputPath");
+  setupEval("OutputPathEnabled");
   setupToggleHide("OutputPathEnabled", "OutputPathExtras");
   setupNullWarning("OutputPath", "NullOutputPathWarning");
   setupIntrinsicFuncWarn("OutputPath", "OutputPathFuncWarn");
@@ -58,15 +68,15 @@ window.addEventListener("load", function(){
 // so when you change the tickbox/text field with id,
 // the evaluation is automatically run
 setupEval = function(id){
-  document.getElementById(id).addEventListener("input", evalAll);
+  byId(id).addEventListener("input", evalAll);
 }
 
 // w is the ID of a DOM element to hide/show
 // if the innerText of the el with id txt is invalid JSON
 setupJsonWarning = function(txt_id, w_id){
-  document.getElementById(txt_id).addEventListener("input", function(){
-    v = document.getElementById(txt_id).innerText;
-    w_el = document.getElementById(w_id);
+  byId(txt_id).addEventListener("input", function(){
+    v = byId(txt_id).innerText;
+    w_el = byId(w_id);
     try {
       d = JSON.parse(v);
       w_el.style.display = "none";
@@ -79,9 +89,9 @@ setupJsonWarning = function(txt_id, w_id){
 // w is the ID of a DOM element to hide/show
 // if the innerText of the el with id txt is "null"
 setupNullWarning = function(txt_id, w_id){
-  document.getElementById(txt_id).addEventListener("input", function(){
-    w_el = document.getElementById(w_id)
-    if (document.getElementById(txt_id).innerText.trim() === "null"){
+  byId(txt_id).addEventListener("input", function(){
+    w_el = byId(w_id)
+    if (byId(txt_id).innerText.trim() === "null"){
       w_el.style.display = "block";
     }else{
       w_el.style.display = "none";
@@ -93,9 +103,9 @@ setupNullWarning = function(txt_id, w_id){
 // if the innerText of the el with id txt
 // contains "$"
 setupDollarWarning = function(txt_id, w_id){
-  document.getElementById(txt_id).addEventListener("input", function(){
-    val = document.getElementById(txt_id).innerText.trim();
-    w_el = document.getElementById(w_id);
+  byId(txt_id).addEventListener("input", function(){
+    val = byId(txt_id).innerText.trim();
+    w_el = byId(w_id);
     if (val.startsWith('$')){
       w_el.style.display = "block";
     }else if(val == "null"){
@@ -109,6 +119,14 @@ setupDollarWarning = function(txt_id, w_id){
       // and check whether the result is different to the input (or undefined)
       try {
         r = JSON.parse(val);
+        return;
+      }catch(e){
+        console.log("I think the result is not valid JSON");
+        w_el.style.display = "none";
+        // there's an invalid JSON warning handled elsewhere
+        // this function is just about $
+      }
+      try {
         after = recursivePath(r, {"fake-random-data-mdavis-xyz": 123098})
         // need to parse val again
         // since recursivePath modifies it
@@ -125,10 +143,9 @@ setupDollarWarning = function(txt_id, w_id){
           w_el.style.display = "none";
         }
       }catch(e){
-        console.log("I think the result is not valid JSON");
-        w_el.style.display = "none";
-        // there's an invalid JSON warning handled elsewhere
-        // this function is just about $
+        // probably some kind of .$ inside which isn't correct
+        // so show the .$ warning
+        w_el.style.display = "block";
       }
     }
   })
@@ -139,9 +156,9 @@ setupDollarWarning = function(txt_id, w_id){
 // how a field must start with a $
 // (unless it equals $)
 setupDollarStartWarning = function(txt_id, w_id){
-  document.getElementById(txt_id).addEventListener("input", function(){
-    w_el = document.getElementById(w_id);
-    v = document.getElementById(txt_id).innerText.trim();
+  byId(txt_id).addEventListener("input", function(){
+    w_el = byId(w_id);
+    v = byId(txt_id).innerText.trim();
     if (v.startsWith("$") || (v == "null")){
       w_el.style.display = "none";
     }else{
@@ -156,20 +173,20 @@ setupDollarStartWarning = function(txt_id, w_id){
 // extras is only shown when the box is ticked
 // when_none is optional, shown only when the box is unticked
 setupToggleHide = function(checkbox_id, extras_id, when_none){
-  document.getElementById(checkbox_id).addEventListener("input", function(){
-    if (document.getElementById(checkbox_id).checked){
+  byId(checkbox_id).addEventListener("input", function(){
+    if (byId(checkbox_id).checked){
       console.log(`showing ${extras_id}`);
       // show
-      document.getElementById(extras_id).style.display = "block";
+      byId(extras_id).style.display = "block";
       if (when_none != undefined){
-        document.getElementById(when_none).style.display = "none";
+        byId(when_none).style.display = "none";
       }
     }else{
       // hide
       console.log(`hiding ${extras_id}`);
-      document.getElementById(extras_id).style.display = "none";
+      byId(extras_id).style.display = "none";
       if (when_none != undefined){
-        document.getElementById(when_none).style.display = "block";
+        byId(when_none).style.display = "block";
       }
     }
   });
@@ -180,11 +197,11 @@ setupToggleHide = function(checkbox_id, extras_id, when_none){
 // to show warnings if user tries to use an intrinsic function
 // which we don't support here
 setupIntrinsicFuncWarn = function(txt_id, warn_id){
-  document.getElementById(txt_id).addEventListener("input", function(){
+  byId(txt_id).addEventListener("input", function(){
     // https://states-language.net/spec.html#appendix-b
     intrinsic_funcs = ["States.Format", "States.StringToJson", "States.JsonToString", "States.Array"];
-    v = document.getElementById(txt_id).innerText.toLowerCase();
-    w_el = document.getElementById(warn_id);
+    v = byId(txt_id).innerText.toLowerCase();
+    w_el = byId(warn_id);
     in_val = function(f){
       return (v.toLowerCase().includes(f.toLowerCase()))
     };
@@ -197,96 +214,203 @@ setupIntrinsicFuncWarn = function(txt_id, warn_id){
 }
 
 
+
+
+// return [obj, err]
+// if valid input path and valid input
+// obj is a dict/list/obj after the InputPath is applied
+// or err is a string of an error to show to the user
+function evalInputPath(){
+  inputEl = byId("Input");
+  try {
+    inputObj = JSON.parse(inputEl.innerText);
+  } catch (e) {
+    console.log(e);
+    console.log("Input probably not valid JSON");
+    return [undefined, "Input is invalid JSON"];
+  };
+
+  pathVal = byId("InputPath").innerText;
+  if (! byId("InputPathEnabled").checked){
+    console.log("Skipping InputPath")
+    obj = inputObj; // no InputPath
+  }else if (pathVal.trim() === "null") {
+    // special meaning in step functions
+    obj = {};
+  } else {
+    try {
+      console.log(`Applying jsonPath(${inputObj}, "${pathVal}")`);
+      obj = applyPath(inputObj, pathVal);
+    } catch(e) {
+      console.log(e)
+      return [undefined, "Invalid InputPath"];
+    }
+  }
+  if (obj == undefined){
+      return [undefined, "Invalid InputPath"];
+  }
+
+  console.log("InputPath applied successfully");
+  return [obj, undefined];
+}
+
+// returns [afterParametersObj, err2]
+// input obj is the object after InputPath
+// output object is after parameters have been applied
+// input err is the error from any previous path (e.g. InputPath)
+function evalParameters(afterInputPathobj, err){
+    if (err){
+      return [undefined, err];
+    }
+    try {
+      paramsObj = JSON.parse(byId("Parameters").innerText);
+    } catch (e) {
+      console.log(e);
+      return [undefined, "Parameters is invalid json"];
+    };
+
+    if (! byId("ParametersEnabled").checked){
+      console.log("Skipping Parameters");
+          }else if (paramsObj == null) {
+      // special meaning in step functions
+      obj = {};
+    }else {
+      try {
+        obj = recursivePath(paramsObj, obj);
+      } catch(e) {
+        console.log(e);
+        return [undefined, "Invalid Parameters"];
+      }
+    }
+    return [obj, undefined];
+}
+
+function evalTheResult(afterParametersObj, err){
+  if (byId("ResultEnabled").checked){
+    // use the result
+    // even if prior steps failed
+    try {
+      obj = JSON.parse(byId("Result").innerText);
+      return [obj, undefined];
+    } catch (e) {
+      console.log(e);
+      return [undefined, "Result is invalid JSON"];
+    };
+  }else if (err){
+    return [undefined, err]
+  }else{
+    return [afterParametersObj, err];
+  }
+}
+
+function evalResultSelector(afterResult, err){
+    if (err){
+      return [undefined, err];
+    }
+    try {
+      resultSelectorObj = JSON.parse(byId("ResultSelector").innerText);
+    } catch (e) {
+      console.log(e);
+      return [undefined, "ResultSelector is invalid json"];
+    };
+
+    if (! byId("ResultSelectorEnabled").checked){
+      console.log("Skipping ResultSelector");
+      return [afterResult, undefined];
+    }else if (resultSelectorObj == null) {
+      // special meaning in step functions
+      obj = {};
+    }else {
+      try {
+        obj = recursivePath(resultSelectorObj, obj);
+      } catch(e) {
+        console.log(e);
+        return [undefined, "Invalid ResultSelector"];
+      }
+    }
+    return [obj, undefined];
+}
+
+
+function evalOutputPath(afterResultPathObj, err){
+  if (err){
+    return [undefined, err];
+  }else{
+    pathVal = byId("OutputPath").innerText;
+    if (! byId("OutputPathEnabled").checked){
+      console.log("Skipping InputPath")
+      return [afterResultPathObj, undefined];
+    }else if (pathVal.trim() === "null") {
+      // special meaning in step functions
+      obj = {};
+    } else {
+      try {
+        obj = applyPath(afterResultPathObj, pathVal);
+      } catch(e) {
+        console.log(e)
+        return [undefined, "Invalid OutputPath"];
+      }
+    }
+    if (obj == undefined){
+        return [undefined, "Invalid OutputPath"];
+    }
+    return [obj, undefined];
+  }
+
+}
+
+
 function evalAll(){
-  // // Step 1: Check State Input data is valid JSON
-  // inputEl = document.getElementById("Input");
-  // warnEl = document.getElementById("InvalidInputWarning")
-  // try {
-  //   inputObj = JSON.parse(inputEl.innerText);
-  // } catch (e) {
-  //   console.log(e);
-  //   console.log("Input probably not valid JSON");
-  //   warnEl.style.display = "block";
-  //   inputEl.classList.add("invalidInput");
-  //   document.getElementById("AfterInputPath").innerText = "Error: State Input Payload is not valid JSON";
-  //   document.getElementById("AfterParameters").innerText = "Error: State Input Payload is not valid JSON";
-  //   // TODO: make all subsequent fields say error
-  //   return;
-  // };
-  //
-  // // input is valid JSON
-  // // hide that warning
-  // console.log("Input is valid JSON");
-  // warnEl.style.display = "none";
-  // inputEl.classList.remove("invalidInput");
-  //
-  // // step 2, apply InputPath
-  // inputPathVal = document.getElementById("InputPath").innerText;
-  // if (inputPathVal.trim() === "null") {
-  //   // special meaning in step functions
-  //   afterInputPathObj = {};
-  // } else {
-  //   try {
-  //     console.log(`Applying jsonPath(${inputObj}, "${inputPathVal}")`);
-  //     afterInputPathObj = applyPath(inputObj, inputPathVal);
-  //   } catch(e) {
-  //     console.log(resultObj);
-  //     console.log("Failed to apply InputPath")
-  //     document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
-  //     return;
-  //   }
-  // }
-  // console.log(afterInputPathObj);
-  // document.getElementById("AfterInputPath").innerText = JSON.stringify(afterInputPathObj, null, 4);
-  // console.log("InputPath applied successfully");
-  //
+  // Apply InputPath
+  [obj, err] = evalInputPath();
+  byId("AfterInputPath").innerText = err ? "Error: " + err : JSON.stringify(obj, null, 4);
+
+  // apply Parameters
+  [obj, err] = evalParameters(obj, err);
+  byId("AfterParameters").innerText = err ? "Error: " + err : JSON.stringify(obj, null, 4);
+
+  // apply result
+  [obj, err] = evalTheResult(obj, err);
+  // there's no field to show an error/intermediate value in
+
+  // apply ResultSelector
+  [obj, err] = evalResultSelector(obj, err);
+  byId("AfterResultSelector").innerText = err ? "Error: " + err : JSON.stringify(obj, null, 4);
+
+  // apply ResultPath
+  // TODO
+  byId("AfterResultPath").innerText = err ? "Error: " + err : "Not yet implemented";
+
+  // apply OutputPath
+  [obj, err] = evalOutputPath(obj, err);
+  byId("AfterOutputPath").innerText = err ? "Error: " + err : JSON.stringify(obj, null, 4);
+
+}
+
   // // step 3: apply Parameters
-  // if (document.getElementById("NoParameters").checked) {
+  // if (byId("NoParameters").checked) {
   //   // no Parameters field
   //   // so just pass through whatever happened after InputPath
-  //   document.getElementById("AfterParameters").innerText = document.getElementById("AfterInputPath").innerText;
-  //   afterParametersObj = afterInputPathObj;
-  // }else if (document.getElementById("ParametersWith").checked){
-  //   parametersVal = document.getElementById("Parameters").innerText;
+  //   byId("AfterParameters").innerText = byId("AfterInputPath").innerText;
+  //   afterParametersObj = obj;
+  // }else if (byId("ParametersWith").checked){
+  //   parametersVal = byId("Parameters").innerText;
   //   try {
-  //     afterParametersObj = applyPath(afterInputPathObj, parametersVal);
+  //     afterParametersObj = applyPath(obj, parametersVal);
   //   } catch (e) {
   //     console.log(e);
   //     console.log("Failed to apply parameters");
-  //     document.getElementById("AfterParameters").innerText = "Error applying Parameters field";
+  //     byId("AfterParameters").innerText = "Error applying Parameters field";
   //     // TODO: set subsequent fields to errors too
   //     return;
   //   }
-  // } else {
-  //   console.log("Complex parameters evalutation");
-  //   try {
-  //     parametersObj = JSON.parse(document.getElementById("Parameters").innerText);
-  //   } catch (e) {
-  //     console.log(e);
-  //     console.log("Parameters is not valid JSON");
-  //     document.getElementById("AfterParameters").innerText = "Parameters is not valid JSON";
-  //     // warnings and styles managed in other function
-  //     // TODO: set subsequent fields to show errors
-  //     return;
-  //   }
-  //   try {
-  //     afterParametersObj = recursivePath(parametersObj, afterInputPathObj);
-  //   } catch(e) {
-  //     console.log(e);
-  //     console.error("failed to apply JSONPath Parameters recursively");
-  //     document.getElementById("AfterParameters").innerText = "Failed to evaluate Parameters as JSONPath";
-  //     // TODO: set subsequent fields to errors
-  //     return;
-  //   }
   // }
-  // document.getElementById("AfterParameters").innerText = JSON.stringify(afterParametersObj, null, 4);
-  //
   // // step 4: apply Result
-  // if (document.getElementById("NoResult").checked) {
+  // if (byId("NoResult").checked) {
   //   afterResultObj = afterParametersObj;
-  // }else if (document.getElementById("ResultWithout").checked){
+  // }else if (byId("ResultWithout").checked){
   //   try {
-  //     afterResultObj = JSON.parse(document.getElementById("Result").innerText);
+  //     afterResultObj = JSON.parse(byId("Result").innerText);
   //   } catch(e) {
   //     // set subsequent fields to errors
   //     return;
@@ -294,23 +418,23 @@ function evalAll(){
   // }
   //
   // // step 5: Apply ResultSelector
-  // if (document.getElementById("NoResultSelector").checked) {
+  // if (byId("NoResultSelector").checked) {
   //   afterResultSelectorObj = afterResultObj;
-  // }else if (document.getElementById("ResultSelectorWith").checked){
+  // }else if (byId("ResultSelectorWith").checked){
   //   try {
-  //     afterResultSelectorObj = applyPath(afterResultObj, document.getElementById("ResultSelector").innerText);
+  //     afterResultSelectorObj = applyPath(afterResultObj, byId("ResultSelector").innerText);
   //   } catch(e) {
-  //     document.getElementById("AfterResultSelector").innerText = "Invalid ResultSelector path";
+  //     byId("AfterResultSelector").innerText = "Invalid ResultSelector path";
   //     // set subsequent fields to errors
   //     return;
   //   }
   // }else{
   //   try {
-  //     resultSelectorObj = JSON.parse(document.getElementById("ResultSelector").innerText);
+  //     resultSelectorObj = JSON.parse(byId("ResultSelector").innerText);
   //   } catch(e) {
   //     console.log("Invalid JSON for ResultSelector");
   //     // warnings to user are handled elsewhere
-  //     document.getElementById("AfterResultSelector").innerText = "Error: ResultSelector is invalid JSON";
+  //     byId("AfterResultSelector").innerText = "Error: ResultSelector is invalid JSON";
   //     // todo: set subsequent fields to error
   //     return;
   //   }
@@ -319,15 +443,15 @@ function evalAll(){
   //   } catch(e) {
   //     console.log(e);
   //     console.error("failed to apply JSONPath ResultSelector recursively");
-  //     document.getElementById("AfterResultSelector").innerText = "Failed to evaluate ResultSelector as JSONPath";
+  //     byId("AfterResultSelector").innerText = "Failed to evaluate ResultSelector as JSONPath";
   //     // TODO: set subsequent fields to errors
   //     return;
   //   }
   // };
-  // document.getElementById("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
+  // byId("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
   //
   // // step 6: apply ResultPath
-  // resultPathVal = document.getElementById("ResultPath").innerText;
+  // resultPathVal = byId("ResultPath").innerText;
   // if (resultPathVal.trim() === "null") {
   //   // special meaning in step functions
   //   // https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html#input-output-resultpath-null
@@ -339,15 +463,15 @@ function evalAll(){
   //   } catch(e) {
   //     console.log(resultObj);
   //     console.log("Failed to apply ResultPath")
-  //     document.getElementById("AfterParameters").innerText = "Error applying fieldId earlier";
+  //     byId("AfterParameters").innerText = "Error applying fieldId earlier";
   //     return;
   //   }
   // }
   // console.log(afterResultPathObj);
-  // document.getElementById("AfterResultPath").innerText = JSON.stringify(afterResultPathObj, null, 4);
+  // byId("AfterResultPath").innerText = JSON.stringify(afterResultPathObj, null, 4);
   // console.log("ResultPath applied successfully");
 
-}
+// }
 
 // example:
 // obj = {"a": "$[1].a", "b": "$[2]"}
@@ -380,6 +504,10 @@ function recursivePath(obj, dollar) {
           throw "Value ${value} for ${key} should be a string";
         } else{
           new_value = applyPath(dollar, value);
+          if (new_value == undefined){
+            console.log("JSONPath recursive failed for one value ${key}=${value}, so fail for the lot");
+            throw "Failed to evaluate path ${value} for ${key}";
+          }
         }
         console.log(`Changing ${key}=${value} to ${new_key}=${new_value}`);
         obj[new_key] = new_value;

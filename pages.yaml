@@ -205,6 +205,9 @@
    exclude:
    - 'spellcheck'
    - 'estReadingTime'
+   extra_scripts:
+   # script.js is already included
+   - jsonpath.js
 -  title: "Arduino Monitor Rotator"
    description: "Build an Automatic Computer Display Rotator With an Arduino"
    path: "monitor"

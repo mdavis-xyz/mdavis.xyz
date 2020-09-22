@@ -119,12 +119,12 @@ setupDollarWarning = function(txt_id, w_id){
       // and check whether the result is different to the input (or undefined)
       try {
         r = JSON.parse(val);
-        return;
       }catch(e){
         console.log("I think the result is not valid JSON");
         w_el.style.display = "none";
         // there's an invalid JSON warning handled elsewhere
         // this function is just about $
+        return;
       }
       try {
         after = recursivePath(r, {"fake-random-data-mdavis-xyz": 123098})
@@ -303,6 +303,37 @@ function evalTheResult(afterParametersObj, err){
   }
 }
 
+function evalResultPath(resultObj, err){
+  if (err){
+    return [null, err];
+  }
+  if (byId("ResultPathEnabled").checked){
+    try{
+      inputObj = JSON.parse(byId("Input").innerText);
+    }catch(e){
+      // if input isn't JSON, this function shouldn't be called anyway
+      console.log(e);
+      return [null, "original state input is invalid JSON"];
+    }
+    path = byId("ResultPath").innerText;
+    if (path.trim() === "null"){
+      // ResultPath=null
+      // means discard the result
+      return [inputObj, null]
+    }
+    try {
+      obj = insertAtPath(inputObj, resultObj, path)
+    }catch(e){
+      err = `unable to apply ResultPath: ${e}`;
+      byId("AfterResultPath").innerText = err;
+      return [null, err];
+    }
+    return [obj, null];
+  }else{
+    return [resultObj, err];
+  }
+}
+
 function evalResultSelector(afterResult, err){
     if (err){
       return [undefined, err];
@@ -379,99 +410,14 @@ function evalAll(){
 
   // apply ResultPath
   // TODO
-  byId("AfterResultPath").innerText = err ? "Error: " + err : "Not yet implemented";
+  [obj, err] = evalResultPath(obj, err);
+  byId("AfterResultPath").innerText = err ? "Error: " + err : JSON.stringify(obj, null, 4);
 
   // apply OutputPath
   [obj, err] = evalOutputPath(obj, err);
   byId("AfterOutputPath").innerText = err ? "Error: " + err : JSON.stringify(obj, null, 4);
 
 }
-
-  // // step 3: apply Parameters
-  // if (byId("NoParameters").checked) {
-  //   // no Parameters field
-  //   // so just pass through whatever happened after InputPath
-  //   byId("AfterParameters").innerText = byId("AfterInputPath").innerText;
-  //   afterParametersObj = obj;
-  // }else if (byId("ParametersWith").checked){
-  //   parametersVal = byId("Parameters").innerText;
-  //   try {
-  //     afterParametersObj = applyPath(obj, parametersVal);
-  //   } catch (e) {
-  //     console.log(e);
-  //     console.log("Failed to apply parameters");
-  //     byId("AfterParameters").innerText = "Error applying Parameters field";
-  //     // TODO: set subsequent fields to errors too
-  //     return;
-  //   }
-  // }
-  // // step 4: apply Result
-  // if (byId("NoResult").checked) {
-  //   afterResultObj = afterParametersObj;
-  // }else if (byId("ResultWithout").checked){
-  //   try {
-  //     afterResultObj = JSON.parse(byId("Result").innerText);
-  //   } catch(e) {
-  //     // set subsequent fields to errors
-  //     return;
-  //   }
-  // }
-  //
-  // // step 5: Apply ResultSelector
-  // if (byId("NoResultSelector").checked) {
-  //   afterResultSelectorObj = afterResultObj;
-  // }else if (byId("ResultSelectorWith").checked){
-  //   try {
-  //     afterResultSelectorObj = applyPath(afterResultObj, byId("ResultSelector").innerText);
-  //   } catch(e) {
-  //     byId("AfterResultSelector").innerText = "Invalid ResultSelector path";
-  //     // set subsequent fields to errors
-  //     return;
-  //   }
-  // }else{
-  //   try {
-  //     resultSelectorObj = JSON.parse(byId("ResultSelector").innerText);
-  //   } catch(e) {
-  //     console.log("Invalid JSON for ResultSelector");
-  //     // warnings to user are handled elsewhere
-  //     byId("AfterResultSelector").innerText = "Error: ResultSelector is invalid JSON";
-  //     // todo: set subsequent fields to error
-  //     return;
-  //   }
-  //   try {
-  //     afterResultSelectorObj = recursivePath(resultSelectorObj, afterResultObj);
-  //   } catch(e) {
-  //     console.log(e);
-  //     console.error("failed to apply JSONPath ResultSelector recursively");
-  //     byId("AfterResultSelector").innerText = "Failed to evaluate ResultSelector as JSONPath";
-  //     // TODO: set subsequent fields to errors
-  //     return;
-  //   }
-  // };
-  // byId("AfterResultSelector").innerText = JSON.stringify(afterResultSelectorObj, null, 4);
-  //
-  // // step 6: apply ResultPath
-  // resultPathVal = byId("ResultPath").innerText;
-  // if (resultPathVal.trim() === "null") {
-  //   // special meaning in step functions
-  //   // https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html#input-output-resultpath-null
-  //   afterResultPathObj = inputObj; // before InputPath or Parameters
-  // } else {
-  //   try {
-  //     console.log(`Applying jsonPath(${inputObj}, "${resultPathVal}")`);
-  //     afterResultPathObj = applyPath(inputObj, resultPathVal);
-  //   } catch(e) {
-  //     console.log(resultObj);
-  //     console.log("Failed to apply ResultPath")
-  //     byId("AfterParameters").innerText = "Error applying fieldId earlier";
-  //     return;
-  //   }
-  // }
-  // console.log(afterResultPathObj);
-  // byId("AfterResultPath").innerText = JSON.stringify(afterResultPathObj, null, 4);
-  // console.log("ResultPath applied successfully");
-
-// }
 
 // example:
 // obj = {"a": "$[1].a", "b": "$[2]"}
@@ -535,6 +481,84 @@ function applyPath(dollar, path){
     }
     return result;
   }
+}
+
+// ResultPath is used to replace/add a certain value (the result)
+// to a path within the input
+// The existing JSONPath module doesn't do this
+//
+// note that you can have ResultPath=$[1] for ["a", "b"], but not for ["a"]
+// and you can have ResultPath=$.a.b for {}, so both a and b will be added
+function insertAtPath(fullValue, newValue, path){
+  path = path.trim();
+  if (! path.startsWith('$')){
+    console.log(`Bad path: ${path}`);
+    throw "Path must start with $"
+  }else{
+    path = path.substr(1); // drop the $
+    return insertAtPathRec(fullValue, newValue, path);
+  }
+}
+
+// by now, path is missing the starting "$"
+function insertAtPathRec(fullValue, newValue, path){
+
+  // this regex is to check if path starts with an index
+  // e.g. $[123] (without the $)
+  // assume a non-negative integer
+  // e.g. not $[-1] or $[$.a]
+  // because Step Functions doesn't do that
+  square_re = /^\[([0-9]+)\](.*?)$/
+
+  // this regex is to check for $.abc
+  // note that $.a b is valid. i.e. keys can have spaces
+  dot_re = /^\.([^\.\[]+)(.*?)$/
+
+  if (path == ""){
+    return newValue;
+  }else if (square_re.test(path)){
+    [_, index, remaining_path] = square_re.exec(path)
+    try {
+      index = parseInt(index);
+    } catch(e){
+      throw `[${index}] is not a valid index, must be a non-negative integer`
+    }
+    // as far as I can tell,
+    // using ResultPath with []
+    // the list must already exist, and that index must already exist
+    if (! (fullValue instanceof Array)) {
+      throw `Unable to apply [${index}] because a list doesn't exist there already`;
+    }else if (fullValue.length <= index){
+      throw `Unable to apply [${index}] because the existing list isn't long enough. Step Funtions won't extend the list.`;
+    }
+    fullValue[index] = insertAtPathRec(fullValue[index], newValue, remaining_path);
+    return fullValue;
+  }else if (dot_re.test(path)){
+    [_, key, remaining_path] = dot_re.exec(path);
+    if (fullValue instanceof Array) {
+      throw `Unable to apply .${key} because the data at that point is a list`;
+    }else if (!(typeof fullValue === "object")){
+      throw `Unable to apply .${key} because the data at that point exists and is not a dictionary. Step Functions won't replace this with a new dict`;
+    }else if (! fullValue.hasOwnProperty(key)){
+      // ResultPath should create this key
+      // but check whether any later segment of the path
+      // is an last
+      // e.g. $.a.b[1] for {"a": {}}
+      if (path.indexOf("[") > -1){
+        throw `Key ${key} doesn't exist, would be created, but subsequent path includes index, Step Functions won't create a new list in ResultPath`;
+      }
+      // now it doesn't matter what we pass to the recursive call
+      fullValue[key] = insertAtPathRec({}, newValue, remaining_path)
+    }else{
+      fullValue[key] = insertAtPathRec(fullValue[key], newValue, remaining_path);
+    }
+    return fullValue;
+  }else{
+    throw `Unsure how to parse the remaining path: ${path}`;
+  }
+
+
+
 }
 
 // returns a boolean

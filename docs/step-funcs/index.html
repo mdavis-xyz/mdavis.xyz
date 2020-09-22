@@ -98,10 +98,16 @@
 
 <p>
   Explanation here,
-  including link to GitHub issues.
+</p>
+<p>
+  If you spot behavior that does not match official Step Function behavior,
+  please submit
+  <a href="https://github.com/mdavis-xyz/mdavis.xyz/issues/new">
+    an issue on Github
+  </a>.
 </p>
 
-
+<hr/>
 <h2>
   State Input Payload:
 </h2>
@@ -115,10 +121,13 @@
 <p id="InvalidInputWarning" class="errorText">
   Input not valid JSON. If you want to specify a string literal, wrap in double quotes.
 </p>
-<p contenteditable=true id="Input" class="adjustable">[0,1,2,3]</div>
+<p contenteditable=true id="Input" class="adjustable">[0,{"b": "B"},2,3]</div>
 <h2>
   InputPath
 </h2>
+<p>
+  Select a simple subset of the input to use.
+</p>
 <p>
   <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">Documentation for InputPath</a>
 </p>
@@ -157,6 +166,9 @@
 <h2>
   Parameters
 </h2>
+<p>
+  Manipulate the input data, possibly in a complex way.
+</p>
 <p>
   <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">
     Documentation for Parameters field
@@ -239,6 +251,9 @@
   ResultSelector
 </h2>
 <p>
+  Manipulate the raw task output, <i>before</i> combining it with the original input.
+</p>
+<p>
   <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">
     Documentation for ResultSelector
   </a>
@@ -276,6 +291,11 @@
   ResultPath
 </h2>
 <p>
+  Choose <i>where</i> in the original state input
+  you want to add the result.
+  Or discard the input and replace with the result by using null.
+</p>
+<p>
   <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">Documentation for ResultPath</a>
 </p>
 <p>
@@ -300,7 +320,7 @@
     are not supported in this web page.
   </p>
   <p>
-    <p contenteditable=true id="ResultPath" class="pathFields">$</p>
+    <p contenteditable=true id="ResultPath" class="pathFields">$[1].abc</p>
   </p>
   <p>
     <p>
@@ -315,6 +335,10 @@
 <h2>
   OutputPath
 </h2>
+<p>
+  After possibly combining the input and output,
+  choose a subset to return from the whole state.
+</p>
 <p>
   <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-outputpath.html">Documentation for OutputPath</a>
 </p>

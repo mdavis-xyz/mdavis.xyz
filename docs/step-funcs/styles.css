@@ -7,10 +7,6 @@
     border-block-color: black;
 }
 
-#Input {
-   width: 50%;
-}
-
 .adjustable {
    resize: both;
    overflow: auto;
@@ -47,4 +43,8 @@ p[contenteditable="true"],
 
 #WhenNoResult{
   display: none;
+}
+
+#BrowserCheck {
+  color: red;
 }

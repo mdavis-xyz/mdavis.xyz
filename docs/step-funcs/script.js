@@ -1,6 +1,18 @@
+// I'm still learning JavaScript!
+// Please be gentle :)
+
 function byId(id){
   return document.getElementById(id);
 }
+
+window.addEventListener("load", function(){
+  // check whether everything works as expected
+  // e.g. Internet Explorer doesn't understand `` strings
+  // if everything works, hide the browser compatability warning
+  x = 123
+  y = `abc ${x}` // IE doesn't like this
+  byId("BrowserCheck").style.display="none";
+})
 
 // set up events for validating/warning about user input
 // and triggering evaluations
@@ -173,7 +185,7 @@ setupDollarStartWarning = function(txt_id, w_id){
 // extras is only shown when the box is ticked
 // when_none is optional, shown only when the box is unticked
 setupToggleHide = function(checkbox_id, extras_id, when_none){
-  byId(checkbox_id).addEventListener("input", function(){
+  hideOrShow = function(){
     if (byId(checkbox_id).checked){
       console.log(`showing ${extras_id}`);
       // show
@@ -189,7 +201,9 @@ setupToggleHide = function(checkbox_id, extras_id, when_none){
         byId(when_none).style.display = "block";
       }
     }
-  });
+  }
+  byId(checkbox_id).addEventListener("input", hideOrShow);
+  hideOrShow();
   evalAll();
 }
 

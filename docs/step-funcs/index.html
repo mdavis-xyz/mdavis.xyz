@@ -97,7 +97,36 @@
       <hr/>
 
 <p>
-  Explanation here,
+  <a href="https://aws.amazon.com/step-functions/">
+    Step Functions
+  </a>
+  are a serverless AWS service used for robustly chaining together various
+  services (such as Lambda functions), using state machine logic
+  for branching and loops.
+</p>
+<p>
+  When plugging the output of one state into the input of another,
+  you may want to do some simple manipulations of the data.
+  For example, you may query DynamoDB in the first task,
+  to fetch a database row as a dictionary,
+  then you want to extract a particular column from that row,
+  to pass as part of the input to a Lambda function execution.
+  Step Functions allows you to implement such manipulations natively,
+  using a subset of <i>JSONPath</i>.
+</p>
+<p>
+  The exact behavior of these path arguments can be hard to remember,
+  particularly the order of each one, what null means, and how multiple paths interact.
+  Reading the documentation to figure out the nuance can be time consuming, or unclear.
+  Creating and executing trivial step functions to figure this out by trial and error
+  is time consuming.
+  Furthermore since <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-pass-state.html">Pass states</a> don't support all fields,
+  you cannot easily test them all.
+</p>
+<p>
+  Fill out the fields below with the input you want to pass to a state,
+  and modify or disable each field as you see fit.
+  The state output, raw task input, and intermediate fields will be updated <i>instantly</i>.
 </p>
 <p>
   If you spot behavior that does not match official Step Function behavior,
@@ -108,6 +137,11 @@
 </p>
 
 <hr/>
+<p id="BrowserCheck">
+  Warning: this tool may not work properly on your browser.
+  Try using the latest version of Firefox, Chrome or Edge.
+  (Not Internet Explorer.)
+</p>
 <h2>
   State Input Payload:
 </h2>

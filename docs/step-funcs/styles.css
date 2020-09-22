@@ -48,3 +48,7 @@ p[contenteditable="true"],
 #BrowserCheck {
   color: red;
 }
+
+#TopImage{
+  background-color: white;
+}

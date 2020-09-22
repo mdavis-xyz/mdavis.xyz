@@ -1,3 +1,54 @@
 .pathFields {
-    width: 100%;
+    width: 50%;
+}
+
+.pathFields:disabled {
+    background: #9f9ea8;
+    border-block-color: black;
+}
+
+.adjustable {
+   resize: both;
+   overflow: auto;
+}
+p[contenteditable="true"],
+.resultingText {
+   color: black;
+   background: white;
+   padding: 10px;
+   border-radius: 0.2em;
+   width: 100%;
+   white-space: pre;
+}
+
+.invalidInput {
+   border-style: solid;
+   border-color: red;
+}
+
+.warning {
+  color: orange;
+  display: none;
+}
+
+
+.errorText {
+  color: red;
+  display: none;
+}
+
+#ParametersExtra {
+  display: none;
+}
+
+#WhenNoResult{
+  display: none;
+}
+
+#BrowserCheck {
+  color: red;
+}
+
+#TopImage{
+  background-color: white;
 }

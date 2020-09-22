@@ -79,19 +79,20 @@
          % if data['images']['top']['path'].lower().endswith('.mp4'):
          <video class="graph video topimage"
                 autoplay
-		loop
-		autobuffer
-		muted
-		playsinline
-		video-auto-ctrl
-		preload
-		defaultMuted
+            		loop
+            		autobuffer
+            		muted
+            		playsinline
+            		video-auto-ctrl
+            		preload
+            		defaultMuted
                 width="${data['images']['top']['width']}"
                 height="${data['images']['top']['height']}">
             <source src="${data['images']['top']['path']}" type="video/mp4" />
          </video>
          % else:
-         <img class="topimage roundAndShadow"
+         <img id="TopImage"
+              class="topimage roundAndShadow"
               src="${data['images']['top']['path']}"
               alt="${data['images']['top']['description']}"
               width="${data['images']['top']['width']}"

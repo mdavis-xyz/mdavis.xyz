@@ -21,6 +21,7 @@ window.addEventListener("load", function(){
   // Input field
   setupJsonWarning("Input", "InvalidInputWarning");
   setupEval("Input");
+  reindent("Input");
 
   // InputPath field
   setupEval("InputPath");
@@ -32,6 +33,7 @@ window.addEventListener("load", function(){
 
   // Parameters
   setupEval("Parameters");
+  reindent("Parameters");
   setupEval("ParametersEnabled");
   setupJsonWarning("Parameters", "InvalidParametersWarning");
   setupToggleHide("ParametersEnabled", "ParametersExtras");
@@ -40,6 +42,7 @@ window.addEventListener("load", function(){
 
   // Result
   setupEval("Result");
+  reindent("Result");
   setupEval("ResultEnabled");
   setupJsonWarning("Result", "InvalidResultWarning");
   setupToggleHide("ResultEnabled", "ResultExtras", "WhenNoResult");
@@ -49,6 +52,7 @@ window.addEventListener("load", function(){
 
   // ResultSelector
   setupEval("ResultSelector");
+  reindent("ResultSelector");
   setupEval("ResultSelectorEnabled");
   setupJsonWarning("ResultSelector", "InvalidResultSelectorWarning");
   setupToggleHide("ResultSelectorEnabled", "ResultSelectorExtras");
@@ -81,6 +85,18 @@ window.addEventListener("load", function(){
 // the evaluation is automatically run
 setupEval = function(id){
   byId(id).addEventListener("input", evalAll);
+}
+
+// indents the innerText of an el
+reindent = function(id){
+  el = byId(id);
+  try {
+    d = JSON.parse(el.innerText);
+    el.innerText = JSON.stringify(d, null, 4);
+  }catch(e){
+    // invalid json
+    // just leave it how it is
+  }
 }
 
 // w is the ID of a DOM element to hide/show

@@ -199,6 +199,11 @@
          description: "Graph of an example step function"
          width: 443
          height: 257
+      social:
+         path: "images/hello_world.png"
+         description: "Graph of an example step function"
+         width: 925
+         height: 531
    template: "html"
    html: "content.html"
    date: 22/09/2020

@@ -183,6 +183,31 @@
       - 'script'
       - 'hr'
    date: 7/1/2019
+-  title: "Step Function Path Tool"
+   description: >
+    Tool for developing and understanding
+    path manipulations in AWS Step Functions
+   path: "step-funcs"
+   images:
+      card:
+         path: "images/hello_world.svg"
+         description: "Graph of an example step function"
+         width: 443
+         height: 257
+      top:
+         path: "images/hello_world.svg"
+         description: "Graph of an example step function"
+         width: 443
+         height: 257
+   template: "html"
+   html: "content.html"
+   date: 22/09/2020
+   exclude:
+   - 'spellcheck'
+   - 'estReadingTime'
+   extra_scripts:
+   # script.js is already included
+   - jsonpath.js
 -  title: "Arduino Monitor Rotator"
    description: "Build an Automatic Computer Display Rotator With an Arduino"
    path: "monitor"
@@ -269,10 +294,10 @@
          width: 1000
          height: 667
          attribution: >
-            Photo by 
+            Photo by
             <a href="https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
             Patrick Tomasso
-            </a> 
+            </a>
             on
             <a href="https://unsplash.com">
             Unsplash

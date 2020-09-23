@@ -1,0 +1,307 @@
+
+<p>
+  <a href="https://aws.amazon.com/step-functions/">
+    Step Functions
+  </a>
+  are a serverless AWS service used for robustly chaining together various
+  services (such as Lambda functions), using state machine logic
+  for branching and loops.
+</p>
+<p>
+  When plugging the output of one state into the input of another,
+  you may want to do some simple manipulations of the data.
+  For example, you may query DynamoDB in the first task,
+  to fetch a database row as a dictionary,
+  then you want to extract a particular column from that row,
+  to pass as part of the input to a Lambda function execution.
+  Step Functions allows you to implement such manipulations natively,
+  using a subset of <i>JSONPath</i>.
+</p>
+<p>
+  The exact behavior of these path arguments can be hard to remember,
+  particularly the order of each one, what null means, and how multiple paths interact.
+  Reading the documentation to figure out the nuance can be time consuming, or unclear.
+  Creating and executing trivial step functions to figure this out by trial and error
+  is time consuming.
+  Furthermore since <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-pass-state.html">Pass states</a> don't support all fields,
+  you cannot easily test them all.
+</p>
+<p>
+  Fill out the fields below with the input you want to pass to a state,
+  and modify or disable each field as you see fit.
+  The state output, raw task input, and intermediate fields will be updated <i>instantly</i>.
+</p>
+<p>
+  If you spot behavior that does not match official Step Function behavior,
+  please submit
+  <a href="https://github.com/mdavis-xyz/mdavis.xyz/issues/new">
+    an issue on GitHub
+  </a>.
+</p>
+
+<hr/>
+<p id="BrowserCheck">
+  Warning: this tool may not work properly on your browser.
+  Try using the latest version of Firefox, Chrome or Edge.
+  (Not Internet Explorer.)
+</p>
+<h2>
+  State Input Payload:
+</h2>
+<p>
+  This is the raw input to the state,
+  which comes from the output of the previous state.
+</p>
+<p>
+  Type your input here.
+</p>
+<p contenteditable=true id="Input" class="adjustable">[0,{"b": "B"},2,3]</div>
+<p id="InvalidInputWarning" class="errorText">
+  Input not valid JSON. If you want to specify a string literal, wrap in double quotes.
+</p>
+<h2>
+  InputPath
+</h2>
+<p>
+  Select a simple subset of the input to use.
+</p>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">Documentation for InputPath</a>
+</p>
+<p>
+  <input type="checkbox" id="InputPathEnabled" checked>
+  <label for="InputPathEnabled"> Include an InputPath</label>
+</p>
+<div id="InputPathExtras">
+  <p>
+    <p contenteditable=true id="InputPath" class="pathFields">$</p>
+  </p>
+  <p id="NullInputPathWarning" class="warning">
+    Warning: null is not the same as omitting InputPath.
+    null means that an empty dictionary will be used instead of the input.
+    If you want to omit InputPath, untick the box above.
+  </p>
+  <p id="InputPathStartDollarWarn" class="warning">
+    InputPath should start with a $
+  </p>
+  <p id="InputPathFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+  <p>
+    <p>
+      The following field is what the input looks like after the InputPath is applied,
+      and before any Parameters field is applied.
+      If there is no Parameters field,
+      this is what will be passed to the task (e.g. Lambda function).
+    </p>
+    <p id="AfterInputPath" class="adjustable resultingText">{}</p>
+  </p>
+</div>
+<h2>
+  Parameters
+</h2>
+<p>
+  Manipulate the input data, possibly in a complex way.
+</p>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">
+    Documentation for Parameters field
+  </a>
+</p>
+<p>
+  <input type="checkbox" id="ParametersEnabled" checked>
+  <label for="ParametersEnabled"> Include a Parameters field</label>
+</p>
+<div id="ParametersExtras">
+  <p contenteditable=true id="Parameters" class="pathFields adjustable">{"data.$": "$"}</p>
+  <p id="InvalidParametersWarning" class="errorText">
+    Parameters value is not valid JSON.
+    If you want to specify a string literal, wrap in double quotes.
+  </p>
+  <p id="NullParametersWarning" class="warning">
+    Warning: null is not the same as omitting Parameters.
+    null means that an empty dictionary will be used instead of the input.
+    If you want to omit Parameters, untick the box above.
+  </p>
+  <p id="ParametersFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+  <p>
+    The following field is what happened after the Parameters field was applied.
+    This is what will be sent to the task (e.g. Lambda function).
+  </p>
+  <p id="AfterParameters" class="resultingText adjustable">Loading...</p>
+</div>
+<h2>
+  Result (or task output)
+</h2>
+<p>
+  For a Pass task, this is the output of the task, prior to OutputPath, ResultPath or ResultSelector.
+</p>
+<p>
+  For a different task (e.g. Lambda function),
+  set this equal to what you expect the output of the task is.
+  (e.g the return value of the Lambda function.)
+</p>
+<p>
+  Any $ in this field will not be evaluated using JSONPath,
+  they will be treated as literal strings.
+</p>
+<p>
+  <input type="checkbox" id="ResultEnabled" checked>
+  <label for="ResultEnabled">Include a Result field</label>
+</p>
+<div id="ResultExtras">
+  <p contenteditable=true id="Result" class="pathFields adjustable">{}</p>
+  <p id="InvalidResultWarning" class="errorText">
+    Result value is not valid JSON.
+    If you want to specify a string literal, wrap in double quotes.
+  </p>
+  <p id="ResultDollarWarning" class="warning">
+    The Result field must be hard coded.
+    Any $ values will be treated as literal strings with dollar signs.
+  </p>
+  <p id="NullResultWarning" class="warning">
+    Warning: null is not the same as omitting Result.
+    null means that an empty dictionary will be used instead of the task output.
+    If you want to omit Result, (using the input instead) change your selection above.
+  </p>
+  <p id="ResultFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+</div>
+<p id="WhenNoResult">
+  Assuming this is a Pass task.
+  The result will be equal to the state input
+  after InputPath and Parameters have been applied.
+</p>
+<h2>
+  ResultSelector
+</h2>
+<p>
+  Manipulate the raw task output, <i>before</i> combining it with the original input.
+</p>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">
+    Documentation for ResultSelector
+  </a>
+</p>
+<p>
+  Note that ResultSelector is <a href="https://states-language.net/spec.html#state-type-table">not supported for Pass states</a>, only Map, Parallel and Task.
+</p>
+<p>
+  <input type="checkbox" id="ResultSelectorEnabled" checked>
+  <label for="ResultSelectorEnabled">Include a ResultSelector field</label>
+</p>
+<div id="ResultSelectorExtras">
+  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">{}</p>
+  <p id="InvalidResultSelectorWarning" class="errorText">
+    ResultSelector value is not valid JSON.
+  </p>
+  <p id="NullResultSelectorWarning" class="warning">
+    Warning: null is not the same as omitting ResultSelector.
+    null means that an empty dictionary will be used instead of the task output.
+    If you want to omit ResultSelector, change your selection above.
+  </p>
+  <p id="ResultSelectorFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+  <p>
+    This is what the output looks like after ResultSelector is applied.
+  </p>
+  <p id="AfterResultSelector" class="resultingText adjustable">Loading...</p>
+</div>
+
+<h2>
+  ResultPath
+</h2>
+<p>
+  Choose <i>where</i> in the original state input
+  you want to add the result.
+  Or discard the input and replace with the result by using null.
+</p>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">Documentation for ResultPath</a>
+</p>
+<p>
+  <input type="checkbox" id="ResultPathEnabled" checked>
+  <label for="ResultPathEnabled"> Include a ResultPath field</label>
+</p>
+<div id="ResultPathExtras">
+  <p contenteditable=true id="ResultPath" class="pathFields">$[1].abc</p>
+  <p id="NullResultPathWarning" class="warning">
+    Warning: null is not the same as omitting ResultPath.
+    null means that the output of the task will be discarded,
+    and the input will be used instead.
+    (That is, the input <i>before</i> InputPath and Parameters.)
+    If you want to omit ResultPath, untick the box above.
+  </p>
+  <p id="ResultPathStartDollarWarn" class="warning">
+    ResultPath should start with a $
+  </p>
+  <p id="ResultPathFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+  <p>
+    <p>
+      The following field is what the input looks like after
+      the ResultPath is applied.
+    </p>
+    <p id="AfterResultPath" class="adjustable resultingText">Loading...</p>
+  </p>
+</div>
+
+
+<h2>
+  OutputPath
+</h2>
+<p>
+  After possibly combining the input and output,
+  choose a subset to return from the whole state.
+</p>
+<p>
+  <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-outputpath.html">Documentation for OutputPath</a>
+</p>
+<p>
+  <input type="checkbox" id="OutputPathEnabled" checked>
+  <label for="OutputPathEnabled"> Include a OutputPath field</label>
+</p>
+<div id="OutputPathExtras">
+  <p contenteditable=true id="OutputPath" class="pathFields">$</p>
+  <p id="NullOutputPathWarning" class="warning">
+    Warning: null is not the same as omitting OutputPath.
+    null means the output of the whole state will be {}.
+    If you want to omit OutputPath, untick the box above.
+  </p>
+  <p id="OutputPathStartDollarWarn" class="warning">
+    InputPath should start with a $
+  </p>
+  <p id="OutputPathFuncWarn" class="warning">
+    <a href="https://states-language.net/spec.html#intrinsic-functions">
+      Intrinsic Functions
+    </a>
+    are not supported in this web page.
+  </p>
+  <p>
+    <p>
+      The following field is what the input looks like after
+      the OutputPath is applied.
+    </p>
+    <p id="AfterOutputPath" class="adjustable resultingText">Loading...</p>
+  </p>
+</div>

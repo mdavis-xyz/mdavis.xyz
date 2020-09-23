@@ -157,10 +157,10 @@
 <p>
   Type your input here.
 </p>
+<p contenteditable=true id="Input" class="adjustable">[0,{"b": "B"},2,3]</div>
 <p id="InvalidInputWarning" class="errorText">
   Input not valid JSON. If you want to specify a string literal, wrap in double quotes.
 </p>
-<p contenteditable=true id="Input" class="adjustable">[0,{"b": "B"},2,3]</div>
 <h2>
   InputPath
 </h2>
@@ -175,6 +175,9 @@
   <label for="InputPathEnabled"> Include an InputPath</label>
 </p>
 <div id="InputPathExtras">
+  <p>
+    <p contenteditable=true id="InputPath" class="pathFields">$</p>
+  </p>
   <p id="NullInputPathWarning" class="warning">
     Warning: null is not the same as omitting InputPath.
     null means that an empty dictionary will be used instead of the input.
@@ -188,9 +191,6 @@
       Intrinsic Functions
     </a>
     are not supported in this web page.
-  </p>
-  <p>
-    <p contenteditable=true id="InputPath" class="pathFields">$</p>
   </p>
   <p>
     <p>
@@ -218,6 +218,7 @@
   <label for="ParametersEnabled"> Include a Parameters field</label>
 </p>
 <div id="ParametersExtras">
+  <p contenteditable=true id="Parameters" class="pathFields adjustable">{"data.$": "$"}</p>
   <p id="InvalidParametersWarning" class="errorText">
     Parameters value is not valid JSON.
     If you want to specify a string literal, wrap in double quotes.
@@ -233,7 +234,6 @@
     </a>
     are not supported in this web page.
   </p>
-  <p contenteditable=true id="Parameters" class="pathFields adjustable">{"data.$": "$"}</p>
   <p>
     The following field is what happened after the Parameters field was applied.
     This is what will be sent to the task (e.g. Lambda function).
@@ -260,6 +260,7 @@
   <label for="ResultEnabled">Include a Result field</label>
 </p>
 <div id="ResultExtras">
+  <p contenteditable=true id="Result" class="pathFields adjustable">{}</p>
   <p id="InvalidResultWarning" class="errorText">
     Result value is not valid JSON.
     If you want to specify a string literal, wrap in double quotes.
@@ -279,7 +280,6 @@
     </a>
     are not supported in this web page.
   </p>
-  <p contenteditable=true id="Result" class="pathFields adjustable">{}</p>
 </div>
 <p id="WhenNoResult">
   Assuming this is a Pass task.
@@ -305,6 +305,7 @@
   <label for="ResultSelectorEnabled">Include a ResultSelector field</label>
 </p>
 <div id="ResultSelectorExtras">
+  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">{}</p>
   <p id="InvalidResultSelectorWarning" class="errorText">
     ResultSelector value is not valid JSON.
   </p>
@@ -319,7 +320,6 @@
     </a>
     are not supported in this web page.
   </p>
-  <p contenteditable=true id="ResultSelector" class="pathFields adjustable">{}</p>
   <p>
     This is what the output looks like after ResultSelector is applied.
   </p>
@@ -342,6 +342,7 @@
   <label for="ResultPathEnabled"> Include a ResultPath field</label>
 </p>
 <div id="ResultPathExtras">
+  <p contenteditable=true id="ResultPath" class="pathFields">$[1].abc</p>
   <p id="NullResultPathWarning" class="warning">
     Warning: null is not the same as omitting ResultPath.
     null means that the output of the task will be discarded,
@@ -357,9 +358,6 @@
       Intrinsic Functions
     </a>
     are not supported in this web page.
-  </p>
-  <p>
-    <p contenteditable=true id="ResultPath" class="pathFields">$[1].abc</p>
   </p>
   <p>
     <p>
@@ -386,6 +384,7 @@
   <label for="OutputPathEnabled"> Include a OutputPath field</label>
 </p>
 <div id="OutputPathExtras">
+  <p contenteditable=true id="OutputPath" class="pathFields">$</p>
   <p id="NullOutputPathWarning" class="warning">
     Warning: null is not the same as omitting OutputPath.
     null means the output of the whole state will be {}.
@@ -399,9 +398,6 @@
       Intrinsic Functions
     </a>
     are not supported in this web page.
-  </p>
-  <p>
-    <p contenteditable=true id="OutputPath" class="pathFields">$</p>
   </p>
   <p>
     <p>

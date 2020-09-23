@@ -20,7 +20,11 @@
    <meta name="author" content="Matthew Davis">
 
    <meta property="og:type" content="website" />
-   <meta property="og:url" content="https://www.mdavis.xyz/${data['publishPath']}" />
+   % if data['template'] == 'home':
+   <meta property="og:url" content="https://www.mdavis.xyz/" /> <!-- end with / -->
+   % else:
+   <meta property="og:url" content="https://www.mdavis.xyz/${data['publishPath'].rstrip('/')}/" /> <!-- end with / -->
+   % endif
 
    % if 'attribution' in data['images']['card']:
    <!-- ${data['images']['card']['attribution']} -->

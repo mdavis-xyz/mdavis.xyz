@@ -25,16 +25,12 @@
    % if 'attribution' in data['images']['card']:
    <!-- ${data['images']['card']['attribution']} -->
    % endif
-   % if data['template'] == 'home':
-   <meta name="image" property="og:image" content="https://www.mdavis.xyz/${data['images']['card']['path']}" />
-   <meta property="og:image:width" content="${data['images']['card']['width']}" />
-   <meta property="og:image:height" content="${data['images']['card']['height']}" />
-   % elif 'social' in data['images']:
-   <meta property="og:image" content="https://www.mdavis.xyz/${data['publishPath']}/${data['images']['social']['path']}" />
+   % if 'social' in data['images']:
+   <meta property="og:image" content="${data['images']['social']['path']}" />
    <meta property="og:image:width" content="${data['images']['social']['width']}" />
    <meta property="og:image:height" content="${data['images']['social']['height']}" />
    % else:
-   <meta property="og:image" content="https://www.mdavis.xyz/${data['publishPath']}/${data['images']['card']['path']}" />
+   <meta property="og:image" content="${data['images']['card']['path']}" />
    <meta property="og:image:width" content="${data['images']['card']['width']}" />
    <meta property="og:image:height" content="${data['images']['card']['height']}" />
    % endif

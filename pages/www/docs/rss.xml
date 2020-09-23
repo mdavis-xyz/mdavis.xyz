@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://www.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Wed, 23 Sep 2020 19:18:57 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 23 Sep 2020 20:18:05 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -50,7 +50,7 @@
 			<pubDate>Mon, 07 Jan 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
-			<title>Step Function Path Tool</title>
+			<title>AWS Step Function Path Tool</title>
 			<link>https://www.mdavis.xyz/step-funcs</link>
 			<description>Tool for developing and understanding path manipulations in AWS Step Functions</description>
 			<guid isPermaLink="true">https://www.mdavis.xyz/step-funcs</guid>

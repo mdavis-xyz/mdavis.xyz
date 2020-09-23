@@ -183,7 +183,7 @@
       - 'script'
       - 'hr'
    date: 7/1/2019
--  title: "Step Function Path Tool"
+-  title: "AWS Step Function Path Tool"
    description: >
     Tool for developing and understanding
     path manipulations in AWS Step Functions

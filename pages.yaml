@@ -200,10 +200,10 @@
          width: 443
          height: 257
       social:
-         path: "images/hello_world.png"
+         path: "images/hello_world_square.png"
          description: "Graph of an example step function"
          width: 925
-         height: 531
+         height: 925
    template: "html"
    html: "content.html"
    date: 22/09/2020

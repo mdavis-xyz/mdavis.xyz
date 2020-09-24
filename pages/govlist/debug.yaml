@@ -1,3 +1,82 @@
+- hashTag: transparency
+  text: Refused to release the minutes from an important meeting of the Australian
+    Health Protection Principal Committee giving COVID advice to the Prime Minister.
+  topic: 12
+  urls:
+  - https://www.smh.com.au/politics/federal/health-department-refuses-to-release-minutes-of-key-covid-19-meetings-20200904-p55sge.html
+- hashTag: renewables
+  text: Tried to use money allocated for renewable power on new fossil fuel generators.
+  topic: 2
+  urls:
+  - https://reneweconomy.com.au/battle-lines-drawn-over-future-of-cefc-as-taylor-gets-wires-crossed-on-gas-19924/
+- hashTag: economy
+  text: Tried to redefine what "investment" means in legislation, to allow the government
+    to hand cash to fossil fuel companies, <b>even when they are unprofitable and
+    uneconomic</b>, which demonstrates a strong ideological bias towards certain fuel
+    types, with reckless disregard for economics.
+  topic: 0
+  urls:
+  - https://reneweconomy.com.au/crazy-how-taylor-plans-to-co-opt-cefc-funds-into-unprofitable-gas-projects-65369/
+- hashTag: economy
+  text: </b>Created red tape</b> which will make it harder for individuals to take
+    class actions against companies which have broken the law. This goes directly
+    against the Coalition's stated values, which include slashing red tape, and relying
+    on free market solutions (such as class actions) to minimise bad corporate behavior
+    (as opposed to direct legislation).
+  topic: 0
+  urls:
+  - https://www.abc.net.au/news/rural/2020-08-19/litigation-funding-fear-and-class-actions/12571052
+- hashTag: education
+  text: Proposed cutting HECS support for TAFE and university students who fail too
+    many courses, which will give institutions a strong financial incentive to pass
+    students who don't deserve their qualification, whilst also disproportionately
+    disincentivising disadvantaged students from enrolling, such as students from
+    families with no history of tertiary qualifications.
+  topic: 3
+  urls:
+  - https://www.sbs.com.au/news/university-students-in-australia-who-fail-classes-could-soon-lose-their-hecs-loans
+  - https://twitter.com/NUS_President/status/1293688768642211840
+- hashTag: corruption
+  text: Created the ABCC ostensibly for reducing corruption, but the ABCC boss himself
+    violated rules and endangered people by ignoring COVID flight restrictions, travelling
+    across the country to interview workers about a rally that happened 8 months prior.
+  topic: 12
+  urls:
+  - https://twitter.com/sallymcmanus/status/1285901950433628160
+- hashTag: corruption
+  text: Prevented parliament from debating whether to set up a National Integrity
+    Commission.
+  topic: 12
+  urls:
+  - https://twitter.com/markdreyfusqcmp/status/1270876342771318785?s=21
+- hashTag: indigenous
+  text: Prevented the Senate from discussing whether to implement the remaining recommendations
+    from the 1991 Royal Commission into Aboriginal Deaths in Custody.
+  topic: 5
+  urls:
+  - https://mobile.twitter.com/MehreenFaruqi/status/1270966543296294913?s=19
+- hashTag: asylum
+  text: <b>Failed to stop the only boat that has posed a real and substantial risk
+    to Australia's national security.</b> The government chose to grant an exemption
+    to the Ruby Princess cruise ship, resulting in a hundreds of new COVID cases around
+    the country.
+  topic: 1
+  urls:
+  - https://en.wikipedia.org/wiki/COVID-19_pandemic_on_cruise_ships#Ruby_Princess
+- hashTag: economy
+  text: Hurt barley farmers by antagonising the Chinese government, who retaliated
+    by slapping an 80% tariff on barley exports.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/news/2020/05/19/barley-tariffs-trade-war-china/
+- hashTag: nbn
+  text: Wasted $20.8 billion by <i>investing</i> $29.5 billion in the NBN so poorly
+    that the end result is valued by the Parliamentary Budget Office at only $8.7
+    billion.
+  topic: 10
+  urls:
+  - https://www.abc.net.au/news/2020-09-24/nbn-upgrade-is-better-late-than-never/12694016
+  - https://www.aph.gov.au/About_Parliament/Parliamentary_Departments/Parliamentary_Budget_Office/Publications/Research_reports/Alternative_financing_of_government_policies
 - hashTag: freedom
   text: Drafted the Religious Discrimination Bill which would allow employers and
     vendors to make <i>statements of belief</i>, such as a baker telling a same sex

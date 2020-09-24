@@ -515,3 +515,8 @@ JSONPath
 Firefox
 JSON
 untick
+COVID
+minimise
+disincentivising
+ABCC
+antagonising

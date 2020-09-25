@@ -88,18 +88,67 @@
   - https://www.theage.com.au/politics/federal/flawed-liberal-senator-wants-religious-discrimination-bill-scrapped-20200211-p53zqb.html
   - https://www.attorneygeneral.gov.au/media/media-releases/morrison-government-delivers-religious-reforms-29-august-2019
 - hashTag: corruption
+  text: Set up the COVID-19 National Co-ordination Committee with no terms of reference,
+    no register of conflicts of interest, and then stacked it with gas company executives
+    who unsurprisingly ended up recommending irrationally pro-gas policies.
+  topic: 12
+  urls:
+  - https://www.michaelwest.com.au/covert-19-government-stacks-covid-commission-with-oil-and-gas-mates-cosy-deals-follow/
+- hashTag: corruption
+  text: Blocked parliament from debating significant environmental protection repeals,
+    rushing through the legislation without allowing anyone to discuss it first.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/sep/03/australian-government-gags-debate-to-ram-environmental-law-changes-through-lower-house
+- hashTag: cybersecurity
+  text: Ignored security best practices when deploying the COVIDSafe app, choosing
+    not to run a bug bounty, and choosing not to publish the source code promptly,
+    despite promises to do so, which lead to multiple vulnerabilities being discovered
+    by researchers far later than they should have been.
+  topic: 7
+  urls:
+  - https://www.zdnet.com/article/australias-wobbly-start-to-covidsafe-app-transparency/
+  - https://www.itnews.com.au/news/health-minister-now-unsure-if-source-code-for-covid-contact-tracing-app-is-safe-to-release-546981
+  - https://github.com/vteague/contactTracing/blob/master/blog/2020-04-27TracingTheChallenges.md
+- hashTag: corruption
   text: Deleted records of a $165,000 political donation from a political consultancy
     with stakeholders who stand to benefit from the government's $1 billion visa privatization
     plan, and refused requests for further explanation.
   topic: 12
   urls:
   - https://www.theguardian.com/australia-news/2020/feb/18/labor-pursues-liberals-over-deleted-record-of-165000-donation-from-scott-morrison-ally
+- hashTag: privacy
+  text: Proposed issuing fines of up to $50,000 to innocent people not suspected of
+    a crime if they don't hand over passwords for their personal devices to law enforcement.
+    When law enforcement unlock a device after demanding a password, they typically
+    don't let the user see what was done, don't tell them what was done, and don't
+    allow them to call a lawyer to find out their rights. In one case a Border Force
+    officer looked through a series of nude photographs of someone's partner, without
+    the consent of the user or person in the photo, made inappropriate comments, and
+    possibly made nonconsentual copies of the photos. If a citizen not suspected of
+    a crime withholds a password to prevent this, they'll be fined.
+  topic: 6
+  urls:
+  - https://micky.com.au/aussie-ex-pat-will-never-return-after-digital-strip-search-reveals-sex-tapes/
+  - https://www.sydneycriminallawyers.com.au/blog/peter-dutton-proposes-prison-for-refusing-to-provide-passwords/
+- hashTag: metadata
+  text: <b>Lied</b> by claiming that only a small range of law enforcement agencies
+    will be able to access data under the metadata retention laws, but actually allowed
+    Centrelink, local councils, education councils and the RSPCA to access it.
+  topic: 6
+  urls:
+  - https://www.zdnet.com/article/home-affairs-savaged-over-poor-data-retention-laws-oversight
 - hashTag: climate
   text: Repeatedly approved requests by BHP to increase their greenhouse emissions
     limits.
   topic: 2
   urls:
   - https://www.theguardian.com/business/2020/feb/17/australian-government-granted-bhp-repeated-approval-to-increase-carbon-emissions
+- hashTag: climate
+  text: Ceased payments to the United Nations climate change fund.
+  topic: 2
+  urls:
+  - https://thehill.com/policy/energy-environment/436986-australia-will-no-longer-contribute-to-major-un-climate-change-fund
 - hashTag: bushfire
   text: Blamed an unusually bad bushfire season on unprecedented arson, when the evidence
     suggests most fires were started by lightening.
@@ -119,7 +168,12 @@
   urls:
   - https://andrewwilkie.org/project/international-criminal-court-agrees-australias-treatment-of-asylum-seekers-breaches-international-law/
 - hashTag: transparency
-  text: Failed to declare 2 properties worth more than $1M in a minister's declaration
+  text: Failed to declare a property worth $1M in a minister's declaration of interests.
+  topic: 12
+  urls:
+  - https://www.news.com.au/finance/work/leaders/peter-dutton-familys-milliondollar-property-left-off-declaration/news-story/eaa07f0dd3b177a358160b0d5f2ac946#.bece3
+- hashTag: transparency
+  text: Failed to declare 2 properties worth more than $1M in another minister's declaration
     of interests.
   topic: 12
   urls:
@@ -176,6 +230,11 @@
   topic: 0
   urls:
   - https://thenewdaily.com.au/news/national/2019/06/03/tax-cuts-scott-morrison/
+- hashTag: environment
+  text: Ceased assessing and listing key threats to native species.
+  topic: 2
+  urls:
+  - https://www.theguardian.com/environment/2020/may/08/australian-government-stops-listing-major-threats-to-species-under-environment-laws
 - hashTag: environment
   text: Closed down a bushfire research centre, weeks after Australia's worst ever
     bushfire season, which killed 34 people and destroyed over 9000 homes.

@@ -1,3 +1,82 @@
+- hashTag: transparency
+  text: Refused to release the minutes from an important meeting of the Australian
+    Health Protection Principal Committee giving COVID advice to the Prime Minister.
+  topic: 12
+  urls:
+  - https://www.smh.com.au/politics/federal/health-department-refuses-to-release-minutes-of-key-covid-19-meetings-20200904-p55sge.html
+- hashTag: renewables
+  text: Tried to use money allocated for renewable power on new fossil fuel generators.
+  topic: 2
+  urls:
+  - https://reneweconomy.com.au/battle-lines-drawn-over-future-of-cefc-as-taylor-gets-wires-crossed-on-gas-19924/
+- hashTag: economy
+  text: Tried to redefine what "investment" means in legislation, to allow the government
+    to hand cash to fossil fuel companies, <b>even when they are unprofitable and
+    uneconomic</b>, which demonstrates a strong ideological bias towards certain fuel
+    types, with reckless disregard for economics.
+  topic: 0
+  urls:
+  - https://reneweconomy.com.au/crazy-how-taylor-plans-to-co-opt-cefc-funds-into-unprofitable-gas-projects-65369/
+- hashTag: economy
+  text: </b>Created red tape</b> which will make it harder for individuals to take
+    class actions against companies which have broken the law. This goes directly
+    against the Coalition's stated values, which include slashing red tape, and relying
+    on free market solutions (such as class actions) to minimise bad corporate behavior
+    (as opposed to direct legislation).
+  topic: 0
+  urls:
+  - https://www.abc.net.au/news/rural/2020-08-19/litigation-funding-fear-and-class-actions/12571052
+- hashTag: education
+  text: Proposed cutting HECS support for TAFE and university students who fail too
+    many courses, which will give institutions a strong financial incentive to pass
+    students who don't deserve their qualification, whilst also disproportionately
+    disincentivising disadvantaged students from enrolling, such as students from
+    families with no history of tertiary qualifications.
+  topic: 3
+  urls:
+  - https://www.sbs.com.au/news/university-students-in-australia-who-fail-classes-could-soon-lose-their-hecs-loans
+  - https://twitter.com/NUS_President/status/1293688768642211840
+- hashTag: corruption
+  text: Created the ABCC ostensibly for reducing corruption, but the ABCC boss himself
+    violated rules and endangered people by ignoring COVID flight restrictions, travelling
+    across the country to interview workers about a rally that happened 8 months prior.
+  topic: 12
+  urls:
+  - https://twitter.com/sallymcmanus/status/1285901950433628160
+- hashTag: corruption
+  text: Prevented parliament from debating whether to set up a National Integrity
+    Commission.
+  topic: 12
+  urls:
+  - https://twitter.com/markdreyfusqcmp/status/1270876342771318785?s=21
+- hashTag: indigenous
+  text: Prevented the Senate from discussing whether to implement the remaining recommendations
+    from the 1991 Royal Commission into Aboriginal Deaths in Custody.
+  topic: 5
+  urls:
+  - https://mobile.twitter.com/MehreenFaruqi/status/1270966543296294913?s=19
+- hashTag: asylum
+  text: <b>Failed to stop the only boat that has posed a real and substantial risk
+    to Australia's national security.</b> The government chose to grant an exemption
+    to the Ruby Princess cruise ship, resulting in a hundreds of new COVID cases around
+    the country.
+  topic: 1
+  urls:
+  - https://en.wikipedia.org/wiki/COVID-19_pandemic_on_cruise_ships#Ruby_Princess
+- hashTag: economy
+  text: Hurt barley farmers by antagonising the Chinese government, who retaliated
+    by slapping an 80% tariff on barley exports.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/news/2020/05/19/barley-tariffs-trade-war-china/
+- hashTag: nbn
+  text: Wasted $20.8 billion by <i>investing</i> $29.5 billion in the NBN so poorly
+    that the end result is valued by the Parliamentary Budget Office at only $8.7
+    billion.
+  topic: 10
+  urls:
+  - https://www.abc.net.au/news/2020-09-24/nbn-upgrade-is-better-late-than-never/12694016
+  - https://www.aph.gov.au/About_Parliament/Parliamentary_Departments/Parliamentary_Budget_Office/Publications/Research_reports/Alternative_financing_of_government_policies
 - hashTag: freedom
   text: Drafted the Religious Discrimination Bill which would allow employers and
     vendors to make <i>statements of belief</i>, such as a baker telling a same sex
@@ -9,18 +88,67 @@
   - https://www.theage.com.au/politics/federal/flawed-liberal-senator-wants-religious-discrimination-bill-scrapped-20200211-p53zqb.html
   - https://www.attorneygeneral.gov.au/media/media-releases/morrison-government-delivers-religious-reforms-29-august-2019
 - hashTag: corruption
+  text: Set up the COVID-19 National Co-ordination Committee with no terms of reference,
+    no register of conflicts of interest, and then stacked it with gas company executives
+    who unsurprisingly ended up recommending irrationally pro-gas policies.
+  topic: 12
+  urls:
+  - https://www.michaelwest.com.au/covert-19-government-stacks-covid-commission-with-oil-and-gas-mates-cosy-deals-follow/
+- hashTag: corruption
+  text: Blocked parliament from debating significant environmental protection repeals,
+    rushing through the legislation without allowing anyone to discuss it first.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/sep/03/australian-government-gags-debate-to-ram-environmental-law-changes-through-lower-house
+- hashTag: cybersecurity
+  text: Ignored security best practices when deploying the COVIDSafe app, choosing
+    not to run a bug bounty, and choosing not to publish the source code promptly,
+    despite promises to do so, which lead to multiple vulnerabilities being discovered
+    by researchers far later than they should have been.
+  topic: 7
+  urls:
+  - https://www.zdnet.com/article/australias-wobbly-start-to-covidsafe-app-transparency/
+  - https://www.itnews.com.au/news/health-minister-now-unsure-if-source-code-for-covid-contact-tracing-app-is-safe-to-release-546981
+  - https://github.com/vteague/contactTracing/blob/master/blog/2020-04-27TracingTheChallenges.md
+- hashTag: corruption
   text: Deleted records of a $165,000 political donation from a political consultancy
     with stakeholders who stand to benefit from the government's $1 billion visa privatization
     plan, and refused requests for further explanation.
   topic: 12
   urls:
   - https://www.theguardian.com/australia-news/2020/feb/18/labor-pursues-liberals-over-deleted-record-of-165000-donation-from-scott-morrison-ally
+- hashTag: privacy
+  text: Proposed issuing fines of up to $50,000 to innocent people not suspected of
+    a crime if they don't hand over passwords for their personal devices to law enforcement.
+    When law enforcement unlock a device after demanding a password, they typically
+    don't let the user see what was done, don't tell them what was done, and don't
+    allow them to call a lawyer to find out their rights. In one case a Border Force
+    officer looked through a series of nude photographs of someone's partner, without
+    the consent of the user or person in the photo, made inappropriate comments, and
+    possibly made nonconsentual copies of the photos. If a citizen not suspected of
+    a crime withholds a password to prevent this, they'll be fined.
+  topic: 6
+  urls:
+  - https://micky.com.au/aussie-ex-pat-will-never-return-after-digital-strip-search-reveals-sex-tapes/
+  - https://www.sydneycriminallawyers.com.au/blog/peter-dutton-proposes-prison-for-refusing-to-provide-passwords/
+- hashTag: metadata
+  text: <b>Lied</b> by claiming that only a small range of law enforcement agencies
+    will be able to access data under the metadata retention laws, but actually allowed
+    Centrelink, local councils, education councils and the RSPCA to access it.
+  topic: 6
+  urls:
+  - https://www.zdnet.com/article/home-affairs-savaged-over-poor-data-retention-laws-oversight
 - hashTag: climate
   text: Repeatedly approved requests by BHP to increase their greenhouse emissions
     limits.
   topic: 2
   urls:
   - https://www.theguardian.com/business/2020/feb/17/australian-government-granted-bhp-repeated-approval-to-increase-carbon-emissions
+- hashTag: climate
+  text: Ceased payments to the United Nations climate change fund.
+  topic: 2
+  urls:
+  - https://thehill.com/policy/energy-environment/436986-australia-will-no-longer-contribute-to-major-un-climate-change-fund
 - hashTag: bushfire
   text: Blamed an unusually bad bushfire season on unprecedented arson, when the evidence
     suggests most fires were started by lightening.
@@ -40,7 +168,12 @@
   urls:
   - https://andrewwilkie.org/project/international-criminal-court-agrees-australias-treatment-of-asylum-seekers-breaches-international-law/
 - hashTag: transparency
-  text: Failed to declare 2 properties worth more than $1M in a minister's declaration
+  text: Failed to declare a property worth $1M in a minister's declaration of interests.
+  topic: 12
+  urls:
+  - https://www.news.com.au/finance/work/leaders/peter-dutton-familys-milliondollar-property-left-off-declaration/news-story/eaa07f0dd3b177a358160b0d5f2ac946#.bece3
+- hashTag: transparency
+  text: Failed to declare 2 properties worth more than $1M in another minister's declaration
     of interests.
   topic: 12
   urls:
@@ -97,6 +230,11 @@
   topic: 0
   urls:
   - https://thenewdaily.com.au/news/national/2019/06/03/tax-cuts-scott-morrison/
+- hashTag: environment
+  text: Ceased assessing and listing key threats to native species.
+  topic: 2
+  urls:
+  - https://www.theguardian.com/environment/2020/may/08/australian-government-stops-listing-major-threats-to-species-under-environment-laws
 - hashTag: environment
   text: Closed down a bushfire research centre, weeks after Australia's worst ever
     bushfire season, which killed 34 people and destroyed over 9000 homes.

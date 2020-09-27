@@ -115,7 +115,7 @@ def testParseRow():
     data = parseRow(line,123)
     try:
         assert(data['text'] == 'some text')
-        assert(topicOrder[data['topic']] == 'Health')
+        assert(topicOrder[data['topic']] == 'Health and COVID')
         assert(data['urls'] == ['https://www.example.com/1','https://www.example.com/2'])
     except AssertionError as e:
         print("Error: can't parse example line")
@@ -191,8 +191,8 @@ def classify(hashtag):
     return(hashMap[hashtag.lower()])
 
 def testClassify():
-    assert(topicOrder[classify('Age')] == 'Health')
-    assert(topicOrder[classify('age')] == 'Health')
+    assert(topicOrder[classify('Age')] == 'Health and COVID')
+    assert(topicOrder[classify('age')] == 'Health and COVID')
 
 
 def test():

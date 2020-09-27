@@ -1,9 +1,22 @@
+- hashTag: corruption
+  text: Loosened political donation laws.
+  topic: 12
+  urls:
+  - https://www.abc.net.au/news/2020-09-02/crossbench-complain-after-major-parties-political-donation-laws/12621464
+- hashTag: cybersecurity
+  text: Chose to ignore and not fix a security vulnerability in myGovID, which arose
+    because the chosen authentication protocol is bespoke and does not match standard
+    practice.
+  topic: 7
+  urls:
+  - https://www.thinkingcybersecurity.com/DigitalID/
 - hashTag: transparency
   text: Refused to release the minutes from an important meeting of the Australian
     Health Protection Principal Committee giving COVID advice to the Prime Minister.
   topic: 12
   urls:
   - https://www.smh.com.au/politics/federal/health-department-refuses-to-release-minutes-of-key-covid-19-meetings-20200904-p55sge.html
+  - https://www.theguardian.com/australia-news/2020/jul/27/morrison-broadens-membership-of-covid-19-commission-but-says-advice-to-remain-off-limits-to-public
 - hashTag: renewables
   text: Tried to use money allocated for renewable power on new fossil fuel generators.
   topic: 2
@@ -26,6 +39,26 @@
   topic: 0
   urls:
   - https://www.abc.net.au/news/rural/2020-08-19/litigation-funding-fear-and-class-actions/12571052
+- hashTag: nationalsecurity
+  text: Spent $2 million on legal fees trying to prosecute a whistleblower who leaked
+    truthful information about serious corruption and crime, which was clearly in
+    the public's interest.
+  topic: 7
+  urls:
+  - https://www.theguardian.com/australia-news/2020/jun/25/coalition-spends-2m-on-prosecution-of-bernard-collaery-and-witness-k-even-before-trial
+- hashTag: corruption
+  text: Voted against a binding code of conduct to ensure politicians act with integrity.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/aug/12/australian-politicians-dont-need-a-binding-code-of-conduct-liberal-and-labor-mps-say
+- hashTag: corruption
+  text: Blocked a research-backed design change to increase the effectiveness of beverage
+    warnings about drinking during pregnancy, recommended by an independent body,
+    after meeting with lobbyists from alcohol companies who have donated over $300,000
+    to the Coalition.
+  topic: 12
+  urls:
+  - https://www.smh.com.au/politics/federal/minister-met-with-alcohol-lobby-before-pregnancy-warning-label-sent-back-for-review-20200618-p553w9.html
 - hashTag: education
   text: Proposed cutting HECS support for TAFE and university students who fail too
     many courses, which will give institutions a strong financial incentive to pass
@@ -36,6 +69,34 @@
   urls:
   - https://www.sbs.com.au/news/university-students-in-australia-who-fail-classes-could-soon-lose-their-hecs-loans
   - https://twitter.com/NUS_President/status/1293688768642211840
+- hashTag: rights
+  text: Opposed a United Nations inquiry into racism and police brutality in the USA.
+    This is in the aftermath of George Floyd's death, when American law enforcement
+    officials wearing no insignia were kidnapping random protestors from the street
+    without due process, and American cops were assaulting journalists, and breaking
+    into multiple innocent people's homes to shoot them in their sleep. The Coalition
+    government doesn't want the United Nations to make a big deal out of these systemic
+    incidents.
+  topic: 6
+  urls:
+  - https://www.sbs.com.au/nitv/article/2020/06/19/australia-wont-support-un-inquiry-us-racism-and-police-brutality
+  - https://www.telegraph.co.uk/news/2020/07/18/call-kidnapping-federal-officers-accused-using-unmarked-cars/
+  - https://www.theguardian.com/us-news/2020/may/14/breonna-taylor-louisville-police-shooting-kentucky
+  - https://www.abc.net.au/news/2020-06-02/channel-7-journalists-assaulted-police-george-floyd-protesters/12312056
+- hashTag: education
+  text: More than doubled the cost of some university degrees, decreasing the government's
+    contribution to exactly $0.
+  topic: 3
+  urls:
+  - https://www.abc.net.au/news/2020-06-20/study-arts-and-humanities-government-fees-tertiary-education/12374124
+  - https://www.theguardian.com/commentisfree/2020/jun/19/doubling-university-fees-for-the-arts-will-leave-australia-less-equipped-for-our-complex-world
+- hashTag: budget
+  text: Wasted $10 million on developing a new "made in Australia" logo to replace
+    the well-known kangaroo in a green triangle, only to discard the new, generic
+    looking logo because it looks like the COVID-19 virus.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/news/politics/australian-politics/2020/08/27/wattle-trade-logo-australia/
 - hashTag: corruption
   text: Created the ABCC ostensibly for reducing corruption, but the ABCC boss himself
     violated rules and endangered people by ignoring COVID flight restrictions, travelling
@@ -69,6 +130,26 @@
   topic: 0
   urls:
   - https://thenewdaily.com.au/news/2020/05/19/barley-tariffs-trade-war-china/
+- hashTag: jobs
+  text: Suspended requirements that commercial television stations produce at least
+    some content in Australia to create Australian jobs.
+  topic: 8
+  urls:
+  - https://theconversation.com/coronavirus-tv-support-package-leaves-screen-writers-and-directors-even-less-certain-than-before-136545
+- hashTag: economy
+  text: Announced $50 million in funding to help the Australian film industry cope
+    during the pandemic, but failed to publish any instructions on how eligible, impacted
+    workers or companies can access these funds.
+  topic: 0
+  urls:
+  - https://theconversation.com/400-million-in-government-funding-for-hollywood-but-only-scraps-for-australian-film-142979
+- hashTag: budget
+  text: Increased military spending by $270 billion over 10 years, when the economy
+    and our society were struggling to cope with the pandemic and the worst recession
+    since The Great Depression.
+  topic: 0
+  urls:
+  - https://www.abc.net.au/news/2020-06-30/australia-unveils-10-year-defence-strategy/12408232
 - hashTag: nbn
   text: Wasted $20.8 billion by <i>investing</i> $29.5 billion in the NBN so poorly
     that the end result is valued by the Parliamentary Budget Office at only $8.7
@@ -87,19 +168,65 @@
   - https://www.theage.com.au/national/religious-discrimination-bill-backfires-on-christians-20200218-p541vz.html
   - https://www.theage.com.au/politics/federal/flawed-liberal-senator-wants-religious-discrimination-bill-scrapped-20200211-p53zqb.html
   - https://www.attorneygeneral.gov.au/media/media-releases/morrison-government-delivers-religious-reforms-29-august-2019
+- hashTag: technology
+  text: Introduced a new online service for helping allocated assets during a divorce,
+    which uses a proprietary, immature, inscrutable black-box technology just because
+    it's a popular buzz word these days.
+  topic: 2
+  urls:
+  - https://www.zdnet.com/article/federal-government-thinks-ai-for-separating-couples-is-a-good-idea/
+  - https://xkcd.com/1838/
 - hashTag: corruption
   text: Set up the COVID-19 National Co-ordination Committee with no terms of reference,
     no register of conflicts of interest, and then stacked it with gas company executives
-    who unsurprisingly ended up recommending irrationally pro-gas policies.
+    who unsurprisingly ended up recommending irrationally pro-gas policies. 690 documents
+    about potential conflicts of interests were deliberately kept hidden.
   topic: 12
   urls:
   - https://www.michaelwest.com.au/covert-19-government-stacks-covid-commission-with-oil-and-gas-mates-cosy-deals-follow/
+  - https://www.theguardian.com/australia-news/2020/jul/30/australian-pms-department-refuses-to-release-covid-19-commission-documents
 - hashTag: corruption
   text: Blocked parliament from debating significant environmental protection repeals,
     rushing through the legislation without allowing anyone to discuss it first.
   topic: 12
   urls:
   - https://www.theguardian.com/australia-news/2020/sep/03/australian-government-gags-debate-to-ram-environmental-law-changes-through-lower-house
+- hashTag: economy
+  text: <b>Broke an election promise</b> about providing a trading system to help
+    dairy farmers be more fairly compensated for milk production.
+  topic: 0
+  urls:
+  - https://fionaphillips.com.au/media/speeches-transcripts-media-releases/media-release-morrison-government-fails-to-deliver-election-promises-to-australia-s-dairy-farmers/
+- hashTag: privacy
+  text: Falsely attributed COVID infection rate success to the buggy, insecure, privacy-invading
+    COVIDSafe app, even though the only cases detected by the app had already been
+    detected by more traditional contact tracing methods, which are faster and more
+    effective.
+  topic: 6
+  urls:
+  - https://www.smh.com.au/politics/federal/dishonest-covidsafe-app-has-not-detected-a-case-despite-6-million-downloads-20200627-p556s7.html
+  - https://theshot.net.au/general-news/governments-critical-covidsafe-app-hasnt-identified-a-single-case-of-coronavirus/
+- hashTag: cybersecurity
+  text: Took 21 days to fix a known security vulnerability in the COVIDSafe app.
+  topic: 7
+  urls:
+  - https://www.zdnet.com/article/dta-fixed-covidsafe-bluetooth-vulnerability-21-days-after-it-was-notified/
+- hashTag: jobs
+  text: Reduced the competitiveness of Australia's technology industry by passing
+    laws which allow the government to force back doors into Australian software products,
+    which makes foreign customers less likely to buy them. The same drop in sales
+    that decimated Huawei is now hurting Australian companies.
+  topic: 8
+  urls:
+  - https://www.zdnet.com/article/atlassian-says-encryption-busting-law-has-damaged-australias-tech-reputation/
+- hashTag: covid
+  text: Released the COVIDSafe app with a known bug that makes it useless on iPhones
+    when the phone is locked.
+  topic: 11
+  urls:
+  - https://www.zdnet.com/article/locked-iphones-rendered-almost-useless-in-covidsafe-tracking-efforts/
+  - https://www.zdnet.com/article/dta-knew-of-weak-iphone-covidsafe-performance-despite-go-live/
+  - https://www.aph.gov.au/DocumentStore.ashx?id=1717dded-c0b0-4c6f-b299-cbde7f3daea0
 - hashTag: cybersecurity
   text: Ignored security best practices when deploying the COVIDSafe app, choosing
     not to run a bug bounty, and choosing not to publish the source code promptly,
@@ -110,6 +237,48 @@
   - https://www.zdnet.com/article/australias-wobbly-start-to-covidsafe-app-transparency/
   - https://www.itnews.com.au/news/health-minister-now-unsure-if-source-code-for-covid-contact-tracing-app-is-safe-to-release-546981
   - https://github.com/vteague/contactTracing/blob/master/blog/2020-04-27TracingTheChallenges.md
+- hashTag: transparency
+  text: Refused to release a multilateral trade agreement with China, which involves
+    spending government money on infrastructure in other countries. The lack of transparency
+    exacerbates existing concerns about burdening these other developing nations with
+    unsustainable debt.
+  topic: 12
+  urls:
+  - https://www.smh.com.au/politics/federal/foreign-affairs-ministry-opts-for-secrecy-over-china-infrastructure-agreement-20180730-p4zufm.html
+  - https://www.sbs.com.au/news/explainer/what-chinas-belt-and-road-initiative
+- hashTag: privacy
+  text: <b>Lied</b> when claiming that the USA government cannot view sensitive COVIDSafe
+    data, even though the American encryption back-door laws that allow the US government
+    to force Amazon to hand over the data are the exact same laws which were inspiration
+    for Australia's recent encryption back-door legislation.
+  topic: 6
+  urls:
+  - https://www.zdnet.com/article/civil-liberty-groups-dismiss-guarantee-on-us-not-accessing-covidsafe-data/
+- hashTag: corruption
+  text: <b>Cancelled The Rule of Law</b> by preventing journalists from reporting
+    on a case against a whistleblower who leaked truthful information in the public
+    interest about senior politicians and law enforcement officials who flagrantly
+    violated serious international laws. The court case is held in secret. The whistleblower's
+    name is illegal to publish. The witness and lawyers' residences were raided, and
+    the evidence against the government was confiscated.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/may/30/canberra-secret-hearing-collaery-witness-k-anger-simmers-timor-bugging-hearing
+  - https://www.michaelwest.com.au/east-timor-bugging-scandal-attorney-generals-push-for-secret-trial-diminishes-us-as-a-nation/
+- hashTag: budget
+  text: <b>Wasted $96 million</b> on administration costs for a single tender, to
+    decide who to sell our own immigration visa system to, only to cancel the plan
+    because privatising an essential service which can only ever be a monopoly is
+    obviously a bad idea.
+  topic: 0
+  urls:
+  - https://www.zdnet.com/article/canberra-spent-au92-million-on-the-now-binned-visa-privatisation-project/
+- hashTag: nbn
+  text: <b>Introduced a new tax</b>, to incentivise non-NBN users to migrate to the
+    expensive NBN.
+  topic: 10
+  urls:
+  - https://www.zdnet.com/article/nbn-broadband-tax-clears-parliament/
 - hashTag: corruption
   text: Deleted records of a $165,000 political donation from a political consultancy
     with stakeholders who stand to benefit from the government's $1 billion visa privatization
@@ -131,6 +300,19 @@
   urls:
   - https://micky.com.au/aussie-ex-pat-will-never-return-after-digital-strip-search-reveals-sex-tapes/
   - https://www.sydneycriminallawyers.com.au/blog/peter-dutton-proposes-prison-for-refusing-to-provide-passwords/
+- hashTag: rights
+  text: Introduced new laws which allow ASIO officers to spy on Australian citizens
+    without getting approval from a judge or anyway independent, and without filing
+    paperwork anywhere.
+  topic: 6
+  urls:
+  - https://www.smh.com.au/national/new-asio-law-one-more-step-towards-a-totalitarian-state-20200513-p54smi.html
+- hashTag: rights
+  text: Introduced new laws which prevent someone suspected of a crime from choosing
+    their own lawyer.
+  topic: 6
+  urls:
+  - https://www.smh.com.au/national/new-asio-law-one-more-step-towards-a-totalitarian-state-20200513-p54smi.html
 - hashTag: metadata
   text: <b>Lied</b> by claiming that only a small range of law enforcement agencies
     will be able to access data under the metadata retention laws, but actually allowed
@@ -144,17 +326,46 @@
   topic: 2
   urls:
   - https://www.theguardian.com/business/2020/feb/17/australian-government-granted-bhp-repeated-approval-to-increase-carbon-emissions
+- hashTag: transparency
+  text: Kept secret a government-funded report that showed less than 1 in 3 Australians
+    trust our public service sector. The justification was that the government believed
+    that the report which they wrote would mislead and confuse people.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/aug/19/australians-trust-public-service-government-covid
+- hashTag: corruption
+  text: Gave $345,000 to News Corp to build a spelling bee website, discarding any
+    pretense of propriety or fairness by skipping the usual parliamentary checks and
+    tender process, instead just choosing to hand the excessive amount of cash to
+    a company whose primary industry is neither website building nor education.
+  topic: 12
+  urls:
+  - https://www.abc.net.au/news/2020-02-20/prime-minister-spelling-bee-grant-delegated-legislation/11977454
 - hashTag: climate
   text: Ceased payments to the United Nations climate change fund.
   topic: 2
   urls:
   - https://thehill.com/policy/energy-environment/436986-australia-will-no-longer-contribute-to-major-un-climate-change-fund
 - hashTag: bushfire
+  text: Rejected a request for increasing aerial firefighting funding in the months
+    prior to one of the most lethal bushfire seasons in history. The government claimed
+    "other priorities" in the Department of Home Affairs were more important. The
+    department's other expenditure  includes paying people to snoop through nudes
+    in the phones of Australians not suspected of a crime, and spending $30 million
+    to house one family for a few months. The fires killed 34 people and destroyed
+    almost 10,000 homes.
+  topic: 2
+  urls:
+  - https://www.abc.net.au/news/2020-08-15/government-extra-air-support-ahead-of-bushfires/12554300
+  - https://micky.com.au/aussie-ex-pat-will-never-return-after-digital-strip-search-reveals-sex-tapes/
+  - https://thenewdaily.com.au/news/national/2019/10/22/30-million-christmas-island/
+- hashTag: bushfire
   text: Blamed an unusually bad bushfire season on unprecedented arson, when the evidence
     suggests most fires were started by lightening.
   topic: 2
   urls:
   - https://mobile.abc.net.au/news/2020-02-18/fact-check-peter-dutton-arson-250-charged/11971454
+  - https://micky.com.au/aussie-ex-pat-will-never-return-after-digital-strip-search-reveals-sex-tapes/
 - hashTag: corruption
   text: <b>Lied</b> by claiming that all grants issued under the controversial $100M
     sports grant program were eligible for funding, when only 57% were.

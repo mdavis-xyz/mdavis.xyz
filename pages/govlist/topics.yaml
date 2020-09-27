@@ -87,6 +87,7 @@
    - war
    - guns
    - security
+   - nationalsecurity
    - military
    - cybersecurity
    - energysecurity
@@ -107,7 +108,7 @@
 - Infrastructure:
    - infrastructure
    - nbn
-- Health:
+- Health and COVID:
    - health
    - hospital
    - hospitals
@@ -118,6 +119,7 @@
    - age
    - aging
    - abortion
+   - covid
 - Media, Transparency and Corruption:
    - abc
    - sbs

@@ -1,17 +1,33 @@
+- hashTag: infrastructure
+  text: Tried to spend $3.3 million on a feasibility study for subsidising a new coal
+    generator.  Previous feasibility studies have shown that the project is too risky
+    and unprofitable for the private sector. It's also not eligible for the government's
+    own Underwriting New Generation Investment program, which is specifically designed
+    to deliver new generators with business cases that don't add up, by pushing the
+    risk onto taxpayers whilst keeping the profit privatised. The government claimed
+    this new generator will reduce power prices for regional Queenslanders, but there
+    is only one wholesale electricity price for all of Queensland, and it's already
+    50% cheaper than the cost of new coal generation. The company who will build it
+    have no relevant experience. The grant criteria was written <i>after</i> the government
+    decided that they would give the money to this company.
+  topic: 10
+  urls:
+  - https://www.theguardian.com/australia-news/2020/aug/22/labor-to-join-greens-in-opposing-33m-grant-for-collinsville-coal-power-feasibility-study
+  - https://www.theguardian.com/environment/2020/jul/24/shine-energy-invited-to-apply-for-collinsville-power-station-grant-two-days-after-securing-it
 - hashTag: news
   text: Introduced a mandatory code of conduct to force companies like Google to pay
     hundreds of millions of dollars to news companies who are struggling due to an
-    inability to adapt to the changing classified ads market (which is not Google's
-    fault). Google currently drives over 3 billion clicks per year to Australian news
-    companies, thereby <i>increasing</i> news company revenue, and in return Google
-    earns only $10 million in advertising revenue. This is akin to a local plumber
-    demanding that the Yellow Pages pay the plumber for the act of connecting plumber-seeking
-    customers to them. This new code also forces Google to give special insider knowledge
-    of proprietary search algorithm changes to large news companies, which gives them
-    an unfair advantage over small, independent journalists. It includes ambiguously
-    written clauses about giving news companies access to Google users' private data.
-    The code of conduct is written based on incorrect assumptions, such as assuming
-    news makes up 10% of searches when it's only 1%.
+    inability to adapt to the changing classified ads market. Google currently drives
+    over 3 billion clicks per year to Australian news companies, thereby <i>increasing</i>
+    news company revenue, and in return Google earns only $10 million in advertising
+    revenue. This is akin to a local plumber demanding that the Yellow Pages pay the
+    plumber for the act of connecting plumber-seeking customers to them. This new
+    code also forces Google to give special insider knowledge of proprietary search
+    algorithm changes to large news companies, which gives them an unfair advantage
+    over small, independent journalists. It includes ambiguously written clauses about
+    giving news companies access to Google users' private data. The code of conduct
+    is written based on incorrect assumptions, such as assuming news makes up 10%
+    of searches when it's only 1%.
   topic: 12
   urls:
   - https://www.zdnet.com/article/newspapers-screwed-up-online-classifieds-so-tech-giants-should-pay-up-labor/
@@ -65,22 +81,6 @@
   topic: 0
   urls:
   - https://www.abc.net.au/news/2020-09-21/federal-government-western-sydney-airport-audit-office/12686208
-- hashTag: infrastructure
-  text: Tried to spend $3.3 million on a feasibility study for subsidising a new coal
-    generator.  Previous feasibility studies have shown that the project is too risky
-    and unprofitable for the private sector, and also not eligible for the government's
-    own Underwriting New Generation Investment program, which is specifically designed
-    to push risk onto taxpayers whilst keeping profit privatised for new generators
-    with business cases that don't add up. The government claimed this new generator
-    will reduce power prices for regional Queenslanders, but there is only one wholesale
-    electricity price for all of Queensland, and it's already 50% cheaper than the
-    cost of new coal generation. The company who will build it have no relevant experience.
-    The grant criteria was written <i>after</i> the government decided that they would
-    give the money to this company.
-  topic: 10
-  urls:
-  - https://www.theguardian.com/australia-news/2020/aug/22/labor-to-join-greens-in-opposing-33m-grant-for-collinsville-coal-power-feasibility-study
-  - https://www.theguardian.com/environment/2020/jul/24/shine-energy-invited-to-apply-for-collinsville-power-station-grant-two-days-after-securing-it
 - hashTag: corruption
   text: Introduced protections for company executives who trade while insolvent during
     the pandemic. This is only for cases where the debts are incurred "the ordinary

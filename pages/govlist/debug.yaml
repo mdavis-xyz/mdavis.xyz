@@ -1,3 +1,103 @@
+- hashTag: news
+  text: Introduced a mandatory code of conduct to force companies like Google to pay
+    hundreds of millions of dollars to news companies who are struggling due to an
+    inability to adapt to the changing classified ads market (which is not Google's
+    fault). Google currently drives over 3 billion clicks per year to Australian news
+    companies, thereby <i>increasing</i> news company revenue, and in return Google
+    earns only $10 million in advertising revenue. This is akin to a local plumber
+    demanding that the Yellow Pages pay the plumber for the act of connecting plumber-seeking
+    customers to them. This new code also forces Google to give special insider knowledge
+    of proprietary search algorithm changes to large news companies, which gives them
+    an unfair advantage over small, independent journalists. It includes ambiguously
+    written clauses about giving news companies access to Google users' private data.
+    The code of conduct is written based on incorrect assumptions, such as assuming
+    news makes up 10% of searches when it's only 1%.
+  topic: 12
+  urls:
+  - https://www.zdnet.com/article/newspapers-screwed-up-online-classifieds-so-tech-giants-should-pay-up-labor/
+  - https://australia.googleblog.com/2020/05/a-fact-based-discussion-about-news.html
+- hashTag: international
+  text: Introduced a bill to allow the government to cancel any international agreements
+    between universities, councils, sports institutions and other countries.
+  topic: 9
+  urls:
+  - https://theconversation.com/morrisons-foreign-relations-bill-should-not-pass-parliament-heres-why-145615
+  - https://www.theguardian.com/australia-news/2020/sep/01/australian-universities-blindsided-by-government-seeking-powers-to-cancel-global-agreements
+- hashTag: economy
+  text: Wound back consumer protections and responsible lending obligations for mortgage
+    brokers which were introduced in the aftermath of the global financial crisis.
+  topic: 0
+  urls:
+  - https://www.theage.com.au/politics/federal/simpler-lending-rules-for-home-loans-and-credit-to-free-up-the-economy-20200924-p55yz9.html
+  - https://www.betootaadvocate.com/headlines/government-to-repair-australias-economy-by-telling-banks-to-do-exactly-what-caused-the-gfc/
+- hashTag: education
+  text: Cut $2 billion in funding for university research, including funding for medical
+    research during the pandemic.
+  topic: 3
+  urls:
+  - https://www.thesaturdaypaper.com.au/news/politics/2020/09/26/coalition-cut-2-billion-year-university-research/160104240010465
+- hashTag: education
+  text: Prevented Australian universities from receiving JobKeeper payments, whilst
+    paying JobSeeker money to a foreign university. (University education is Australia's
+    third largest export.)
+  topic: 3
+  urls:
+  - https://www.abc.net.au/news/2020-09-18/new-york-university-receives-jobkeeper-australian-unis-miss-out/12676956
+  - https://www.afr.com/work-and-careers/management/education-exports-are-worth-28-billion-a-year-nearly-20pc-more-than-we-thought-20171005-gyvc8v
+- hashTag: economy
+  text: Loosened corporate financial disclosure rules during the pandemic, preventing
+    investors from lodging class actions against companies who mislead the market
+    through omission of important information.
+  topic: 0
+  urls:
+  - https://www.afr.com/policy/economy/companies-get-an-extension-to-shield-against-class-actions-20200922-p55xxj
+- hashTag: corruption
+  text: <b>Committed a crime</b> by ignoring a ruling of the Administrative Appeals
+    Tribunal.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/sep/23/coalition-minister-alan-tudge-engaged-in-criminal-conduct-over-detention-of-afghan-asylum-seeker-judge
+  - https://www.smh.com.au/national/judge-blasts-immigration-minister-over-criminal-conduct-20200923-p55ygu.html
+- hashTag: budget
+  text: Paid 10 times higher than market rate to buy some land new the new Western
+    Sydney Airport several decades earlier than necessary, after getting a valuation
+    done only by a valuer suggested by the seller.
+  topic: 0
+  urls:
+  - https://www.abc.net.au/news/2020-09-21/federal-government-western-sydney-airport-audit-office/12686208
+- hashTag: infrastructure
+  text: Tried to spend $3.3 million on a feasibility study for subsidising a new coal
+    generator.  Previous feasibility studies have shown that the project is too risky
+    and unprofitable for the private sector, and also not eligible for the government's
+    own Underwriting New Generation Investment program, which is specifically designed
+    to push risk onto taxpayers whilst keeping profit privatised for new generators
+    with business cases that don't add up. The government claimed this new generator
+    will reduce power prices for regional Queenslanders, but there is only one wholesale
+    electricity price for all of Queensland, and it's already 50% cheaper than the
+    cost of new coal generation. The company who will build it have no relevant experience.
+    The grant criteria was written <i>after</i> the government decided that they would
+    give the money to this company.
+  topic: 10
+  urls:
+  - https://www.theguardian.com/australia-news/2020/aug/22/labor-to-join-greens-in-opposing-33m-grant-for-collinsville-coal-power-feasibility-study
+  - https://www.theguardian.com/environment/2020/jul/24/shine-energy-invited-to-apply-for-collinsville-power-station-grant-two-days-after-securing-it
+- hashTag: corruption
+  text: Introduced protections for company executives who trade while insolvent during
+    the pandemic. This is only for cases where the debts are incurred "the ordinary
+    course of business". Those who try to adapt to the challenging circumstances will
+    not be exempt. In this way the government is incentivising executives to <i>not</i>
+    adapt to the unique circumstances.
+  topic: 12
+  urls:
+  - https://www.nortonrosefulbright.com/en/knowledge/publications/2e249f29/navigating-the-troubled-waters-of-directors-duties-during-covid-19
+- hashTag: economy
+  text: Defined the eligibility criteria for the JobKeeper scheme so loosely that
+    millions of dollars from the government which were supposed to subsidise employees'
+    jobs were funneled straight out as dividends and bonuses to company shareholders
+    and executives.
+  topic: 0
+  urls:
+  - https://www.theguardian.com/australia-news/2020/aug/11/companies-using-millions-in-jobkeeper-payments-to-pay-increased-dividends-to-shareholders
 - hashTag: corruption
   text: Loosened political donation laws.
   topic: 12
@@ -185,6 +285,7 @@
   urls:
   - https://www.michaelwest.com.au/covert-19-government-stacks-covid-commission-with-oil-and-gas-mates-cosy-deals-follow/
   - https://www.theguardian.com/australia-news/2020/jul/30/australian-pms-department-refuses-to-release-covid-19-commission-documents
+  - https://www.theguardian.com/environment/2020/sep/21/coalitions-gas-plan-would-help-fewer-than-1-of-manufacturing-workers-report-finds
 - hashTag: corruption
   text: Blocked parliament from debating significant environmental protection repeals,
     rushing through the legislation without allowing anyone to discuss it first.
@@ -601,7 +702,7 @@
   urls:
   - https://www.facebook.com/Adam.Bandt.MP/videos/508716959710713/
 - hashTag: discrimination
-  text: <b>Lied</b> by claiming their religious discrimination bill wasn't intended
+  text: <b>Lied</b> by claiming their religious discrimination bill was not intended
     to override state's anti-discrimination laws. The actual documents tabled in parliament
     explicitly says it does.
   topic: 6
@@ -1654,7 +1755,7 @@
   - https://www.buzzfeed.com/markdistefano/attorney-general-admits-to-personally-offering-37
   - https://www.buzzfeed.com/markdistefano/a-brandis-stack
 - hashTag: budget
-  text: Wasted over $98,000 by cancelling flights.
+  text: Wasted over $98,000 by buying and then cancelling flights.
   topic: 0
   urls:
   - http://www.abc.net.au/news/2016-09-06/politicians-cancelled-travel-expenses-costing-taxpayers/7820642

@@ -1,3 +1,19 @@
+- hashTag: employment
+  text: Increased administrative payments to job finding agencies, totalling $300
+    million during the pandemic.
+  topic: 8
+  urls:
+  - https://www.michaelwest.com.au/pandemic-goldmine-for-private-unemployment-agencies-as-coalition-boosts-payments/
+- hashTag: budget
+  text: Abandoned the prominent goal of a government surplus after repeatedly failing
+    to deliver one 6 years in a row, eventually printing several hundred billion dollars
+    during the pandemic (through bond sales), converting to policy that aligns more
+    with Modern Monetary Theory (MMT).
+  topic: 0
+  urls:
+  - https://www.thesaturdaypaper.com.au/news/economy/2020/08/01/could-frydenberg-ease-this-crisis-printing-money/159620400010187
+  - https://www.smh.com.au/politics/federal/our-economy-has-been-hit-hard-budget-deficit-blows-out-to-record-85-3b-20200925-p55z6j.html
+  - https://www.smh.com.au/business/the-economy/the-trillion-dollar-question-what-is-government-debt-and-deficit-and-should-we-be-worried-about-it-20200924-p55yy1.html
 - hashTag: infrastructure
   text: Tried to spend $3.3 million on a feasibility study for subsidising a new coal
     generator.  Previous feasibility studies have shown that the project is too risky
@@ -25,9 +41,9 @@
     code also forces Google to give special insider knowledge of proprietary search
     algorithm changes to large news companies, which gives them an unfair advantage
     over small, independent journalists. It includes ambiguously written clauses about
-    giving news companies access to Google users' private data. The code of conduct
-    is written based on incorrect assumptions, such as assuming news makes up 10%
-    of searches when it's only 1%.
+    giving news companies access to Google users' private data. It is written based
+    on incorrect assumptions, such as assuming news makes up 10% of searches when
+    it's only 1%.
   topic: 12
   urls:
   - https://www.zdnet.com/article/newspapers-screwed-up-online-classifieds-so-tech-giants-should-pay-up-labor/

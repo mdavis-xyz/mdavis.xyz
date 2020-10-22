@@ -1,3 +1,47 @@
+- hashTag: budget
+  text: Cut funding for Homelessness Australia by $41 million, during a recession.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/news/2020/10/06/2020-budget-critics-welfare-housing/
+  - https://t.co/S2YxiQxIbD
+- hashTag: economy
+  text: Introduced instant asset write off tax breaks for businesses during COVID,
+    which will cost over $30 billion, to boost the economy by only $10 billion.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/finance/news-federal-budget/2020/10/07/budget-2020-business-led-recovery/
+- hashTag: transparency
+  text: Hid a record-breaking number of expenses from the public in an annual budget,
+    including cash handed to a private rail project, maintaining an abandoned oil
+    rig, and legal action relating to military bases which leaked toxic chemicals.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/oct/09/australian-federal-budget-found-to-be-the-most-secretive-ever-produced
+- hashTag: super
+  text: Introduced a new benchmark system for superannuation funds, to penalise funds
+    that perform relatively poorly in the short term. This means that if some funds
+    make high risk, high return investments, everyone else is incentivised to follow,
+    like lemmings running off a cliff.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/finance/superannuation/2020/10/07/budget-superannuation-reforms/
+- hashTag: super
+  text: Added new rules to force superannuation funds to maximise returns regardless
+    of anything else, which is a step towards disallowing super funds from having
+    ethical and environmental screening, such as not investing in weapons manufacturing,
+    or companies with slavery in their supply lines etc. It's unclear how any fund
+    can comply with this requirement without choosing maximum-risk investments.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/finance/superannuation/2020/10/07/budget-superannuation-reforms/
+- hashTag: workplace
+  text: <b>Lied</b> by claiming that a maritime union strike at a port was delaying
+    medical supplies, when the strikers were still processing medical and perishable
+    supplies.
+  topic: 8
+  urls:
+  - https://www.smh.com.au/politics/federal/patrick-admits-no-medical-shortages-from-wharf-dispute-yet-20200930-p560ki.html
+  - https://www.msn.com/en-au/news/australia/maritime-union-rejects-claims-medical-supplies-held-at-ransom/ar-BB19vKBG
 - hashTag: employment
   text: Increased administrative payments to job finding agencies, totalling $300
     million during the pandemic.
@@ -97,6 +141,7 @@
   topic: 0
   urls:
   - https://www.abc.net.au/news/2020-09-21/federal-government-western-sydney-airport-audit-office/12686208
+  - https://thenewdaily.com.au/news/2020/10/16/afp-sydney-airport-land-purchase/
 - hashTag: corruption
   text: Introduced protections for company executives who trade while insolvent during
     the pandemic. This is only for cases where the debts are incurred "the ordinary

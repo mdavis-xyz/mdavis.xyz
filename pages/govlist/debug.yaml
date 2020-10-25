@@ -1,3 +1,16 @@
+- hashTag: transparency
+  text: Refused to release a report into COVID policy communication strategies, which
+    cost over $500,000.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/oct/22/thinly-disguised-political-research-paid-for-by-taxpayers-shared-with-morrisons-office
+- hashTag: budget
+  text: Spent $256 million just to add facial recognition as a login option for government
+    services.
+  topic: 0
+  urls:
+  - https://thenewdaily.com.au/life/tech/2020/09/30/centrelink-facial-recognition-mygov/
+  - https://7news.com.au/business/finance/facial-scans-for-more-government-services-c-1349738
 - hashTag: budget
   text: Cut funding for Homelessness Australia by $41 million, during a recession.
   topic: 0

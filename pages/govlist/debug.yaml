@@ -1,4 +1,89 @@
 - hashTag: corruption
+  text: Appointed a failed Liberal candidate to the SBS board instead of any of the
+    ones recommended by the independent nominations panel.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/nov/04/warren-mundine-was-not-recommended-for-the-sbs-board-but-the-coalition-chose-him-anyway
+- hashTag: economy
+  text: Wound back consumer protections introduced as a result of the banking royal
+    commission.
+  topic: 0
+  urls:
+  - https://www.abc.net.au/news/2020-11-09/treasurers-draft-legislation-to-repeal-responsible-lending-laws/12857170
+- hashTag: transparency
+  text: Illegally failed to respond to freedom of information (FOI) requests within
+    the statutory 30 day deadline in 92.5% of cases.
+  topic: 12
+  urls:
+  - https://www.theguardian.com/australia-news/2020/nov/19/scott-morrisons-office-met-freedom-of-information-deadlines-in-just-75-of-cases
+- hashTag: indigenous
+  text: Voted against hanging the aboriginal flag in parliament during NAIDOC week.
+  topic: 5
+  urls:
+  - https://junkee.com/indigenous-flag-vote-senate/278132
+  - https://parlinfo.aph.gov.au/parlInfo/download/chamber/hansards/f608df02-7ba2-4e6e-bf0e-b8e344a96208/toc_pdf/Senate_2020_11_10_8304.pdf;fileType=application%2Fpdf
+- hashTag: workplace
+  text: Loosened enterprise bargaining laws to allows employers to introduce new agreements
+    which are <i>not</i> "better off overall" for employees, in ordinary circumstances
+    not just exceptional ones.
+  topic: 8
+  urls:
+  - https://www.abc.net.au/news/2020-12-08/workplace-reforms-collective-bargaining-better-off-overall/12962736
+  - https://www.theguardian.com/australia-news/2020/dec/08/industrial-relations-bill-will-allow-pay-deals-that-leave-australian-workers-worse-off
+- hashTag: corruption
+  text: Bought water rights for 50 times more than many valuations, including double
+    the price of the seller's valuation.
+  topic: 12
+  urls:
+  - https://www.michaelwest.com.au/val-shopping-barnaby-joyce-department-paid-57-times-over-for-watergate-rights/
+- hashTag: budget
+  text: Spent money chartering a RAAF flight from Sydney to Canberra, even though
+    Qantas services that route frequently at a seventeenth of the price.
+  topic: 0
+  urls:
+  - https://www.dailymail.co.uk/news/article-6706773/Finance-Minister-Mathias-Cormann-charged-taxpayers-3-759-Sydney-Canberra-charter-flight.html
+- hashTag: privatisation
+  text: Voted against an inquiry into the privatisation and corporatisation of essential
+    public services.
+  topic: 8
+  urls:
+  - https://parlinfo.aph.gov.au/parlInfo/download/chamber/hansards/db4b8baa-2cf5-40f1-a3cb-08b7c4af69af/toc_pdf/Senate_2020_12_01_8381.pdf;fileType=application%2Fpdf
+  - https://twitter.com/AdamBandt/status/1333650330660192256
+- hashTag: nbn
+  text: Invented new non-standard metrics to measure NBN performance, which make Australia
+    appear to rank higher than otherwise.
+  topic: 10
+  urls:
+  - https://www.zdnet.com/article/australian-government-develops-its-own-metrics-and-ranks-nbn-highly/
+- hashTag: welfare
+  text: Refused to publish a $2.5M evaluation of the cashless welfare card system
+    because the evaluation found that the $80M program was not clearly effective.
+  topic: 4
+  urls:
+  - https://www.theguardian.com/australia-news/2020/dec/09/government-suffers-setback-on-cashless-debit-card-but-scheme-could-be-extended-for-two-years
+- hashTag: corruption
+  text: <b>Lied</b> by claiming that Kevin Rudd had travelled overseas and back during
+    COVID while many Australians are still stranded overseas, when Mr Rudd had actually
+    never left Queensland.
+  topic: 12
+  urls:
+  - https://www.theage.com.au/politics/federal/stay-at-home-rudd-furious-at-pm-s-claim-he-was-travelling-the-world-20201207-p56leo.html
+  - https://www.theguardian.com/australia-news/2020/dec/07/pm-apologises-for-erroneously-stating-kevin-rudd-had-left-and-re-entered-australia-during-covid?CMP=Share_iOSApp_Other
+- hashTag: courts
+  text: Tried to merge the Family Court with the Federal Circuit Court.
+  topic: 6
+  urls:
+  - https://www.abc.net.au/news/2020-11-30/family-court-federal-circuit-court-merger/12933874
+  - https://www.illawarramercury.com.au/story/7033393/labor-opposes-radical-family-court-merge/?cs=7479
+- hashTag: technology
+  text: Introduced a scheme to pay community broadcasters to give up spectrum rights,
+    and possibly force the SBS and ABC to give up their spectrum rights, without any
+    plan for alternate uses for those frequencies.
+  topic: 2
+  urls:
+  - https://www.zdnet.com/article/committee-waves-australian-spectrum-reform-changes-through/
+  - https://mumbrella.com.au/regional-broadcasters-label-proposed-changes-to-tv-licensing-a-spectrum-grab-by-government-659907
+- hashTag: corruption
   text: Cut $14 million from the national audit office, after that office discovered
     substantial improprieties and wasteful spending (such as the sports rorts, and
     paying 10 times too much for land for the new Sydney airport).
@@ -179,11 +264,13 @@
   topic: 0
   urls:
   - https://www.theguardian.com/australia-news/2020/aug/11/companies-using-millions-in-jobkeeper-payments-to-pay-increased-dividends-to-shareholders
+  - https://www.michaelwest.com.au/bosskeeper-how-jobkeeper-lined-the-pockets-of-top-asx-directors-executives-and-shareholders/
 - hashTag: corruption
   text: Loosened political donation laws.
   topic: 12
   urls:
   - https://www.abc.net.au/news/2020-09-02/crossbench-complain-after-major-parties-political-donation-laws/12621464
+  - https://theconversation.com/federal-parliament-just-weakened-political-donations-laws-while-you-werent-watching-149171
 - hashTag: cybersecurity
   text: Chose to ignore and not fix a security vulnerability in myGovID, which arose
     because the chosen authentication protocol is bespoke and does not match standard

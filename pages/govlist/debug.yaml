@@ -1,3 +1,44 @@
+- hashTag: covid
+  text: Prevented Australians stranded overseas during the pandemic from boarding
+    existing chartered flights, resulting in empty planes flying to Australia.
+  topic: 11
+  urls:
+  - https://thenewdaily.com.au/news/national/2021/01/17/stranded-australians-chartered-flights/
+- hashTag: economy
+  text: <b>Lied</b> by claiming they had implemented the majority of recommendations
+    from the Banking Royal Commission, when they had only completed a minority.
+  topic: 0
+  urls:
+  - https://www.theguardian.com/australia-news/2021/jan/20/scrapping-responsible-lending-laws-a-disaster-that-could-drown-australians-in-debt-consumer-groups-say
+- hashTag: covid
+  text: Removed the names of many Australians stranded overseas during the pandemic
+    from the register of stranded Australians.
+  topic: 11
+  urls:
+  - https://www.smh.com.au/politics/federal/cooking-the-books-dfat-accused-of-changing-details-of-stranded-aussies-20201205-p56kvm.html
+- hashTag: terrorism
+  text: Deleted warnings of dangerous right-wing extremism in a senate motion, despite
+    advice from ASIO that it is a serious and growing threat.
+  topic: 6
+  urls:
+  - https://www.theguardian.com/australia-news/2021/feb/04/coalition-deletes-references-to-far-right-extremism-in-senate-motion
+- hashTag: corruption
+  text: Paid $39 million to a naval boat manufacturer when not required to, who coincidentally
+    donated to the Liberal party.
+  topic: 12
+  urls:
+  - https://www.smh.com.au/national/border-force-subject-to-corruption-investigation-after-millions-paid-to-ship-builder-20201021-p5676z.html
+- hashTag: climate
+  text: Offered foreign gas companies $50M to extract gas from the Northern Territory.
+  topic: 2
+  urls:
+  - https://www.theguardian.com/environment/2020/dec/19/zero-return-government-savaged-over-taxpayer-grants-to-open-up-new-gas-basin-in-australia
+- hashTag: corruption
+  text: Extended exemptions for political donation transparency, which are 25 years
+    old and were only supposed to be temporary.
+  topic: 12
+  urls:
+  - https://www.michaelwest.com.au/investigation-how-political-donations-protect-a-cosy-loophole-for-australias-plutocrats/
 - hashTag: corruption
   text: Appointed a failed Liberal candidate to the SBS board instead of any of the
     ones recommended by the independent nominations panel.
@@ -70,11 +111,12 @@
   - https://www.theage.com.au/politics/federal/stay-at-home-rudd-furious-at-pm-s-claim-he-was-travelling-the-world-20201207-p56leo.html
   - https://www.theguardian.com/australia-news/2020/dec/07/pm-apologises-for-erroneously-stating-kevin-rudd-had-left-and-re-entered-australia-during-covid?CMP=Share_iOSApp_Other
 - hashTag: courts
-  text: Tried to merge the Family Court with the Federal Circuit Court.
+  text: Merged the Family Court with the Federal Circuit Court.
   topic: 6
   urls:
   - https://www.abc.net.au/news/2020-11-30/family-court-federal-circuit-court-merger/12933874
   - https://www.illawarramercury.com.au/story/7033393/labor-opposes-radical-family-court-merge/?cs=7479
+  - https://www.abc.net.au/news/2021-02-18/family-court-merger-federal-circuit-court-reactions/13168506
 - hashTag: technology
   text: Introduced a scheme to pay community broadcasters to give up spectrum rights,
     and possibly force the SBS and ABC to give up their spectrum rights, without any
@@ -181,18 +223,26 @@
   - https://www.theguardian.com/environment/2020/jul/24/shine-energy-invited-to-apply-for-collinsville-power-station-grant-two-days-after-securing-it
 - hashTag: news
   text: Introduced a mandatory code of conduct to force companies like Google to pay
-    hundreds of millions of dollars to news companies who are struggling due to an
-    inability to adapt to the changing classified ads market. Google currently drives
-    over 3 billion clicks per year to Australian news companies, thereby <i>increasing</i>
-    news company revenue, and in return Google earns only $10 million in advertising
-    revenue. This is akin to a local plumber demanding that the Yellow Pages pay the
-    plumber for the act of connecting plumber-seeking customers to them. This new
-    code also forces Google to give special insider knowledge of proprietary search
-    algorithm changes to large news companies, which gives them an unfair advantage
-    over small, independent journalists. It includes ambiguously written clauses about
-    giving news companies access to Google users' private data. It is written based
-    on incorrect assumptions, such as assuming news makes up 10% of searches when
-    it's only 1%.
+    hundreds of millions of dollars to large private news companies (but not the ABC
+    nor independent news). Google currently drives over 3 billion clicks per year
+    to Australian news companies, thereby <i>increasing</i> news company revenue.
+    This is akin to a local plumber demanding that the Yellow Pages pay the plumber
+    for the act of directing plumber-seeking customers to the plumber. This will undermine
+    the fundamental principles of the web itself, according to its inventory. The
+    laws are written based on incorrect assumptions that news makes up 10% of Google
+    searches when it's only 1%.
+  topic: 12
+  urls:
+  - https://www.aph.gov.au/DocumentStore.ashx?id=a9823801-565b-4833-8515-ea4fd57b3d01&subId=700056
+  - https://www.zdnet.com/article/newspapers-screwed-up-online-classifieds-so-tech-giants-should-pay-up-labor/
+  - https://australia.googleblog.com/2020/05/a-fact-based-discussion-about-news.html
+  - https://australia.fb.com/news-law/
+  - https://about.fb.com/news/2020/08/changes-to-facebooks-services-in-australia/
+- hashTag: news
+  text: Introduced red tape and distorted the free market by forcing Google to give
+    special insider knowledge of proprietary search algorithm changes to large news
+    companies but not small, independent journalists. It includes ambiguously written
+    clauses about giving news companies access to Google users' private data.
   topic: 12
   urls:
   - https://www.zdnet.com/article/newspapers-screwed-up-online-classifieds-so-tech-giants-should-pay-up-labor/
@@ -4993,14 +5043,13 @@
   - http://www.smh.com.au/federal-politics/political-news/alcoa-contradicts-joe-hockey-on-reasons-for-smelter-shutdown-20140218-32yir.html
 - hashTag: asylum
   text: Accidentally published personal details about almost 10,000 asylum seekers
-    and their claims, thereby putting all their lives in danger. Regardless of whether
-    the original asylum claims were genuine, if those asylum seekers are returned
-    to their country of origin, they and their family may be imprisoned, tortured
-    or killed because governments and militias in their country of origin will know
-    they sought asylum. After discovering the blunder, the government took 13 days
-    to remove the information from public view. As part of a press release about the
-    accidental leak, the government made public further information about where to
-    find the still life threatening document.
+    and their claims. Regardless of whether the original asylum claims were genuine,
+    if those asylum seekers are returned to their country of origin, they and their
+    family may be imprisoned, tortured or killed because governments and militias
+    in their country of origin will know they sought asylum. After discovering the
+    blunder, the government took 13 days to remove the information from public view.
+    As part of a press release about the accidental leak the government made public
+    further information about where to find the still life threatening document.
   topic: 1
   urls:
   - http://www.sbs.com.au/news/article/2014/02/20/how-will-data-leak-affect-asylum-seekers
@@ -5008,6 +5057,7 @@
   - https://www.theguardian.com/australia-news/2014/nov/12/asylum-data-breach-immigration-unlawfully-disclosed-personal-details
   - https://newmatilda.com/2014/11/17/asylum-seekers-not-provided-full-details-data-breach
   - https://www.theguardian.com/australia-news/2015/sep/18/scott-morrison-ensured-asylum-seeker-data-breach-probe-failed-court-finds
+  - https://www.zdnet.com/article/oaic-orders-home-affairs-to-compensate-asylum-seekers-over-data-breach
 - hashTag: asylum
   text: Eventually admitted that Navy ships "inadvertently" crossed into Indonesian
     waters despite using high tech GPS navigation, then they made the exact same mistake

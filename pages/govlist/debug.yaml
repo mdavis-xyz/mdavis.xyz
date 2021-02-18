@@ -5,8 +5,8 @@
   urls:
   - https://thenewdaily.com.au/news/national/2021/01/17/stranded-australians-chartered-flights/
 - hashTag: economy
-  text: <b>Lied</b> by claiming they had implemented the majority of recommendations
-    from the Banking Royal Commission, when they had only completed a minority.
+  text: Lied by claiming they had implemented the majority of recommendations from
+    the Banking Royal Commission, when they had only completed a minority.
   topic: 0
   urls:
   - https://www.theguardian.com/australia-news/2021/jan/20/scrapping-responsible-lending-laws-a-disaster-that-could-drown-australians-in-debt-consumer-groups-say
@@ -106,8 +106,8 @@
   urls:
   - https://www.theguardian.com/australia-news/2020/dec/09/government-suffers-setback-on-cashless-debit-card-but-scheme-could-be-extended-for-two-years
 - hashTag: corruption
-  text: <b>Lied</b> by claiming that Kevin Rudd had travelled overseas and back during
-    COVID while many Australians are still stranded overseas, when Mr Rudd had actually
+  text: Lied by claiming that Kevin Rudd had travelled overseas and back during COVID
+    while many Australians are still stranded overseas, when Mr Rudd had actually
     never left Queensland.
   topic: 12
   urls:
@@ -185,9 +185,8 @@
   urls:
   - https://thenewdaily.com.au/finance/superannuation/2020/10/07/budget-superannuation-reforms/
 - hashTag: workplace
-  text: <b>Lied</b> by claiming that a maritime union strike at a port was delaying
-    medical supplies, when the strikers were still processing medical and perishable
-    supplies.
+  text: Lied by claiming that a maritime union strike at a port was delaying medical
+    supplies, when the strikers were still processing medical and perishable supplies.
   topic: 8
   urls:
   - https://www.smh.com.au/politics/federal/patrick-admits-no-medical-shortages-from-wharf-dispute-yet-20200930-p560ki.html
@@ -577,7 +576,7 @@
   - https://www.smh.com.au/politics/federal/foreign-affairs-ministry-opts-for-secrecy-over-china-infrastructure-agreement-20180730-p4zufm.html
   - https://www.sbs.com.au/news/explainer/what-chinas-belt-and-road-initiative
 - hashTag: privacy
-  text: <b>Lied</b> when claiming that the USA government cannot view sensitive COVIDSafe
+  text: Lied when claiming that the USA government cannot view sensitive COVIDSafe
     data, even though the American encryption back-door laws that allow the US government
     to force Amazon to hand over the data are the exact same laws which were the inspiration
     for Australia's recent encryption back-door legislation.
@@ -644,8 +643,8 @@
   urls:
   - https://www.smh.com.au/national/new-asio-law-one-more-step-towards-a-totalitarian-state-20200513-p54smi.html
 - hashTag: metadata
-  text: <b>Lied</b> by claiming that only a small range of law enforcement agencies
-    will be able to access data under the metadata retention laws, but actually allowed
+  text: Lied by claiming that only a small range of law enforcement agencies will
+    be able to access data under the metadata retention laws, but actually allowed
     Centrelink, local councils, education councils and the RSPCA to access it.
   topic: 6
   urls:
@@ -697,8 +696,8 @@
   - https://mobile.abc.net.au/news/2020-02-18/fact-check-peter-dutton-arson-250-charged/11971454
   - https://micky.com.au/aussie-ex-pat-will-never-return-after-digital-strip-search-reveals-sex-tapes/
 - hashTag: corruption
-  text: <b>Lied</b> by claiming that all grants issued under the controversial $100M
-    sports grant program were eligible for funding, when only 57% were.
+  text: Lied by claiming that all grants issued under the controversial $100M sports
+    grant program were eligible for funding, when only 57% were.
   topic: 12
   urls:
   - https://www.theguardian.com/australia-news/2020/feb/14/morrison-misled-parliament-by-claiming-all-sports-grants-projects-were-eligible-labor-says
@@ -709,27 +708,27 @@
   urls:
   - https://andrewwilkie.org/project/international-criminal-court-agrees-australias-treatment-of-asylum-seekers-breaches-international-law/
 - hashTag: transparency
-  text: Failed to declare a property worth $1M in a minister's declaration of interests.
+  text: Failed to declare a property worth $1 million in a minister's declaration
+    of interests.
   topic: 12
   urls:
   - https://www.news.com.au/finance/work/leaders/peter-dutton-familys-milliondollar-property-left-off-declaration/news-story/eaa07f0dd3b177a358160b0d5f2ac946#.bece3
 - hashTag: transparency
-  text: Failed to declare 2 properties worth more than $1M in another minister's declaration
-    of interests.
+  text: Failed to declare 2 properties worth more than $1 million in another minister's
+    declaration of interests.
   topic: 12
   urls:
   - https://www.theguardian.com/australia-news/2020/feb/11/matt-canavan-leaves-two-properties-worth-more-than-1m-off-2019-declaration-of-interests
 - hashTag: metadata
-  text: <b>Lied</b> about data retention laws, claiming only metadata would be captured
-    (e.g. domain name), when actually full URLs are captured, which includes detail
-    such as the specific queries you give to Google, and specific videos you watch
-    on PornHub.
+  text: Lied about data retention laws, claiming only metadata would be captured (e.g.
+    domain name), when actually full URLs are captured, which includes detail such
+    as the specific queries you give to Google, and specific videos you watch on PornHub.
   topic: 6
   urls:
   - https://www.zdnet.com/article/cops-are-getting-full-urls-under-australias-data-retention-scheme/
 - hashTag: drought
-  text: <b>Lied</b> during an election ad, claiming 6 councils would be eligible for
-    $1M drought relief grants, when they weren't.
+  text: Lied during an election ad, claiming 6 councils would be eligible for $1 million
+    drought relief grants, when they weren't.
   topic: 2
   urls:
   - https://www.abc.net.au/news/2020-01-29/government-ignores-drought-program-criteria/11909022
@@ -747,8 +746,8 @@
   urls:
   - https://thenewdaily.com.au/news/national/2020/01/22/bridget-mckenzie-shooting-club-sport-grant
 - hashTag: metadata
-  text: <b>Lied</b> by claiming that cops who abuse data retention powers will be
-    punished, when hundreds of instances of abuse have gone unpunished.
+  text: Lied by claiming that cops who abuse data retention powers will be punished,
+    when hundreds of instances of abuse have gone unpunished.
   topic: 6
   urls:
   - https://www.theguardian.com/australia-news/2019/jul/26/act-police-admit-unlawfully-accessed-metadata-more-than-3000-times
@@ -766,8 +765,8 @@
   urls:
   - https://www.zdnet.com/article/home-affairs-floats-making-telcos-retain-mac-addresses-and-port-numbers/
 - hashTag: tax
-  text: <b>Lied</b> by claiming that tax cuts would be paid sooner than the passing
-    of the relevant legislation.
+  text: Lied by claiming that tax cuts would be paid sooner than the passing of the
+    relevant legislation.
   topic: 0
   urls:
   - https://thenewdaily.com.au/news/national/2019/06/03/tax-cuts-scott-morrison/
@@ -809,16 +808,16 @@
   - https://www.smh.com.au/politics/federal/australia-negotiating-with-trump-administration-to-buy-emergency-oil-supplies-20190801-p52cti.html
   - https://www.crikey.com.au/2020/04/23/angus-taylor-us-oil-deal/
 - hashTag: welfare
-  text: <b>Lied</b> by claiming the MyGov website was taken down by a DDOS attack,
-    admitting only hours later that it was due to the more obvious reason, which was
-    a sudden, drastic and entirely predictable increase in legitimate load.
+  text: Lied by claiming the MyGov website was taken down by a DDOS attack, admitting
+    only hours later that it was due to the more obvious reason, which was a sudden,
+    drastic and entirely predictable increase in legitimate load.
   topic: 4
   urls:
   - https://www.theguardian.com/australia-news/2020/mar/23/incompetence-attack-mygov-website-did-not-crash-because-of-ddos-cyber-assault-as-stuart-robert-claimed
   - https://www.zdnet.com/article/the-people-of-australia-are-a-ddos-machine-that-the-government-cannot-handle
 - hashTag: corruption
-  text: <b>Lied</b> by claiming they appointed a Liberal party staffer to a job paying
-    half a million dollars per year through an "open merit-driven, competitive process".
+  text: Lied by claiming they appointed a Liberal party staffer to a job paying half
+    a million dollars per year through an "open merit-driven, competitive process".
     It was actually a limited tender not open to all, exempt from procurement rules
     which guarantee fairness and impartiality.
   topic: 12
@@ -833,7 +832,7 @@
   - http://news.thenewdaily.com.au/c/12e8WWmunIZLqXdTR6amNCTN7A
 - hashTag: democracy
   text: <b>Tried to get parliament to vote on new legislation without giving copies
-    of the bill to the people voting on it</b>, and using unprecedented methods to
+    of the bill to the people voting on it</b>, and used unprecedented methods to
     prevent any politician to speak against it.
   topic: 12
   urls:
@@ -854,8 +853,8 @@
 - hashTag: freedom
   text: Refused to provide any information when questioned in parliament about an
     Australian who was secretly imprisoned in Australia, for a secret crime, after
-    a secret trial, an even the prisoner's name is a secret. <b>Lied</b> by saying
-    the prisoner consented to the secrecy.
+    a secret trial, an even the prisoner's name is a secret. Lied by saying the prisoner
+    consented to the secrecy.
   topic: 6
   urls:
   - https://www.theguardian.com/australia-news/2019/nov/28/greens-denounce-secret-prisoner-case-evidence-australia-authoritarian-state
@@ -891,9 +890,8 @@
   urls:
   - https://mobile.abc.net.au/news/2019-01-14/treasury-black-economy-crackdown-proposals/10702602
 - hashTag: unions
-  text: <b>Lied</b> about their new anti-union legislation, claiming unions can't
-    be deregistered as punishment for any single wrongdoing, when the legislation
-    does permit that.
+  text: Lied about their new anti-union legislation, claiming unions can't be deregistered
+    as punishment for any single wrongdoing, when the legislation does permit that.
   topic: 8
   urls:
   - https://www.theguardian.com/australia-news/2019/sep/25/ensuring-integrity-bill-officials-contradict-christian-porter-on-union-deregistration
@@ -915,8 +913,8 @@
   urls:
   - http://news.thenewdaily.com.au/c/127GRJqF0MvpMD8BZkdQhCTCUl
 - hashTag: energysecurity
-  text: <b>Lied</b> about the nation's oil reserve, claiming it is 90 days when it
-    their own figures say 58 days.
+  text: Lied about the nation's oil reserve, claiming it is 90 days when it their
+    own figures say 58 days.
   topic: 7
   urls:
   - http://news.thenewdaily.com.au/c/121YbnPV2ZOHWM9TyH2Nguo9Py
@@ -926,9 +924,9 @@
   urls:
   - https://www.facebook.com/Adam.Bandt.MP/videos/508716959710713/
 - hashTag: discrimination
-  text: <b>Lied</b> by claiming their religious discrimination bill was not intended
-    to override states' anti-discrimination laws. The actual documents tabled in parliament
-    explicitly says it is.
+  text: Lied by claiming their religious discrimination bill was not intended to override
+    states' anti-discrimination laws. The actual documents tabled in parliament explicitly
+    says it is.
   topic: 6
   urls:
   - https://twitter.com/Paul_Karp/status/1166887913625243648
@@ -962,13 +960,13 @@
   urls:
   - https://mobile.twitter.com/adambandt/status/1115068131628670977
 - hashTag: budget
-  text: <b>Lied</b> about the budget being "in the black".
+  text: Lied about the budget being "in the black".
   topic: 0
   urls:
   - https://thenewdaily.com.au/money/news-federal-budget/2019/04/02/2019-budget-back-in-black/
 - hashTag: environment
-  text: <b>Lied</b> by claiming to have introduced and passed non-existent legislation
-    to prevent the mass extinction of threatened species.
+  text: Lied by claiming to have introduced and passed non-existent legislation to
+    prevent the mass extinction of threatened species.
   topic: 2
   urls:
   - https://www.theguardian.com/australia-news/2019/may/09/pms-office-silent-after-apparent-reference-to-environment-bill-that-doesnt-exist
@@ -996,8 +994,8 @@
   - https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/billhome/r5507%22
   - https://newmatilda.com/2015/09/04/vindicating-warnings-government-told-scrap-most-extreme-elements-citizenship-stripping/
 - hashTag: climate
-  text: <b>Lied</b> about Australia's emissions, claiming they had decreased when
-    they had actually increased to an record high.
+  text: Lied about Australia's emissions, claiming they had decreased when they had
+    actually increased to an record high.
   topic: 2
   urls:
   - https://www.theguardian.com/australia-news/2019/mar/03/angus-taylor-again-falsely-claims-australias-greenhouse-emissions-are-falling
@@ -1350,9 +1348,9 @@
   urls:
   - https://thenewdaily.com.au/news/national/2018/06/26/when-do-i-repay-university-debt/
 - hashTag: corruption
-  text: <b>Lied</b> about the Immigration Minister having no personal connection to
-    someone who benefited from the direct intervention by the Immigration Minister
-    in a visa case.
+  text: Lied about the Immigration Minister having no personal connection to someone
+    who benefited from the direct intervention by the Immigration Minister in a visa
+    case.
   topic: 12
   urls:
   - https://thenewdaily.com.au/news/national/2018/09/04/peter-dutton-no-confidence-motion/
@@ -2216,7 +2214,7 @@
   urls:
   - http://reneweconomy.com.au/2016/coalition-wants-to-build-1-2gw-coal-plant-using-climate-funds-73755
 - hashTag: asylum
-  text: <b>Lied</b> about releasing all children from immigration detention.
+  text: Lied about releasing all children from immigration detention.
   topic: 1
   urls:
   - https://www.theguardian.com/australia-news/2016/apr/03/asylum-seeker-children-still-in-detention-despite-claims-all-have-been-released
@@ -2529,7 +2527,7 @@
   urls:
   - http://www.afr.com/news/policy/national-disability-insurance-scheme-board-discovers-their-jobs-are-being-advertised-by-reading-the-newspaper-20150903-gjeuev
 - hashTag: asylum
-  text: <b>Lied</b> about how many refugees we take.
+  text: Lied about how many refugees we take.
   topic: 1
   urls:
   - http://junkee.com/junk-explained-when-abbott-says-we-take-more-refugees-than-anyone-else-what-exactly-does-he-mean2/65028
@@ -2617,8 +2615,8 @@
   urls:
   - http://www.abc.net.au/news/2015-08-11/asylum-seeker-allegedly-raped-denied-treatment-in-australia/6689192
 - hashTag: asylum
-  text: <b>Lied</b> about banning certain muesli bars and other products on Manus
-    Island which have 'Freedom' in the brand name.
+  text: Lied about banning certain muesli bars and other products on Manus Island
+    which have 'Freedom' in the brand name.
   topic: 1
   urls:
   - http://www.abc.net.au/news/2015-08-10/immigration-admits-it-was-behind-freedom-bar-ban-on-manus/6686486

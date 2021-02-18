@@ -1,6 +1,6 @@
 - hashTag: covid
   text: Prevented Australians stranded overseas during the pandemic from boarding
-    existing chartered flights, resulting in empty planes flying to Australia.
+    existing chartered flights, resulting in empty planes flying into Australia.
   topic: 11
   urls:
   - https://thenewdaily.com.au/news/national/2021/01/17/stranded-australians-chartered-flights/
@@ -17,19 +17,21 @@
   urls:
   - https://www.smh.com.au/politics/federal/cooking-the-books-dfat-accused-of-changing-details-of-stranded-aussies-20201205-p56kvm.html
 - hashTag: terrorism
-  text: Deleted warnings of dangerous right-wing extremism in a senate motion, despite
-    advice from ASIO that it is a serious and growing threat.
+  text: Deleted warnings of dangerous right-wing extremism in a senate motion about
+    extremism, despite advice from ASIO that it is a serious and growing threat.
   topic: 6
   urls:
   - https://www.theguardian.com/australia-news/2021/feb/04/coalition-deletes-references-to-far-right-extremism-in-senate-motion
 - hashTag: corruption
-  text: Paid $39 million to a naval boat manufacturer when not required to, who coincidentally
+  text: Paid $39 million to a naval boat manufacturer when not required to because
+    the company failed to fulfill the relevant contract clauses, and they coincidentally
     donated to the Liberal party.
   topic: 12
   urls:
   - https://www.smh.com.au/national/border-force-subject-to-corruption-investigation-after-millions-paid-to-ship-builder-20201021-p5676z.html
 - hashTag: climate
-  text: Offered foreign gas companies $50M to extract gas from the Northern Territory.
+  text: Offered foreign gas companies $50 million to extract gas from the Northern
+    Territory.
   topic: 2
   urls:
   - https://www.theguardian.com/environment/2020/dec/19/zero-return-government-savaged-over-taxpayer-grants-to-open-up-new-gas-basin-in-australia
@@ -72,8 +74,8 @@
   - https://www.abc.net.au/news/2020-12-08/workplace-reforms-collective-bargaining-better-off-overall/12962736
   - https://www.theguardian.com/australia-news/2020/dec/08/industrial-relations-bill-will-allow-pay-deals-that-leave-australian-workers-worse-off
 - hashTag: corruption
-  text: Bought water rights for 50 times more than many valuations, including double
-    the price of the seller's valuation.
+  text: Bought water rights for 50 times more than many valuations, and double the
+    price of the seller's valuation.
   topic: 12
   urls:
   - https://www.michaelwest.com.au/val-shopping-barnaby-joyce-department-paid-57-times-over-for-watergate-rights/
@@ -97,8 +99,9 @@
   urls:
   - https://www.zdnet.com/article/australian-government-develops-its-own-metrics-and-ranks-nbn-highly/
 - hashTag: welfare
-  text: Refused to publish a $2.5M evaluation of the cashless welfare card system
-    because the evaluation found that the $80M program was not clearly effective.
+  text: Refused to publish a $2.5 million evaluation of the cashless welfare card
+    system because the evaluation found that the $80 million program was not clearly
+    effective.
   topic: 4
   urls:
   - https://www.theguardian.com/australia-news/2020/dec/09/government-suffers-setback-on-cashless-debit-card-but-scheme-could-be-extended-for-two-years
@@ -206,30 +209,38 @@
   - https://www.smh.com.au/politics/federal/our-economy-has-been-hit-hard-budget-deficit-blows-out-to-record-85-3b-20200925-p55z6j.html
   - https://www.smh.com.au/business/the-economy/the-trillion-dollar-question-what-is-government-debt-and-deficit-and-should-we-be-worried-about-it-20200924-p55yy1.html
 - hashTag: infrastructure
-  text: Tried to spend $3.3 million on a feasibility study for subsidising a new coal
-    generator.  Previous feasibility studies have shown that the project is too risky
-    and unprofitable for the private sector. It's also not eligible for the government's
-    own Underwriting New Generation Investment program, which is specifically designed
-    to deliver new generators with business cases that don't add up, by pushing the
-    risk onto taxpayers whilst keeping the profit privatised. The government claimed
-    this new generator will reduce power prices for regional Queenslanders, but there
-    is only one wholesale electricity price for all of Queensland, and it's already
-    50% cheaper than the cost of new coal generation. The company who will build it
-    have no relevant experience. The grant criteria was written <i>after</i> the government
-    decided that they would give the money to this company.
+  text: Introduced the Underwriting New Generation Investment Program, which is specifically
+    designed to deliver new electricity generators whose business cases don't add
+    up (even when ignoring negative externalities), by pushing the risk onto taxpayers
+    whilst keeping the profit privatised (i.e. corporate socialism).
+  topic: 10
+  urls:
+  - https://www.theguardian.com/australia-news/2020/aug/22/labor-to-join-greens-in-opposing-33m-grant-for-collinsville-coal-power-feasibility-study
+  - https://www.theguardian.com/environment/2020/jul/24/shine-energy-invited-to-apply-for-collinsville-power-station-grant-two-days-after-securing-it
+- hashTag: infrastructure
+  text: Tried to spend $3.3 million on a feasibility study grant for subsidising a
+    new coal generator. The company who would build it have no relevant experience.
+    The grant criteria was written <i>after</i> the government decided that they would
+    give the money to this company. Previous feasibility studies have shown that the
+    project is too risky and unprofitable for the private sector. It's also not eligible
+    for the government's own Underwriting New Generation Investment program. The government
+    claimed this new generator will reduce power prices for regional Queenslanders
+    specifically, but there is only one wholesale electricity price for all of Queensland,
+    and it's already 50% cheaper than the cost of new coal generation.
   topic: 10
   urls:
   - https://www.theguardian.com/australia-news/2020/aug/22/labor-to-join-greens-in-opposing-33m-grant-for-collinsville-coal-power-feasibility-study
   - https://www.theguardian.com/environment/2020/jul/24/shine-energy-invited-to-apply-for-collinsville-power-station-grant-two-days-after-securing-it
 - hashTag: news
   text: Introduced a mandatory code of conduct to force companies like Google to pay
-    hundreds of millions of dollars to large private news companies (but not the ABC
+    hundreds of millions of dollars to large private news companies (but not ABC news
     nor independent news). Google currently drives over 3 billion clicks per year
     to Australian news companies. Therefore this is like a local plumber demanding
     that the Yellow Pages pay the plumber for the act of directing plumber-seeking
     customers to the plumber. This will also undermine the fundamental principles
-    of the web itself, according to its inventor. The laws are written based on incorrect
-    assumption that news makes up 10% of Google searches when it's only 1%.
+    of the web itself, according to its inventor. The laws are written based on the
+    incorrect assumption that news makes up 10% of Google searches when it's only
+    1%.
   topic: 12
   urls:
   - https://www.aph.gov.au/DocumentStore.ashx?id=a9823801-565b-4833-8515-ea4fd57b3d01&subId=700056
@@ -237,6 +248,7 @@
   - https://australia.googleblog.com/2020/05/a-fact-based-discussion-about-news.html
   - https://australia.fb.com/news-law/
   - https://about.fb.com/news/2020/08/changes-to-facebooks-services-in-australia/
+  - https://www.accc.gov.au/system/files/DPB%20-%20Draft%20news%20media%20and%20digital%20platforms%20mandatory%20bargaining%20code%20Q%26As.pdf
 - hashTag: news
   text: Introduced red tape and distorted the free market by forcing Google to give
     special insider knowledge of proprietary search algorithm changes to large news
@@ -567,7 +579,7 @@
 - hashTag: privacy
   text: <b>Lied</b> when claiming that the USA government cannot view sensitive COVIDSafe
     data, even though the American encryption back-door laws that allow the US government
-    to force Amazon to hand over the data are the exact same laws which were inspiration
+    to force Amazon to hand over the data are the exact same laws which were the inspiration
     for Australia's recent encryption back-door legislation.
   topic: 6
   urls:
@@ -620,14 +632,14 @@
   - https://www.sydneycriminallawyers.com.au/blog/peter-dutton-proposes-prison-for-refusing-to-provide-passwords/
 - hashTag: rights
   text: Introduced new laws which allow ASIO officers to spy on Australian citizens
-    without getting approval from a judge or anyway independent, and without filing
+    without getting approval from a judge or anyone independent, and without filing
     paperwork anywhere.
   topic: 6
   urls:
   - https://www.smh.com.au/national/new-asio-law-one-more-step-towards-a-totalitarian-state-20200513-p54smi.html
 - hashTag: rights
-  text: Introduced new laws which prevent someone suspected of a crime from choosing
-    their own lawyer.
+  text: <b>Introduced new laws which prevent someone suspected of a crime from choosing
+    their own lawyer.</b>
   topic: 6
   urls:
   - https://www.smh.com.au/national/new-asio-law-one-more-step-towards-a-totalitarian-state-20200513-p54smi.html
@@ -710,7 +722,7 @@
 - hashTag: metadata
   text: <b>Lied</b> about data retention laws, claiming only metadata would be captured
     (e.g. domain name), when actually full URLs are captured, which includes detail
-    such as the specified queries you give to Google, and specific videos you watch
+    such as the specific queries you give to Google, and specific videos you watch
     on PornHub.
   topic: 6
   urls:
@@ -748,14 +760,14 @@
   - https://www.zdnet.com/article/data-retention-costs-australian-telcos-upwards-of-au210-million-to-date/
 - hashTag: metadata
   text: Proposed expanding the scope of data retention laws to include MAC addresses.
-    Since MAC addresses are hard coded into each devices' hardware, this would enable
-    continuous, approximate location tracking of everyone's mobile phone.
+    Since MAC addresses are hard coded into each device's hardware, this would enable
+    continuous location tracking of everyone's mobile phone.
   topic: 6
   urls:
   - https://www.zdnet.com/article/home-affairs-floats-making-telcos-retain-mac-addresses-and-port-numbers/
 - hashTag: tax
-  text: <b>Lied</b> about tax cuts being paid sooner than possible, and sooner than
-    the passing of the relevant legislation.
+  text: <b>Lied</b> by claiming that tax cuts would be paid sooner than the passing
+    of the relevant legislation.
   topic: 0
   urls:
   - https://thenewdaily.com.au/news/national/2019/06/03/tax-cuts-scott-morrison/
@@ -795,10 +807,11 @@
   topic: 7
   urls:
   - https://www.smh.com.au/politics/federal/australia-negotiating-with-trump-administration-to-buy-emergency-oil-supplies-20190801-p52cti.html
+  - https://www.crikey.com.au/2020/04/23/angus-taylor-us-oil-deal/
 - hashTag: welfare
   text: <b>Lied</b> by claiming the MyGov website was taken down by a DDOS attack,
     admitting only hours later that it was due to the more obvious reason, which was
-    a sudden and drastic increase in legitimate load.
+    a sudden, drastic and entirely predictable increase in legitimate load.
   topic: 4
   urls:
   - https://www.theguardian.com/australia-news/2020/mar/23/incompetence-attack-mygov-website-did-not-crash-because-of-ddos-cyber-assault-as-stuart-robert-claimed
@@ -806,7 +819,7 @@
 - hashTag: corruption
   text: <b>Lied</b> by claiming they appointed a Liberal party staffer to a job paying
     half a million dollars per year through an "open merit-driven, competitive process".
-    It was actually a limited tender not open to all,  exempt from procurement rules
+    It was actually a limited tender not open to all, exempt from procurement rules
     which guarantee fairness and impartiality.
   topic: 12
   urls:
@@ -819,9 +832,9 @@
   urls:
   - http://news.thenewdaily.com.au/c/12e8WWmunIZLqXdTR6amNCTN7A
 - hashTag: democracy
-  text: Tried to get parliament to vote on new legislation without giving copies of
-    the bill to the people voting on it, and using unprecedented methods to prevent
-    any politician to speak against it.
+  text: <b>Tried to get parliament to vote on new legislation without giving copies
+    of the bill to the people voting on it</b>, and using unprecedented methods to
+    prevent any politician to speak against it.
   topic: 12
   urls:
   - https://twitter.com/adambandt/status/1202397032607932416?s=21
@@ -872,8 +885,8 @@
   urls:
   - https://www.zdnet.com/article/consent-removed-from-australias-proposed-data-sharing-legislation/#ftag=RSSbaffb68
 - hashTag: tax
-  text: Proposed reversing the onus of proof, so that citizens may be guilty until
-    proven innocent, for tax fraud and money laundering crimes.
+  text: Proposed reversing the onus of proof, so that citizens may be considered guilty
+    until proven innocent, for tax fraud and money laundering crimes.
   topic: 0
   urls:
   - https://mobile.abc.net.au/news/2019-01-14/treasury-black-economy-crackdown-proposals/10702602
@@ -885,7 +898,7 @@
   urls:
   - https://www.theguardian.com/australia-news/2019/sep/25/ensuring-integrity-bill-officials-contradict-christian-porter-on-union-deregistration
 - hashTag: corruption
-  text: Illegally forged a document to publicly criticise a political opponent.
+  text: <b>Illegally</b> forged a document to publicly criticise a political opponent.
   topic: 12
   urls:
   - http://www.abc.net.au/news/2019-10-25/prime-minister-rules-out-referring-taylor-incident-to-police/11638776
@@ -896,12 +909,6 @@
   topic: 6
   urls:
   - https://www.sydneycriminallawyers.com.au/blog/new-laws-will-allow-the-use-of-military-to-break-protests/
-- hashTag: welfare
-  text: <b>Unlawfully</b> seized tax returns of citizens using the buggy 'robo-debt'
-    program.
-  topic: 4
-  urls:
-  - https://www.zdnet.com/article/canberra-concedes-parts-of-robo-debt-are-unlawful/#ftag=RSSbaffb68
 - hashTag: budget
   text: Spent $30 million detaining a single asylum seeker family for a few months.
   topic: 0
@@ -920,8 +927,8 @@
   - https://www.facebook.com/Adam.Bandt.MP/videos/508716959710713/
 - hashTag: discrimination
   text: <b>Lied</b> by claiming their religious discrimination bill was not intended
-    to override state's anti-discrimination laws. The actual documents tabled in parliament
-    explicitly says it does.
+    to override states' anti-discrimination laws. The actual documents tabled in parliament
+    explicitly says it is.
   topic: 6
   urls:
   - https://twitter.com/Paul_Karp/status/1166887913625243648
@@ -934,9 +941,9 @@
   - https://www.abc.net.au/news/2019-05-26/election-2019-morrison-new-ministry/11150728
   - https://en.wikipedia.org/wiki/Richard_Colbeck
 - hashTag: budget
-  text: Paid $9 million for a contractor to do literally nothing, because they abruptly
-    cancelled the contract and instead gave it to a less experienced and less qualified
-    company.
+  text: Paid $9 million for a contractor to do literally nothing, because the government
+    abruptly cancelled the contract and instead gave it to a less experienced and
+    less qualified company.
   topic: 0
   urls:
   - https://www.afr.com/news/policy/money-for-nothing-government-paid-9m-after-scrapping-manus-project-20190308-h1c5uu
@@ -974,8 +981,9 @@
   urls:
   - https://www.theguardian.com/environment/2019/apr/27/uranium-miner-coaxed-government-to-water-down-extinction-safeguards
 - hashTag: budget
-  text: Admitted their promise to spend $2B building a fast train link between Geelong
-    and Melbourne will actually cost $4B, and they don't have the other $2B.
+  text: Admitted their promise to spend $2 billion building a fast train link between
+    Geelong and Melbourne will actually cost $4 billion, and they don't have the other
+    $2 billion.
   topic: 0
   urls:
   - https://www.bay939.com.au/news/local-news/104699-morrison-s-geelong-rail-link-faces-2-billion-shortfall
@@ -1007,7 +1015,7 @@
   - http://www.mua.org.au/australia_s_first_offshore_wind_farm_being_stalled_by_morrison_government
 - hashTag: corruption
   text: Merged the Australian Federal Police into the Home Affairs department, allowing
-    the minister can exert political influence on investigations.
+    the minister to exert political influence on investigations.
   topic: 12
   urls:
   - https://www.theguardian.com/australia-news/2019/mar/15/federal-police-must-split-from-dutton-ministry-to-save-integrity-says-union
@@ -1023,7 +1031,7 @@
   urls:
   - https://www.refugeecouncil.org.au/federal-budget-summary/
 - hashTag: asylum
-  text: Detained refugees close to large volumes of potentially deadly asbestos.
+  text: Housed refugees close to large volumes of potentially deadly asbestos.
   topic: 1
   urls:
   - https://www.abc.net.au/news/2019-03-19/refugees-on-nauru-exposed-to-asbestos/10912044
@@ -1053,10 +1061,12 @@
   - https://www.theage.com.au/politics/federal/two-mps-run-up-200000-tab-on-private-flights-to-work-in-canberra-20170127-gu0817.html
 - hashTag: welfare
   text: Spent $400 million on a problem plagued automated system which recovered only
-    $500 million of unpaid debt, through a "guilty until proven innocent" approach.
+    $500 million of unpaid debt, through an illegal "guilty until proven innocent"
+    approach.
   topic: 4
   urls:
   - https://www.theguardian.com/australia-news/2019/feb/22/robodebt-scheme-costs-government-almost-as-much-as-it-recovers
+  - https://www.zdnet.com/article/canberra-concedes-parts-of-robo-debt-are-unlawful/
 - hashTag: transparency
   text: Ignored a Royal Commission report which found the government's Murray-Darling
     Basin Plan is illegal, whilst refusing to publish their own report which they
@@ -1099,7 +1109,7 @@
   - https://www.crikey.com.au/2019/02/15/worm-coalition-filibuster/
   - https://www.abc.net.au/news/2019-02-14/coalition-filibusters-house-of-representatives-disability-vote/10812694
 - hashTag: corruption
-  text: Declared that they will violate a new law, because they don't like it.
+  text: <b>Declared that they will violate a new law, because they don't like it</b>.
   topic: 12
   urls:
   - https://www.sbs.com.au/news/scott-morrison-vows-to-ignore-vote-on-stupid-refugee-bill
@@ -1170,17 +1180,19 @@
   - https://www.theguardian.com/australia-news/2018/jan/18/dutton-refuses-senate-order-to-release-details-of-refugee-services-contracts-on-manus
 - hashTag: copyright
   text: Rejected recommendations from the Productivity Commission that the government
-    add a "fair use" exemption to copyright law, and change the law to explicitly
+    add a "fair use" exemption to copyright law, and to change the law to explicitly
     protect Australians who circumvent geoblocking barriers to access paid content.
   topic: 6
   urls:
   - https://www.zdnet.com/article/government-skips-geoblocking-and-fair-use-in-copyright-reform/
 - hashTag: military
-  text: Spent $400,000 to help train the Myanmar military, who are guilty of ongoing
-    genocide against the Rohingya people.
+  text: Spent $400,000 to help train the Myanmar military, who were known to be guilty
+    of ongoing genocide against the Rohingya people, and were later responsible for
+    a literal coup to overthrow their government.
   topic: 7
   urls:
   - https://www.theguardian.com/australia-news/2018/mar/06/australia-to-train-myanmar-military-despite-ethnic-cleansing-accusations
+  - https://www.thejakartapost.com/seasia/2021/02/16/myanmar-situation-not-what-china-wants-to-see-ambassador-.html
 - hashTag: asylum
   text: Punished an asylum seeker for reporting sexual assault committed by a government
     contractor, and lied about forwarding the complaint to the police.
@@ -1194,8 +1206,8 @@
   urls:
   - https://www.theguardian.com/australia-news/2018/sep/29/australia-spent-320000-fighting-requests-for-urgent-medical-transfers-of-asylum-seekers
 - hashTag: science
-  text: Secretly blocked funding for $4M in humanities research projects, which were
-    already approved by the government's research approval body (ARC).
+  text: Secretly blocked funding for $4 million in humanities research projects, which
+    were already approved by the government's research approval body (ARC).
   topic: 2
   urls:
   - https://www.theguardian.com/australia-news/2018/oct/26/knuckle-dragging-philistines-labor-targets-liberals-for-blocking-arts-grants

@@ -335,7 +335,7 @@
   text: Chose to ignore and not fix a security vulnerability in myGovID, which arose
     because the chosen authentication protocol is bespoke and does not match standard
     practice.
-  topic: 8
+  topic: 2
   urls:
   - https://www.thinkingcybersecurity.com/DigitalID/
 - hashTag: transparency
@@ -526,18 +526,18 @@
   topic: 0
   urls:
   - https://fionaphillips.com.au/media/speeches-transcripts-media-releases/media-release-morrison-government-fails-to-deliver-election-promises-to-australia-s-dairy-farmers/
-- hashTag: privacy
+- hashTag: covidsafe
   text: Falsely attributed COVID infection rate success to the buggy, insecure, privacy-invading
     COVIDSafe app, even though the only cases detected by the app had already been
     detected by more traditional contact tracing methods, which are faster and more
     effective.
-  topic: 7
+  topic: 3
   urls:
   - https://www.smh.com.au/politics/federal/dishonest-covidsafe-app-has-not-detected-a-case-despite-6-million-downloads-20200627-p556s7.html
   - https://theshot.net.au/general-news/governments-critical-covidsafe-app-hasnt-identified-a-single-case-of-coronavirus/
-- hashTag: cybersecurity
+- hashTag: covidsafe
   text: Took 21 days to fix a known security vulnerability in the COVIDSafe app.
-  topic: 8
+  topic: 3
   urls:
   - https://www.zdnet.com/article/dta-fixed-covidsafe-bluetooth-vulnerability-21-days-after-it-was-notified/
 - hashTag: jobs
@@ -548,7 +548,7 @@
   topic: 9
   urls:
   - https://www.zdnet.com/article/atlassian-says-encryption-busting-law-has-damaged-australias-tech-reputation/
-- hashTag: covid
+- hashTag: covidsafe
   text: Released the COVIDSafe app with a known bug that makes it useless on iPhones
     when the phone is locked.
   topic: 3
@@ -556,12 +556,12 @@
   - https://www.zdnet.com/article/locked-iphones-rendered-almost-useless-in-covidsafe-tracking-efforts/
   - https://www.zdnet.com/article/dta-knew-of-weak-iphone-covidsafe-performance-despite-go-live/
   - https://www.aph.gov.au/DocumentStore.ashx?id=1717dded-c0b0-4c6f-b299-cbde7f3daea0
-- hashTag: cybersecurity
+- hashTag: covidsafe
   text: Ignored security best practices when deploying the COVIDSafe app, choosing
     not to run a bug bounty, and choosing not to publish the source code promptly,
     despite promises to do so, which lead to multiple vulnerabilities being discovered
     by researchers far later than they should have been.
-  topic: 8
+  topic: 3
   urls:
   - https://www.zdnet.com/article/australias-wobbly-start-to-covidsafe-app-transparency/
   - https://www.itnews.com.au/news/health-minister-now-unsure-if-source-code-for-covid-contact-tracing-app-is-safe-to-release-546981
@@ -575,12 +575,12 @@
   urls:
   - https://www.smh.com.au/politics/federal/foreign-affairs-ministry-opts-for-secrecy-over-china-infrastructure-agreement-20180730-p4zufm.html
   - https://www.sbs.com.au/news/explainer/what-chinas-belt-and-road-initiative
-- hashTag: privacy
+- hashTag: covidsafe
   text: Lied when claiming that the USA government cannot view sensitive COVIDSafe
     data, even though the American encryption back-door laws that allow the US government
     to force Amazon to hand over the data are the exact same laws which were the inspiration
     for Australia's recent encryption back-door legislation.
-  topic: 7
+  topic: 3
   urls:
   - https://www.zdnet.com/article/civil-liberty-groups-dismiss-guarantee-on-us-not-accessing-covidsafe-data/
 - hashTag: corruption
@@ -1615,7 +1615,7 @@
   text: Claimed to have not suffered a cybersecurity breach after the systems storing
     sensitive Medicare information had their security breached, and that sensitive
     information was put up for sale on the black market.
-  topic: 8
+  topic: 2
   urls:
   - http://www.zdnet.com/article/medicare-leak-not-a-cyber-issue-tudge/
 - hashTag: coal

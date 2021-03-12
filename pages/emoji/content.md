@@ -32,7 +32,7 @@ It turns out that the Unicode standard itself does not actually define the list 
 This is because the people who design emojis think that they should not bear the politically heavy responsibility of deciding what is a country and what is not.
 An Aboriginal flag is uncontroversial.
 However other more controversial proposals could follow.
-Whether or not [Sealand](https://en.wikipedia.org/wiki/Principality_of_Sealand) should be legitimised through the creation of a Sealand flag emoji a controversial and politically heavy question. 
+Whether or not [Sealand](https://en.wikipedia.org/wiki/Principality_of_Sealand) should be legitimised through the creation of a Sealand flag emoji is a controversial and politically heavy question.
 That decision should not be made by a small (and slow) group of typography nerds choosing glyphs and encodings.
 This is why the Unicode standard does not actually specify the list of flag emojis.
 
@@ -48,7 +48,7 @@ There are some exceptions, such as states and territories of UN member nations:
 
 > However, the ISO 3166 maintenance agency may assign country codes to dependencies of countries that are member states of the UN. To be considered, some criteria, amongst others, include that the area be physically separated from its parent country and outside its territorial waters. Even if all criteria are met, the ISO 3166 maintenance agency may decide not to assign a code element, for example, due to the very limited number of official alpha-2 code elements available.
 
-The nation represented by the Aboriginal flag is not a member of the UN (at least, not a member distinct from the nominal Australian member). 
+The nation represented by the Aboriginal flag is not a member of the UN (at least, not a member distinct from the nominal Australian member).
 It is also not physically separate.
 Therefore it cannot be added to this list without a change in those rules.
 So it turns out that implementing the Aboriginal flag emoji is surprisingly complicated.
@@ -77,7 +77,7 @@ Or worse, that second device might already have that custom code assigned, so it
 ## Option 4
 Petition the Unicode standards body to implement the Aboriginal flag encoding in a unique way which is completely different to every other national flag.
 Perhaps a new category could be created for flags which are not UN member flags.
-An Aboriginal flag is politically uncontroversial. 
+An Aboriginal flag is politically uncontroversial.
 However I'm sure other more controversial proposals would follow, such as the Confederate flag.
 Such a new category would grant this small (and slow) group of typography nerds the power and responsibility to make political decisions and impose an ideological viewpoint on the whole the world.
 They do not want to be put in that position.
@@ -123,6 +123,14 @@ You wouldn't need to wait for a slow standards body.
 However I doubt such component emojis exist.
 (Why would anyone need half a red rectangle as an emoji?)
 </div>
+
+In addition to the issue of country recognition, there is also the issue of *licensing*.
+The Aboriginal flag is [copyrighted by a single individual](https://www8.austlii.edu.au/cgi-bin/viewdoc/au/cases/cth/federal_ct/1997/215.html).
+Creating an Aboriginal flag emoji would probably require the license holder to move the flag into the public domain. For context, the current licensee [litigates against Indigenous-owned companies who use the flag](https://www.theguardian.com/australia-news/2019/jun/11/company-that-holds-aboriginal-flag-rights-part-owned-by-man-prosecuted-for-selling-fake-art), so a move into public domain is unlikely.
+Instead, there would probably be a special license agreement created specifically for this emoji.
+This would require billions of people across tens of billions of devices to agree to the license.
+Imagine if you had to read through thousands of words of terms and conditions for each letter and emoji on your phone.
+That's just not scalable.
 
 So it turns out that this is surprisingly complicated.
 A petition to Apple is probably not going to be successful.

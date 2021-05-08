@@ -1,3 +1,50 @@
+- hashTag: ethics
+  text: Spent $3.7 million making a video to teach 16 year olds about sexual consent
+    without talking about sex. The video was pulled within days due to it being ineffective
+    and poorly targeted to the late-teenage age group. The cost of the videos was
+    more than the budget for the first Mad Max movie, or Napoleon Dynamite.
+  topic: 7
+  urls:
+  - https://www.mtv.com.au/news/9jhulr/australian-government-milkshake-consent-video-cost
+  - https://www.abc.net.au/news/2021-04-25/teenagers-review-the-government-consent-video/100091974
+  - https://www.9news.com.au/national/government-pulls-consent-videos-after-backlash/c9f504e4-8506-41c7-8549-ea6e320930ee
+  - https://www.bandt.com.au/what-soured-the-milkshake-a-filmmakers-guide-to-avoiding-international-embarrassment/
+- hashTag: media
+  text: Sued the ABC for defamation, after they published sexual assault allegations
+    about a unnamed senior politician <i>without identifying him</i>. Private news
+    companies who published the same story are not being sued.
+  topic: 1
+  urls:
+  - https://www.abc.net.au/mediawatch/episodes/porter/13267834
+- hashTag: ethics
+  text: Banned public servants from wearing clothes that expose bare shoulders.
+  topic: 7
+  urls:
+  - https://thenewdaily.com.au/entertainment/style/2021/04/24/home-affairs-sleeveless-ban/
+- hashTag: corruption
+  text: Paid $1.4 billion to house only 115 asylum seekers offshore, at a daily price
+    about 10 times higher than the most expensive room at Sydney's Four Seasons Hotel,
+    through a closed tender awarded to a Liberal party donor.
+  topic: 1
+  urls:
+  - https://www.theguardian.com/australia-news/2021/apr/10/brisbane-company-paid-14bn-to-run-offshore-processing-on-nauru-despite-no-arrivals-since-2014
+- hashTag: corruption
+  text: Charged taxpayers for a domestic flight to a personal lunch.
+  topic: 1
+  urls:
+  - https://www.theguardian.com/australia-news/2021/mar/21/peter-dutton-charged-taxpayers-465-for-flight-on-day-he-was-special-guest-at-private-event
+- hashTag: disability
+  text: Ignored urgent requests from the commissioner of the Disablity Royal Commission,
+    providing neither a yes nor a no answer to a simple extension request.
+  topic: 3
+  urls:
+  - https://www.theguardian.com/australia-news/2021/mar/10/urgent-extension-to-disability-inquiry-ignored-by-morrison-and-porter-for-four-months
+- hashTag: environment
+  text: Claimed that the federal environment minister is not responsible for climate
+    change efforts and policy.
+  topic: 2
+  urls:
+  - https://www.theguardian.com/environment/2021/apr/17/environment-minister-sussan-ley-says-climate-action-not-her-portfolio-in-stoush-with-states
 - hashTag: climate
   text: Modified an infrastructure funding scheme to bypass state governments, to
     allow investment in fossil fuels without being blocked by the Northern Territory
@@ -58,7 +105,7 @@
   - https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbillhome%2Fr6680%22
 - hashTag: transparency
   text: Withheld the report from the Aged Care Royal Commission for 2 days, releasing
-    it only half an hour before the relevant press conference, which means journalists
+    it only half an hour before the relevant press conference, which meant journalists
     were not able to ask meaningful questions.
   topic: 1
   urls:
@@ -938,13 +985,6 @@
   topic: 6
   urls:
   - https://mobile.twitter.com/shalailah/status/1146625920108679168
-- hashTag: economy
-  text: Introduced a limit on cash transactions of $10,000, in a move towards a cashless
-    society, so that it then becomes possible to have negative interest rates and
-    have consumers pay banks to store their savings.
-  topic: 0
-  urls:
-  - https://mobile.abc.net.au/news/2019-08-26/cash-ban-so-you-pay-the-bank-to-hold-your-money-what-imf-wants/11443646?pfmredir=sm
 - hashTag: corruption
   text: Paid tens of thousands of dollars to a company which was known to be corrupt,
     through a tender that was not opened up to all competitors.
@@ -1132,9 +1172,9 @@
   urls:
   - https://www.theage.com.au/politics/federal/two-mps-run-up-200000-tab-on-private-flights-to-work-in-canberra-20170127-gu0817.html
 - hashTag: welfare
-  text: Spent $400 million on a problem plagued automated system which recovered only
-    $500 million of unpaid debt, through an illegal "guilty until proven innocent"
-    approach.
+  text: Spent $400 million on a problem plagued automated "robodebt" system which
+    recovered only $500 million of unpaid debt, through an illegal "guilty until proven
+    innocent" approach.
   topic: 6
   urls:
   - https://www.theguardian.com/australia-news/2019/feb/22/robodebt-scheme-costs-government-almost-as-much-as-it-recovers
@@ -1345,11 +1385,16 @@
   topic: 6
   urls:
   - https://www.theguardian.com/australia-news/2018/nov/12/coalition-cuts-funding-for-foodbank-charity-by-323000-a-year
-- hashTag: budget
-  text: Spent half a billion dollars on an upgrade for a war memorial.
-  topic: 0
+- hashTag: military
+  text: Spent half a billion dollars on an upgrade for the Australian War Memorial.
+    The upgrade was opposed by multiple former directors of the memorial, the Royal
+    Australian Institute of Architects, and 80% of respondents to the relevant parliamentary
+    enquiries. The 20 year old award winning hall will be demolished and replaced,
+    contrary to Charles Bean's vision that the memorial be "not colossal in scale".
+  topic: 8
   urls:
-  - https://www.theguardian.com/australia-news/2018/nov/01/coalition-to-spend-half-a-billion-dollars-on-australian-war-memorial-project
+  - https://www.theguardian.com/australia-news/2020/jun/16/former-war-memorial-heads-join-call-to-redirect-500m-for-grandiose-expansion-to-veterans
+  - https://www.thesaturdaypaper.com.au/culture/architecture/2021/05/08/australian-war-memorial/162039600011620#hrd
 - hashTag: indigenous
   text: Gave money from a fund for Indigenous advancement to a fishing corporation
     to help it fight Indigenous land claims.
@@ -5979,8 +6024,7 @@
     threatens the very foundations of our democracy.</b> The leaked agreement would
     allow international companies to sue governments if their profits are diminished
     by environmental, indigenous land rights or anti-child-sweatshop laws. The TPP
-    would give corporations many of the same rights that individuals have. There is
-    no expiration date or separation clause, so once signed, it's here forever.
+    would give corporations many of the same rights that individuals have.
   topic: 11
   urls:
   - http://economixcomix.com/home/tpp/

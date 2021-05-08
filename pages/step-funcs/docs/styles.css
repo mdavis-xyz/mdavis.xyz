@@ -60,3 +60,42 @@ p[contenteditable="true"] {
 #TopImage{
   background-color: white;
 }
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  max-width: 100%;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: rgb(63,67,74);
+  border-radius: 0.2em;
+  padding: 1rem;
+  width: auto;
+}
+
+@media (min-width:30rem)  {
+   .card {
+      margin-left: 1rem;
+      margin-right: 1rem;
+   }
+}
+
+@media (min-width:50rem)  {
+   .card {
+      margin-left: 2rem;
+      margin-right: 2rem;
+   }
+}
+
+.card h2 {
+   margin-top: 0;
+}
+
+.card p {
+   margin-bottom: 0;
+}   
+

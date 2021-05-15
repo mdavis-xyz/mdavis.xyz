@@ -1,34 +1,3 @@
-- hashTag: blockchain
-  text: Gave $2.7 million to a private company for a buzzword-rich trial about blockchain
-    and distributed energy.
-  topic: 2
-  urls:
-  - https://www.smh.com.au/business/the-economy/turnbull-government-invests-in-cryptocurrencybased-company-for-the-first-time-20171121-gzplb4.html
-  - https://www.mdavis.xyz/blockchain/
-- hashTag: corruption
-  text: Used bad-faith campaign tactics by purchasing web domains with political opponents
-    names, to prevent the opponents from having a reasonable website domain.
-  topic: 1
-  urls:
-  - https://www.michaelwest.com.au/domain-squatters-nationals-play-dirty-website-tactics-to-defeat-foes-in-nsw-by-election/
-- hashTag: ndis
-  text: Proposed a robo-debt style program to claw back money from disabled people
-    under the NDIS, waving away all concerns about accuracy and ethics by tacking
-    a blockchain onto the new app. Blockchains do not in any way make it easier to
-    solve the Oracle Problem, such as determining whether a taxi ride was to a medical
-    practitioner or the pub next door to it.
-  topic: 3
-  urls:
-  - https://www.zdnet.com/article/ndis-gets-a-government-app-with-blockchain-but-no-ethics/
-  - https://www.mdavis.xyz/blockchain/
-- hashTag: transparency
-  text: Illegally mislead voters by creating dozens of Facebook pages for fictional
-    institutes and pages with deceptively similar names to real organisations, to
-    attack a Labor minister, without any of the legally required notices stating that
-    the message really comes from.
-  topic: 1
-  urls:
-  - https://www.theguardian.com/australia-news/2021/apr/06/liberal-mp-andrew-laming-used-dozens-of-facebook-pages-to-promote-lnp-and-attack-opponents
 - hashTag: corruption
   text: Illegally appointed a Liberal Party Senator to a high-ranking high-paying
     role at the Administrative Appeals Tribunal. The candidate was not eligible because
@@ -47,6 +16,37 @@
   topic: 10
   urls:
   - https://www.michaelwest.com.au/the-pitts-government-gifts-woodside-130-million-christmas-present/
+- hashTag: ndis
+  text: Proposed a robo-debt style program to claw back money from disabled people
+    under the NDIS, waving away all concerns about accuracy and ethics by tacking
+    a blockchain onto the new app. Blockchains do not in any way make it easier to
+    solve the Oracle Problem, such as determining whether a taxi ride was to a medical
+    practitioner or the pub next door to it.
+  topic: 3
+  urls:
+  - https://www.zdnet.com/article/ndis-gets-a-government-app-with-blockchain-but-no-ethics/
+  - https://www.mdavis.xyz/blockchain/
+- hashTag: corruption
+  text: Used bad-faith campaign tactics by purchasing web domains with political opponents
+    names, to prevent the opponents from having a reasonable website domain.
+  topic: 1
+  urls:
+  - https://www.michaelwest.com.au/domain-squatters-nationals-play-dirty-website-tactics-to-defeat-foes-in-nsw-by-election/
+- hashTag: blockchain
+  text: Gave $2.7 million to a private company for a buzzword-rich trial about blockchain
+    and distributed energy.
+  topic: 2
+  urls:
+  - https://www.smh.com.au/business/the-economy/turnbull-government-invests-in-cryptocurrencybased-company-for-the-first-time-20171121-gzplb4.html
+  - https://www.mdavis.xyz/blockchain/
+- hashTag: transparency
+  text: Illegally mislead voters by creating dozens of Facebook pages for fictional
+    institutes and pages with deceptively similar names to real organisations, to
+    attack a Labor minister, without any of the legally required notices stating that
+    the message really comes from.
+  topic: 1
+  urls:
+  - https://www.theguardian.com/australia-news/2021/apr/06/liberal-mp-andrew-laming-used-dozens-of-facebook-pages-to-promote-lnp-and-attack-opponents
 - hashTag: ethics
   text: Spent $3.7 million making a video to teach 16 year olds about sexual consent
     without talking about sex. The video was pulled within days due to it being ineffective

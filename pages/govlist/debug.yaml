@@ -1,3 +1,52 @@
+- hashTag: blockchain
+  text: Gave $2.7 million to a private company for a buzzword-rich trial about blockchain
+    and distributed energy.
+  topic: 2
+  urls:
+  - https://www.smh.com.au/business/the-economy/turnbull-government-invests-in-cryptocurrencybased-company-for-the-first-time-20171121-gzplb4.html
+  - https://www.mdavis.xyz/blockchain/
+- hashTag: corruption
+  text: Used bad-faith campaign tactics by purchasing web domains with political opponents
+    names, to prevent the opponents from having a reasonable website domain.
+  topic: 1
+  urls:
+  - https://www.michaelwest.com.au/domain-squatters-nationals-play-dirty-website-tactics-to-defeat-foes-in-nsw-by-election/
+- hashTag: ndis
+  text: Proposed a robo-debt style program to claw back money from disabled people
+    under the NDIS, waving away all concerns about accuracy and ethics by tacking
+    a blockchain onto the new app. Blockchains do not in any way make it easier to
+    solve the Oracle Problem, such as determining whether a taxi ride was to a medical
+    practitioner or the pub next door to it.
+  topic: 3
+  urls:
+  - https://www.zdnet.com/article/ndis-gets-a-government-app-with-blockchain-but-no-ethics/
+  - https://www.mdavis.xyz/blockchain/
+- hashTag: transparency
+  text: Illegally mislead voters by creating dozens of Facebook pages for fictional
+    institutes and pages with deceptively similar names to real organisations, to
+    attack a Labor minister, without any of the legally required notices stating that
+    the message really comes from.
+  topic: 1
+  urls:
+  - https://www.theguardian.com/australia-news/2021/apr/06/liberal-mp-andrew-laming-used-dozens-of-facebook-pages-to-promote-lnp-and-attack-opponents
+- hashTag: corruption
+  text: Illegally appointed a Liberal Party Senator to a high-ranking high-paying
+    role at the Administrative Appeals Tribunal. The candidate was not eligible because
+    she was not an enrolled legal practitioner. She has no experience in the field
+    (social services and child support law). She will be paid $500,000 per year.  The
+    government lied by claiming she was appointed on merit, but the interviewers did
+    not interview her, and did not recommend her.
+  topic: 1
+  urls:
+  - https://www.crikey.com.au/2021/02/15/christian-porter-karen-synon-administrative-appeals-tribunal/
+- hashTag: infrastructure
+  text: Spent $10 million per month maintaining an offshore oil rig that is not producing
+    anything, after private owners profited for many years for costs of only $4 million
+    per month. There is no planned end date for when this plant will be decommissioned
+    to stop these costs.
+  topic: 10
+  urls:
+  - https://www.michaelwest.com.au/the-pitts-government-gifts-woodside-130-million-christmas-present/
 - hashTag: ethics
   text: Spent $3.7 million making a video to teach 16 year olds about sexual consent
     without talking about sex. The video was pulled within days due to it being ineffective
@@ -12,10 +61,14 @@
 - hashTag: media
   text: Sued the ABC for defamation, after they published sexual assault allegations
     about a unnamed senior politician <i>without identifying him</i>. Private news
-    companies who published the same story are not being sued.
+    companies who published the same story are not being sued. Demonstrating that
+    the claims were true is a valid defence against a defamation case. The accused
+    Attorney General asked the court to keep secret the evidence which the ABC provided
+    to support their claim that the allegations were true.
   topic: 1
   urls:
   - https://www.abc.net.au/mediawatch/episodes/porter/13267834
+  - https://www.theguardian.com/australia-news/2021/may/06/christian-porter-moves-to-strike-out-major-sections-of-abcs-defamation-defence
 - hashTag: ethics
   text: Banned public servants from wearing clothes that expose bare shoulders.
   topic: 7
@@ -235,7 +288,8 @@
   - https://www.theage.com.au/politics/federal/stay-at-home-rudd-furious-at-pm-s-claim-he-was-travelling-the-world-20201207-p56leo.html
   - https://www.theguardian.com/australia-news/2020/dec/07/pm-apologises-for-erroneously-stating-kevin-rudd-had-left-and-re-entered-australia-during-covid?CMP=Share_iOSApp_Other
 - hashTag: courts
-  text: Merged the Family Court with the Federal Circuit Court.
+  text: Merged the Family Court with the Federal Circuit Court. This was done prior
+    to hearing the recommendations of the Family Law Enquiry due one week later.
   topic: 7
   urls:
   - https://www.abc.net.au/news/2020-11-30/family-court-federal-circuit-court-merger/12933874
@@ -696,6 +750,13 @@
   urls:
   - https://www.smh.com.au/politics/federal/foreign-affairs-ministry-opts-for-secrecy-over-china-infrastructure-agreement-20180730-p4zufm.html
   - https://www.sbs.com.au/news/explainer/what-chinas-belt-and-road-initiative
+- hashTag: transparency
+  text: Kept secret legal advice about whether the USA government can view sensitive
+    COVIDSafe data (stored in an American company's data center), claiming that it
+    is in the public interest for us to not know what lawyers told our government.
+  topic: 1
+  urls:
+  - https://www.zdnet.com/article/attorney-general-urged-to-produce-facts-on-us-law-enforcement-access-to-covidsafe/
 - hashTag: covidsafe
   text: Lied when claiming that the USA government cannot view sensitive COVIDSafe
     data, even though the American encryption back-door laws that allow the US government
@@ -1179,6 +1240,7 @@
   urls:
   - https://www.theguardian.com/australia-news/2019/feb/22/robodebt-scheme-costs-government-almost-as-much-as-it-recovers
   - https://www.zdnet.com/article/canberra-concedes-parts-of-robo-debt-are-unlawful/
+  - https://www.thesaturdaypaper.com.au/news/politics/2021/02/20/robo-debt-shonky-the-start/161373960011136
 - hashTag: transparency
   text: Ignored a Royal Commission report which found the government's Murray-Darling
     Basin Plan is illegal, whilst refusing to publish their own report which they
@@ -2730,11 +2792,12 @@
   urls:
   - https://newmatilda.com/2015/08/18/environment-minister-bungles-big-coal-approval-so-attorney-general-tries-change-law
 - hashTag: asylum
-  text: Refused to offer treatment and support to an asylum seeker who was raped on
-    Nauru.
+  text: Illegally refused to offer treatment and support to an asylum seeker who was
+    raped on Nauru. Minister Peter Dutton claimed the case was not exceptional.
   topic: 4
   urls:
   - http://www.abc.net.au/news/2015-08-11/asylum-seeker-allegedly-raped-denied-treatment-in-australia/6689192
+  - https://www.theguardian.com/australia-news/2016/may/10/peter-dutton-will-not-appeal-ruling-pregnant-asylum-seeker
 - hashTag: asylum
   text: Lied about banning certain muesli bars and other products on Manus Island
     which have 'Freedom' in the brand name.
@@ -5384,11 +5447,6 @@
   topic: 11
   urls:
   - http://www.smh.com.au/comment/chilly-reception-for-tony-abbotts-standup-routine-at-davos-20140124-31ed8.html
-- hashTag: equity
-  text: Appointed yet another straight, white cisgendered male as Governor General.
-  topic: 6
-  urls:
-  - https://www.theguardian.com/world/2014/jan/28/peter-cosgrove-confirmed-as-australias-new-governor-general
 - hashTag: rights
   text: Called Edward Snowden a traitor.
   topic: 7

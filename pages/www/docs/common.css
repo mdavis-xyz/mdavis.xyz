@@ -244,12 +244,12 @@ blockquote p {
    vertical-align: baseline;
 }
 
-code { 
-  font-family: Consolas, Menlo, Monaco, monospace; 
-  margin: auto; 
-  width: auto; 
-  align-self: center; 
-} 
+code {
+  font-family: Consolas, Menlo, Monaco, monospace;
+  margin: auto;
+  width: auto;
+  align-self: center;
+}
 
 pre {
    background: rgb(34,34,34);
@@ -264,4 +264,6 @@ pre {
    overflow-x: auto;
 }
 
-
+li {
+  margin-top: 0.25em
+}

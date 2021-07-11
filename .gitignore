@@ -13,7 +13,6 @@ pages/abbott/old/*
 pages/*/docs/index.html
 rss-temp.xml
 debug.yaml
-
 pages/*/content.html.md
 
 # C extensions

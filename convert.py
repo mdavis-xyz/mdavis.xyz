@@ -272,7 +272,7 @@ def getDate(data):
         date = {
             'original': dt.date.today()
         }
-    date['human'] = date['original'].strftime('%d %b %Y').lstrip('0')
+    date['human'] = date['original'].strftime('%d %B %Y').lstrip('0')
     date['computer'] = date['original'].strftime('%Y-%m-%d')
 
 

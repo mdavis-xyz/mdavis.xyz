@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Sun, 07 Nov 2021 16:41:49 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 30 Dec 2021 14:01:39 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -85,11 +85,11 @@
 			<pubDate>Tue, 12 Jun 2018 00:00:00 GMT</pubDate>
 		</item>
 		<item>
-			<title>BPP - Better Boto Paginator</title>
-			<link>https://dev.mdavis.xyz/bbp</link>
-			<description>A python library I wrote for per-resource pagination of AWS resources</description>
-			<guid isPermaLink="true">https://dev.mdavis.xyz/bbp</guid>
-			<pubDate>Sun, 15 Dec 2019 00:00:00 GMT</pubDate>
+			<title>Lambda Multiprocessing</title>
+			<link>https://dev.mdavis.xyz/lammulti</link>
+			<description>A python library I wrote for multiprocessing in AWS Lambda</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/lammulti</guid>
+			<pubDate>Thu, 30 Dec 2021 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Inverter Inertia Emulation</title>

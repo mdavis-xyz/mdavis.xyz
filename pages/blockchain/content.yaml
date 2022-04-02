@@ -156,10 +156,10 @@
           <a target="_blank" href="https://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1050&context=mca">[1]</a>
           <a target="_blank" href="https://www.eff.org/deeplinks/2016/04/eff-and-aclu-expose-governments-secret-stingray-use-wisconsin-case">[2]</a>
           </sup>.
-          In fact, there are 
+          In fact, there are
           <a target="_blank" href="https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf">
              fundamental mathematical facts
-          </a> 
+          </a>
           which say that you can <i>never</i> be sure that a digital device is secure against a nation-state level attack.
      - p: >
           Blockchains are not magic.
@@ -295,7 +295,7 @@
           The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with online voting encompass the whole ecosystem, not just the database.
      # TODO: link for next line
      - p: >
-          Any type of online voting is a terrible idea.
+          Any type of online voting is a <a href="/voting/>terrible idea</a>.
           If you must do online voting, just use a normal database.
           It will be simpler, cheaper and greener.
 - id: voting-online-bank

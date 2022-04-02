@@ -153,7 +153,7 @@ def readFile():
     data = []
     with open(content_fname,"r") as f:
         for (i,line) in enumerate(f):
-            line = line.replace("’","'").replace("`","'").replace("‘","'")
+            #line = line.replace("’","'").replace("`","'").replace("‘","'")
             row = parseRow(line,i+1)
             if row == None:
                 print("Error, can't parse row %d" % (i+1))
@@ -254,6 +254,14 @@ def main():
 def spellcheck(line):
     content = stripFancy(html)
     for (l,line) in enumerate(content.split('\n')):
+
+        # awkward edge case
+        # "‘can do’ capitalism; not ‘don’t do’ governments"
+        # double quotes plus apostrophe hard to parse
+        text = text.replace("\"‘can do’ capitalism, not ‘don’t do’ governments\"", "can do capitalism not don't do governments")
+        text = text.replace('‘don’t do’', "don't do")
+        text = text.replace('‘can do’', "can do")
+
         for word in line.split(' '):
             word = word.strip()
             if (word not in dictionary) and (word.lower() not in dictionary):

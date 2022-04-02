@@ -397,8 +397,18 @@ def checkWord(word):
     return(True)
 
 def checkLine(line,markdown=False):
-    line = stripFancy(line,markdown=markdown)
 
+    # awkward edge case
+    # "‘can do’ capitalism; not ‘don’t do’ governments"
+    # double quotes plus apostrophe hard to parse
+    line = line.replace("\"‘can do’ capitalism, not ‘don’t do’ governments\"", "can do capitalism not don't do governments")
+    line = line.replace("\"'can do' capitalism, not 'don't do' governments\"", "can do capitalism not don't do governments")
+    line = line.replace('‘don’t do’', "don't do")
+    line = line.replace('‘can do’', "can do")
+    if "\"'can" in line:
+        breakpoint()
+
+    line = stripFancy(line,markdown=markdown)
 
     # remove brackets
     expr = r'\(([^\(\)]+)\)'
@@ -411,6 +421,7 @@ def checkLine(line,markdown=False):
     # remove brackets
     expr = r"\s'([^']+)'[\s,.!?]"
     line = re.sub(expr, r' \1 ', line)
+
 
     words = [w.strip() for w in line.split(' ') if w.strip() != '']
     for w in words:

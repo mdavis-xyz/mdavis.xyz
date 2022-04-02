@@ -295,7 +295,7 @@ def getDomain(args):
 def doAll(args):
     print("Loading in %s" % pagesFname)
     with open(pagesFname,'r') as f:
-        pagesData = yaml.load(f)
+        pagesData = yaml.load(f, Loader=yaml.Loader)
 
     print("pages data:")
     pp.pprint(pagesData)

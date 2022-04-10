@@ -52,7 +52,7 @@ Constructor.add_constructor(u'tag:yaml.org,2002:bool', add_bool)
 def main():
     inputFname = 'content.yaml'
     with open(inputFname,'r') as f:
-        content = yaml.load(f)
+        content = yaml.load(f, Loader=yaml.Loader)
 
     # pp.pprint(content)
     validate(content)
@@ -150,7 +150,7 @@ def validate(content):
                     print("text: %s" % str(text))
                     pp.pprint(el)
                     raise(e)
-                
+
                 if not myspellcheck.checkLine(text):
                     print("error, spelling mistake in button element #%d in slide %s" % (elnum,slide['id']))
                     exit(1)

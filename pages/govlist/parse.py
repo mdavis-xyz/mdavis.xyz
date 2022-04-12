@@ -26,7 +26,7 @@ bad_url_excemptions_fname = "invalidURLs.yaml"
 debug = True
 
 urlCheckRatio = 0.05 # fraction of URLs to check
-urlRecheckRatio = 0.01 # fraction of except URLs to check again
+urlRecheckRatio = 0.01 # fraction of accepted URLs to check again
 
 # returns True if the URL is valid
 def wget(url):
@@ -40,12 +40,10 @@ def wget(url):
 def checkAllURLs(data):
     urls = []
     for (i,row) in enumerate(data):
-        for url in row['urls']:
-            urls.append((url,i+1))
+        urls.extend(data['urls'])
 
     with open(url_fname,"r") as f:
         prevURLs = set([x.strip() for x in f])
-
 
     if urlCheckRatio < 1:
         newURLs = [u for u in urls if u not in prevURLs]
@@ -82,87 +80,9 @@ def checkAllURLs(data):
                 exit(1)
 
 
-
-# row num is from 1
-pattern = r"^([^{}]+)(.+)\s*#(\w+)$"
-expr = re.compile(pattern)
-def parseRow(line,rowNum):
-    result = expr.match(line)
-    if not result:
-        # print("Error: can't pass line %d" % rowNum)
-        return(None)
-    data = {
-       'text': result.groups()[0].strip(),
-       'urls': [x.strip() for x in result.groups()[1].strip('{} ').split("}{") if x.strip() != ''],
-       'hashTag': result.groups()[2].strip(),
-       'topic': classify(result.groups()[2].strip())
-    }
-
-    if len(data['urls']) == 0:
-        # print("Error: no URLs for line %d" % rowNum)
-        # print(line)
-        return(None)
-    if not myspellcheck.checkLine(data['text']):
-        print("That was abbott.txt, line %d" % rowNum)
-        print(data['text'])
-        exit(-1)
-    return(data)
-
-
-def testParseRow():
-
-    line = "some text {https://www.example.com/1}{https://www.example.com/2}#age"
-    data = parseRow(line,123)
-    try:
-        assert(data['text'] == 'some text')
-        assert(topicOrder[data['topic']] == 'Health and COVID')
-        assert(data['urls'] == ['https://www.example.com/1','https://www.example.com/2'])
-    except AssertionError as e:
-        print("Error: can't parse example line")
-        print(line)
-        pp.pprint(data)
-        raise(e)
-
-    yes = [
-        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#environment",
-        "blah <b>blah</b> 123! {http://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}{https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#environment",
-    ]
-
-    no = [
-        "blah <b>blah</b> 123! #environment",
-        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}#",
-        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}",
-        "blah <b>blah</b> 123! {https://www.abc.net.au/news/2018-05-04/environment-department-to-lose-60-jobs-key-to-threatened-species/9722560}env",
-        "",
-        " "
-    ]
-
-    for line in yes:
-        assert(parseRow(line,1))
-
-    for line in no:
-        try:
-            assert(parseRow(line,1) == None)
-        except AssertionError as e:
-            print("Error: negative parse test failed for")
-            print(line)
-            pp.pprint(parseRow(line,1))
-            raise(e)
-
 def readFile():
-    data = []
-    with open(content_fname,"r") as f:
-        for (i,line) in enumerate(f):
-            #line = line.replace("’","'").replace("`","'").replace("‘","'")
-            row = parseRow(line,i+1)
-            if row == None:
-                print("Error, can't parse row %d" % (i+1))
-                print(line)
-                exit(1)
-            data.append(row)
-
-    return(data)
-
+    with open(content_fname,'r') as f:
+        return yaml.safe_load(f)
 
 def initTopics():
     with open(topics_fname,'r') as f:

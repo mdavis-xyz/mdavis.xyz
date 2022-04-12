@@ -36,6 +36,9 @@ def stripXML(text):
         print("Probably wrong slash <\\b> instead of </b>")
         assert(False)
 
+    # don't spell check CSS
+    text = re.sub(r'<style>.*?<\/style>', ' ', text, flags=(re.DOTALL | re.MULTILINE))
+
     # code
     expr = r'<code>.*?</code>'
     text = re.sub(expr, ' ', text, flags=(re.DOTALL | re.MULTILINE))

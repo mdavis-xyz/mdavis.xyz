@@ -1,0 +1,73 @@
+<p>
+   The Morrison, Turnbull and Abbott government has been in power for over 8 years.
+   This page contains a list of most of what they have done so far.
+</p>
+<p class='center'>
+   <a href="javascript:byTopic()" class="button hidden" id="groupButton">
+      Filter By Policy Area
+   </a>
+   <div class="center" id="topicsAndUngroupButton">
+     <div id="filterMetaButtons">
+       <a href="javascript:chrono()" class="button" id="ungroupButton">
+          Hide Filter
+       </a>
+       <a href="javascript:chrono()" class="button" id="selectAllButton">
+          Select All
+       </a>
+       <a href="javascript:chrono()" class="button" id="deselectAllButton">
+          Deselect All
+       </a>
+     </div>
+     <div id="filters">
+       {% for topic in topics %}
+       <div>
+         <input type="checkbox" id="filter-{{ loop.index0 }}">
+         <label for="filter-{{ loop.index0 }}">
+           {{ topic['display'] }}
+         </label>
+       </div>
+       {% endfor %}
+     </div>
+  </div>
+</p>
+<div id="chronological">
+   <ol id="chrono-list">
+     {%- for row in data %}
+     <li class="{{ row['classes'] | join(' ') }}">
+        {{ row['text'] }}
+        {%- for url in row['urls'] %}
+        <a href="{{ url }}" target="_blank">
+           <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+        </a>
+        {%- endfor %}
+     </li>
+     {%- endfor %}
+   </ol>
+</div>
+
+   <p class="quote-p center bottomquote">
+      	&ldquo;I think you'd be best off voting Green.&rdquo;
+   </p>
+
+<p class="center postquote">
+   - Tony Abbott (election day, 2013)
+   <a target="_blank" href="http://www.telegraph.co.uk/news/worldnews/australiaandthepacific/australia/10292980/Australia-goes-to-the-polls-with-Tony-Abbott-confident-of-becoming-next-Prime-Minister.html">
+      <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+   </a>
+</p>
+<p class="center">
+   <img src="abbott-profile.jpg" alt="source" class="bottom-photo"/>
+</p>
+<p>
+  To request corrections or additions,
+  <a href="https://github.com/mdavis-xyz/mdavis.xyz/issues/new" target="_blank">
+    raise a ticket on GitHub
+  </a>.
+</p>
+<style>
+  {% for topic in topics %}
+  .{{ topic['class'] }} {
+    display: list-item;
+  }
+  {% endfor %}
+</style>

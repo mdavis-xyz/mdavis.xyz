@@ -123,7 +123,7 @@
    tags:
       - politics
    template: "custom"
-   parseScript: parse.py
+   parseScript: parse2.py
    article: True
    exclude:
       - 'footerHR'

@@ -28,8 +28,8 @@ def main():
     all_tags = set(a.lower() for t in topics for a in t['aliases'])
     for (i,row) in enumerate(data, start=1):
         row['tags'] = set(t.lower() for t in row['tags'])
-        row['classes'] = set(t['class'] for t in topics if t['aliases'] & row['tags']) # set intersection
-        assert row['classes'], f"No matching topics for tags for item {i}: tags {', '.join(row['tags'])}: {row['text'][:40]}..."
+        row['topic_ids'] = set(t['class'] for t in topics if t['aliases'] & row['tags']) # set intersection
+        assert row['topic_ids'], f"No matching topics for tags for item {i}: tags {', '.join(row['tags'])}: {row['text'][:40]}..."
         for t in row['tags']:
             assert t.lower() in all_tags, f"Unknown tag {t} in item {i}: {row['text'][:20]}"
 

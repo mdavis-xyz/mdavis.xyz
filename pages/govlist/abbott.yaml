@@ -1624,7 +1624,7 @@
 - text: >
     Lied when claiming that the USA government cannot view sensitive COVIDSafe data,
     even though the American encryption back-door laws that allow the US government to force Amazon to hand over the data
-    are the exact same laws which were the inspiration for Australia's recent encryption back-door legislation.
+    are the exact same laws which inspired the Australian government's recent encryption back-door legislation.
   urls:
   - https://www.zdnet.com/article/civil-liberty-groups-dismiss-guarantee-on-us-not-accessing-covidsafe-data/
   tags:
@@ -4757,7 +4757,7 @@
   - https://www.smh.com.au/business/chinese-corporations-allowed-to-sue-australian-government-under-free-trade-agreement-20141118-11p9lz.html
   tags:
   - international
-- text: Perpetuated the lie of 'Terra Nullius'.
+- text: Perpetuated the lie of 'Terra Nullius', claiming that Australia was "nothing but bush" before white settlement.
   urls:
   - https://newmatilda.com/2014/11/14/tony-abbott-says-nothing-bush-australia-white-settlement/
   tags:
@@ -7540,6 +7540,7 @@
   - secrecy
   - environment
   - indigenous
+  - democracy
 - text: >
     <b>Broke an election promise by trying to scrap the 2020 emissions target.</b>
   urls:

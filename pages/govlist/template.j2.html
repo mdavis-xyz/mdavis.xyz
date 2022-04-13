@@ -3,26 +3,26 @@
    This page contains a list of most of what they have done so far.
 </p>
 <p class='center'>
-   <a href="javascript:byTopic()" class="button hidden" id="groupButton">
+   <a href="javascript:addFilter()" class="button hidden appear" id="showFilterButton">
       Filter By Policy Area
    </a>
-   <div class="center" id="topicsAndUngroupButton">
+   <div class="center hidden" id="topicsAndUngroupButton">
      <div id="filterMetaButtons">
-       <a href="javascript:chrono()" class="button" id="ungroupButton">
+       <a href="javascript:hideFilter()" class="button appear" id="ungroupButton">
           Hide Filter
        </a>
-       <a href="javascript:chrono()" class="button" id="selectAllButton">
+       <a href="javascript:selectAll()" class="button appear" id="selectAllButton">
           Select All
        </a>
-       <a href="javascript:chrono()" class="button" id="deselectAllButton">
+       <a href="javascript:deselectAll()" class="button appear" id="deselectAllButton">
           Deselect All
        </a>
      </div>
      <div id="filters">
        {% for topic in topics %}
        <div>
-         <input type="checkbox" id="filter-{{ loop.index0 }}">
-         <label for="filter-{{ loop.index0 }}">
+         <input type="checkbox" id="filter-{{ topic['class'] }}" onchange="filterToggled('{{ topic['class'] }}')" data-topic="{{ topic['class'] }}">
+         <label for="filter-{{ topic['class'] }}">
            {{ topic['display'] }}
          </label>
        </div>
@@ -30,20 +30,18 @@
      </div>
   </div>
 </p>
-<div id="chronological">
-   <ol id="chrono-list">
-     {%- for row in data %}
-     <li class="{{ row['classes'] | join(' ') }}">
-        {{ row['text'] }}
-        {%- for url in row['urls'] %}
-        <a href="{{ url }}" target="_blank">
-           <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
-        </a>
-        {%- endfor %}
-     </li>
-     {%- endfor %}
-   </ol>
-</div>
+ <ol id="chrono-list">
+   {%- for row in data %}
+   <li class="{{ row['topic_ids'] | join(' ') }}">
+      {{ row['text'] }}
+      {%- for url in row['urls'] %}
+      <a href="{{ url }}" target="_blank">
+         <img src="link.png" alt="source" height="128" width="128" class="link-icon"/>
+      </a>
+      {%- endfor %}
+   </li>
+   {%- endfor %}
+ </ol>
 
    <p class="quote-p center bottomquote">
       	&ldquo;I think you'd be best off voting Green.&rdquo;
@@ -65,9 +63,13 @@
   </a>.
 </p>
 <style>
-  {% for topic in topics %}
-  .{{ topic['class'] }} {
-    display: list-item;
-  }
-  {% endfor %}
+
+.filteredList li {
+	display: none;
+}
+{% for t in topics %}
+.filteredList.show-{{ t['class'] }} li.{{ t['class'] }} {
+  display: list-item;
+}
+{% endfor %}
 </style>

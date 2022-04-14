@@ -28,10 +28,13 @@
 
 .bottom-photo {
    max-width: 12em;
-   width: 30%;
+	 max-height: 12em;
+   width: 30vw;
+	 height: 30vw; /* deliberately width */
    border-radius: 0.2em;
 	 margin: 1%;
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+	 object-fit: cover;
 }
 
 .hidden {

@@ -64,14 +64,3 @@
     raise a ticket on GitHub
   </a>.
 </p>
-<style>
-
-.filteredList li {
-	display: none;
-}
-{% for t in topics %}
-.filteredList.show-{{ t['class'] }} li.{{ t['class'] }} {
-  display: list-item;
-}
-{% endfor %}
-</style>

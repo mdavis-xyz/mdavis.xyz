@@ -11,6 +11,8 @@ content_fname = 'abbott.yaml'
 topic_fname = 'topics.yaml'
 template_fname = 'template.j2.html'
 output_fname = 'stub.html'
+style_template_fname = 'styles.j2.css'
+style_output_fname = 'docs/styles.css'
 good_urls_fname = 'good-urls.txt'
 bad_url_excemptions_fname = 'bad-urls-excemptions.txt'
 good_url_recheck_fraction = 0
@@ -83,6 +85,13 @@ def main():
     html_s = template.render(data=data, topics=topics)
     with open(output_fname, 'w') as f:
         f.write(html_s)
+
+    # render the CSS
+    with open(style_template_fname, 'r') as f:
+        template = Template(f.read(), trim_blocks=False)
+    css_s = template.render(topics=topics)
+    with open(style_output_fname, 'w') as f:
+        f.write(css_s)
 
 def check_url(url) -> bool:
 

@@ -111,23 +111,26 @@
    path: "govlist"
    images:
       card:
-         path: "thumb.jpg"
-         description: "Turnbull Government Ministers"
+         # AAP image 20150911001175878941
+         path: "aap-trio-thumb.jpg"
+         description: "Morrison, Turnbull and Dutton"
          width: 522
-         height: 348
+         height: 337
+         attribution: AAP Image
       top:
-         path: "abbott-large.jpg"
-         description: "Turnbull Government Ministers"
-         width: 1560
-         height: 878
+         path: "aap-trio-medium.jpg"
+         description: "Morrison, Turnbull and Dutton"
+         width: 2000
+         height: 1292
+         attribution: AAP Image
    tags:
       - politics
    template: "custom"
-   parseScript: parse2.py
+   parseScript: parse.py
    article: True
    exclude:
       - 'footerHR'
-   date: 7/11/2021 # update manually
+   date: 14/4/2022 # update manually
 -  title: "Why Paper Voting Is Still Superior"
    description: "How digital security is good enough for banking but not for elections"
    path: "voting"

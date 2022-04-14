@@ -18,7 +18,7 @@
   tags:
   - corruption
   - democracy
-- text: Wasted $112 million by paying 8 times the market rate to conserve water in the Murray Darling Basin.
+- text: Paid 8 times more than the market rate to conserve water in the Murray Darling Basin (overpayment of $112 million).
   urls:
   - https://www.theguardian.com/australia-news/2022/jan/19/government-paying-eight-times-over-market-price-for-murray-darling-water-buyback-environment-groups-claim
   tags:
@@ -30,17 +30,6 @@
     despite saying they plan to solve climate change with "‘can do’ capitalism, not ‘don’t do’ governments".
   urls:
   - https://www.abc.net.au/news/rural/2021-12-15/biodiversity-carbon-credits-rading-scheme-for-farmers/100695682
-  - https://www.theguardian.com/australia-news/commentisfree/2021/nov/17/scott-morrisons-can-do-capitalism-is-a-hypocritical-example-of-do-nothing-leadership
-  tags:
-  - climate
-  - economy
-- text: >
-    Criticised capitalist Mike Cannon-Brookes when he tried to transition AGL from coal to renewables,
-    in the same month they claimed they'll solve climate change with "‘can do’ capitalism, not ‘don’t do’ governments".
-    The government say they want to intervene with tax money to prop up coal instead,
-    despite also saying their climate change plan is to <i>not</i> intervene in markets with taxpayer money.
-  urls:
-  - https://www.theguardian.com/business/2022/feb/21/mike-cannon-brookes-dismisses-pms-suggestion-that-coal-plants-should-run-to-end-of-scheduled-life
   - https://www.theguardian.com/australia-news/commentisfree/2021/nov/17/scott-morrisons-can-do-capitalism-is-a-hypocritical-example-of-do-nothing-leadership
   tags:
   - climate
@@ -62,8 +51,8 @@
 - text: >
     Spent $1,400 per person per day to feed asylum seekers in Papua New Guinea.
     This $82 million contract was paid to a a high-risk shell company owned by PNG political figures, without any competitive tender process.
-    The government did not bother to ask any other company whether they can provide the food for a cheaper price or with less insolvency risk.
-    The government spent far more money than it would have cost to house the asylum seekers in 5 star hotels with caviar and lobster for every meal.
+    The government did not ask any other company whether they can provide the food for a cheaper price or with less insolvency risk.
+    The government spent far more money than it would have cost to feed them caviar and lobster for every meal from a high end restaurant.
   urls:
   - https://www.smh.com.au/politics/federal/high-risk-and-inflated-australia-s-contract-for-food-on-manus-island-20190313-p513rn.html
   - https://youtu.be/aIGKCkS01EA?t=226
@@ -121,7 +110,7 @@
   - ethics
 - text: >
     Purchased 70,000 tonnes of coal to be shipped to the other side of the world to give to Ukraine.
-    It would be more efficient and quicker to simply buy it from Ukraine's coal-producing neighbour Poland.
+    It would be more cheaper and quicker to simply buy it from Ukraine's coal-producing neighbour (Poland).
     The government has not said how they will sneak a huge ship past the Russians, who control most nearby ports.
     The government did not attempt to shop around with other coal companies in Australia, and decided to give the money to this company prior to agreeing on the price.
     Coincidentally the company is a Liberal donor.
@@ -133,7 +122,8 @@
   - climate
   - international
   - corruption
-- text: Spent $18M on a new leadership program, given to an organisation with no staff, no track record in anything related to leadership, with an incorrect registered address, without a normal tender process.
+  - donors
+- text: Spent $18M on a new leadership program, given to an organisation with no staff, no track record in anything related to leadership, with an incorrect registered business address, without a normal tender process.
   urls:
   - https://www.abc.net.au/news/2022-04-05/question-millions-australian-future-leaders-foundation-funding/100965562
   tags:
@@ -205,7 +195,7 @@
   tags:
   - international
   - cyber
-- text: Withheld the cost estimates of the discovery phase of a class action about wage theft against the commonwealth (by a previous government).
+- text: Withheld the cost estimates of the legal defence costs for a class action against the commonwealth (about wage theft by a previous government).
   urls:
   - https://theconversation.com/a-cost-of-living-budget-cuts-spends-and-everything-you-need-to-know-at-a-glance-180124
   - https://www.comcourts.gov.au/file/Federal/P/VID312/2021/actions
@@ -291,13 +281,24 @@
   - https://reneweconomy.com.au/car-drives-into-electricity-pole-coalition-blames-green-energy-for-ensuing-outage/
   tags:
   - renewables
-- text: Spent $77.5M just to investigate whether to continue the train line to the new western Sydney airport by one station, to close the loop instead of a dead end. This expense is just to <i>think about</i> whether to do this build, not actually planning or designing.
+- text: Spent $77.5M just to investigate whether to continue the train line to the new western Sydney airport by one station, to close the loop instead of a dead end. This expense is just to <i>think about</i> whether to do this build, not actually planning or designing it.
   urls:
   - https://www.sheppnews.com.au/national/newcastle-to-sydney-train-gets-1b-boost/
   tags:
   - budget
   - waste
-- text: Failed to mentioned in the COVIDSafe app privacy policy that information about the phone model and device name (e.g. "Mary's iPhone") is broadcasted over Bluetooth. An example of this being exploited is that a domestic violence abuser can tell whether the victim is at home and their house-mates are not, without setting foot in the building.
+- text: >
+    Criticised capitalist Mike Cannon-Brookes when he tried to transition AGL from coal to renewables,
+    in the same month they claimed they'll solve climate change with "‘can do’ capitalism, not ‘don’t do’ governments".
+  # The government say they want to intervene with tax money to prop up coal instead,
+  # despite also saying their climate change plan is to <i>not</i> intervene in markets with taxpayer money.
+  urls:
+  - https://www.theguardian.com/business/2022/feb/21/mike-cannon-brookes-dismisses-pms-suggestion-that-coal-plants-should-run-to-end-of-scheduled-life
+  - https://www.theguardian.com/australia-news/commentisfree/2021/nov/17/scott-morrisons-can-do-capitalism-is-a-hypocritical-example-of-do-nothing-leadership
+  tags:
+  - climate
+  - economy
+- text: Failed to mentioned in the COVIDSafe app privacy policy that information about the phone model and device name (e.g. "Mary's iPhone") is broadcast over Bluetooth. An example of this being exploited is that a domestic violence abuser can tell whether the victim is at home and their house-mates are not, without setting foot in the building.
   urls:
   - https://docs.google.com/document/d/1u5a5ersKBH6eG362atALrzuXo3zuZ70qrGomWVEC27U/edit#
   tags:
@@ -311,7 +312,7 @@
   - budget
   - music
 - text: >
-    <b>Showed evidence to a judge when prosecuting a case against a whistle-blower in a secret way such that the defendant cannot see the evidence used against him, and therefore is unable to fairly defend himself.</b>
+    <b>Showed evidence to a judge when prosecuting a case against an Australian whistle-blower in a secret way such that the defendant cannot see the evidence used against him, and therefore is unable to fairly defend himself.</b>
   urls:
   - https://www.abc.net.au/mediawatch/episodes/collaery/13580006
   tags:
@@ -349,6 +350,30 @@
   - secrecy
   - covid
 - text: >
+    Blocked a House of Representatives investigation into the source of a substantial donation to a minister's personal legal costs for a defamation prosecution, arguing that the anonymity and privacy of the rich donor must be protected.
+    The procedure for blocking this investigation was unprecedented.
+    The government has previously made the exact opposite argument when criticising a Greens minister who published only partial information about legal fee donors for her defamation case.
+  urls:
+  - https://www.abc.net.au/news/2021-10-20/government-blocks-bid-investigate-christian-porter-fee-donation/100554798
+  tags:
+  - secrecy
+  - corruption
+  - donors
+- text: Proposed forced identification of all social media users, arguing that citizens should not be able to post comments on social media anonymously, and that ordinary, upstanding citizens have no need for anonymity. Citizens would have to upload passport and driver's license documents to OnlyFans before uploading or consuming content. Domestic violence victims would no longer be able to seek help on social media sites anonymously, without risking discovery by their abuser. Teens of conservative parents would no longer be able to ask questions about sex education and safe sex on social media anonymously, thereby deterring them from making safe, informed decisions. Closeted LGBT youth would no longer be able to seek support online anonymously without outing themselves. When this was tried in Korea the sensitive information was inevitably hacked.
+  urls:
+  # - https://www.zdnet.com/article/calls-to-id-social-media-users-is-just-another-morrison-government-rush-job/ # infinite redirect
+  - https://web.archive.org/web/20211012035436/https://www.zdnet.com/article/calls-to-id-social-media-users-is-just-another-morrison-government-rush-job/
+  - https://www.smh.com.au/politics/federal/christian-porter-s-blind-trust-to-be-examined-along-with-anonymous-donors-20211021-p591xa.html
+  - https://thenewdaily.com.au/news/2021/10/25/social-media-age-verification-plan/
+  - https://www.zdnet.com/article/australian-online-privacy-bill-to-make-social-media-age-verification-mandatory-for-tech-giants-reddit-zoom-gaming-platforms/
+  - https://www.zdnet.com/article/twitter-joins-backlash-against-australian-plan-to-id-social-media-users-tech/ # circular redirect?
+  # - https://web.archive.org/web/20220215150153/https://www.zdnet.com/article/twitter-joins-backlash-against-australian-plan-to-id-social-media-users-tech/
+  tags:
+  - privacy
+  - cyber
+  - corruption
+  - secrecy
+- text: >
     <b>Lied</b> by claiming new unprecedented police hacking laws would only apply to terrorists, paedophiles and drug traffickers,
     when their actual legislation says they can be used for crimes as benign as illegal gambling and illegal importing of fauna.
   urls:
@@ -358,29 +383,6 @@
   - corruption
   - lawenforcement
   - cyber
-- text: >
-    Blocked a House of Representatives investigation into the source of a substantial donation to a minister's personal legal costs for a defamation prosecution, arguing that the anonymity and privacy of the rich donor must be protected.
-    The procedure for blocking this investigation was unprecedented.
-    The government has previously made the exact opposite argument when criticising a Greens minister who published only partial information about legal fee donors for her defamation case.
-  urls:
-  - https://www.abc.net.au/news/2021-10-20/government-blocks-bid-investigate-christian-porter-fee-donation/100554798
-  tags:
-  - secrecy
-  - corruption
-- text: Proposed forced identification of all social media users, arguing that citizens should not be able to post comments on social media anonymously, and that ordinary, upstanding citizens have no need for anonymity. Citizens would have to upload passport and driver's license documents to OnlyFans before uploading or consuming content. Domestic violence victims would no longer be able to seek help on social media sites anonymously, without risking discovery by their abuser. Teens of conservative parents would no longer be able to ask questions about sex education and safe sex on social media anonymously, thereby deterring them from making safe, informed decisions. Closeted LGBT youth would no longer be able to seek support online anonymously without outing themselves. When this was tried in Korea the sensitive information was inevitably hacked.
-  urls:
-  # - https://www.zdnet.com/article/calls-to-id-social-media-users-is-just-another-morrison-government-rush-job/ # infinite redirect
-  - https://web.archive.org/web/20211012035436/https://www.zdnet.com/article/calls-to-id-social-media-users-is-just-another-morrison-government-rush-job/
-  - https://www.smh.com.au/politics/federal/christian-porter-s-blind-trust-to-be-examined-along-with-anonymous-donors-20211021-p591xa.html
-  - https://thenewdaily.com.au/news/2021/10/25/social-media-age-verification-plan/
-  - https://www.zdnet.com/article/australian-online-privacy-bill-to-make-social-media-age-verification-mandatory-for-tech-giants-reddit-zoom-gaming-platforms/
-  # - https://www.zdnet.com/article/twitter-joins-backlash-against-australian-plan-to-id-social-media-users-tech/ # circular redirect
-  - https://web.archive.org/web/20220215150153/https://www.zdnet.com/article/twitter-joins-backlash-against-australian-plan-to-id-social-media-users-tech/
-  tags:
-  - privacy
-  - cyber
-  - corruption
-  - secrecy
 - text: >
     Introduced legislation designed to make gig economy companies like Deliveroo report more tax information about their employees,
     which was so sloppily written that it means websites for booking doctor appointments would technically be required
@@ -568,6 +570,7 @@
   - waste
   - secrecy
   - budget
+  - donors
 - text: >
     Tabled law amendments which would result in charities losing their tax deductible status if they tweet in support of public protests,
     or display their logo at a protest where the commissioner suspects an unaffiliated protestor has or <i>might</i> commit a minor offence such as blocking a sidewalk.
@@ -1661,8 +1664,8 @@
 - text: >
     <b>Introduced a new tax</b>, to incentivise non-NBN users to migrate to the expensive NBN.
   urls:
-  # - https://www.zdnet.com/article/nbn-broadband-tax-clears-parliament/ # circular redirect
-  - https://web.archive.org/web/20220301122203/https://www.zdnet.com/article/nbn-broadband-tax-clears-parliament/
+  - https://www.zdnet.com/article/nbn-broadband-tax-clears-parliament/ # circular redirect?
+  # - https://web.archive.org/web/20220301122203/https://www.zdnet.com/article/nbn-broadband-tax-clears-parliament/
   tags:
   - nbn
   - tax
@@ -4357,7 +4360,8 @@
     Scrapped a public inquiry into law enforcement agencies access to journalists' telecommunications data,
     for the purposes of identifying journalists' sources.
   urls:
-  - https://www.computerworld.com.au/article/572172/data-retention-inquiry-into-accessing-journo-data-scrapped/
+  #- https://www.computerworld.com.au/article/572172/data-retention-inquiry-into-accessing-journo-data-scrapped/ # stale
+  - http://web.archive.org/web/20150706232105/http://www.computerworld.com.au/article/572172/data-retention-inquiry-into-accessing-journo-data-scrapped/
   tags:
   - metadata
   - whistleblowers
@@ -4438,7 +4442,9 @@
   - refugees
 - text: Flew across the country on a taxpayer funded private jet to attend the private birthday party of a millionaire who has made large donations to the Liberal party.
   urls:
-  - https://news.com.au/national/victoria/pm-tony-abbott-flies-on-taxpayer-funded-jet-to-liberal-donors-birthday-bash-at-huntingdale-golf-club/story-fnii5sms-1227275585102
+  # #- https://news.com.au/national/victoria/pm-tony-abbott-flies-on-taxpayer-funded-jet-to-liberal-donors-birthday-bash-at-huntingdale-golf-club/story-fnii5sms-1227275585102 # stale
+  - http://web.archive.org/web/20150323135522/http://www.news.com.au/national/victoria/pm-tony-abbott-flies-on-taxpayer-funded-jet-to-liberal-donors-birthday-bash-at-huntingdale-golf-club/story-fnii5sms-1227275585102 # stale
+  - https://web.archive.org/web/20150403070440/http://www.news.com.au/national/victoria/pm-tony-abbott-flies-on-taxpayer-funded-jet-to-liberal-donors-birthday-bash-at-huntingdale-golf-club/story-fnii5sms-1227275585102
   tags:
   - corruption
   - waste
@@ -4609,7 +4615,8 @@
   - budget
 - text: Used veto powers to block a UN resolution calling to the end of Israel's occupation of Palestine.
   urls:
-  - https://rt.com/news/217975-unsc-palestine-statehood-vote/
+  #- https://rt.com/news/217975-unsc-palestine-statehood-vote/ # stale
+  - http://web.archive.org/web/20150101184703/http://rt.com/news/217975-unsc-palestine-statehood-vote/
   tags:
   - international
 - text: Spent over $15 million on an advertisement campaign to make university fee deregulation more palatable.
@@ -4872,7 +4879,7 @@
   tags:
   - climate
 - text: >
-    <b>Joined the Iraq war 3.0 by recklessly running in with guns blazing
+    <b>Joined the Iraq war 3.0
     without a clear, public and testable objective,
     without a proposed timeline,
     without any explanation of why we won't fail just like the last time
@@ -5013,7 +5020,9 @@
     <b>Broke an election promise</b> by allowing the new multi-billion dollar batch of Navy submarines to be built overseas,
     despite high levels of unemployment amongst our manufacturing sector.
   urls:
-  - https://www.news.com.au/national/any-decision-to-buy-australias-next-submarine-overseas-will-spell-disaster-for-local-industry/story-fncynjr2-1227004815529
+  # #- https://www.news.com.au/national/any-decision-to-buy-australias-next-submarine-overseas-will-spell-disaster-for-local-industry/story-fncynjr2-1227004815529 # stale
+  - http://web.archive.org/web/20140802093125/http://www.news.com.au/national/any-decision-to-buy-australias-next-submarine-overseas-will-spell-disaster-for-local-industry/story-fncynjr2-1227004815529 # stale
+  - https://web.archive.org/web/20140802093125/http://www.news.com.au/national/any-decision-to-buy-australias-next-submarine-overseas-will-spell-disaster-for-local-industry/story-fncynjr2-1227004815529
   - https://www.abc.net.au/pm/content/2013/s3749528.htm
   tags:
   - navy
@@ -5032,7 +5041,6 @@
   - employment
 - text: Introduced mandatory metadata retention schemes for all internet providers. The government admits the changes are not necessary, and that there is no evidence to show that it will improve law enforcement. Warrants will not be required to access the data. The cost of implementing the schemes will come to about another $100 per customer per year. It will be used to punish illegal downloaders.
   urls:
-  - https://tharunka.arc.unsw.edu.au/kill-people-based-metadata/
   - https://www.eff.org/deeplinks/2013/06/why-metadata-matters
   - https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result
   - https://www.sbs.com.au/news/article/2015/03/17/data-retention-change-not-necessary-brandis-says
@@ -5251,7 +5259,9 @@
   - secrecy
 - text: Tried to introduce a $7 fee for each time you go to see a GP. They claimed $7 is simultaneously large enough to act as a deterrent (thereby saving money), and small enough that it won't deter poor, sick people from getting help.
   urls:
-  - https://www.news.com.au/national/who-pays-the-7-gp-fee-the-prime-minister-and-the-treasurer-dont-understand-their-own-policy/story-fncynjr2-1226926025926
+  # #- https://www.news.com.au/national/who-pays-the-7-gp-fee-the-prime-minister-and-the-treasurer-dont-understand-their-own-policy/story-fncynjr2-1226926025926 # stale
+  - http://web.archive.org/web/20140521224959/http://www.news.com.au/national/who-pays-the-7-gp-fee-the-prime-minister-and-the-treasurer-dont-understand-their-own-policy/story-fncynjr2-1226926025926 # stale
+  - https://web.archive.org/web/20140521224959/https://www.news.com.au/national/who-pays-the-7-gp-fee-the-prime-minister-and-the-treasurer-dont-understand-their-own-policy/story-fncynjr2-1226926025926
   - https://www.smh.com.au/national/health/gp-copayment-would-result-in-unnecessary-deaths-doctors-say-20140511-zr9cr.html#ixzz31R8vEvBc
   - https://www.theguardian.com/world/2014/may/13/budget-7-gp-fee-brings-end-to-free-doctors-visits
   tags:
@@ -5290,7 +5300,9 @@
   - school
 - text: Cut $170 million from the Research Training Scheme, which supported research students.
   urls:
-  - https://www.universitiesaustralia.edu.au/news/media-releases/Research-programmes-take-a-hit-as-universities-and-students-left-in-policy-limbo
+  # #- https://www.universitiesaustralia.edu.au/news/media-releases/Research-programmes-take-a-hit-as-universities-and-students-left-in-policy-limbo # stale
+  - http://web.archive.org/web/20160320045349/https://www.universitiesaustralia.edu.au/news/media-releases/Research-programmes-take-a-hit-as-universities-and-students-left-in-policy-limbo # stale
+  - https://web.archive.org/web/20160320045349/https://www.universitiesaustralia.edu.au/news/media-releases/Research-programmes-take-a-hit-as-universities-and-students-left-in-policy-limbo
   - https://web.archive.org/web/20170509220320/https://www.afr.com/news/policy/education/universities-given-power-to-set-fees-20140513-iturz
   tags:
   - research
@@ -5311,7 +5323,9 @@
   - health
 - text: Removed financial rewards which encouraged Universities to enroll disadvantaged students.
   urls:
-  - https://www.education.gov.au/sustainable-higher-education-system
+  # #- https://www.education.gov.au/sustainable-higher-education-system # stale
+  - http://web.archive.org/web/20140702050504/http://education.gov.au/sustainable-higher-education-system # stale
+  - https://web.archive.org/web/20140702050504/http://education.gov.au/sustainable-higher-education-system
   tags:
   - uni
 - text: Scrapped the National Rental Affordability Scheme.
@@ -5371,7 +5385,9 @@
     <b>Broke an election promise</b> by cutting billions from school funding and committing to even less of the Gonski reforms than they did at the election.
   urls:
   - https://www.businessinsider.com.au/these-two-budget-charts-show-how-much-money-joe-hockey-is-cutting-from-hospitals-and-schools-2014-5
-  - https://www.news.com.au/finance/economy/what-you-missed-from-the-federal-budget-2014/story-fn84fgcm-1226917665155
+  # #- https://www.news.com.au/finance/economy/what-you-missed-from-the-federal-budget-2014/story-fn84fgcm-1226917665155 # stale
+  - http://web.archive.org/web/20140514105850/http://www.news.com.au/finance/economy/what-you-missed-from-the-federal-budget-2014/story-fn84fgcm-1226917665155 # stale
+  - https://web.archive.org/web/20140514162344/http://www.news.com.au/finance/economy/what-you-missed-from-the-federal-budget-2014/story-fn84fgcm-1226917665155
   - https://www.sunshinecoastdaily.com.au/news/budget-didnt-give-gonski-teachers-union-says/2257903/
   - https://www.theguardian.com/world/2014/may/21/david-gonski-attacks-abbott-government-school-funding
   tags:
@@ -5412,7 +5428,8 @@
   - hecs
 - text: Scrapped the Women's leadership program.
   urls:
-  - https://www.sbs.com.au/news/fragment/womens-leadership-funding-stripped-16-million
+  #- https://www.sbs.com.au/news/fragment/womens-leadership-funding-stripped-16-million # stale
+  - http://web.archive.org/web/20140514102753/http://www.sbs.com.au/news/fragment/womens-leadership-funding-stripped-16-million # stale but wayback machine has corrupt archive
   tags:
   - rights
 - text: >
@@ -5444,7 +5461,8 @@
   - education
 - text: Scrapped the Education Department’s Online Diagnostic Tools Program, which helped improve teachers' productivity.
   urls:
-  - https://www.businessspectator.com.au/article/2014/5/14/technology/no-skills-required-were-australian
+  #- https://www.businessspectator.com.au/article/2014/5/14/technology/no-skills-required-were-australian # stale
+  - http://web.archive.org/web/20140516045108/http://www.businessspectator.com.au/article/2014/5/14/technology/no-skills-required-were-australian
   tags:
   - education
 - text: Cut $4.4 million from job interview workshop programs.
@@ -5460,7 +5478,8 @@
   - water
 - text: Reduced the Medicare optometry rebate.
   urls:
-  - https://www.optometrists.asn.au/media/434919/oaa_-_federal_budget_summary_updated_15-05-2014.pdf
+  #- https://www.optometrists.asn.au/media/434919/oaa_-_federal_budget_summary_updated_15-05-2014.pdf # stale
+  - http://web.archive.org/web/20150330070648/http://www.optometrists.asn.au/media/434919/oaa_-_federal_budget_summary_updated_15-05-2014.pdf
   tags:
   - health
   - costofliving
@@ -5507,7 +5526,8 @@
     <b>Stopped giving under 25s Newstart.
     The Joint Committee on Human Rights said that this will violate our human rights obligations</b>.
   urls:
-  - https://www.news.com.au/finance/economy/federal-budget-2014-unemployed-face-big-changes-to-newstart-work-for-the-dole/story-fn84fgcm-1226916583912
+  #- https://www.news.com.au/finance/economy/federal-budget-2014-unemployed-face-big-changes-to-newstart-work-for-the-dole/story-fn84fgcm-1226916583912 # stale
+  - http://web.archive.org/web/20140514014408/http://www.news.com.au/finance/economy/federal-budget-2014-unemployed-face-big-changes-to-newstart-work-for-the-dole/story-fn84fgcm-1226916583912
   - https://www.abc.net.au/news/2014-05-15/budget-2014-youth-unemployment/5455906
   - https://www.sbs.com.au/news/article/2014/09/30/governments-dole-plan-would-violate-human-rights
   tags:
@@ -5631,7 +5651,8 @@
 - text: >
     <b>Broke an election promise</b> by changing age pension indexation, and eligibility age, and the threshold.
   urls:
-  - https://www.news.com.au/finance/economy/federal-budget-2014-incentive-to-hire-older-workers-as-aged-pensioners-tighten-their-belts/story-fn84fgcm-1226916478488
+  #- https://www.news.com.au/finance/economy/federal-budget-2014-incentive-to-hire-older-workers-as-aged-pensioners-tighten-their-belts/story-fn84fgcm-1226916478488 # stale
+  - http://web.archive.org/web/20140514102401/http://www.news.com.au/finance/economy/federal-budget-2014-incentive-to-hire-older-workers-as-aged-pensioners-tighten-their-belts/story-fn84fgcm-1226916478488
   - https://theconversation.com/infographic-the-promises-vs-budget-measures-26660
   - https://www.youtube.com/watch
   tags:
@@ -5651,7 +5672,8 @@
 - text: >
     <b>Broke an election promise</b> by cutting $40 million from the SBS and ABC.
   urls:
-  - https://www.news.com.au/finance/economy/federal-budget-2014-tony-abbott-breaks-election-promise-with-cuts-to-abc-and-sbs-funding/story-fn84fgcm-1226916460087
+  #- https://www.news.com.au/finance/economy/federal-budget-2014-tony-abbott-breaks-election-promise-with-cuts-to-abc-and-sbs-funding/story-fn84fgcm-1226916460087 # stale
+  - http://web.archive.org/web/20140514102306/http://www.news.com.au/finance/economy/federal-budget-2014-tony-abbott-breaks-election-promise-with-cuts-to-abc-and-sbs-funding/story-fn84fgcm-1226916460087
   - https://www.youtube.com/watch
   - https://www.theage.com.au/federal-politics/political-news/abc-to-cut-80-international-jobs-20140714-3bxaf.html
   tags:
@@ -5748,7 +5770,8 @@
 - text: >
     <b>Broke an election promise</b> by proposing a deficit tax.
   urls:
-  - https://www.businessspectator.com.au/article/2014/5/2/climate/tony-abbott-comedian-extraordinaire
+  #- https://www.businessspectator.com.au/article/2014/5/2/climate/tony-abbott-comedian-extraordinaire # stale
+  - http://web.archive.org/web/20140504152712/http://www.businessspectator.com.au/article/2014/5/2/climate/tony-abbott-comedian-extraordinaire
   tags:
   - costofliving
   - tax
@@ -5817,7 +5840,8 @@
     The arbitrary bureaucratic hurdles have increased the cost of fibre to premise by 15%.
   urls:
   - https://www.theage.com.au/it-pro/business-it/tpg-withdraws-superfast-fibre-service-competing-with-nbn-20150105-12i4ac.html
-  - https://www.businessspectator.com.au/article/2015/2/20/technology/tpg-back-its-fibre-horse
+  #- https://www.businessspectator.com.au/article/2015/2/20/technology/tpg-back-its-fibre-horse # stale
+  - http://web.archive.org/web/20150221100739/http://www.businessspectator.com.au/article/2015/2/20/technology/tpg-back-its-fibre-horse
   tags:
   - nbn
   - costofliving
@@ -5841,7 +5865,8 @@
     that are designed to encourage Research and Development,
     despite promising during the election to improve incentives for Research and Development investment.
   urls:
-  - https://www.news.com.au/national/breaking-news/govt-axes-tax-break-oversight-body/story-e6frfku9-1226881080975
+  #- https://www.news.com.au/national/breaking-news/govt-axes-tax-break-oversight-body/story-e6frfku9-1226881080975 # stale
+  - http://web.archive.org/web/20140411113904/http://www.news.com.au/national/breaking-news/govt-axes-tax-break-oversight-body/story-e6frfku9-1226881080975
   tags:
   - research
   - tax
@@ -5858,7 +5883,8 @@
   - jobs
 - text: Cut 400 jobs in the Department of Industry.
   urls:
-  - https://www.news.com.au/national/breaking-news/industry-department-sheds-400-staff/story-e6frfku9-1226864330268
+  #- https://www.news.com.au/national/breaking-news/industry-department-sheds-400-staff/story-e6frfku9-1226864330268 # stale
+  - http://web.archive.org/web/20140325101837/http://www.news.com.au/national/breaking-news/industry-department-sheds-400-staff/story-e6frfku9-1226864330268
   tags:
   - jobs
 - text: Removed anti-sweatshop laws and cut all funding to Ethical Clothing Australia.
@@ -5940,12 +5966,14 @@
   - secrecy
 - text: Chose not to process any claims for asylum from people detained on Manus Island.
   urls:
-  - https://rac-vic.org/2014/03/02/fact-sheet-on-attacks-on-asylum-seekers-on-manus-island/
+  #- https://rac-vic.org/2014/03/02/fact-sheet-on-attacks-on-asylum-seekers-on-manus-island/ # stale
+  - http://web.archive.org/web/20140306020957/http://rac-vic.org/2014/03/02/fact-sheet-on-attacks-on-asylum-seekers-on-manus-island/
   tags:
   - refugees
 - text: Claimed that all social media is anonymous.
   urls:
-  - https://theaimn.com/glimpses-of-the-real-tony-abbott/
+  #- https://theaimn.com/glimpses-of-the-real-tony-abbott/ # stale
+  - http://web.archive.org/web/20141124210540/http://theaimn.com/glimpses-of-the-real-tony-abbott/
   tags:
   - technology
   - cyber
@@ -6016,8 +6044,10 @@
     The justification for this scrapping was based on the false claim that asylum seekers are illegal.
   urls:
   - https://au.news.yahoo.com/thewest/a/22265758/new-asylum-seekers-lose-free-law-aid/
-  - https://www.glennmurray.com.au/australia-boat-people-illegal-policy/
-  - https://www.un.org/en/documents/udhr/index.shtml#a14
+  #- https://www.glennmurray.com.au/australia-boat-people-illegal-policy/ # stale
+  - http://web.archive.org/web/20140125175730/http://www.glennmurray.com.au/australia-boat-people-illegal-policy/
+  #- https://www.un.org/en/documents/udhr/index.shtml#a14 # stale
+  - http://web.archive.org/web/20090503002433/http://www.un.org/en/documents/udhr/index.shtml
   - https://www.unhcr.org/4ec262df9.html
   tags:
   - refugees
@@ -6179,8 +6209,10 @@
 - text: >
     <b>Cut all welfare ($260,000) for orphans of defence force casualties.</b>
   urls:
-  - https://www.news.com.au/national/orphans-of-soldiers-to-have-welfare-payments-cut/story-fncynjr2-1226856307076
-  - https://rac-vic.org/2014/03/02/fact-sheet-on-attacks-on-asylum-seekers-on-manus-island/
+  #- https://www.news.com.au/national/orphans-of-soldiers-to-have-welfare-payments-cut/story-fncynjr2-1226856307076 # stale
+  - http://web.archive.org/web/20140317034204/http://www.news.com.au/national/orphans-of-soldiers-to-have-welfare-payments-cut/story-fncynjr2-1226856307076
+  #- https://rac-vic.org/2014/03/02/fact-sheet-on-attacks-on-asylum-seekers-on-manus-island/ # stale
+  - http://web.archive.org/web/20140306020957/http://rac-vic.org/2014/03/02/fact-sheet-on-attacks-on-asylum-seekers-on-manus-island/
   - https://on.fb.me/1leFuXk
   tags:
   - veterans
@@ -6269,7 +6301,8 @@
     The software has not passed a security audit.
     Each plane holds less than 3 seconds of ammunition for the guns.
   urls:
-  - https://tharunka.arc.unsw.edu.au/buy-instead-shiny-new-jets/
+  #- https://tharunka.arc.unsw.edu.au/buy-instead-shiny-new-jets/ # stale
+  - http://web.archive.org/web/20140903221157/http://tharunka.arc.unsw.edu.au/buy-instead-shiny-new-jets/
   - https://medium.com/war-is-boring/fd-how-the-u-s-and-its-allies-got-stuck-with-the-worlds-worst-new-warplane-5c95d45f86a5
   - https://www.theguardian.com/politics/2014/jul/04/us-military-grounds-all-f-35-fighter-jets-but-australias-purchase-to-go-ahead
   - https://foxtrotalpha.jalopnik.com/the-f-35-cant-run-on-warm-gas-from-a-fuel-truck-that-sa-1668120726
@@ -6314,7 +6347,8 @@
     Declined an offer from the Uniting Church to care for unaccompanied refugee children currently in detention centres.
     The church offered to feed house and clothe them free of charge.
   urls:
-  - https://www.probonoaustralia.com.au/news/2014/03/rebuff-church-offer-child-asylum-seekers#
+  #- https://www.probonoaustralia.com.au/news/2014/03/rebuff-church-offer-child-asylum-seekers# # stale
+  - http://web.archive.org/web/20140309025541/http://www.probonoaustralia.com.au/news/2014/03/rebuff-church-offer-child-asylum-seekers
   tags:
   - refugees
   - waste
@@ -6346,7 +6380,8 @@
     Blamed Qantas job losses on the carbon price,
     even though a Qantas spokesman said "Qantas' current issues are not related to carbon pricing".
   urls:
-  - https://www.businessspectator.com.au/news/2014/3/4/policy-politics/qantas-contradicts-govt-carbon-tax-not-blame
+  #- https://www.businessspectator.com.au/news/2014/3/4/policy-politics/qantas-contradicts-govt-carbon-tax-not-blame # stale
+  - http://web.archive.org/web/20150327192928/http://www.businessspectator.com.au/news/2014/3/4/policy-politics/qantas-contradicts-govt-carbon-tax-not-blame
   tags:
   - climate
 - text: Finally admitted that "Operation Sovereign Borders" is a civilian operation not a military one.
@@ -6384,7 +6419,8 @@
     Proposed a "green army"
     comprised of young people paid less than half of minimum wage without normal workplace protections.
   urls:
-  - https://m.brisbanetimes.com.au/federal-politics/political-news/tony-abbotts-green-army-will-be-paid-half-the-minimum-wage-20140301-33st7.html
+  #- https://m.brisbanetimes.com.au/federal-politics/political-news/tony-abbotts-green-army-will-be-paid-half-the-minimum-wage-20140301-33st7.html # stale
+  - http://web.archive.org/web/20140306043352/http://m.brisbanetimes.com.au/federal-politics/political-news/tony-abbotts-green-army-will-be-paid-half-the-minimum-wage-20140301-33st7.html
   - https://theaimn.com/the-coalition-plan-for-a-better-australia/
   tags:
   - workplace
@@ -6412,7 +6448,8 @@
     3 of which later died trying to cross a river in the jungle they landed next to.
     </b>
   urls:
-  - https://www.news.com.au/national/how-the-lifeboat-was-first-discovered-on-shore-in-west-java/story-fncynjr2-1226815344168
+  #- https://www.news.com.au/national/how-the-lifeboat-was-first-discovered-on-shore-in-west-java/story-fncynjr2-1226815344168 # stale
+  - http://web.archive.org/web/20140221012954/http://www.news.com.au/national/how-the-lifeboat-was-first-discovered-on-shore-in-west-java/story-fncynjr2-1226815344168
   tags:
   - refugees
 - text: >
@@ -6502,7 +6539,8 @@
     to take in some of the refugees currently in our detention centres.
     Serious human rights abuse continue to be committed regularly under the Cambodian government and military.
   urls:
-  - https://www.amnesty.org/en/news/australia-cambodia-scrap-asylum-seeker-deal-2014-05-01
+  #- https://www.amnesty.org/en/news/australia-cambodia-scrap-asylum-seeker-deal-2014-05-01 # stale
+  - http://web.archive.org/web/20140804130222/http://www.amnesty.org/en/news/australia-cambodia-scrap-asylum-seeker-deal-2014-05-01
   - https://www.wolframalpha.com/input/
   - https://www.smh.com.au/federal-politics/asylum-seeker-resettlement-deals-not-just-about-safety-unhcr-20140425-zqz1v.html#ixzz2zwYYm1PR
   - https://www.crikey.com.au/2014/04/30/cambodia-not-a-safe-place-for-australian-refugees-or-anyone-else
@@ -6583,7 +6621,8 @@
     but left objectively false comments, such as claims that asylum seeking is illegal.
   urls:
   - https://www.facebook.com/DIBPAustralia/posts/730778596956538
-  - https://www.glennmurray.com.au/australia-boat-people-illegal-policy/
+  #- https://www.glennmurray.com.au/australia-boat-people-illegal-policy/ # stale
+  - http://web.archive.org/web/20140125175730/http://www.glennmurray.com.au/australia-boat-people-illegal-policy/
   tags:
   - refugees
 - text: >
@@ -6604,7 +6643,8 @@
     The payout was the single biggest item in the black hole.
   urls:
   - https://www.smh.com.au/business/rupert-murdoch-tax-win-blows-880m-hole-in-federal-budget-20140217-32v4r.html
-  - https://www.afr.com/p/business/marketing_media/news_corp_blew_the_budget_DFlluROVi0F6CV1fQ5UJvJ
+  #- https://www.afr.com/p/business/marketing_media/news_corp_blew_the_budget_DFlluROVi0F6CV1fQ5UJvJ # stale
+  - http://web.archive.org/web/20140301214124/http://www.afr.com/p/business/marketing_media/news_corp_blew_the_budget_DFlluROVi0F6CV1fQ5UJvJ
   tags:
   - media
   - secrecy
@@ -6612,7 +6652,8 @@
   - corruption
 - text: Annoyed the Navy by having the immigration minister tour naval bases like a defence minister would.
   urls:
-  - https://www.news.com.au/national/navy-angry-scott-morrison-is-acting-like-their-defence-minister/story-fncynjr2-1226827599415
+  #- https://www.news.com.au/national/navy-angry-scott-morrison-is-acting-like-their-defence-minister/story-fncynjr2-1226827599415 # stale
+  - http://web.archive.org/web/20140215035557/http://www.news.com.au/national/navy-angry-scott-morrison-is-acting-like-their-defence-minister/story-fncynjr2-1226827599415
   tags:
   - military
 - text: >
@@ -6726,7 +6767,7 @@
     whilst continuing to give mining companies billions of dollars of subsidies and tax concessions.
   urls:
   - https://www.theguardian.com/environment/southern-crossroads/2014/feb/02/fossil-fuel-subsidies-tony-abbott-spc-ardmona-corporate-welfare
-  - https://abc.net.au/news/2014-05-05/budget-joe-hockey-moves-to-assure-miners-over-fuel-rebate/5429482#PhotoSwipe1399255578975
+  - https://www.abc.net.au/news/2014-05-05/budget-joe-hockey-moves-to-assure-miners-over-fuel-rebate/5429482?nw=0&r=HtmlFragment
   - https://www.abc.net.au/news/2014-05-19/verrender-aussies-steamrolled-by-abbott-and-the-mining-giants/5461094
   - https://www.smh.com.au/comment/blogs/blunt-instrument/miners-dig-the-age-of-entitlement-20140623-3aoye.html#ixzz35VjbNFuC
   - https://www.canberratimes.com.au/comment/coalmining-industry-misleads-on-jobs-tax-says-australia-institute-20140926-10mf6g.html#ixzz3ESoTXf00
@@ -6858,7 +6899,8 @@
   urls:
   - https://www.theguardian.com/world/2014/jan/14/scott-morrison-close-four-asylum-seeker-detention-centres
   - https://thebigsmoke.com.au/2014/04/07/reality-boat-people-solution-asylum-seeker-problem/
-  - https://www.ncoa.gov.au/report/appendix-volume-2/10-14-illegal-maritime-arrival-costs
+  #- https://www.ncoa.gov.au/report/appendix-volume-2/10-14-illegal-maritime-arrival-costs # stale
+  - http://web.archive.org/web/20190228114116/https://www.ncoa.gov.au/report/appendix-volume-2/10-14-illegal-maritime-arrival-costs
   tags:
   - refugees
   - waste
@@ -6979,7 +7021,8 @@
   - ethics
 - text: Tried to silence the media to stop them criticising the upcoming private jet deal for politicians.
   urls:
-  - https://www.news.com.au/national/prime-minister-tony-abbott-seeks-media-deal-over-vip-jets/story-fncynjr2-1226793311718
+  #- https://www.news.com.au/national/prime-minister-tony-abbott-seeks-media-deal-over-vip-jets/story-fncynjr2-1226793311718 # stale
+  - http://web.archive.org/web/20140102014851/http://www.news.com.au/national/prime-minister-tony-abbott-seeks-media-deal-over-vip-jets/story-fncynjr2-1226793311718
   tags:
   - secrecy
   - media
@@ -7171,14 +7214,16 @@
     <b>Broke an election promise</b> for a 25MBi/s National Broadband Network,
     and announced that it will cost more than they promised.
   urls:
-  - https://www.afr.com/p/national/nbn_less_speed_more_haste_81794iOmYFATdyGIeehPEN
+  #- https://www.afr.com/p/national/nbn_less_speed_more_haste_81794iOmYFATdyGIeehPEN # stale
+  - http://web.archive.org/web/20131216225943/http://www.afr.com/p/national/nbn_less_speed_more_haste_81794iOmYFATdyGIeehPEN
   tags:
   - nbn
   - costofliving
 - text: >
     <b>Broke an election promise</b> to return to surplus by 2016-2017.
   urls:
-  - https://www.afr.com/p/national/abbott_gives_up_on_surplus_0Sg3G7uDCNFiVWnSbhb63L
+  #- https://www.afr.com/p/national/abbott_gives_up_on_surplus_0Sg3G7uDCNFiVWnSbhb63L # stale
+  - http://web.archive.org/web/20131218104142/http://www.afr.com/p/national/abbott_gives_up_on_surplus_0Sg3G7uDCNFiVWnSbhb63L
   tags:
   - debt
 - text: >
@@ -7313,7 +7358,8 @@
   - metadata
 - text: Called for privatisation of electricity networks, despite evidence showing it does not lower power bills.
   urls:
-  - https://www.theherald.com.au/story/1964323/opinion-privatisation-push-contradicts-rhetoric/
+  # - https://www.theherald.com.au/story/1964323/opinion-privatisation-push-contradicts-rhetoric/ # stale
+  - https://web.archive.org/web/20131214031709/https://www.theherald.com.au/story/1964323/opinion-privatisation-push-contradicts-rhetoric/
   - https://www.theage.com.au/business/electricity-privatisation-failed-think-tank-20130429-2io2o.html
   tags:
   - costofliving
@@ -7393,7 +7439,8 @@
 - text: >
     Introduced a bill which allows for unpaid union officials in elected roles to be jailed for up to 5 years and fined up to $340,000.
   urls:
-  - https://www.afr.com/p/australia2-0/government_agency_plans_to_tame_oMNgKK4yEAXr7YbhqhLelI
+  #- https://www.afr.com/p/australia2-0/government_agency_plans_to_tame_oMNgKK4yEAXr7YbhqhLelI # stale
+  - http://web.archive.org/web/20131121075644/http://www.afr.com/p/australia2-0/government_agency_plans_to_tame_oMNgKK4yEAXr7YbhqhLelI
   tags:
   - unions
 - text: >
@@ -7489,7 +7536,8 @@
 - text: Mandated that all public servants should incorrectly refer to boat arrivals as "illegal".
   urls:
   - https://www.smh.com.au/federal-politics/political-news/call-to-end-harsh-use-of-illegal-for-boat-arrivals-20131106-2x0n2.html
-  - https://www.glennmurray.com.au/australia-boat-people-illegal-policy/
+  #- https://www.glennmurray.com.au/australia-boat-people-illegal-policy/ # stale
+  - http://web.archive.org/web/20140125175730/http://www.glennmurray.com.au/australia-boat-people-illegal-policy/
   - https://thebigsmoke.com.au/2014/04/07/reality-boat-people-solution-asylum-seeker-problem/
   tags:
   - refugees
@@ -7534,7 +7582,8 @@
   urls:
   - https://economixcomix.com/home/tpp/
   - https://news.vice.com/article/the-trans-pacific-partnership-could-establish-a-war-of-all-against-all
-  - https://www.exposethetpp.org/
+  #- https://www.exposethetpp.org/ # stale
+  - http://web.archive.org/web/20130624021729/http://www.exposethetpp.org/
   tags:
   - international
   - secrecy
@@ -7566,14 +7615,16 @@
   - https://www.canberratimes.com.au/comment/tribunal-delivers-sri-lankas-guilty-verdict-20140101-305zf.html
   - https://www.abc.net.au/news/2013-11-17/abbott-confirms-sri-lanka-boats-deal/5097580
   - https://newmatilda.com/2014/06/29/shining-light-australias-role-tamil-genocide/
-  - https://www.humanrights.asia/news/ahrc-news/AHRC-STM-127-2014
+  #- https://www.humanrights.asia/news/ahrc-news/AHRC-STM-127-2014 # stale
+  - http://web.archive.org/web/20140630061902/http://www.humanrights.asia/news/ahrc-news/AHRC-STM-127-2014
   tags:
   - international
   - refugees
 - text: >
     <b>Excused torture</b> in Sri Lanka.
   urls:
-  - https://news.smh.com.au/breaking-news-national/abbotts-torture-comment-sparks-response-20131116-2xnfl.html
+  #- https://news.smh.com.au/breaking-news-national/abbotts-torture-comment-sparks-response-20131116-2xnfl.html # stale
+  - http://web.archive.org/web/20131118020733/http://news.smh.com.au/breaking-news-national/abbotts-torture-comment-sparks-response-20131116-2xnfl.html
   tags:
   - international
   - ethics
@@ -7585,7 +7636,8 @@
 - text: Appointed a man as minister for women who said "I don't support womens' causes".
   urls:
   - https://www.smh.com.au/comment/tony-abbott-minister-for-women-no-thanks-20130919-2u179.html
-  - https://blogs.news.com.au/dailytelegraph/yoursay/index.php/dailytelegraph/comments/tony_abbott_the_hypocrisy_of_the_womens_movement/
+  #- https://blogs.news.com.au/dailytelegraph/yoursay/index.php/dailytelegraph/comments/tony_abbott_the_hypocrisy_of_the_womens_movement/ # stale
+  - http://web.archive.org/web/20080915073617/http://blogs.news.com.au/dailytelegraph/yoursay/index.php/dailytelegraph/comments/tony_abbott_the_hypocrisy_of_the_womens_movement/
   tags:
   - women
 - text: Chose a cabinet with 18 men and only 1 woman.

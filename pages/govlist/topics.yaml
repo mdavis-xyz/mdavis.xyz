@@ -99,6 +99,7 @@
   - abortion
   - courts
   - discrimination
+  - sex
 - display: Science
   class: science
   aliases:
@@ -204,8 +205,8 @@
   - unions
   - culturewars
   - rainbow
-  - drugs
-  - sex
+  # - drugs
+  # - sex
   - abc
   - sbs
 - display: Military and Veterans

@@ -305,6 +305,14 @@
   - COVID
   - cyber
   - domesticviolence
+- text: >
+    Claimed "Alan Tudge is still in my cabinet",
+    4 months after standing down Alan Tudge over domestic abuse allegations.
+  urls:
+  - https://www.smh.com.au/politics/federal/pm-says-alan-tudge-still-in-cabinet-despite-standing-aside-from-ministerial-role-20220410-p5acdp.html
+  tags:
+  - democracy
+  - women
 - text: Planned (if re-elected in 2022) to cut federal funding for Australian music to $0.
   urls:
   - https://www.noise11.com/news/liberal-government-budget-has-over-140-million-in-arts-funding-cuts-20220331
@@ -733,7 +741,7 @@
   - https://campaigns.schwartzmedia.com.au/t/i-l-mkddhiy-jutyjjurud-d/
   tags:
   - ethics
-  - sex
+  - youth
   - education
   - waste
 - text: >
@@ -981,7 +989,7 @@
   tags:
   - indigenous
 - text: >
-    Loosened enterprise bargaining laws to allows employers to introduce new agreements
+    Loosened enterprise bargaining laws to allow employers to introduce new agreements
     which are <i>not</i> "better off overall" for employees, in ordinary circumstances not just exceptional ones.
   urls:
   - https://www.abc.net.au/news/2020-12-08/workplace-reforms-collective-bargaining-better-off-overall/12962736
@@ -1514,10 +1522,14 @@
   # - https://www.attorneygeneral.gov.au/media/media-releases/morrison-government-delivers-religious-reforms-29-august-2019 # stale
   - https://www.parliament.nsw.gov.au/bills/Pages/bill-details.aspx?pk=3736
   - https://www.abc.net.au/news/2021-11-25/scott-morrison-gay-students-teachers-religious-discrimination/100648846
+  - https://thenewdaily.com.au/news/national/2017/11/13/same-sex-marriage-bill/
   tags:
   - freedom
   - ethics
   - culturewars
+  - rainbow
+  - discrimination
+  - rights
 - text: >
     Introduced a new online service for helping allocated assets during a divorce,
     which uses a proprietary, immature, inscrutable black-box technology just because it's a popular buzz word these days.
@@ -1652,15 +1664,18 @@
   - secrecy
   - whistleblower
 - text: >
-    <b>Wasted $96 million</b> on administration costs for a single tender,
-    to decide who to sell our own immigration visa system to,
-    only to cancel the plan because privatising an essential service which can only ever be a monopoly is obviously a bad idea.
+    <b>Spent $96 million</b> on administration costs for a single tender,
+    to decide who to sell our own immigration visa system to.
+    The government labelled this core function of a sovereign government as a "business" which should be "commercial" and "profitable".
+    Then after spending the money they cancelled the plan because commercialising an essential service which can only ever be a monopoly is obviously a bad idea.
   urls:
   - https://www.zdnet.com/article/canberra-spent-au92-million-on-the-now-binned-visa-privatisation-project/
+  - https://www.theguardian.com/australia-news/2018/feb/26/fears-privatised-visa-system-could-see-access-to-australia-sold-to-highest-bidder
   tags:
   - waste
   - tender
   - privatisation
+  - immigration
 - text: >
     <b>Introduced a new tax</b>, to incentivise non-NBN users to migrate to the expensive NBN.
   urls:
@@ -2016,12 +2031,15 @@
     (such as an environmental protest threatening a coal generator).
   urls:
   - https://www.sydneycriminallawyers.com.au/blog/new-laws-will-allow-the-use-of-military-to-break-protests/
+  - https://thenewdaily.com.au/news/national/2018/06/28/shakeup-defence-powers-wake-lindt-siege/
+  - https://mobile.abc.net.au/news/2018-08-14/australian-army-call-out-powers-peter-dutton/10064716
   tags:
   - protest
   - climate
   - democracy
   - unions
   - military
+  - rights
 - text: >
     Spent $30 million detaining a single asylum seeker family for a few months.
     It would have been cheaper to house them in a penthouse suite at the Four Seasons Hotel.
@@ -2507,14 +2525,16 @@
   - https://www.sbs.com.au/yourlanguage/punjabi/en/article/2018/12/07/migrants-australian-citizenship-cancelled-18-years-after-it-was-approved
   tags:
   - immigration
-# is this one a duplicate?
 - text: >
-    Proposed the underwriting of coal power plant construction.
+    Introduced a scheme to underwrite coal power plant construction.
     Risks too high for the private sector will be thrust upon taxpayers,
-    whilst the profit will remain privatised
+    whilst the profit will remain privatised,
+    in a way that increases government liabilities in reality,
+    without increasing how big government debt appears on paper.
   urls:
   - https://www.theage.com.au/politics/federal/former-official-criticises-angus-taylor-over-extraordinary-coal-protection-measure-20181106-p50ebw.html
   - https://www.theage.com.au/politics/federal/competition-chief-learnt-of-controversial-energy-plan-when-he-read-about-it-in-the-newspaper-20181025-p50bwv.html
+  - https://www.goodreads.com/book/show/34889918-game-of-mates
   tags:
   - waste
   - debt
@@ -2574,14 +2594,6 @@
   tags:
   - corruption
   - immigration
-# possible duplicate?
-- text: >
-    Proposed plans to privatise the visa application system.
-    Referring to this core function of a sovereign government as a "business" which should be "commercial" and "profitable".
-  urls:
-  - https://www.theguardian.com/australia-news/2018/feb/26/fears-privatised-visa-system-could-see-access-to-australia-sold-to-highest-bidder
-  tags:
-  - immigration
 - text: Removed emissions reduction targets from the National Energy Guarantee.
   urls:
   - https://www.smh.com.au/politics/federal/malcolm-turnbull-removes-all-climate-change-targets-from-energy-policy-in-fresh-bid-to-save-leadership-20180820-p4zyht.html
@@ -2610,15 +2622,6 @@
   tags:
   - immigration
   - ethics
-# duplicate?
-- text: Drafted laws granting 'shoot to kill' powers to soldiers during riots.
-  urls:
-  - https://thenewdaily.com.au/news/national/2018/06/28/shakeup-defence-powers-wake-lindt-siege/
-  - https://mobile.abc.net.au/news/2018-08-14/australian-army-call-out-powers-peter-dutton/10064716
-  tags:
-  - rights
-  - democracy
-  - lawenforcement
 - text: >
     Sent $440 million of Reef research funds to an obscure private organisation,
     instead of one of the many relevant public agencies, and without any application process.
@@ -2761,15 +2764,6 @@
   - privacy
   - health
   - women
-# Possible duplicate?
-- text: Introduced a bill to permit businesses to discriminate based on customers' sexual activity or gender.
-  urls:
-  - https://thenewdaily.com.au/news/national/2017/11/13/same-sex-marriage-bill/
-  tags:
-  - rainbow
-  - discrimination
-  - culturewars
-  - rights
 - text: Proposed selling biometric data of citizens to private corporations.
   urls:
   - https://www.theguardian.com/technology/2017/nov/26/government-could-allow-firms-to-buy-access-to-facial-recognition-data
@@ -3680,7 +3674,7 @@
   - secrecy
   - housing
   - costofliving
-# possible duplicate?
+# possible duplicate? Nah, the other one is about the legislation process not the content.
 - text: >
     Proposed new broad powers for the Attorney-General
     so that the government can demand that telcos do unspecified "things",
@@ -7017,7 +7011,7 @@
   urls:
   - https://www.smh.com.au/national/funding-blow-for-jewish-centre-20140102-307xr.html
   tags:
-  - culturewars
+  - budget
   - ethics
 - text: Tried to silence the media to stop them criticising the upcoming private jet deal for politicians.
   urls:

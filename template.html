@@ -172,18 +172,16 @@
 
       % if ('disclaimer' in data) or (('top' in data['images']) and ('attribution' in data['images']['top'])):
       <aside>
-         <p>
-            % if 'disclaimer' in data:
-            <div class="disclaimer">
-               ${data['disclaimer']}
-            </div>
-            % endif
-            % if ('top' in data['images']) and ('attribution' in data['images']['top']):
-            <div class="photoauthor center">
-               ${data['images']['top']['attribution']}
-            </div>
-            % endif
-         </p>
+          % if 'disclaimer' in data:
+          <p class="disclaimer">
+             ${data['disclaimer']}
+          </p>
+          % endif
+          % if ('top' in data['images']) and ('attribution' in data['images']['top']):
+          <p class="photoauthor center">
+             ${data['images']['top']['attribution']}
+          </p>
+          % endif
       </aside>
       % endif
 

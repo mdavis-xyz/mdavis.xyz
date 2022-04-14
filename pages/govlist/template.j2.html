@@ -2,34 +2,34 @@
    The Morrison, Turnbull and Abbott government has been in power for over 8 years.
    This page contains a list of most of what they have done so far.
 </p>
-<p class='center'>
-   <a href="javascript:addFilter()" class="button hidden appear" id="showFilterButton">
-      Filter By Policy Area
-   </a>
-   <div class="center hidden" id="topicsAndUngroupButton">
-     <div id="filterMetaButtons">
-       <a href="javascript:hideFilter()" class="button appear" id="ungroupButton">
-          Hide Filter
-       </a>
-       <a href="javascript:selectAll()" class="button appear" id="selectAllButton">
-          Select All
-       </a>
-       <a href="javascript:deselectAll()" class="button appear" id="deselectAllButton">
-          Deselect All
-       </a>
-     </div>
-     <div id="filters">
-       {% for topic in topics %}
-       <div>
-         <input type="checkbox" id="filter-{{ topic['class'] }}" onchange="filterToggled('{{ topic['class'] }}')" data-topic="{{ topic['class'] }}">
-         <label for="filter-{{ topic['class'] }}">
-           {{ topic['display'] }}
-         </label>
-       </div>
-       {% endfor %}
-     </div>
+<div class='center'>
+  <a href="javascript:addFilter()" class="button hidden appear" id="showFilterButton">
+    Filter By Policy Area
+  </a>
+  <div class="center hidden" id="topicsAndUngroupButton">
+    <div id="filterMetaButtons">
+      <a href="javascript:hideFilter()" class="button appear" id="ungroupButton">
+        Hide Filter
+      </a>
+      <a href="javascript:selectAll()" class="button appear" id="selectAllButton">
+        Select All
+      </a>
+      <a href="javascript:deselectAll()" class="button appear" id="deselectAllButton">
+        Deselect All
+      </a>
+      </div>
+      <div id="filters">
+      {% for topic in topics %}
+      <div>
+        <input type="checkbox" id="filter-{{ topic['class'] }}" onchange="filterToggled('{{ topic['class'] }}')" data-topic="{{ topic['class'] }}">
+        <label for="filter-{{ topic['class'] }}">
+          {{ topic['display'] }}
+        </label>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-</p>
+</div>
  <ol id="chrono-list">
    {%- for row in data %}
    <li class="{{ row['topic_ids'] | join(' ') }}">
@@ -58,7 +58,7 @@
    <img src="turnbull.jpg" alt="Malcom Turnbull, photo by Вени Марковски, Veni Markovski" class="bottom-photo" /> <!-- https://en.wikipedia.org/wiki/Malcolm_Turnbull#/media/File:MalcolmTurnbull.jpg -->
    <img src="morrison.jpg" alt="source" class="bottom-photo" /> <!-- https://en.wikipedia.org/wiki/File:Prime_Minister_Scott_Morrison_delivering_the_Lowy_Lecture_on_2_October_2019_at_Sydney_Town_Hall.jpg -->
 </p>
-<p>
+<p class="center">
   To request corrections or additions,
   <a href="https://github.com/mdavis-xyz/mdavis.xyz/issues/new" target="_blank">
     raise a ticket on GitHub

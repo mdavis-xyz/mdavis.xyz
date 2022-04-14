@@ -32,7 +32,7 @@
 </div>
  <ol id="chrono-list">
    {%- for row in data %}
-   <li class="{{ row['topic_ids'] | join(' ') }}">
+   <li class="{{ row['topic_ids'] | sort | join(' ') }}">
       {{ row['text'] }}
       {%- for url in row['urls'] %}
       <a href="{{ url }}" target="_blank">

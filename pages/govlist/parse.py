@@ -29,6 +29,7 @@ def main():
         t['aliases'] = set(a.lower() for a in t['aliases'])
     all_tags = set(a.lower() for t in topics for a in t['aliases'])
     for (i,row) in enumerate(data, start=1):
+        assert 'tags' in row, f"No tags for item {i} {row['text'][:50]}"
         row['tags'] = set(t.lower() for t in row['tags'])
         row['topic_ids'] = set(t['class'] for t in topics if t['aliases'] & row['tags']) # set intersection
         assert row['topic_ids'], f"No matching topics for tags for item {i}: tags {', '.join(row['tags'])}: {row['text'][:40]}..."

@@ -130,7 +130,7 @@
    article: True
    exclude:
       - 'footerHR'
-   date: 14/4/2022 # update manually
+   date: 27/4/2022 # update manually
 -  title: "Why Paper Voting Is Still Superior"
    description: "How digital security is good enough for banking but not for elections"
    path: "voting"

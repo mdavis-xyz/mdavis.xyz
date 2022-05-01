@@ -170,6 +170,14 @@
   tags:
   - corruption
   - waste
+- text: >
+    Chose not to publish a 5-yearly report about the official state of the environment for over 3 months,
+    so that voters in the 2022 election won't know what the reports' findings are.
+  urls:
+  - https://www.theguardian.com/environment/2022/apr/06/coalition-accused-of-sitting-on-environment-report-to-avoid-delivering-more-bad-news
+  tags:
+  - environment
+  - secrecy
 - text: Did not follow cyber security best practice for COVID digital vaccines. They have no effective way to report vulnerabilities, let alone have bug bounties to discourage sale of vulnerabilities to criminals. When the government is eventually made aware of vulnerabilities in their app, they don't respond to or resolve them in a timely way.
   urls:
   - https://medium.com/@wabz/the-need-for-an-australian-government-vulnerability-disclosure-policy-8231a5b31ca8
@@ -268,11 +276,27 @@
   - https://www.michaelwest.com.au/its-none-of-our-business-what-happened-to-morrison-at-tourism-australia-just-ask-scott/
   tags:
   - secrecy
+- text: >
+    Sat on a review of video game classifications for two years.
+    They did nothing until weeks before the 2022 election,
+    proposing a plan without consultation with video game makers,
+    which won't be implemented until after the election (if they win).
+  urls:
+  - https://www.theguardian.com/australia-news/2022/apr/27/coalition-to-change-classification-code-for-video-games-with-loot-boxes-two-years-after-review
+  tags:
+  - videogames
 - text: Approved projects which will destroy 25,000 hectares of koala habitat.
   urls:
   - https://d3n8a8pro7vhmx.cloudfront.net/auscon/pages/19893/attachments/original/1644202958/Brief__Commonwealth_approvals_for_clearing_of_koala_%28combined_populations_of_Qld__NSW_and_the_ACT%29_habitat.pdf?1644202958
   tags:
   - environment
+- text: >
+    Claimed that a corporate emissions baseline policy is a sneaky proposal by Labor,
+    when actually it's their own policy that they already legislated.
+  urls:
+  - https://www.theguardian.com/environment/2022/apr/28/calling-the-safeguard-mechanism-a-sneaky-carbon-tax-is-a-scare-campaign-and-an-argument-for-inaction
+  tags:
+  - climate
 - text: Announced a $800 bonus for aged care workers, but then processed the applications slowly, paying only 3% of aged care workers after 2 months. The government asked aged care providers to pay the bonus out of their own pocket in the interim. This means the government is taking a loan from those providers, which increases government debt in reality, but not on paper.
   urls:
   - https://www.theguardian.com/australia-news/2022/mar/25/survey-finds-97-of-australias-aged-care-workers-have-not-received-800-bonus
@@ -763,13 +787,14 @@
   - ndis
   - robodebt
   - blockchain
-- text: >
-    Used bad-faith campaign tactics by purchasing web domains with political opponents names,
-    to prevent the opponents from having a reasonable website domain.
-  urls:
-  - https://www.michaelwest.com.au/domain-squatters-nationals-play-dirty-website-tactics-to-defeat-foes-in-nsw-by-election/
-  tags:
-  - corruption
+# this is a state thing, not federal
+#- text: >
+#    Used bad-faith campaign tactics by purchasing web domains with political opponents names,
+#    to prevent the opponents from having a reasonable website domain.
+#  urls:
+#  - https://www.michaelwest.com.au/domain-squatters-nationals-play-dirty-website-tactics-to-defeat-foes-in-nsw-by-election/
+#  tags:
+#  - corruption
 - text: Gave $2.7 million to a private company for a buzzword-rich trial about blockchain and distributed energy.
   urls:
   - https://www.smh.com.au/business/the-economy/turnbull-government-invests-in-cryptocurrencybased-company-for-the-first-time-20171121-gzplb4.html
@@ -1427,9 +1452,9 @@
   - tax
   - corruption
 - text: >
-    Tried to redefine what "investment" means in legislation to include things where you expect to lose money.
+    <b>Tried to redefine what "investment" means in legislation to include things where you expect to lose money</b>.
     This is to allow the government to hand cash to fossil fuel companies,
-    <b>even when expected to be unprofitable and uneconomic</b>.
+    even when expected to be unprofitable and uneconomic.
   urls:
   - https://reneweconomy.com.au/crazy-how-taylor-plans-to-co-opt-cefc-funds-into-unprofitable-gas-projects-65369/
   tags:
@@ -3498,6 +3523,16 @@
   tags:
   - health
   - costofliving
+- text: >
+    Did not implement recommendations from their own paper,
+    about reducing the permissible level of sulfur in our petrol
+    to align with European standards,
+    even though the paper said it would improve Australians' health.
+  urls:
+  - https://www.carsguide.com.au/car-news/federal-government-considering-ban-on-regular-unleaded-fuel-49253
+  tags:
+  - climate
+  - health
 - text: Decided that foreign born, adopted Australians can no longer use their Australian birth certificate as proof of Australian citizenship.
   urls:
   - https://www.smh.com.au/national/unintended-consequence-how-australia-stripped-an-australian-of-citizenship-20160624-gpqv7y.html
@@ -5527,6 +5562,7 @@
   - https://www.smh.com.au/digital-life/games/video-game-funding-axed-in-federal-budget-20140514-zrbx6.html
   tags:
   - jobs
+  - videogames
 - text: >
     <b>Tried to deregulate university fees</b>, thereby allowing Universities to charge what they want. Students would end up with American levels of crippling debt. Many of the politicians behind this policy received their degrees for free. Average student debt is expected to rise to $100,000, even though Abbott himself said "it is irresponsible to saddle Australians with $25,000 of debt". OECD figures show that the public benefits from tertiary qualifications twice as much as the individual.
   urls:

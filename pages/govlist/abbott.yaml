@@ -236,7 +236,7 @@
   - waste
   - secrecy
   - refugees
-- text: Vetoed research grants for projects about climate activism and Chinese politics, thereby undermining the independence of the Australian Resource Council.
+- text: Vetoed research grants for projects about climate activism and Chinese politics, thereby undermining the independence of the Australian Research Council.
   urls:
   - https://www.theguardian.com/australia-news/2021/dec/24/federal-governments-christmas-eve-veto-of-research-projects-labelled-mccarthyism
   tags:
@@ -276,6 +276,15 @@
   - https://www.michaelwest.com.au/its-none-of-our-business-what-happened-to-morrison-at-tourism-australia-just-ask-scott/
   tags:
   - secrecy
+- text: > 
+    Refused to publish valid Senate inquiry submissions if inconvenient,
+    and instructed citizens to not publish those submissions themselves.
+  tags:
+  - secrecy
+  urls:
+  - https://github.com/mdavis-xyz/mdavis.xyz/issues/28
+  - https://chrisdrake.com/for_gai/Veiled_prosecution_threat_for_unauthorised_disclosure.png
+  - https://chrisdrake.com/for_gai/Digital_delivery_of_Government_services_Inquiry_Submission_2017.pdf
 - text: >
     Sat on a review of video game classifications for two years.
     They did nothing until weeks before the 2022 election,
@@ -387,6 +396,13 @@
   - COVID
   - cyber
   - domesticviolence
+- text: >
+    Asked the electricity grid regulator to increase the notice period for coal plant closures from 3.5 years to 5.
+    That is, the government wants investors to possibly lose money for 1.5 years running a plant even if is commercially irrational and economically suboptimal to do so.
+  tags:
+  - covid
+  urls:
+  - https://www.theguardian.com/australia-news/2022/apr/07/angus-taylor-in-pre-election-move-to-make-coal-plants-give-five-years-notice-before-closing
 - text: >
     Claimed "Alan Tudge is still in my cabinet",
     4 months after standing down Alan Tudge over domestic abuse allegations.
@@ -1950,8 +1966,7 @@
 - text: >
     Lied about data retention laws,
     claiming only metadata would be captured (e.g. domain name),
-    when actually full URLs are captured,
-    which includes detail such as the specific queries you give to Google, and specific videos you watch on PornHub.
+    when actually full URLs are captured (for unencrypted sites).
   urls:
   - https://www.zdnet.com/article/cops-are-getting-full-urls-under-australias-data-retention-scheme/
   tags:
@@ -6057,7 +6072,7 @@
   tags:
   - environment
   - jobs
-- text: Increased the fee for lodging Freedom of Information requests.
+- text: Increased the fee for processing Freedom of Information requests.
   urls:
   - https://theaimn.com/the-erosion-of-our-democratic-system/
   tags:

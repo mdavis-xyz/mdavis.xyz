@@ -4,6 +4,7 @@ import requests
 
 import yaml
 from jinja2 import Template
+from wayback import WaybackClient
 
 import myspellcheck
 
@@ -16,6 +17,7 @@ style_output_fname = 'docs/styles.css'
 good_urls_fname = 'good-urls.txt'
 bad_url_excemptions_fname = 'bad-urls-excemptions.txt'
 good_url_recheck_fraction = 0
+already_archived_fname = 'already-archived.txt'
 
 def main():
     # read in the data
@@ -48,37 +50,58 @@ def main():
             exempt_urls = set(u.strip() for u in f if u.strip())
     except FileNotFoundError:
         exempt_urls = set()
+    try:
+        with open(already_archived_fname, 'r') as f:
+            archived_urls = set(u.strip() for u in f if u.strip())
+    except FileNotFoundError:
+        archived_urls = set()
 
     with open(good_urls_fname, 'a') as gf:
         with open(bad_url_excemptions_fname, 'a') as ef:
-            with Pool() as p:
-                for (r, row) in enumerate(data, start=1):
-                    assert row.get('urls', []), f"No urls for {row['text'][:30]}"
-                    assert len(row['urls']) == len(set(row['urls'])), f"Duplicate urls for {row['text'][:30]}"
-                    urls_to_check = []
-                    for url in row['urls']:
-                        assert '?utm_source' not in url, f"Social utm junk in URL: {url}"
-                        if (url not in exempt_urls) and \
-                           ((url not in good_urls) or random.uniform(0,1) < good_url_recheck_fraction):
-                            urls_to_check.append(url)
+            with open(already_archived_fname, 'a') as aaf:
+                with Pool() as p:
+                    with requests.Session() as requests_session:
+                        with WaybackClient(requests_session) as wayback_client:
+                            for (r, row) in enumerate(data, start=1):
+                                assert row.get('urls', []), f"No urls for {row['text'][:30]}"
+                                assert len(row['urls']) == len(set(row['urls'])), f"Duplicate urls for {row['text'][:30]}"
+                                urls_to_check = []
+                                for url in row['urls']:
+                                    assert '?utm_source' not in url, f"Social utm junk in URL: {url}"
+                                    if (url not in exempt_urls) and \
+                                       ((url not in good_urls) or random.uniform(0,1) < good_url_recheck_fraction):
+                                        urls_to_check.append(url)
 
+                                    if not url.startswith('https://web.archive.org') \
+                                       and url not in archived_urls:
+                                        try:
+                                            next(wayback_client.search(url))
+                                        except StopIteration:
+                                            print(f"No wayback snapshot found for url, archiving {url}")
+                                            r = requests_session.get('https://web.archive.org/save/' + url)
+                                            r.raise_for_status()
+                                            print(f"Archived: {r.url}")
+                                        else:
+                                            print(f"Already in wayback machine: {url}")
+                                        archived_urls.add(url)
+                                        aaf.write(url + '\n')
 
-                        results = p.map(check_url, urls_to_check)
-                        for (url, result) in zip(urls_to_check, results):
-                            if result:
-                                if url not in good_urls:
-                                    print(f"Adding {url}")
-                                    gf.write(url + '\n')
-                                    good_urls.add(url)
-                            else:
-                                # with open('expired-links.txt', 'a') as ef:
-                                #     ef.write(url + '\n')
-                                excempt = input(f"Error with url\n{url}\nline {r}\nAdd excemption? (Y|N)\n")
-                                if excempt.strip().upper() in ['Y', 'YES']:
-                                    ef.write(url + '\n')
-                                    exempt_urls.add(url)
-                                else:
-                                    raise ValueError(f"Bad URL on row {r}: {url}")
+                                    results = p.map(check_url, urls_to_check)
+                                    for (url, result) in zip(urls_to_check, results):
+                                        if result:
+                                            if url not in good_urls:
+                                                print(f"Adding {url}")
+                                                gf.write(url + '\n')
+                                                good_urls.add(url)
+                                        else:
+                                            # with open('expired-links.txt', 'a') as ef:
+                                            #     ef.write(url + '\n')
+                                            excempt = input(f"Error with url\n{url}\nline {r}\nAdd excemption? (Y|N)\n")
+                                            if excempt.strip().upper() in ['Y', 'YES']:
+                                                ef.write(url + '\n')
+                                                exempt_urls.add(url)
+                                            else:
+                                                raise ValueError(f"Bad URL on row {r}: {url}")
 
     # render the HTML
     with open(template_fname, 'r') as f:

@@ -141,6 +141,7 @@
   - waste
   - budget
   - military
+  - international
 - text: Failed to achieve their own water efficiency targets for the Murray Darling off-farm efficiency program, achieving only 1% of what they said they would.
   urls:
   - https://www.theguardian.com/australia-news/2022/jan/19/government-paying-eight-times-over-market-price-for-murray-darling-water-buyback-environment-groups-claim
@@ -148,7 +149,7 @@
   - water
 - text: >
     Refused to pay compensation to a man whose family was accidentally killed by Australian air strikes.
-    The department claims they weren't killed by Australian bombing,
+    The department claims they were killed by something other than Australian bombing,
     even though the department did not read the defence report about Australian bombing in that area that day,
     and they did not provide any alternative explanation for the 35 deaths.
   urls:
@@ -211,11 +212,12 @@
     It does not give social media companies the power to remove defamatory or troll content.
     The bill means that moderators of Facebook pages no longer have an obligation to take down troll content, which will help trolling, not hinder it.
     What this new red tape does do is make it easier to sue social media companies for defamation when their users post mean things.
-    Social media companies may still be sued even if their failure to notice the material was not due to negligence.
     The main change is that social media companies need a way to name accused anonymous users, but the accused users will be allowed to just say 'no'.
     The powers can only be used if a defamation case is likely (i.e. only for people with a spare $20k lying around), which means this bill won't reduce school-age cyber bullying.
     The government themselves already hide behind anonymous online accounts to defame political opponents.
     These changes violate our existing free trade agreements.
+  
+  #Social media companies may still be sued even if their failure to notice the material was not due to negligence.
   urls:
   - https://www.urbandictionary.com/define.php?term=Trolling
   - https://www.theguardian.com/australia-news/2022/jan/24/proposed-anti-trolling-laws-could-worsen-online-abuse-australian-law-experts-say
@@ -459,7 +461,7 @@
   - privacy
   - lawenforcement
   - democracy
-- text: Refused to publish minutes from the national cabinet tackling COVID. After a judge ruled that it must be published, they introduced a new law to keep it secret. They argued that even though the cabinet has done nothing wrong, they should be able to hide discussion details from the public.
+- text: Refused to publish minutes from the national cabinet tackling COVID. After a judge ruled that it must be published, they introduced a new law to keep it secret. They argued that even though the cabinet has done nothing wrong, they should be able to keep discussion details secret.
   urls:
   - https://www.msn.com/en-au/news/australia/government-fights-to-undermine-court-ruling-and-keep-national-cabinet-secret/ar-AAO2AQ8
   - https://thenewdaily.com.au/news/2021/09/28/national-cabinet-foi-laws/
@@ -611,6 +613,7 @@
   urls:
   - https://www.zdnet.com/article/robo-debt-committee-refuses-to-accept-minister-reynolds-immunity-claim/
   - https://www.zdnet.com/article/senate-committee-calls-for-resolution-requiring-reynolds-and-services-australia-to-unveil-legal-advice-it-received-for-robo-debt/
+  - https://www.theguardian.com/australia-news/2022/may/14/a-failure-as-shameful-as-robodebt-leaves-questions-only-a-royal-commission-can-examine
   tags:
   - welfare
   - robodebt
@@ -806,7 +809,7 @@
 - text: >
     Proposed a robo-debt style program to claw back money from disabled people under the NDIS,
     waving away all concerns about accuracy and ethics by tacking a blockchain onto the new app.
-    Blockchains do not in any way make it easier to solve the Oracle Problem,
+    Blockchains do not make it easier to solve the Oracle Problem,
     such as determining whether a taxi ride was to a medical practitioner or the pub next door to it.
   urls:
   - https://www.zdnet.com/article/ndis-gets-a-government-app-with-blockchain-but-no-ethics/
@@ -922,6 +925,7 @@
   tags:
   - climate
   - waste
+  - budget
 - text: >
     Introduced laws which are supposed to combat the rise in unconsentual sharing of nudes ("revenge porn"),
     but do not include any punishment for people who upload nudes on people without their consent.
@@ -946,7 +950,7 @@
   - democracy
 - text: >
     Lied by claiming that new legislation could not result in dating apps such as Tinder being banned in Australia,
-    when the legislation clearly states in section 6.128.1.d that the relevant commissioner will be granted the power to ban those apps for a broad range of reasons.
+    when their legislation clearly states in section 6.128.1.d that the relevant commissioner will be granted the power to ban those apps for a broad range of reasons.
   urls:
   - https://www.abc.net.au/triplej/programs/hack/dating-apps-fined-online-safety-bill/13257172
   - https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;db=LEGISLATION;id=legislation%2Fbills%2Fr6680_first-reps%2F0009;query=Id%3A%22legislation%2Fbills%2Fr6680_first-reps%2F0000%22;rec=0
@@ -955,7 +959,7 @@
   - freespeech
   - cyber
 - text: >
-    Granted an unelected official investigative powers to force people to provide documents and answer questions or face imprisonment,
+    Granted an unelected person investigative powers to force people to provide documents and answer questions or face imprisonment,
     without any of the usual protections and oversight that apply to police investigations.
     i.e. it takes away the right to remain silent.
   urls:
@@ -999,7 +1003,7 @@
 - text: >
     Used a meme to successfully distract the media and populace from the government's lack of action
     after a report revealed dozens of horrific war crimes were committed by Australian special forces soldiers
-    due to systemic cultural issues.
+    due to systemic cultural issues which the government is making no attempt to fix.
   urls:
   - https://www.theguardian.com/australia-news/2020/nov/19/key-findings-of-the-brereton-report-into-allegations-of-australian-war-crimes-in-afghanistan
   - https://www.wsws.org/en/articles/2019/03/11/sasc-m11.html
@@ -1024,7 +1028,9 @@
   - economy
   - ethics
   - consumerprotection
-- text: Removed the names of many Australians stranded overseas during the pandemic from the register of stranded Australians.
+- text: >
+    Removed the names of many Australians stranded overseas during the pandemic from the register of stranded Australians,
+    while they were still stranded.
   urls:
   - https://www.smh.com.au/politics/federal/cooking-the-books-dfat-accused-of-changing-details-of-stranded-aussies-20201205-p56kvm.html
   tags:
@@ -1780,7 +1786,7 @@
   - covid
   - cyber
 - text: >
-    Refused to release a multilateral trade agreement with China,
+    Refused to release the text of a multilateral trade agreement with China,
     which involves spending government money on infrastructure in other countries.
     The lack of transparency exacerbates existing concerns about burdening these other developing nations with unsustainable debt.
   urls:
@@ -2228,7 +2234,7 @@
   - climate
 - text: >
     Lied by claiming their religious discrimination bill was not intended to override states' anti-discrimination laws.
-    The actual documents they tabled in parliament explicitly says it is.
+    The actual documents they tabled in parliament explicitly say it is.
   urls:
   - https://twitter.com/Paul_Karp/status/1166887913625243648
   - https://www.ag.gov.au/Consultations/Documents/religious-freedom-bills/summary-document-religious-freedom-reforms.pdf
@@ -2554,10 +2560,12 @@
   - consumerprotection
   - media
 - text: >
+    <b>
     Spent $400,000 to help train the Myanmar military,
-    who were known to be guilty of ongoing genocide against the Rohingya people,
+    who were known at the time to be guilty of ongoing genocide against the Rohingya people,
     and were later responsible for a literal coup to overthrow their government,
     including shooting and killing hundreds of peaceful anti-coup protesters.
+    </b>
   urls:
   - https://www.theguardian.com/australia-news/2018/mar/06/australia-to-train-myanmar-military-despite-ethnic-cleansing-accusations
   - https://www.thejakartapost.com/seasia/2021/02/16/myanmar-situation-not-what-china-wants-to-see-ambassador-.html
@@ -2884,7 +2892,7 @@
   - secrecy
   - whistleblower
   - democracy
-- text: Cut university funding again, this time by $2.1M.
+- text: Cut university funding again, this time by $2.1 billion.
   urls:
   - https://thenewdaily.com.au/news/national/2017/12/18/new-university-cuts-budget-update/
   tags:
@@ -3670,7 +3678,7 @@
   - jobs
 - text: >
     Proposed blocking students from going to university if their ATAR is too low,
-    even if the course has spare spaces and is happy with their ATAR.
+    even if the university has spare spaces and is happy with their ATAR.
   urls:
   - https://www.businessinsider.com.au/theres-a-really-shocking-plan-for-when-you-have-to-repay-hecs-debts-hidden-in-the-budget-2016-5
   tags:
@@ -5863,7 +5871,6 @@
   - ethics
 - text: >
     Started charging interest on HECS.
-    (OECD figures show that the public benefits from tertiary qualifications twice as much as the individual.)
   urls:
   - https://www.theaustralian.com.au/national-affairs/budget-2014/hecs-architect-bruce-chapman-warns-that-poorer-students-will-be-hardest-hit/story-fnmbxsc8-1226918013762
   - https://www.smh.com.au/national/education/oecd-figures-show-public-benefits-more-than-individuals-from-tertiary-education-20140928-10n6cc.html
@@ -7643,7 +7650,7 @@
   tags:
   - tax
   - costofliving
-- text: Withdraw all Commonwealth funding for Commonwealth supported places at University.
+- text: Withdrawn all Commonwealth funding for Commonwealth supported places at University.
   urls:
   - https://www.theguardian.com/world/2014/aug/11/65000-students-may-repay-student-loans-sooner
   tags:

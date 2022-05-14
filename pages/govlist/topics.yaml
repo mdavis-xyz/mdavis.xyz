@@ -49,15 +49,19 @@
   - climate
   - renewables
   - gas
+  - coal
   - bushfires
   - bushfire
   - carbon
   - wind
   - solar
-- display: COVID-19
+- display: Health and COVID-19
   class: covid
   aliases:
   - covid
+  - health
+  - mentalhealth
+  - drugs
 - display: The Environment, Bushfires and Water
   class: environment
   aliases:
@@ -67,6 +71,7 @@
   - bushfires
   - bushfire
   - gas
+  - coal
   - renewables
 - display: Refugees, Immigration and Borders
   class: refugees
@@ -163,13 +168,6 @@
   - agedcare
   - pension
   - super
-- display: Health
-  class: health
-  aliases:
-  - health
-  - mentalhealth
-  - drugs
-  - covid
 - display: Disability and NDIS
   class: disability
   aliases:

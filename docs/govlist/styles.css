@@ -343,10 +343,6 @@ input[type="checkbox"]:checked + label:before {
   display: list-item;
 }
 
-.filteredList.show-health li.health {
-  display: list-item;
-}
-
 .filteredList.show-disability li.disability {
   display: list-item;
 }

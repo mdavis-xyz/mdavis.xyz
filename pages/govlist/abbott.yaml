@@ -52,7 +52,7 @@
     Spent $1,400 per person per day to feed asylum seekers in Papua New Guinea.
     This $82 million contract was paid to a a high-risk shell company owned by PNG political figures, without any competitive tender process.
     The government did not ask any other company whether they can provide the food for a cheaper price or with less insolvency risk.
-    The government spent far more money than it would have cost to feed the asylum seekers caviar and lobster for every meal from a high end restaurant.
+    The government spent far more money than it would have cost to feed the asylum seekers caviar and lobster from a high end restaurant.
   urls:
   - https://www.smh.com.au/politics/federal/high-risk-and-inflated-australia-s-contract-for-food-on-manus-island-20190313-p513rn.html
   - https://youtu.be/aIGKCkS01EA?t=226
@@ -70,7 +70,7 @@
 - text: >
     Spent $105 million on grants for marginal and Coalition-held electorates which they are expected to deliver less value than other proposals.
     They then refused to release documents justifying the decisions.
-    (This is separate to the Sports grants and the car park grants.)
+    (This is separate to the sports grants and the car park grants.)
   urls:
   - https://www.michaelwest.com.au/regional-grants-rorts-bbrf/
   tags:
@@ -114,7 +114,7 @@
   - climate
 - text: >
     Broke a promise to close loopholes that allowed child abusers to keep their superannuation
-    when paying compensation to victims.
+    when they're running out of money to pay compensation to their victims.
   urls:
   - https://www.smh.com.au/national/crime-victims-urge-federal-government-to-close-super-loophole-20220426-p5ag7k.html
   - https://www.abc.net.au/news/2022-04-06/paedophile-superannuation-should-go-to-victims-xenophon-says/100970030
@@ -124,8 +124,8 @@
   - sex
 - text: >
     Paid $300 million to landfill operators for carbon credits (ACCUs)
-    to incentivise them to burn of methane which they would have done anyway.
-    This is in addition to them already being paid green certificates (LGCs),
+    to incentivise them to burn of methane which they would have burnt anyway.
+    This is in addition to them already being paid green certificates (LGCs) and wholesale electricity revenue,
     and includes sites which are legally required to burn that methane.
   urls:
   - https://law.anu.edu.au/sites/all/files/erf_landfill_gas_method_-_an_assessment_of_its_integrity_16_march_2022.pdf
@@ -133,6 +133,14 @@
   tags:
   - waste
   - climate
+- text: Spent $2.4 billion on French submarines that were never built. (In addition to the undisclosed fee for early contract termination, which is approximately $400 million.)
+  urls:
+  - https://www.theguardian.com/australia-news/2021/sep/17/australia-considered-buying-nuclear-submarines-from-france-before-ditching-deal-peter-dutton-says
+  - https://www.theguardian.com/australia-news/2021/sep/16/right-decision-to-scrap-french-submarines-but-south-australian-jobs-will-be-lost
+  tags:
+  - waste
+  - budget
+  - military
 - text: Failed to achieve their own water efficiency targets for the Murray Darling off-farm efficiency program, achieving only 1% of what they said they would.
   urls:
   - https://www.theguardian.com/australia-news/2022/jan/19/government-paying-eight-times-over-market-price-for-murray-darling-water-buyback-environment-groups-claim
@@ -277,7 +285,8 @@
   tags:
   - secrecy
 - text: >
-    Refused to publish valid Senate inquiry submissions if inconvenient,
+    Censored multiple valid Senate inquiry submissions if inconvenient,
+    deleting all records of receiving them,
     and instructed citizens to not publish those submissions themselves.
     Even senators don't have visibility of those submissions.
   tags:
@@ -3695,12 +3704,14 @@
   tags:
   - health
   - costofliving
-- text: Spent $39 billion on new submarines, despite the alleged budget emergency.
-  urls:
-  - https://money.cnn.com/2016/04/26/news/australia-france-submarines-asia-39-billion/index.html
-  tags:
-  - military
-  - budget
+# these are the ones that were cancelled.
+# there's another point about them further up
+#- text: Spent $39 billion on new submarines, despite the alleged budget emergency.
+#  urls:
+#  - https://money.cnn.com/2016/04/26/news/australia-france-submarines-asia-39-billion/index.html
+#  tags:
+#  - military
+#  - budget
 - text: >
     Proposed new powers for job agencies so that they can fine unemployed people,
     without any oversight, and with minimal avenues for recourse.

@@ -133,8 +133,35 @@
   tags:
   - waste
   - climate
-- text: Spent $2.4 billion on French submarines that were never built. (In addition to the undisclosed fee for early contract termination, which is approximately $400 million.)
+- text: Did not publish the text of the trilateral AUKUS treaty between Australia, the USA and the UK. (New Zealand was left out of the treaty.)
+  tags:
+  - secrecy
+  - military
+  - international
   urls:
+  - https://www.whitehouse.gov/briefing-room/statements-releases/2021/09/15/joint-leaders-statement-on-aukus/
+  - https://en.wikipedia.org/wiki/AUKUS
+  - https://www.smh.com.au/national/aukus-fallout-double-dealing-and-deception-came-at-a-diplomatic-cost-20220513-p5al95.html
+  - https://github.com/mdavis-xyz/mdavis.xyz/issues/21
+  tags:
+  - secrecy
+  - military
+  - international
+  urls:
+  - https://www.whitehouse.gov/briefing-room/statements-releases/2021/09/15/joint-leaders-statement-on-aukus/
+  - https://en.wikipedia.org/wiki/AUKUS
+  - https://www.smh.com.au/national/aukus-fallout-double-dealing-and-deception-came-at-a-diplomatic-cost-20220513-p5al95.html
+  - https://github.com/mdavis-xyz/mdavis.xyz/issues/21
+- text: Agreed to procurement terms for new nuclear submarines which explicitly prohibit the Australian Navy from 'opening the bonnet' to look at the nuclear reactors to maintain or repair them. That must be outsourced to the US or UK.
+  tags:
+  - military
+  - international
+  - secrecy
+  urls:
+  - https://www.smh.com.au/national/aukus-fallout-double-dealing-and-deception-came-at-a-diplomatic-cost-20220513-p5al95.html
+- text: Spent $5.5 billion on French submarines that were never built. (In addition to the undisclosed fee for early contract termination, which is approximately $400 million.)
+  urls:
+  - https://www.abc.net.au/news/2022-04-01/cancelled-french-submarine-program-cost-billions/100959082
   - https://www.theguardian.com/australia-news/2021/sep/17/australia-considered-buying-nuclear-submarines-from-france-before-ditching-deal-peter-dutton-says
   - https://www.theguardian.com/australia-news/2021/sep/16/right-decision-to-scrap-french-submarines-but-south-australian-jobs-will-be-lost
   tags:
@@ -173,6 +200,13 @@
   - international
   - corruption
   - donors
+- text: Secretly cancelled a $1.3 billion drone procurement contract.
+  urls:
+  - https://www.canberratimes.com.au/story/7682864/morrison-govt-cancels-countrys-only-armed-drones-project/
+  - https://www.aerotime.aero/articles/30649-australia-cancels-skyguardian-drone
+  tags:
+  - secrecy
+  - military
 - text: Spent $18M on a new leadership program, given to an organisation with no staff, no track record in anything related to leadership, with an incorrect registered business address, without a normal tender process.
   urls:
   - https://www.abc.net.au/news/2022-04-05/question-millions-australian-future-leaders-foundation-funding/100965562
@@ -287,9 +321,9 @@
   tags:
   - secrecy
 - text: >
-    Censored multiple valid Senate inquiry submissions if inconvenient,
-    deleting all records of receiving them,
-    and instructed citizens to not publish those submissions themselves.
+    <b>Censored multiple valid Senate inquiry submissions if inconvenient,
+    deleting all records of receiving them,</b>
+    and instructed citizens to not publish their submissions themselves.
     Even senators don't have visibility of those submissions.
   tags:
   - secrecy
@@ -768,6 +802,14 @@
   - corruption
   - secrecy
   - ethics
+- text: >
+    Went over far budget and overdue for construction of new government owned Snowy Hydro pumped storage.
+    They said it would cost $2 billion and take 4 years, but now that's blown out to $10 billion and 10 years.
+  tags:
+  - budget
+  urls:
+  - https://www.smh.com.au/national/five-years-on-snowy-2-0-emerges-as-a-10-billion-white-elephant-20220310-p5a3ge.html
+  - https://www.theguardian.com/australia-news/2020/mar/28/snowy-hydro-20-will-cost-more-and-deliver-less-than-promised-30-experts-say
 - text: >
     Removed 3 out of 4 recommendations from a report investigating a blank-cheque payment to a private consultant
     which was made without even verifying that the service was delivered.
@@ -3216,6 +3258,14 @@
   tags:
   - secrecy
   - health
+- text: >
+    Narrowly avoided 3 contempt of court charges,
+    after criticising jail terms for specific court cases as too lenient,
+    in a way that violates the principle of separation of court and parliament.
+  tags:
+  - democracy
+  urls:
+  - https://www.abc.net.au/news/2017-06-23/ministers-apologise-to-court-for-criticising-terror-sentencing/8645026
 - text: Claimed many 'community leaders' support the cashless welfare card, but refused to list such supporters when asked.
   urls:
   - https://mobile.abc.net.au/news/2017-04-12/government-wont-name-supporters-of-cashless-welfare-cards/8435782

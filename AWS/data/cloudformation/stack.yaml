@@ -140,7 +140,7 @@ Resources:
               S3Key: !Join [ "/", [ !Ref "stage", "front.zip"] ]
               S3ObjectVersion: !Ref "frontS3Version"
             Handler: main.lambda_handler
-            Runtime: python3.6
+            Runtime: python3.9
             Timeout: 10
             Role:
                 "Fn::GetAtt": ["ExecutionRole", "Arn"]
@@ -304,7 +304,7 @@ Resources:
               S3Key: !Join [ "/", [ !Ref "stage", "errorHandler.zip"] ]
               S3ObjectVersion: !Ref "errorHandlerS3Version"
             Handler: main.lambda_handler
-            Runtime: python3.6
+            Runtime: python3.9
             Timeout: 60
             Role:
                 "Fn::GetAtt": ["ExecutionRole", "Arn"]
@@ -328,7 +328,7 @@ Resources:
               S3Key: !Join [ "/", [ !Ref "stage", "failer.zip"] ]
               S3ObjectVersion: !Ref "failerS3Version"
             Handler: main.lambda_handler
-            Runtime: python3.6
+            Runtime: python3.9
             Timeout: 60
             Role:
                 "Fn::GetAtt": ["ExecutionRole", "Arn"]

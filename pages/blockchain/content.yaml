@@ -295,7 +295,7 @@
           The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with online voting encompass the whole ecosystem, not just the database.
      # TODO: link for next line
      - p: >
-          Any type of online voting is a <a href="/voting/>terrible idea</a>.
+          Any type of online voting is a <a href="/voting/">terrible idea</a>.
           If you must do online voting, just use a normal database.
           It will be simpler, cheaper and greener.
 - id: voting-online-bank
@@ -326,7 +326,7 @@
           The <a target="_blank" href="https://xkcd.com/2030/">security issues</a> with online voting encompass the whole ecosystem, not just the database.
      # TODO: link for next line
      - p: >
-          Any type of online voting is a terrible idea.
+          Any type of online voting is a <a href="/voting/">terrible idea</a>.
           If you must do online voting, just use a normal database.
           It will be simpler, cheaper and greener.
 - id: write-data
@@ -384,7 +384,7 @@
   content:
      - h1: No, you don't need a blockchain
      - p: Blockchains were invented as a way to transact with untrusted parties.
-     - p: If you can trust a third party, then you can transact with the untrusted parties via the trusted third party.
+     - p: If you and the counterparty can trust a third party, then you can transact with the untrusted parties via the trusted third party.
      - p: Just use the trusted party and a normal database. It will be faster, cheaper and greener.
 - id: delete-data-q
   content:
@@ -424,7 +424,7 @@
   content:
      - h2: Who will fix it?
      - button:
-        - text: My organisation will have manual overwrite privileges
+        - text: One admin group will have manual overwrite privileges
           destination: blunders-org
           destination-type: absolute
           direction: down
@@ -540,7 +540,7 @@
 - id: cost-warning
   content:
      - h2: No, you probably don't want a blockchain
-     - p: Blockchains require many expensive computers, which burn a huge amount of energy playing <a target="_blank" href="https://youtu.be/ZH-cXBhkl-E?t=21s">Number Wang</a>, to decide who gets to write to the database. So blockchains are expensive to run. Also, buzzword consultants charge high fees.
+     - p: Blockchains require many expensive computers, which burn a huge amount of energy playing <a target="_blank" href="https://youtu.be/ZH-cXBhkl-E?t=21s">Number Wang</a>, to decide who gets to write to the database. Blockchains are deliberately expensive to run, <i>by design</i>. Also, buzzword consultants charge high fees.
      - button:
         - text: I'm willing to pay more
           destination: 1
@@ -576,23 +576,63 @@
           direction: down
      - button:
         - text: No
-          destination: 2
-          destination-type: relative
+          destination: merkle
+          destination-type: absolute
           direction: left
 - id: emissions-a
   content:
      - h1: No, you don't want a blockchain
      - p: There's a law in mathematics that says you can't have truly distributed databases, without central orchestration.
-     - p: Satoshi (the inventor of blockchains) found a loophole. It's possible, by using as  much electricity as a whole country<sup><a target="_blank" href="https://grist.org/article/bitcoin-could-cost-us-our-clean-energy-future/">[1]</a><a target="_blank" href="https://digiconomist.net/bitcoin-energy-consumption">[2]</a><a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">[3]</a></sup>, spent powering many computers playing <a target="_blank" href="https://youtu.be/ZH-cXBhkl-E?t=21s">Number Wang</a>. Only once a computer wins Number Wang can it write something to the database.
-     - p: Other types of blockchains have been proposed, which use <i>Proof-of-Stake</i> or <i>Proof-of-Storage</i> instead of <i>Proof-of-Work</i>. These are largely <a target="_blank" href="https://en.wikipedia.org/wiki/Vaporware">vaporware</a>.
+     - p: >
+         Satoshi (the inventor of blockchains) found a loophole.
+         It's possible by deliberately wasting electricity,
+         spent powering entire warehouses full of computers playing <a target="_blank" href="https://youtu.be/ZH-cXBhkl-E?t=21s">Number Wang</a>.
+     - p: This results in unconscionably large <a target="_blank" href="https://v.redd.it/59mk7p1fs7n61">emissions</a>.
+         For example Bitcoin now uses as much electricity as a whole country<sup><a target="_blank" href="https://grist.org/article/bitcoin-could-cost-us-our-clean-energy-future/">[1]</a><a target="_blank" href="https://digiconomist.net/bitcoin-energy-consumption">[2]</a><a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">[3]</a></sup>,
+     - p: >
+         Other types of blockchains have been proposed.
+         These are largely <a target="_blank" href="https://en.wikipedia.org/wiki/Vaporware">vaporware</a>.
      - button:
-        - text: Screw the environment, I want a blockchain!
-          destination: 1
-          destination-type: relative
+        - text: What about Chia?
+          destination: proof-of-storage
+          destination-type: absolute
+          direction: left
+     - button:
+        - text: What about Ethereum?
+          destination: proof-of-stake
+          destination-type: absolute
+          direction: left
+- id: proof-of-stake
+  content:
+     - h2: Ethereum
+     - p: >
+         Ethereum has finally swapped to a Proof-of-Stake model that means
+         the supposedly decentralised and uncensorable system will become
+         <a target="_blank" href="https://davidgerard.co.uk/blockchain/2022/08/20/proof-of-stake-is-better-than-proof-of-work-but-ethereums-merge-wont-fix-any-other-problem-with-cryptocurrency/">even more centralised than it already was</a>
+         with
+         <a target="_blank" href="https://davidgerard.co.uk/blockchain/2022/08/09/us-sanctions-tornado-cash-and-crypto-shrieks-in-horror/">even more regulatory censorship than it already had</a>.
+         So you lose a lot of the unique value propositions of blockchains.
+     - button:
+        - text: I don't care. I still want a blockchain!
+          destination: merkle
+          destination-type: absolute
+          direction: left
+- id: proof-of-storage
+  content:
+     - h2: Chia
+     - p: >
+         <a target="_blank" href="https://www.theguardian.com/technology/2021/may/26/new-cryptocurrency-chia-blamed-for-hard-drive-shortages">Chia</a> uses <a target="_blank" href="https://geniice.wordpress.com/2021/05/06/how-bad-is-chia-going-to-get/">Proof-of-Storage</a> to swap
+         <a target="_blank" href="https://v.redd.it/59mk7p1fs7n61">egregious electricity usage</a>
+         for
+         <a target="_blank" href="https://protos.com/chia-miners-sell-damaged-hard-drives-after-green-bitcoin-tanks/">egregious e-waste</a>.
+     - button:
+        - text: Screw the environment. I want a blockchain!
+          destination: merkle
+          destination-type: absolute
           direction: left
 - id: merkle
   content:
-     - h2: Do you want a cryptographically secure, append-only, hash-based Merkle Tree database?
+     - h2: Do you want a cryptographically secure append-only hash-based Merkle Tree database?
      - button:
         - text: No
           destination: no-merkle
@@ -600,8 +640,25 @@
           direction: down
      - button:
         - text: Yes
-          destination: 2
-          destination-type: relative
+          destination: git-q
+          destination-type: absolute
+          direction: left
+     - button:
+        - text: A what?
+          destination: what-merkle
+          destination-type: absolute
+          direction: left
+- id: what-merkle
+  content:
+     #- h1: Are you sure you should be selecting database types?
+     - p: >
+         "Append-only" means you can only add new rows to the spreadsheet, without deleting or modifying previous rows.
+     - p: >
+         A Hash-based Merkle Tree uses fingerprints of data to provide an easy way to check that the whole history of data entries matches what you expect.
+     - button:
+        - text: Yes I want that
+          destination: git-q
+          destination-type: absolute
           direction: left
 - id: no-merkle
   content:
@@ -610,8 +667,8 @@
 - id: git-q
   content:
      - h2: Can you use Git?
-     - p: <a target="_blank" href="https://git-scm.com/">Git</a> is a very popular tool for managing code.
-     - p: It's designed to allow multiple people to modify files at the same time. It has an auditable history of all changes made to the data. Most developers already know how to use it, and there's a large ecosystem of <a target="_blank" href="https://www.gitkraken.com/">tools</a> and <a target="_blank" href="https://gitlab.com/">hosting</a> <a target="_blank" href="https://www.github.com">systems</a> for it.
+     - p: <a target="_blank" href="https://git-scm.com/">Git</a> is a popular tool for managing code. It also happens to be a cryptographically secure append-only hash-based Merkle Tree database.
+     - p: It's designed to allow multiple people to modify files at the same time. It has a distributed, auditable history of all changes made to the data. Most developers already know how to use it, and there's a large ecosystem of <a target="_blank" href="https://www.gitkraken.com/">tools</a> and <a target="_blank" href="https://gitlab.com/">hosting</a> <a target="_blank" href="https://www.github.com">systems</a> for it.
      - p: If you want, you can use <a target="_blank" href="https://help.github.com/articles/signing-commits-using-gpg/">cryptographic signatures</a> to verify writes to the files.
      - button:
         - text: Yes
@@ -627,8 +684,8 @@
   content:
      - h1: No, you don't need a blockchain
      - h1: Just use Git
-     - p: Git repositories are like blockchains. The main difference is that they don't emit more pollution than whole countries. # references
-     - p: Also, Git is an established, well proven technology which most developers already have the skills to use. Whereas blockchain projects are largely vaporware, with eye-watering consultancy price tags.
+     - p: Git repositories are like blockchains. The main difference is that they don't emit more pollution than whole countries<sup><a target="_blank" href="https://grist.org/article/bitcoin-could-cost-us-our-clean-energy-future/">[1]</a><a target="_blank" href="https://digiconomist.net/bitcoin-energy-consumption">[2]</a><a target="_blank" href="https://www.cell.com/joule/fulltext/S2542-4351(18)30177-6">[3]</a></sup>.
+     - p: Also, Git is an established, well proven technology which most developers already have the skills to use. Whereas blockchain projects are largely <a target="_blank" href="https://en.wikipedia.org/wiki/Vaporware">vaporware</a>, with eye-watering consultancy price tags.
 - id: cryptocurrency
   content:
      - h2: Are you making a new cryptocurrency?

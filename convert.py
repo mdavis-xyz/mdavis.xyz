@@ -34,7 +34,7 @@ with open(template_fname,"r") as f:
 def callShellCmd(cmd,directory):
     print("Calling `%s` in %s" % (cmd,directory))
     ret = call(cmd, shell=True, cwd=directory)
-    assert(not ret)
+    assert not ret
     print("Finished calling `%s` in %s" % (cmd,directory))
 
 def numWords(markdown):

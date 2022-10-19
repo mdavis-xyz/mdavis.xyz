@@ -1,3 +1,6 @@
+# note to self:
+# debug with:
+# slide('start','x','left', false) 
 - id: start
   content:
      - h1: Do you need a blockchain?
@@ -744,12 +747,12 @@
      - h2: Are you trying to thwart government control of something?
      - p: For example, <a target="_blank" href="https://blockchain-dns.info/">censorship-proof domain ownership and DNS</a>, or <a target="_blank" href="https://twitter.com/wikileaks/status/80774521350668288">a way to donate to WikiLeaks</a>?
      - button:
-        - text: Yes
+        - text: Yes, I'm trying to defy governments or laws
           destination: yes-blockchain
           destination-type: absolute
           direction: down
      - button:
-        - text: No, I'm not trying to defy governments or laws
+        - text: No I'm law-abiding
           destination: end-no
           destination-type: absolute
           direction: down

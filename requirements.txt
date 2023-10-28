@@ -5,3 +5,6 @@ boto3
 virtualenv
 pytidylib
 pyrss2gen
+requests
+jinja2
+wayback

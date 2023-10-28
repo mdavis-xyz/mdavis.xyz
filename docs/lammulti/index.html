@@ -111,7 +111,11 @@
       </aside>
 
       <hr/>
-      <p>If you deploy Python code to an <a href="https://aws.amazon.com/lambda/">AWS Lambda function</a>, the multiprocessing functions in the standard library such as <a href="https://docs.python.org/3/library/multiprocessing.html?highlight=multiprocessing%20python%20map%20pool#multiprocessing.pool.Pool.map"><code>multiprocessing.Pool.map</code></a> will not work.</p>
+      <p>If you deploy Python code to an <a
+href="https://aws.amazon.com/lambda/">AWS Lambda function</a>, the
+multiprocessing functions in the standard library such as <a
+href="https://docs.python.org/3/library/multiprocessing.html?highlight=multiprocessing%20python%20map%20pool#multiprocessing.pool.Pool.map"><code>multiprocessing.Pool.map</code></a>
+will not work.</p>
 <p>For example:</p>
 <pre><code>from multiprocessing import Pool
 def func(x):
@@ -121,21 +125,41 @@ with Pool() as p:
     result = p.map(func, args)</code></pre>
 <p>will give you:</p>
 <pre><code>OSError: [Errno 38] Function not implemented</code></pre>
-<p>This is because AWS Lambda functions are very bare bones, and have no shared memory device (<code>/dev/shm</code>).</p>
-<p>There is a workaround using <code>Pipe</code>s and <code>Process</code>es. Amazon documented it <a href="https://aws.amazon.com/blogs/compute/parallel-processing-in-python-with-aws-lambda/">in this blog post</a>. However that example is very much tied to the work being done, it doesn't have great error handling, and is not structured in the way you'd expect when using the normal <code>multiprocessing</code> library.</p>
-<p>I have written the <code>lambda_multiprocessing</code> library as a drop-in replacement for <code>multiprocessing.Pool</code> which works in AWS Lambda functions using this workaround.</p>
-<p>It is unit tested, handlers errors properly, and matches the interface of <code>multiprocessing.Pool</code>.</p>
-<p>To install it, run <code>pip install lambda_multiprocessing</code>. Then you can use it just like the normal <code>Pool</code>, for example:</p>
+<p>This is because AWS Lambda functions are very bare bones, and have no
+shared memory device (<code>/dev/shm</code>).</p>
+<p>There is a workaround using <code>Pipe</code>s and
+<code>Process</code>es. Amazon documented it <a
+href="https://aws.amazon.com/blogs/compute/parallel-processing-in-python-with-aws-lambda/">in
+this blog post</a>. However that example is very much tied to the work
+being done, it doesn't have great error handling, and is not structured
+in the way you'd expect when using the normal
+<code>multiprocessing</code> library.</p>
+<p>I have written the <code>lambda_multiprocessing</code> library as a
+drop-in replacement for <code>multiprocessing.Pool</code> which works in
+AWS Lambda functions using this workaround.</p>
+<p>It is unit tested, handlers errors properly, and matches the
+interface of <code>multiprocessing.Pool</code>.</p>
+<p>To install it, run <code>pip install lambda_multiprocessing</code>.
+Then you can use it just like the normal <code>Pool</code>, for
+example:</p>
 <pre><code>from lambda_multiprocessing import Pool
 def func(x):
     return x*x
 args = [1,2,3]
 with Pool() as p:
     result = p.map(func, args)</code></pre>
-<p>If you use <a href="https://docs.getmoto.org/en/latest/"><code>moto</code></a> to unit test your code, you cannot do multiprocessing, because <code>moto</code> is not concurrency safe. As a workaround, pass <code>0</code> as the argument to <code>Pool</code> when unit testing, and a <code>None</code> or positive integer when really deployed. This way when unit testing you'll get the interface of <code>Pool</code>, but everything will actually run in the main thread, to keep <code>moto</code> happy.</p>
+<p>If you use <a
+href="https://docs.getmoto.org/en/latest/"><code>moto</code></a> to unit
+test your code, you cannot do multiprocessing, because <code>moto</code>
+is not concurrency safe. As a workaround, pass <code>0</code> as the
+argument to <code>Pool</code> when unit testing, and a <code>None</code>
+or positive integer when really deployed. This way when unit testing
+you'll get the interface of <code>Pool</code>, but everything will
+actually run in the main thread, to keep <code>moto</code> happy.</p>
 <p>To read more, visit the GitHub repository:</p>
 <div id="download-wrap" class="center">
-<p><a href="https://github.com/mdavis-xyz/lambda_multiprocessing" class="button" >Visit GitHub Repo</a></p>
+<p><a href="https://github.com/mdavis-xyz/lambda_multiprocessing" class="button" >Visit
+GitHub Repo</a></p>
 </div>
 
 

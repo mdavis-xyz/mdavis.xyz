@@ -1,7 +1,7 @@
 This document outlines a method for visualising four-dimensional
 complex-to-complex functions in only 3 dimensions. It cannot be
 generalised to other four-dimensional objects. (For that, check out
-[Miegakure](http://miegakure.com/))
+[Miegakure](http://miegakure.com/){target="_blank"})
 
 These visualisations do not show the true beauty of four-dimensions.
 However they can be used to:
@@ -14,14 +14,13 @@ However they can be used to:
 -   clearly show how branch cuts affect the Log function.
 
 An interactive version of this document for Maple can be found
-[here](mapleFile.zip).
+[here](mapleFile.zip){target="_blank"}.
 
-Two-Dimensional Analogy
------------------------
+## Two-Dimensional Analogy
 
 First, we will visualise a real-to-complex functions in 2D.
 
-::: {.formula}
+::: formula
 *f*(*x*) = *e*^*ix*^ = cos(*x*) + *i*sin(*x*)
 
 <div>
@@ -53,8 +52,7 @@ once each. The height of the points of intersection of the red and blue
 curves equals the value of the imaginary and real parts of
 [*f*(*x*)]{.formula} respectively.
 
-All 3 Dimensions
-----------------
+## All 3 Dimensions
 
 ### Cartesian Graphs {#cartesian-graphs .Subsection-}
 
@@ -67,7 +65,7 @@ currently the [*x*]{.formula} axis becomes the [ℜ(*x*)]{.formula} axis.
 Let\'s look at a function similar to the previous example, but with a
 complex domain (and without the [*i*]{.formula} in the power).
 
-::: {.formula}
+::: formula
 *g*(*z*) = *e*^*z*^ = *e*^*x* + *iy*^ = *e*^*x*^[(]{.symbol}cos(*y*) + *i*sin(*y*)[)]{.symbol}
 *g*:[ℂ → ℂ]{.blackboard}
 :::
@@ -76,7 +74,7 @@ We\'ll start by plotting the real part as a complex to real function.
 You can visualise this in the same way as a function of 2 variables in
 the real world.
 
-::: {.formula}
+::: formula
 ℜ[(]{.symbol}*g*(*z*)[)]{.symbol} = *e*^*x*^cos(*y*)
 :::
 
@@ -85,7 +83,7 @@ the real world.
 Now we plot the imaginary part, which can also be thought of as a
 complex to real function, or a 2 variable real function.
 
-::: {.formula}
+::: formula
 ℑ[(]{.symbol}*g*(*z*)[)]{.symbol} = *e*^*x*^sin(*y*)
 :::
 
@@ -127,8 +125,7 @@ clear from this that visualising complex-to-complex graphs can be
 insightful. Obviously we still can\'t see the curve in all its 4D glory,
 but there is a lot more usefulness to come.
 
-Differentiability
------------------
+## Differentiability
 
 For this section we will stick to Cartesian graphs, because
 differentiation is intrinsically Cartesian (due to the Cartesian nature
@@ -137,31 +134,31 @@ of the Cauchy-Riemann equations).
 To explain what differentiability means geometrically, here is an
 example:
 
-::: {.formula}
+::: formula
 *h*(*z*) = *x*^2^ + *iy*^2^*h*:[ℂ → ℂ]{.blackboard}
 :::
 
 If we apply the Cauchy-Riemann equations we get:
 
-::: {.formula}
+::: formula
 [[(]{.ignored}[∂*u*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*x*]{.denominator}[)]{.ignored}]{.fraction} = [[(]{.ignored}[∂*v*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*y*]{.denominator}[)]{.ignored}]{.fraction}
 :::
 
-::: {.formula}
+::: formula
 2*x* = 2*y*
 :::
 
-::: {.formula}
+::: formula
 *x* = *y*
 :::
 
 and
 
-::: {.formula}
+::: formula
 [[(]{.ignored}[∂*u*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*y*]{.denominator}[)]{.ignored}]{.fraction} =  − [[(]{.ignored}[∂*v*[(]{.symbol}*x*, *y*[)]{.symbol}]{.numerator}[)/(]{.ignored}[∂*x*]{.denominator}[)]{.ignored}]{.fraction}
 :::
 
-::: {.formula}
+::: formula
 0 = 0
 :::
 
@@ -207,14 +204,13 @@ checking anywhere on [*y* =  − *x*]{.formula}, make sure you rotate in
 the correct direction), but at least now you *know* the geometric
 meaning of differentiability for complex-to-complex functions.
 
-Logarithms
-----------
+## Logarithms
 
 ### log {#log .Subsection-}
 
 Let\'s look at logs.
 
-::: {.formula}
+::: formula
 log(*z*) = ln∣*z*∣ + *i*(*θ*) *θ* ∈ ℝ
 :::
 
@@ -245,14 +241,13 @@ single-valued function. This is known as a \'branch cut\'. The following
 graph shows how different branch cuts affect the Log function. The
 variable [t]{.formula} is the angle of the branch cut, in radians.
 
-Beyond
-------
+## Beyond
 
 Now we know how to visualise arbitrary complex-to-complex functions in
 only 3 dimensions. Let\'s try some more complicated ones to see what
 happens.
 
-::: {.formula}
+::: formula
 *f*(*x* + *iy*) = [[(]{.ignored}[tan^ − 1^[(]{.symbol}*x* + *iy*[)]{.symbol}]{.numerator}[)/(]{.ignored}[*x* − *iy*]{.denominator}[)]{.ignored}]{.fraction}
 *f*:[ℂ → ℂ]{.blackboard}
 :::
@@ -263,7 +258,7 @@ happens.
 
 Here is a complex parabola:
 
-::: {.formula}
+::: formula
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^2^ *f*:[ℂ → ℂ]{.blackboard}
 :::
 
@@ -271,7 +266,7 @@ Here is a complex parabola:
 
 Here is a complex cubic:
 
-::: {.formula}
+::: formula
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^3^ *f*:[ℂ → ℂ]{.blackboard}
 :::
 
@@ -280,7 +275,7 @@ Here is a complex cubic:
 Here is a complex square root. (Note: Only the principle value of the
 square root is shown)
 
-::: {.formula}
+::: formula
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^[[(]{.ignored}[1]{.numerator}[)/(]{.ignored}[2]{.denominator}[)]{.ignored}]{.fraction}^
 *f*:[ℂ → ℂ]{.blackboard}
 :::
@@ -289,7 +284,7 @@ square root is shown)
 
 Here is a complex hyperbola:
 
-::: {.formula}
+::: formula
 *f*[(]{.symbol}*z*[)]{.symbol} = *z*^ − 1^ *f*:[ℂ → ℂ]{.blackboard}
 :::
 
@@ -299,7 +294,7 @@ Here is a complex hyperbola:
 
 Here is [cos(*z*)]{.formula}:
 
-::: {.formula}
+::: formula
 *f*[(]{.symbol}*z*[)]{.symbol} = cos(*z*) *f*:[ℂ → ℂ]{.blackboard}
 :::
 
@@ -307,7 +302,7 @@ Here is [cos(*z*)]{.formula}:
 
 Now here is [cosh(*z*)]{.formula}:
 
-::: {.formula}
+::: formula
 *f*[(]{.symbol}*z*[)]{.symbol} = cosh(*z*) *f*:[ℂ → ℂ]{.blackboard}
 :::
 
@@ -320,8 +315,7 @@ multiplication by [*i*]{.formula} results in a rotation of
 [90^*o*^]{.formula} (rotation in either direction because they are both
 even functions in the real world). Is your mind blown?
 
-Your Turn
----------
+## Your Turn
 
 If you want to graph any other functions, first open up Maple, and type
 in the following code.

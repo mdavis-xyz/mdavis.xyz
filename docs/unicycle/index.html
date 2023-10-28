@@ -111,15 +111,42 @@
 <source src="video.mp4" type="video/mp4">
 <source src="video.webm" type="video/webm">
 </video>
-<p>This project is a combination of two of my passions: programming and unicycling. I used the <a href="https://github.com/keras-rl/keras-rl">Keras reinforcement learning library</a> to train a machine learning model how to ride a unicycle. I published the code in <a href="https://github.com/mdavis-xyz/keras-unicycle">this GitHub repo</a>.</p>
+<p>This project is a combination of two of my passions: programming and
+unicycling. I used the <a
+href="https://github.com/keras-rl/keras-rl">Keras reinforcement learning
+library</a> to train a machine learning model how to ride a unicycle. I
+published the code in <a
+href="https://github.com/mdavis-xyz/keras-unicycle">this GitHub
+repo</a>.</p>
 <h2 id="overall-structure">Overall Structure</h2>
-<p>This project uses the <a href="https://gym.openai.com/">Gym</a> library. This library is designed to provide a common interface between different machine learning models (the controller), and physical models of the thing being controlled (the plant).</p>
-<p>The controller is a <a href="https://github.com/keras-rl/keras-rl">Keras-rl</a> model, which uses a TensorFlow backend.</p>
-<p>Each <em>frame</em> Gym tells my Keras model the current state of the unicycle. The Keras model makes a decision (push on the left pedal or right). This is fed into the model, which updates the state for the next <em>frame</em>. This new state, and is fed back into Keras, in addition to a reward to tell Keras how well it's doing.</p>
+<p>This project uses the <a href="https://gym.openai.com/">Gym</a>
+library. This library is designed to provide a common interface between
+different machine learning models (the controller), and physical models
+of the thing being controlled (the plant).</p>
+<p>The controller is a <a
+href="https://github.com/keras-rl/keras-rl">Keras-rl</a> model, which
+uses a TensorFlow backend.</p>
+<p>Each <em>frame</em> Gym tells my Keras model the current state of the
+unicycle. The Keras model makes a decision (push on the left pedal or
+right). This is fed into the model, which updates the state for the next
+<em>frame</em>. This new state, and is fed back into Keras, in addition
+to a reward to tell Keras how well it's doing.</p>
 <h2 id="physics">Physics</h2>
-<p>Unicycles are a type of <a href="https://en.wikipedia.org/wiki/Inverted_pendulum">inverted pendulum</a>. These problems are well suited to machine learning. (Yes, this can be solved with traditional PID controllers and fuzzy logic. I chose machine learning as something fun and educational.)</p>
-<p>The physics engine used is a <a href="https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/gym-unicycle/gym_unicycle/envs/unicycle_env.py#L157">simple custom script</a> which evaluates the inverted pendulum problem. It is a modified version of the <a href="https://gym.openai.com/envs/CartPole-v0/">CartPole-V0</a> environment from the gym library.</p>
-<p>Unicycling is a lot like balancing a pencil on your finger. If the pencil starts to fall forwards, you accelerate your finger forwards. However unlike pencil balancing, this project is only in 1 dimension.</p>
+<p>Unicycles are a type of <a
+href="https://en.wikipedia.org/wiki/Inverted_pendulum">inverted
+pendulum</a>. These problems are well suited to machine learning. (Yes,
+this can be solved with traditional PID controllers and fuzzy logic. I
+chose machine learning as something fun and educational.)</p>
+<p>The physics engine used is a <a
+href="https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/gym-unicycle/gym_unicycle/envs/unicycle_env.py#L157">simple
+custom script</a> which evaluates the inverted pendulum problem. It is a
+modified version of the <a
+href="https://gym.openai.com/envs/CartPole-v0/">CartPole-V0</a>
+environment from the gym library.</p>
+<p>Unicycling is a lot like balancing a pencil on your finger. If the
+pencil starts to fall forwards, you accelerate your finger forwards.
+However unlike pencil balancing, this project is only in 1
+dimension.</p>
 <p>There are 4 states:</p>
 <ul>
 <li>horizontal position of the wheel</li>
@@ -138,23 +165,85 @@
 <li>push on the right pedal - hard</li>
 </ol>
 <h2 id="machine-learning">Machine Learning</h2>
-<p>The layers of the neural network are published <a href="https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/main.py#L58">here</a>.</p>
-<p>The environment code for the model normalises all the states so that they range from -1 to 1. This is because neural networks perform best when the inputs are the same order of magnitude.</p>
-<p>The horizontal position of the unicycle is fed in as 3 separate variables. There is the total rotation of the wheel from the centre position. Additionally there is the sine and cosine of the wheel rotation. This is because the physical model is inherently trigonometric. Pushing down on horizontal pedals results in more torque than when the pedals are diagonal or vertical. Rather than force the neural network to figure out this relationship, I guided it by calculating the sine and cosine for it.</p>
-<p>The reward function contains several components. The <a href="https://raw.githubusercontent.com/keras-rl/keras-rl/master/assets/cartpole.gif">Keras-rl CartPole-V0 example</a> simply returns 1 for each frame the pole hasn't fallen over. Because the unicycle model is more complicated, I found this wasn't sufficient. So I added more components to the reward function to help guide it towards success:</p>
+<p>The layers of the neural network are published <a
+href="https://github.com/mdavis-xyz/keras-unicycle/blob/3f6d682d527f50dfd98bf9b108e53b79e37cdc6c/main.py#L58">here</a>.</p>
+<p>The environment code for the model normalises all the states so that
+they range from -1 to 1. This is because neural networks perform best
+when the inputs are the same order of magnitude.</p>
+<p>The horizontal position of the unicycle is fed in as 3 separate
+variables. There is the total rotation of the wheel from the centre
+position. Additionally there is the sine and cosine of the wheel
+rotation. This is because the physical model is inherently
+trigonometric. Pushing down on horizontal pedals results in more torque
+than when the pedals are diagonal or vertical. Rather than force the
+neural network to figure out this relationship, I guided it by
+calculating the sine and cosine for it.</p>
+<p>The reward function contains several components. The <a
+href="https://raw.githubusercontent.com/keras-rl/keras-rl/master/assets/cartpole.gif">Keras-rl
+CartPole-V0 example</a> simply returns 1 for each frame the pole hasn't
+fallen over. Because the unicycle model is more complicated, I found
+this wasn't sufficient. So I added more components to the reward
+function to help guide it towards success:</p>
 <ul>
-<li>3 points for every frame the unicycle stays within the limits. (It hasn't fallen over, gone off screen, nor exceeded speed limits.) This is because the goal is to simply survive. The longer the machine keeps the unicycle upright, the more points it gets.</li>
-<li>A reward of up to 1 based on how close the unicycle is to the centre. Without this the computer often keeps the unicycle near the window edge, where it is likely to run off the screen (which is a failure). This reward is a parabola, with a value of 1 at the centre of the screen, and 0 at the edges.</li>
-<li>A penalty of up to 0.2 based on how far the seat post is from vertical. (A human unicyclist is more likely to fall over if they lean very far forward or back.)</li>
-<li>A penalty of up to 0.2 points if the horizontal speed is too high. (A human unicyclist is more likely to fall over if they move extremely fast.) This penalty only kicks in above a certain speed threshold. The higher the speed (above this threshold) the larger the penalty.</li>
-<li>Similarly, a penalty of up to 0.2 if the seat post is falling too fast. This penalty does not apply if the seat post is moving back towards vertical very quickly.</li>
-<li>A penalty of up to 1.0 based on how different each action is to the last. This is to tempt the controller to add a bit of smoothness and hysteresis. Without it, the controller tends to oscillate wildly between pressing hard on the left pedal one frame, then hard on the right pedal, then hard on the left pedal. Any real physical actuator would struggle with that. This penalty slows down that oscillation.</li>
-<li>Similarly, a penalty of up to 0.2 if the controller chooses one action repeatedly for less than 0.3 seconds.</li>
+<li>3 points for every frame the unicycle stays within the limits. (It
+hasn't fallen over, gone off screen, nor exceeded speed limits.) This is
+because the goal is to simply survive. The longer the machine keeps the
+unicycle upright, the more points it gets.</li>
+<li>A reward of up to 1 based on how close the unicycle is to the
+centre. Without this the computer often keeps the unicycle near the
+window edge, where it is likely to run off the screen (which is a
+failure). This reward is a parabola, with a value of 1 at the centre of
+the screen, and 0 at the edges.</li>
+<li>A penalty of up to 0.2 based on how far the seat post is from
+vertical. (A human unicyclist is more likely to fall over if they lean
+very far forward or back.)</li>
+<li>A penalty of up to 0.2 points if the horizontal speed is too high.
+(A human unicyclist is more likely to fall over if they move extremely
+fast.) This penalty only kicks in above a certain speed threshold. The
+higher the speed (above this threshold) the larger the penalty.</li>
+<li>Similarly, a penalty of up to 0.2 if the seat post is falling too
+fast. This penalty does not apply if the seat post is moving back
+towards vertical very quickly.</li>
+<li>A penalty of up to 1.0 based on how different each action is to the
+last. This is to tempt the controller to add a bit of smoothness and
+hysteresis. Without it, the controller tends to oscillate wildly between
+pressing hard on the left pedal one frame, then hard on the right pedal,
+then hard on the left pedal. Any real physical actuator would struggle
+with that. This penalty slows down that oscillation.</li>
+<li>Similarly, a penalty of up to 0.2 if the controller chooses one
+action repeatedly for less than 0.3 seconds.</li>
 </ul>
 <h2 id="discussion">Discussion</h2>
-<p>There is a lot of unsubstantiated hype about what machine learning can do, including the misnomer of &quot;artificial intelligence&quot;. As technologists it's our job to ensure normal people don't get carried away with the hype.</p>
-<p>One reason machine learning is well suited to unicycling is because it has a small action space, completely deterministic, and easily assessable. Anyone can tell you whether a unicyclist fell over or not. As a counter-example, using machine learning to flag terrorist propaganda or copyright infringement on the web is <em>never</em> going to be good, because humans can't agree on what counts and what doesn't. (<a href="https://www.nytimes.com/2016/09/10/technology/facebook-vietnam-war-photo-nudity.html">example</a>, <a href="https://theweek.com/articles/497091/australias-small-breast-ban">example</a>, <a href="https://en.wikipedia.org/wiki/Legal_status_of_drawn_pornography_depicting_minors">example</a>) How could we possibly train a computer to classify things based on categories we can't agree on? There are some problems which can't be solved by machine learning. Trying to throw machine learning at everything results in <a href="https://theintercept.com/2017/11/02/war-crimes-youtube-facebook-syria-rohingya/">war criminals escaping punishment</a>, and criminals being imprisoned for longer just <a href="https://www.wired.com/2017/04/courts-using-ai-sentence-criminals-must-stop-now/">because they're from a poor postcode</a>. Another example of a problem which is foolishly being 'solved' by machine learning is <a href="https://theintercept.com/2018/12/03/air-travel-surveillance-homeland-security/">adding people to the no-fly list based on postcode</a>.</p>
-<p>Machine learning is useful for some problems. Not all. Throwing CPUs and data at a problem isn't a guarantee for success.</p>
+<p>There is a lot of unsubstantiated hype about what machine learning
+can do, including the misnomer of &quot;artificial intelligence&quot;. As
+technologists it's our job to ensure normal people don't get carried
+away with the hype.</p>
+<p>One reason machine learning is well suited to unicycling is because
+it has a small action space, completely deterministic, and easily
+assessable. Anyone can tell you whether a unicyclist fell over or not.
+As a counter-example, using machine learning to flag terrorist
+propaganda or copyright infringement on the web is <em>never</em> going
+to be good, because humans can't agree on what counts and what doesn't.
+(<a
+href="https://www.nytimes.com/2016/09/10/technology/facebook-vietnam-war-photo-nudity.html">example</a>,
+<a
+href="https://theweek.com/articles/497091/australias-small-breast-ban">example</a>,
+<a
+href="https://en.wikipedia.org/wiki/Legal_status_of_drawn_pornography_depicting_minors">example</a>)
+How could we possibly train a computer to classify things based on
+categories we can't agree on? There are some problems which can't be
+solved by machine learning. Trying to throw machine learning at
+everything results in <a
+href="https://theintercept.com/2017/11/02/war-crimes-youtube-facebook-syria-rohingya/">war
+criminals escaping punishment</a>, and criminals being imprisoned for
+longer just <a
+href="https://www.wired.com/2017/04/courts-using-ai-sentence-criminals-must-stop-now/">because
+they're from a poor postcode</a>. Another example of a problem which is
+foolishly being 'solved' by machine learning is <a
+href="https://theintercept.com/2018/12/03/air-travel-surveillance-homeland-security/">adding
+people to the no-fly list based on postcode</a>.</p>
+<p>Machine learning is useful for some problems. Not all. Throwing CPUs
+and data at a problem isn't a guarantee for success.</p>
 
 
    </article>

@@ -330,3 +330,21 @@
    template: "markdown"
    markdown: "content.md"
    date: 27/10/2016
+
+# -  title: "Test template"
+#    description: "Subtitle here"
+#    path: "blank-js"
+#    images:
+#       card:
+#          path: "thumb.jpg"
+#          description: "Card caption"
+#          width: 1000
+#          height: 667
+#       top:
+#          path: "big-bike.jpg"
+#          description: "Thumbnail caption"
+#          width: 1500
+#          height: 725
+#    template: "html"
+#    html: "content.html"
+#    date: 19/2/2024

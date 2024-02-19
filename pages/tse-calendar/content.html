@@ -1,0 +1,280 @@
+<h1>TSE Calendar Sync</h1>
+<p>
+    This web page is to help students at <a href="https://www.tse-fr.eu/" target="_blank">the Toulouse School of Economics (TSE)</a> synchronise their class timetable to their phone (or Google calendar).
+    Although this will work for all <a href="https://www.ut-capitole.fr/" target="_blank">Université Toulouse Capitole</a> students.
+</p>
+<p>
+    You can normally view all classes for your course in a browser <a href="https://ade-production.ut-capitole.fr/direct/index.jsp?showTree=true&showPianoDays=true&showPianoWeeks=true&showOptions=false&days=0,1,2,3,4,5&displayConfName=Web&projectId=31&login=anonymous">here</a>.
+    However sometimes classes are cancelled within an hour of them happening. Syncing to your device would be nice to help you notice this.
+    Additionally, the web page calendar includes electives you're not taking.
+    You can view a somewhat personalised timetable <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true">here</a>.
+    However that includes TPs, TDs etc which are not your ones.
+    The purpose of this page is to generate a new URL to put into your calendar app,
+    such that you can filter out all the events you do not care about.
+</p>
+<p>
+    The way this works is that you type in the names of which course you're taking below,
+    and this website will generate a new URL to put into your calendar app,
+    which is the same as <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true">here</a>,
+    but with some events discarded.
+</p>
+<p>
+    The other issue is that the university calendar website is quite unreliable.
+    Often it just won't load for a few hours.
+    With my server in between your phone and the university's unreliable server,
+    I can fetch updates frequently (on behalf of everyone), and cache the results so it's reliable when your phone tries to sync.
+</p>
+
+<label for="courseDropdown">Which course are you using?</label>
+<select id="courseDropdown" onchange="courseChanged()">
+    <option disabled selected value>Choose your course</option>
+    <option value="m1-applied-standard" data-url="8241fc38732002142de0cbde421d504cbd72d825015315fe66c60d53cab758dbf377b612dec2c5fba5147d40716acb136c03e67b339315cf">M1 Applied Economics Standard (M1 EA EA)</option>
+    <option value="m1-applied-international" data-url="8241fc38732002146a196abbaec7f5a1bd72d825015315fe66c60d53cab758dbf377b612dec2c5fba5147d40716acb136c03e67b339315cf">M1 Applied Economics International  (M1 EA I:EA)</option>
+    <option value="m1-economics-standard" data-url="8241fc387320021400d7eeba655ac2b1e0fa50826f0818af216ea0a969d10dbfec7f554d6ed7ba1b8a72a25d105159e8dee3e8a66a2957ae">M1 Economics Standard  (M1 ECONOMIE Economie)</option>
+    <option value="m1-economics-international" data-url="8241fc38732002142f43a6e2fbd5b8adbd72d825015315fe66c60d53cab758dbf377b612dec2c5fba5147d40716acb136c03e67b339315cf">M1 Economics International  (M1 ECONOMIE I:E)</option>
+    <option value="m1-ds-international" data-url="8241fc387320021406e7355b97d0f41bbd72d825015315fe66c60d53cab758dbf377b612dec2c5fba5147d40716acb136c03e67b339315cf">M1 Data Science International  (M1 ES I:DSSS)</option>
+    <option value="m1-ds-standard" data-url="8241fc3873200214d77de055726967c8bd72d825015315fe66c60d53cab758dbf377b612dec2c5fba5147d40716acb136c03e67b339315cf">M1 Data Science Standard  (M1 ES SE)</option>
+    <option value="m1-mas" data-url="8241fc3873200214a31d3ceb236ab878bd72d825015315fe66c60d53cab758dbf377b612dec2c5fba5147d40716acb136c03e67b339315cf">M1 MAS I:MED</option>
+    
+    <option value="other" id="other-course">Other</option>
+</select>
+
+<div id="other-url-stuff" style="display:none" >
+    <p>
+        You'll need to generate a URL for the timetable for your course.
+        <ol>
+            <li>Open up the <a href="https://ade-production.ut-capitole.fr/direct/index.jsp?showTree=true&showPianoDays=true&showPianoWeeks=true&showOptions=false&days=0,1,2,3,4,5&displayConfName=Web&projectId=31&login=anonymous" target="_blank">public shared timetable page</a>. 
+                (This is the same as the normal one, but with a slight change in the URL to make new buttons appear.)</li>
+            <li>On the left, expand "Groupes d'étudiants"</li>
+            <li>Expand "Ecole économie Toulouse -TSE" (or if you're from a different part of UT1, choose your area)</li>
+            <li>Scroll down to find your course, e.g. "M2 EA I: PPD". (You can choose a subfolder within that if you want.) You should now see a timetable.</li>
+            <li>Down the bottom-left, click on the calendar icon.
+                <img src="images/calendar-button.png" alt="Calendar Button" class="inline-image">
+            </li>
+            <li>Click "Générer URL". (Don't bother updating the date field.)</li>
+            <li>You should see a URL and a QR code. Copy the URL and paste it here:</li>
+        </ol> 
+    </p>
+    <textarea type="text" id="original-url" onchange="updateOutputUrl()"></textarea>
+</div>
+
+
+<p>
+    There are two ways you can use this tool.
+    Either you can delete everything except just the classes you care about.
+    Or you could delete only the classes you're sure you don't care about.
+</p>
+<p>
+    As an example to show the difference, suppose you choose to hide everything except events for "Industrial Organization".
+    You think you're seeing all your classes in your timetable. But then TSE organises a new class (perhaps a mid term exam?)
+    and they name the event "Industrial Organi<b>s</b>ation". (Note the different spelling. Yes this is something that that happens.)
+    By including only "Industrial Organization", you don't see "Industrial Organisation" classes.
+    (This is just one example.)
+</p>
+
+<label for="courseDropdown">
+    Do you want to:
+</label>
+<select id="filter-direction" onchange="updateOutputUrl()">
+    <option value="whitelist" selected="selected">Keep only events which contain at least one of the keywords</option>
+    <option value="blacklist">Keep only events which contain none of the keywords</option>
+</select>
+
+<label for="keywords">
+    <p>
+    Now type in the expressions you want to filter by.
+    You can type multiple expressions (e.g. one subject per line.)
+    The filtering will be case-insensitive.
+    The matching will be done based on both event title, and event description.
+    </p>
+    <p>
+        To filter out TDs/TPs that you aren't taking, 
+        hover your mouse over your TD/TP in the timetable web page.
+        Most have a few random-looking text identifiers, like "EMAAA1MTA".
+        Paste one of those in as a keyword to include that class.
+        <span id="exclusion-warning">
+        You are excluding based on keywords, instead of including, be careful. That ID might also be present in other TDs/TPs.
+        </span>
+    </p>
+</label>
+<textarea id="keywords" rows="4" cols="50" oninput="updateOutputUrl()" placeholder="Econometrics
+Industrial Organisation
+Industrial Organization
+EMAAA1MTA"></textarea>
+
+
+<h2>Results</h2>
+<p>
+    Your URL is:
+    <button onclick="copyToClipboard()">Click to copy to clipboard</button>
+</p>
+<textarea type="text" id="output-url" readonly></textarea>
+
+<h2>Installation Instructions</h2>
+<p>
+    This URL is not a normal "CalDav" calendar sync link.
+    It's actually a <code>.ics</code> file download.
+    So some apps (e.g. your browser) will try to download it as a file,
+    and then from there you can import it into a calendar app.
+    The problem there is that this is a once-off process, and updates to your timetable by the university will not be synchronised.
+    To ensure updates are synchronised, try the following steps, based on your target device:
+</p>
+<select id="installation-target" onchange="showExplanations()">
+    <option disabled selected value>Choose your platform</option>
+    <option value="gmail">Google Calendar (Gmail)</option>
+    <option value="android">Android</option>
+    <option value="thunderbird">Thunderbird</option>
+    <option value="otherdevice">Other</option>
+</select>
+<div id="explanations">
+    <div style="display:none" id="gmail-explanation">
+        <ol>
+            <li>Open up <a href="https://calendar.google.com/" target="_blank">Google Calendar</a></li>
+            <li>
+                On the left, under "Other Calendars", click + "From URL"
+            </li>
+            <li>
+                Paste in the URL that was generated from above by this website.
+            </li>
+            <li>
+                After about 30 seconds, you should see a new calendar in your list of calendars.
+                The calendar name is ugly. But you can click on it to go to "Calendar Settings",
+                then rename it. (And maybe change colour.)
+            </li>
+            <li>
+                Note that Google Calendar will fetch updates for you approximately once per day.
+            </li>
+        </ol>
+    </div>
+    <div style="display:none" id="android-explanation">
+        <p>
+            You can follow the steps for Google calendar, and then sync that calendar to your phone.
+            Alternatively you can find an app that can synchronise "ICS" calendar files.
+            (Make sure it can synchronise them, not just do a once-off import that won't be updated when the university updates your timetable.)
+            For example, there's <a href="https://play.google.com/store/apps/details?id=at.bitfire.icsdroid" target="_blank">ICSx</a>.
+        </p>
+    </div>
+    <div style="display:none" id="thunderbird-explanation">
+        <p>
+            You need to be careful to synchronise the <code>.ics</code> file, not just do a once-off static import.
+        </p>
+        <ol>
+            <li>Click "New Calendar"</li>
+            <li>"On the Network"</li>
+            <li>Leave username blank</li>
+            <li>Location: Paste in the URL this web page generated</li>
+            <li>Tick "this location doesn't require credentials</li>
+            <li>Click "Find calendars"</li>
+            <li>You should see a new calendar added, with an ugly name. Click on the 3 dots to the right of the name. Then "properties".</li>
+            <li>You can rename it, change the colour, and increase the sync frequency. </li>
+        </ol>
+    </div>
+    <div id="otherdevice-explanation" style="display:none" >
+        <p>
+            You're smart, you'll figure it out.
+            Just make sure you <i>synchronise</i> the <code>.ics</code> link.
+            Do not do a static "import", because then changes to your timetable by the university will not be updated in your calendar app.
+            If you figure out how to do this on a common device (e.g. Apple's ecosystem) let me know the steps so I can add them here.
+        </p>
+    </div>
+</div>
+
+<p>
+    If your calendar tool lets you choose the synchronisation frequency, feel free to choose some very frequent polling frequency (e.g. 30 minutes).
+    The requests go to my server, not the university. My server will just served cached results, which it updates from the university every few hours.
+    (If this service becomes popular I'll increase that to hourly. But even if 100 students use this, only 1 request gets sent to the university server per course. Their server is super slow and unreliable. But I've worked hard on caching, retries and exponential backoff to mitigate this for the end user, whilst minimising load to their server.)
+</p>
+<p>
+    Note that if you want each subject to appear as a different colour in your calendar app,
+    you can use this web page to generate a unique URL for each subject, using each subject name as the keywords.
+    Then once you have many calendars in your calendar app, set a different colour for each one.
+</p>
+
+<p class="warning">
+    Don't put too much faith in this tool. It might be imperfect. 
+    e.g. for exams, check your schedule manually in a web page (or the emailed PDFs.)
+</p>
+
+<h2>Update</h2>
+<p>
+    If you have been synchronising successfully, but then you release that you need to modify your keywords,
+    you can paste your URL from last time into the following field,
+    which will populate the input fields above.
+    Then you can adjust, and copy the updated URL.
+    (For some installation targets you will need to add the URL as a whole new calendar and then delete the old one.)
+</p>
+<textarea id="previous-url" oninput="reverseUrl()"></textarea>
+
+<h2>Privacy and Security</h2>
+
+UT1's calendars are public anyway. That's what I use (not your personal calendar).
+You do not need to give your password to me to use this service.
+This service gives you a filtered version of the public calendars.
+
+<h2>Technical Implementation Details</h2>
+<p>
+    If you're curious how this works, here's an explanation.
+    The code can be found <a href="https://gitlab.com/MatthewDavis/ut1ics" target="_blank">on GitLab</a>.
+</p>
+<p>
+    UT1's public calendar web page is <a href="https://ade-production.ut-capitole.fr/direct/index.jsp?showTree=true&showPianoDays=true&showPianoWeeks=true&showOptions=true&days=0,1,2,3,4,5&displayConfName=Web&projectId=31&login=anonymous" target="_blank">here</a>.
+    Inside that URL there's a part like <code>showOptions=false</code>. If you change that to <code>showOptions=true</code> then new buttons appear down the bottom left,
+    which you can use to generate the URL for the full, unfiltered calendar.
+    You can pop this straight into your calendar app if you want.
+    But the UT1 server is dreadfully unreliable. It fails (e.g. 500 errors) for at least 1 in 4 requests.
+    Even when it works, it's very slow (up to 30 seconds to download the calendar, which may be longer than the client's timeout configuration.)
+</p>
+<p>
+    The URL generated by this web page does not start with <code>https://ade-production.ut-capitole.fr</code>.
+    Instead it's like <code>https://something.lambda-url.eu-west-3.on.aws</code>.
+    This domain points to my server running in Amazon's cloud (AWS).
+    My server in the middle is a proxy which caches the calendar file,
+    and performs filtering of the events within it on the fly.
+</p>
+<p>
+    Except it's not a traditional server, it's an <a href="https://aws.amazon.com/fr/lambda/" target="_blank">AWS Lambda Function</a>
+    exposed with a <a href="https://aws.amazon.com/fr/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/" target="_blank">function URL</a>.
+    This means that instead of paying for a server to run 24x7, I just give Amazon a zip of my python scripts,
+    and when someone's device accesses the URL, they assign a server from their fleet to run my code, serve  the response,
+    and then that server is deleted, all within hundreds of milliseconds.
+    I don't have to worry about patching, scaling etc.
+</p>
+<p>
+    There's a second lambda, which polls the UT1 server for the raw calendars (scheduled with a Step Function, to have <i>very</i> slow backoff and retries, since the UT1 server is so unreliable.)
+    This saves the raw calendars as <code>.ics</code> text files in AWS S3, as the <i>cache</i>. 
+    (We can download the calendar file now. But maybe later when a user requests it, the UT1 server will be down. Then I'll just serve from the cache.)
+    There's a lifecycle configuration rule to delete all files in S3 after a while. (This is how I erase stale entries from the cache.)
+</p>
+<p>
+    Every time someone requests a new calendar (e.g. the first M2 PPD student) the raw <code>ade-production.ut-capitole.fr</code> URL will be added to DynamoDB.
+    Then next time we poll the server, a Step Function will loop over these DynamoDB rows to figure out which files to download.
+    These rows have a <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">TTL value</a>, that gets updated every time a request is made.
+    Thus if all users of a given calendar (e.g. all M2 PPD students) stop using my service, after a few weeks I'll stop polling the UT1 server for that calendar, so reduce their server load.
+    (And my cloud bill, but that's negligible.)
+</p>
+<p>
+    Note that by caching the unfiltered files and filtering on the fly,
+    we can do a single download to serve multiple users.
+    e.g. if you have many calendar URLs, one for each subject,
+    your device will make a request for each, which will all hit the same cache in S3.
+    Thus the UT1 server only gets one request per user per course (e.g. all M1 students),
+    not one per user or one per user per filter keyword set.
+</p>
+<p>
+    The project is deployed with AWS SAM, composed of a few "serverless" resources. I haven't used SAM before. It's surprisingly easy to use.
+    I've found that AWS Lambda URLs are shockingly simple and cheap.
+    (Unpopular opinion: Lambda URLs are no less secure than using API Gateway or a custom WAF. You can even add IAM authentication if you want.)
+    I have aggressive maximum concurrency and timeouts set on the exposed lambda to mitigate DOS attack cost.
+    The application code is written in Python.
+    This web page is all lightweight hand-crafted vanilla HTML, CSS, JavaScript (No frameworks) hosted for free with GitHub pages.
+    (This web page just does string manipulation to generate the URL. It doesn't actually interact with the Lambda functions and python code.)
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    If you have any feedback about this web page and service, please let me know.
+    I'm Matthew Davis, the Australian M1 student who asks lots of questions in class.
+    I used to do this kind of coding for a living. That's how I know how to do this.
+    Yes I spent more time writing this than I saved by not manually checking my timetable in a browser each day. But I enjoy coding,
+    so this time wasn't a 'cost'.
+</p>

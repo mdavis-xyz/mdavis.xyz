@@ -16,7 +16,6 @@ label {
    height: 2em; /* Adjust the height as needed */
    vertical-align: middle;
    margin-right: 0.2em; /* Optional: Adjust the spacing between image and text */
-   background-color: black;
    border-radius: 0.3em;
 }
 
@@ -26,4 +25,9 @@ textarea {
 
 .warning {
    color: red;
+}
+
+select {
+   font-size: 1.2em;
+   margin: 0.2em;
 }

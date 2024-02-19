@@ -344,8 +344,8 @@
       top:
          path: "combined.png"
          description: "Web page syncing to phone calendar app"
-         width: 1841
-         height: 5500
+         width: 1004
+         height: 3000
    template: "html"
    html: "content.html"
    date: 19/2/2024

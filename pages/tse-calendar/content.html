@@ -1,7 +1,7 @@
 <h1>TSE Calendar Sync</h1>
 <p>
     This web page is to help students at <a href="https://www.tse-fr.eu/" target="_blank">the Toulouse School of Economics (TSE)</a> synchronise their class timetable to their phone (or Google calendar).
-    Although this will work for all <a href="https://www.ut-capitole.fr/" target="_blank">Université Toulouse Capitole</a> students.
+    This will work for all <a href="https://www.ut-capitole.fr/" target="_blank">Université Toulouse Capitole</a> students though.
 </p>
 <p>
     You can normally view all classes for your course in a browser <a href="https://ade-production.ut-capitole.fr/direct/index.jsp?showTree=true&showPianoDays=true&showPianoWeeks=true&showOptions=false&days=0,1,2,3,4,5&displayConfName=Web&projectId=31&login=anonymous">here</a>.
@@ -13,7 +13,7 @@
     such that you can filter out all the events you do not care about.
 </p>
 <p>
-    The way this works is that you type in the names of which course you're taking below,
+    The way this works is that you type in the names of the courses you're taking below,
     and this website will generate a new URL to put into your calendar app,
     which is the same as <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true">here</a>,
     but with some events discarded.
@@ -59,49 +59,46 @@
 </div>
 
 
-<p>
-    There are two ways you can use this tool.
-    Either you can delete everything except just the classes you care about.
-    Or you could delete only the classes you're sure you don't care about.
-</p>
-<p>
-    As an example to show the difference, suppose you choose to hide everything except events for "Industrial Organization".
-    You think you're seeing all your classes in your timetable. But then TSE organises a new class (perhaps a mid term exam?)
-    and they name the event "Industrial Organi<b>s</b>ation". (Note the different spelling. Yes this is something that that happens.)
-    By including only "Industrial Organization", you don't see "Industrial Organisation" classes.
-    (This is just one example.)
-</p>
-
-<label for="courseDropdown">
-    Do you want to:
-</label>
-<select id="filter-direction" onchange="updateOutputUrl()">
-    <option value="whitelist" selected="selected">Keep only events which contain at least one of the keywords</option>
-    <option value="blacklist">Keep only events which contain none of the keywords</option>
-</select>
-
-<label for="keywords">
+<h2>Inclusion Expressions</h2>
+<label for="whitelist">
     <p>
-    Now type in the expressions you want to filter by.
-    You can type multiple expressions (e.g. one subject per line.)
-    The filtering will be case-insensitive.
-    The matching will be done based on both event title, and event description.
+        Now type in the name of your courses, one per line.
+        Events in the public calendar which do not match at least one of these will be dropped when your device downloads the calendar.
     </p>
     <p>
-        To filter out TDs/TPs that you aren't taking, 
-        hover your mouse over your TD/TP in the timetable web page.
-        Most have a few random-looking text identifiers, like "EMAAA1MTA".
-        Paste one of those in as a keyword to include that class.
-        <span id="exclusion-warning">
-        You are excluding based on keywords, instead of including, be careful. That ID might also be present in other TDs/TPs.
-        </span>
+        The filtering will be case-insensitive.
+        For courses like IO, write "Industrial Organi<b>s</b>ation" on one line, and "Industrial Organi<b>z</b>ation" on the next. (Both spelling variations appear in the timetable.)
     </p>
+    
 </label>
-<textarea id="keywords" rows="4" cols="50" oninput="updateOutputUrl()" placeholder="Econometrics
+<textarea id="whitelist" rows="4" cols="50" oninput="updateOutputUrl()" placeholder="Econometrics
 Industrial Organisation
 Industrial Organization
-EMAAA1MTA"></textarea>
+Public Economics
+"></textarea>
 
+<p>
+    If you leave this empty, all events will be included (unless they match the exclusions below).
+</p>
+
+<h2>Exclusion Expressions</h2>
+<label for="blacklist">
+    <p>
+        Next you will filter out TDs/TPs that you aren't taking, for the courses which you are taking. 
+        On timetable web page, hover your mouse over your TD/TP.
+        Most have a few random-looking text identifiers, like "EMABA12<b>TD</b>3". 
+        (These tend to end with "TD" or "TP")
+        Paste one of those in as a keyword to include that class. 
+    </p>
+</label>
+<textarea id="blacklist" rows="4" cols="50" oninput="updateOutputUrl()" placeholder="Econometrics
+EMABA12TD3
+"></textarea>
+
+<p>
+    Note that if an event matches text in the inclusion list, and also the exclusion list,
+    that event will be excluded from the calendar.
+</p>
 
 <h2>Results</h2>
 <p>
@@ -181,7 +178,7 @@ EMAAA1MTA"></textarea>
 
 <p>
     If your calendar tool lets you choose the synchronisation frequency, feel free to choose some very frequent polling frequency (e.g. 30 minutes).
-    The requests go to my server, not the university. My server will just served cached results, which it updates from the university every few hours.
+    The requests go to my server, not the university. My server will just serve cached results, which it updates from the university every few hours.
     (If this service becomes popular I'll increase that to hourly. But even if 100 students use this, only 1 request gets sent to the university server per course. Their server is super slow and unreliable. But I've worked hard on caching, retries and exponential backoff to mitigate this for the end user, whilst minimising load to their server.)
 </p>
 <p>
@@ -197,7 +194,7 @@ EMAAA1MTA"></textarea>
 
 <h2>Update</h2>
 <p>
-    If you have been synchronising successfully, but then you release that you need to modify your keywords,
+    If you have been synchronising successfully, but then you realise that you need to modify your keywords,
     you can paste your URL from last time into the following field,
     which will populate the input fields above.
     Then you can adjust, and copy the updated URL.
@@ -249,7 +246,7 @@ This service gives you a filtered version of the public calendars.
     Every time someone requests a new calendar (e.g. the first M2 PPD student) the raw <code>ade-production.ut-capitole.fr</code> URL will be added to DynamoDB.
     Then next time we poll the server, a Step Function will loop over these DynamoDB rows to figure out which files to download.
     These rows have a <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">TTL value</a>, that gets updated every time a request is made.
-    Thus if all users of a given calendar (e.g. all M2 PPD students) stop using my service, after a few weeks I'll stop polling the UT1 server for that calendar, so reduce their server load.
+    Thus if all users of a given calendar (e.g. all M2 PPD students) stop using my service, after a few weeks I'll stop polling the UT1 server for that calendar, to reduce their server load.
     (And my cloud bill, but that's negligible.)
 </p>
 <p>

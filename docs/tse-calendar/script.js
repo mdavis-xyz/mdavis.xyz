@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateOutputUrl() {
     var courseDropdown = document.getElementById("courseDropdown");
     var originalUrlField = document.getElementById("original-url");
-    var filterDirection = document.getElementById("filter-direction").value
-    var keywordsText = document.getElementById("keywords").value;
+    var whitelistText = document.getElementById("whitelist").value;
+    var blacklistText = document.getElementById("blacklist").value;
     var outputUrlField = document.getElementById("output-url");
     var textToShow = "";
     var urlId;
@@ -67,38 +67,30 @@ function updateOutputUrl() {
 
     // Constructing the URL
     const protocol = "https://";
-    const basepath = `/ics/${urlId}`;
-    const filterDirectionParam = `filter_direction=${filterDirection}`;
+    const basepath = `/ics/v1/${urlId}`;
 
-    // add keywords to parameters
-    const feParams = keywordsText
+    // add whitelist to parameters
+    const whitelistParams = whitelistText
     .split('\n')
     .map(line => line.trim())
     .filter(keyword => keyword !== '')
-    .map(keyword => `fe=${encodeURIComponent(keyword)}`)
+    .map(keyword => `wl=${encodeURIComponent(keyword)}`)
+    .join('&');
+
+    // add blacklist to parameters
+    const blacklistParams = blacklistText
+    .split('\n')
+    .map(line => line.trim())
+    .filter(keyword => keyword !== '')
+    .map(keyword => `bl=${encodeURIComponent(keyword)}`)
     .join('&');
 
     // Constructing the final URL
-    const finalUrl = `${protocol}${lambda_domain}${basepath}?${filterDirectionParam}${feParams ? `&${feParams}` : ''}`;
+    const finalUrl = `${protocol}${lambda_domain}${basepath}?${whitelistParams ? `&${whitelistParams}` : ''}${blacklistParams ? `&${blacklistParams}` : ''}`;
 
     outputUrlField.value = finalUrl;
 
-    updateWarning();
 }
-
-function updateWarning(){
-   const filterDirection = document.getElementById("filter-direction").value;
-   w = document.getElementById("exclusion-warning");
-   if (filterDirection == 'blacklist'){
-     w.style.display = 'block';
-   }else{
-     w.style.display = 'none';
-   }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-   updateWarning()
-});
 
 function copyToClipboard() {
     // Get the textarea element
@@ -126,8 +118,10 @@ function showExplanations() {
 
     // Show the selected paragraph
     var selectedOption = document.getElementById('installation-target').value;
-    var selectedParagraph = document.getElementById(selectedOption + "-explanation");
-    selectedParagraph.style.display = 'block';
+    if (selectedOption != ''){
+        var selectedParagraph = document.getElementById(selectedOption + "-explanation");
+        selectedParagraph.style.display = 'block';
+    }
 }
 document.addEventListener('DOMContentLoaded', function() {
     // after page refresh, hide/unhide the custom url field
@@ -170,13 +164,8 @@ function reverseUrl(){
 
         var queryParams = new URLSearchParams(oldUrl.search);
 
-        var filter_direction = queryParams.get("filter_direction"); // Returns "value1"
-        if (! filter_direction){
-            filter_direction = "blacklist";
-        }
-        document.getElementById("filter-direction").value = filter_direction;
-
-        document.getElementById("keywords").value = queryParams.getAll("fe").join('\n');
+        document.getElementById("whitelist").value = queryParams.getAll("wl").join('\n');
+        document.getElementById("blacklist").value = queryParams.getAll("bl").join('\n');
 
 
         oldUrlField.classList.remove("badInput");

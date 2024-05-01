@@ -1,0 +1,125 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Site View Count 2
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  IncrementerLambda:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          SNS_TOPIC_ARN: !Ref Topic 
+          TIMED_TABLE_NAME: !Ref TimedTable
+          UNTIMED_TABLE_NAME: !Ref UntimedTable
+          HASH_CONST: "1234" # dynamodb requires more hashes than I need, so use this
+      FunctionUrlConfig:
+        AuthType:  NONE
+        Cors:
+          AllowCredentials: False
+          AllowHeaders: 
+            - '*'
+          AllowMethods:
+            - 'GET'
+          AllowOrigins: 
+            - 'https://mdavis.xyz'
+            - 'https://www.mdavis.xyz'
+            - 'https://dev.mdavis.xyz'
+            - 'http://mdavis.xyz'
+            - 'http://www.mdavis.xyz'
+            - 'http://dev.mdavis.xyz'
+      Policies:
+        - AWSLambdaExecute
+        - Version: '2012-10-17' 
+          Statement:
+            - Action:
+                - "dynamodb:ConditionCheckItem"
+                - "dynamodb:PutItem"
+                - "dynamodb:DescribeTable"
+                - "dynamodb:GetItem"
+                - "dynamodb:Query"
+                - "dynamodb:UpdateItem"
+              Resource:
+                - !GetAtt TimedTable.Arn
+                - !GetAtt UntimedTable.Arn
+              Effect: "Allow"
+            - Action:
+                - SNS:Publish
+              Resource:
+                - !Ref Topic
+              Effect: Allow
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./incrementer
+      DockerTag: python3.11-v1
+
+
+  # this table contains data about each post that was at some point eligible
+  TimedTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "site"
+          AttributeType: "S"
+        - AttributeName: "time"
+          AttributeType: "N"
+      KeySchema:
+        # Apparently you can't have a dynamo table with just a
+        # sort key. So I'll add a hash key, which will only have
+        # one value of 0
+        - AttributeName: "site"
+          KeyType:       "HASH"
+        - AttributeName: "time"
+          KeyType:       "RANGE"
+      BillingMode: PAY_PER_REQUEST
+
+  UntimedTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "site"
+          AttributeType: "S"
+        - AttributeName: "hash"
+          AttributeType: "N"
+      KeySchema:
+        # Apparently you can't have a dynamo table with just a
+        # sort key. So I'll add a hash key, which will only have
+        # one value of 0
+        - AttributeName: "site"
+          KeyType:       "HASH"
+        - AttributeName: "hash"
+          KeyType:       "RANGE"
+      BillingMode: PAY_PER_REQUEST
+
+  Topic:
+    Type: "AWS::SNS::Topic"
+    Properties:
+      Subscription:
+        - Endpoint: "aws_alarms@mdavis.xyz"
+          Protocol: "email"
+
+  # ErrorAlarm:
+  #   Type: "AWS::CloudWatch::Alarm"
+  #   Properties:
+  #     ActionsEnabled: True # not sure
+  #     AlarmDescription: !Sub "View count ${IncrementerLambda} failed. Unable to send message to bus"
+  #     AlarmActions:
+  #       - Ref: "Topic"
+  #     ComparisonOperator: "GreaterThanOrEqualToThreshold"
+  #     EvaluationPeriods: 1
+  #     MetricName: "Errors"
+  #     Namespace: "AWS/Lambda"
+  #     Dimensions:
+  #         - Name: "FunctionName"
+  #           Value: !Ref IncrementerLambda
+  #     Period: 60 # minimum
+  #     Statistic: Sum
+  #     Threshold: 1
+  #     TreatMissingData: "notBreaching"

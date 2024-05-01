@@ -1,4 +1,0 @@
-boto3
-virtualenv
-pandas
-matplotlib

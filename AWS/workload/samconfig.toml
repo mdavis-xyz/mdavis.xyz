@@ -1,0 +1,67 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+
+# for dev and prod
+# I just copy-paste.
+
+version = 0.1
+
+[dev]
+[dev.global.parameters]
+stack_name = "site-views-sam-dev"
+parameter_overrides = "Environment=dev"
+
+[dev.build.parameters]
+parallel = true
+
+[dev.validate.parameters]
+lint = true
+
+[dev.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = false
+resolve_s3 = true
+resolve_image_repos = true
+
+[dev.package.parameters]
+resolve_s3 = true
+
+[dev.sync.parameters]
+watch = true
+
+[dev.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[dev.local_start_lambda.parameters]
+warm_containers = "EAGER"
+
+
+
+[prod]
+[prod.global.parameters]
+stack_name = "site-views-sam-prod"
+parameter_overrides = "Environment=prod"
+
+[prod.build.parameters]
+parallel = true
+
+[prod.validate.parameters]
+lint = true
+
+[prod.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+resolve_s3 = true
+resolve_image_repos = true
+
+[prod.package.parameters]
+resolve_s3 = true
+
+[prod.sync.parameters]
+watch = true
+
+[prod.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[prod.local_start_lambda.parameters]
+warm_containers = "EAGER"

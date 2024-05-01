@@ -222,7 +222,7 @@ def renderOne(data,args):
             raise(e)
         print("Rendering page %s" % data['title'])
         try:
-            output = template.render(data=data,enableTracking=(args.stage_name == 'prod'))
+            output = template.render(data=data,stage=args.stage_name)
         except TypeError as e:
             pp.pprint({k:data[k] for k in data if k != 'content'})
             print("Error processing outer template for %s" % data['title'])

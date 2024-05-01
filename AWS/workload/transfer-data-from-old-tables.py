@@ -1,7 +1,7 @@
 import boto3
 
 source_table = 'site-views-prod-timedTable-1F3Q4VYFV6121'
-dest_table = 'site-views-sam-dev-TimedTable-1CP37KT0U0OTY'
+dest_table = 'site-views-sam-prod-TimedTable-181OIRNNDH080'
 
 client = boto3.client('dynamodb', region_name='ap-southeast-2')
 paginator = client.get_paginator('scan')

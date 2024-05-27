@@ -3,9 +3,20 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   Site View Count 2
 
+Parameters:
+  Environment:
+    Type: String
+    Description: The deployment environment (dev/prod)
+    AllowedValues:
+      - dev
+      - prod
+
 Globals:
   Function:
     Timeout: 3
+    Environment:
+      Variables:
+        STAGE: !Ref Environment
 
 Resources:
   IncrementerLambda:

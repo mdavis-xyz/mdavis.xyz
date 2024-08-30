@@ -112,8 +112,9 @@ def notify(page_name,views):
 
     logger.info('Sending SNS message to %s' % topic)
 
-    msg = "The web page %s has just hit %d views!" % (page_name,views)
-    subject = "Web view count record"
+    stage = os.environ['STAGE']
+    msg = f"The web page {page_name} has just hit {views} views in {stage}!"
+    subject = f"Web view count record ({stage})"
 
     response = boto3.client('sns').publish(
         TopicArn=topic,

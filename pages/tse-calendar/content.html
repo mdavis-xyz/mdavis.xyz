@@ -113,7 +113,7 @@
     <p>
         There are some events in your calendar which aren't for a specific subject, but are instead general workshops for everyone.
         For example, the welcome talk on the first day of the university year.
-        To include these, add one of the lines which appear in the descriptions of those events. For example "M2 EA EA".
+        To include these, add one of the lines which appear in the descriptions of those events. For example <span style="font-family:'Lucida Console', monospace">M2 EA EA</span>.
     </p>
     
 </label>
@@ -121,6 +121,7 @@
 Industrial Organisation
 Industrial Organization
 Public Economics
+M2 EA EA
 "></textarea>
 
 <p>
@@ -166,7 +167,7 @@ Public Economics
     So some apps (e.g. your browser) will try to download it as a file,
     and then from there you can import it into a calendar app.
     The problem there is that this is a once-off process, and updates to your timetable by the university will not be synchronised.
-    To ensure updates are synchronised, try the following steps, based on your target device:
+    To ensure updates are synchronised, try the following steps, based on your chosen platform:
 </p>
 <select id="installation-target" onchange="showExplanations()">
     <option disabled selected value>Choose your platform</option>
@@ -180,7 +181,8 @@ Public Economics
         <ol>
             <li>Open up <a href="https://calendar.google.com/" target="_blank">Google Calendar</a></li>
             <li>
-                On the left, under "Other Calendars", click + "From URL"
+                On the left, under "Other Calendars", click + "From URL".
+                (If you're on your mobile and you don't see that option, click "desktop" at the bottom to view the desktop version of Google Calendar.)
             </li>
             <li>
                 Paste in the URL that was generated from above by this website.
@@ -252,13 +254,12 @@ Public Economics
     e.g. for exams, check your schedule manually in a web page (or the emailed PDFs.)
 </p>
 
-<h2>Update</h2>
+<h2>How To Make Changes</h2>
 <p>
     If you have been synchronising successfully, but then you realise that you need to modify your keywords,
-    you can paste your URL from last time into the following field,
-    which will populate the input fields above.
-    Then you can adjust, and copy the updated URL.
-    (For some installation targets you will need to add the URL as a whole new calendar and then delete the old one.)
+    you can paste your URL from last time into the following field.
+    Then the text fields up the top of this page will be filled in based on your previous response.
+    Then you can adjust, and copy the updated URL into your calendar app like before.
 </p>
 <textarea id="previous-url" oninput="reverseUrl()"></textarea>
 

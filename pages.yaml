@@ -332,8 +332,10 @@
    date: 27/10/2016
 
 
--  title: "TSE Calendar Sync and Filter"
-   description: "A tool to synchronise personalised Toulouse School of Economics timetables to your calendar app"
+-  title: "UT1 TSE Calendar Sync and Filter"
+   description: >
+      A tool to synchronise personalised Toulouse School of Economics (or UT1)
+      timetables to your calendar app
    path: "tse-calendar"
    images:
       card:
@@ -350,7 +352,7 @@
    exclude:
    - 'estReadingTime'
    html: "content.html"
-   date: 19/2/2024
+   date: 1/9/2024
 
 # -  title: "Test template"
 #    description: "Subtitle here"

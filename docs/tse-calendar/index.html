@@ -4,17 +4,17 @@
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
    <!--w3c-->
-   <title property="schema:name">TSE Calendar Sync and Filter</title>
-   <meta name="title" content="TSE Calendar Sync and Filter">
-   <meta name="description" content="A tool to synchronise personalised Toulouse School of Economics timetables to your calendar app">
+   <title property="schema:name">UT1 TSE Calendar Sync and Filter</title>
+   <meta name="title" content="UT1 TSE Calendar Sync and Filter">
+   <meta name="description" content="A tool to synchronise personalised Toulouse School of Economics (or UT1) timetables to your calendar app">
 
    <!--schema.org-->
-   <meta property="schema:name" content="TSE Calendar Sync and Filter">
-   <meta property="schema:description" content="A tool to synchronise personalised Toulouse School of Economics timetables to your calendar app">
+   <meta property="schema:name" content="UT1 TSE Calendar Sync and Filter">
+   <meta property="schema:description" content="A tool to synchronise personalised Toulouse School of Economics (or UT1) timetables to your calendar app">
 
    <!-- opengraph-->
-   <meta property="og:title" content="TSE Calendar Sync and Filter">
-   <meta property="og:description" content="A tool to synchronise personalised Toulouse School of Economics timetables to your calendar app">
+   <meta property="og:title" content="UT1 TSE Calendar Sync and Filter">
+   <meta property="og:description" content="A tool to synchronise personalised Toulouse School of Economics (or UT1) timetables to your calendar app">
 
    <!-- linkedin -->
    <meta name="author" content="Matthew Davis">
@@ -32,7 +32,7 @@
    <meta property="og:author" content="Matthew Davis" />
    <meta property="og:site_name" content="Matthew Davis's Blog" />
 
-   <meta name="displaydate" content="19 February 2024">
+   <meta name="displaydate" content="1 September 2024">
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -57,8 +57,8 @@
 
 
       <header>
-         <h1 id="title">TSE Calendar Sync and Filter</h1>
-         <p id="subtitle" class="subtitle">A tool to synchronise personalised Toulouse School of Economics timetables to your calendar app</p>
+         <h1 id="title">UT1 TSE Calendar Sync and Filter</h1>
+         <p id="subtitle" class="subtitle">A tool to synchronise personalised Toulouse School of Economics (or UT1) timetables to your calendar app</p>
       </header>
 
 
@@ -96,8 +96,8 @@
                 alt=""
                 width="20"
                 height="20" />
-            <time datetime="2024-02-19" class="dateline">
-               19 February 2024
+            <time datetime="2024-09-01" class="dateline">
+               1 September 2024
             </time>
          </div>
 
@@ -105,17 +105,17 @@
 
 
       <hr/>
-      <h1>TSE Calendar Sync</h1>
-<p>
+      <p>
     This web page is to help students at <a href="https://www.tse-fr.eu/" target="_blank">the Toulouse School of Economics (TSE)</a> synchronise their class timetable to their phone (or Google calendar).
-    This will work for all <a href="https://www.ut-capitole.fr/" target="_blank">Université Toulouse Capitole</a> students though.
+    This will work for all <a href="https://www.ut-capitole.fr/" target="_blank">Université Toulouse Capitole (UT1)</a> students (such as <a href="https://tsm-education.fr/" target="_blank">TSM</a>).
 </p>
 <p>
     You can normally view all classes for your course in a browser <a href="https://ade-production.ut-capitole.fr/direct/index.jsp?showTree=true&showPianoDays=true&showPianoWeeks=true&showOptions=false&days=0,1,2,3,4,5&displayConfName=Web&projectId=31&login=anonymous" target="_blank">here</a>.
     However sometimes classes are cancelled within an hour of them happening. Syncing to your device would be nice to help you notice this.
     Additionally, the web page calendar includes electives you're not taking.
-    You can view a somewhat personalised timetable <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true" target="_blank">here</a>.
-    However that includes TPs, TDs etc which are not your ones.
+    Most students can view a somewhat personalised timetable <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true" target="_blank">here</a>.
+    However that includes TPs, TDs etc which are not your ones. 
+    (Erasamus students don't even have that.)
     The purpose of this page is to generate a new URL to put into your calendar app,
     such that you can filter out all the events you do not care about.
 </p>
@@ -132,55 +132,66 @@
     I can fetch updates frequently (on behalf of everyone), and cache the results so it's reliable when your phone tries to sync.
 </p>
 
-<label for="courseDropdown">Which course are you using?</label>
+<h2>Degree Selection</h2>
+
+<label for="courseDropdown">
+    <p>
+    Which course are you enrolled in?
+    </p>
+    <p>
+        If you are taking courses from multiple universities, e.g. mostly TSE but one TSM course, 
+     then complete this whole page twice (once for each university) to sync multiple URLs into your one calendar app.
+    </p>
+</label>
+
 <select id="courseDropdown" onchange="courseChanged()">
     <option disabled selected value>Choose your course</option>
     <option value="m1-applied-standard" data-url="8241fc38732002142de0cbde421d504cbd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Applied Economics Standard (M1 EA EA)
+        TSE M1 Applied Economics Standard (M1 EA EA)
     </option>
     <option value="m1-applied-international" data-url="8241fc38732002146a196abbaec7f5a1bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Applied Economics International  (M1 EA I:EA)
+        TSE M1 Applied Economics International  (M1 EA I:EA)
     </option>
     <option value="m1-economics-standard" data-url="8241fc387320021400d7eeba655ac2b1e0fa50826f0818af4a1fb79c07eab779ec7f554d6ed7ba1b8a72a25d105159e8dee3e8a66a2957ae">
-        M1 Economics Standard  (M1 ECONOMIE Economie)
+        TSE M1 Economics Standard  (M1 ECONOMIE Economie)
     </option>
     <option value="m1-economics-international" data-url="8241fc38732002142f43a6e2fbd5b8adbd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Economics International  (M1 ECONOMIE I:E)
+        TSE M1 Economics International  (M1 ECONOMIE I:E)
     </option>
     <option value="m1-ds-international" data-url="8241fc387320021406e7355b97d0f41bbd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Master's in Data science for social sciences (International)  (M1 ES I:DSSS)
+        TSE M1 Master's in Data science for social sciences (International)  (M1 ES I:DSSS)
     </option>
     <option value="m1-ds-standard" data-url="8241fc3873200214d77de055726967c8bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Data Science Standard  (M1 ES SE)
+        TSE M1 Data Science Standard  (M1 ES SE)
     </option>
     <option value="m1-mas" data-url="8241fc3873200214a31d3ceb236ab878bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Mathematics and Economic Decision (M1 MAS I:MED)
+        TSE M1 Mathematics and Economic Decision (M1 MAS I:MED)
     </option>
 
     <option value="m2-ds-international" data-url="8241fc387320021431203e67df9bfcc3bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M1 Master's in Data science for social sciences (International)  (M2 ES I:DSSS)
+        TSE M1 Master's in Data science for social sciences (International)  (M2 ES I:DSSS)
     </option>
     <option value="m2-eee" data-url="8241fc38732002141b4df1ce2a2a32e4bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M2 Econometrics and Empirical Economics (M2 EA I:EEE)
+        TSE M2 Econometrics and Empirical Economics (M2 EA I:EEE)
     </option>
     <option value="m2-egr" data-url="8241fc38732002143e9936d6f9a58f14bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M2 Economics of Global Risks (M2 EA I:EGR)
+        TSE M2 Economics of Global Risks (M2 EA I:EGR)
     </option>
     <option value="m2-eep" data-url="8241fc3873200214794657197a3a6ebee0fa50826f0818af4a1fb79c07eab779ec7f554d6ed7ba1b8a72a25d105159e8dee3e8a66a2957ae">
-        M2 Environmental Economics and Policy (M2 EA I:EEP)
+        TSE M2 Environmental Economics and Policy (M2 EA I:EEP)
     </option>
     <option value="m2-emo" data-url="8241fc38732002143c77a874491df119bd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M2 Economics of Markets and Organizations (M2 EA I:EMO)
+        TSE M2 Economics of Markets and Organizations (M2 EA I:EMO)
     </option>
     <option value="m2-med" data-url="8241fc3873200214b51e8d6f0c617429e0fa50826f0818af4a1fb79c07eab779ec7f554d6ed7ba1b8a72a25d105159e8dee3e8a66a2957ae">
-        M2 Master's in Mathematics and Economic Decision (M2 MAS I:MED)
+        TSE M2 Master's in Mathematics and Economic Decision (M2 MAS I:MED)
     </option>
     <option value="m2-ppd" data-url="8241fc3873200214d206361e13b245afbd72d825015315fe7b231a07b6a54172f377b612dec2c5fba5147d40716acb136c03e67b339315cf">
-        M2 Public Policy and Development (M2 EA I:PPD)
+        TSE M2 Public Policy and Development (M2 EA I:PPD)
     </option>
 
     
-    <option value="other" id="other-course">Other</option>
+    <option value="other" id="other-course">Other (e.g. TSE L1, TSM)</option>
 </select>
 
 <div id="other-url-stuff" style="display:none" >
@@ -203,7 +214,7 @@
 </div>
 
 
-<h2>Inclusion Expressions</h2>
+<h2>Subject Selection (Inclusion Expressions)</h2>
 <label for="whitelist">
     <p>
         Now type in the name of your courses, one per line.
@@ -232,7 +243,7 @@ M2 EA EA
     If you leave this empty, all events will be included (unless they match the exclusions below).
 </p>
 
-<h2>Exclusion Expressions</h2>
+<h2>TD/TP Selection (Exclusion Expressions)</h2>
 <label for="blacklist">
     <p>
         Next you will filter out TDs/TPs that you aren't taking, for the courses which you are taking. These are the <span style="color: #66FFFF;">light blue</span> coloured classes.

@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://www.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Fri, 30 Aug 2024 14:09:34 GMT</lastBuildDate>
+		<lastBuildDate>Mon, 02 Sep 2024 14:21:10 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -99,11 +99,11 @@
 			<pubDate>Thu, 27 Oct 2016 00:00:00 GMT</pubDate>
 		</item>
 		<item>
-			<title>TSE Calendar Sync and Filter</title>
+			<title>UT1 TSE Calendar Sync and Filter</title>
 			<link>https://www.mdavis.xyz/tse-calendar</link>
-			<description>A tool to synchronise personalised Toulouse School of Economics timetables to your calendar app</description>
+			<description>A tool to synchronise personalised Toulouse School of Economics (or UT1) timetables to your calendar app</description>
 			<guid isPermaLink="true">https://www.mdavis.xyz/tse-calendar</guid>
-			<pubDate>Mon, 19 Feb 2024 00:00:00 GMT</pubDate>
+			<pubDate>Sun, 01 Sep 2024 00:00:00 GMT</pubDate>
 		</item>
 	</channel>
 </rss>

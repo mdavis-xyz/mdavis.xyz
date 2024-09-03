@@ -117,16 +117,16 @@
     However that includes TPs, TDs etc which are not your ones. 
     (Erasamus students don't even have that.)
     The purpose of this page is to generate a new URL to put into your calendar app,
-    such that you can filter out all the events you do not care about.
+    such that you can see all of your classes, and no classes for other people.
 </p>
 <p>
     The way this works is that you type in the names of the courses you're taking below,
     and this website will generate a new URL to put into your calendar app,
-    which is the same as <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true" target="_blank">here</a>,
-    but with some events discarded.
+    which will be the the same calendar as <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true" target="_blank">here</a>,
+    but with unwanted events hidden.
 </p>
 <p>
-    The other issue is that the university calendar website is quite unreliable.
+    Another issue is that the university calendar website is quite unreliable.
     Often it just won't load for a few hours.
     With my server in between your phone and the university's unreliable server,
     I can fetch updates frequently (on behalf of everyone), and cache the results so it's reliable when your phone tries to sync.
@@ -139,8 +139,8 @@
     Which course are you enrolled in?
     </p>
     <p>
-        (If you are taking courses from multiple universities, e.g. mostly TSE but one TSM course, 
-     then complete this whole page twice (once for each university) to sync multiple URLs into your one calendar app.)
+        If you are taking courses from multiple universities, e.g. mostly TSE but one TSM course, 
+     then complete this whole page twice (once for each university) to sync multiple URLs into your one calendar app.
     </p>
 </label>
 
@@ -218,7 +218,7 @@
 <label for="whitelist">
     <p>
         Now type in the name of your courses, one per line.
-        Events in the public calendar which do not match at least one of these will be dropped when your device downloads the calendar.
+        Events in the public calendar which do not match at least one of these will be deleted when your device downloads the calendar.
     </p>
     <p>
         The filtering will be case-insensitive.
@@ -227,7 +227,7 @@
     </p>
     <p>
         There are some events in your calendar which aren't for a specific subject, but are instead general workshops for everyone.
-        For example, the welcome talk on the first day of the university year.
+        (e.g. The welcome talk on the first day of the university year.)
         To include these, add one of the lines which appear in the descriptions of those events. For example <span style="font-family:'Lucida Console', monospace">M2 EA EA</span>.
     </p>
     
@@ -246,7 +246,8 @@ M2 EA EA
 <h2>TD/TP Selection (Exclusion Expressions)</h2>
 <label for="blacklist">
     <p>
-        Next you will filter out TDs/TPs that you aren't taking, for the courses which you are taking. These are the <span style="color: #66FFFF;">light blue</span> coloured classes.
+        Next you will filter out TDs/TPs that you aren't taking, for the courses which you are taking. 
+        TDs and TPs are the <span style="color: #66FFFF;">light blue</span> coloured classes on the timetable web pages.
         To find out which TDs/TPs are yours, visit <a href="https://ade-production.ut-capitole.fr/direct/myplanning.jsp?logout=true" target="_blank">your personalised timetable</a>.
         (If you don't see any, skip forwards a few weeks.)
         Now compare that to <a href="https://ade-production.ut-capitole.fr/direct/index.jsp?showTree=true&showPianoDays=true&showPianoWeeks=true&showOptions=true&days=0,1,2,3,4,5&displayConfName=Web&projectId=34&login=anonymous" target="_blank">the public timetable web page</a>.
@@ -255,9 +256,9 @@ M2 EA EA
         Otherwise, hover your mouse over each TD/TP.
         They typically have a few random-looking text identifiers, like "EMABA12<b>TD</b>3". 
         (These tend to end with "TD" or "TP")
-        For each of the other TD/TP in each of your courses, find such an identifier.
+        For each of the other TD/TPs in each of your courses, find such an identifier.
         Check that the TDs/TPs which aren't yours don't have that identifier.
-        Now paste them into the field below.
+        Now paste those identifiers into the field below.
         Any TP or TD without any of these in the description will be removed from your calendar.
     </p>
 </label>
@@ -277,17 +278,20 @@ M2 EA EA
 
 <h2>Installation Instructions</h2>
 <p>
-    This URL is not a normal "CalDav" calendar sync link. (Because that's what UT1 offers.)
-    It's actually a <code>.ics</code> file download.
+    This URL is not a normal "CalDav" calendar sync link,
+    it's actually a <code>.ics</code> file download (because that's what UT1 offers).
     So some apps (e.g. your browser) will try to download it as a file,
     and then from there you can import it into a calendar app.
-    The problem there is that this is a once-off process, and updates to your timetable by the university will not be synchronised.
-    To ensure updates are synchronised, try the following steps, based on your chosen platform:
+    The problem there is that this is a once-off process, and future updates to your timetable by the university will not be synchronised.
+    To ensure future updates will be synchronised, try the following steps, based on your chosen platform:
 </p>
 <select id="installation-target" onchange="showExplanations()">
     <option disabled selected value>Choose your platform</option>
     <option value="gmail">Google Calendar (Gmail)</option>
     <option value="android">Android</option>
+    <option value="iphone">iPhone</option>
+    <option value="mac">Mac</option>
+    <option value="outlook">Outlook</option>
     <option value="thunderbird">Thunderbird</option>
     <option value="otherdevice">Other</option>
 </select>
@@ -307,20 +311,53 @@ M2 EA EA
                 If you go back to the main calendar page, you should see a new calendar in your list of calendars,
                 with a long, ugly name. After a few minutes (once Google finishes loading it)
                 the calendar should be named "TSE", and classes should appear.
-                (You can click on it to go to "Calendar Settings" to rename it or change the colour.)
-            </li>
-            <li>
-                Note that Google Calendar will fetch updates for you approximately once per day.
+                (You can click the calendar name to go to "Calendar Settings" to rename it or change the colour.)
             </li>
         </ol>
+
+        <p>
+            Google Calendar will fetch updates for you approximately once per day.
+        </p>
     </div>
     <div style="display:none" id="android-explanation">
         <p>
-            You can follow the steps for Google calendar, and then sync that calendar to your phone.
-            Alternatively you can find an app that can synchronise "ICS" calendar files.
+            You can follow the steps for Google calendar, and then sync your Google calendar to your phone.
+            Alternatively you can find an app that can synchronise "ICS" calendar URLs.
             (Make sure it can synchronise them, not just do a once-off import that won't be updated when the university updates your timetable.)
             For example, there's <a href="https://play.google.com/store/apps/details?id=at.bitfire.icsdroid" target="_blank">ICSx</a>.
         </p>
+    </div>
+    <div style="display:none" id="iphone-explanation">
+        <p>
+            Copy the URL above, and then follow <a href="https://www.iphonelife.com/content/how-to-link-calendars-iphone-2022#Copied%20Link" target="_blank">these steps</a>.
+        </p>
+        <p>
+            (I do not have an iPhone, so I have not tried this. If it works, or doesn't work, please let me know.)
+        </p>
+    </div>
+    <div style="display: none;" id="mac-explanation">
+        <p>
+            Copy the URL above, and then follow <a href="https://support.apple.com/en-au/guide/calendar/icl1022/mac" target="_blank">these steps</a>.
+        </p>
+        <p>
+            (I do not have a Mac, so I have not tried this. If it works, or doesn't work, please let me know.)
+        </p>        
+    </div>
+    <div style="display: none;" id="outlook-explanation">
+        <ol>
+            <li>
+                Go to <a href="https://outlook.live.com/calendar/0/view/month" target="_blank">Outlook</a>.
+            </li>
+            <li>
+                Near "My Calendars" on the left, click "Add calendar"
+            </li>
+            <li>
+                Click "Subscribe from web"
+            </li>
+            <li>
+                Paste in the URL shown above.
+            </li>
+        </ol>       
     </div>
     <div style="display:none" id="thunderbird-explanation">
         <p>
@@ -342,7 +379,8 @@ M2 EA EA
             You're smart, you'll figure it out.
             Just make sure you <i>synchronise</i> the <code>.ics</code> link.
             Do not do a static "import", because then changes to your timetable by the university will not be updated in your calendar app.
-            If you figure out how to do this on a common device (e.g. Apple's ecosystem) let me know the steps so I can add them here.
+            Often this is called something like "Network Calendar" or "Web Calendar" or "Subscribe to Calendar".
+            If you figure out how to do this on a common device let me know the steps so I can add them here.
         </p>
     </div>
 </div>

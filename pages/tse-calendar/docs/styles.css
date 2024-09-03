@@ -31,3 +31,8 @@ select {
    font-size: 1.2em;
    margin: 0.2em;
 }
+
+#quote {
+   text-align: center;
+   margin: 1em;
+}

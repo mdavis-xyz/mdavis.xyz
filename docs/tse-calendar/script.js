@@ -41,11 +41,16 @@ function updateOutputUrl() {
 
     console.log("Updating output URL");
 
-    if (courseDropdown.value === "other") {
+    if (courseDropdown.value == '') {
+        originalUrlField.classList.add("badInput");
+        outputUrlField.value = "Please select a course from the dropdown menu above";
+        return
+    }else if (courseDropdown.value === "other") {
         const originalUrl = originalUrlField.value;
         if (! originalUrl.startsWith(ute_url_base)){
             originalUrlField.classList.add("badInput");
-            outputUrlField.value = "Invalid URL";
+            outputUrlField.value = "Invalid URL from other degree selection";
+            return;
         }else{
             urlId = originalUrl.replace(ute_url_base, '').trim();
 
@@ -151,15 +156,28 @@ function reverseUrl(){
         var selectElement = document.getElementById("courseDropdown");
         var correspondingCourse = selectElement.querySelector('option[data-url="' + urlId + '"]');
         var otherUrlField = document.getElementById("original-url");
+        var otherParent = document.getElementById("other-url-stuff");        
+
         if (correspondingCourse) {
             // Option found, select it
             console.log(`course from URL is ${correspondingCourse.id}`);
             correspondingCourse.selected = true;
             otherUrlField.value = '';
+            otherParent.style.display = "none";
+        } else if (urlId == 'null') {
+            console.log(`invalid legacy URL`);
+            document.getElementById('unselected-course').selected = true;
+            otherUrlField.value = '';
+            otherParent.style.display = "none";
+
         } else {
             console.log(`course from URL is unknown`);
             document.getElementById('other-course').selected = true;
             otherUrlField.value = oldUrlField.value;
+
+            
+            otherParent.style.display = "block";
+
         }
 
         var queryParams = new URLSearchParams(oldUrl.search);

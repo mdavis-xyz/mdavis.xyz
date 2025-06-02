@@ -24,8 +24,8 @@
       card:
          path: "thumb-screenshot.png"
          description: "Screenshot of Google Keep"
-         width: 1000
-         height: 574
+         width: 600
+         height: 346
    template: "markdown" 
    markdown: "content.md"
    date: 2/6/2025

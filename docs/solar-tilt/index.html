@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">Why solar panels should not be oriented to maximize energy volume</title>
+   <meta name="title" content="Why solar panels should not be oriented to maximize energy volume">
+   <meta name="description" content="How tilting further west and more vertically maximizes value">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Why solar panels should not be oriented to maximize energy volume">
+   <meta property="schema:description" content="How tilting further west and more vertically maximizes value">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Why solar panels should not be oriented to maximize energy volume">
+   <meta property="og:description" content="How tilting further west and more vertically maximizes value">
+
+   <!-- linkedin -->
+   <meta name="author" content="Matthew Davis">
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/solar-tilt/" /> <!-- end with / -->
+
+
+   <!-- image path must be full, absolute -->
+   <meta property="og:image" content="https://www.mdavis.xyz/solar-tilt/thumb.png" />
+   <meta property="og:image:width" content="600" />
+   <meta property="og:image:height" content="269" />
+   <meta property="og:image:alt" content="Graph of results" />
+
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="3 June 2025">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="../rss.xml" />
+
+   <script src="../source.js" ></script>
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">Why solar panels should not be oriented to maximize energy volume</h1>
+         <p id="subtitle" class="subtitle">How tilting further west and more vertically maximizes value</p>
+      </header>
+
+
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2025-06-03" class="dateline">
+               3 June 2025
+            </time>
+         </div>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/stopwatch.svg"
+                alt=""
+                width="20"
+                height="20" />
+            1 min
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p>Maximizing solar energy volume is the wrong goal. We should maximize
+value.</p>
+<p>I've been thinking a lot recently about vertical solar. Mounting
+solar panels vertically can give some engineering benefits, however I
+think these aspects pale in comparison to the value that comes from
+shifting when a solar panel produces power to when consumers need
+it.</p>
+<p>For a fixed-tilt system, conventional wisdom is to mount a panel at
+an angle equal to the latitude, and pointed north/south (towards the
+equator). If you face it more to the west and more vertically, you
+reduce the total volume of energy produced, but can increase the total
+value, by capturing more of the evening spot price peak. You also
+produce more during winter, when solar power is more scarce.</p>
+<p>I've run some simulations on NEM data for 2024, considering every
+possible orientation of fixed-tilt solar panels (horizontal to vertical,
+and N/S/E/W). The orientation that maximizes revenue is roughly halfway
+between the one that maximizes volume (conventional wisdom) and the one
+which maximizes capture price. In Queensland a panel's spot revenue can
+be almost doubled by pointing it more vertically, and more westward.
+That's a huge increase in value to society. The causation is simple. As
+more and more solar is installed and generating at midday, the value of
+each additional panel producing at midday keeps dropping, whilst
+generation during the late afternoon becomes more scarce. I haven't done
+the calculations yet, but I expect the difference in marginal emissions
+abatement to be even larger than doubling.</p>
+<figure>
+<img src="REVENUE.png" alt="Graph of revenue vs panel tilt" />
+<figcaption aria-hidden="true">Graph of revenue vs panel
+tilt</figcaption>
+</figure>
+<p>Despite these huge differences, rooftop solar around the world is
+typically rewarded with flat rates per kWh, or per kW, so home owners
+maximize volume, and society loses up to half of the panels' value. For
+my masters thesis I am looking at how we can improve subsidy design to
+address this.</p>
+<p>Most large-scale farms use single-axis tracking. As panel prices
+continue to drop relative to tracking systems, I expect fixed-tilt
+panels will become more popular (especially fully-vertical bifacial
+panels). I wonder how many PPA negotiations discuss setting the
+orientation to maximize volume (best for the owner, for a given PPA
+price) vs maximizing revenue (best for the offtaker, which should lead
+them to offer a higher PPA price).</p>
+<p>These are pretty rough simulations, only using the trigonometry of
+the sun position. I've neglected diffuse light, weather and some
+atmospheric effects. Given how substantial the results are in the
+simplified model, I expect the overall story would remain the same with
+more sophisticated modelling.</p>
+<p>The code for the simulations is available <a
+href="https://gitlab.com/MatthewDavis/solar-tilt#">on GitLab</a>. This
+work is part of my masters thesis, which is ongoing at the time of
+writing.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+   <iframe
+      src="https://5lvllysysx4j74irbzzfybotbe0dgffh.lambda-url.ap-southeast-2.on.aws/increment?page_name=solar-tilt"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+</body>
+</html>

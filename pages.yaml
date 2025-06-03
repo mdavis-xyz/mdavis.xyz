@@ -17,6 +17,32 @@
       - 'media'
       - 'script'
    template: 'home'
+-  title: "Why solar panels should not be oriented to maximize energy volume"
+   description: "How tilting further west and more vertically maximizes value"
+   path: "solar-tilt"
+   images:
+      card:
+         path: "thumb.png"
+         description: "Graph of results"
+         width: 600
+         height: 269
+   template: "markdown"
+   markdown: "content.md"
+   exclude:
+      - script
+   date: 3/6/2025
+-  title: "Google Keep Image Cache Extension"
+   description: "A Firefox browser extension to speed up Google Keep"
+   path: "google-keep-cache-extension"
+   images:
+      card:
+         path: "thumb-screenshot.png"
+         description: "Screenshot of Google Keep"
+         width: 600
+         height: 346
+   template: "markdown" 
+   markdown: "content.md"
+   date: 2/6/2025
 -  title: "Do you need a blockchain?"
    description: "An interactive flowchart to help cut through the hype"
    path: "blockchain"
@@ -171,6 +197,7 @@
         test:
            - in: regex/target/test/0/in.txt
              out: regex/target/test/0/out.txt
+
 -  title: "Machine Learning Unicycling"
    description: "Teaching a computer to ride a simulated unicycle"
    path: "unicycle"
@@ -285,8 +312,6 @@
    template: "markdown"
    markdown: "content.md"
    date: 12/6/2018
-   exclude:
-      - script
 -  title: "Lambda Multiprocessing"
    description: "A python library I wrote for multiprocessing in AWS Lambda"
    path: "lammulti"

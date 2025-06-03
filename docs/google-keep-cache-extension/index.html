@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">Google Keep Image Cache Extension</title>
+   <meta name="title" content="Google Keep Image Cache Extension">
+   <meta name="description" content="A Firefox browser extension to speed up Google Keep">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Google Keep Image Cache Extension">
+   <meta property="schema:description" content="A Firefox browser extension to speed up Google Keep">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Google Keep Image Cache Extension">
+   <meta property="og:description" content="A Firefox browser extension to speed up Google Keep">
+
+   <!-- linkedin -->
+   <meta name="author" content="Matthew Davis">
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/google-keep-cache-extension/" /> <!-- end with / -->
+
+
+   <!-- image path must be full, absolute -->
+   <meta property="og:image" content="https://www.mdavis.xyz/google-keep-cache-extension/thumb-screenshot.png" />
+   <meta property="og:image:width" content="600" />
+   <meta property="og:image:height" content="346" />
+   <meta property="og:image:alt" content="Screenshot of Google Keep" />
+
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="2 June 2025">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="../rss.xml" />
+
+   <script src="script.js" ></script>
+   <script src="../source.js" ></script>
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">Google Keep Image Cache Extension</h1>
+         <p id="subtitle" class="subtitle">A Firefox browser extension to speed up Google Keep</p>
+      </header>
+
+
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2025-06-02" class="dateline">
+               2 June 2025
+            </time>
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p>In <a href="https://keep.google.com/">Google Keep</a> you can add
+images (e.g. photos) to notes. When you use the Keep app on Android, the
+images are saved locally, so browsing them is quick. However each time
+you revisit the Google Keep web page in a browser to look at those
+notes, it will re-download the images. This is slow and wastes your
+laptop battery.</p>
+<p>I wrote a Firefox browser extension which saves ('caches') the images
+locally, so that they appear almost instantly. It still can take many
+seconds for an empty note to be loaded, but once the text of the note
+appears, any attached images should appear instantly, instead of many
+seconds later. This video shows the difference between browsing with a
+mediocre quality internet connection with the extension (left) and
+without (right).</p>
+<video autoplay loop class="video appear"  width=1500 height=500 autobuffer muted playsinline video-auto-ctrl  preload defaultMuted>
+<source src="both.webm" type="video/webm">
+<source src="both.mp4" type="video/mp4">
+</video>
+<p>You can install it for free from <a
+href="https://addons.mozilla.org/en-US/firefox/addon/google-keep-image-cache/">the
+Firefox browser add-on site</a>. The code is available on <a
+href="https://gitlab.com/MatthewDavis/google-keep-image-cache-extension">GitLab</a>.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+   <iframe
+      src="https://5lvllysysx4j74irbzzfybotbe0dgffh.lambda-url.ap-southeast-2.on.aws/increment?page_name=google-keep-cache-extension"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+</body>
+</html>

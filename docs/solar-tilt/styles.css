@@ -1,0 +1,12 @@
+figure img {
+   height: auto;
+   border-radius: 0.2em;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+   max-width: 100%;
+   display: block;
+   margin: 0 auto;
+}
+
+figure figcaption {
+   display: none;
+}

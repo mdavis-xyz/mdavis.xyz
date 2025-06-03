@@ -4,9 +4,16 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Mon, 02 Jun 2025 17:49:11 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 03 Jun 2025 12:50:36 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<item>
+			<title>Why solar panels should not be oriented to maximize energy volume</title>
+			<link>https://dev.mdavis.xyz/solar-tilt</link>
+			<description>How tilting further west and more vertically maximizes value</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/solar-tilt</guid>
+			<pubDate>Tue, 03 Jun 2025 00:00:00 GMT</pubDate>
+		</item>
 		<item>
 			<title>Google Keep Image Cache Extension</title>
 			<link>https://dev.mdavis.xyz/google-keep-cache-extension</link>

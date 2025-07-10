@@ -29,7 +29,7 @@
    template: "markdown"
    markdown: "content.md"
    exclude:
-      - script
+      - "script"
    date: 3/6/2025
 -  title: "Google Keep Image Cache Extension"
    description: "A Firefox browser extension to speed up Google Keep"
@@ -297,6 +297,8 @@
 -  title: "How Flag Emojis Get Decided"
    description: "Why adding an Indigenous flag is technologically non-trivial"
    path: "emoji"
+   exclude:
+   - script
    images:
       card:
          path: "images/my-screenshot-short.jpg"

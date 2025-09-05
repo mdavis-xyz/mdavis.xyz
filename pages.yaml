@@ -48,6 +48,23 @@
    exclude:
       - "script"
    date: 3/6/2025
+-  title: "The Optimal Electricity Retail Customer Mix"
+   description: "How choosing a mix of low-risk and high-risk electricity customers is similar to the capital asset pricing model"
+   path: "capm"
+   images:
+      card:
+         path: "images/complex.svg"
+         description: "Plot of risk vs return"
+         width: 339
+         height: 193
+      top:
+         path: "images/complex.svg"
+         description: "Plot of risk vs return"
+         width: 339
+         height: 193
+   template: "markdown"
+   markdown: "content.md"
+   date: 5/9/2025
 -  title: "Google Keep Image Cache Extension"
    description: "A Firefox browser extension to speed up Google Keep"
    path: "google-keep-cache-extension"

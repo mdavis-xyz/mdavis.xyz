@@ -17,6 +17,23 @@
       - 'media'
       - 'script'
    template: 'home'
+-  title: "Missing Markets in the Electricity Industry"
+   description: "My master's thesis about capacity markets, ancillary services and capture price divergence"
+   path: "masters-thesis"
+   images:
+      card:
+         path: "images/marginal.png"
+         description: "Graph of power and frequency over time" # wrong
+         width: 879 # wrong
+         height: 586 # wrong
+      top:
+         path: "images/marginal.png"
+         description: "Graph of power and frequency over time" # wrong
+         width: 562 # wrong
+         height: 270 # wrong
+   template: "markdown"
+   markdown: "content.md"
+   date: 5/9/2025
 -  title: "Why solar panels should not be oriented to maximize energy volume"
    description: "How tilting further west and more vertically maximizes value"
    path: "solar-tilt"
@@ -43,6 +60,8 @@
    template: "markdown" 
    markdown: "content.md"
    date: 2/6/2025
+   exclude:
+   - homepage-listing # don't list on homepage, since the extension doesn't work
 -  title: "Do you need a blockchain?"
    description: "An interactive flowchart to help cut through the hype"
    path: "blockchain"

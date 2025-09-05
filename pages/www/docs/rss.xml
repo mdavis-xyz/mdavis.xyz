@@ -4,9 +4,16 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Tue, 03 Jun 2025 12:50:36 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 05 Sep 2025 15:02:45 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<item>
+			<title>Missing Markets in the Electricity Industry</title>
+			<link>https://dev.mdavis.xyz/masters-thesis</link>
+			<description>My master's thesis about capacity markets, ancillary services and capture price divergence</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/masters-thesis</guid>
+			<pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate>
+		</item>
 		<item>
 			<title>Why solar panels should not be oriented to maximize energy volume</title>
 			<link>https://dev.mdavis.xyz/solar-tilt</link>

@@ -67,7 +67,7 @@ Part 5 introduces a model, based on a simplification of [Borenstein and Holland 
 
 
 Electricity retailers offer these fixed tariffs to consumers, and are exposed to the variable wholesale price. This introduces a risk, which depends on the joint distribution of spot prices and consumers' daily consumption profiles.
-Part 6 explores the risk-return tradeoff of a retailer choosing an optimal portfolio of heterogenous customers. Parallels then are drawn to show that this is similar to to the [Capital Asset Pricing Model (CAPM)](https://en.wikipedia.org/wiki/Capital_asset_pricing_model).
+[Part 6](../capm) explores the risk-return tradeoff of a retailer choosing an optimal portfolio of heterogenous customers. Parallels then are drawn to show that this is similar to to the [Capital Asset Pricing Model (CAPM)](https://en.wikipedia.org/wiki/Capital_asset_pricing_model).
 
 In Part 7 the discussion returns to the supply side.
 In electricity spot markets the price changes abruptly at the boundary between trading intervals, but the physical output of electricity generators cannot change instantaneously.

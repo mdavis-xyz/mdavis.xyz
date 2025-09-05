@@ -22,15 +22,15 @@
    path: "masters-thesis"
    images:
       card:
-         path: "images/marginal.png"
-         description: "Graph of power and frequency over time" # wrong
-         width: 879 # wrong
-         height: 586 # wrong
+         path: "images/marginal-cost.svg"
+         description: "Graph of aggregate and marginal supply cost"
+         width: 602
+         height: 287
       top:
-         path: "images/marginal.png"
-         description: "Graph of power and frequency over time" # wrong
-         width: 562 # wrong
-         height: 270 # wrong
+         path: "images/marginal-cost.svg"
+         description: "Graph of aggregate and marginal supply cost"
+         width: 602
+         height: 287
    template: "markdown"
    markdown: "content.md"
    date: 5/9/2025

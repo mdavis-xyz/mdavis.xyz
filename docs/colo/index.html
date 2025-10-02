@@ -121,7 +121,7 @@ colocated</figcaption>
 </div>
 <p>When examining the benefits of colocation, many investors, grid
 operators and policy makers choose a solar project without batteries as
-the counterfactual.</p>
+the alternative to compare to.</p>
 <div class="wiring">
 <figure>
 <img src="wiring-svgs/solar-only.svg" alt="Solar only" />
@@ -183,9 +183,9 @@ renewable power to increase revenue (or decrease emissions) is not a
 valid argument in favour of colocation. That would happen without
 colocation.</p>
 <p>The purpose of this post is to extend <a href="../solar-tilt">my
-other model about vertical solar panels</a> to investigate the impact of
+model about vertical solar panels</a> to investigate the impact of
 colocation on spot market revenue. The angle at which solar panels are
-installed at is an investment decision, and the charging schedule of the
+installed is an investment decision, and the charging schedule of the
 battery is an operational decision. I will investigate whether
 colocating batteries with solar changes the optimal angle which panels
 should be installed at, the optimal battery charging revenue, or total
@@ -193,17 +193,16 @@ spot market revenue. The logistical considerations mentioned above will
 be neglected for this model. They may be significant factors which make
 colocation the right choice. However it is important that investors are
 precise about why they are choosing colocation. The purpose of this post
-is to explore the impact of colocation from a pure spot market
-perspective.</p>
-<p>Only spot revenue will be considered. Upfront investment costs will
-be neglected, since they would be the same with both colocation and
-separate sites. It is assumed that the grid connection is not
-constrained. This extension applies to large scale projects, because I
-assume revenue is based on spot price. For households with solar and a
-battery, the same principles would apply, were they not distorted by
-fixed tariffs.</p>
-<p>This work is part of my masters thesis, which is written up more
-formally <a href="../masters-thesis">here</a>.</p>
+is to focus on spot market revenue.</p>
+<p>Upfront investment costs will be neglected, since they would be
+approximately the same with both colocation and separate sites
+(neglecting project management efficiencies from having only one site).
+It is assumed that the grid connection is not constrained. This
+extension applies to large scale projects, because I assume revenue is
+based on spot price. For households with solar and a battery, the same
+principles would apply, were they not distorted by fixed tariffs.</p>
+<p>This work is part of my <a href="../masters-thesis">masters
+thesis</a>.</p>
 <h2 id="solar-with-a-battery-which-can-charge-from-the-grid">Solar With
 a Battery Which Can Charge From the Grid</h2>
 <p>This model builds on <a href="../solar-tilt">my stylised model about
@@ -211,19 +210,18 @@ vertical solar panels</a>. The relevant points are that:</p>
 <ul>
 <li>There are 3 time periods:
 <ul>
-<li>midday (T<sub>1</sub>)</li>
-<li>afternoon (T<sub>2</sub>)</li>
-<li>evening (T<sub>3</sub>)</li>
+<li>Midday (T<sub>1</sub>)</li>
+<li>Afternoon (T<sub>2</sub>)</li>
+<li>Evening (T<sub>3</sub>)</li>
 </ul></li>
 <li>Prices are low, medium and high respectively (p<sub>1</sub> &lt;
 p<sub>2</sub> &lt; p<sub>3</sub>)</li>
 </ul>
 <p>For this post, I will just look at the 'vertical' case from that
-model. This means the panels produce δ of power in T<sub>2</sub> ( 0
-&lt; δ &lt; 1), and 0 in the other time periods. (For the more
-conventional case of panels oriented to produce maximum output at
-midday, the details are in <a href="../masters-thesis">my
-thesis</a>.)</p>
+model. This means the panels produce δ of power in T<sub>2</sub> (0 &lt;
+δ &lt; 1), and 0 in the other time periods. (For the more conventional
+case of panels oriented to produce maximum output at midday, the details
+are in <a href="../masters-thesis">my thesis</a>.)</p>
 <div class="graph">
 <figure>
 <img src="charge-time/1-solar-only.svg" alt="Solar only" />
@@ -244,12 +242,12 @@ arbitrage</figcaption>
 </figure>
 </div>
 <p>This has increased the total revenue. However this is not the maximum
-revenue we can extract. In this model I sized the battery to be slightly
+profit we can obtain. In this model I sized the battery to be slightly
 larger than what the solar panel produces. (The findings still hold if
 this is not the case. However the explanation is clearer if we use this
-approach.) Suppose that in T<sub>2</sub> we charge the battery from
-solar, <em>and</em> also charge from the grid to fill up remaining space
-in the battery.</p>
+setup.) Suppose that in T<sub>2</sub> we charge the battery from solar,
+<em>and</em> also charge from the grid to fill up remaining space in the
+battery.</p>
 <div class="graph">
 <figure>
 <img src="charge-time/3-solar-charge-with-arb-2.svg"
@@ -258,10 +256,10 @@ alt="Battery charged from solar, with arbitrage in period 2" />
 arbitrage in period 2</figcaption>
 </figure>
 </div>
-<p>Charging from the grid as well as solar has increased our spot market
-profit. However this is still not the maximum profit we can make. We can
-charge from the grid in the prior period, when the price is lower. This
-reduces our charging cost.</p>
+<p>Charging from the grid as well as from solar has increased our spot
+market profit. However this is still not the maximum profit we can make.
+We can charge from the grid in the prior period, when the price is
+lower. This reduces our charging cost.</p>
 <div class="graph">
 <figure>
 <img src="charge-time/4-solar-charge-with-arb-1.svg"
@@ -272,15 +270,14 @@ period 1</figcaption>
 </div>
 <p>However this is <em>still</em> not the strategy which gives the
 maximum revenue. People often think that since we're charging the
-battery from our own solar which has no marginal cost, then the charge
-cost (for that component of energy) is zero. This is not quite true. If
-we did not put that solar into the battery we would have instead sold it
-for p<sub>2</sub>. Therefore the opportunity cost of charging from solar
-is p<sub>2</sub>. Is there a way of charging the battery for a cost
-lower than p<sub>2</sub>? Yes! We can charge in T<sub>1</sub> for
-p<sub>1</sub>. We can charge the battery completely from the grid in
-T<sub>1</sub>, then export the solar power when we generate it in
-T<sub>2</sub>, then discharge the stored grid power in
+battery from our own solar then the charge cost is zero. This is not
+quite true. If we did not put that solar into the battery we would have
+instead sold it for p<sub>2</sub>. Therefore the opportunity cost of
+charging from solar is p<sub>2</sub>. Is there a way to charge the
+battery for a cost lower than p<sub>2</sub>? Yes! We can charge in
+T<sub>1</sub> for p<sub>1</sub>. We can charge the battery completely
+from the grid in T<sub>1</sub>, then export the solar power when we
+generate it in T<sub>2</sub>, then discharge the stored grid power in
 T<sub>3</sub>.</p>
 <div class="graph">
 <figure>
@@ -293,12 +290,12 @@ immediately exported</figcaption>
 <p>This is the strategy which maximizes revenue for this setup. Note
 that this is the same as the strategy which maximizes profit if the
 solar panels and battery are installed in separate locations (even if
-they are owned by separate firms). The best we can hope to achieve when
-the battery and solar panels are together is the same as what we would
-get if they were installed separately. Therefore colocating batteries
-and solar on the same site compared to different sites does not improve
-spot revenue. In simpler terms, moving a battery and solar farm
-together, such that charging from solar is no longer an explicit
+they are owned by separate firms). So the best we can hope to achieve
+when the battery and solar panels are together is the same as what we
+would get if they were installed separately. Therefore colocating
+batteries and solar on the same site compared to different sites does
+not improve spot revenue. In simpler terms, moving a battery and solar
+farm together, such that charging from solar is no longer an explicit
 expense, does not eliminate the opportunities and opportunity costs of
 supplying and consuming from the spot market.</p>
 <p>In practice many projects are configured such that the battery can
@@ -314,8 +311,8 @@ be precise about what the benefits of colocation are. Acting as a 'solar
 sponge' to shift cheap, clean sunlight from midday to higher priced
 evenings is not a benefit, because that would happen with separate
 installations anyway.</p>
-<p>This work is part of my masters thesis, which is written up more
-formally <a href="../masters-thesis">here</a>.</p>
+<p>This idea is explored more comprehensively in <a
+href="../masters-thesis">my masters thesis</a>.</p>
 
 
    </article>

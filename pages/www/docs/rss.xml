@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Fri, 05 Sep 2025 16:10:30 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 02 Oct 2025 17:08:39 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -13,6 +13,13 @@
 			<description>My master's thesis about capacity markets, ancillary services and capture price divergence</description>
 			<guid isPermaLink="true">https://dev.mdavis.xyz/masters-thesis</guid>
 			<pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate>
+		</item>
+		<item>
+			<title>Why Colocating solar and batteries does not increase electricity spot market revenue</title>
+			<link>https://dev.mdavis.xyz/colo</link>
+			<description>How putting the two together does not increase wholesale revenue</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/colo</guid>
+			<pubDate>Thu, 02 Oct 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Why solar panels should not be oriented to maximize energy volume</title>

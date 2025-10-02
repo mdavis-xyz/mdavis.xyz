@@ -34,6 +34,20 @@
    template: "markdown"
    markdown: "content.md"
    date: 5/9/2025
+-  title: "Why Colocating solar and batteries does not increase electricity spot market revenue"
+   description: "How putting the two together does not increase wholesale revenue"
+   path: "colo"
+   images:
+      card:
+         path: "wiring-svgs/together-with-border.svg"
+         description: "Diagram of solar and battery together"
+         width: 142
+         height: 89
+   template: "markdown"
+   markdown: "content.md"
+   exclude:
+      - "script"
+   date: 2/10/2025
 -  title: "Why solar panels should not be oriented to maximize energy volume"
    description: "How tilting further west and more vertically maximizes value"
    path: "solar-tilt"

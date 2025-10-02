@@ -45,8 +45,6 @@
          height: 89
    template: "markdown"
    markdown: "content.md"
-   exclude:
-      - "script"
    date: 2/10/2025
 -  title: "Why solar panels should not be oriented to maximize energy volume"
    description: "How tilting further west and more vertically maximizes value"

@@ -17,7 +17,7 @@ I am not creating an equivilent list for the current government. Creating this l
 
 ## Deployment and staging
 
-I wrote the tooling for this many years ago, as my first front-end project. I didn't know much, so it's not really optimal. The tooling is a bit messy, not what I'd do if I started from scatch today. So if you're a potential employer checking out my work, please check out a different repo.
+I wrote the tooling for this many years ago, as my first front-end project. I deliberately wrote everything from scratch instead of using whichever framework is the flavour of the month, so that I could learn the fundementals. However I didn't know much about frontend work at the time, so it's not really optimal. The tooling is a bit messy (especially the spellchecker), not what I'd do if I started from scatch today. So if you're a potential employer checking out my work on GitHub, please look at a different repo.
 
 GitHub can't directly handle a dev and prod website stage. So I actually have two copies of the website.
 

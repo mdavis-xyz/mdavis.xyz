@@ -48,6 +48,8 @@ def stripXML(text):
     text = re.sub(expr, ' ', text, re.MULTILINE)
     expr = r'<span class="formula">.*?</span>'
     text = re.sub(expr, ' ', text, re.MULTILINE)
+    expr = r'<sub>.*?</sub>'
+    text = re.sub(expr, ' ', text)
     expr = r'<[^<>]+>'
     text = re.sub(expr, '', text)
 

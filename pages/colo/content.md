@@ -16,7 +16,7 @@ When examining the benefits of colocation, many investors, grid operators and po
 
 </div>
 
-Given the high upfront cost of batteries, a more suitable counterfactual is that of solar and batteries installed at separate locations, possibly by separate firms.
+Given the high upfront cost of batteries, a more suitable counterfactual is that of solar and batteries installed at separate locations, possibly by separate companies.
 
 <div class="wiring">
 
@@ -36,7 +36,7 @@ Many researchers and industry participants conflate these benefits with the dire
 [Wong et al. (2019)](https://www.sciencedirect.com/science/article/pii/S2352152X18303803) suggest that batteries help solar (or wind) generators store power when the sun is shining and prices are cheap, and discharge it later when prices are higher.
 Whilst this 'solar sponge' approach does yield higher revenue than a solar farm without a battery, it also costs more to build. Conditional on buying a battery, it is not obvious whether colocation has any impact on pure spot revenue, compared to a solar farm and battery installed separately.
 
-As an example, a common argument is that when spot prices go negative (or below zero minus the subsidy price) a colocated project can charge the battery for free using on-site solar generation, without wasting that sunlight or paying to export. However, in such a situation it would be more profitable to withhold the solar generation (waste sunlight) and get paid to charge from the grid at the negative price. This is exactly how separate batteries and solar would behave (either if owned by the same firm, or separate firms). Therefore I argue that time-shifting renewable power to increase revenue (or decrease emissions) is not a valid argument in favour of colocation. That would happen without colocation.
+As an example, a common argument is that when spot prices go negative (or below zero minus the subsidy price) a colocated project can charge the battery for free using on-site solar generation, without wasting that sunlight or paying to export. However, in such a situation it would be more profitable to withhold the solar generation (waste sunlight) and get paid to charge from the grid at the negative price. This is exactly how separate batteries and solar would behave (either if owned by the same company, or separate companies). Therefore I argue that time-shifting renewable power to increase revenue (or decrease emissions) is not a valid argument in favour of colocation. That would happen without colocation.
 
 The purpose of this post is to extend [my model about vertical solar panels](../solar-tilt) to investigate the impact of colocation on spot market revenue.
 The angle at which solar panels are installed is an investment decision, and the charging schedule of the battery is an operational decision.
@@ -46,7 +46,7 @@ They may be significant factors which make colocation the right choice. However 
 
 Upfront investment costs will be neglected, since they would be approximately the same with both colocation and separate sites (neglecting project management efficiencies from having only one site).
 It is assumed that the grid connection is not constrained.
-This extension applies to large scale projects, because I assume revenue is based on spot price.
+This analysis applies to large scale projects, because I assume revenue is based on spot price.
 For households with solar and a battery, the same principles would apply, were they not distorted by fixed tariffs.
 
 This work is part of my [masters thesis](../masters-thesis).
@@ -62,8 +62,10 @@ This model builds on [my stylised model about vertical solar panels](../solar-ti
     - Evening (T<sub>3</sub>)
 - Prices are low, medium and high respectively (p<sub>1</sub> < p<sub>2</sub> < p<sub>3</sub>)
 
-For this post, I will just look at the 'vertical' case from that model. This means the panels produce δ of power in T<sub>2</sub> (0 < δ < 1), and 0 in the other time periods.
-(For the more conventional case of panels oriented to produce maximum output at midday, the details are in [my thesis](../masters-thesis).)
+This reflects a typical daily price curve, where plentiful sunlight drives prices low around midday, and then prices increase throughout the latter half of the day as solar power becomes more scarce and demand increases.
+
+For this post, I will just look at the 'vertical' case from that other model. This means the panels produce δ of power in T<sub>2</sub> (0 < δ < 1), and 0 in the other time periods.
+(For the more conventional case of panels oriented to produce maximum output at midday, the details are in [my thesis](../masters-thesis). The conclusion is the same.)
 
 <div class="graph">
 ![Solar only](charge-time/1-solar-only.svg)
@@ -103,11 +105,11 @@ We can charge the battery completely from the grid in T<sub>1</sub>, then export
 </div>
 
 This is the strategy which maximizes revenue for this setup.
-Note that this is the same as the strategy which maximizes profit if the solar panels and battery are installed in separate locations (even if they are owned by separate firms). 
+Note that this is the same as the strategy which maximizes profit if the solar panels and battery are installed in separate locations (even if they are owned by separate companies). 
 So the best we can hope to achieve when the battery and solar panels are together is the same as what we would get if they were installed separately. Therefore colocating batteries and solar on the same site compared to different sites does not improve spot revenue.
 In simpler terms, moving a battery and solar farm together, such that charging from solar is no longer an explicit expense, does not eliminate the opportunities and opportunity costs of supplying and consuming from the spot market.
 
-In practice many projects are configured such that the battery can only charge from the solar panels, and not from the grid. This reduces spot revenue by reducing the set of possible arbitrage strategies. This restriction is typically due to both regulatory and technical reasons. These may be sound reasons, however anecdotally it seems that there is not wide recognition of the extent to which these reduces spot market profit.
+In practice many projects are configured such that the battery can only charge from the solar panels, and not from the grid. This reduces spot revenue by reducing the set of possible arbitrage strategies. This restriction is typically due to both regulatory and technical reasons. These may be sound reasons, however anecdotally it seems that there is not wide recognition of the extent to which an inability to charge from the grid reduces spot market profit.
 
 Colocation may still be the best choice overall, especially if network connections are difficult to acquire. However it is important to be precise about what the benefits of colocation are. Acting as a 'solar sponge' to shift cheap, clean sunlight from midday to higher priced evenings is not a benefit, because that would happen with separate installations anyway.
 

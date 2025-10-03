@@ -61,7 +61,7 @@ def main():
             with open(already_archived_fname, 'a') as aaf:
                 with Pool() as p:
                     with requests.Session() as requests_session:
-                        with WaybackClient(requests_session) as wayback_client:
+                        # with WaybackClient(requests_session) as wayback_client:
                             for (r, row) in enumerate(data, start=1):
                                 assert row.get('urls', []), f"No urls for {row['text'][:30]}"
                                 assert len(row['urls']) == len(set(row['urls'])), f"Duplicate urls for {row['text'][:30]}"
@@ -72,36 +72,48 @@ def main():
                                        ((url not in good_urls) or random.uniform(0,1) < good_url_recheck_fraction):
                                         urls_to_check.append(url)
 
-                                    if not url.startswith('https://web.archive.org') \
-                                       and url not in archived_urls:
-                                        try:
-                                            next(wayback_client.search(url))
-                                        except StopIteration:
-                                            print(f"No wayback snapshot found for url, archiving {url}")
-                                            r = requests_session.get('https://web.archive.org/save/' + url)
-                                            r.raise_for_status()
-                                            print(f"Archived: {r.url}")
-                                        else:
-                                            print(f"Already in wayback machine: {url}")
-                                        archived_urls.add(url)
-                                        aaf.write(url + '\n')
+                                    # I'm no longer updating this page
+                                    # So most this links will eventually go stale.
+                                    # Just skip checking
+                                    # if not url.startswith('https://web.archive.org') \
+                                    #    and url not in archived_urls:
+                                    #     try:
+                                    #         next(wayback_client.search(url))
+                                    #     except StopIteration:
+                                    #         print(f"No wayback snapshot found for url, archiving {url}")
+                                    #         r = requests_session.get('https://web.archive.org/save/' + url)
+                                    #         r.raise_for_status()
+                                    #         print(f"Archived: {r.url}")
+                                    #     except AttributeError as e:
+                                    #         if str(e) == "'Session' object has no attribute 'search_calls_per_second'":
+                                    #             # unsure why this is happening,
+                                    #             # but I'm not updating this page anymore anyway
+                                    #             # so this code isn't really necessary
+                                    #             # Ignore the error
+                                    #             print(f"Ignoring wayback client error for {url}")
+                                    #         else:
+                                    #             raise
+                                    #     else:
+                                    #         print(f"Already in wayback machine: {url}")
+                                    #     archived_urls.add(url)
+                                    #     aaf.write(url + '\n')
 
-                                    results = p.map(check_url, urls_to_check)
-                                    for (url, result) in zip(urls_to_check, results):
-                                        if result:
-                                            if url not in good_urls:
-                                                print(f"Adding {url}")
-                                                gf.write(url + '\n')
-                                                good_urls.add(url)
-                                        else:
-                                            # with open('expired-links.txt', 'a') as ef:
-                                            #     ef.write(url + '\n')
-                                            excempt = input(f"Error with url\n{url}\nline {r}\nAdd excemption? (Y|N)\n")
-                                            if excempt.strip().upper() in ['Y', 'YES']:
-                                                ef.write(url + '\n')
-                                                exempt_urls.add(url)
-                                            else:
-                                                raise ValueError(f"Bad URL on row {r}: {url}")
+                                    # results = p.map(check_url, urls_to_check)
+                                    # for (url, result) in zip(urls_to_check, results):
+                                    #     if result:
+                                    #         if url not in good_urls:
+                                    #             print(f"Adding {url}")
+                                    #             gf.write(url + '\n')
+                                    #             good_urls.add(url)
+                                    #     else:
+                                    #         # with open('expired-links.txt', 'a') as ef:
+                                    #         #     ef.write(url + '\n')
+                                    #         excempt = input(f"Error with url\n{url}\nline {r}\nAdd excemption? (Y|N)\n")
+                                    #         if excempt.strip().upper() in ['Y', 'YES']:
+                                    #             ef.write(url + '\n')
+                                    #             exempt_urls.add(url)
+                                    #         else:
+                                    #             raise ValueError(f"Bad URL on row {r}: {url}")
 
     # render the HTML
     with open(template_fname, 'r') as f:

@@ -1,0 +1,44 @@
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+figure img {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  height: auto;
+}
+
+.wiring figure img {
+  width: 30rem;
+  max-width: 100%;
+}
+
+.graph figure img {
+  width: 80%;
+}
+
+/* Booktabs-style table formatting */
+table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table th {
+  text-align: left;
+  border-top: 2px solid white;
+  border-bottom: 1px solid white;
+  padding: 0.5rem 0.75rem;
+}
+
+table td {
+  padding: 0.5rem 0.75rem;
+}
+
+table tr:last-child td {
+  border-bottom: 2px solid white;
+}

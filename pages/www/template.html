@@ -20,13 +20,16 @@
    </div>
 </div>
 
-<div class="cardContainer appear" >
+<div class="cardContainer appear">
 % for page in pages:
+   <article
    % if ('tags' in page) and ('politics' in page['tags']):
-<article data-politics>
-   % else:
-   <article>
+      data-politics
    % endif
+   % if ('homepage-listing' in page.get('exclude', {})):
+    style="display: none;"
+   % endif
+   >
    % if page['template'] == 'none':
    <a href="${page['url']}">
    % else:

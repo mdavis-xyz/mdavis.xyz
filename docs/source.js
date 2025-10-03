@@ -4,6 +4,7 @@
 // so my linkedin profile has www.mdavis.xyz?src=linkedin
 // this code detects that parameter, and hides political pages accordingly
 // it 'poisons' other links on the page, so this tag follows you
+// Same with ?src=resume
 function hidePolitics() {
   console.log("Hiding political posts");
 	// Create the <style> tag
@@ -105,7 +106,7 @@ function modifyLinks(){
 var checked = false;
 function hideIfNeed(){
    if (! checked){
-      if (getSrc() == 'linkedin'){
+      if (getSrc() == 'linkedin' || getSrc() == 'resume'){
          hidePolitics();
       }
    }else{

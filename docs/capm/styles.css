@@ -1,0 +1,41 @@
+figure {
+  text-align: center;
+  max-width: 100%;
+}
+
+figure img {
+  max-width: 100%;
+  width: 20em;
+}
+
+#diagram-container {
+    position: relative;
+    display: block;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+
+}
+
+.diagram {
+    opacity: 0;
+    transition: opacity 0.01s ease;
+    width: 80vw;
+    max-width: 30em;
+}
+
+.diagram:first-of-type {
+    position: relative;
+}
+
+.diagram:not(:first-of-type) {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.diagram.active {
+    opacity: 1;
+}

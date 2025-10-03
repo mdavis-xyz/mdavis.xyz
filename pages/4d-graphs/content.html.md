@@ -6,12 +6,12 @@ generalised to other four-dimensional objects. (For that, check out
 These visualisations do not show the true beauty of four-dimensions.
 However they can be used to:
 
--   give geometrical meaning to differentiability;
--   show an immensely deep relationship between trig functions and
-    hyperbolic trig functions;
--   give meaning to the [2*πi*]{.formula} periodicity of the exponential
-    function; and
--   clearly show how branch cuts affect the Log function.
+- give geometrical meaning to differentiability;
+- show an immensely deep relationship between trig functions and
+  hyperbolic trig functions;
+- give meaning to the [2*πi*]{.formula} periodicity of the exponential
+  function; and
+- clearly show how branch cuts affect the Log function.
 
 An interactive version of this document for Maple can be found
 [here](mapleFile.zip){target="_blank"}.
@@ -20,7 +20,7 @@ An interactive version of this document for Maple can be found
 
 First, we will visualise a real-to-complex functions in 2D.
 
-::: formula
+:::: formula
 *f*(*x*) = *e*^*ix*^ = cos(*x*) + *i*sin(*x*)
 
 <div>
@@ -28,7 +28,7 @@ First, we will visualise a real-to-complex functions in 2D.
 *f*:[ℜ → ℂ]{.blackboard}
 
 </div>
-:::
+::::
 
 The real part of [*f*(*x*)]{.formula} is [cos(*x*)]{.formula} which
 looks like this:

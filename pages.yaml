@@ -17,6 +17,35 @@
       - 'media'
       - 'script'
    template: 'home'
+-  title: "Missing Markets in the Electricity Industry"
+   description: "My master's thesis about capacity markets, ancillary services and capture price divergence"
+   path: "masters-thesis"
+   images:
+      card:
+         path: "images/marginal-cost.svg"
+         description: "Graph of aggregate and marginal supply cost"
+         width: 602
+         height: 287
+      top:
+         path: "images/marginal-cost.svg"
+         description: "Graph of aggregate and marginal supply cost"
+         width: 602
+         height: 287
+   template: "markdown"
+   markdown: "content.md"
+   date: 5/9/2025
+-  title: "Why Colocating solar and batteries does not increase electricity spot market revenue"
+   description: "How putting the two together does not increase wholesale revenue"
+   path: "colo"
+   images:
+      card:
+         path: "wiring-svgs/together-with-border.svg"
+         description: "Diagram of solar and battery together"
+         width: 142
+         height: 89
+   template: "markdown"
+   markdown: "content.md"
+   date: 2/10/2025
 -  title: "Why solar panels should not be oriented to maximize energy volume"
    description: "How tilting further west and more vertically maximizes value"
    path: "solar-tilt"
@@ -29,8 +58,25 @@
    template: "markdown"
    markdown: "content.md"
    exclude:
-      - script
+      - "script"
    date: 3/6/2025
+-  title: "The Optimal Electricity Retail Customer Mix"
+   description: "How choosing a mix of low-risk and high-risk electricity customers is similar to the capital asset pricing model"
+   path: "capm"
+   images:
+      card:
+         path: "images/complex.svg"
+         description: "Plot of risk vs return"
+         width: 339
+         height: 193
+      top:
+         path: "images/complex.svg"
+         description: "Plot of risk vs return"
+         width: 339
+         height: 193
+   template: "markdown"
+   markdown: "content.md"
+   date: 5/9/2025
 -  title: "Google Keep Image Cache Extension"
    description: "A Firefox browser extension to speed up Google Keep"
    path: "google-keep-cache-extension"
@@ -43,6 +89,8 @@
    template: "markdown" 
    markdown: "content.md"
    date: 2/6/2025
+   exclude:
+   - homepage-listing # don't list on homepage, since the extension doesn't work
 -  title: "Do you need a blockchain?"
    description: "An interactive flowchart to help cut through the hype"
    path: "blockchain"
@@ -297,6 +345,8 @@
 -  title: "How Flag Emojis Get Decided"
    description: "Why adding an Indigenous flag is technologically non-trivial"
    path: "emoji"
+   exclude:
+   - script
    images:
       card:
          path: "images/my-screenshot-short.jpg"

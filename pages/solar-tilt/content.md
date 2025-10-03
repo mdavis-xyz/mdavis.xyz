@@ -1,6 +1,7 @@
 Maximizing solar energy volume is the wrong goal. We should maximize value.
 
 I've been thinking a lot recently about vertical solar. Mounting solar panels vertically can give some engineering benefits, however I think these aspects pale in comparison to the value that comes from shifting when a solar panel produces power to when consumers need it. 
+This work is part of my masters thesis, which is written up more formally [here](../masters-thesis).
 
 For a fixed-tilt system, conventional wisdom is to mount a panel at an angle equal to the latitude, and pointed north/south (towards the equator). If you face it more to the west and more vertically, you reduce the total volume of energy produced, but can increase the total value, by capturing more of the evening spot price peak. You also produce more during winter, when solar power is more scarce.
 
@@ -17,5 +18,5 @@ Most large-scale farms use single-axis tracking. As panel prices continue to dro
 
 These are pretty rough simulations, only using the trigonometry of the sun position. I've neglected diffuse light, weather and some atmospheric effects. Given how substantial the results are in the simplified model, I expect the overall story would remain the same with more sophisticated modelling.
 
-The code for the simulations is available [on GitLab](https://gitlab.com/MatthewDavis/solar-tilt#).
-This work is part of my masters thesis, which is ongoing at the time of writing.
+The code for the simulations is available [on GitLab](https://github.com/mdavis-xyz/masters-thesis).
+This work is part of my masters thesis, which is written up more formally [here](../masters-thesis).

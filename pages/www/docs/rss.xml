@@ -2,142 +2,149 @@
 <rss version="2.0">
 	<channel>
 		<title>Matthew Davis</title>
-		<link>https://www.mdavis.xyz</link>
+		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Fri, 03 Oct 2025 10:58:56 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 14 Oct 2025 21:24:06 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
 			<title>Missing Markets in the Electricity Industry</title>
-			<link>https://www.mdavis.xyz/masters-thesis</link>
+			<link>https://dev.mdavis.xyz/masters-thesis</link>
 			<description>My master's thesis about capacity markets, ancillary services and capture price divergence</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/masters-thesis</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/masters-thesis</guid>
 			<pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Why Colocating solar and batteries does not increase electricity spot market revenue</title>
-			<link>https://www.mdavis.xyz/colo</link>
+			<link>https://dev.mdavis.xyz/colo</link>
 			<description>How putting the two together does not increase wholesale revenue</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/colo</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/colo</guid>
 			<pubDate>Thu, 02 Oct 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Why solar panels should not be oriented to maximize energy volume</title>
-			<link>https://www.mdavis.xyz/solar-tilt</link>
+			<link>https://dev.mdavis.xyz/solar-tilt</link>
 			<description>How tilting further west and more vertically maximizes value</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/solar-tilt</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/solar-tilt</guid>
 			<pubDate>Tue, 03 Jun 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
+			<title>Don't Forget AEMO's 'Diagonal' Dispatch Targets</title>
+			<link>https://dev.mdavis.xyz/diagonal-dispatch</link>
+			<description>The economic significance of AEMO's requirement to take the entire period to reach the target</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/diagonal-dispatch</guid>
+			<pubDate>Thu, 09 Oct 2025 00:00:00 GMT</pubDate>
+		</item>
+		<item>
 			<title>The Optimal Electricity Retail Customer Mix</title>
-			<link>https://www.mdavis.xyz/capm</link>
+			<link>https://dev.mdavis.xyz/capm</link>
 			<description>How choosing a mix of low-risk and high-risk electricity customers is similar to the capital asset pricing model</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/capm</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/capm</guid>
 			<pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Google Keep Image Cache Extension</title>
-			<link>https://www.mdavis.xyz/google-keep-cache-extension</link>
+			<link>https://dev.mdavis.xyz/google-keep-cache-extension</link>
 			<description>A Firefox browser extension to speed up Google Keep</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/google-keep-cache-extension</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/google-keep-cache-extension</guid>
 			<pubDate>Mon, 02 Jun 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Do you need a blockchain?</title>
-			<link>https://www.mdavis.xyz/blockchain</link>
+			<link>https://dev.mdavis.xyz/blockchain</link>
 			<description>An interactive flowchart to help cut through the hype</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/blockchain</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/blockchain</guid>
 			<pubDate>Fri, 14 Sep 2018 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Web analytics are leaking into meatspace</title>
-			<link>https://www.mdavis.xyz/supermarket</link>
+			<link>https://dev.mdavis.xyz/supermarket</link>
 			<description>A Stallman-esque short story about the future of offline tracking</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/supermarket</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/supermarket</guid>
 			<pubDate>Fri, 11 Jan 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Why you should think twice before riding a Lime e-bike</title>
-			<link>https://www.mdavis.xyz/lime</link>
+			<link>https://dev.mdavis.xyz/lime</link>
 			<description>You really should read those terms and conditions</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/lime</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/lime</guid>
 			<pubDate>Wed, 13 Feb 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Achievements of the Coalition Government</title>
-			<link>https://www.mdavis.xyz/govlist</link>
+			<link>https://dev.mdavis.xyz/govlist</link>
 			<description>A comprehensive list of (almost) everything the Australian Coalition government did</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/govlist</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/govlist</guid>
 			<pubDate>Wed, 27 Apr 2022 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Why Paper Voting Is Still Superior</title>
-			<link>https://www.mdavis.xyz/voting</link>
+			<link>https://dev.mdavis.xyz/voting</link>
 			<description>How digital security is good enough for banking but not for elections</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/voting</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/voting</guid>
 			<pubDate>Tue, 21 May 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Machine Learning Unicycling</title>
-			<link>https://www.mdavis.xyz/unicycle</link>
+			<link>https://dev.mdavis.xyz/unicycle</link>
 			<description>Teaching a computer to ride a simulated unicycle</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/unicycle</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/unicycle</guid>
 			<pubDate>Mon, 07 Jan 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>AWS Step Function Path Tool</title>
-			<link>https://www.mdavis.xyz/step-funcs</link>
+			<link>https://dev.mdavis.xyz/step-funcs</link>
 			<description>Tool for developing and understanding path manipulations in AWS Step Functions</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/step-funcs</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/step-funcs</guid>
 			<pubDate>Tue, 22 Sep 2020 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Arduino Monitor Rotator</title>
-			<link>https://www.mdavis.xyz/monitor</link>
+			<link>https://dev.mdavis.xyz/monitor</link>
 			<description>Build an Automatic Computer Display Rotator With an Arduino</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/monitor</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/monitor</guid>
 			<pubDate>Tue, 12 Apr 2016 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Python Reddit Bot</title>
-			<link>https://www.mdavis.xyz/paragraphiser</link>
+			<link>https://dev.mdavis.xyz/paragraphiser</link>
 			<description>How I wrote a Reddit bot in python to reply to long posts</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/paragraphiser</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/paragraphiser</guid>
 			<pubDate>Mon, 07 Jan 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>4D graphs</title>
-			<link>https://www.mdavis.xyz/4d-graphs</link>
+			<link>https://dev.mdavis.xyz/4d-graphs</link>
 			<description>How to visualize complex-to-complex functions</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/4d-graphs</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/4d-graphs</guid>
 			<pubDate>Sat, 19 Jan 2019 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>How Flag Emojis Get Decided</title>
-			<link>https://www.mdavis.xyz/emoji</link>
+			<link>https://dev.mdavis.xyz/emoji</link>
 			<description>Why adding an Indigenous flag is technologically non-trivial</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/emoji</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/emoji</guid>
 			<pubDate>Tue, 12 Jun 2018 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Lambda Multiprocessing</title>
-			<link>https://www.mdavis.xyz/lammulti</link>
+			<link>https://dev.mdavis.xyz/lammulti</link>
 			<description>A python library I wrote for multiprocessing in AWS Lambda</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/lammulti</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/lammulti</guid>
 			<pubDate>Thu, 30 Dec 2021 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Inverter Inertia Emulation</title>
-			<link>https://www.mdavis.xyz/thesis</link>
+			<link>https://dev.mdavis.xyz/thesis</link>
 			<description>My bachelor's thesis about emulating inertia with battery inverters</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/thesis</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/thesis</guid>
 			<pubDate>Thu, 27 Oct 2016 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>UT1 TSE Calendar Sync and Filter</title>
-			<link>https://www.mdavis.xyz/tse-calendar</link>
+			<link>https://dev.mdavis.xyz/tse-calendar</link>
 			<description>A tool to synchronise personalised Toulouse School of Economics (or UT1) timetables to your calendar app</description>
-			<guid isPermaLink="true">https://www.mdavis.xyz/tse-calendar</guid>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/tse-calendar</guid>
 			<pubDate>Sun, 01 Sep 2024 00:00:00 GMT</pubDate>
 		</item>
 	</channel>

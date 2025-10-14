@@ -92,7 +92,6 @@ def stripMarkdown(text):
     newLines = []
     for line in lines:
 
-
         # an image inside a link
         # e.g. [ ![xkcd comic about voting security](images/xkcd-blockchain.png) ](https://xkcd.com/2030/)
 
@@ -124,6 +123,8 @@ def stripMarkdown(text):
         line = re.sub(expr, r'\1', line)
         expr = r'^\s*#+([^#]+)$' # heading
         line = re.sub(expr, r'\1', line)
+        expr = r'\b:::\b' # custom class for markdown table
+        line = re.sub(expr, r'', line)
 
         newLines.append(line)
     return('\n'.join(newLines).strip())
@@ -264,18 +265,19 @@ def stripForSpellcheck(word):
         word = word[:-1]
 
     expr = [
-       r"^\$?-?\d+((\,\d{3})+)?(\.\d+)?$", # numbers (including negative)
-       r"^\$?\d+((\,\d{3})+)?(\.\d+)?[BMk]?$", # numbers and dollars
-       r"^\d+(\.\d+)?[kMG]?W$", # 1.2GW
-       r"^\d+(\.\d+)?[kMG]?Bi\/s$", # 25MBi/s
-       r"^\d+((\,\d{3})+)?(\.\d+)?%$", #percentage
-       r"^\d{1,2}(:\d{2})?[ap]m$", # time
-       r"^\d+\/\d+$", # fractions
-       r"^\d+-\d+$", # 2016-2017
-       r"^\d{2,4}-\d{1,2}-\d{1,2}$", # 2016-01-02
-       r"^\d{1,2}:\d{1,2}(:\d{1,2})?$", # 12:34:13
-       r"^(\d+\.?)+$", # 12.1.3
-       ]
+        r"^\$?-?\d+((\,\d{3})+)?(\.\d+)?$", # numbers (including negative)
+        r"^\$?\d+((\,\d{3})+)?(\.\d+)?[BMk]?$", # numbers and dollars
+        r"^\d+(\.\d+)?[kMG]?W$", # 1.2GW
+        r"^\d+(\.\d+)?[kMG]?Bi\/s$", # 25MBi/s
+        r"^\d+((\,\d{3})+)?(\.\d+)?%$", #percentage
+        r"^\d{1,2}(:\d{2})?[ap]m$", # time
+        r"^\d+\/\d+$", # fractions
+        r"^\d+-\d+$", # 2016-2017
+        r"^\d{2,4}-\d{1,2}-\d{1,2}$", # 2016-01-02
+        r"^\d{1,2}:\d{1,2}(:\d{1,2})?$", # 12:34:13
+        r"^(\d+\.?)+$", # 12.1.3
+        r"^\+[\+-]+\+$", # markdown table
+    ]
 
     for e in expr:
         word = re.sub(e, '', word)
@@ -351,6 +353,23 @@ def addToDict(word):
     with open(extraWordsFname,'a') as f:
         f.write(word+'\n')
 
+# is a string a number?
+def is_number(s):
+    try:
+        float(s)
+    except ValueError:
+        return False
+    else:
+        return True
+
+def word_wrapped_by(word, start, end=None):
+    if end is None:
+        return word_wrapped_by(word, start, end=start)
+    elif len(word) < 3:
+        return False
+    else:
+        return (word[0] == start) and (word[-1] == end)
+
 def checkWord(word):
     if (word != '') and (word not in dictionary) and (word.lower() not in dictionary):
         if word.endswith("'s") or word.endswith("s'"):
@@ -368,6 +387,14 @@ def checkWord(word):
         elif word.endswith('…') and word[:-1] in dictionary:
             # e.g. hello world...
             return True
+        elif is_number(word):
+            return True
+        elif word_wrapped_by(word, "(", ")"):
+            return checkWord(word[1:-1])
+        elif word_wrapped_by(word, "'", "'"):
+            return checkWord(word[1:-1])
+        elif word_wrapped_by(word, '"', '"'):
+            return checkWord(word[1:-1])
 
         print("Error: word %s does not appear in the dictionary" % word)
         if word != word.lower():
@@ -398,8 +425,8 @@ def checkWord(word):
         elif answer.startswith('P'):
             addToDict(word[:-1])
         else:
-            return(False)
-    return(True)
+            return False
+    return True
 
 def checkLine(line,markdown=False):
 
@@ -410,9 +437,8 @@ def checkLine(line,markdown=False):
     line = line.replace("\"'can do' capitalism, not 'don't do' governments\"", "can do capitalism not don't do governments")
     line = line.replace('‘don’t do’', "don't do")
     line = line.replace('‘can do’', "can do")
-    if "\"'can" in line:
-        breakpoint()
 
+    original_line = line
     line = stripFancy(line,markdown=markdown)
 
     # remove brackets
@@ -427,11 +453,19 @@ def checkLine(line,markdown=False):
     expr = r"\s'([^']+)'[\s,.!?]"
     line = re.sub(expr, r' \1 ', line)
 
+    # custom classes for tables
+    expr = r"\b:::\b"
+    line = re.sub(expr, r' ', line)
+
 
     words = [w.strip() for w in line.split(' ') if w.strip() != '']
     for w in words:
-        if not checkWord(stripForSpellcheck(w)):
-            return(False)
+        try:
+            if not checkWord(stripForSpellcheck(w)):
+                return(False)
+        except KeyboardInterrupt as ex:
+            breakpoint()
+            raise
     return(True)
 
 def checkFile(fname):

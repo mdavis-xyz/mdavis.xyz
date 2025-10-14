@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">Don't Forget AEMO's 'Diagonal' Dispatch Targets</title>
+   <meta name="title" content="Don't Forget AEMO's 'Diagonal' Dispatch Targets">
+   <meta name="description" content="The economic significance of AEMO's requirement to take the entire period to reach the target">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Don't Forget AEMO's 'Diagonal' Dispatch Targets">
+   <meta property="schema:description" content="The economic significance of AEMO's requirement to take the entire period to reach the target">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Don't Forget AEMO's 'Diagonal' Dispatch Targets">
+   <meta property="og:description" content="The economic significance of AEMO's requirement to take the entire period to reach the target">
+
+   <!-- linkedin -->
+   <meta name="author" content="Matthew Davis">
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/diagonal-dispatch/" /> <!-- end with / -->
+
+
+   <!-- image path must be full, absolute -->
+   <meta property="og:image" content="https://www.mdavis.xyz/diagonal-dispatch/bare-graph-thumb.svg" />
+   <meta property="og:image:width" content="396" />
+   <meta property="og:image:height" content="232" />
+   <meta property="og:image:alt" content="Diagram of two power curves" />
+
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="9 October 2025">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="../rss.xml" />
+
+   <script src="../source.js" ></script>
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">Don't Forget AEMO's 'Diagonal' Dispatch Targets</h1>
+         <p id="subtitle" class="subtitle">The economic significance of AEMO's requirement to take the entire period to reach the target</p>
+      </header>
+
+
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2025-10-09" class="dateline">
+               9 October 2025
+            </time>
+         </div>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/stopwatch.svg"
+                alt=""
+                width="20"
+                height="20" />
+            6 min
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p>In a typical electricity spot market time is divided up into discrete
+periods or intervals. Within these intervals prices are constant. There
+are discontinuous steps at the boundaries between trading intervals.
+However, to maintain the stability of the electrical grid, the physical
+power output of generators (and storage) based on these discontinuous
+prices are not themselves discontinuous. Rather, the quantity obtained
+for each generator from the intersection of supply and demand curves is
+used as a target that the generator must move towards, over time. In
+Australia's National Electricity Market (NEM) generators must take the
+entire period to adjust their output, even if they could physically
+adjust more quickly (<a
+href="https://energy-rules.aemc.gov.au/ner/621/526154#clause_4.9.2">NER
+Clause 4.9.2</a>). This means that prices are
+piecewise-<em>constant</em>, or 'step' functions, but quantities are
+'diagonal' piecewise-<em>linear</em> 'dot-to-dot' functions. Papers such
+as <a
+href="https://www.sciencedirect.com/science/article/pii/S0378779610000027">Xia
+and Elaiw (2010)</a> and <a
+href="https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/iet-gtd.2020.1329">Wei
+et al. (2020)</a> consider physical limits on ramp rates (production
+level adjustment rates) arising from technical limitations of each
+generator, and how this impacts bidding strategies and social optimums.
+In contrast, this post considers limits imposed by the market operator
+(<a href="https://aemo.com.au/">AEMO</a>) which may restrict adjustment
+speed to rates slower than what the asset can physically do.</p>
+<p>Consider the following example prices. The price starts above a
+generator's marginal cost (&quot;MC&quot;, assumed to be bid truthfully), drops
+below, and then rises back up.</p>
+<div class="graph">
+<figure>
+<img src="graphs/price.svg" alt="Prices over time" />
+<figcaption aria-hidden="true">Prices over time</figcaption>
+</figure>
+</div>
+<p>Under standard economic assumptions the generator and the social
+planner (i.e. AEMO) want the generator to instantaneously reduce power
+output to 0% at the start of period 2.</p>
+<div class="graph">
+<figure>
+<img src="graphs/power-1.svg" alt="Stepped power over time" />
+<figcaption aria-hidden="true">Stepped power over time</figcaption>
+</figure>
+</div>
+<p>However, to ensure grid stability AEMO will instead instruct the
+generator to ramp diagonally from its starting power level (100% in this
+case) to 0, over the interval (shown as the <span
+style="color: #FF0000;">red</span> curve). The same is true of scheduled
+loads and storage. Note that this is true even for assets which are
+physically able to adjust production level almost instantly (e.g. solar,
+batteries). (For inertial assets such as coal and gas, the ramp limits
+imposed by the physical limitations of the equipment are already
+substantial on a 5-minute timescale.)</p>
+<div class="graph">
+<figure>
+<img src="graphs/power-2.svg" alt="Diagonal power over time" />
+<figcaption aria-hidden="true">Diagonal power over time</figcaption>
+</figure>
+</div>
+<p>Consequently, the <span style="color: #FF0000;">red</span> curve has
+an average power of 50% over interval 2, so it is 'half-on', despite
+having a bid higher than the cleared price. This means that the
+generator is losing money in interval 2, and missing out on money in
+interval 4. The following table shows the revenue for the theoretical
+&quot;stepped&quot; and more realistic &quot;diagonal&quot; curves, based on the example
+prices above, for a 1 MW generator and 5 minute intervals.</p>
+<div class="profit-table">
+<table style="width:91%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 3%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td colspan="5">Step (Theory)</td>
+<td></td>
+<td colspan="5">Diagonal Off-On (Reality)</td>
+</tr>
+<tr>
+<td rowspan="2">Time</td>
+<td>Period Start</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Period End</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td></td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td rowspan="3">Power (MW)</td>
+<td>Start</td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>End</td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>0.5</td>
+<td>0.2</td>
+<td>0.7</td>
+<td>1</td>
+</tr>
+<tr>
+<td colspan="2">Price - MC ($/MWh)</td>
+<td>+2</td>
+<td>-1</td>
+<td>0</td>
+<td>+2</td>
+<td>+2</td>
+<td></td>
+<td>+2</td>
+<td>-1</td>
+<td>0</td>
+<td>+2</td>
+<td>+2</td>
+</tr>
+<tr>
+<td colspan="2">Profit ($)</td>
+<td colspan="5">0.500</td>
+<td></td>
+<td colspan="5">0.408</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This requirement that the generator take the entire period to ramp to
+the target power level reduces generator profit in this stylised example
+by 20%. (For an asset which is physically capable of ramping far
+faster.) The generator in this example would make more profit by
+strategically lowering their bid in interval 2 below marginal cost, to
+ensure they are fully on in interval 4.</p>
+<div class="graph">
+<figure>
+<img src="graphs/power-3.svg" alt="Stay on" />
+<figcaption aria-hidden="true">Stay on</figcaption>
+</figure>
+</div>
+<div class="profit-table">
+<table style="width:90%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td colspan="5">Diagonal Off-On</td>
+<td></td>
+<td colspan="5">Stay On</td>
+</tr>
+<tr>
+<td rowspan="2">Time</td>
+<td>Period Start</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Period End</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td></td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td rowspan="3">Power (MW)</td>
+<td>Start</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>End</td>
+<td>1</td>
+<td>0</td>
+<td>0.4</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>1</td>
+<td>0.5</td>
+<td>0.2</td>
+<td>0.7</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td colspan="2">Price - MC ($/MWh)</td>
+<td>+2</td>
+<td>-1</td>
+<td>0</td>
+<td>+2</td>
+<td>+2</td>
+<td></td>
+<td>+2</td>
+<td>-1</td>
+<td>0</td>
+<td>+2</td>
+<td>+2</td>
+</tr>
+<tr>
+<td colspan="2">Bid - MC ($/MWh)</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>&lt; -1</td>
+<td>&lt; 0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td colspan="2">Profit ($)</td>
+<td colspan="5">0.408</td>
+<td></td>
+<td colspan="5">0.417</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A contribution of this post is to show that even in the absence of
+market power, startup costs, <em>physical</em> ramp rate limits, and
+with perfect foresight of prices, rational profit-maximising firms
+should submit bids which do not match their marginal costs. This novel
+finding illustrates how simplified analysis using stepped power levels
+yields qualitatively incorrect conclusions about optimal strategies.</p>
+<h2 id="simulations">Simulations</h2>
+<p>The aim of this section is to determine whether the use of the
+&quot;stepped&quot; approach in academic or investment modelling introduces
+material errors. For coal, gas, hydro and wind, the asset typically
+cannot adjust its power level within a trading period, so any modeller
+should already be considering dynamic constraints. However many
+researchers use the step model for battery analysis (e.g. <a
+href="https://tintin.hec.ca/pages/mario.samano/EECC/Lecture-4/Batteries_Lamp_Samano_EneEcon_published.pdf">Lamp
+and Samano 2022</a>; <a
+href="https://journals.sagepub.com/doi/pdf/10.5547/01956574.39.SI1.mgiu">Giulietti
+et al. 2018</a>). The next section explores when and to what extent this
+simplification is an <em>over</em>-simplification. To do so, I
+constructed a simple battery operation optimisation problem, using real
+price data, and then I compared the energy, revenue and cycles for both
+the diagonal and stepped power levels.</p>
+<p>5-minute spot prices were obtained from <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_01/MMSDM_Historical_Data_SQLLoader/DATA/">AEMO's
+Nemweb</a> with <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/">Nemosis</a>. The analysis
+period is 2024. The battery is sized at 1 MW, 2 hours depth, with 80%
+round trip efficiency. Perfect foresight is assumed. <a
+href="https://www.pyomo.org/about">Pyomo</a> (a linear optimiser) was
+used to identify the optimal charge and discharge schedule to maximise
+energy arbitrage revenue. Ancillary service revenue and other 'revenue
+stacking' is neglected (despite making up <a
+href="https://doi.org/10.5547/01956574.45.1.jgil">approximately half of
+battery revenue</a> in practice) because the linear constraint in
+question only applies to energy.</p>
+<p>Here is a subset of the time series results:</p>
+<div class="graph">
+<figure>
+<img src="simulation-results.svg"
+alt="Simulation results timeseries snippet" />
+<figcaption aria-hidden="true">Simulation results timeseries
+snippet</figcaption>
+</figure>
+</div>
+<p>Note that the &quot;stepped&quot; approach yields many single-period power
+spikes, which are not realistic. The diagonal approach is a more
+realistic, smoothed power curve.</p>
+<p>The aggregate results are:</p>
+<div id="aggregate-results">
+<table style="width:94%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 8%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr>
+<td rowspan="2">Region</td>
+<td colspan="3">Energy (GWh)</td>
+<td colspan="3">Profit ($k)</td>
+</tr>
+<tr>
+<td>Step</td>
+<td>Diagonal</td>
+<td>Difference</td>
+<td>Step</td>
+<td>Diagonal</td>
+<td>Difference</td>
+</tr>
+<tr>
+<td>New South Wales</td>
+<td>2.17</td>
+<td>2.06</td>
+<td>4.8 %</td>
+<td>482.3</td>
+<td>465.4</td>
+<td>3.5 %</td>
+</tr>
+<tr>
+<td>Queensland</td>
+<td>2.27</td>
+<td>2.17</td>
+<td>4.3 %</td>
+<td>394.8</td>
+<td>381.4</td>
+<td>3.4 %</td>
+</tr>
+<tr>
+<td>South Australia</td>
+<td>2.51</td>
+<td>2.46</td>
+<td>2.1 %</td>
+<td>445.9</td>
+<td>425.8</td>
+<td>4.5 %</td>
+</tr>
+<tr>
+<td>Tasmania</td>
+<td>2.03</td>
+<td>2.01</td>
+<td>1.0 %</td>
+<td>205.3</td>
+<td>196.2</td>
+<td>4.4 %</td>
+</tr>
+<tr>
+<td>Victoria</td>
+<td>2.43</td>
+<td>2.38</td>
+<td>2.1 %</td>
+<td>295.9</td>
+<td>284.1</td>
+<td>4.0 %</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The absolute level of each metric is unimportant for our purposes.
+The key question is merely whether there is an economically significant
+difference between the stepped and diagonal models. For the total amount
+of energy stored, and the profit made by batteries, the impact of
+neglecting the diagonal constraint is that the numbers are inflated by
+up to 4.5%. This is large enough to be consequential for some academic
+research questions. Note that these simulations ran faster with the
+diagonal ramping than without, so computational feasibility is probably
+not a valid justification for ignoring diagonal ramping. Therefore
+researchers should account for the piecewise-linear constraint unless
+they have a good reason not to.</p>
+<p>For practitioners, this reduction in profitability is so economically
+significant that it may make or break the business case for a particular
+investment. The total amount of energy stored and discharged is lower in
+the diagonal case. As a silver lining, this corresponds to fewer full
+cycles, which is good from a warranty perspective.</p>
+<p>When accounting for the diagonal piecewise-linear constraint, the
+optimal charge/discharge strategy is more smooth, and has fewer
+single-interval dips/spikes.</p>
+<h2 id="model">Model</h2>
+<p>In my <a href="../masters-thesis">masters thesis</a> I present an
+algebraic model, to demonstrate that the effect of this diagonal
+constraint is that for a given trading interval, each generator 'sees'
+an average of the current and prior price. This effectively suppresses
+the economic signal in a single-interval price spike/dip.</p>
+<h2 id="comparison-to-europe">Comparison to Europe</h2>
+<p>In Europe, prior to 2011 there were no rules specifying how
+generators were to adjust output within each trading period, as long as
+the average physical output each period matched the commercial target.
+This resulted in deterministic imbalances at the start of each hour,
+which <a
+href="https://eepublicdownloads.entsoe.eu/clean-documents/pre2015/publications/entsoe/120222_Deterministic_Frequency_Deviations_joint_ENTSOE_Eurelectric_Report__Final_.pdf">increased
+costs and emissions</a>. Since then the rules around balancing have
+changed. For example, the transmission lines connecting the Nordic
+regions to the rest of Europe are required to adjust their output <a
+href="https://consultations.entsoe.eu/system-operations/nordic-tsos-methodology-for-ramping-restrictions-f/supporting_documents/230130%20Explanatory%20Document%20for%20Ramping%20restrictions%20for%20active%20power%20output%20amended%20for%20public%20consultation.pdf">over
+10 minute blocks</a>, to help mitigate these deterministic imbalances.
+Europe's balancing rules are relatively complicated compared to other
+markets, and vary from country to country. The findings of this
+simulation cannot be directly applied to Europe. It might or might not
+be the case that investors and researchers should account for such
+ramping rules in their modelling.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Even if an asset such as a solar farm or battery is able to adjust
+its power output within seconds, AEMO requires that they take the entire
+5 minute period to do so. This leads to an economically significant
+reduction in profit. Therefore academic researchers and investors should
+account for this diagonal dispatch constraint in their modelling.</p>
+<p>This topic is one chapter of my <a href="../masters-thesis">masters
+thesis</a>.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+   <iframe
+      src="https://swsz5v2c5ged3q3xsaan5kpfgq0slqkn.lambda-url.ap-southeast-2.on.aws/increment?page_name=diagonal-dispatch"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+</body>
+</html>

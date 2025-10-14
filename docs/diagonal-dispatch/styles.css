@@ -1,0 +1,83 @@
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+figure img {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  height: auto;
+}
+
+.wiring figure img {
+  width: 30rem;
+  max-width: 100%;
+}
+
+.graph figure img {
+  width: 80%;
+}
+
+/* Booktabs-style table formatting */
+table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+/* Top rule above the table header */
+table thead tr:first-child th,
+table thead tr:first-child td,
+table tr:first-child th,
+table tr:first-child td {
+  border-top: 2px solid white;
+}
+
+/* Rule below the table header */
+table thead tr:last-child th,
+table thead tr:last-child td,
+table tbody tr:first-child th,
+table tbody tr:first-child td {
+  border-bottom: 1px solid white;
+}
+
+table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+}
+
+table td {
+  padding: 0.5rem 0.75rem;
+}
+
+/* Bottom rule below the last row */
+table tr:last-child td {
+  border-bottom: 2px solid white;
+}
+
+/* Thin rules between sections in profit tables */
+.profit-table table tbody tr:nth-child(2) th:first-child,
+.profit-table table tbody tr:nth-child(2) td:first-child,
+.profit-table table tbody tr:nth-child(3) th,
+.profit-table table tbody tr:nth-child(3) td,
+.profit-table table tbody tr:nth-child(4) th:first-child,
+.profit-table table tbody tr:nth-child(4) td:first-child,
+.profit-table table tbody tr:nth-child(6) th,
+.profit-table table tbody tr:nth-child(6) td {
+  border-bottom: 1px solid white;
+}
+
+/* Thin rule above the last row for profit tables */
+.profit-table table tbody tr:nth-last-child(2) th,
+.profit-table table tbody tr:nth-last-child(2) td {
+  border-bottom: 1px solid white;
+}
+
+/* Rule below the second row for aggregate results table */
+#aggregate-results table tbody tr:nth-child(2) th,
+#aggregate-results table tbody tr:nth-child(2) td {
+  border-bottom: 1px solid white;
+}

@@ -60,6 +60,20 @@
    exclude:
       - "script"
    date: 3/6/2025
+-  title: "Don't Forget AEMO's 'Diagonal' Dispatch Targets"
+   description: "The economic significance of AEMO's requirement to take the entire period to reach the target"
+   path: "diagonal-dispatch"
+   images:
+      card:
+         path: "bare-graph-thumb.svg"
+         description: "Diagram of two power curves"
+         width: 396
+         height: 232
+   template: "markdown"
+   markdown: "content.md"
+   date: 9/10/2025
+   exclude:
+   - script
 -  title: "The Optimal Electricity Retail Customer Mix"
    description: "How choosing a mix of low-risk and high-risk electricity customers is similar to the capital asset pricing model"
    path: "capm"

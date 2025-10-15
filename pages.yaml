@@ -91,6 +91,18 @@
    template: "markdown"
    markdown: "content.md"
    date: 5/9/2025
+-  title: "Staves"
+   description: "A Typst package for drawing musical scales"
+   path: "staves"
+   images:
+      card:
+         path: "examples/custom-notes.svg"
+         description: "Notes on a stave"
+         width: 242
+         height: 75
+   template: "markdown"
+   markdown: "content.md"
+   date: 16/10/2025
 -  title: "Google Keep Image Cache Extension"
    description: "A Firefox browser extension to speed up Google Keep"
    path: "google-keep-cache-extension"

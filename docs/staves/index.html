@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">Staves</title>
+   <meta name="title" content="Staves">
+   <meta name="description" content="A Typst package for drawing musical scales">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Staves">
+   <meta property="schema:description" content="A Typst package for drawing musical scales">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Staves">
+   <meta property="og:description" content="A Typst package for drawing musical scales">
+
+   <!-- linkedin -->
+   <meta name="author" content="Matthew Davis">
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/staves/" /> <!-- end with / -->
+
+
+   <!-- image path must be full, absolute -->
+   <meta property="og:image" content="https://www.mdavis.xyz/staves/examples/custom-notes.svg" />
+   <meta property="og:image:width" content="242" />
+   <meta property="og:image:height" content="75" />
+   <meta property="og:image:alt" content="Notes on a stave" />
+
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="16 October 2025">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="../rss.xml" />
+
+   <script src="script.js" ></script>
+   <script src="../source.js" ></script>
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">Staves</h1>
+         <p id="subtitle" class="subtitle">A Typst package for drawing musical scales</p>
+      </header>
+
+
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2025-10-16" class="dateline">
+               16 October 2025
+            </time>
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p><a
+href="https://typst.app/universe/package/staves"><em>Staves</em></a> is
+a <a href="https://typst.app/">Typst</a> package written by me for
+drawing writing musical scales.</p>
+<pre><code>#import &quot;@preview/staves:0.1.0&quot;: major-scale
+#major-scale(&quot;treble&quot;, &quot;D&quot;, 4)</code></pre>
+<figure>
+<img src="examples/d-major.svg" alt="D Major" />
+<figcaption aria-hidden="true">D Major</figcaption>
+</figure>
+<pre><code>#import &quot;@preview/staves:0.1.0&quot;: arpeggio
+#arpeggio(&quot;bass&quot;, &quot;g&quot;, 2, note-duration: &quot;crotchet&quot;)</code></pre>
+<figure>
+<img src="examples/g-minor-arpeggio.svg" alt="G Minor Arpeggio" />
+<figcaption aria-hidden="true">G Minor Arpeggio</figcaption>
+</figure>
+<pre><code>#import &quot;@preview/staves:0.1.0&quot;: stave
+#stave(&quot;alto&quot;, &quot;c&quot;, notes: (&quot;C3&quot;, &quot;D#4&quot;, &quot;F3&quot;), width: 7cm)</code></pre>
+<figure>
+<img src="examples/custom-notes.svg" alt="Custom Notes" />
+<figcaption aria-hidden="true">Custom Notes</figcaption>
+</figure>
+<h2 id="packaging">Packaging</h2>
+<p>Typst packages are distributed in a unique way, compared to something
+like Python's PyPi. The workflow is that I've got one git repo for my
+package, with the code, docs, unit tests etc. Then to publish it I need
+to copy a subset of the files into a particular new folder in Typst's
+monorepo. This monorepo contains all Typst packages. Then when I want to
+update my package, I need to copy the updated subset of files to a
+another folder within the monorepo. e.g. if I want to update one line, I
+must duplicate all files in my package into a new folder beside the old
+version. So the Package versioning is orthogonal to git's versioning. I
+think they do this to optimise download speed, although I wonder how
+this will scale after a decade of changes to thousands of packages.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Implementing the graphical side of my musical scales package was
+easy. I just used CeTZ to draw 5 horizontal lines and overlay symbols
+from SVG files. Although Typst's lack of equivalent to LaTeX's
+<code>\textwidth</code> makes auto-stretching the lines to the full page
+width tricky.</p>
+<p>Codifying the musical theory and arithmetic was harder. Each physical
+key on the piano can actually be one of several symbols. (E.g. is the
+note 2 semitones above B flat a C natural, B sharp, or D double flat?)
+Typst does not have a way to define custom data classes, so this ended
+up being a bit fiddly.</p>
+<p>Typst package documentation must be written in markdown, not Typst,
+and I wanted my documentation to include many examples compiled from
+actual code. So I wrote a lot of tooling to generate documentation in
+different formats.</p>
+<p>This package is available now <a
+href="https://typst.app/universe/package/staves">on Typst Universe, as
+&quot;Staves&quot;</a>. The source code is available <a
+href="https://github.com/mdavis-xyz/staves-typst">on GitHub</a>.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+   <iframe
+      src="https://swsz5v2c5ged3q3xsaan5kpfgq0slqkn.lambda-url.ap-southeast-2.on.aws/increment?page_name=staves"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+</body>
+</html>

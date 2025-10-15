@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Tue, 14 Oct 2025 21:24:06 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 16 Oct 2025 10:35:00 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -41,6 +41,13 @@
 			<description>How choosing a mix of low-risk and high-risk electricity customers is similar to the capital asset pricing model</description>
 			<guid isPermaLink="true">https://dev.mdavis.xyz/capm</guid>
 			<pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate>
+		</item>
+		<item>
+			<title>Staves</title>
+			<link>https://dev.mdavis.xyz/staves</link>
+			<description>A Typst package for drawing musical scales</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/staves</guid>
+			<pubDate>Thu, 16 Oct 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>Google Keep Image Cache Extension</title>

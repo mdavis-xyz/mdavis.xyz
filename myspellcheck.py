@@ -395,6 +395,10 @@ def checkWord(word):
             return checkWord(word[1:-1])
         elif word_wrapped_by(word, '"', '"'):
             return checkWord(word[1:-1])
+        elif word_wrapped_by(word, '_', '_'):
+            return checkWord(word[1:-1])
+        elif word_wrapped_by(word, '*', '*'):
+            return checkWord(word[1:-1])
 
         print("Error: word %s does not appear in the dictionary" % word)
         if word != word.lower():

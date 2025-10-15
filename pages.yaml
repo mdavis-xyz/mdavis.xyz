@@ -96,10 +96,10 @@
    path: "staves"
    images:
       card:
-         path: "examples/custom-notes.svg"
+         path: "examples/thumb.svg"
          description: "Notes on a stave"
-         width: 242
-         height: 75
+         width: 288
+         height: 180
    template: "markdown"
    markdown: "content.md"
    date: 16/10/2025

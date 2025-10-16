@@ -8,6 +8,7 @@ Papers such as
 and 
 [Wei et al. (2020)](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/iet-gtd.2020.1329)
 consider physical limits on ramp rates (production level adjustment rates) arising from technical limitations of each generator, and how this impacts bidding strategies and social optimums. In contrast, this post considers limits imposed by the market operator ([AEMO](https://aemo.com.au/)) which may restrict adjustment speed to rates slower than what the asset can physically do.
+This distinction is most relevant for batteries.
 
 Consider the following example prices.
 The price starts above a generator's marginal cost ("MC", assumed to be bid truthfully), drops below, and then rises back up.
@@ -25,7 +26,7 @@ Under standard economic assumptions the generator and the social planner (i.e. A
 However, to ensure grid stability AEMO will instead instruct the generator to ramp diagonally from its starting power level (100% in this case) to 0, over the interval (shown as the <span style="color: #FF0000;">red</span> curve).
 The same is true of scheduled loads and storage.
 Note that this is true even for assets which are physically able to adjust production level almost instantly (e.g. solar, batteries).
-(For inertial assets such as coal and gas, the ramp limits imposed by the physical limitations of the equipment are already substantial on a 5-minute timescale.)
+(For coal and gas, the ramp limits imposed by the physical limitations of the equipment are already substantial on a 5-minute timescale.)
 
 <div class="graph">
 ![Diagonal power over time](graphs/power-2.svg)
@@ -97,6 +98,9 @@ The generator in this example would make more profit by strategically lowering t
 
 A contribution of this post is to show that even in the absence of market power, startup costs, _physical_ ramp rate limits, and with perfect foresight of prices, rational profit-maximising firms should submit bids which do not match their marginal costs.
 This novel finding illustrates how simplified analysis using stepped power levels yields qualitatively incorrect conclusions about optimal strategies.
+
+Whilst this insight is most pertinent for batteries, it can apply to other fuel types too.
+In my previous job I designed an algorithm to submit bids for a wind farm which was physically capable of ramping by a substantial fraction of its nameplate capacity within a 5 minute interval. I had to account for this effect, rebidding to deliberately _avoid_ ramping down and then back up when the price dips below marginal cost for only one period.
 
 ## Simulations
 
@@ -173,6 +177,6 @@ It might or might not be the case that investors and researchers should account 
 
 Even if an asset such as a solar farm or battery is able to adjust its power output within seconds, AEMO requires that they take the entire 5 minute period to do so.
 This leads to an economically significant reduction in profit. 
-Therefore academic researchers and investors should account for this diagonal dispatch constraint in their modelling.
+Therefore academic researchers and investors looking at Australia's NEM should account for this diagonal dispatch constraint in their modelling.
 
 This topic is one chapter of my [masters thesis](../masters-thesis).

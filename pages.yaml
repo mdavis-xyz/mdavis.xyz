@@ -65,10 +65,10 @@
    path: "diagonal-dispatch"
    images:
       card:
-         path: "bare-graph-thumb.svg"
+         path: "graph-thumb.svg"
          description: "Diagram of two power curves"
-         width: 396
-         height: 232
+         width: 500
+         height: 288
    template: "markdown"
    markdown: "content.md"
    date: 9/10/2025

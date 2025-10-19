@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">Speeding up APIs and webscraping with request.Session</title>
+   <meta name="title" content="Speeding up APIs and webscraping with request.Session">
+   <meta name="description" content="One simple trick to make things faster and nicer">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="Speeding up APIs and webscraping with request.Session">
+   <meta property="schema:description" content="One simple trick to make things faster and nicer">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="Speeding up APIs and webscraping with request.Session">
+   <meta property="og:description" content="One simple trick to make things faster and nicer">
+
+   <!-- linkedin -->
+   <meta name="author" content="Matthew Davis">
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/requests-session/" /> <!-- end with / -->
+
+
+   <!-- image path must be full, absolute -->
+   <meta property="og:image" content="https://www.mdavis.xyz/requests-session/diff.svg" />
+   <meta property="og:image:width" content="676" />
+   <meta property="og:image:height" content="294" />
+   <meta property="og:image:alt" content="Code diff" />
+
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="19 October 2025">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="../rss.xml" />
+
+   <script src="script.js" ></script>
+   <script src="../source.js" ></script>
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">Speeding up APIs and webscraping with request.Session</h1>
+         <p id="subtitle" class="subtitle">One simple trick to make things faster and nicer</p>
+      </header>
+
+
+      <p class="topimagecont" id="topimagecont">
+         <img id="TopImage"
+              class="topimage roundAndShadow"
+              src="diff.svg"
+              alt="Code diff"
+              width="676"
+              height="294" />
+      </p>
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2025-10-19" class="dateline">
+               19 October 2025
+            </time>
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p>Imagine you want to use Python and the <a
+href="https://docs.python-requests.org/en/latest/index.html"><code>requests</code>
+library</a> to scrape data from an API site with URLs like:</p>
+<ul>
+<li><code>https://example.com/data/2015.json</code></li>
+<li><code>https://example.com/data/2016.json</code></li>
+<li>&hellip;</li>
+<li><code>https://example.com/data/2025.json</code></li>
+</ul>
+<p>Many people write something like:</p>
+<pre><code>import requests
+
+data = []
+for year in range(2015, 2026):
+    url = f&quot;https://example.com/data/{year}.json&quot;
+    resp = requests.get(url)
+    resp.raise_for_status()
+    data.append(resp.json())</code></pre>
+<p>There's a small trick you can use to improve this: <a
+href="https://docs.python-requests.org/en/latest/user/advanced/#session-objects"><code>requests.Session</code></a>!
+The usage looks like:</p>
+<pre><code>import requests
+
+s = requests.Session()
+data = []
+for year in range(2015, 2026):
+    url = f&quot;https://example.com/data/{year}.json&quot;
+    resp = s.get(url)
+    resp.raise_for_status()
+    data.append(resp.json())</code></pre>
+<p>This two-line change can drastically speed up your code. It does so
+by <a
+href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">re-using</a>
+the TCP connection across requests.</p>
+<p>In the first code snippet, each <code>requests.get()</code> call
+results in a new TCP handshake, a new TLS handshake, and a new HTTP
+connection on top of that. By using a <code>session</code>, only one TCP
+connection, one TLS handshake and one HTTP connection is used. If you
+are making a large number of small requests this can make a large
+difference. In one use case of mine it sped up data downloading by <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/pull/48#issue-2770083169">a
+factor of 3</a>. This also reduces the load on the server.</p>
+<p>I have seen several API client libraries use a wrapper function to
+add authentication, custom user agents, or other custom headers to each
+requests (e.g. <a
+href="https://github.com/openskynetwork/opensky-api/blob/49c4f312a80083a93b4f881ea1785ae052572dc9/python/opensky_api.py#L290">OpenSky</a>)
+or client libraries which add <code>headers=self.headers</code> to every
+<code>requests.get()</code> call (e.g. <a
+href="https://github.com/prakaa/mms-monthly-cli/pull/15/files">mms-monthly-cli</a>).
+With <code>requests.Session</code>s you only need to define custom
+headers once. THis is fewer lines of code, and I think that for many API
+clients and scraping jobs, it makes more sense stylistically to separate
+configuration such as authentication from the actual logic of
+constructing URL paths to call. You can see this simplification in <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/pull/48/files#diff-568a26ecf53e68b0aba7b0fbbaf559eee1fa8324b1e70abab3964ddf863bc8c3L98">my
+pull request for Nemosis</a>.</p>
+<p>In summary, if you're going to use <code>requests</code> for more
+than one request to the same domain, you should probably use
+<code>request.Session()</code>. One addition line of code can give a
+tremendous speedup, and makes managing headers nicer.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+   <iframe
+      src="https://swsz5v2c5ged3q3xsaan5kpfgq0slqkn.lambda-url.ap-southeast-2.on.aws/increment?page_name=requests-session"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+</body>
+</html>

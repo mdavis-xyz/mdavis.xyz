@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Thu, 16 Oct 2025 10:35:00 GMT</lastBuildDate>
+		<lastBuildDate>Sun, 19 Oct 2025 22:54:01 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -34,6 +34,13 @@
 			<description>The economic significance of AEMO's requirement to take the entire period to reach the target</description>
 			<guid isPermaLink="true">https://dev.mdavis.xyz/diagonal-dispatch</guid>
 			<pubDate>Thu, 09 Oct 2025 00:00:00 GMT</pubDate>
+		</item>
+		<item>
+			<title>Speeding up APIs and webscraping with request.Session</title>
+			<link>https://dev.mdavis.xyz/requests-session</link>
+			<description>One simple trick to make things faster and nicer</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/requests-session</guid>
+			<pubDate>Sun, 19 Oct 2025 00:00:00 GMT</pubDate>
 		</item>
 		<item>
 			<title>The Optimal Electricity Retail Customer Mix</title>

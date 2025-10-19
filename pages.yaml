@@ -75,7 +75,7 @@
    exclude:
    - script
 -  title: "Speeding up APIs and webscraping with request.Session"
-   description: "One simple trick to make things faster and nicer"
+   description: "One simple trick to make HTTP client code faster and nicer"
    path: "requests-session"
    images:
       card:

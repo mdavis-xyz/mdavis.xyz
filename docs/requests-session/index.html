@@ -6,15 +6,15 @@
    <!--w3c-->
    <title property="schema:name">Speeding up APIs and webscraping with request.Session</title>
    <meta name="title" content="Speeding up APIs and webscraping with request.Session">
-   <meta name="description" content="One simple trick to make things faster and nicer">
+   <meta name="description" content="One simple trick to make HTTP client code faster and nicer">
 
    <!--schema.org-->
    <meta property="schema:name" content="Speeding up APIs and webscraping with request.Session">
-   <meta property="schema:description" content="One simple trick to make things faster and nicer">
+   <meta property="schema:description" content="One simple trick to make HTTP client code faster and nicer">
 
    <!-- opengraph-->
    <meta property="og:title" content="Speeding up APIs and webscraping with request.Session">
-   <meta property="og:description" content="One simple trick to make things faster and nicer">
+   <meta property="og:description" content="One simple trick to make HTTP client code faster and nicer">
 
    <!-- linkedin -->
    <meta name="author" content="Matthew Davis">
@@ -58,7 +58,7 @@
 
       <header>
          <h1 id="title">Speeding up APIs and webscraping with request.Session</h1>
-         <p id="subtitle" class="subtitle">One simple trick to make things faster and nicer</p>
+         <p id="subtitle" class="subtitle">One simple trick to make HTTP client code faster and nicer</p>
       </header>
 
 
@@ -106,45 +106,47 @@
 
       <hr/>
       <p>Imagine you want to use Python and the <a
-href="https://docs.python-requests.org/en/latest/index.html"><code>requests</code>
-library</a> to scrape data from an API site with URLs like:</p>
+href="https://docs.python-requests.org/en/latest/index.html"><code>requests</code></a>
+library to scrape data from an API site with URLs like:</p>
 <ul>
-<li><code>https://example.com/data/2015.json</code></li>
-<li><code>https://example.com/data/2016.json</code></li>
+<li><code>https://example.com/data/2015/records.json</code></li>
+<li><code>https://example.com/data/2016/records.json</code></li>
 <li>&hellip;</li>
-<li><code>https://example.com/data/2025.json</code></li>
+<li><code>https://example.com/data/2025/records.json</code></li>
 </ul>
 <p>Many people write something like:</p>
 <pre><code>import requests
 
 data = []
 for year in range(2015, 2026):
-    url = f&quot;https://example.com/data/{year}.json&quot;
+    url = f&quot;https://example.com/data/{year}/records.json&quot;
     resp = requests.get(url)
     resp.raise_for_status()
     data.append(resp.json())</code></pre>
 <p>There's a small trick you can use to improve this: <a
 href="https://docs.python-requests.org/en/latest/user/advanced/#session-objects"><code>requests.Session</code></a>!
-The usage looks like:</p>
+This looks like:</p>
+<!-- Use CSS to highlight changes -->
 <pre><code>import requests
 
-s = requests.Session()
+<span class="added">session = requests.Session()</span>
 data = []
 for year in range(2015, 2026):
-    url = f&quot;https://example.com/data/{year}.json&quot;
-    resp = s.get(url)
+    url = f"https://example.com/data/{year}.json"
+    resp = <span class="changed">session</span>.get(url)
     resp.raise_for_status()
-    data.append(resp.json())</code></pre>
+    data.append(resp.json())
+</code></pre>
 <p>This two-line change can drastically speed up your code. It does so
 by <a
 href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">re-using</a>
 the TCP connection across requests.</p>
 <p>In the first code snippet, each <code>requests.get()</code> call
-results in a new TCP handshake, a new TLS handshake, and a new HTTP
-connection on top of that. By using a <code>session</code>, only one TCP
-connection, one TLS handshake and one HTTP connection is used. If you
-are making a large number of small requests this can make a large
-difference. In one use case of mine it sped up data downloading by <a
+results in a new TCP handshake and a new TLS handshake. By using a
+<code>session</code>, only one TCP connection and one TLS handshake is
+used for the whole script (or until a timeout). If you are making a
+large number of small requests this can make a large difference. In one
+use case of mine it sped up data downloading by <a
 href="https://github.com/UNSW-CEEM/NEMOSIS/pull/48#issue-2770083169">a
 factor of 3</a>. This also reduces the load on the server.</p>
 <p>I have seen several API client libraries use a wrapper function to
@@ -155,9 +157,9 @@ or client libraries which add <code>headers=self.headers</code> to every
 <code>requests.get()</code> call (e.g. <a
 href="https://github.com/prakaa/mms-monthly-cli/pull/15/files">mms-monthly-cli</a>).
 With <code>requests.Session</code>s you only need to define custom
-headers once. THis is fewer lines of code, and I think that for many API
-clients and scraping jobs, it makes more sense stylistically to separate
-configuration such as authentication from the actual logic of
+headers once. This is fewer lines of code, and I believe that for many
+API clients and scraping jobs it makes more sense stylistically to
+separate configuration such as authentication from the actual logic of
 constructing URL paths to call. You can see this simplification in <a
 href="https://github.com/UNSW-CEEM/NEMOSIS/pull/48/files#diff-568a26ecf53e68b0aba7b0fbbaf559eee1fa8324b1e70abab3964ddf863bc8c3L98">my
 pull request for Nemosis</a>.</p>

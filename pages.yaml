@@ -74,6 +74,23 @@
    date: 9/10/2025
    exclude:
    - script
+-  title: "Speeding up APIs and webscraping with request.Session"
+   description: "One simple trick to make HTTP client code faster and nicer"
+   path: "requests-session"
+   images:
+      card:
+         path: "diff.svg"
+         description: "Code diff"
+         width: 676
+         height: 294
+      top:
+         path: "diff.svg"
+         description: "Code diff"
+         width: 676
+         height: 294
+   template: "markdown"
+   markdown: "content.md"
+   date: 19/10/2025
 -  title: "The Optimal Electricity Retail Customer Mix"
    description: "How choosing a mix of low-risk and high-risk electricity customers is similar to the capital asset pricing model"
    path: "capm"

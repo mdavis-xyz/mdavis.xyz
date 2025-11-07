@@ -2,4 +2,7 @@
 
 This is deployed with SAM.
 
-Deploy with `sam build && sam deploy --config-env dev --region ap-southeast-2`
+Deploy to dev with `sam build && sam deploy --config-env dev --region ap-southeast-2`
+
+And to prod with `--config-env prod`.
+

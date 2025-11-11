@@ -13,7 +13,7 @@ Consumers and generators often face incentives which do not reflect this variati
 The purpose of this thesis is to investigate such missing markets, and market design failures, through a series of example cases, with a focus on Europe and Australia.
 
 This thesis is the culmination of a two-year [Master of Environmental Policy and Energy Economics](https://www.tse-fr.eu/master-environmental-economics-and-policy) at [the Toulouse School of Economics (TSE)](https://www.tse-fr.eu/), in France.
-It was written from March to August 2025 under the supervision of [Professor François Salanié](https://www.tse-fr.eu/people/francois-salanie).
+It was written from March to August 2025 under the supervision of [Professor François Salanié](https://www.tse-fr.eu/people/francois-salanie), and was awarded a grade of 19/20.
 
 Through this thesis I have combined the economic theory taught in this masters course with my experience in the industry to generate several interesting insights.
 I designed several formal algebraic models for this thesis.

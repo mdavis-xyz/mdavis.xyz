@@ -28,7 +28,7 @@ def stripFancy(text,markdown=False):
 
     if markdown:
         text = stripMarkdown(text)
-    return(text)
+    return text
 
 def stripXML(text):
 
@@ -58,7 +58,7 @@ def stripXML(text):
     # hard code the paraphrase in the voting page
     expr = r'Every single one of \[the tested machines\] had some sort of weakness'
     text = re.sub(expr, 'Every single one of the tested machines had some sort of weakness', text)
-    return(text)
+    return text
 
 def testStripXML():
     text = 'This is <div class="something">not a</div> formula and this is <div class="something">not a</div> formula'
@@ -127,7 +127,7 @@ def stripMarkdown(text):
         line = re.sub(expr, r'', line)
 
         newLines.append(line)
-    return('\n'.join(newLines).strip())
+    return '\n'.join(newLines).strip()
 
 def testStripMarkdown():
     text = "* this is a *italics* in a line"
@@ -287,7 +287,7 @@ def stripForSpellcheck(word):
     if any(word.startswith(c) for c in "\""):
         word = word[1:]
 
-    return(word)
+    return word
 
 def testStripForSpellcheck():
     original = 'asd'
@@ -374,13 +374,13 @@ def checkWord(word):
     if (word != '') and (word not in dictionary) and (word.lower() not in dictionary):
         if word.endswith("'s") or word.endswith("s'"):
             if (word[:-2] in dictionary) or (word[:-2].lower() in dictionary):
-                return(True)
+                return True
         elif word.endswith('s') and ((word[:-1].lower() in dictionary) or (word[:-1] in dictionary)):
-            return(True)
+            return True
         if ('-' in word) and ('--' not in word) and (word.strip('-') == word):
             subwords = word.split('-')
             if all([(w in dictionary) or (w.lower() in dictionary) for w in subwords]):
-                return(True)
+                return True
         if word.endswith('...') and word[:-3] in dictionary:
             # e.g. hello world...
             return True
@@ -414,6 +414,7 @@ def checkWord(word):
             print("   p - add singular lowercase: %s" % word[:-1].lower())
             if word != word.lower():
                 print("   P - add singular as is : %s" % word[:-1])
+        
         print("   n - don't add. Exit")
         answer = input('')
         if answer.startswith('y'):
@@ -461,16 +462,22 @@ def checkLine(line,markdown=False):
     expr = r"\b:::\b"
     line = re.sub(expr, r' ', line)
 
+    # e.g. 4:00-4:05
+    exprs = [
+        r"\d{1,2}:\d{1,2}:\d{1,2}",
+        r"\d{1,2}:\d{1,2}",
+        r"\d{1,2}:\d{1,2}-\d{1,2}:\d{1,2}",
+    ]
+    for expr in exprs:
+        line = re.sub(expr, r' ', line)
+
 
     words = [w.strip() for w in line.split(' ') if w.strip() != '']
     for w in words:
-        try:
-            if not checkWord(stripForSpellcheck(w)):
-                return(False)
-        except KeyboardInterrupt as ex:
-            breakpoint()
-            raise
-    return(True)
+        for ws in w.split('/'):
+            if not checkWord(stripForSpellcheck(ws)):
+                return False
+    return True
 
 def checkFile(fname):
     with open(fname,'r') as f:
@@ -486,7 +493,7 @@ def checkFile(fname):
             print("That was file %s line %d" % (fname,i+1))
             print(line)
             print(f"markdown={markdown}")
-            return(False)
-    return(True)
+            return False
+    return True
 test()
 init()

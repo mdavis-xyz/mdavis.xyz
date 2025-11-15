@@ -4,7 +4,7 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Sun, 19 Oct 2025 22:54:01 GMT</lastBuildDate>
+		<lastBuildDate>Sat, 15 Nov 2025 09:43:46 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<item>
@@ -38,7 +38,7 @@
 		<item>
 			<title>Speeding up APIs and webscraping with request.Session</title>
 			<link>https://dev.mdavis.xyz/requests-session</link>
-			<description>One simple trick to make things faster and nicer</description>
+			<description>One simple trick to make HTTP client code faster and nicer</description>
 			<guid isPermaLink="true">https://dev.mdavis.xyz/requests-session</guid>
 			<pubDate>Sun, 19 Oct 2025 00:00:00 GMT</pubDate>
 		</item>

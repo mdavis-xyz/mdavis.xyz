@@ -139,7 +139,7 @@ for year in range(2015, 2026):
 </code></pre>
 <p>This two-line change can drastically speed up your code. It does so
 by <a
-href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">re-using</a>
+href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">reusing</a>
 the TCP connection across requests.</p>
 <p>In the first code snippet, each <code>requests.get()</code> call
 results in a new TCP handshake and a new TLS handshake. By using a

@@ -17,6 +17,23 @@
       - 'media'
       - 'script'
    template: 'home'
+-  title: "So you want to query Australian electricity data?"
+   description: "A guide to AEMO's MMS dataset"
+   path: "mms-guide"
+   images:
+      card:
+         path: "thumb.jpg"
+         description: "Screenshot of spreadsheet"
+         width: 1123
+         height: 795
+      top:
+         path: "thumb.jpg"
+         description: "Screenshot of spreadsheet"
+         width: 1123
+         height: 795
+   template: "markdown"
+   markdown: "content.md"
+   date: 15/11/2025
 -  title: "Missing Markets in the Electricity Industry"
    description: "My master's thesis about capacity markets, ancillary services and capture price divergence"
    path: "masters-thesis"

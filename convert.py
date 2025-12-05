@@ -51,7 +51,7 @@ def estReadingTime(fname,filetype="markdown"):
     if filetype.lower() == "markdown":
         markdown = original
     else:
-        assert(filetype.lower() == 'html')
+        assert filetype.lower() == 'html'
         markdown = pypandoc.convert_file(fname, 'md')
         with open(fname + '.md','w') as f:
             f.write(markdown)
@@ -65,7 +65,7 @@ def testNumWords():
     text = 'Hi [this](http://blah.com) is <i>a</i> Test!'
     expected = 5
     actual = numWords(text)
-    assert(actual == expected)
+    assert actual == expected
 
 def searchReplace(text,regexInfo,fileType,path):
     path = 'pages/%s/' % path
@@ -98,7 +98,7 @@ def searchReplace(text,regexInfo,fileType,path):
                         print("Expected  : %s" % expected)
                         print("test:")
                         pp.pprint(t)
-                    assert(actual == expected)
+                    assert actual == expected
             text = re.sub(search, replace, text)
     if debug:
         diff = [(before,after) for (before,after) in zip(original.split('\n'),text.split('\n')) if before != after]
@@ -107,14 +107,14 @@ def searchReplace(text,regexInfo,fileType,path):
             print("   before: %s" % before)
             print("   after : %s" % after)
         if len(diff) == 0:
-            assert(original == text)
+            assert original == text
             print("No search replace difference")
     return(text)
 
 # data is for just this page
 def doOne(data,allData,args):
     data['template'] = data['template'].lower()
-    assert(data['template'] in ['none','custom','markdown','home','html'])
+    assert data['template'] in ['none','custom','markdown','home','html']
     if data['template'] == 'none':
         print("Skipping processing for %s" % data['path'])
     else:
@@ -169,7 +169,9 @@ def doOne(data,allData,args):
                 markdown = content
             print("Converting markdown file %s to html " % markdownFname)
 
-            data['content'] = pypandoc.convert_text(markdown, 'html', format='md')
+            data['content'] = pypandoc.convert_text(markdown, 'html', format='md', extra_args=['--toc',])
+            if any('toc' in a for a in data.get('pandoc_args', [])):
+                assert '<nav' in data['content']
 
             # fix funny chars
             funny_chars = {
@@ -199,23 +201,23 @@ def doOne(data,allData,args):
 def renderOne(data,args):
 
         try:
-            assert('title' in data)
-            assert('description' in data)
-            assert('images' in data)
-            assert('card' in data['images'])
-            assert('path' in data['images']['card'])
-            assert('publishPath' in data)
-            assert('sourcePath' in data)
-            assert('height' in data['images']['card'])
-            assert('width' in data['images']['card'])
-            assert('exclude' in data)
-            assert('content' in data)
+            assert 'title' in data
+            assert 'description' in data
+            assert 'images' in data
+            assert 'card' in data['images']
+            assert 'path' in data['images']['card']
+            assert 'publishPath' in data
+            assert 'sourcePath' in data
+            assert 'height' in data['images']['card']
+            assert 'width' in data['images']['card']
+            assert 'exclude' in data
+            assert 'content' in data
             if 'date' not in data['exclude']:
-                assert('date' in data)
-                assert('human' in data['date'])
-                assert(type(data['date']['human']) == type(''))
-                assert('computer' in data['date'])
-                assert(type(data['date']['computer']) == type(''))
+                assert 'date' in data
+                assert 'human' in data['date']
+                assert type(data['date']['human']) == type('')
+                assert 'computer' in data['date']
+                assert type(data['date']['computer']) == type('')
         except AssertionError as e:
             pp.pprint({k:data[k] for k in data if k != 'content'})
             print("Error with data %s" % data['title'])
@@ -239,14 +241,14 @@ def doWWW(pages):
         wwwTemplate = Template(f.read())
     for page in pages:
         try:
-            assert('images' in page)
-            assert('card' in page['images'])
-            assert('width' in page['images']['card'])
-            assert('height' in page['images']['card'])
-            assert('path' in page['images']['card'])
-            assert('description' in page['images']['card'])
-            assert('title' in page)
-            assert('description' in page)
+            assert 'images' in page
+            assert 'card' in page['images']
+            assert 'width' in page['images']['card']
+            assert 'height' in page['images']['card']
+            assert 'path' in page['images']['card']
+            assert 'description' in page['images']['card']
+            assert 'title' in page
+            assert 'description' in page
         except AssertionError as e:
             pp.pprint(page)
             print("Error with data for page %s" % page['title'])
@@ -304,8 +306,8 @@ def doAll(args):
             page['publishPath'] = page['path']
             page['sourcePath'] = page['path']
         else:
-            assert('publishPath' in page)
-            assert('sourcePath' in page)
+            assert 'publishPath' in page
+            assert 'sourcePath' in page
         if 'exclude' not in page:
             page['exclude'] = []
         for k in ['title','description']:

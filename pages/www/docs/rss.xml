@@ -4,9 +4,16 @@
 		<title>Matthew Davis</title>
 		<link>https://dev.mdavis.xyz</link>
 		<description>A collection of projects, stories and thoughts about technology and politics</description>
-		<lastBuildDate>Sat, 15 Nov 2025 09:43:46 GMT</lastBuildDate>
+		<lastBuildDate>Sat, 15 Nov 2025 17:03:54 GMT</lastBuildDate>
 		<generator>PyRSS2Gen-1.1.0</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<item>
+			<title>So you want to query Australian electricity data?</title>
+			<link>https://dev.mdavis.xyz/mms-guide</link>
+			<description>A guide to AEMO's MMS dataset</description>
+			<guid isPermaLink="true">https://dev.mdavis.xyz/mms-guide</guid>
+			<pubDate>Sat, 15 Nov 2025 00:00:00 GMT</pubDate>
+		</item>
 		<item>
 			<title>Missing Markets in the Electricity Industry</title>
 			<link>https://dev.mdavis.xyz/masters-thesis</link>

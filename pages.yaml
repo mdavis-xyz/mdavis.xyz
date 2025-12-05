@@ -22,17 +22,22 @@
    path: "mms-guide"
    images:
       card:
-         path: "thumb.jpg"
+         path: "table-screenshot.svg"
          description: "Screenshot of spreadsheet"
-         width: 1123
-         height: 795
+         width: 883
+         height: 362
       top:
-         path: "thumb.jpg"
+         path: "table-screenshot.svg"
          description: "Screenshot of spreadsheet"
-         width: 1123
-         height: 795
+         width: 883
+         height: 362
    template: "markdown"
    markdown: "content.md"
+   # implemented in convert.py
+   # but these particular flags have no effect for some reason
+   # pandoc_args:
+   # - "--toc"
+   # - "--toc-depth=2"
    date: 15/11/2025
 -  title: "Missing Markets in the Electricity Industry"
    description: "My master's thesis about capacity markets, ancillary services and capture price divergence"

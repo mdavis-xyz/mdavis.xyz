@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+   <!--w3c-->
+   <title property="schema:name">So you want to query Australian electricity data?</title>
+   <meta name="title" content="So you want to query Australian electricity data?">
+   <meta name="description" content="A guide to AEMO's MMS dataset">
+
+   <!--schema.org-->
+   <meta property="schema:name" content="So you want to query Australian electricity data?">
+   <meta property="schema:description" content="A guide to AEMO's MMS dataset">
+
+   <!-- opengraph-->
+   <meta property="og:title" content="So you want to query Australian electricity data?">
+   <meta property="og:description" content="A guide to AEMO's MMS dataset">
+
+   <!-- linkedin -->
+   <meta name="author" content="Matthew Davis">
+
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.mdavis.xyz/mms-guide/" /> <!-- end with / -->
+
+
+   <!-- image path must be full, absolute -->
+   <meta property="og:image" content="https://www.mdavis.xyz/mms-guide/table-screenshot.svg" />
+   <meta property="og:image:width" content="883" />
+   <meta property="og:image:height" content="362" />
+   <meta property="og:image:alt" content="Screenshot of spreadsheet" />
+
+   <meta property="og:author" content="Matthew Davis" />
+   <meta property="og:site_name" content="Matthew Davis's Blog" />
+
+   <meta name="displaydate" content="15 November 2025">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" type="text/css" href="styles.css" />
+
+   <link rel="stylesheet" type="text/css" href="../common.css" />
+   <link rel="stylesheet" type="text/css" href="../media.css" />
+
+   <link rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="../rss.xml" />
+
+   <script src="script.js" ></script>
+   <script src="../source.js" ></script>
+
+</head>
+<body>
+   <div class="appear">
+
+   <article>
+
+
+      <header>
+         <h1 id="title">So you want to query Australian electricity data?</h1>
+         <p id="subtitle" class="subtitle">A guide to AEMO's MMS dataset</p>
+      </header>
+
+
+      <p class="topimagecont" id="topimagecont">
+         <img id="TopImage"
+              class="topimage roundAndShadow"
+              src="table-screenshot.svg"
+              alt="Screenshot of spreadsheet"
+              width="883"
+              height="362" />
+      </p>
+
+
+      <div class="authordate center">
+         <a id="author" href="../">
+            <div class="metaline">
+               <img
+                   class="logo"
+                   src="../images/user.svg"
+                   alt=""
+                   width="20"
+                   height="20" />
+               <span class="byline-name">
+                  Matthew Davis
+               </span>
+            </div>
+         </a>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/calendar.svg"
+                alt=""
+                width="20"
+                height="20" />
+            <time datetime="2025-11-15" class="dateline">
+               15 November 2025
+            </time>
+         </div>
+         <div class="metalinesep">
+            |
+         </div>
+         <div class="metaline">
+            <img
+                class="logo"
+                src="../images/stopwatch.svg"
+                alt=""
+                width="20"
+                height="20" />
+            51 min
+         </div>
+
+      </div>
+
+
+      <hr/>
+      <p>This guide is for researchers who want to analyse Australia's
+electricity industry. Fortunately there is far more public data
+available for this space than almost any other industry, or even any
+other country's electricity market. Unfortunately there are many
+undocumented aspects of the data which can trip up newcomers. The
+purpose of this post is to highlight some of those 'gotcha's.</p>
+<p>The focus here is on how to dive deep into the data, for those who
+intend to spend hours performing bespoke analysis, mostly for queries
+which require data on a timescale smaller than 1 day. Before you spend
+the time on this, first check whether you can quickly obtain the data
+you want from <a
+href="https://explore.openelectricity.org.au/energy/nem/?range=7d&amp;interval=30m&amp;view=discrete-time&amp;group=Detailed">Open
+Electricity</a>. Other high-level statistics are available from the <a
+href="https://www.aemo.com.au/energy-systems/data-dashboards">AEMO Data
+Dashboard</a> and the <a
+href="https://www.iea.org/countries/australia">IEA</a>.</p>
+<p>This article also includes a quick overview of the design of the
+market. I will list some acronyms and terms which newcomers will not be
+familiar with.</p>
+<p>I do not expect anyone to read this from top to bottom. Rather, you
+should read the first few sections, then skim the rest, using ctrl-f or
+an LLM to find what you want.</p>
+<h2 id="quickstart">Quickstart</h2>
+<ul>
+<li>The list of all tables and their contents is <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report.htm">here</a>.</li>
+<li>First try to download and extract the data with <a
+href="https://github.com/UNSW-CEEM/NEMOSIS">Nemosis</a> if you can.
+Otherwise write your own code to do so, as described below.</li>
+<li>Once you have queryable data, jump to <a
+href="#how-to-query-and-understand-the-data">How to query and understand
+the data</a> and <a
+href="#understanding-the-market-structure">Understanding the Market
+Structure</a>.</li>
+</ul>
+<div id="toc">
+
+</div>
+<h2 id="what-data-is-available">What data is available?</h2>
+<p>Australia's National Electricity Market (NEM) includes Queensland,
+New South Wales, the ACT, Victoria, and South Australia. The market is
+operated by the Australian Energy Market Operator (AEMO). (Typically
+&quot;AEMO&quot; is used in sentences without a preceding &quot;the&quot;.) The NEM does not
+include Western Australia or the Northern Territory. Those are separate
+grids, with separate data. The Western Australia Market (WEM) is also
+operated by AEMO, but the market rules, data schemas and data pipelines
+are different. This post is focused on Australia's NEM, and the data in
+the &quot;Market Management System&quot; (MMS) dataset.</p>
+<p>The publicly available MMS data is very comprehensive. If you have
+experience with data from other electricity markets/grids, you will be
+pleasantly surprised by how much data there is. If you are an academic
+with a research question, and you have not yet chosen a particular grid,
+you should probably just choose Australia because the data availability
+is so good.</p>
+<p>The data includes:</p>
+<ul>
+<li>Prices (every 5 minutes)</li>
+<li>Price forecasts (every 5 minutes, for the next few 5 minute
+intervals, and less granular forecasts up to 2 days in advance)</li>
+<li>Total energy generated/consumed, every 5 minutes</li>
+<li>Energy generated, per generator, per 5 minutes</li>
+<li>Detailed fuel type of each generator (so you can calculate energy,
+revenue, capture price etc grouped by fuel type)</li>
+<li>Transmission flows between regions</li>
+<li>CO<sub>2</sub> emissions, per generator or per region, at a daily
+level</li>
+<li>Raw bids and rebids of each generator, including a category and
+sentence justifying each bid</li>
+<li>Constraints: AEMO does not just intersect supply and demand curves.
+Australia's grid is far more constrained than most, so AEMO's optimiser,
+the &quot;NEM Dispatch Engine&quot; (NEMDE) incorporates hundreds of constraints
+for system strength, transmission line capacity etc.</li>
+<li>Ancillary services: These are defined below. The data includes bids,
+and how much capacity is made available each period, per generator and
+in aggregate. Finding out how much was <em>used</em> is difficult, but
+possible.</li>
+</ul>
+<p>You can estimate the energy revenue of each generator. The exact
+invoice amount each participant is paid is not public. (Generators are
+paid for their energy, but pay a wide range of fees, e.g. for wind/solar
+forecast inaccuracies.) You can estimate this amount to within a few
+percent. However doing so requires a great deal of expertise, which is
+beyond the scope of this post.</p>
+<p>The MMS dataset does not include information about green products
+such as Australia carbon credit units (ACCUs). For that data you will
+need to search elsewhere.</p>
+<p>This dataset also does not include any information about the
+<em>cost</em> incurred by each generator, only their output and revenue.
+For estimates of costs, you can look at the CSIRO GenCost model, or
+AEMO's System Plan.</p>
+<p>Most data is published publicly every 5 minutes. Some sets of data
+are published with a deliberate delay of a few days (e.g. bids). The
+online dataset goes back to 2009, although some tables within that do
+not go back as far.</p>
+<h3 id="the-tables">The Tables</h3>
+<p>AEMO's dataset contains many different 'tables'. They are called this
+because AEMO expects market participants to load the data into tables in
+a SQL database. (If you are an analyst querying CSV/parquet files with
+Pandas, these may each be a different dataframe. The concept is the
+same.) There are hundreds of tables available to market participants.
+Some of those are not available to the public (e.g. settlement data),
+but most are. The most important ones are:</p>
+<ul>
+<li><code>DISPATCHPRICE</code> - for energy and ancillary prices</li>
+<li><code>P5MIN_REGIONSOLUTION</code></li>
+<li><code>DISPATCH_UNIT_SCADA</code> - per-generator power output</li>
+<li><code>DISPATCHLOAD</code> - despite the name, this is for both
+generators and loads. This is per-generator power (both actual, and what
+they were supposed to do), ancillary service dispatch (what they were
+supposed to be able to provide if called upon, but not whether they were
+actually called upon)</li>
+<li><code>DISPATCHREGIONSUM</code> - This contains region-level power,
+both actual and planned. This is for both generated, consumed and
+imported/exported power, as well as ancillary services. A few of the
+columns about total renewable output/capacity are always empty,
+unfortunately.</li>
+<li><code>BIDDAYOFFER</code>, <code>BIDOFFERPERIOD</code>,
+<code>BIDPEROFFER_D</code>, <code>BIDDAYOFFER_D</code>,
+<code>BIDPEROFFER</code>: Raw bids by generators. These are very large,
+up to 2 TB uncompressed if you download 10 years of data. They are also
+very complex to understand. A dedicated section explains them <a
+href="#bids">further down</a>.</li>
+<li>There is <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/wiki/AEMO-Tables#four-second-fcas-data-fcas_4_second"><strong>4
+second</strong> granularity power data</a> for every generator, as well
+as some other data (such as grid frequency). This is exceptionally
+large, and in a different location and format to the other data. This is
+described further down.</li>
+<li><code>DUDETAILSUMMARY</code> contains some static data about each
+generator</li>
+</ul>
+<p>Some other important tables are listed in the <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/wiki/AEMO-Tables">Nemosis
+wiki</a>.</p>
+<p>There are conceptually related groups of tables.</p>
+<ul>
+<li><code>DISPATCH*</code> refers to the actual decisions from NEMDE's
+market clearing. This includes the actual price (could be energy or
+FCAS), power instructions (<code>CLEARED</code>) per generator, or per
+region, interconnector flows between regions etc.</li>
+<li><code>PREDISPATCH*</code> and <code>P5*</code> refer to AEMO's
+predictions for the near term. (These predictions are stored in the data
+for the long term.)</li>
+<li><code>ANCILLARY*</code> refers to <a
+href="#what-is-fcas"><code>FCAS</code></a>.</li>
+<li><code>PASA</code>, <code>STPASA</code>, <code>MTPASA</code> refer to
+medium term (multi-day) to long term (multi-month) predictions</li>
+<li><code>SETTLEMENT*</code> refers to invoicing data, which is
+typically private</li>
+<li><code>GBB</code> is about gas</li>
+<li><code>CONF*</code> is about configuration for <a
+href="#pdr-batcher-and-pdr-loader">PDR Batcher and Loader</a></li>
+<li><code>FORCE_MAJEURE</code> and &quot;market suspension&quot; are about black
+swan events (e.g. a few times per decade)</li>
+<li><code>PRUDENTIALS</code> refers to a concept about the
+credit-worthiness of market participants. (e.g. retailers may need to
+prepay for their customers' consumption during an exceptionally
+high-priced week)</li>
+</ul>
+<h3 id="co2-emissions-data">CO2 Emissions Data</h3>
+<p>Emissions data is elusive. <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report_files/Elec80_2.htm">The
+documentation</a> does not list any emissions tables (as far as I can
+tell). However I have found region-level daily emissions data. There is
+also generator-level emissions intensity data, which you can join with
+5-minute power data. The detail of where to find these undocumented
+files, and an example query is shown <a
+href="#emissions-data">later</a>.</p>
+<h2 id="understanding-the-market-structure">Understanding the Market
+Structure</h2>
+<p>If you are already familiar with the market design, and just want to
+read about the data, skip ahead to the <a
+href="#where-is-the-documentation">next section</a>.</p>
+<p>Compared to other countries, Australia's electricity market is very
+simple. Other markets can feel like this:</p>
+<p><a href="https://xkcd.com/2677/"><img src="xkcd-annotated.png"
+alt="xkcd comic" /></a></p>
+<p>For example, Germany cannot directly subsidise renewables, because of
+EU state aid laws. So the government offers contracts for difference
+(CfDs) to shield investors from the risk of low wholesale prices. They
+block low price signals from reaching generators by inserting the
+taxpayer's wallet in the middle. The generators respond to
+artificially-high prices they see in the way you would expect any
+business to, by producing more. This drives the wholesale price down,
+which causes fossil fuel generators to produce less, which is the point
+of the policy. However the government does not like prices below zero,
+so they added carveouts to halt CfD payments during negative prices. Now
+solar/wind investors are re-exposed to the risk of low prices, which was
+the initial motivation for CfDs in the first place.</p>
+<p>Australia's market is far simpler. The federal government (and to
+some extent state governments) do keep fiddling by adding some CfDs and
+<a
+href="https://www.hachiko.energy/blog/alternative-sources-of-revenue">capacity
+products</a>. (To read more about why this is bad, see my <a
+href="../masters-thesis/">masters thesis</a>.) But overall I find the
+market far easier to understand. (It is also far easier to understand
+than the Australian gas markets.)</p>
+<p>For example, we <a href="../masters-thesis/">do not need capacity
+markets</a>, because we just have a ceiling price which is high enough
+for infra-marginal rents to cover upfront generator costs. We do not
+have day-ahead markets. AEMO publishes forecasts every 5 minutes which
+guide the market, and then everyone is paid (or pays) the one energy
+price.</p>
+<p>A note on terminology: where academic economists say &quot;supply&quot; and
+&quot;demand&quot;, in the industry we tend to say &quot;generation&quot; and &quot;load&quot;.</p>
+<h3 id="prices">Prices</h3>
+<p>Energy prices have a legally defined maximum &quot;ceiling&quot;. This is
+indexed each year, and is currently around 20,000 $/MWh. This is far
+higher than most countries. (To understand why this is a great thing,
+see <a href="../masters/thesis">my thesis</a>.)</p>
+<p>The minimum is below zero, at -1000 $/MWh (not indexed). Yes, prices
+can go negative. South Australia has the most negative electricity
+prices in the world. It is unusual to have a day in Australia
+<em>without</em> negative prices at some point. You can read more about
+negative prices in the <a
+href="https://www.iea.org/reports/electricity-2025">IEA's Electricity
+2025 Report</a>. From a data science perspective, this means that taking
+logarithms of price to do regressions does not work.</p>
+<p>Electricity prices are very volatile. Price and revenue data is
+highly skewed. Outliers are of central importance. For example, it is
+normal for a generator to make as much profit in the top 10%
+highest-priced hours each year as the rest of the year combined. (I show
+this with an <a href="#revenue-skewness">example query</a> later.) I
+have seen <a
+href="https://houstonkemp.com/wp-content/uploads/2020/02/27_Impact-of-gas-powered-generation-on-wholesale-market-outcomes-final-results-presentation.pdf">a
+consultant's report</a> commissioned by AEMO where they simply deleted
+intervals with negative prices and very high prices. Do not do this.
+This is incorrect and will give you meaningless results.</p>
+<h3 id="predispatch-is-not-a-day-ahead-market">Predispatch is Not a
+Day-Ahead Market</h3>
+<div class="callout tip">
+<p>The NEM does not have a day-ahead market.</p>
+</div>
+<p>&quot;Trading days&quot; start at the 4:00-4:05 interval, and finish in the
+3:55-4:00 interval the next calendar day. Participants need to submit
+bids each trading day by 12:30pm. They can submit bids much further in
+advance. If no bids are submitted for a given day, AEMO copy-pastes the
+last bid which was submitted for that participant. AEMO takes these
+bids, and a prediction of load, rooftop solar output etc, and runs the
+same code they use for the actual real-time dispatch, but in advance.
+From this they can predict prices, and the power flows from each
+generator, across each transmission line, whether constraints are
+binding etc. This is called &quot;predispatch&quot;. (Whereas &quot;dispatch&quot; is the
+actual live instruction and price every 5 minutes.) This prediction is
+updated every 5 minutes, for the next 24-48 hours. (The specific tables
+are described <a href="#price-predictions">later</a>.)</p>
+<p>The crucial thing to understand here is that this is merely a
+prediction for planning purposes. No generator is paid at the
+predispatch price, so it is not a real price, nor a real market.</p>
+<p>The 12:30pm cutoff is not as important as it sounds. After the
+12:30pm cutoff, generators can still &quot;rebid&quot;. The only two restrictions
+on &quot;rebids&quot; vs &quot;bids&quot; are:</p>
+<ul>
+<li>Rebids must have a justification (a letter to represent a category,
+and a sentence), although in practice this is often as vague as &quot;Changed
+market conditions&quot;.</li>
+<li>A bid is a spreadsheet where each row is a time interval (288
+5-minute intervals), and each column is a &quot;price band&quot;. The price of
+each price band cannot be changed after the 12:30pm cutoff. However
+participants can still shuffle quantity between bands. With 10 bands,
+that is a lot of flexibility.</li>
+</ul>
+<p>Rebids can be submitted at any time. There is no &quot;gate closure&quot;. For
+example, a generator can submit a rebid at 01:04:50 for the interval
+01:05-01:10, and it will be accepted. (There are a few seconds of lag
+for IT reasons, not regulatory ones. So 01:04:59 may be too late.) From
+01:50:00 AEMO will start their calculations based on all the bids and
+other information they have. They will publish dispatch instructions
+(power levels) and prices around 01:05:10 to 01:05:40. (Note that
+technically AEMO tells generators what to do several seconds
+<em>after</em> they are supposed to have started doing it.)</p>
+<p>The timeline for bids and rebids is explained by <a
+href="https://wattclarity.com.au/other-resources/glossary/rebids/">Watt
+Clarity</a>. Bid data is discussed in more detail <a
+href="#bids">later</a>. If you want a more cite-able source about the
+lack of a day-ahead market, check out <a
+href="https://journals.sagepub.com/doi/10.5547/01956574.45.1.jgil">this
+interesting paper</a> by Gilmore, Nolan and Simhauser about estimating
+the levelised cost of FCAS.</p>
+<h3 id="two-dimensional-time">Two-Dimensional Time</h3>
+<p>AEMO's data often contains predictions of the future. e.g. price,
+power flows, constraint binding. These predictions are updated often,
+yielding a history of different versions of predictions which apply to
+the same interval. In the data this means you may see two datetime
+columns.</p>
+<p>Here is a screenshot of a paid application called ez2view (which
+takes MMS data and displays it graphically), by a company called <a
+href="https://home.global-roam.com/">Global Roam</a> (the authors of <a
+href="https://wattclarity.com.au">Watt Clarity</a>). The screenshot is
+from <a
+href="https://wattclarity.com.au/articles/2020/08/casestudy-19th-December-2018/">this
+article</a>. Each cell in this table is a prediction of price from
+predispatch. Each column is a time interval which the prediction applies
+to. Each row is a time when the prediction was made. The screenshot
+graphically shows how predictions changed over time.</p>
+<p><a
+href="https://wattclarity.com.au/articles/2020/08/casestudy-19th-December-2018/"><img
+src="forecast-triangle.png" alt="Screenshot of ez2view" /></a></p>
+<p>The top-left corner of the graph is blank, because these would be
+&quot;predictions&quot; of the past (which do not exist). The bottom-right corner
+is blank because these are predictions of the distant future, which do
+not exist. (Or at least, not in this MMS table, which only goes out one
+hour. For predictions further out, see the <a
+href="#price-predictions">price prediction section</a> further down.)
+Every 5 minutes, AEMO publishes a new set of predictions, which appear
+as a newly inserted row up the top of this graph. Each row is shifted
+one interval to the right, because the start and end of the predictions
+are for intervals which will occur 5 minutes later.</p>
+<p>For example, the third row is mostly blue (relatively high values).
+This means that around 10:51 (2 intervals before the one ending at
+11:05) AEMO predicted high prices for the next 12 5-minute intervals
+(10:50-10:55 until 11:45-11:50). The red &quot;30&quot; value at the start of row
+2 shows a relatively low value. The cell below (71) is blue. This shows
+that the final price of 30 was a surprise.</p>
+<p>If you are looking at historical predictions and wanting to know what
+market participants expected at a certain time, you will need to find
+the latest row of data in this graph
+(e.g. <code>RUN_DATETIME &lt; t</code> in
+<code>P5MIN_REGIONSOLUTION</code>, or sometimes
+<code>LASTCHANGED</code>) and then use a different column
+(e.g. <code>INTERVAL_DATETIME</code> or <code>SETTLEMENTDATE</code>) to
+see which interval it applied to.</p>
+<p><a
+href="https://wattclarity.com.au/articles/2022/09/analyticalchallenge-dimensionoftime/">Watt
+Clarity</a> also explain this concept.</p>
+<h3 id="scheduled-vs-non-scheduled">Scheduled Vs Non-Scheduled</h3>
+<p>A &quot;scheduled&quot; generator is one which submits bids to AEMO, and is
+told what power level to produce at by AEMO, every 5 minutes. Most big
+generators are scheduled.</p>
+<p>A &quot;non-scheduled&quot; generator generates whenever it wants. These tend
+to be small hydro plants and biowaste generators. If you find a
+generator mentioned in some tables but not others, it may be
+non-scheduled. To find out, check the <a
+href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/participate-in-the-market/registration">NEM
+Registration and Exemption List</a>.</p>
+<p>A &quot;semi-scheduled&quot; generator is a type of scheduled generator where
+the instruction from AEMO to generate a certain power level is a
+one-sided upper limit. This is for wind and solar, which are allowed to
+produce less after an unexpected drop in wind/sunshine, but sometimes
+must waste extra power when there is an unexpected increase in
+wind/sunshine.</p>
+<p>Rooftop solar is none of these categories. It is treated as negative
+load. This is described later in the <a href="#rooftop-solar">Rooftop
+Solar</a> section.</p>
+<h3 id="what-is-fcas">What is FCAS?</h3>
+<p>&quot;Frequency Control and Ancillary Services&quot; (FCAS) are additional
+markets for non-energy products. Of course they still involve moving
+electrons down wires to transmit watts and joules. However the objective
+of these services is not to transmit energy from a generator to an
+consumer's device, but rather to keep the grid running.</p>
+<ul>
+<li>&quot;Regulation&quot; is about adjusting generated power levels to mirror the
+natural fluctuations in consumption within each 5-minute period.</li>
+<li>&quot;Contingency&quot; is about reacting quickly when things go wrong.
+e.g. When the Callide C plant had a fire, their power output dropped
+unexpectedly. Consequently grid frequency dropped outside the normal
+bounds, and other generators had to quickly increase their output to
+fill in the shortfall. Only some generators are physically able to do
+so.</li>
+</ul>
+<p>In Australia, generators providing FCAS are paid for being ready. If
+the FCAS capacity is not needed, they are still paid. If it is needed,
+the only additional payment is for the increase/decrease in energy they
+provide, at the normal energy price. This pricing approach is discussed
+in <a href="../masters-thesis/">my masters thesis</a>.</p>
+<p>Similar services in other countries are called &quot;balancing&quot;, &quot;mFFR&quot;,
+&quot;aFFR&quot;, &quot;FCR&quot;, &quot;raise&quot;, &quot;lower&quot; etc. The problems being solved are the
+same, but the mappings between products are not one-to-one. For a more
+detailed introduction to Australia's FCAS market, see <a
+href="https://journals.sagepub.com/doi/10.5547/01956574.45.1.jgil">this
+interesting paper</a> by Gilmore, Nolan and Simhauser about estimating
+the levelised cost of FCAS.</p>
+<p>The time spans of contingency FCAS products are:</p>
+<ul>
+<li>&quot;Very Fast&quot; - 1 second</li>
+<li>&quot;Fast&quot; - 5 seconds</li>
+<li>&quot;Slow&quot; - 60 Seconds</li>
+<li>&quot;Delayed&quot; - 5 Minutes</li>
+</ul>
+<p>The directions are:</p>
+<ul>
+<li>&quot;Raise&quot; - frequency is too low. We need to raise frequency by
+raising generation output or lowering load</li>
+<li>&quot;Lower&quot; - frequency is too high. We need to lower the frequency by
+lowering generation output, or raising load</li>
+</ul>
+<p>To understand the relationship between power and frequency, see my <a
+href="../thesis">bachelor's thesis</a>.</p>
+<p>In the data you will find combinations of these timescales and
+directions. For example, in <code>DISPATCHPRICE</code>,
+<code>RAISE60SECRRP</code> is the regional reference price of the 60
+second raise product. The 1 second products were introduced relatively
+recently, so sometimes in the data and documentation those columns are
+not adjacent to the others. For data prior to <a
+href="https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/system-operations/ancillary-services/very-fast-fcas-market-transition">9
+October 2023</a>, it will be missing. If you use Nemosis and find it
+missing for recent data, use <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/issues/37">this trick</a> to
+add it.</p>
+<p>It seems that most academic researchers ignore FCAS, because it is
+technically complex. I believe this is unwise. FCAS is important, and
+increasingly so. For many years, batteries earned more profit from
+providing FCAS than energy. (See <a
+href="https://wattclarity.com.au/articles/2024/03/state-of-charge-a-peek-into-the-economics-and-performances-within-the-nems-battery-fleet/">Watt
+Clarity</a>.) In a world with a huge amount of zero-marginal-cost
+renewables, energy profits would be approximately zero most of the time.
+Most profit would come from the few periods of ceiling price spikes
+during scarcity, and from the FCAS services keeping the low-inertia
+system stable. If your research question is about what the future will
+look like, especially in high-renewables scenarios, you should consider
+FCAS.</p>
+<p>There are some obscure ancillary services which are not FCAS
+(e.g. black start). These are typically handled through bespoke
+procurement on the timescale of years, and do not appear in the MMS
+dataset.</p>
+<p>If you ever encounter the string <code>ENOF</code>, this refers to
+energy. (I suspect it stands for &quot;ENergy OFfer&quot;, but that is just my
+guess. See the <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_10/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23BIDTYPES%23FILE01%23202510010000.zip"><code>BIDTYPES</code>
+table</a>.)</p>
+<h3 id="how-are-batteries-treated">How are Batteries Treated?</h3>
+<p>Battery data is often counterintuitive and inconsistent. I suspect
+this is because the rules about batteries have evolved over time. For
+example, the first battery (Hornsdale) is actually <a
+href="#i-feel-your-pain">classified as a wind generator</a>.</p>
+<p>If you look at the list of <a
+href="https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/participate-in-the-market/registration">registered
+participants</a> (file &quot;NEM Registration and Exemption List&quot;, sheet &quot;PU
+and Scheduled Loads&quot;) you will see some assets listed with a &quot;Dispatch
+Type&quot; of &quot;Bidirectional Unit&quot;. These are all batteries. Although one
+battery (Kennedy Energy Park) is listed as a &quot;Generating Unit&quot; (DUID
+<code>KEPBG1</code>) for discharging, and a &quot;Load&quot; (DUID
+<code>KEPBL1</code>) for charging. (This particular battery is actually
+<a href="#scheduled-vs-non-scheduled">non-scheduled</a>.)</p>
+<p>Sometimes generators show negative power levels. e.g. a solar farm
+needs to draw a trickle of power to 'keep the lights on' during the
+night. (This is for the local IT systems, but also can be iron losses in
+the transformer.) Less intuitive is that loads can have both positive
+and negative values. I still do not understand why this can happen,
+especially for a bidirectional unit which has been split. In these cases
+I tend to try to use heuristics to figure out the convention. (e.g. is
+the sum of negative values larger or smaller than the sum of positive
+values? Do I expect this DUID to generate/consume more, a lot less or
+slightly less than it consumes/generates).</p>
+<p>As more and more sites colocate wind/solar with batteries (despite
+the <a href="../colo/">lack of spot revenue benefit</a>), analysing the
+data for these will become increasingly difficult.</p>
+<h3 id="wholesale-demand-response">Wholesale Demand response</h3>
+<p>The NEM does have a formal demand response market at the wholesale
+level. (&quot;Wholesale Demand Response&quot;, or &quot;WDR&quot;.)</p>
+<p>The point of electricity retailers is that they hedge consumers
+against volatile spot prices. The purpose of the WDR market is to let
+consumers re-expose themselves to the spot market, selling <a
+href="https://wattclarity.com.au/articles/2019/10/all-aboard-the-negawatt-express/">&quot;negawatts&quot;</a>
+at high spot prices. It is simple in theory, but complex in
+practice.</p>
+<p>In terms of the data, you may see WDR participants (including
+aggregators) in the data where you expect generators. Since these are
+not real megawatts, you often need to drop these rows. e.g. If you want
+to find the fraction of energy generated by a particular fuel type, you
+should exclude WDR values in the denominator, because that energy is not
+real, it is counterfactual.</p>
+<p>In practice the total volume of the WDR market (and other demand
+response schemes too) is smaller than other countries.</p>
+<h3 id="constraints">Constraints</h3>
+<p>In economics 101 we are taught that price and quantity is set by the
+intersection of supply and demand curves. In electricity markets the
+aggregate supply curve is explicitly uploaded to the market operator
+(e.g. AEMO). They also have the demand curve from scheduled loads, and
+they add a prediction of unscheduled load (i.e. most load) at the
+ceiling price as the rest of the aggregate demand curve. However the
+intersection of these two curves is <a
+href="https://wattclarity.com.au/articles/2019/02/a-preliminary-intermediate-guide-to-how-prices-are-set-in-the-nem/">rarely</a>
+the actual price. In practice we physically cannot get power from the
+cheapest (marginal) generator to the marginal consumer. (If we always
+could, it means we are spending too much on network infrastructure.)</p>
+<p>Sometimes this is because transmission wires only have a certain
+maximum capacity. Sometimes there are other more complicated constraints
+about voltage, fault levels, inertia etc.</p>
+<p>AEMO accounts for these directly in their decision, as algebraic
+constraints considered by linear optimiser software. (This is a much
+more efficient approach than the typical European one, where constraints
+are ignored during bid clearing, then adjustments are made afterwards to
+account for them.)</p>
+<p>Australia's grid is much more constrained than most (probably because
+it is very large and the population density is low). For many research
+questions, you should be considering constraints. If you see something
+unexpected in the data (e.g. generators bidding far below their marginal
+cost), you should ask yourself whether it is because of constraints.</p>
+<p>Information about whether constraints bind each interval (or are
+forecast to bind) is in the data. This data tends to be very large. Only
+download it if you need it.</p>
+<p>Understanding constraints is very difficult. e.g. what does
+<code>F_I+ML_L5_0400</code> mean? The table <code>GENCONDATA</code>
+describes what each constraint is about. However the descriptions are
+quite difficult for the uninitiated to understand. AEMO has built <a
+href="https://markets-portal-help.docs.public.aemo.com.au/Content/EMMScommon/AboutConstraints.html?TocPath=Energy%20Market%20Management%20System%20(EMMS)%7CMarket%20Info%7CAbout%20Constraints%7C_____0">a
+tool</a> to explain each constraint in plain English. Unfortunately this
+is only available to market participants, not researchers.</p>
+<p><code>GENCONSET</code> and <code>GENCONSETINVOKE</code> contain data
+about when constraints are &quot;invoked&quot;. &quot;Invoked&quot; means that it is
+considered by NEMDE. &quot;Binding&quot; means that the limit has been hit, and it
+is actively preventing a more economically efficient dispatch solution.
+A constraint which is invoked but non-binding happened to have no
+effect.</p>
+<p>If you see <code>Out = Nil</code>, that means that this constraint is
+invoked when there is no outage. i.e. it is invoked the majority of the
+time.</p>
+<p>Constraints with names that start with a <code>#</code> are private.
+Only one generator is impacted, so the details are not published, or not
+published live.</p>
+<h3 id="green-products">Green Products</h3>
+<p>&quot;Large-scale green certificates&quot; (LGCs) are a form of renewables
+subsidy for large renewable generators. In Europe these would be called
+&quot;guarantees of origin&quot;. Each eligible generator earns one certificate
+per MWh generated, which they can sell. Retailers and large loads have
+an obligation to buy a certain amount each year, which drives the price
+up. AEMO's MMS data does not include LGC prices. (Although of course the
+price of LGCs drives bidding behavior. If you are trying to understand
+wind/solar bidding, you must consider LGCs.)</p>
+<p>&quot;Small-scale technology certificates&quot; (STCs) are subsidies for
+smaller installations.</p>
+<p>A wide range of subsidised and unsubsidised feed-in tariffs for
+rooftop solar exist, varying by region and installation age.</p>
+<p>Unfortunately Australia does not have a carbon price. To the best of
+my knowledge, we are the only country to ever <em>repeal</em> a carbon
+price. (Arguably the carbon price cost the Gillard government the
+election in 2013.)</p>
+<h3 id="other-terms-and-acronyms">Other Terms and Acronyms</h3>
+<p><code>LOR</code> stands for &quot;Lack of Reserve&quot;. This is a prediction
+by AEMO that standard market clearing may not provide enough energy,
+resulting in load shedding. In most cases the market reacts to this
+prediction (e.g. cancelling generator maintenance outages to generate at
+high prices), so the feared outcome rarely happens. This is described
+more in <a
+href="https://www.hachiko.energy/blog/alternative-sources-of-revenue">this
+Hachiko article</a>.</p>
+<h2 id="where-is-the-documentation">Where is the documentation?</h2>
+<p>The official documentation for the meaning of each table, each column
+and their data type is <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report.htm">here</a>.
+The data types are Oracle SQL data types.</p>
+<p>Sometimes the explanations in this documentation are useful. For
+example, the definition of <code>UIGF</code> in
+<code>DISPATCHREGIONSUM</code> is &quot;Regional aggregated Unconstrained
+Intermittent Generation Forecast of Semi-scheduled generation (MW)&quot;.</p>
+<p>(Unconstrained means that AEMO is not telling wind and solar
+generators to turn down and 'spill' wind/sunshine. Semi-scheduled is
+what most wind and solar are. AEMO tells them what to generate, but it
+is only an upper limit. In contrast coal and gas are scheduled. They
+cannot generate less or more power than they are told.)</p>
+<p>Some documentation is not useful. For example in table
+<code>DISPATCHREGIONSUM</code> the column <code>EXCESSGENERATION</code>
+is defined as &quot;MW quantity of excess&quot;.</p>
+<p>But what is &quot;excess&quot; energy? Is that when a solar/wind generator
+exceeds its UIGF forecast? Is it when a generators exceeds its dispatch
+target? Is it the net or gross export for the region?</p>
+<p>When you find that documentation lacking, you can also check the <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/wiki/Column-Summary">Nemosis
+Wiki</a> and <a href="https://wattclarity.com.au/">Watt Clarity</a>.</p>
+<p>For specific terms such as &quot;bidirectional unit&quot;, &quot;wholesale demand
+response&quot; etc, you may need to search elsewhere on <a
+href="www.aemo.com.au/">AEMO's website</a> to find answers. Note that
+AEMO sometimes restructure their website in a way which breaks bookmarks
+and search engine results. Aside from that, their website often has very
+high-level information aimed at the general public, and some extremely
+niche detail, without much of a middle ground for researchers who want
+to understand concepts without trading in the market.</p>
+<p>There is no machine-readable schema available (e.g. a json file
+containing all column names and types). I had written a crawler to
+scrape the metadata, but then AEMO changed the structure of this
+documentation page in a way that broke my crawler, and made it harder
+for humans to browse (by mixing tables on the same iframe so ctrl-f may
+find columns for the wrong table). If you are interested in a
+machine-readable schema, let me know. AEMO do publish SQL scripts
+(privately, for market participants only) which create empty tables with
+the right schema in Oracle or Microsoft SQL Server. You could parse
+those scripts to get the schema. (I have done that in the past.) Those
+scripts have subtle inconsistencies which make me suspect that they are
+hand written. If so, it seems possible that even internally, AEMO does
+not have a single machine-readable schema as their source of truth.</p>
+<h2 id="where-is-the-data">Where is the data?</h2>
+<p>Most of the data is in the &quot;MMSDM&quot;, on a public website called
+&quot;Nemweb&quot;. The root URL is
+<code>https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/</code>.
+You can explore those folders to get a sense of the structure. The files
+you want are probably the ones like:</p>
+<p><a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_*.zip"
+class="uri">https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_*.zip</a></p>
+<p>(Note the month and years in the URL). The filename mostly (but not
+always) corresponds to the table. e.g. <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23DISPATCHPRICE%23FILE01%23202509010000.zip">PUBLIC_ARCHIVE#DISPATCHPRICE#FILE01#202509010000.zip</a>
+contains data for the <code>DISPATCHPRICE</code> table. The large tables
+may be split into multiple files per month.</p>
+<p>The other folders contain scripts and the same data in other forms
+used to load the data into an Oracle SQL database. This is what AEMO
+expects market participants to do. However it is incredibly complex and
+error-prone. For example some scripts make assumptions about column
+order, but the data files do not necessarily have a consistent column
+order across months. The schema itself has changed over the years, and
+the historical scripts do not necessarily cope with that well. From
+personal experience, my advice is to not touch that stuff unless you
+already have extensive experience with PDR Loader and already have an
+Oracle SQL database.</p>
+<p>The <code>P5MIN_*</code> tables are in both <code>DATA/</code> and
+<code>P5MIN_ALL_DATA/</code>. As far as I can tell, the files are
+identical, other than the first row (which is metadata) and the
+filename. Most <code>PREDISPATCH*</code> tables are extremely large.
+(<code>PREDISPATCHPRICE</code> is not particularly large though.) The
+data for these tables in <code>DATA/</code> is just a subset of the full
+table. The full dataset for those tables is in
+<code>PREDISP_ALL_DATA</code>. Further down there is <a
+href="#price-predictions">an example</a> of finding and using
+<code>PREDISPATCH</code> and <code>P5</code> data.</p>
+<p>The <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/NEMDE/">NEMDE</a>
+folder contains the detailed inner workings of the linear optimiser used
+by AEMO to decide how much each generator should produce. This is useful
+if you want to query &quot;price setter&quot; data to understand who set the
+price. Note that you should be cautious when drawing conclusions from
+that data. See the guide from <a
+href="https://wattclarity.com.au/articles/2019/02/a-preliminary-intermediate-guide-to-how-prices-are-set-in-the-nem/">Watt
+Clarity</a>.</p>
+<p>The live (5 minutes old) data is available in <a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/">/Reports/CURRENT</a>.
+The file formats are more complicated because they are several CSV files
+with different columns concatenated into one file. You probably do not
+need that unless you are actively operating in the market.</p>
+<h2 id="how-to-download-the-data">How to download the data?</h2>
+<h3 id="data-size">Data Size</h3>
+<p>The biggest two tables add up to as the rest combined. So only
+download what you need.</p>
+<p>For the full decade or more of historical data, most of the tables
+are hundreds of megabytes (as compressed CSVs). Price forecasts are tens
+of gigabytes. Bidding data is hundreds of gigabytes. Price setter data
+is also hundreds of gigabytes.</p>
+<h3 id="nemosis">Nemosis</h3>
+<p>There are a few open source tools out there for downloading and
+parsing AEMO's data. Nick Gorman from UNSW has written a great library
+called <a href="https://github.com/UNSW-CEEM/NEMOSIS">Nemosis</a>.</p>
+<p>Here is an example of how to obtain the <code>DISPATCHPRICE</code>
+data as a Pandas dataframe:</p>
+<pre><code>from nemosis import dynamic_data_compiler
+
+start_time = &#39;2017/01/01 00:00:00&#39;
+end_time = &#39;2017/01/01 00:05:00&#39;
+table = &#39;DISPATCHPRICE&#39;
+raw_data_cache = &#39;C:/Users/your_data_storage&#39;
+
+price_data = dynamic_data_compiler(start_time, end_time, table, raw_data_cache)</code></pre>
+<p>Personally I prefer <a href="https://pola.rs/">Polars</a> to Pandas.
+If you haven't heard of Polars, it is like the new Pandas. It is about
+30 times faster, and I find the syntax easier to read and write. (No
+more dreaded errors about &quot;A value is trying to be set on a copy of a
+slice from a DataFrame.&quot;, or clunky <code>df[df[col]]</code>,
+<code>df.loc['col', df['col'] == df['col']]</code>.) For this, you can
+use the <code>cache_compiler</code> to just save the data as Parquet
+with Nemosis, then query those files on disk with Polars. (Use the same
+approach for DuckDB, Arrow, R etc.) For example:</p>
+<pre><code>from nemosis import cache_compiler
+import polars as pl
+import os
+
+start_time = &#39;2024/01/01 00:00:00&#39;
+end_time = &#39;2024/01/01 00:05:00&#39;
+table = &#39;DISPATCHPRICE&#39;
+raw_data_cache = &#39;/home/matthew/Data/nemosis&#39;
+
+# download zips of CSV files 
+# extract them, conver them to parquet with nemosis
+cache_compiler(start_time, end_time, table, raw_data_cache, fformat=&#39;parquet&#39;)
+
+def parse_datetimes(
+    lf, cols=[&quot;SETTLEMENTDATE&quot;], format=&quot;%Y/%m/%d %H:%M:%S&quot;
+) -&gt; pl.LazyFrame:
+    for col in cols:
+        lf = lf.with_columns(
+            pl.col(col).str.strptime(pl.Datetime(time_unit=&quot;ms&quot;), format=format)
+        )
+    return lf
+
+
+# query the data with Polars
+lf = (
+    pl.scan_parquet(os.path.join(raw_data_cache, &quot;*DISPATCHPRICE*.parquet&quot;))
+    .pipe(parse_datetimes)
+)
+
+print(lf.collect())</code></pre>
+<p>Note that I am passing a wildcard filename
+<code>*DISPATCHPRICE*.parquet</code> to polars. This is because Nemosis
+downloads all files into the same directory. If you are processing
+multiple files (e.g. <code>P5MIN_REGIONSOLUTION</code> and
+<code>DISPATCHPRICE</code>) you need this string to tell Polars which
+files to read and which to ignore. Also, Nemosis currently saves
+datetimes to disk as strings. If using <code>cache_compiler</code>, you
+need to parse them into datetimes yourself. Since this happens for every
+table, I factored that into a simple function with
+<code>.pipe(parse_datetimes)</code>.</p>
+<p>Sometimes Nemosis excludes columns from the data. (It includes only
+the most important columns, as an optimisation.) If this happens (e.g. 1
+second FCAS data), you can fix that with <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/blob/master/README.md#accessing-additional-table-columns">this
+workaround</a>.</p>
+<p>Nemosis has some limitations. I am working with the maintainer to
+make <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/issues?q=author%3Amdavis-xyz">some
+improvements</a>. In particular, it loads each file into memory as a
+Pandas dataframe (even when using <code>cache_compiler</code>). This
+means that you cannot process the large files (mostly just bid data) on
+a normal laptop.</p>
+<p>If Nemosis works for you, skip the next sections and jump to <a
+href="#how-to-query-and-understand-the-data">How to Query and Understand
+the Data</a>. If not, the next few sections describe the details of how
+to download and parse AEMO's data files.</p>
+<h3 id="pdr-batcher-and-pdr-loader">PDR Batcher and PDR Loader</h3>
+<p>AEMO created this dataset and the Data Interchange for market
+participants (generators, retailers etc). This was designed in the
+1990s, prior to the popularity of REST APIs, TLS, parquet files,
+distributed systems, clouds etc. They expect that anyone who wants to
+read the data will download a pair of applications called &quot;PDR Batcher&quot;
+and &quot;PDR Loader&quot;. (&quot;PDR&quot; stands for Participant Data Replicator.)
+Batcher downloads the files over FTP, inside a private VPN, then Loader
+loads them one row at a time into an Oracle SQL Database. The
+documentation is <a
+href="https://di-help.docs.public.aemo.com.au/Content/Index.htm?tocpath=_____1">here</a>.</p>
+<p>There are several challenges with this approach. The first is that
+AEMO removed this application from their website. They took it down when
+the <a href="https://en.wikipedia.org/wiki/Log4Shell">log4j
+vulnerability</a> become public, because this software was affected.
+Then when they released a patched version months later, they did so only
+through the private FTP server. So if you are not a participant
+(e.g. you are an academic researcher), you will probably not be able to
+even obtain the binary.</p>
+<p>Even if you have a copy, it is extremely difficult to get working
+unless you know someone with experience. If you are a researcher, you do
+not have the time to spend weeks learning how this bespoke system works,
+and debugging it when it does not. The system is designed as a thick
+client, instead of a clear abstract API. There are many obscure mapping
+tables an configuration options. (e.g. How do you tell PDR Batcher which
+tables should be append-only, and which ones should overwrite existing
+rows based on certain partition columns?) The latest release did add a
+lot of great functionality (e.g. natively connecting to cloud storage
+such as S3), but my view is that if you are just a researcher (and even
+for some market participants) it is not worth using. e.g. I know people
+who tried to backfill a fresh database with all publicly available data.
+They ran into many issues. They asked AEMO for help, and were told that
+there is no simple, generalised way to backfill all the data.</p>
+<p>PDR Loader operates one row at a time. If you want to backfill all
+bid or price prediction data for the last decade, that takes weeks, even
+if you use large, expensive servers. This was probably because the
+system is optimised for operational use cases, where generators insert a
+few rows at a time into a row-based database, and query mostly the last
+few rows in each table. However if you are a researcher doing analytic
+queries about historical data, you will probably do infrequent, batched
+insertions, and your queries will scan most of the rows in a table. So a
+column-based approach (e.g. parquet files) is probably <a
+href="https://r4ds.hadley.nz/arrow#advantages-of-parquet">more
+suitable</a>. Running a Oracle or Microsoft SQL Server database with 1
+TB of data in the cloud is expensive. On-premise options have their
+challenges too. (e.g. will your laptop have enough memory even if you
+run the queries you want on a SQL server installed locally, connected to
+a slow external hard drive?) Using a more modern, column-based approach
+(e.g. parquet files locally or even in the cloud) will be far cheaper
+and gives faster query results.</p>
+<p>The main benefit of PDR Loader over a DIY approach is that it will
+figure out which tables are append-only, and which are update-insert.
+(Or rather, you need to somehow find the configuration file that tells
+PDR Loader how to do this.) That is, AEMO publishes new data all the
+time. Sometimes the new rows should be added above/below the old rows.
+Sometimes the old rows should be updated. It depends on the table.
+(Remember, there are hundreds of tables.) If you use a DIY approach
+(including Nemosis), you may need to deduplicate the data when you query
+it. This is described later in <a
+href="#deduplication">Deduplication</a>.</p>
+<p>If you do want to know more about how to run PDR Batcher and Loader,
+and the pros and cons, check out <a
+href="https://www.hachiko.energy/blog/dockerising-aemo-pdr">Hachiko's
+guide</a>. As they put it: &quot;It's not broken. But it's also not
+easy.&quot;</p>
+<h3 id="connectivity">Connectivity</h3>
+<p>As mentioned earlier, AEMO expects market participants to download
+these files and private files over a FTP inside a private VPN. I think
+the public website is intended for researchers, which is fantastic.
+Although I have never seen AEMO state this goal, or enumerate conditions
+of use. Please do not hammer their website (e.g. downloading data you do
+not need, or doing an unreasonable number of parallel downloads). I live
+in fear that one day they will simply turn off Nemweb.</p>
+<p>Nemweb is hosted in AWS's Sydney (<code>ap-southeast-2</code>)
+region. So if you are connecting from the cloud, choose something in
+Sydney. (For example, I am living in France at the moment. Downloading
+the data to my laptop is slow. If I spin up a server in Sydney the
+download is far faster, and then I connect to that server with Jupyter
+over SSH.)</p>
+<p>Nemweb has both an HTTP and HTTPS interface. Note that if you are
+crawling the HTML file pages, sometimes the encrypted HTTPS pages
+contain links to unencrypted HTTP pages. I think they have fixed this
+now. However I am mentioning it because if you are doing this in a
+network environment where outbound HTTP (port 80) is blocked and HTTPS
+(port 443) is allowed, then you will get unexpected timeouts which
+cannot be resolved through retries.</p>
+<h3 id="file-formats">File Formats</h3>
+<h4 id="quick-file-format-explanation-for-monthly-mmsdm-data">Quick File
+Format Explanation For Monthly MMSDM Data</h4>
+<p>One benefit of Nemosis is that it handles unzipping and dropping
+metadata rows and columns for you. This section contains details of how
+to do this yourself.</p>
+<p>For the <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/">monthly
+MMSDM data</a> that this post focuses on, the files are zips of CSVs,
+with one CSV per zip file. (Pandas can do the unzipping for us. Polars
+cannot do this <a
+href="https://github.com/pola-rs/polars/issues/19447">yet</a>.)</p>
+<p>A CSV file might look like:</p>
+<pre><code>C,SETP.WORLD,DVD_DISPATCHPRICE,AEMO,PUBLIC,2025/10/08,09:02:27,001759878147550,MONTHLY_ARCHIVE,001759878147550
+I,DISPATCH,PRICE,5,SETTLEMENTDATE,RRP
+D,DISPATCH,PRICE,5,&quot;2025/09/01 00:05:00&quot;,1.1
+D,DISPATCH,PRICE,5,&quot;2025/09/01 00:10:00&quot;,2.2
+C,&quot;END OF REPORT&quot;,4</code></pre>
+<p>The content you care about is really:</p>
+<pre><code>SETTLEMENTDATE,RRP
+&quot;2025/09/01 00:05:00&quot;,1.1
+&quot;2025/09/01 00:10:00&quot;,2.2</code></pre>
+<p>The CSVs have a header and a footer. (These have a different number
+of columns to the main data, which some CSV parsing libraries do not
+like.) Most CSV parsers can skip the header easily. You are unlikely to
+need that information. The timestamp in the header tells you the exact
+time when AEMO <em>generated</em> the data, which might be useful for
+some niche queries. Skipping the footer can be harder. Few libraries
+have a <code>skip_footer</code> option. With some libraries you may need
+to read the file as text first to count the rows, then tell it to only
+read the first N - 1 rows. Alternatively you can tell it that the
+&quot;comment&quot; character is <code>C</code>, but only if that comment option
+only applies from the start of the line. I tend to parse these with
+Polars, in which case you can tell it that the comment <em>prefix</em>
+is <code>C,"END OF REPORT",</code>.</p>
+<p>After stripping the header and footer, you will also need to drop the
+first 4 columns. These are metadata columns. (e.g. in this example,
+<code>DISPATCH</code> and <code>PRICE</code> tell you that this data is
+for the <code>DISPATCHPRICE</code> table. However most such mappings are
+less obvious. You should figure out which file goes where from the
+filename if you can.) The names of these metadata columns vary between
+tables. Note that there may be overlapping column names. Some tables
+have a name for the 2nd or 3rd column (which is metadata) which is the
+same as the name of another column later on (which is data).</p>
+<p>Here is an example of how to this with Pandas. This is how Nemosis
+parses CSVs. For the footer, it is parsed as an incomplete data row,
+with mostly <code>NaN</code>s, and then that last row dropped
+<em>after</em> reading. Since the footer is 3 columns, and we drop the
+first 4 columns anyway because they are metadata columns, this
+works.</p>
+<pre><code>import pandas as pd
+
+df = pd.read_csv(
+    &#39;SOMEFILE.ZIP&#39;,  # pandas can unzip if there is only one CSV inside
+    header=1, # skip first metadata row
+).iloc[:-1, 4:] # drop 4 metadata columns and footer</code></pre>
+<p>A safer way is to use <code>skipfooter=1</code>, but this is far
+slower because it requires <code>engine='python'</code>.</p>
+<pre><code>df = pd.read_csv(
+    &#39;SOMEFILE.ZIP&#39;, # pandas can unzip if there is only one CSV inside
+    header=1, # skip first metadata row
+    skipfooter=1, # skip footer
+    engine=&#39;python&#39;, # far slower, but required for skipfooter
+).iloc[:, 4:] # drop metadata columns</code></pre>
+<p>You could also read the whole file once (with Pandas or something
+else) to count the rows, then exclude the footer with
+<code>nrows</code>.</p>
+<p>If you prefer Polars to Pandas:</p>
+<pre><code>import polars as pl
+import polars.selectors as cs
+
+lf = (
+    pl.scan_csv(
+        &#39;SOMEFILE.CSV&#39;, # must be unzipped beforehand
+        skip_rows=1, # skip the header
+        comment_prefix=&#39;C,&quot;END OF REPORT&quot;,&#39; # skip the footer
+    )
+    .select(~cs.by_index(range(4))) # drop metadata columns
+)</code></pre>
+<p>In base R we can use <code>read.csv</code> with the same trick as for
+Pandas (reading the footer row as data, and then dropping it).</p>
+<pre><code>df &lt;- read.csv(
+  &quot;/tmp/example.CSV&quot;,
+  skip=1, # skip header metadata
+  header=TRUE, # next row has column names
+)[df[[1]] != &quot;C&quot;, -c(1:4)] # drop footer and metadata columns</code></pre>
+<p>To use <code>read_csv</code> from Tidyverse in R:</p>
+<pre><code>library(tidyverse)
+
+read_csv(&quot;example.CSV&quot;, skip=1) |&gt; 
+  filter(I != &quot;C&quot;) |&gt; # filter out metadata footer
+  select(-c(1:4)) # drop metadata columns</code></pre>
+<p>Note that in all the examples above, the column schema is inferred
+from the data by the library you use, based on the first thousand rows
+or so. For large data this might not work. In some AEMO CSVs, a
+particular column may have only integers for the first million rows, and
+then in row 1,000,001 the number has a decimal component, so cannot be
+parsed as an integer. An easy, but slow way to resolve this is to tell
+your library to scan the entire file to infer data types. Otherwise you
+will need to hard-code the schema for that particular column. (This can
+be a slow, iterative process when parsing multi-GB CSVs.)</p>
+<h4 id="file-format-details-and-other-data-files">File Format Details,
+And Other Data Files</h4>
+<p>For other AEMO data (e.g. the <a
+href="https://www.nemweb.com.au/REPORTS/ARCHIVE/">daily data</a>) the
+files are zips of many zips of many CSVs. (I have never seen AEMO
+publish zips of zips of zips. If you are programmatically unzipping
+nested zips, watch out for <a
+href="https://en.wikipedia.org/wiki/Zip_bomb">zip bombs</a>.)</p>
+<p>The daily files have a more complicated file structure. You should
+avoid parsing these unless you really want live data (within 5 minutes).
+In case you do, here is an example of such a file.</p>
+<pre><code>C,SETP.WORLD,DVD_DISPATCHPRICE,AEMO,PUBLIC,2025/10/08,09:02:27,001759878147550,MONTHLY_ARCHIVE,001759878147550
+I,DISPATCH,PRICE,5,SETTLEMENTDATE,RRP
+D,DISPATCH,PRICE,5,&quot;2025/09/01 00:05:00&quot;,1.1
+D,DISPATCH,PRICE,5,&quot;2025/09/01 00:10:00&quot;,2.2
+I,DISPATCH,REGIONSUM,3,REGIONID,SETTLEMENTDATE,TOTALDEMAND
+D,DISPATCH,REGIONSUM,3,NSW1,&quot;2025/09/01 00:10:00&quot;,5.6
+D,DISPATCH,REGIONSUM,3,QLD1,&quot;2025/09/01 00:10:00&quot;,7.8
+D,DISPATCH,REGIONSUM,3,VIC1,&quot;2025/09/01 00:10:00&quot;,9.0
+C,&quot;END OF REPORT&quot;,9</code></pre>
+<p>The interesting thing here is that the number of columns changes
+throughout the file, even after removing the header and footer. This is
+because each CSV file is actually several CSV files concatenated
+together. There are two chunks of data you want to extract:</p>
+<p><code>DISPATCHPRICE</code>:</p>
+<pre><code>SETTLEMENTDATE,RRP
+&quot;2025/09/01 00:05:00&quot;,1.1
+&quot;2025/09/01 00:10:00&quot;,2.2</code></pre>
+<p>and <code>DISPATCHREGIONSUM</code>:</p>
+<pre><code>REGIONID,SETTLEMENTDATE,TOTALDEMAND
+NSW1,&quot;2025/09/01 00:10:00&quot;,5.6
+QLD1,&quot;2025/09/01 00:10:00&quot;,7.8
+VIC1,&quot;2025/09/01 00:10:00&quot;,9.0</code></pre>
+<p>To process this, you must read line by line, and look at the first
+character, which will be <code>C</code>, <code>I</code> or
+<code>D</code>.</p>
+<ul>
+<li><code>C</code> means this is a 'control' row. Typically just the
+header or footer, although I have seen multiline headers in some obscure
+files. You should probably ignore all such lines.</li>
+<li><code>I</code> means this is an 'information' row. These rows
+contain the column headers of a new table.</li>
+<li><code>D</code> means this is a 'data' row. These rows contain the
+actual data.</li>
+</ul>
+<p>Again it is worth pointing out that mapping <code>DISPATCH</code> and
+<code>REGIONSUM</code> to <code>DISPATCHREGIONSUM</code> sounds
+straightforward, but it is often not. Sometimes it would be something
+like <code>DISPATCH_REGIONSUM</code>, sometimes it is something
+completely different (especially for bids).</p>
+<p>The 4th column is an integer. It is somehow related to the versioning
+of the schemas of each table. I do not understand it exactly, and have
+only seen one situation in all my years of working with this data where
+it mattered.</p>
+<p>The final row is used as a checksum. The integer is the number of
+rows in the overall file (including the header and footer). I am unsure
+how rows with escaped newlines are counted. I normally just ignore this.
+The only time I have seen a checksum mismatch was with data in this
+format from someone other than AEMO, who calculated the checksum
+excluding the footer. This checksum was put in because this system was
+designed back in the 1990s, when formats such as FTP could result in
+partial files being written to disk, and file processing commencing
+prior to the download finishing. With modern protocols such as HTTP over
+TCP, and especially with object storage such as AWS S3, getting only
+half a file is very unlikely. Even more so if you are splitting up your
+analysis script to first download all the files you want, then parse
+them, in the same process.</p>
+<h3 id="file-names">File Names</h3>
+<p>Many files have a <code>#</code> in the name. Note that if you are
+using a terminal (e.g. Bash on Linux), this will be treated as a
+comment. So instead of <code>cat my#file.CSV</code> do
+<code>cat "my#file.CSV"</code>, otherwise you will get &quot;File my not
+found&quot;. AEMO uses uppercase for file extensions. (<code>.CSV</code> and
+<code>.ZIP</code>, not <code>.csv</code>, <code>.zip</code>.)</p>
+<h3 id="reusing-the-http-connection">Reusing the HTTP Connection</h3>
+<p>Like for most webscraping and APIs, you should reuse the HTTP
+connection. This speeds up the download and reduces AEMO's server load
+(so they are less likely to take down the data one day).</p>
+<p>For example, if you are downloading all the price data with Requests
+in Python:</p>
+<pre><code>import requests
+
+data = []
+for year in range(2024, 2026):
+    for month in range(12):
+        url = f&quot;https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/{year}/MMSDM_{year}_{month}/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23DISPATCHPRICE%23FILE01%23{year}{month}010000.zip&quot;
+        resp = requests.get(url)
+        resp.raise_for_status()
+        data.append(resp.json())</code></pre>
+<p>There's a small trick you can use to improve this: <a
+href="https://docs.python-requests.org/en/latest/user/advanced/#session-objects"><code>requests.Session</code></a>!
+This looks like:</p>
+<!-- Use CSS to highlight changes -->
+<pre><code>import requests
+
+<span class="added">session = requests.Session()</span>
+data = []
+for year in range(2024, 2026):
+    for month in range(12):
+        url = f"https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/{year}/MMSDM_{year}_{month}/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23DISPATCHPRICE%23FILE01%23{year}{month}010000.zip"
+        resp = <span class="changed">session</span>.get(url)
+        resp.raise_for_status()
+        data.append(resp.json())
+</code></pre>
+<p>n intermittent</p>
+<p>I explained this in more detail <a
+href="../requests-session">here</a>.</p>
+<h3 id="retries">Retries</h3>
+<p>Nemweb's servers can be slow and unreliable. Try to add sleeps
+between requests, and have aggressive <a
+href="https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/">retries
+with delays and backoff</a>. (You do not want to leave a script running
+overnight to download data, only to find that it gave up after 5 minutes
+because of a timeout.)</p>
+<p>If you're using a <code>requests.Session</code>, this is simple:</p>
+<pre><code>from urllib3.util.retry import Retry
+import requests
+
+session = requests.session()
+
+retries = Retry(
+    total=4,
+    backoff_factor=2,
+    status_forcelist=[403, 429, 500, 502, 503, 504], 
+    allowed_methods=[&quot;HEAD&quot;, &quot;GET&quot;, &quot;OPTIONS&quot;]
+)
+adapter = requests.adapters.HTTPAdapter(max_retries=retries)
+for protocol in [&#39;http://&#39;, &#39;https://&#39;]:
+    session.mount(protocol, adapter)</code></pre>
+<p>Note that including <code>403</code> in a retry configuration is
+unusual. I added this because Nemweb often returns this as a throttling
+signal. So sleeping and retrying can resolve the error.</p>
+<h2 id="how-to-preprocess-the-data">How to preprocess the data?</h2>
+<h3 id="parsing-timestamps">Parsing Timestamps</h3>
+<p>Most timestamps are in the format <code>%Y/%m/%D %H:%M:%S</code>,
+e.g. &quot;2025/11/10 19:30:00&quot;. AEMO data never contains just a date. Where
+something is logically a date not a datetime, it will appear as a
+datetime at midnight at the start of that day.</p>
+<h3 id="special-characters">Special characters</h3>
+<p><code>DUID</code> is the identifier for a generator. Some DUIDs
+contain funny characters, such as <code>W/HOE#2</code> for Wivenhoe
+Power Station. This slash and hash can cause errors with misleading
+error messages. (e.g. if you are saving files to disk with hive
+partitioning on the <code>DUID</code> key.)</p>
+<p>There are a few obscure tables (which researchers do not normally
+look at, such as the Market Suspension Notices in
+<code>MARKETNOTICEDATA</code>) which contain newline characters within
+the cell values (escaped with double quotes around the whole value).
+Most CSV parsing libraries can handle this. I am mentioning it just in
+case you are trying to read the data with something simple like:</p>
+<pre><code>with open(&#39;data.CSV&#39;, &#39;r&#39;) as f:
+    headers = f.readline().strip().split(&#39;,&#39;)
+    for data_row in f:
+        cells = data_row.strip().split(&#39;,&#39;)</code></pre>
+<p>If you do that, it will work for the vast majority of tables, but not
+<code>MARKETNOTICEDATA</code>.</p>
+<p>Constraint identifiers have many funny characters
+(e.g. <code>#</code>, <code>&gt;</code>)</p>
+<h3 id="running-out-of-memory-with-polars">Running Out of Memory With
+Polars</h3>
+<p>Sometimes when you query data with Polars, you may run out of memory,
+even when the query seems small. To prevent this:</p>
+<ul>
+<li>Pass <code>low_memory=True</code> to
+<code>scan_parquet()</code></li>
+<li>Even if the resulting dataframe is small enough to just call
+<code>.collect()</code>, stream to a Parquet file on disk, then read it
+back. For some reason this may use far less memory. This is particularly
+useful for intermediate queries where you just use <code>.head()</code>
+instead of an aggregation. (Polars is still a new library. They made
+some changes to their streaming engine since I discovered this
+trick.)</li>
+<li>Add <em>swap</em>. (On Linux you can even create a file and register
+it as swap memory.)</li>
+</ul>
+<div class="callout warning">
+<p>Vertical scaling (switching to a larger computer) might not prevent
+you from running out of memory.</p>
+<p>Polars uses all CPU cores by default. If the bigger computer has more
+cores, each core consumes memory, so the total memory usage will go
+up.</p>
+<p>You can tell Polars to use fewer cores with the <a
+href="https://docs.pola.rs/api/python/stable/reference/api/polars.thread_pool_size.html"><code>POLARS_MAX_THREADS</code></a>
+environment variable.</p>
+</div>
+<h2 id="how-to-query-and-understand-the-data">How to Query and
+Understand the Data</h2>
+<h3 id="units">Units</h3>
+<p>If no units are specified in the schema documentation or the column
+name itself, power is usually megawatts (<code>MW</code>), and energy is
+megawatt hours (<code>MWh</code>).</p>
+<h3 id="deduplication">Deduplication</h3>
+<p>The MMS dataset has hundreds of tables. Some of them are append-only
+(e.g. <code>DISPATCHPRICE</code>). For some reference data, the same
+dataset is republished every month, so that you can still have a usable
+dataset if you only download the latest month of zip files. For some
+data, some or all rows change regularly, in a way where they should
+<em>overwrite</em> previous rows. This is only a minority of tables.
+(AEMO normally errs on the side of providing higher-dimension data with
+version history).</p>
+<p>I have seen one particular month where the CSVs for some tables
+overlapped with the prior month by one interval.</p>
+<p>One of the main benefits of <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report.htm">PDR
+Loader</a> is that it will do this insert/update for you. If you are
+doing something else (e.g. <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/">Nemosis</a>) then I
+recommend doing some exploratory queries to check whether the unique
+primary keys are indeed unique.</p>
+<p>The <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report.htm">schema
+documentation</a> lists &quot;Primary Key Columns&quot; and &quot;Index Columns&quot; for
+each table. Using Pandas/Polars/SQL you can deduplicate based on those.
+(Typically you should choose the one with the latest
+<code>LASTCHANGED</code> value.)</p>
+<p>If you have unexpected duplicates, check for an <a
+href="#intervention"><code>INTERVENTION</code> column</a>.</p>
+<h3 id="missing-data">Missing Data</h3>
+<p>If you find a table in the schema documentation for which you cannot
+find the data (or it appears empty), it may be only published privately.
+(e.g. each generator sees the data for themselves. The public files are
+empty.) Sometimes the public/private classification applies in a
+row-wise way. (e.g. some <a href="#constraints">constraint</a> data is
+private.)</p>
+<p>To find out if a table is public, the <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report.htm">documentation</a>
+for each table should say. You can also check <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/">the
+list of monthly MMSDM files</a>.</p>
+<p>Sometimes columns are always empty. This could be because they have
+been deprecated, or maybe they will be populated in the future.
+Sometimes you just need to look at the actual data to find out if its
+empty.</p>
+<p>Sometimes data is just missing for one table for one month. (It may
+be present for the prior and subsequent month.) Different tables only go
+back historically to different starting points. This may be because that
+is what AEMO decided to publish. It may also be because that is when the
+relevant rules or schema changed.</p>
+<p>If you cannot find data for a particular generator, that may be
+because it is <a
+href="#scheduled-vs-non-scheduled">non-scheduled</a>.</p>
+<h3 id="understanding-timestamps">Understanding Timestamps</h3>
+<div class="callout tip">
+<p>Timestamps generally refer to the <em>end</em> of the period, not the
+start.</p>
+</div>
+<p>e.g. a <code>SETTLEMENTDATE</code> of &quot;2025/01/02 03:05:00&quot; refers to
+the period from 3:00 to 3:05.</p>
+<p>Pay attention to the documented definition of each field. For some
+power values it is the average across the 5 minute period. For most
+power values it is an instantaneous power value at the end or start of
+the period.</p>
+<p><code>INITIALMW</code> refers to the power at the start of the
+period. <code>TOTALCLEARED</code> refers to the power at the end of the
+interval. &quot;Cleared&quot; refers to what AEMO instructs or predicts. AEMO's
+plan is that generators will take the entire period to adjust their
+output, linearly. This is described in more detail in <a
+href="../diagonal-dispatch">my thesis</a>.</p>
+<p>Some fields are logically dates not datetimes. However they will
+still appear in the data as datetimes, at midnight at the start of the
+day.</p>
+<h3 id="timezones">Timezones</h3>
+<div class="callout tip">
+<p>All timestamps are in &quot;market time&quot;,
+i.e. <code>Australia/Brisbane</code>, <code>UTC+10</code>, with no
+daylight savings,</p>
+</div>
+<p>This is true even for data which applies to regions in other time
+zones.</p>
+<p>(Note that if Queensland ever adopts daylight savings, it is likely
+that a lot of IT systems in the electricity sector will break in a Y2K
+kind of way, because many people configure the timezone as
+<code>Australia/Brisbane</code> when it is <em>technically</em> supposed
+to be <code>UTC+10</code>.)</p>
+<h3 id="vs-30-minutes">5 vs 30 minutes</h3>
+<p>The NEM operates on a 5 minute schedule. This was not always the
+case. Prior to October 1st 2021 there was a mix of 5 and 30 minutes.
+Bids were submitted with 5 minute granularity, and were evaluated every
+5 minutes, to produce a &quot;dispatch price&quot; every 5 minutes, and tell
+generators what power level to generate at every 5 minutes. However
+generators were <em>paid</em> based on the half-hour average of 6
+5-minute prices, called the &quot;trading price&quot;. (This was a historical
+design choice, from when computers were less powerful.) This led to some
+perverse distortions, where after a ceiling price event (e.g. + 15,000
+$/MWh), every generator would bid to the floor (- 1,000 $/MWh) for the
+remainder of the half hour, because the <em>average</em> would still be
+very high. So if you are querying data from prior to October 1st 2021,
+check each table to see whether the frequency of rows changes to
+half-hourly back then.</p>
+<p>Even today, some tables still have a half-hour granularity.
+(e.g. some price forecasts, and rooftop solar power). So always check
+the data before writing your queries.</p>
+<h3 id="region-id">Region ID</h3>
+<p>Regions are the states of the NEM.</p>
+<ul>
+<li><code>QLD1</code>: Queensland</li>
+<li><code>NSW1</code>: New South Wales and the ACT, lumped into one
+region (same price)</li>
+<li><code>VIC1</code>: Victoria</li>
+<li><code>TAS1</code>: Tasmania</li>
+<li><code>SA1</code>: South Australia</li>
+</ul>
+<p>Note that all the regions end in <code>1</code>. If you find your
+query returns empty results, make sure you did not filter by just
+<code>NSW</code>, but instead <code>NSW1</code>. This <code>1</code> is
+because they thought that one day in the future regions might be split
+up.</p>
+<p>The only time I have seen regions ending in something other than
+<code>1</code> is in <code>ROOFTOP_PV_ACTUAL</code>. That contains
+<code>QLD1</code> (all of Queensland) as well as <code>QLDC</code>,
+<code>QLDN</code>, <code>QLDS</code>. My guess is that these are
+Central, Northern and Southern Queensland.</p>
+<p>I have seen some older data with <code>SNOWY1</code>. This region was
+merged into <code>NSW1</code> many years ago.</p>
+<h3 id="duid-genset-id-etc">DUID, Genset ID etc</h3>
+<p><code>DUID</code> is the identifier for each generator, battery, and
+scheduled loads.</p>
+<div class="callout warning">
+<p>Watch out: <code>DUID</code>s (generator identifiers) may contain <a
+href="#special-characters">funny characters</a> such as <code>/</code>
+and <code>#</code>, which might need to be escaped</p>
+</div>
+<p>For some data you have different granularities.</p>
+<ul>
+<li>&quot;Participant&quot; is the highest level entity. This is a legal
+corporation, which may own several generators and retailers. Although
+note that a single company like AGL may actually have many
+<code>PARTICIPANTID</code>s (<code>AGLPARFQ</code>,
+<code>AGLSHYDR</code>, <code>AGLE</code> etc), probably reflecting
+different holding companies/special purpose vehicles.</li>
+<li>&quot;Station&quot; is a generator, in the common-sense understanding.
+e.g. there would be one wikipedia page per station.</li>
+<li><code>DUID</code> is a dispatchable unit. Most market data is at
+this level.</li>
+<li>&quot;Genset&quot; (<code>GENSETID</code>) is a part of a dispatchable
+unit.</li>
+</ul>
+<p>For example, the Coopers Gap Wind Farm has
+<code>STATIONID = COOPGWF</code>, containing one <code>DUID</code>
+(<code>COOPGWF1</code>). This contains two <code>GENSETID</code>s
+(<code>COOPGWF1</code> and <code>COOPGWF2</code>). Until 2024, the
+<code>PARTICIPANTID</code> was <code>AGLPARFQ</code>, i.e. AGL. Then it
+changed to <code>COOPGWF</code>. (This is a good example of how
+seemingly static reference data can change over time.)</p>
+<p>Relevant tables for joining these together are
+<code>DUDETAILSUMMARY</code>, <code>DUDETAIL</code>,
+<code>DUALLOC</code>, <code>STATION</code>, <code>STATIONOWNER</code>.
+Most stations have only one <code>DUID</code>. Most <code>DUID</code>s
+have only one Genset.</p>
+<h3 id="generator-fuel-type">Generator Fuel Type</h3>
+<p>The fuel type (e.g. coal vs solar) of each generator can be found in
+the list of <a
+href="https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/participate-in-the-market/registration">registered
+participants</a> (file &quot;NEM Registration and Exemption List&quot;, sheet &quot;PU
+and Scheduled Loads&quot;). There are multiple columns relating to fuel type,
+with quite varied, detailed, inconsistent and misspelled values. You
+will probably need to hard code some if statements to classify these
+into something simpler.</p>
+<div class="callout warning">
+<p>Watch out: If a generator's fuel type includes the substring &quot;gas&quot;,
+it might be &quot;biogas&quot; or &quot;landfill gas&quot;, which is biofuel not natural
+gas. If a generator's fuel type includes the word &quot;coal&quot;, it might be
+&quot;coal seam gas&quot;, which is gas not coal.</p>
+</div>
+<h3 id="intervention">Intervention</h3>
+<p>AEMO takes all generators' bids, transmission line constraints,
+demand forecasts etc, and they plug it into a big linear optimiser
+called the NEM Dispatch Engine (NEMDE), which finds the economically
+optimal solution. (e.g. Maybe the grid cannot get power from the
+cheapest generator to the consumer, so a more expensive generator
+elsewhere is used instead.) Sometimes the complexity of the electrical
+grid cannot be represented nicely in mathematics. In those cases AEMO
+manually intervenes to tweak the results. This is called &quot;Intervention&quot;.
+The data often contains both the pure-math result, and the actual
+result. Unless you are researching Interventions specifically,
+<strong>if a table contains an <code>INTERVENTION</code> column, you
+should filter by <code>INTERVENTION == 0</code>, dropping
+<code>1</code>.</strong> Interventions are rare, but the values in
+<code>INTERVENTION==1</code> rows may be drastically different to the
+<code>INTERVENTION==0</code> rows.</p>
+<div class="callout tip">
+<p>Remember: If a table contains an <code>INTERVENTION</code> column,
+you probably want to keep only <code>INTERVENTION==0</code></p>
+</div>
+<p>There is a slightly different adjustment called &quot;Direction&quot;, which is
+harder to see in the data. If you find 'out of merit' dispatch
+happening, Directions and Interventions are one reason why. e.g. A huge
+amount of gas generation in South Australia happens when the price is
+below the gas generators' bid/cost, because there is a requirement to
+always have a minimum amount of gas generation running. (As an aside,
+this metric is crudely defined, and this limit drastically limits the
+decarbonisation impact of additional solar and wind, yet was notably
+absent from the discussion about nuclear power.)</p>
+<h3 id="rrp">RRP</h3>
+<div class="callout tip">
+<p><code>RRP</code> is the energy price.</p>
+</div>
+<p>It does <em>not</em> stand for &quot;recommended retail price&quot;. It stands
+for &quot;Regional Reference Price&quot;.</p>
+<p><code>ROP</code> is the &quot;Regional Override Price&quot;. This is a
+counterfactual price which was not used because some adjustment was
+made. (I am not sure by what. I think this is related to interventions
+or directions.)</p>
+<p>Within a region (e.g. within NSW), transmission constraints may
+hinder the ability to transmit power from one generator to a load in the
+same region. &quot;Local prices&quot; incorporate transmission constraints to
+provide the theoretical marginal cost of increasing power at each node
+in the network. However (for now) generators are not paid this price.
+This price is useful only to understand why generators may be
+constrained on (forced to generate even when paid less than their bid)
+or constrained off (forced to not generate even though their bid is
+lower than what they will be paid). The controversial &quot;COGATI&quot; proposal
+is to transform the NEM into a nodal network, such that generators are
+paid the local price, not regional price. That debate is outside of the
+scope of this article. Just note that this has not come into effect at
+the time of writing (late 2025), and is unlikely to be implemented
+within the next few years.</p>
+<p>You can find an explanation of price setting in <a
+href="https://wattclarity.com.au/articles/2019/02/a-preliminary-intermediate-guide-to-how-prices-are-set-in-the-nem/">Watt
+Clarity</a>.</p>
+<h3 id="importexport">Import/Export</h3>
+<p>Interconnectors are the transmission links between the regions.
+Sometimes they are the kind of transmission line you would expect, with
+a few cables strung between a line of towers. Sometimes they are more of
+an abstraction over several smaller lines, as a <a
+href="https://wattclarity.com.au/articles/2019/03/price-setting-concepts-an-explainer/">&quot;hub
+and spoke&quot; simplification</a>.</p>
+<p>Interconnectors are bidirectional. The convention for the sign and
+direction is:</p>
+<div class="callout tip">
+<p>Positive export values mean that power is flowing <strong>away from
+Tasmania</strong>.</p>
+</div>
+<ul>
+<li>TAS1 to VIC1</li>
+<li>VIC1 to SA1</li>
+<li>VIC1 to NSW1</li>
+<li>NSW1 to QLD1</li>
+</ul>
+<p>Negative values are the opposite direction.</p>
+<h3 id="losses">Losses</h3>
+<p>You may see terms such as &quot;marginal loss factor&quot; (MLF), &quot;transmission
+loss factor&quot; (TLF) or &quot;distribution loss factor&quot; (DLF).</p>
+<p>Even within one region, power generated by one generator will be
+partially lost in transmission before reaching the consumer. MLF and TLF
+account for this. The real grid topology is very complex, so AEMO models
+the grid as a &quot;hub and spoke&quot; model, where all loads and generators are
+directly connected with individual, lossy lines to an imaginary central
+reference node within each region. In this model</p>
+<p>Loss factors are typically slightly smaller than 1. Sometimes they
+are exactly 1 (e.g. a generator connected directly to the transmission
+network instead of a distribution network will have a DLF of 1.) In rare
+cases they may be slightly about 1.</p>
+<p>AEMO has already applied these loss factors to most data, which
+appears as if the generator were at the regional reference node. So you
+can generally ignore it. One case where you would care is if you want to
+know how much a generator provided including power lost in transmission,
+as opposed to knowing how much <em>usable</em> power there is. You would
+have to divide the power values in tables such as
+<code>DISPATCHUNITSCADA</code> by a loss factor in
+<code>DUDETAILS</code>. Another context is when dealing with private
+settlement data (e.g. <code>SETGENDATA</code>). This is described in
+more detail in <a
+href="https://wattclarity.com.au/articles/2019/03/price-setting-concepts-an-explainer/">Watt
+Clarity</a>.</p>
+<h3 id="trk-tables">TRK Tables</h3>
+<p>There are many table names ending in <code>TRK</code>. These contain
+metadata about version history. (e.g. <code>STATIONOWNERTRK</code>
+contains version history metadata for <code>STATIONOWNER</code>.) You
+probably do not need to look at them.</p>
+<h3 id="bids">Bids</h3>
+<p>Bidding data is quite difficult to query, mostly because it is a
+tremendously large volume. (Terabytes, when in uncompressed CSVs.) So if
+you are planning on using some simple Pandas code, think again. You
+probably need something more advanced. (Polars on a laptop
+<em>might</em> be sufficient, if you are careful with memory management.
+I listed some tips <a
+href="#running-out-of-memory-with-polars">earlier</a>.) I might write
+another blog post focusing on bidding data. Let me know if you are
+interested. For now, here are some preliminary notes.</p>
+<p>I already described some of the timing and structure of bids in <a
+href="#predispatch-is-not-a-day-ahead-market">an earlier
+section</a>.</p>
+<p>The relevant tables are <code>BIDDAYOFFER</code>,
+<code>BIDOFFERPERIOD</code>, <code>BIDPEROFFER_D</code>,
+<code>BIDDAYOFFER_D</code>, <code>BIDPEROFFER</code>.</p>
+<ul>
+<li>All bids are published, publicly, but with a delay. (Off the top of
+my head it is a few hours, or perhaps days.)</li>
+<li>Since bidding data is large, it is often split into many files on
+Nemweb. This splitting process varies across time. So you must enumerate
+the file list from the parent URL before downloading them. (Thankfully
+the HTML on that file list web page is very parse-able and stable.)</li>
+<li>If a generator wants to rebid one interval, they must re-submit a
+file for every interval of the day. This ends up in the data. So there
+is a huge amount of duplication. AEMO have started publishing only the
+rows which change. They have done this since I last worked with bidding
+data closely, so I do not know the details. I <em>suspect</em> that the
+tables or files with names ending in <code>_D</code> are the
+deduplicated ones. (Perhaps the distinction only exists in the files on
+Nemweb, and not in the schema documentation.)</li>
+<li>For every rebid, <em>one</em> row (per rebid, per generator) appears
+in <code>BIDDAYOFFER</code> (with timestamps, rebid reason, rebid
+category and price bands), and then many rows (one per interval of the
+trading day) appears in <code>BIDOFFERPERIOD</code> (with ten columns
+containing the bid volumes for each band). <code>BIDOFFERPERIOD</code>
+is the extraordinarily large table.</li>
+<li>Since <a href="#5-vs-30-minutes">5 minute settlements</a> were
+introduced, the bid metadata has expanded to many more timestamps.</li>
+<li>Some timestamps submitted by participants in their bids are not
+validated by AEMO. AEMO allows generators to submit bids which do not
+comply with the timestamp specification. So every millionth row may
+cause an error when you're using <code>strptime</code>.</li>
+<li>Similarly, AEMO does not validate/coerce the rebid reason. I have
+seen a few bids which use a lowercase <code>f</code>, instead of the
+standard <code>F</code>. So if you are trying to use an enum to optimise
+your code, you will get an error when processing such rows. (So then you
+have to adjust your code to coerce to uppercase, and run it again, which
+takes a long time.)</li>
+<li>Some of the bidding data contains millisecond granularity, and some
+bidding fields contain a time without a date. For the times without a
+date, sometimes it is actually ambiguous which date it is, so you must
+guess with heuristics. This was an oversight (by the AER not AEMO, as
+far as I am aware).</li>
+<li>The CSVs from AEMO are compressed. If you convert to Parquet, that
+is also compressed. Compression works well for things like timestamps
+and DUIDs, which repeat or overlap a lot. However for rebid reasons,
+these are long strings which may vary a lot. Therefore I suggest that
+unless you know you will need them, you should drop them when converting
+from CSV. Note that the rebid <em>category</em> is a single character,
+which is good enough for most purposes. The human-readable explanation
+sentence is hard to do any automated analysis on.</li>
+<li>Bidding data includes FCAS. If you do not care about FCAS for your
+analysis, you should filter to only include
+<code>BIDTYPE = ENERGY</code>. If doing this when converting from CSV to
+Parquet, you will save a lot of space.</li>
+</ul>
+<div class="callout warning">
+<p>Sometimes the filenames for bidding data files on Nemweb are for a
+different bidding table to the contents of that file.</p>
+<p>Check the column names against the schema documentation to confirm
+which table it is.</p>
+</div>
+<p>If you want just the price bands for a given day, find the row in
+table <code>BIDDAYOFFER</code> with the largest <code>OFFERDATE</code>,
+for a given tuple of <code>DUID</code>, <code>BIDTYPE</code>,
+<code>DIRECTION</code>, <code>DUID</code>,
+<code>SETTLEMENTDATE</code>.</p>
+<p>If you want to look at the actual bid volumes, use
+<code>BIDOFFERPERIOD</code>. <code>TRADINGDATE</code> is a date (even if
+it looks like a datetime), referring to the <em>trading</em> day, which
+goes from 4:00-4:05 am to 3:55-4:00 am the next calendar day. So this
+does not align to calendar days. You should construct a datetime at 4am
+on that date, then add 5 minutes multiplied by <code>PERIODID</code>.
+Then you must delete rows in the past
+(<code>OFFERDATETIME &gt;= INTERVAL_START</code>). Then to deduplicate,
+find the row with the largest <code>OFFERDATETIME</code> for each
+<code>DUID</code>, <code>BIDTYPE</code>, <code>INTERVAL_START</code>.
+Note that this last step requires a <em>lot</em> of memory, even if you
+deduplicate each month individually. (I err on the side of caution by
+deduplicating on a per-month basis, not per file, if there are many
+files per month.) Then join each row with <code>BIDDAYOFFER</code> to
+get the 10 price bands that each of the 10 volumes corresponds to.</p>
+<h2 id="common-queries">Common Queries</h2>
+<h3 id="average-price">Average Price</h3>
+<p>Here is an example of how to find the unweighted average price in
+each region, using Nemosis and Pandas. The energy prices are available
+in table <code>DISPATCHPRICE</code>.</p>
+<div class="code-snippet">
+<p><a href="./examples/avg-price.py"><code>avg-price.py</code></a></p>
+</div>
+<p>This yields:</p>
+<pre><code>INFO: Compiling data for table DISPATCHPRICE
+INFO: Returning DISPATCHPRICE.
+REGIONID
+NSW1     96.937920
+QLD1     82.126428
+SA1     164.951991
+TAS1    117.847834
+VIC1     82.122759
+Name: RRP, dtype: float64</code></pre>
+<p>I recommend explicitly checking that the dataframe starts and ends
+when you expect. It is easy to get an off-by-one error.</p>
+<h3 id="revenue-skewness">Revenue Skewness</h3>
+<p>Here is an example of how outliers drive generator revenue. The
+objective of this query is to find the numbers for the following claim:
+&quot;Half of all generators' energy revenue each year comes from only x% of
+trading intervals.&quot;</p>
+<p>Note that here I am excluding FCAS revenue.</p>
+<p>We can get energy prices from <code>DISPATCHPRICE</code>, and energy
+per generator per interval from <code>DISPATCH_UNIT_SCADA</code>.
+(<code>DISPATCHLOAD</code> also contains energy measurements per
+generator per interval. However it contains a lot more data too, so the
+files are far bigger.) The docs for <code>DISPATCH_UNIT_SCADA</code> say
+<code>SCADAVALUE</code> is the &quot;Instantaneous MW reading from SCADA at
+the start of the Dispatch interval&quot;. I will use linear interpolation to
+join the dots. For most cases this is good enough. In practice the power
+level of generators does meander from this diagonal line. (e.g. data
+lags mean that generators may have a constant output for the first 30
+seconds or so, then ramp to their next level.) If you want more exact
+data, you can use the 4 Second SCADA data. That is very large
+though.</p>
+<p>For this example I will download the data with Nemosis, and then
+query it with Polars.</p>
+<p>I sink the result to a Parquet file, then read them back. This may
+seem unnecessary, but this is <a
+href="#running-out-of-memory-with-polars">a trick to reduce memory
+consumption</a>. (This query uses a lot of memory for a normal sized
+laptop.) Similarly, I did not really <em>have</em> to parse the
+timestamps. Doing so reduces the memory footprint of the join.</p>
+<div class="code-snippet">
+<p><a href="./examples/price-skew.py"><code>price-skew.py</code></a></p>
+</div>
+<p>This yields:</p>
+<table>
+<thead>
+<tr>
+<th><code>REGIONID</code></th>
+<th><code>FRAC_TIME</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SA1</code></td>
+<td>0.05997</td>
+</tr>
+<tr>
+<td><code>NSW1</code></td>
+<td>0.085669</td>
+</tr>
+<tr>
+<td><code>QLD1</code></td>
+<td>0.108968</td>
+</tr>
+<tr>
+<td><code>VIC1</code></td>
+<td>0.113849</td>
+</tr>
+<tr>
+<td><code>TAS1</code></td>
+<td>0.131157</td>
+</tr>
+</tbody>
+</table>
+<p>i.e. In 2024, generators in South Australia earned half of their
+revenue during the best 6% of the time.</p>
+<h3 id="rooftop-solar">Rooftop Solar</h3>
+<p>Unlike most generation, rooftop solar is not directly measured. (Even
+in Victoria, where smart meters are mandatory.) Instead AEMO estimates
+how much power is, was or will be generated by rooftop solar. Typically
+AEMO (and most grid operators) treat solar power as negative
+consumption, due to the unique data provenance. This leads to funny
+things like &quot;negative&quot; demand.</p>
+<div class="callout tip">
+<p>For most analysis, I recommend doing the work to get rooftop solar
+data, and adding it to large-scale generation.</p>
+</div>
+<p>Suppose you want to analyse some data from Australia's national
+electricity market, to see our current fuel mix. To figure out the fuel
+mix, you take the per-generator power <code>DISPATCH_UNIT_SCADA</code>
+(or <code>DISPATCHLOAD</code>), and join that to a list of generators
+with fuel type and region (e.g. the <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/wiki/AEMO-Tables#generators-and-scheduled-loads-generators-and-scheduled-loads">participant
+registration list</a>). Then you can do a simple group by and sum up the
+energy. You will find that 8.4% of South Australia's generation in 2024
+was from solar. But this is actually not correct. Once you add rooftop
+solar, you see that actually 28.4% of South Australia's generation in
+2024 was from solar. Without that, you would be wrong by a factor of
+3.</p>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen title="Embedded post">
+<a href="https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAByP1T4BC3Cgz448qtc97FMGsQ5F73YK4Tg" target="_blank" >
+LinkedIn Post </a>
+</iframe>
+<p>Rooftop solar data takes a bit of work to get. It is 30 minute
+granularity. So do not forget to upsample it. If you append it to
+large-scale generation data without upsampling, you will have 0 for 5
+out of every 6 intervals.</p>
+<p>You should filter out <code>REGIONID</code>s which do not end in
+<code>1</code>, as described <a href="#region-id">earlier</a>.</p>
+<p>There are also overlapping rows because data comes from several
+different estimation methods, in column <code>TYPE</code>:
+<code>DAILY</code>, <code>MEASUREMENT</code>, <code>SATELLITE</code>.
+<code>SATELLITE</code> is the most accurate, so take that if it is
+available. <code>MEASUREMENT</code> is the next most accurate. Luckily
+this is reverse alphabetical order. <code>QI</code> is a quality
+indicator. I am unsure, but I think you should take the best
+<code>TYPE</code>, and then break ties by taking the highest
+<code>QI</code>.</p>
+<p>As an example, here is how to get deduplicated 5-minute rooftop solar
+data with Polars:</p>
+<div class="code-snippet">
+<p><a href="./examples/rooftop-pv.py"><code>rooftop-pv.py</code></a></p>
+</div>
+<p>Unfortunately upsampling from 30 minutes to 5 minutes generally
+requires that you have all the data in memory. For Polars this means you
+can't stream, so I call <code>.collect()</code> first. This particular
+table is small enough that this is generally not a problem. If it is a
+problem, or just too fiddly, a workaround is to duplicate the data 6
+times, adding 5 × N minutes to each timestamp, then concatenating them
+vertically. (Making sure that you duplicate power, not energy.)</p>
+<h3 id="price-predictions">Price Predictions</h3>
+<p>We can obtain AEMO's price predictions (including the history of
+predictions made at various times for a given period) from &quot;predispatch&quot;
+data. The process behind this was explained <a
+href="#predispatch-is-not-a-day-ahead-market">earlier</a>.</p>
+<p>There are 3 relevant tables. <code>P5MIN_REGIONSOLUTION</code> and
+<code>PREDISPATCH</code> both contain a history of price predictions.
+This can be tricky to get your head around at first. Read the section
+earlier about <a href="#two-dimensional-time">two-dimensional
+time</a>.</p>
+<ul>
+<li><code>DISPATCHPRICE</code> contains the actual, final price. (Do not
+forget to filter to include only <code>INTERVENTION==0</code>)</li>
+<li><code>P5MIN_REGIONSOLUTION</code> contains predictions for the next
+hour or so, at 5 minute granularity. There are three datetime columns.
+<code>INTERVAL_DATETIME</code> is the end of the 5-minute period which
+the prediction was made <em>for</em>. <code>RUN_DATETIME</code> is the
+end of the 5-minute period when the prediction was published.
+<code>LASTCHANGED</code> is the exact time when the prediction was made.
+(<code>RUN_DATETIME</code> is just <code>LASTCHANGED</code> rounded up
+to the next 5 minute mark.)</li>
+<li><code>PREDISPATCHPRICE</code> contains <code>DATETIME</code> (the
+end of the 5-minute period which the prediction applies to) and
+<code>LASTCHANGED</code> (when the prediction was generated).
+<code>PREDISPATCHSEQNO</code> is related to <code>LASTCHANGED</code>
+rounded up to the next 5 minutes, but in a format which is a bit awkward
+to use. Do not forget to filter to include only
+<code>INTERVENTION==0</code>. <code>RRP</code> is the price column.
+Although the precise meaning is a bit nuanced. See <a
+href="https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-1-the-invisible-5-minute-trading-periods/">this
+article</a> and <a
+href="oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/">this
+article</a>. It is really every 6th 5-minute price. So my view is that
+you should linearly interpolate between these (based on interval end) to
+get the full 5 minute predictions. These predictions are only revised
+every half hour.</li>
+</ul>
+<p>You can read more about how far the data extends and the different
+granularities in <a
+href="https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/">Watt
+Clarity</a>.</p>
+<p>These tables overlap. The <code>P5MIN_REGIONSOLUTION</code> contains
+'predictions' made in the same interval they apply to. This is what
+<code>DISPATCHPRICE</code> does (which are definite, final prices, not
+predictions). Given the timestamps, you would expect that
+<code>P5MIN_REGIONSOLUTION</code> is exactly the same as
+<code>DISPATCHPRICE</code> for rows where
+<code>INTERVAL_DATETIME == RUN_DATETIME</code>. However there are some
+slight approximations made in predispatch calculations, to speed things
+up. So predispatch is not <em>exactly</em> the same algorithm as
+dispatch. Thus <code>P5MIN_REGIONSOLUTION</code> may be wrong for
+<code>INTERVAL_DATETIME == RUN_DATETIME</code>. So choose
+<code>DISPATCHPRICE</code> for those rows.</p>
+<p>There is also an overlap between <code>P5MIN_REGIONSOLUTION</code>
+and <code>PREDISPATCHPRICE</code> (even before interpolating). When this
+happens, use <code>P5MIN_REGIONSOLUTION</code>. So for each interval the
+prediction was made for, for each interval the prediction was made in,
+if there are multiple rows, choose <code>DISPATCHPRICE</code>, then
+<code>P5MIN_REGIONSOLUTION</code>, then <code>PREDISPATCHPRICE</code>.
+This is a good approach for operational queries, where you just filter
+for predictions for the next interval. (This approach is robust because
+if data is missing from one table, you'll get the next best thing from
+another.) For analytic queries, this data is large. In that case, doing
+a join and deduplication (e.g. vertical concatenation, then group by the
+two timestamp columns, sort etc) is very expensive (i.e. your laptop
+will run out of memory). So you can filter each table instead with
+conditions about the distance between the two time columns.</p>
+<ul>
+<li><code>DISPATCHPRICE</code> for the actual price</li>
+<li><code>P5MIN_REGIONSOLUTION</code>: filter to
+<code>RUN_DATETIME</code> &lt; <code>INTERVAL_DATETIME</code>, to get
+medium-term, 5-minute granularity forecasts, up to 2 hours in advance.
+e.g. the earliest prediction for the 01:00-01:05 interval
+(<code>INTERVAL_DATETIME</code> 01:05) is published in the 00:00-00:05
+interval (e.g. <code>LASTCHANGED</code> 00:00:30)</li>
+<li><code>PREDISPATCHPRICE</code>: filter to
+<code>LASTCHANGED &lt; DATETIME - 1 hour</code>. i.e. predictions made
+more than 1 hour in advance.</li>
+</ul>
+<p>If these last few paragraphs were unclear, just read the code in
+example below.</p>
+<p>Most <code>PREDISPATCH*</code> tables are very large. So there is a
+subset of each <code>PREDISPATCH*</code> table in the normal
+<code>DATA</code> folder on Nemweb. The full dataset is in
+<code>../PREDISPATCH_ALL_DATA</code> (as mentioned <a
+href="#where-is-the-data">earlier</a>):</p>
+<p>e.g.</p>
+<p><a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_10/MMSDM_Historical_Data_SQLLoader/PREDISP_ALL_DATA/PUBLIC_ARCHIVE%23PREDISPATCHPRICE%23ALL%23FILE01%23202510010000.zip"
+class="uri">https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_10/MMSDM_Historical_Data_SQLLoader/PREDISP_ALL_DATA/PUBLIC_ARCHIVE%23PREDISPATCHPRICE%23ALL%23FILE01%23202510010000.zip</a></p>
+<p>This is true even for <code>PREDISPATCHPRICE</code>, even though it
+is a moderate size.</p>
+<div class="code-snippet">
+<p><a
+href="./examples/prediction-convergence.ipynb"><code>prediction-convergence.ipynb</code></a></p>
+</div>
+<p>In this example I try to analyse how AEMO's price predictions get
+more/less accurate depending on how far in advance they are made.
+Specifically I compare whether the predictions are on the correct side
+of 0 $/MWh. I expected them to get monotonically better (i.e. downward
+sloping graph), but that is not the case. The rise around 24 hours shows
+that the closer we get to the time period AEMO is predicting, the worse
+the predictions get (for some regions, for some hours out, for this
+particular definition of &quot;worse&quot;).</p>
+<p><a href="examples/results-2.svg"><img src="examples/results-2.svg"
+alt="Graph" /></a></p>
+<h3 id="grouping-by-fuel-type">Grouping By Fuel Type</h3>
+<p>TODO</p>
+<h3 id="emissions-data">Emissions Data</h3>
+<p>There is daily region-level emissions, and per-generation emissions
+intensity data in the <a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/"><code>CDEII</code>
+subdirectory</a> of the <a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/">realtime
+data</a> folder. (I do not know what the acronym <code>CDEII</code>
+means.)</p>
+<p><a href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/"
+class="uri">https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/</a></p>
+<p>Whilst most of the realtime data is <a
+href="#file-format-details-and-other-data-files">harder to parse</a>
+than the monthly data, thankfully this data is only one table per CSV
+(with a <a
+href="#quick-file-format-explanation-for-monthly-mmsdm-data">header,
+footer and 4 metadata columns</a>.)</p>
+<p>The emissions intensity of generators (a static value representing
+the average emissions per unit of energy) is published in this folder as
+<a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/CO2EII_AVAILABLE_GENERATORS.CSV"><code>CO2EII_AVAILABLE_GENERATORS.CSV</code></a>.
+You could join this with generator-level power data to get
+generator-level emissions. In theory you can do this at a 5 minute
+granularity. However you should smooth things out to a larger timescale
+before interpreting, because this is <em>average</em> emissions
+intensity. e.g. coal generators emit a lot of CO<sub>2</sub> when
+starting up, hours before the export the first MWh, and the efficiency
+depends on the power level. (More generally, you should be very wary of
+any causal inference at the 5 minute level. Fossil fuel generators and
+<a href="../diagonal-dispatch/">even wind/solar/batteries</a> make
+decisions over time with dynamic constraints. Intervals are not really
+independent.) This file is at the <code>GENSETID</code> level. You will
+need to map that to <code>DUID</code> (see <a
+href="#duid-genset-id-etc">the hierarchy earlier</a>). Then join on
+<code>DUID</code> with per-generator power data from
+<code>DISPATCH_UNIT_SCADA</code>.</p>
+<p>TODO: example of joining from <code>GENSETID</code> to
+<code>DUID</code>.</p>
+<p>Unlike most data on Nemweb, these files are small, and are published
+as uncompressed CSVs, not zips of CSVs. This means that most libraries
+can read them from the URL directly. (It is normally good practice to
+download the files and then read them, so you do not put load on AEMO's
+servers and wait for a download every time you run a query. However
+these files are small, so it's OK for now.)</p>
+<p>I do not know what the adjacent
+<code>CO2EII_AVAILABLE_GENERATORS_YYYY_*.CSV</code> files are in the <a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/">CDEII</a>
+folder. This file structure and versioning approach is different to all
+other AEMO data.</p>
+<p><a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/CO2EII_SUMMARY_RESULTS.CSV"><code>CO2EII_SUMMARY_RESULTS.CSV</code></a>
+contains daily emissions data per region. (Despite the fact that the
+timestamp contains an hour and minute part, this is daily data. The hour
+and minute are always midnight.)</p>
+<p>The columns are not documented. Based on what ballpark the numbers
+are in, my belief is that:</p>
+<ul>
+<li><code>TOTAL_SENT_OUT_ENERGY</code> is in MWh.</li>
+<li><code>TOTAL_EMISSIONS</code> is in tonnes of CO<sub>2</sub>
+equivalent.</li>
+<li><code>CO2E_INTENSITY_INDEX</code> is the ratio of the two</li>
+</ul>
+<p>The <a
+href="https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_05/MMSDM_Historical_Data_SQLLoader/DATA/">monthly
+data</a> does not include any tables called <code>CDEII</code>, but does
+include something with <code>CO2E</code> in the name
+(<code>BILLING_CO2E_PUBLICATION</code>). This appears to be the same
+data as <a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/CDEII/CO2EII_SUMMARY_RESULTS.CSV"><code>CO2EII_SUMMARY_RESULTS.CSV</code></a>,
+but with a few extra columns (and only for one month). I would not be
+surprised if the emissions numbers themselves differed slightly. If so,
+my guess is that the monthly one is more accurate, because it is
+&quot;billing&quot; quality.</p>
+<p>If you find out more, please reach out to me so I can add more detail
+here for others. (<a
+href="https://www.linkedin.com/in/mdavis-xyz/">LinkedIn</a>, or <a
+href="https://github.com/mdavis-xyz/mdavis.xyz/issues">raise an
+issue</a> on GitHub.)</p>
+<h2 id="i-feel-your-pain">I Feel Your Pain</h2>
+<p>As you delve into the world of AEMO's data, you will come across
+countless inconsistencies which will drive you mad. You need to be
+prepared to roll with the punches. Just remember to be thankful that we
+have this data at all. I do not know of any other grid or industry with
+this much public data.</p>
+<p>Examples:</p>
+<ul>
+<li>AEMO publishes new schemas about twice a year. They have a well
+defined system, with consultation (with market participants), and clear
+major and minor version numbers. They often add new columns, but rarely
+delete old ones or change column order. The
+<code>DISPATCHREGIONSUM</code> table has several columns at the end
+about aggregate renewables. Despite sounding promising, these are always
+empty. When I asked why, I was told that it is something they plan to
+add in the future. So they are effectively adding this columns to this
+table in particular in a way which is outside their normal schema
+versioning process for all other tables.</li>
+<li>AEMO have standard file formats for most of their data. However for
+some data (e.g. price setter data, or 4 second SCADA data) they choose
+something different, like XML.</li>
+<li>AEMO have the MMS dataset on Nemweb and the FTP servers, which
+contains hundreds of different tables. However for some data (e.g. the
+<a
+href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/participate-in-the-market/registration">Participant
+Registration List</a>) they publish it as an excel file on their
+aemo.com.au web page. For most of AEMO's data, they keep all version
+history (e.g. each iteration of a price forecast). However when
+generators retire, they are <a
+href="https://github.com/UNSW-CEEM/NEMOSIS/wiki/AEMO-Tables#generators-and-scheduled-loads-generators-and-scheduled-loads">deleted
+from this registration form</a>, instead of just adding a column to mark
+them as retired.</li>
+<li>Additionally in this <a
+href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/participate-in-the-market/registration">list
+of generators</a>:
+<ul>
+<li>There are spelling mistakes, such as &quot;Photovoltalic&quot; and &quot;Natrual
+Gas&quot;.</li>
+<li>All batteries are listed with a &quot;Fuel Source - Primary&quot; of &quot;Battery
+Storage&quot;, except for the Hornsdale battery, which is listed as &quot;Wind&quot;.
+(Probably because it was the first battery, and the registration rules
+have changed since then.)</li>
+<li>The interconnector between Tasmania and Victoria (Basslink) is in
+the registration list. Other HVDC interconnectors are not listed.</li>
+</ul></li>
+<li>Some batteries are registered as one DUID, some are two (one for
+charge, one for discharge). Even when there are two, the power values
+can be both positive and negative for both of them.</li>
+<li>Typically each monthly file ends with the 5 minute period before the
+5 minute period that the next month starts with. Except for one month
+where they overlapped.</li>
+<li>For some months, some tables are missing. They are present for
+earlier and later months.</li>
+<li>Up to July 2024 the filenames on Nemweb were like
+<code>PUBLIC_DVD_ANCILLARY_RECOVERY_SPLIT_202309010000.zip</code>. Then
+the month after that they changed to
+<code>PUBLIC_ARCHIVE#ANCILLARY_RECOVERY_SPLIT#FILE01#202409010000.zip</code>,
+thus breaking any webscraping.</li>
+<li>The <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report.htm">schema
+documentation</a> groups similar tables together. When the data for
+tables is combined into multi-table CSVs for the <a
+href="https://www.nemweb.com.au/REPORTS/CURRENT/">realtime</a> data,
+they are partitioned into different groups.</li>
+<li>There are tables with <code>CDEII</code> in the name which are about
+emissions in the daily data, but not the monthly data. The monthly data
+contains tables with <code>CO2</code> in the name, which are not in the
+daily data. Neither is in the documentation. Unlike all the other daily
+data, <code>CDEII</code> is published as uncompressed CSV files, instead
+of zips of CSVs.</li>
+<li>The <a href="#intervention"><code>INTERVENTION</code></a> column is
+always a <code>1</code> or <code>0</code>, although the schema
+documentation says they can take a range from 0 to 99. <em>Except</em>
+for table <code>GENCONSETINVOKE</code>, where it is a
+<code>VARCHAR2(1)</code> with values <code>Y</code> or <code>N</code>
+(even though the documentation comment says it is <code>0</code> or
+<code>1</code>).</li>
+<li>Data types in the documentation are normally like
+<code>NUMBER(2,0)</code>, but sometimes they are
+<code>Number(2,0)</code> or <code>Number (2,0)</code></li>
+<li>The <code>MAXCAPACITY</code> and <code>REGISTEREDCAPACITY</code>
+columns in <code>DUDETAIL</code> are described as integers in the schema
+documentation. However in the actual CSV data they are floats, with
+non-zero decimal parts. If you use AEMO's PDR Loader, you will lose the
+decimal part. (I notified AEMO about this. They said it is not a
+bug.)</li>
+<li>The <a
+href="https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report_files/Elec80_8.htm">list
+of tables</a> in the documentation sometimes has spaces in the middle of
+table names. (e.g. <code>SET_APC_COMPENSATION</code> used to appear as
+<code>SET_ APC_COMPENSATION</code>, thus making it difficult to find the
+table you want with ctrl-F)</li>
+<li>Sometimes the column names in the documentation are incorrect.
+e.g. for table <code>DISPATCHCONSTRAINT</code>, the documentation says
+<code>DUID</code>, but the actual CSV has column
+<code>CONFIDENTIAL_TO</code>. The documentation for table
+<code>MTPASA_REGIONRESULT</code> says there is a column
+<code>TOTALSEMISCHEDULEGEN10</code>, but the actual CSV contains
+<code>TOTALSEMISCHEDULEDGEN10</code> (with an additional
+<code>D</code>).</li>
+</ul>
+<p>(These last few issues are why I suspect AEMO does not have a
+foundational machine-readable schema as their source of truth from which
+they could programmatically generate documentation, code, data files etc
+to guarantee correctness and consistency.)</p>
+<h2 id="further-reading">Further Reading</h2>
+<p>AEMO implements the National Electricity Rules (NER) written by the
+Australian Energy Market Commission. These rules are available <a
+href="https://energy-rules.aemc.gov.au/ner/714">here</a>.</p>
+<p><a href="https://wattclarity.com.au/">Watt Clarity</a> is a blog by a
+market consultant (Global Roam). They have:</p>
+<ul>
+<li>explainers for concepts such as &quot;how is the price set?&quot;, &quot;what is
+FCAS?&quot; (<a
+href="https://wattclarity.com.au/articles/2022/09/analyticalchallenge-installedcapacity/">example</a>),</li>
+<li>analysis of market trends and policies,</li>
+<li>autopsies of specific events (e.g. &quot;what happened last
+Tuesday?&quot;)</li>
+</ul>
+<p>Whilst they are a business trying to sell consulting services and
+market reports, I find the free content on their site to be very high
+quality, useful and unbiased.</p>
+<p>The benefits of Parquet over CSV are described in <a
+href="https://r4ds.hadley.nz/arrow#advantages-of-parquet">R for Data
+Science</a>. (Apache Arrow has similar benefits.)</p>
+<h2 id="legal-junk">Legal Junk</h2>
+<p>Any opinions in this post are my own, and do not necessarily reflect
+that of my employer. But you already knew that.</p>
+<p>(In fact, at the time of writing I have no employer. I have recently
+finished my <a href="masters%20degree">../masters-thesis</a> and have
+not yet started my new role.)</p>
+<h2 id="where-to-go-next">Where To Go Next</h2>
+<p>If you have questions (or corrections), reach out to me on <a
+href="https://www.linkedin.com/in/mdavis-xyz/">LinkedIn</a>, or <a
+href="https://github.com/mdavis-xyz/mdavis.xyz/issues">raise an
+issue</a> on the GitHub repo for this website. You can also try asking
+on the <a href="https://groups.google.com/g/nemosis-discuss">Nemosis
+mailing list</a>.</p>
+
+
+   </article>
+
+
+   <nav>
+      <hr/>
+      <p class="footer">
+         <a href="../">find more by Matthew Davis</a>
+      </p>
+   </nav>
+
+   </div>
+
+   <iframe
+      src="https://swsz5v2c5ged3q3xsaan5kpfgq0slqkn.lambda-url.ap-southeast-2.on.aws/increment?page_name=mms-guide"
+      class="metrics"
+      sandbox
+      style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">
+   </iframe>
+</body>
+</html>

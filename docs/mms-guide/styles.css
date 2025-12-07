@@ -108,6 +108,7 @@ p:not(.topimagecont) img {
     font-size: 14px;
 }
 
+
 .collapsible-header:hover .collapsible-filename {
     color: white;
 }
@@ -158,4 +159,10 @@ p:not(.topimagecont) img {
 .collapsible-content iframe {
     width: 100%;
     height: 100em;
+}
+
+/* Break long inline code over lines (e.g. filenames) */
+:not(pre) > code {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }

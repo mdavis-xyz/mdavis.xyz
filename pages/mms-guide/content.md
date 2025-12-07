@@ -391,7 +391,7 @@ The files you want are probably the ones like these:
 
 (Note the month and years in the URL).
 The filename mostly (but not always) corresponds to the table.
-e.g. [PUBLIC_ARCHIVE#DISPATCHPRICE#FILE01#202509010000.zip](https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23DISPATCHPRICE%23FILE01%23202509010000.zip) contains data for the `DISPATCHPRICE` table.
+e.g. [`PUBLIC_ARCHIVE#DISPATCHPRICE#FILE01#202509010000.zip`](https://www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_09/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23DISPATCHPRICE%23FILE01%23202509010000.zip) contains data for the `DISPATCHPRICE` table.
 The large tables may be split into multiple files per month.
 
 The other folders contain scripts and the same data in other forms used to load the data into an Oracle SQL database. 

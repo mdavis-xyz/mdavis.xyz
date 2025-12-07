@@ -127,7 +127,7 @@ where academic economists say "supply" and "demand", in the industry we tend to 
 
 ### Prices
 
-Energy prices have a legally defined maximum "ceiling". This is indexed each year, and is currently around 20,000 $/MWh. This is far higher than most countries. (To understand why this is a great thing, see [my master's thesis](../masters/thesis).)
+Energy prices have a legally defined maximum "ceiling". This is indexed each year, and is currently around 20,000 $/MWh. This is far higher than most countries. (To understand why this is a great thing, see [my master's thesis](../masters-thesis).)
 
 The minimum is below zero, at -1000 $/MWh (not indexed). Yes, prices can go negative. South Australia has [the most negative electricity prices in the world](https://www.iea.org/reports/electricity-2025). It is unusual to have a day in Australia _without_ negative prices at some point. 
 From a data science perspective, this means that taking logarithms of the price to do regressions does not work.
@@ -375,7 +375,7 @@ The writers of this schema documentation make strong assumptions about the reade
 
 When you find that documentation lacking, you can check the [Nemosis Wiki](https://github.com/UNSW-CEEM/NEMOSIS/wiki/Column-Summary) and [Watt Clarity](https://wattclarity.com.au/).
 
-For specific terms such as "bidirectional unit", "wholesale demand response" etc, you may need to search elsewhere on [AEMO's website](www.aemo.com.au/) or the [glossary of the NER](https://energy-rules.aemc.gov.au/ner/720/glossary/a) to find answers. Note that AEMO sometimes restructure their website in a way which breaks bookmarks, search engine results and hyperlinks within their PDFs. Aside from that, their website often has very high-level information aimed at the general public, and some extremely niche detail, without much of a middle ground for researchers who want to understand concepts without trading in the market.
+For specific terms such as "bidirectional unit", "wholesale demand response" etc, you may need to search elsewhere on [AEMO's website](https://www.aemo.com.au/) or the [glossary of the NER](https://energy-rules.aemc.gov.au/ner/720/glossary/a) to find answers. Note that AEMO sometimes restructure their website in a way which breaks bookmarks, search engine results and hyperlinks within their PDFs. Aside from that, their website often has very high-level information aimed at the general public, and some extremely niche detail, without much of a middle ground for researchers who want to understand concepts without trading in the market.
 
 There is no machine-readable schema available (e.g. a json file containing all column names and types). I had written a crawler to scrape the metadata, but then AEMO changed the structure of this documentation page in a way that broke my crawler, and made it harder for humans to browse (by mixing tables on the same iframe so ctrl-f may find columns for the wrong table). If you are interested in a machine-readable schema, let me know.
 AEMO do publish SQL scripts (privately, for market participants only) which create empty tables with the right schema in Oracle or Microsoft SQL Server. You could parse those scripts to get the schema. (I have done that in the past.) Those scripts have subtle inconsistencies which make me suspect that they are hand written. If so, it seems possible that even internally, AEMO does not have a single machine-readable schema as their source of truth.
@@ -1140,23 +1140,15 @@ Suppose you want to analyse some data from Australia's national electricity mark
 However this is actually not correct. 
 Once you add rooftop solar, you see that actually 28.4% of South Australia's generation in 2024 was from solar. 
 Without including rooftop solar, you would be wrong by a factor of 3. 
+For more information, see [my post on LinkedIn](https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9).
 
+<!-- LinkedIn blocks iframe embeds with CORS -->
 <!-- <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
     <a href="https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAByP1T4BC3Cgz448qtc97FMGsQ5F73YK4Tg" target="_blank" >
         LinkedIn Post
     </a>
 </iframe> -->
 
-<iframe id="linkedin-iframe" 
-        style="display:none;"
-        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" 
-        height="670" width="504" frameborder="0" allowfullscreen="" 
-        title="Embedded post">
-</iframe>
-
-::: {#linkedin-fallback}
-For more information, see [my post on LinkedIn](https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9).
-:::
 
 Rooftop solar data takes a bit of work to get.
 It is 30 minute granularity, so do not forget to upsample it.

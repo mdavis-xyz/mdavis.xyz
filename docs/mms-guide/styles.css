@@ -50,7 +50,7 @@ a.uri {
 }
 
 p:not(.topimagecont) img {
-  max-width: 100%;
+  max-width: 90%;
   padding: 1em;
   background-color: white;
   border-radius: 0.2em;

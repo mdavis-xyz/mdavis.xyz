@@ -235,7 +235,7 @@ function linkedinIframeFix() {
             iframe.style.display = 'none';
             fallback.style.display = 'block';
         }
-    }, 2000); // Wait 2 seconds for iframe to load
+    }, 3000); // Wait 3 seconds for iframe to load
 }
 
 if (document.readyState === 'loading') {

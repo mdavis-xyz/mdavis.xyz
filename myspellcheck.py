@@ -1,4 +1,5 @@
 import re
+import string
 
 standardWordsFname = 'standardWords.txt'
 extraWordsFname = 'extraWords.txt'
@@ -28,7 +29,7 @@ def stripFancy(text,markdown=False):
 
     if markdown:
         text = stripMarkdown(text)
-    return(text)
+    return text
 
 def stripXML(text):
 
@@ -58,7 +59,7 @@ def stripXML(text):
     # hard code the paraphrase in the voting page
     expr = r'Every single one of \[the tested machines\] had some sort of weakness'
     text = re.sub(expr, 'Every single one of the tested machines had some sort of weakness', text)
-    return(text)
+    return text
 
 def testStripXML():
     text = 'This is <div class="something">not a</div> formula and this is <div class="something">not a</div> formula'
@@ -86,8 +87,10 @@ def testStripXML():
 
 def stripMarkdown(text):
 
-    expr = r'```([^`]+)```'
-    text = re.sub(expr, '', text, re.MULTILINE)
+    expr = r'```(\n[^`]+\n)```\n'
+    for _ in range(text.count("```") // 2 + 1):
+        text = re.sub(expr, '', text, re.MULTILINE)
+
     lines = text.split('\n')
     newLines = []
     for line in lines:
@@ -125,9 +128,14 @@ def stripMarkdown(text):
         line = re.sub(expr, r'\1', line)
         expr = r'\b:::\b' # custom class for markdown table
         line = re.sub(expr, r'', line)
+        expr = r'^:::.*$' # custom class for warnings
+        line = re.sub(expr, r'', line)
+        expr = r'^<[^>]+>\s*$' # URLs
+        line = re.sub(expr, r'', line)
+        
 
         newLines.append(line)
-    return('\n'.join(newLines).strip())
+    return '\n'.join(newLines).strip()
 
 def testStripMarkdown():
     text = "* this is a *italics* in a line"
@@ -194,6 +202,11 @@ def teststripFancy():
     assert(expected == actual)
 
     original = '1 <a href="123">blah</a> 2'
+    expected = '1 blah 2'
+    actual = stripFancy(original)
+    assert(expected == actual)
+
+    original = '1 <a\nhref="123">blah</a> 2'
     expected = '1 blah 2'
     actual = stripFancy(original)
     assert(expected == actual)
@@ -287,7 +300,7 @@ def stripForSpellcheck(word):
     if any(word.startswith(c) for c in "\""):
         word = word[1:]
 
-    return(word)
+    return word
 
 def testStripForSpellcheck():
     original = 'asd'
@@ -344,7 +357,7 @@ def init():
         words += [w.strip() for w in f]
 
     dictionary = set(words)
-    assert('spent' in dictionary)
+    assert 'spent' in dictionary
 
 
 def addToDict(word):
@@ -371,16 +384,17 @@ def word_wrapped_by(word, start, end=None):
         return (word[0] == start) and (word[-1] == end)
 
 def checkWord(word):
+
     if (word != '') and (word not in dictionary) and (word.lower() not in dictionary):
         if word.endswith("'s") or word.endswith("s'"):
             if (word[:-2] in dictionary) or (word[:-2].lower() in dictionary):
-                return(True)
+                return True
         elif word.endswith('s') and ((word[:-1].lower() in dictionary) or (word[:-1] in dictionary)):
-            return(True)
+            return True
         if ('-' in word) and ('--' not in word) and (word.strip('-') == word):
             subwords = word.split('-')
             if all([(w in dictionary) or (w.lower() in dictionary) for w in subwords]):
-                return(True)
+                return True
         if word.endswith('...') and word[:-3] in dictionary:
             # e.g. hello world...
             return True
@@ -400,6 +414,15 @@ def checkWord(word):
         elif word_wrapped_by(word, '*', '*'):
             return checkWord(word[1:-1])
 
+        # this might not pick up unmatched parens
+        # but otherwise we'll detect a lot of words inside parens whose other we can't match
+        elif word.startswith("(") and word[1] in string.ascii_letters + string.digits:
+            return checkWord(word[1:])
+        elif (word.endswith(".)") or word.endswith("?)")) and word[-3] in string.ascii_letters + string.digits:
+            return checkWord(word[:-2])
+        elif word.endswith(")") and word[-2] in string.ascii_letters + string.digits:
+            return checkWord(word[:-1])
+
         print("Error: word %s does not appear in the dictionary" % word)
         if word != word.lower():
            print("   y - add, lowercase %s" % word.lower())
@@ -414,6 +437,7 @@ def checkWord(word):
             print("   p - add singular lowercase: %s" % word[:-1].lower())
             if word != word.lower():
                 print("   P - add singular as is : %s" % word[:-1])
+        
         print("   n - don't add. Exit")
         answer = input('')
         if answer.startswith('y'):
@@ -429,10 +453,13 @@ def checkWord(word):
         elif answer.startswith('P'):
             addToDict(word[:-1])
         else:
+
             return False
     return True
 
 def checkLine(line,markdown=False):
+
+    original_line = line
 
     # awkward edge case
     # "‘can do’ capitalism; not ‘don’t do’ governments"
@@ -442,7 +469,19 @@ def checkLine(line,markdown=False):
     line = line.replace('‘don’t do’', "don't do")
     line = line.replace('‘can do’', "can do")
 
-    original_line = line
+    # deliberate typos
+    line = line.replace('There are spelling mistakes, such as "Photovoltalic" and "Natrual Gas"', '')
+    line = line.replace('There are spelling mistakes, such as "Photovoltalic" and "Natrual', '') # linebreak in the HTML
+
+    # awkward double-paren
+    line = line.replace('[zero-day exploits](https://en.wikipedia.org/wiki/Zero-day_(computing))', '')
+    line = line.replace('[a tool](https://markets-portal-help.docs.public.aemo.com.au/Content/EMMScommon/AboutConstraints.html?TocPath=Energy%20Market%20Management%20System%20(EMMS)%7CMarket%20Info%7CAbout%20Constraints%7C_____0)', '')
+
+   
+    # the line is just a markdown URL
+    expr = r"<http[^>]+>"
+    line = re.sub(expr, r' ', line)
+
     line = stripFancy(line,markdown=markdown)
 
     # remove brackets
@@ -462,15 +501,25 @@ def checkLine(line,markdown=False):
     line = re.sub(expr, r' ', line)
 
 
+    # e.g. 4:00-4:05
+    exprs = [
+        r"\d{1,2}:\d{1,2}:\d{1,2}",
+        r"\d{1,2}:\d{1,2}",
+        r"\d{1,2}:\d{1,2}-\d{1,2}:\d{1,2}",
+    ]
+    for expr in exprs:
+        line = re.sub(expr, r' ', line)
+
+
     words = [w.strip() for w in line.split(' ') if w.strip() != '']
     for w in words:
-        try:
-            if not checkWord(stripForSpellcheck(w)):
-                return(False)
-        except KeyboardInterrupt as ex:
-            breakpoint()
-            raise
-    return(True)
+        if w not in dictionary:
+            if w.startswith('r/'):
+                breakpoint()
+            for ws in w.split('/'):
+                if not checkWord(stripForSpellcheck(ws)):
+                    return False
+    return True
 
 def checkFile(fname):
     with open(fname,'r') as f:
@@ -480,13 +529,18 @@ def checkFile(fname):
         print("Passing markdown flag from checkFile to stripFancy")
 
     content = stripFancy(content,markdown=markdown)
-    for (i,line) in enumerate(content.split('\n')):
+    lines = content.split('\n')
+    for (i,line) in enumerate(lines):
         if not checkLine(line):
             print("Quitting")
             print("That was file %s line %d" % (fname,i+1))
             print(line)
-            print(f"markdown={markdown}")
-            return(False)
-    return(True)
+            print("The surrounding lines were:")
+            for (j, other_line) in enumerate(lines):
+                if (i - 5 <= j) and (j <= i + 5):
+                    print(other_line)
+                    
+            return False
+    return True
 test()
 init()

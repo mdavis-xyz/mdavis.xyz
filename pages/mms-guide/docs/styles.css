@@ -1,0 +1,168 @@
+.added {
+    color: lightgreen;
+    font-weight: bold;
+}
+
+.changed {
+    color: lightgreen;
+    font-weight: bold;
+}
+
+#TopImage {
+  background-color: white;
+  padding: 0.5em;
+}
+
+
+p code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a.uri {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.callout {
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-left: 5px solid;
+  border-radius: 4px;
+  
+}
+
+.callout.warning {
+  border-left: #dc3545;
+  background-color: #f8dcde;
+  color: #6b161e;
+}
+
+/* .callout.warning::before {
+  content: "⚠️ ";
+  font-weight: bold;
+  margin-right: 8px;
+} */
+
+.callout.tip {
+  border-left: #166545;
+  /* color: #f8d7da; */
+  background-color: #168b70;
+}
+
+p:not(.topimagecont) img {
+  max-width: 90%;
+  padding: 1em;
+  background-color: white;
+  border-radius: 0.2em;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+
+.collapsible {
+    background-color: #1e1e1e;
+    border-radius: 0.2em;
+    overflow: hidden;
+    margin: 1.5em 0;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.collapsible-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 12px 16px;
+    background-color: white;
+    user-select: none;
+    font-weight: 500;
+    font-size: 14px;
+    color: #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.collapsible-header:hover {
+    background-color: #9ba8b7;
+}
+
+.collapsible-header-left {
+    display: flex;
+    align-items: center;
+}
+
+.collapsible-toggle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    color: #999;
+}
+
+.collapsible.open .collapsible-toggle {
+    transform: rotate(90deg);
+}
+
+.collapsible-filename {
+    color: black;
+    font-size: 14px;
+}
+
+
+.collapsible-header:hover .collapsible-filename {
+    color: white;
+}
+
+.collapsible-download {
+    padding: 6px 12px;
+    margin-left: 8px;
+    background-color: #282828;
+    border: 1px solid #444;
+    border-radius: 0.15em;
+    color: #e0e0e0;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.collapsible-download:hover {
+    background-color: #333;
+    border-color: #555;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.collapsible.open .collapsible-content {
+    max-height: fit-content;
+    /* padding: 16px; */
+}
+
+.collapsible pre {
+    margin: 0;
+    background-color: #1e1e1e;
+    padding: 16px;
+    overflow-x: auto;
+    border-radius: 0.15em;
+}
+
+.collapsible code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    color: #d4d4d4;
+}
+
+.collapsible-content iframe {
+    width: 100%;
+    height: 100em;
+}
+
+/* Break long inline code over lines (e.g. filenames) */
+:not(pre) > code {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}

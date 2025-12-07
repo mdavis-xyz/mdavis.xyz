@@ -18,7 +18,7 @@ This article also includes a quick overview of the design of the market.
 I will list some acronyms and terms which newcomers will not be familiar with.
 
 I do not expect anyone to read this from top to bottom.
-Rather, you should read the first few sections, then skim the rest, using ctrl-f or an LLM to find what you want.
+Rather, you should read the first few sections, then skim the rest, using ctrl-f or an LLM to find relevant content.
 
 
 ## Quickstart
@@ -1141,11 +1141,22 @@ However this is actually not correct.
 Once you add rooftop solar, you see that actually 28.4% of South Australia's generation in 2024 was from solar. 
 Without including rooftop solar, you would be wrong by a factor of 3. 
 
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
+<!-- <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
     <a href="https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAByP1T4BC3Cgz448qtc97FMGsQ5F73YK4Tg" target="_blank" >
         LinkedIn Post
     </a>
+</iframe> -->
+
+<iframe id="linkedin-iframe" 
+        style="display:none;"
+        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" 
+        height="670" width="504" frameborder="0" allowfullscreen="" 
+        title="Embedded post">
 </iframe>
+
+::: {#linkedin-fallback}
+For more information, see [my post on LinkedIn](https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9).
+:::
 
 Rooftop solar data takes a bit of work to get.
 It is 30 minute granularity, so do not forget to upsample it.

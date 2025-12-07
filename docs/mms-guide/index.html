@@ -117,10 +117,10 @@
 
 
       <hr/>
-      <p>This guide is for researchers who want to analyse Australia's
-electricity industry. Fortunately there is far more public data
-available for this sector than almost any other industry, or even any
-other country's electricity market. Unfortunately there are many
+      <p>This guide is for researchers who want to analyse data about
+Australia's electricity industry. Fortunately there is far more public
+data available for this sector than almost any other industry, or even
+any other country's electricity market. Unfortunately there are many
 undocumented aspects of the data which can trip up newcomers. The
 purpose of this post is to highlight some of those 'gotchas'.</p>
 <p>The focus here is on how to dive deep into the data, for those who
@@ -140,6 +140,7 @@ that changed over time?</li>
 <li>How much CO2 was emitted last year?</li>
 <li>What is the volume-weighted average price of gridscale solar last
 month?</li>
+<li>What is the spot price of electricity right now?</li>
 </ul>
 <p>If you want to answer something more bespoke and complex, this guide
 explains how.</p>
@@ -148,7 +149,7 @@ market. I will list some acronyms and terms which newcomers will not be
 familiar with.</p>
 <p>I do not expect anyone to read this from top to bottom. Rather, you
 should read the first few sections, then skim the rest, using ctrl-f or
-an LLM to find what you want.</p>
+an LLM to find relevant content.</p>
 <h2 id="quickstart">Quickstart</h2>
 <ul>
 <li>The list of all tables and their contents is <a
@@ -1732,10 +1733,18 @@ was from solar. However this is actually not correct. Once you add
 rooftop solar, you see that actually 28.4% of South Australia's
 generation in 2024 was from solar. Without including rooftop solar, you
 would be wrong by a factor of 3.</p>
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen title="Embedded post">
-<a href="https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAByP1T4BC3Cgz448qtc97FMGsQ5F73YK4Tg" target="_blank" >
-LinkedIn Post </a>
+<!-- <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
+    <a href="https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAByP1T4BC3Cgz448qtc97FMGsQ5F73YK4Tg" target="_blank" >
+        LinkedIn Post
+    </a>
+</iframe> -->
+<iframe id="linkedin-iframe" style="display:none;" src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293600955600678913?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen title="Embedded post">
 </iframe>
+<div id="linkedin-fallback">
+<p>For more information, see <a
+href="https://www.linkedin.com/posts/mdavis-xyz_ive-been-thinking-a-lot-recently-about-how-activity-7293600958717054976-k6O9">my
+post on LinkedIn</a>.</p>
+</div>
 <p>Rooftop solar data takes a bit of work to get. It is 30 minute
 granularity, so do not forget to upsample it. If you append it to
 large-scale generation data without upsampling, you will have 0 for 5

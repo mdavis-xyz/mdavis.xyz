@@ -214,10 +214,36 @@ function generateTOC() {
 
 }
 
+// Sometimes LinkedIn blocks embedded posts because of CORS
+// if so, detect, and replace the blank space with a fallback div
+function linkedinIframeFix() {
+    setTimeout(() => {
+        const iframe = document.getElementById('linkedin-iframe');
+        const fallback = document.getElementById('linkedin-fallback');
+        
+        try {
+            // Try to access iframe content (will fail if blocked)
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            console.log("LinkedIn iframe did render correctly");
+            if (!iframeDoc || iframeDoc.body.innerHTML === '') {
+                iframe.style.display = 'none';
+                fallback.style.display = 'block';
+            }
+        } catch (e) {
+            // If we can't access it, it's likely blocked
+            console.log("LinkedIn iframe did not render correctly");
+            iframe.style.display = 'none';
+            fallback.style.display = 'block';
+        }
+    }, 2000); // Wait 2 seconds for iframe to load
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', processCodeSnippets);
     document.addEventListener('DOMContentLoaded', generateTOC);
+    document.addEventListener('DOMContentLoaded', linkedinIframeFix);
 } else {
     generateTOC();
     processCodeSnippets();
+    linkedinIframeFix()
 }

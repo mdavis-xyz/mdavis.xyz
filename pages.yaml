@@ -38,7 +38,7 @@
    # pandoc_args:
    # - "--toc"
    # - "--toc-depth=2"
-   date: 15/11/2025
+   date: 7/12/2025
 -  title: "Missing Markets in the Electricity Industry"
    description: "My master's thesis about capacity markets, ancillary services and capture price divergence"
    path: "masters-thesis"

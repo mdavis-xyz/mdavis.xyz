@@ -1,10 +1,20 @@
+# Find how skewed Australia's wholesale electricity prices are.
+# Find x for:
+# "Half of all generators' energy revenue each year comes 
+#  from only x% of trading intervals."
+#
+# This script is an example from my article about AEMO's MMS data:
+# 
+# https://www.mdavis.xyz/mms-guide
+
 from nemosis import cache_compiler
 import polars as pl
 import os
 
 start_time = '2024/01/01 00:00:00'
 end_time = '2024/12/31 23:55:00'
-data_directory = '/media/matthew/nemweb/nemosis'
+data_directory = '/home/matthew/Data/nemosis/'
+#data_directory = '/media/matthew/nemweb/nemosis'
 results_directory = os.path.join(os.path.dirname(data_directory), 'results')
 result_path = os.path.join(results_directory, "results.parquet")
 
@@ -42,7 +52,7 @@ energy = (
         pl.col("POWER_START").shift(-1).over("DUID").alias("POWER_END")
     )
     .with_columns(
-        ((pl.col("POWER_START") + pl.col("POWER_END")) / 0.5).alias("POWER_AVG")
+        ((pl.col("POWER_START") + pl.col("POWER_END")) / 2).alias("POWER_AVG")
     )
     .with_columns(
         (pl.col("POWER_AVG") * hrs_per_interval).alias("ENERGY_MWH")

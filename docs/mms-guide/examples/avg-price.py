@@ -1,3 +1,9 @@
+# Find the average electricity price in each region of the NEM
+#
+# This script is an example from my article about AEMO's MMS data:
+# 
+# https://www.mdavis.xyz/mms-guide
+
 import os
 
 from nemosis import dynamic_data_compiler
@@ -9,7 +15,7 @@ table = 'DISPATCHPRICE'
 # I re-use this folder across all projects, to avoid re-downloading
 data_directory = '/home/matthew/Data/nemosis/' 
 
-# nemosis will not create the directory for is
+# nemosis will not create the directory for us
 if not os.path.exists(data_directory):
     os.makedirs(data_directory)
 
@@ -21,6 +27,6 @@ df = dynamic_data_compiler(start_time, end_time, table, data_directory)
 df = df.loc[df["INTERVENTION"] == 0]
 
 # aggregate with mean by region
-# RRP is price column, rename it to be clearer
+# RRP is price column
 result = df.groupby("REGIONID")["RRP"].mean()
 print(result)

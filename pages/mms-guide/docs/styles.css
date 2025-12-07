@@ -138,7 +138,7 @@ p:not(.topimagecont) img {
 }
 
 .collapsible.open .collapsible-content {
-    max-height: 2000px;
+    max-height: fit-content;
     /* padding: 16px; */
 }
 

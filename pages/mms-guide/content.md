@@ -1107,8 +1107,6 @@ Similarly, I did not really _have_ to parse the timestamps. Doing so reduces the
 [`price-skew.py`](./examples/price-skew.py)
 :::
 
-TODO: re-run and paste new results
-
 This yields:
 
 

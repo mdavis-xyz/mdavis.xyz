@@ -58,7 +58,10 @@ You can estimate the energy revenue of each generator. The exact invoice amount 
 The MMS dataset does not include information about green products such as Australia carbon credit units (ACCUs). For that data you will need to search elsewhere.
 
 This dataset also does not include any information about the _cost_ incurred by each generator, only their output and revenue.
-For estimates of costs, you can look at the [CSIRO's GenCost model](https://www.csiro.au/en/research/technology-space/energy/Electricity-transition/GenCost), or [AEMO's System Plan](https://www.aemo.com.au/energy-systems/major-publications/integrated-system-plan-isp/2024-integrated-system-plan-isp).
+For estimates of costs, you can look at the 
+[CSIRO's GenCost model](https://www.csiro.au/en/research/technology-space/energy/Electricity-transition/GenCost)
+, or 
+[AEMO's System Plan](https://www.aemo.com.au/energy-systems/major-publications/integrated-system-plan-isp/2024-integrated-system-plan-isp).
 
 Most data is published publicly every 5 minutes. Some sets of commercially sensitive data are published with a deliberate delay of a few days (e.g. bids).
 The online dataset goes back to 2009, although some tables within that do not go back as far. 
@@ -137,6 +140,9 @@ Price and revenue data is highly skewed. Outliers are of central importance.
 For example, it is normal for a generator to make as much profit in the top 10% highest-priced hours each year as the rest of the year combined.
 (I show this with an [example query](#revenue-skewness) later.)
 I have seen [a consultant's report](https://houstonkemp.com/wp-content/uploads/2020/02/27_Impact-of-gas-powered-generation-on-wholesale-market-outcomes-final-results-presentation.pdf) commissioned by AEMO where they simply deleted intervals with negative prices and very high prices. Do not do this. This is incorrect and will give you meaningless results.
+
+The market is "pay-as-cleared", not "pay-as-bid". 
+This is true of energy and FCAS.
 
 ### Predispatch is Not a Day-Ahead Market
 
@@ -932,19 +938,50 @@ Note that these tables for joining IDs have a version history, so you should ded
 
 ### Intervention
 
-AEMO takes all generators' bids, transmission line constraints, demand forecasts etc, and they plug it into a big linear optimiser called the NEM Dispatch Engine (NEMDE), which finds the economically optimal solution. (e.g. Maybe the grid cannot get power from the cheapest generator to the consumer, so a more expensive generator elsewhere is used instead.) Sometimes the complexity of the electrical grid cannot be represented nicely in mathematics. In those cases AEMO manually intervenes to tweak the results. This is called "Intervention". 
-The data often contains both the pure-math result, and the actual result.
+AEMO takes all generators' bids, transmission line constraints, demand forecasts etc, and they plug it into a big linear optimiser called the NEM Dispatch Engine (NEMDE), which finds the economically optimal solution. (e.g. Maybe the grid cannot get power from the cheapest generator to the consumer, so a more expensive generator elsewhere is used instead.) Sometimes the complexity of the electrical grid cannot be represented nicely in mathematics. In those cases AEMO manually intervenes to tweak the results. This situation is called "Intervention". 
+
+When this happens, many tables contain both the pure-math result, and the actual result. 
+
+- `INTERVENTION=0` rows are from the "pricing run". This run is done as if AEMO did not manually adjust anything. This data is used to determine the prices which generators are paid. 
+- `INTERVENTION=1` is the "base case" run. This includes AEMO's manual adjustment. This data contains the actual power targets for generators.
+
 Interventions are rare, but the values in `INTERVENTION==1` rows may be drastically different to the `INTERVENTION==0` rows.
 
 ::: {.callout .tip}
-If a table contains an `INTERVENTION` column, you should keep only rows with `INTERVENTION == 0`.
+If a table contains an `INTERVENTION` column:
+
+- you should get **prices** from rows with `INTERVENTION == 0`; and
+- you should get **power** and **energy** from rows with `INTERVENTION == 1` if present (otherwise `INTERVENTION == 0`).
 :::
 
-The only exception I can think of is if your research question is about interventions.
+For prices, this is as simple as `WHERE INTERVENTION == 0` (for SQL) or `.filter(pl.col("INTERVENTION") == 0)` (Polars).
+For power, you need to find the maximum value of `INTERVENTION` for each tuple of primary keys.
 
-There is a slightly different adjustment called "Direction", which is harder to see in the data.
-If you find 'out of merit' dispatch happening, Directions and Interventions are one reason why.
+There are several ways to filter by the maximum value of a column.
+One way in Polars is:
+
+```
+lf.filter(
+    pl.col('INTERVENTION') == pl.col('INTERVENTION').max().over(['SETTLEMENTDATE', 'REGIONID'])
+)
+```
+
+Note that this kind of step can substantially increase the memory footprint of your query. For large tables, you may need to think carefully about how you do this, if you are running out of memory.
+
+There may be exceptions to this rule of what to filter by.
+For example, rooftop solar power estimates have an `INTERVENTION` column.
+However they are not dispatched, so there should not be a difference between the two cases anyway. 
+
+More detail can be found in 
+[NER rule 3.9.3](https://energy-rules.aemc.gov.au/ner/621/525946#3.9.3)
+and 
+[AEMO's Intervention Pricing Methodology](https://www.aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/intervention-pricing-methodology.pdf).
+
+
+If you find 'out of merit' dispatch happening, directions are one reason why.
 e.g. A huge amount of gas generation in South Australia happens when the price is below the gas generators' bid/cost, because there is a requirement to always have a minimum amount of gas generation running. (As an aside, this metric is crudely defined, and this limit drastically limits the decarbonisation impact of additional solar and wind, yet was notably absent from the recent political discussions about nuclear power.)
+
+Intervention scenarios happen when AEMO issue a "direction" (see [NER rule 4.8.9](https://energy-rules.aemc.gov.au/ner/621/526143#4.8.9)). However not all directions result in intervention pricing. 
 
 ### RRP
 
@@ -1146,6 +1183,10 @@ For more information, see [my post on LinkedIn](https://www.linkedin.com/posts/m
         LinkedIn Post
     </a>
 </iframe> -->
+
+::: {.callout .warning}
+Shortly after I wrote this, AEMO introduced [several new tables](https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report_files/Elec17.htm#3) for rooftop solar estimates, and they plan to deprecate the `ROOFTOP_PV_ACTUAL` table I used here. I have not yet had a chance to look in details. The details of the interpolation and deduplication have probably changed.
+:::
 
 
 Rooftop solar data takes a bit of work to get.

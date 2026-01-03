@@ -19,8 +19,11 @@ lf = (
     pl.scan_parquet(os.path.join(data_cache_dir, "*ROOFTOP_PV_ACTUAL*.parquet"))
 
     .pipe(lambda lf: parse_datetimes(lf, cols=["INTERVAL_END"])) # parse_datetimes defined earlier
-    .filter(pl.col("INTERVENTION") == 0)
     .filter(pl.col("REGIONID").str.ends_with("1"))
+
+    # This is power, but not dispatched.
+    # So filtering to 0 instead of max INTERVENTION is fine
+    .filter(pl.col("INTERVENTION") == 0)
 
     # deduplicate
     .sort(by=["TYPE", "QI", "LASTCHANGED"], descending=[False, True, True])

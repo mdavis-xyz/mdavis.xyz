@@ -21,10 +21,6 @@ lf = (
     .pipe(lambda lf: parse_datetimes(lf, cols=["INTERVAL_END"])) # parse_datetimes defined earlier
     .filter(pl.col("REGIONID").str.ends_with("1"))
 
-    # This is power, but not dispatched.
-    # So filtering to 0 instead of max INTERVENTION is fine
-    .filter(pl.col("INTERVENTION") == 0)
-
     # deduplicate
     .sort(by=["TYPE", "QI", "LASTCHANGED"], descending=[False, True, True])
     .group_by(["REGIONID", "INTERVAL_DATETIME"])

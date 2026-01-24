@@ -423,8 +423,11 @@ def generateRSS(pages,args):
     with open(tempFname,'r') as f:
         new = f.read()
 
-    with open(publishFname,'r') as f:
-        old = f.read()
+    try:
+        with open(publishFname,'r') as f:
+            old = f.read()
+    except FileNotFoundError:
+        old = ''
     # just delete the date, and see if the remaining strings are equal
     # this is a really lazy way of doing this, but meh. It's good enough for now
     new = re.sub("<lastBuildDate>.*</lastBuildDate>","",new)

@@ -33,7 +33,7 @@ Rather, you should read the first few sections, then skim the rest, using ctrl-f
 
 ## What data is available?
 
-Australia's National Electricity Market (NEM) includes Queensland, New South Wales, the ACT, Victoria, and South Australia. The market is operated by [the Australian Energy Market Operator (AEMO)](https://www.aemo.com.au/). (Typically "AEMO" is used in sentences on its own, instead of "the AEMO".)
+Australia's National Electricity Market (NEM) includes Queensland, New South Wales, the ACT, Victoria, and South Australia. The market is operated by [the Australian Energy Market Operator (AEMO)](https://www.aemo.com.au/). (Typically "AEMO" is used in sentences on its own, instead of "the AEMO". They do not even refer to themselves with "the".)
 The NEM does not include Western Australia or the Northern Territory. Those are separate grids, with separate data. The Western Australia Market (WEM) is also operated by AEMO, but the market rules, data schemas and data pipelines are different. This post is focused on Australia's NEM, and the data in the "Market Management System" (MMS) dataset.
 
 The publicly available MMS data is very comprehensive.

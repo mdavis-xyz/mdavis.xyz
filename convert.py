@@ -32,15 +32,15 @@ with open(template_fname,"r") as f:
     template = Template(f.read())
 
 def callShellCmd(cmd,directory):
-    print("Calling `%s` in %s" % (cmd,directory))
+    print(f"Calling `{cmd}` in {directory}")
     ret = call(cmd, shell=True, cwd=directory)
     assert not ret
-    print("Finished calling `%s` in %s" % (cmd,directory))
+    print(f"Finished calling `{cmd}` in {directory}")
 
 def numWords(markdown):
     content = myspellcheck.stripFancy(markdown)
     numWords = len([w for w in content.split(' ') if w.strip() != ''])
-    print("Number of words is %d" % numWords)
+    print(f"Number of words is {numWords}")
     return(numWords)
 
 def estReadingTime(fname,filetype="markdown"):
@@ -121,7 +121,7 @@ def doOne(data,allData,args):
         print("Processing %s" % data['title'])
 
 
-        directory = 'pages/%s' % data['sourcePath']
+        directory = f'pages/{data["sourcePath"]}'
         if data['template'] == 'home':
             data['content'] = doWWW(allData)
         elif data['template'] == 'html':
@@ -139,9 +139,9 @@ def doOne(data,allData,args):
                 exit(1)
         elif data['template'] == 'custom':
             print("Processing as custom page")
-            cmd = 'python3 %s' % data['parseScript']
+            cmd = f'python3 {data["parseScript"]}'
             callShellCmd(cmd,directory)
-            stubFname = 'pages/%s/stub.html' % data['sourcePath']
+            stubFname = f'pages/{data["sourcePath"]}/stub.html'
             with open(stubFname,"r") as f:
                 data['content'] = f.read()
             print("Estimating reading time for %s" % data['title'])
@@ -150,7 +150,7 @@ def doOne(data,allData,args):
             #     print("Halving abbott list reading time estimate")
             #     data['estReadingTime'] = data['estReadingTime']/2.0
         elif data['template'] == 'markdown':
-            markdownFname = 'pages/%s/%s' % (data['sourcePath'],data['markdown'])
+            markdownFname = f'pages/{data["sourcePath"]}/{data["markdown"]}'
             if 'spellcheck' in data['exclude']:
                 print("Skipping spell check for %s" % data['sourcePath'])
             elif not myspellcheck.checkFile(markdownFname):
@@ -167,7 +167,7 @@ def doOne(data,allData,args):
                     print("Error, regex replacements on markdown took no effect")
                     exit(1)
                 markdown = content
-            print("Converting markdown file %s to html " % markdownFname)
+            print(f"Converting markdown file {markdownFname} to html ")
 
             data['content'] = pypandoc.convert_text(markdown, 'html', format='md', extra_args=['--toc',])
             if any('toc' in a for a in data.get('pandoc_args', [])):
@@ -187,10 +187,10 @@ def doOne(data,allData,args):
 
             if 'regex' in data:
                 data['content'] = searchReplace(data['content'],data['regex'],'html',data['sourcePath'])
-            stubFname = 'pages/%s/stub.html' % data['path']
+            stubFname = f'pages/{data["path"]}/stub.html'
             with open(stubFname,'w') as f:
                 f.write(data['content'])
-            print("Saved markdown file to %s" % stubFname)
+            print(f"Saved markdown file to {stubFname}")
             if 'exclude' not in data:
                 data['exclude'] = []
             print("Estimating reading time for %s" % data['title'])
@@ -229,10 +229,10 @@ def renderOne(data,args):
             pp.pprint({k:data[k] for k in data if k != 'content'})
             print("Error processing outer template for %s" % data['title'])
             raise e
-        outputFname = 'pages/%s/docs/index.html' % data['sourcePath']
+        outputFname = f'pages/{data["sourcePath"]}/docs/index.html'
         with open(outputFname,'w') as f:
             f.write(output)
-        print("Finished rendering %s" % data['sourcePath'])
+        print(f"Finished rendering {data['sourcePath']}")
 
 def doWWW(pages):
     print("Processing www")
@@ -331,9 +331,9 @@ def doAll(args):
         for k in ['title','description']:
             page[k] = page[k].strip()
             if ('exclude' in page) and ('spellcheck' in page['exclude']):
-                print("Skipping spellcheck for %s" % page['sourcePath'])
+                print(f"Skipping spellcheck for {page['sourcePath']}")
             elif not myspellcheck.checkLine(page[k]):
-                print("That was the %s %s from pages.yaml" % (k,page[k]))
+                print(f"That was the {k} {page[k]} from pages.yaml")
                 print("in doAll")
                 exit(1)
         if 'disclaimer' in page:
@@ -341,7 +341,7 @@ def doAll(args):
         page['date'] = getDate(page)
 
     if args.only_page and not any([args.only_page in p['sourcePath'] for p in pagesData]):
-        print("Error, page %s does not exist" % args.only_page)
+        print(f"Error, page {args.only_page} does not exist")
         exit(1)
 
     for page in pagesData:
@@ -350,16 +350,16 @@ def doAll(args):
             if pathGetter(page) in ['www',args.only_page]:
                 doOne(page,pagesData,args)
             else:
-                print("Skipping %s" % page['sourcePath'])
+                print(f"Skipping {page['sourcePath']}")
         else:
             doOne(page,pagesData,args)
 
     myspellcheck.init() # init again, in case we updated the dictionary earlier
     for p in pagesData:
         if (p['template'] == 'none') or ('spellcheck' in p['exclude']):
-            print("Skipping spell check for %s" % p['title'])
-        elif not myspellcheck.checkFile('pages/%s/docs/index.html' % p['sourcePath']):
-            print("that was %s" % p['title'])
+            print(f"Skipping spell check for {p['title']}")
+        elif not myspellcheck.checkFile(f'pages/{p["sourcePath"]}/docs/index.html'):
+            print(f"that was {p['title']}")
             print(f"For file pages/{p['sourcePath']}/docs/index.html")
             print("Code A")
             exit(1)
@@ -370,7 +370,7 @@ def doAll(args):
 
     src = 'pages/www/docs'
     dest = 'docs/'
-    print("copying %s to %s" % (src,dest))
+    print(f"copying {src} to {dest}")
     shutil.rmtree(dest,ignore_errors=True)
     # os.makedirs(dest)
     shutil.copytree(src, dest)
@@ -380,9 +380,9 @@ def doAll(args):
         f.write(CNAME)
 
     for page in [p for p in pagesData if p['template'] != 'home']:
-        src = './pages/%s/docs' % page['sourcePath']
-        dest = './docs/%s/' % page['publishPath']
-        print("copying %s to %s" % (src,dest))
+        src = f'./pages/{page["sourcePath"]}/docs'
+        dest = f'./docs/{page["publishPath"]}/'
+        print(f"copying {src} to {dest}")
         shutil.copytree(src, dest)
 
     handleRobots(stage=args.stage_name)

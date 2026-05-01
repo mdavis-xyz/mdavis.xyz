@@ -71,6 +71,8 @@
       title="RSS"
       href="${"" if data['template'] == 'home' else "../"}rss.xml" />
 
+   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
    % if 'script' not in data['exclude']:
    <script src="script.js" ></script>
    % endif

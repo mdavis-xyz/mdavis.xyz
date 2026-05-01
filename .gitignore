@@ -9,11 +9,15 @@ AWS/data/lambda/*/lambda.zip
 __pycache__/
 *.py[cod]
 *$py.class
+
+
 pages/abbott/old/*
 pages/*/docs/index.html
 rss-temp.xml
 debug.yaml
 pages/*/content.html.md
+pages/www/docs/sitemap.xml
+
 
 # C extensions
 *.so
@@ -125,3 +129,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.aider*

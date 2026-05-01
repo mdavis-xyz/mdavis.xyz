@@ -91,7 +91,7 @@ def searchReplace(text,regexInfo,fileType,path):
                         print("Expected  : %s" % expected)
                         print("test:")
                         pp.pprint(t)
-                        raise(e)
+                        raise e
                     if actual != expected:
                         print("Input     : %s" % textIn)
                         print("Actual    : %s" % actual)
@@ -221,14 +221,14 @@ def renderOne(data,args):
         except AssertionError as e:
             pp.pprint({k:data[k] for k in data if k != 'content'})
             print("Error with data %s" % data['title'])
-            raise(e)
+            raise e
         print("Rendering page %s" % data['title'])
         try:
             output = template.render(data=data,stage=args.stage_name)
         except TypeError as e:
             pp.pprint({k:data[k] for k in data if k != 'content'})
             print("Error processing outer template for %s" % data['title'])
-            raise(e)
+            raise e
         outputFname = 'pages/%s/docs/index.html' % data['sourcePath']
         with open(outputFname,'w') as f:
             f.write(output)
@@ -252,7 +252,7 @@ def doWWW(pages):
         except AssertionError as e:
             pp.pprint(page)
             print("Error with data for page %s" % page['title'])
-            raise(e)
+            raise e
     outputHTML = wwwTemplate.render(pages=[p for p in pages if p['template'] != 'home'])
 
     outputFname = 'pages/www/stub.html'
@@ -265,6 +265,7 @@ def doWWW(pages):
 def handleRobots(stage):
     # block all robots in dev
     # allow all in prod
+    # returns nothing
     path = "docs/robots.txt"
     with open(path, 'w') as f:
         f.write("User-agent: *\n")
@@ -272,6 +273,8 @@ def handleRobots(stage):
             f.write("Allow: /\n")
         else:
             f.write("Disallow: /\n")
+        # Add sitemap reference
+        f.write("Sitemap: /sitemap.xml\n")
 
 # data is for one page
 def getDate(data):
@@ -303,7 +306,7 @@ def getDomain(args):
         CNAME = 'www.mdavis.xyz'
     else:
         CNAME = 'dev.mdavis.xyz'
-    return(CNAME)
+    return CNAME
 
 def doAll(args):
     print("Loading in %s" % pagesFname)
@@ -359,6 +362,7 @@ def doAll(args):
 
     if not args.only_page:
         generateRSS(pagesData,args)
+        generateSitemap(pagesData,args)
 
     src = 'pages/www/docs'
     dest = 'docs/'
@@ -383,7 +387,7 @@ def doAll(args):
 
 def pageToRSS(page,args):
     try:
-        url = "https://%s/%s" % (getDomain(args),page['publishPath'])
+        url = f"https://{getDomain(args)}/{page['publishPath']}"
         item = PyRSS2Gen.RSSItem(
             title = page['title'],
             link = url,
@@ -394,7 +398,7 @@ def pageToRSS(page,args):
     except KeyError as e:
         print("Error generating RSS entry for page")
         pp.pprint(page)
-        raise(e)
+        raise e
 
     return(item)
 
@@ -405,7 +409,7 @@ def generateRSS(pages,args):
 
     rss = PyRSS2Gen.RSS2(
         title = "Matthew Davis",
-        link = "https://%s" % getDomain(args),
+        link = f"https://{getDomain(args)}",
         description = "A collection of projects, stories and thoughts about technology and politics",
         lastBuildDate = dt.datetime.now(),
         items = data)
@@ -449,6 +453,62 @@ def generateRSS(pages,args):
     os.remove(tempFname)
 
     print("Exported RSS file")
+
+def pageToSitemap(page,args):
+    """Convert a page to a sitemap entry"""
+    try:
+        # Use relative path for sitemap entries
+        url = f"/{page['publishPath']}"
+        # Create sitemap entry with last modified date
+        sitemap_entry = {
+            'loc': url,
+            'lastmod': page['date']['computer'],  # YYYY-MM-DD format
+            'changefreq': 'monthly',  # Default frequency
+            'priority': '0.5'  # Default priority
+        }
+        
+        return sitemap_entry
+    except KeyError as e:
+        print("Error generating sitemap entry for page")
+        pp.pprint(page)
+        raise e
+
+def generateSitemap(pages,args):
+    """Generate sitemap.xml file with canonical URLs"""
+    print("Generating sitemap file")
+    
+    # Get all pages that should be included in sitemap (not home page)
+    sitemap_pages = [p for p in pages if p['template'].lower() != 'home']
+    
+    # Generate sitemap entries
+    sitemap_entries = [pageToSitemap(p,args) for p in sitemap_pages]
+    
+    # Create sitemap XML content
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for entry in sitemap_entries:
+        sitemap_xml += '  <url>\n'
+        sitemap_xml += f'    <loc>{entry["loc"]}</loc>\n'
+        sitemap_xml += f'    <lastmod>{entry["lastmod"]}</lastmod>\n'
+        sitemap_xml += f'    <changefreq>{entry["changefreq"]}</changefreq>\n'
+        sitemap_xml += f'    <priority>{entry["priority"]}</priority>\n'
+        sitemap_xml += '  </url>\n'
+    
+    sitemap_xml += '</urlset>\n'
+    
+    # Validate XML before writing
+    try:
+        xml.dom.minidom.parseString(sitemap_xml)
+    except Exception as e:
+        print("Error validating sitemap XML:", str(e))
+        raise
+    
+    publish_fpath = 'pages/www/docs/sitemap.xml'
+    with open(publish_fpath, 'w') as f:
+        f.write(sitemap_xml)
+    
+    print("Exported sitemap file")
 
 # modifies the file in place, to indent it
 def neatenXML(fname):

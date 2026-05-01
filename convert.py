@@ -274,6 +274,10 @@ def handleRobots(stage):
         else:
             f.write("Disallow: /\n")
         # Add sitemap reference
+
+        # allow LLM access for training and inference
+        f.write("Content-Signal: ai-train=yes, search=yes, ai-input=yes\n")
+
         f.write("Sitemap: /sitemap.xml\n")
 
 # data is for one page

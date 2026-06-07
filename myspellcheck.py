@@ -423,12 +423,12 @@ def checkWord(word):
         elif word.endswith(")") and word[-2] in string.ascii_letters + string.digits:
             return checkWord(word[:-1])
 
-        print("Error: word {word} does not appear in the dictionary")
+        print(f"Error: word {word} does not appear in the dictionary")
         if word != word.lower():
-           print("   y - add, lowercase {word.lower()}")
-           print("   Y - add, as is {word}")
+           print(f"   y - add, lowercase {word.lower()}")
+           print(f"   Y - add, as is {word}")
         else:
-           print("   y - add as is {word.lower()}")
+           print(f"   y - add as is {word.lower()}")
 
         if word.endswith("'s") or word.endswith("s'"):
             print("   a - add lowercase without apostrophe: %s" % word[:-2].lower())
@@ -533,7 +533,7 @@ def checkFile(fname):
     for (i,line) in enumerate(lines):
         if not checkLine(line):
             print("Quitting")
-            print("That was file {fname} line {i+1}")
+            print(f"That was file {fname} line {i+1}")
             print(line)
             print("The surrounding lines were:")
             for (j, other_line) in enumerate(lines):

@@ -45,7 +45,7 @@ The logistical considerations mentioned above will be neglected for this model.
 They may be significant factors which make colocation the right choice. However it is important that investors are precise about why they are choosing colocation. The purpose of this post is to focus on spot market revenue.
 
 Upfront investment costs will be neglected, since they would be approximately the same with both colocation and separate sites (neglecting project management efficiencies from having only one site).
-It is assumed that the grid connection is not constrained.
+It is assumed that the grid connection is not constrained, and that import/export tariffs are symmetric.
 This analysis applies to large scale projects, because I assume revenue is based on spot price.
 For households with solar and a battery, the same principles would apply, were they not distorted by fixed tariffs.
 

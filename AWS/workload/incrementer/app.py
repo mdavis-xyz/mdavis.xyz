@@ -66,12 +66,15 @@ def updateUntimed(page_name):
         },
         ReturnValues='ALL_NEW'
     )
-    logger.info('untimed database incremented') 
+    logger.info('untimed database incremented')
     try:
         logger.info("Checking for powers of 10")
         views = int(response['Attributes']['siteViews']['N'])
         logger.info("View were incremented to %s" % views)
-        if power10(views):
+        if views == 1:
+            # I get spammed by script kiddies trying silly URLs 1 time each.
+            logger.info("Views are a power of 10, but not notifying.")
+        elif power10(views):
             logger.info("Views are a power of 10")
             notify(page_name,views)
         else:
@@ -104,8 +107,8 @@ def updateTimed(page_name,timestamp):
             }
         }
     )
-    logger.info('timed database incremented') 
-        
+    logger.info('timed database incremented')
+
 def notify(page_name,views):
 
     topic = os.environ['SNS_TOPIC_ARN']
@@ -131,18 +134,17 @@ def power10(x):
     # yes I could write this as one boolean statement
     # but this is clearer
     if x < 1:
-        return(False)
+        return False
     elif x == 1:
-        return(True)
+        return True
     else:
         # equivilent to regex r"10+"
-        return((s.startswith('1')) and (int(s[1:]) == 0))
+        return (s.startswith('1')) and (int(s[1:]) == 0)
 
-    return(ret)
+    return ret
 
 def testPower10():
     for x in range(10):
-        assert(power10(10**x))
-        assert(power10(float(10**x)))
-        assert(not power10(10**x - 1))
-
+        assert power10(10**x)
+        assert power10(float(10**x))
+        assert not power10(10**x - 1)

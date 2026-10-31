@@ -3,6 +3,12 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
+   <!-- Redirect to the new home of this page. Number is seconds before redirect. -->
+   <meta http-equiv="refresh" content="1; url=https://nemschema.mdavis.xyz" />
+   <!-- Tell search engines this content's canonical home is now elsewhere,
+        so ranking signals consolidate onto the new site. -->
+   <link rel="canonical" href="https://nemschema.mdavis.xyz" />
+
    <!--w3c-->
    <title property="schema:name">So you want to query Australian electricity data?</title>
    <meta name="title" content="So you want to query Australian electricity data?">
@@ -20,7 +26,7 @@
    <meta name="author" content="Matthew Davis">
 
    <meta property="og:type" content="website" />
-   <meta property="og:url" content="https://www.mdavis.xyz/mms-guide/" /> <!-- end with / -->
+   <meta property="og:url" content="https://nemschema.mdavis.xyz" />
 
 
    <!-- image path must be full, absolute -->
@@ -119,7 +125,13 @@
 
 
       <hr/>
-      <p>This guide is for researchers who want to analyse data about
+      <div class="callout tip">
+<p><strong>This Page Has Moved</strong></p>
+<p>This page has moved to <a href="https://nemschema.mdavis.xyz"
+class="uri">https://nemschema.mdavis.xyz</a>. Additionally, there is a
+lot of new content there.</p>
+</div>
+<p>This guide is for researchers who want to analyse data about
 Australia's electricity industry. Fortunately there is far more public
 data available for this sector than almost any other industry, or even
 any other country's electricity market. Unfortunately there are many
@@ -1854,7 +1866,7 @@ The precise meaning of the price and other forecast values in this table
 is a bit nuanced. See <a
 href="https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-1-the-invisible-5-minute-trading-periods/">this
 article</a> and <a
-href="oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/">this
+href="https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/">this
 article</a>. It is really every 6th 5-minute price. So my view is that
 you should linearly interpolate between these (based on interval end) to
 get the full 5 minute predictions. These predictions are only revised
@@ -2173,8 +2185,8 @@ Science</a>. (Apache Arrow has similar benefits.)</p>
 <p>Any opinions in this post are my own, and do not necessarily reflect
 that of my employer. But you already knew that.</p>
 <p>(In fact, at the time of writing I have no employer. I have recently
-finished my <a href="master&#39;s%20degree">../masters-thesis</a> and
-have not yet started my new role.)</p>
+finished my <a href="../masters-thesis">master's degree</a> and have not
+yet started my new role.)</p>
 <p>In this post I have made several criticisms of AEMO. However I am
 still very grateful that they publish this data at all. This is far
 better than any other grid operator I have encountered. Whilst the

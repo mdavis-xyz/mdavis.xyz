@@ -238,12 +238,26 @@ function linkedinIframeFix() {
     }, 3000); // Wait 3 seconds for iframe to load
 }
 
+// Fallback redirect in case the <meta http-equiv="refresh"> tag is
+// ignored by the browser (e.g. some accessibility/privacy extensions).
+// Reads the URL from the meta tag so there's one place to change it.
+function redirectFallback() {
+    const meta = document.querySelector('meta[http-equiv="refresh" i]');
+    if (!meta) return;
+    const match = meta.content.match(/url=([^;\s]+)/i);
+    if (match) {
+        setTimeout(() => { location.replace(match[1]); }, 8000);
+    }
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', processCodeSnippets);
     document.addEventListener('DOMContentLoaded', generateTOC);
     document.addEventListener('DOMContentLoaded', linkedinIframeFix);
+    document.addEventListener('DOMContentLoaded', redirectFallback);
 } else {
     generateTOC();
     processCodeSnippets();
     linkedinIframeFix()
+    redirectFallback()
 }

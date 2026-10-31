@@ -3,6 +3,14 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
+   % if data.get('redirect_url'):
+   <!-- Redirect to the new home of this page. Number is seconds before redirect. -->
+   <meta http-equiv="refresh" content="1; url=${data['redirect_url']}" />
+   <!-- Tell search engines this content's canonical home is now elsewhere,
+        so ranking signals consolidate onto the new site. -->
+   <link rel="canonical" href="${data['redirect_url']}" />
+
+   % endif
    <!--w3c-->
    <title property="schema:name">${data['title']}</title>
    <meta name="title" content="${data['title']}">
@@ -22,6 +30,8 @@
    <meta property="og:type" content="website" />
    % if data['template'] == 'home':
    <meta property="og:url" content="https://www.mdavis.xyz/" /> <!-- end with / -->
+   % elif data.get('redirect_url'):
+   <meta property="og:url" content="${data['redirect_url']}" />
    % else:
    <meta property="og:url" content="https://www.mdavis.xyz/${data['publishPath'].rstrip('/')}/" /> <!-- end with / -->
    % endif
@@ -218,7 +228,7 @@
       src="https://5lvllysysx4j74irbzzfybotbe0dgffh.lambda-url.ap-southeast-2.on.aws/increment?page_name=${data['sourcePath']}"
       % else:
       src="https://swsz5v2c5ged3q3xsaan5kpfgq0slqkn.lambda-url.ap-southeast-2.on.aws/increment?page_name=${data['sourcePath']}"
-      % endif 
+      % endif
       class="metrics"
       sandbox
       style="display: none;visibility: hidden;height: 0;width: 0;border: none;overflow: hidden;">

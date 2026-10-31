@@ -32,6 +32,8 @@
    >
    % if page['template'] == 'none':
    <a href="${page['url']}">
+   % elif 'redirect_url' in page:
+   <a href="${page['redirect_url']}">
    % else:
    <a href="./${page['publishPath']}">
    % endif

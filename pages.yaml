@@ -20,6 +20,9 @@
 -  title: "So you want to query Australian electricity data?"
    description: "A guide to AEMO's MMS dataset"
    path: "mms-guide"
+   # unlike `url`, here we want to still publish the markdown as a page
+   # and also redirect. (To keep historical SEO-juice, bookmarks etc)
+   redirect_url: https://nemschema.mdavis.xyz
    images:
       card:
          path: "table-screenshot.svg"
@@ -151,7 +154,7 @@
          description: "Screenshot of Google Keep"
          width: 600
          height: 346
-   template: "markdown" 
+   template: "markdown"
    markdown: "content.md"
    date: 2/6/2025
    exclude:
@@ -361,6 +364,7 @@
 -  title: "Arduino Monitor Rotator"
    description: "Build an Automatic Computer Display Rotator With an Arduino"
    path: "monitor"
+   # There is no page on this domain. Point from my home to that other site.
    url: "https://www.allaboutcircuits.com/projects/build-an-automatic-computer-display-rotator-with-an-arduino/"
    images:
       card:

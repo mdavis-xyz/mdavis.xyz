@@ -1,3 +1,10 @@
+::: {.callout .tip}
+**This Page Has Moved**
+
+This page has moved to <https://nemschema.mdavis.xyz>.
+Additionally, there is a lot of new content there.
+:::
+
 This guide is for researchers who want to analyse data about Australia's electricity industry. 
 Fortunately there is far more public data available for this sector than almost any other industry, or even any other country's electricity market. 
 Unfortunately there are many undocumented aspects of the data which can trip up newcomers. 
@@ -1222,7 +1229,7 @@ Read the section earlier about [two-dimensional time](#two-dimensional-time).
 
 * `DISPATCHPRICE` contains the actual, final price. (Do not forget to filter to include only `INTERVENTION==0`)
 * `P5MIN_REGIONSOLUTION` contains predictions for the next hour or so, at 5 minute granularity. There are three datetime columns. `INTERVAL_DATETIME` is the end of the 5-minute period which the prediction was made _for_. `RUN_DATETIME` is the end of the 5-minute period when the prediction was published. `LASTCHANGED` is the exact time when the prediction was made. (`RUN_DATETIME` is just `LASTCHANGED` rounded up to the next 5 minute mark.)
-* `PREDISPATCHPRICE` contains `DATETIME` (the end of the 5-minute period which the prediction applies to) and `LASTCHANGED` (when the prediction was generated). There is no `RUN_DATETIME` column. `PREDISPATCHSEQNO` is related to `LASTCHANGED` rounded up to the next 5 minutes, but in a format which is a bit awkward to use. So just round up `LASTCHANGED` instead. Do not forget to filter to include only `INTERVENTION==0`. `RRP` is the price column. The precise meaning of the price and other forecast values in this table is a bit nuanced. See [this article](https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-1-the-invisible-5-minute-trading-periods/) and [this article](oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/). It is really every 6th 5-minute price. So my view is that you should linearly interpolate between these (based on interval end) to get the full 5 minute predictions. These predictions are only revised every half hour.
+* `PREDISPATCHPRICE` contains `DATETIME` (the end of the 5-minute period which the prediction applies to) and `LASTCHANGED` (when the prediction was generated). There is no `RUN_DATETIME` column. `PREDISPATCHSEQNO` is related to `LASTCHANGED` rounded up to the next 5 minutes, but in a format which is a bit awkward to use. So just round up `LASTCHANGED` instead. Do not forget to filter to include only `INTERVENTION==0`. `RRP` is the price column. The precise meaning of the price and other forecast values in this table is a bit nuanced. See [this article](https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-1-the-invisible-5-minute-trading-periods/) and [this article](https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/). It is really every 6th 5-minute price. So my view is that you should linearly interpolate between these (based on interval end) to get the full 5 minute predictions. These predictions are only revised every half hour.
 
 You can read more about how far the data extends and the different granularities in [Watt Clarity](https://wattclarity.com.au/articles/2021/06/oct2021-potential-tripwire-2-p30-predispatch-forecasts-after-5-minute-settlement-what-do-they-mean/).
 
@@ -1382,7 +1389,7 @@ The benefits of Parquet over CSV are described in [R for Data Science](https://r
 Any opinions in this post are my own, and do not necessarily reflect that of my employer. 
 But you already knew that.
 
-(In fact, at the time of writing I have no employer. I have recently finished my [../masters-thesis](master's degree) and have not yet started my new role.)
+(In fact, at the time of writing I have no employer. I have recently finished my [master's degree](../masters-thesis) and have not yet started my new role.)
 
 In this post I have made several criticisms of AEMO. 
 However I am still very grateful that they publish this data at all. This is far better than any other grid operator I have encountered.
